@@ -85,7 +85,7 @@ province = {  id = 789 oilpool = 100 supplypool = 200 } # Alexandria
    capital = 29 
     
    peacetime_ic_mod = 0.6
-   manpower = 65
+   manpower = 75
    # Resource Reserves 
    energy                 = 1000
    metal                  = 1000
@@ -238,7 +238,7 @@ province = {  id = 789 oilpool = 100 supplypool = 200 } # Alexandria
    35 #Londonderry
 
    1517 #Bombay ### As Harbour for RN in India
-   #Ägypten
+   #ï¿½gypten
    789 #Alexandria
    783 #El Alamein
    784 #Fuqa
@@ -427,7 +427,7 @@ province = {  id = 789 oilpool = 100 supplypool = 200 } # Alexandria
    1746 #Christmas Island#
    1750 #Kanton#
 
-### Südafrika
+### Sï¿½dafrika
    874 #Maseru
    877 #Mbabane
 
@@ -468,7 +468,7 @@ province = {  id = 789 oilpool = 100 supplypool = 200 } # Alexandria
    36 #Belfast
    35 #Londonderry
    1517 #Bombay ### As Harbour for RN in India
-   #Ägypten
+   #ï¿½gypten
    789 #Alexandria
    783 #El Alamein
    784 #Fuqa
@@ -646,7 +646,7 @@ province = {  id = 789 oilpool = 100 supplypool = 200 } # Alexandria
    claimedprovinces = { 
    # Cyprus
    387 388
-   #Ägypten
+   #ï¿½gypten
    789 #Alexandria
    783 #El Alamein
    784 #Fuqa
@@ -833,7 +833,7 @@ landunit = {
 		division = { id = { type = 12700 id = 32 } name = "Gibraltar Defence Force" type = garrison model = 0 strength = 25 experience = 25 } #unlocked for anything but UK AI vs. human GER or ITA
 		#division = { locked = yes id = { type = 12700 id = 1436 } name = "Lancashire Fusiliers"                type = garrison model = 0 strength = 10 experience = 25 }
 		#division = { locked = yes id = { type = 12700 id = 1437 } name = "Royal Norfolk Fusiliers"             type = garrison model = 0 strength = 1 experience = 25 }
-		#division = { locked = yes id = { type = 12700 id = 1438 } name = "King’s Own Yorkshire Light Infantry" type = garrison model = 0 strength = 1 experience = 25 }
+		#division = { locked = yes id = { type = 12700 id = 1438 } name = "Kingï¿½s Own Yorkshire Light Infantry" type = garrison model = 0 strength = 1 experience = 25 }
 	}
 	
 landunit = {
@@ -879,7 +879,7 @@ landunit = {
 #####################################################################
 # Colonial forces (volunteer troops and non british army troops)
 #####################################################################	
-# King’s African Rifles 	
+# Kingï¿½s African Rifles 	
 # Starting with 2900 soldiers. Expanded on 20.000 soldiers in 1940 
 #####################################################################
 	
@@ -1144,7 +1144,7 @@ landunit = {
 ##################################################################
 # Royal air force by Lord 'Gerrit' Rommel - 16.03.2016
 # 1.1.36: Zusammenlegung von hist. vorhanden Squadrons ergibt:
-# 6 Jäger
+# 6 Jï¿½ger
 # 2 StuKa
 # 3 Mabo
 # 4 Tabo
