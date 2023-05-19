@@ -6,12 +6,12 @@ event = {
 	id = 31362222
 	random = no
 	country = GER
-	
+
 	trigger = {
 		not = { ai = GER }
 		atwar = yes
 	}
-	
+
 	name = EVT_31362222_NAME
 	desc = EVT_31362222_DESC
 	style = 2
@@ -20,10 +20,10 @@ event = {
 	date = { day = 1 month = january year = 1936 }
 	offset = 1
 	deathdate = { day = 27 month = august year = 1939 }
-	
+
 	action_a = {
 		name = ACTION_NAME_OK
-		command = { type = dissent value = 80 }
+		command = { type = dissent value = 90 }
 		###Heer###
 		command = { type = sleepleader which = 2   } #Allmendinger
 		command = { type = sleepleader which = 12  } #Bayerlein
@@ -39,7 +39,7 @@ event = {
 		command = { type = sleepleader which = 140 } #Erich Hoepner
 		command = { type = sleepleader which = 141 } #Hollidt
 		command = { type = sleepleader which = 143 } #Hoth
-		command = { type = sleepleader which = 174 } #Wilhelm Kunze 
+		command = { type = sleepleader which = 174 } #Wilhelm Kunze
 		command = { type = sleepleader which = 183 } #Leeb
 		command = { type = sleepleader which = 188 } #Fritz Lindemann
 		command = { type = sleepleader which = 206 } #Nehring
@@ -50,7 +50,7 @@ event = {
 		command = { type = sleepleader which = 250 } #Senger und Etterlin
 		command = { type = sleepleader which = 251 } #Seydlitz-Kurzbach
 		command = { type = sleepleader which = 254 } #Speidel
-		command = { type = sleepleader which = 419 } #Fritz Thiele 
+		command = { type = sleepleader which = 419 } #Fritz Thiele
 		command = { type = sleepleader which = 272 } #von Arnim
 		command = { type = sleepleader which = 278 } #von Bismarck
 		command = { type = sleepleader which = 279 } #von Bock
@@ -92,33 +92,33 @@ event = {
 		command = { type = sleepleader which = 436 } #Felmy
 		command = { type = sleepleader which = 448 } #Kammhuber
 		###Minister###
-		command = { type = sleepminister which = 7 } 
-		command = { type = sleepminister which = 180 } 
-		command = { type = sleepminister which = 9 } 
-		command = { type = sleepminister which = 146 } 
-		command = { type = sleepminister which = 148 } 
-		command = { type = sleepminister which = 150 } 
-		command = { type = sleepminister which = 155 } 
-		command = { type = sleepminister which = 157 } 
-		command = { type = sleepminister which = 270 } 
-		command = { type = sleepminister which = 165 } 
-		command = { type = sleepminister which = 168 } 
-		command = { type = sleepminister which = 170 } 
-		command = { type = sleepminister which = 174 } 
-		command = { type = sleepminister which = 180 } 
-		command = { type = sleepminister which = 188 } 
-		command = { type = sleepminister which = 189 } 
-		command = { type = sleepminister which = 229 } 
-		command = { type = sleepminister which = 248 } 
-		command = { type = sleepminister which = 249 } 
-		command = { type = sleepminister which = 268 } 
+		command = { type = sleepminister which = 7 }
+		command = { type = sleepminister which = 180 }
+		command = { type = sleepminister which = 9 }
+		command = { type = sleepminister which = 146 }
+		command = { type = sleepminister which = 148 }
+		command = { type = sleepminister which = 150 }
+		command = { type = sleepminister which = 155 }
+		command = { type = sleepminister which = 157 }
+		command = { type = sleepminister which = 270 }
+		command = { type = sleepminister which = 165 }
+		command = { type = sleepminister which = 168 }
+		command = { type = sleepminister which = 170 }
+		command = { type = sleepminister which = 174 }
+		command = { type = sleepminister which = 180 }
+		command = { type = sleepminister which = 188 }
+		command = { type = sleepminister which = 189 }
+		command = { type = sleepminister which = 229 }
+		command = { type = sleepminister which = 248 }
+		command = { type = sleepminister which = 249 }
+		command = { type = sleepminister which = 268 }
 		###Techteams###
-		command = { type = sleepteam which = 20 } 
+		command = { type = sleepteam which = 20 }
 		command = { type = sleepteam which = 22 }
 		command = { type = sleepteam which = 26 }
 		###new Techteam###
-		command = { type = waketeam which = 38 } 
-		command = { type = waketeam which = 39 } 
+		command = { type = waketeam which = 38 }
+		command = { type = waketeam which = 39 }
 		####
 		command = { type = chiefofstaff which = 176 }
 		command = { type = chiefofarmy  which = 156 }
@@ -134,16 +134,16 @@ event = {
 	id = 33005
 	random = no
 	country = ITA
-	
+
 	save_date = yes
-	
+
 	trigger = {
-		 OR = { 
+		 OR = {
 		    war = { country = ITA country = U01 }
 			war = { country = ITA country = SPR }
 	     }
 	}
-	
+
 	name = EVT_33005_NAME
 	desc = EVT_33005_DESC
 	style = 2
@@ -152,7 +152,7 @@ event = {
 	date = { day = 1 month = january year = 1936 }
 	offset = 1
 	deathdate = { day = 29 month = january year = 1939 }
-	
+
 	action_a = {
 		name = ACTIONNAME33005A
 		command = { type = dissent value = 15 }
@@ -168,15 +168,15 @@ event = {
 	id = 33001
 	random = no
 	country = ENG
-	
+
 	trigger = {
 	        event = 33005
-		 OR = { 
+		 OR = {
 		    war = { country = ITA country = U01 }
 			war = { country = ITA country = SPR }
 	     }
 	}
-	
+
 	name = EVT_33005_NAME
 	desc = EVT_33001_DESC
 	style = 2
@@ -185,7 +185,7 @@ event = {
 	date = { day = 1 month = january year = 1936 }
 	offset = 1
 	deathdate = { day = 29 month = january year = 1939 }
-	
+
 	action_a = {
 		name = ACTIONNAME33001A #naval blockade
 		ai_chance = 100
@@ -216,21 +216,21 @@ event = {
 		command = { type = embargo which = ITA where = JAP value = 3 }
 		command = { type = embargo which = ITA where = U02 value = 3 }
 		command = { type = embargo which = ITA where = CHI value = 3 }
-		command = { type = embargo which = ITA where = CHC value = 3 }		
+		command = { type = embargo which = ITA where = CHC value = 3 }
 		command = { type = embargo which = ITA where = EGY value = 3 }
-		command = { type = embargo which = ITA where = IRQ value = 3 }		
+		command = { type = embargo which = ITA where = IRQ value = 3 }
 		command = { type = embargo which = ITA where = PER value = 3 }
 		command = { type = embargo which = ITA where = SCH value = 3 }
 		command = { type = embargo which = ITA where = BRA value = 3 }
 		command = { type = embargo which = ITA where = ARG value = 3 }
 		command = { type = embargo which = ITA where = POL value = 3 }
-		command = { type = embargo which = ITA where = U19 value = 3 }	
-        command = { type = embargo which = ITA where = SIA value = 3 }		
+		command = { type = embargo which = ITA where = U19 value = 3 }
+        command = { type = embargo which = ITA where = SIA value = 3 }
         command = { type = embargo which = ITA where = AUS value = 3 }
         command = { type = embargo which = ITA where = SOV value = 3 }
 		command = { type = trigger which = 33002 }
 	}
-	
+
 	action_b = {
 		name = ACTIONNAME33001B
 		ai_chance = 0
@@ -246,12 +246,12 @@ event = {
 	country = ITA
 
 	#triggered by 33001
-	
+
 	name = EVT_33005_NAME
 	desc = EVT_33002_DESC
 	style = 2
 	picture = "ita_war_with_spain_blockade"
-	
+
 	action_a = {
 		name = ACTIONNAME33002A
 		command = { type = dissent value = 15  }
@@ -268,17 +268,17 @@ event = {
 	id = 33003
 	random = no
 	country = ITA
-	
+
 	save_date = yes
-	
+
 	trigger = {
 	        event = { id = 33005 days = 30 }
-		 OR = { 
+		 OR = {
 		    war = { country = ITA country = U01 }
 			war = { country = ITA country = SPR }
 	     }
 	}
-	
+
 	name = EVT_33003_NAME
 	desc = EVT_33003_DESC
 	style = 2
@@ -287,9 +287,9 @@ event = {
 	date = { day = 1 month = january year = 1936 }
 	offset = 1
 	deathdate = { day = 29 month = january year = 1939 }
-	
+
 	action_a = {
-		name = ACTIONNAME33003A #End of the war! 
+		name = ACTIONNAME33003A #End of the war!
 		     ai_chance = 100
 		command = { type = dissent value = 5 }
 		command = { type = headofstate            which = 3031   } #Head of State;
@@ -301,9 +301,9 @@ event = {
 		command = { type = chiefofstaff           which = 3125   } #Chief of Staff;
         command = { type = chiefofarmy            which = 3143   } #Chief of Army;
 		command = { type = chiefofnavy            which = 3155   } #Chief of Navy;
-        command = { type = chiefofair             which = 3164   } #Chief of Air Force;	
-        command = { type = domestic which = interventionism value = -3 }		
-		command = { type = domestic which = democratic      value = 1  }		
+        command = { type = chiefofair             which = 3164   } #Chief of Air Force;
+        command = { type = domestic which = interventionism value = -3 }
+		command = { type = domestic which = democratic      value = 1  }
 		command = { type = domestic which = freedom         value = 1  }
 		command = { type = domestic which = political_left  value = 2  }
 		#####
@@ -315,9 +315,9 @@ event = {
 		command = { type = sleepminister which = 3052 }
 		command = { type = sleepminister which = 3139 } #Rodolfo Graziani
 		command = { type = sleepminister which = 3003 } #Gian Galeazzo Ciano
-		command = { type = sleepminister which = 3194 }	#Mario Roatta	
-        #####	
-		command = { type = sleepleader which = 6084 } 
+		command = { type = sleepminister which = 3194 }	#Mario Roatta
+        #####
+		command = { type = sleepleader which = 6084 }
 		command = { type = sleepleader which = 6126 }
 		command = { type = sleepleader which = 6021 }
 		command = { type = sleepleader which = 6074 }
@@ -325,26 +325,26 @@ event = {
 		#####
 		command = { trigger = { ai = no } type = money  value = -750  }
 		#####
-		command = { trigger = { war = { country = ITA country = U01 } } type = peace which = U01 value = 0 } 	
+		command = { trigger = { war = { country = ITA country = U01 } } type = peace which = U01 value = 0 }
 		command = { trigger = { war = { country = ITA country = SPR } } type = peace which = U01 value = 0 }
 		#####
 		command = { type = free_ic value = 20 }
 		command = { type = trigger which = 33004 }
 	}
-	
+
 	#action_b = {
 	#	name = ACTIONNAME33003B #We will fight!
 	#		 ai_chance = 0
-    #   command = { type = domestic which = interventionism value = 2  }		
-	#	command = { type = domestic which = democratic      value = -2 }		
+    #   command = { type = domestic which = interventionism value = 2  }
+	#	command = { type = domestic which = democratic      value = -2 }
 	#	command = { type = domestic which = freedom         value = -2 }
 	#	command = { type = domestic which = political_left  value = -2 }
-	#	command = { type = headofstate which = 3034 } #Benito Mussolini 
+	#	command = { type = headofstate which = 3034 } #Benito Mussolini
 	#	command = { type = dissent value = 35 }
 	#	command = { type = free_ic value = 5 }
 	#	command = { trigger = { ai = no } type = money    value = -1500 }
 	#	command = { trigger = { ai = no } type = supplies value = -2500 }
-	#}	
+	#}
 
 }
 
@@ -354,12 +354,12 @@ event = {
 	country = ENG
 
 	#triggered by 33003
-	
+
 	name = EVT_33004_NAME
 	desc = EVT_33004_DESC
 	style = 2
 	picture = "ita_war_with_spain_blockade"
-	
+
 	action_a = {
 		name = ACTIONNAME33004A
 		command = { type = dissent value = -2 }
@@ -389,16 +389,16 @@ event = {
 		command = { type = embargo which = ITA where = JAP value = 0 }
 		command = { type = embargo which = ITA where = U02 value = 0 }
 		command = { type = embargo which = ITA where = CHI value = 0 }
-		command = { type = embargo which = ITA where = CHC value = 0 }		
+		command = { type = embargo which = ITA where = CHC value = 0 }
 		command = { type = embargo which = ITA where = EGY value = 0 }
-		command = { type = embargo which = ITA where = IRQ value = 0 }		
+		command = { type = embargo which = ITA where = IRQ value = 0 }
 		command = { type = embargo which = ITA where = PER value = 0 }
 		command = { type = embargo which = ITA where = SCH value = 0 }
 		command = { type = embargo which = ITA where = BRA value = 0 }
 		command = { type = embargo which = ITA where = ARG value = 0 }
 		command = { type = embargo which = ITA where = POL value = 0 }
-		command = { type = embargo which = ITA where = U19 value = 0 }	
-        command = { type = embargo which = ITA where = SIA value = 0 }		
+		command = { type = embargo which = ITA where = U19 value = 0 }
+        command = { type = embargo which = ITA where = SIA value = 0 }
         command = { type = embargo which = ITA where = AUS value = 0 }
         command = { type = embargo which = ITA where = SOV value = 0 }
 	}
