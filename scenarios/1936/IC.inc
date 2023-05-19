@@ -293,8 +293,8 @@ province = { id = 254 ic = 1 }#Bialystok
 province = { id = 184 ic = 3 }#Koenigsberg
 province = { id = 182 ic = 1 }#Tilsit
 province = { id = 263 ic = 1 }#Alytus
-province = { id = 411 ic = 6 }#Bologna
-province = { id = 410 ic = 3 }#Florenz
+province = { id = 411 ic = 7 }#Bologna
+province = { id = 410 ic = 4 }#Florenz
 province = { id = 419 ic = 6 }#Rom
 province = { id = 413 ic = 1 }#Livorno
 province = { id = 414 ic = 1 }#Perugia
