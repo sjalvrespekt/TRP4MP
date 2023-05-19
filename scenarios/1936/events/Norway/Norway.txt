@@ -27,9 +27,9 @@ event = {
 	desc = EVT_3158000_DESC
 	style = 0
 
-    date = { day = 15 month = february year = 1940 }
-    offset = 1
-	deathdate = { day = 29 month = december year = 1942 }
+	date = { day = 6 month = february year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }	
 
 	action_a = {
 		ai_chance = 98
@@ -124,7 +124,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3158003B
-		ai_chance = 1
+		ai_chance = 0
 		command = { type = peace which = GER value = 1 } # Separate peace
 		command = { type = trigger which = 3136171 } # GER
 	}

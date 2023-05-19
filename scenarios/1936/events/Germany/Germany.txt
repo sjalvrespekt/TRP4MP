@@ -350,8 +350,8 @@ event = {
 		command = { trigger = { ai = yes } type = add_division which = "44. Infanterie-Division" value = infantry			when = 1 where = artillery      }
 		command = { trigger = { ai = yes } type = add_division which = "45. Infanterie-Division" value = infantry			when = 1 where = artillery      }
 		command = { trigger = { ai = yes } type = add_corps         which = "XVIII. Armeekorps" value = land where = 192 } #
-		command = { trigger = { ai = yes } type = add_division which = "2. Gebirgsjäger-Division" value = bergsjaeger		when = 0 where = engineer       }
-		command = { trigger = { ai = yes } type = add_division which = "3. Gebirgsjäger-Division" value = bergsjaeger		when = 0 where = engineer       }
+		command = { trigger = { ai = yes } type = add_division which = "2. Gebirgsjï¿½ger-Division" value = bergsjaeger		when = 0 where = engineer       }
+		command = { trigger = { ai = yes } type = add_division which = "3. Gebirgsjï¿½ger-Division" value = bergsjaeger		when = 0 where = engineer       }
 		command = { trigger = { ai = yes } type = add_corps         which = "XIX. Armeekorps" value = land where = 195 } #
 		command = { trigger = { ai = yes } type = add_division which = "4. leichte (Panzer-)Division" value = mechanized	when = 0 where = heavy_armor    }
 		command = { trigger = { ai = yes } type = add_division which = "4. Panzer-Division" value = armor					when = -95 where = tank_destroyer }	# set to 0.05 strength; currently researched model
@@ -778,7 +778,7 @@ event = {
 	
 	action_a = {
 		name = ACTIONNAME3136015A # Install Tiso in Slovakia
-		ai_chance = 90
+		ai_chance = 100
 		command = { type = trigger which = 3127003 } # CZE
 		command = { type = relation which = FRA value = -10 }
 		command = { type = relation which = ENG value = -10 }
@@ -793,7 +793,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3136015B # Honor the Munich Agreement
-		ai_chance = 10
+		ai_chance = 0
 		command = { type = relation which = CZE value = 15 }
 		command = { type = relation which = FRA value = 10 }
 		command = { type = relation which = ENG value = 10 }
@@ -852,12 +852,12 @@ event = {
 	deathdate = { day = 29 month = december year = 1999 }
 
 	action_a = {
-		ai_chance = 99
+		ai_chance = 100
 		name = ACTIONNAME3136017A # New German puppet
 		command = { type = make_puppet which = SLO }
 	}
 	action_b = {
-		ai_chance = 1
+		ai_chance = 0
 		name = ACTIONNAME3136017B # No they shall remain fully independent
 		command = { } 
 	}
@@ -992,7 +992,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3136021B # Only agree to partition Poland
-		ai_chance = 1
+		ai_chance = 0
 		command = { type = trigger which = 3183001 } # SOV
 		command = { type = relation which = SOV value = 10 }
 	}
@@ -2148,18 +2148,18 @@ event = {
 	picture = "altmark"
 
 	action_a = {
-		ai_chance = 96
+		ai_chance = 100
 		name = ACTIONNAME3136038A # Secretly prepare for Fall Weserubung
 		command = { type = local_setflag which = AltmarkIncident }
 	}
 	action_b = {
-		ai_chance = 2
+		ai_chance = 0
 		name = ACTIONNAME3136038B # Immediately declare war on Norway
 		command = { type = war which = NOR }
 		command = { type = sleepevent which = 29 } # No Weserubung
 	}
 	action_c = {
-		ai_chance = 2
+		ai_chance = 0
 		name = ACTIONNAME3136038C # Let this incident pass
 		command = { type = money value = -100 }
 		command = { type = sleepevent which = 29 } # No Weserubung
@@ -2249,6 +2249,7 @@ event = {
 	picture = "denmark"
 
 	action_a = {
+		ai_chance = 100
 		name = ACTIONNAME3136039A # Advance into Jutland
 		command = { type = addcore which = 216 } # Kolding
 		command = { type = make_puppet which = DEN }
@@ -2267,6 +2268,7 @@ event = {
 	picture = "ger_event_denmark_occupation"	
 	
 	action_a = {
+		ai_chance = 100
 		name = ACTIONNAME313624000A # We accept danish authority
 		command = { type = trigger which = 3128015 } # DEN
 	}
@@ -2672,7 +2674,7 @@ event = {
 		command = { type = escort_pool which = GER value = 9 } 
 		command = { type = inherit which = DEN value = 0 }
 		
-		command = { type = add_corps which = "Dänische Flotte" value = naval where = 294 }
+		command = { type = add_corps which = "Dï¿½nische Flotte" value = naval where = 294 }
 		command = { type = activate_division which = 14500 value = 600 where = 294 } #
 		command = { type = activate_division which = 14500 value = 601 where = 294 } #
 	}
@@ -2700,7 +2702,7 @@ event = {
 		command = { type = escort_pool which = GER value = 9 } 
 		command = { type = inherit which = DEN value = 0 }
 		
-		command = { type = add_corps which = "Dänische Flotte" value = naval where = 294 }
+		command = { type = add_corps which = "Dï¿½nische Flotte" value = naval where = 294 }
 		command = { type = activate_division which = 14500 value = 600 where = 294 } #
 		command = { type = activate_division which = 14500 value = 601 where = 294 } #	
 		command = { type = activate_division which = 14500 value = 602 where = 294 } #
@@ -2904,7 +2906,7 @@ event = {
 		command = { type = gain_tech which = 4080 } # Close Air Support 1937
 		command = { type = gain_tech which = 4380 } # 1938 Double engine design study
         command = { type = gain_tech which = 9200 } # Dive Bombing Concept
-		command = { type = waketeam  which = 30 } # Mölders
+		command = { type = waketeam  which = 30 } # Mï¿½lders
 		command = { type = sleepteam which = 45 } # Raithel	
 	}
 }
@@ -3176,8 +3178,8 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3136053B # Hitler finishes his speech
-		command = { type = headofstate which = 211 } # Hermann Göring
-		command = { type = headofgovernment which = 213 } # Hermann Göring			
+		command = { type = headofstate which = 211 } # Hermann Gï¿½ring
+		command = { type = headofgovernment which = 213 } # Hermann Gï¿½ring			
 		command = { type = sleepminister which = 1 } # AH
 		command = { type = sleepminister which = 41 } # AH
 		command = { type = sleepminister which = 177 } # AH
@@ -3216,8 +3218,8 @@ event = {
 	action_b = {
 		name = ACTIONNAME3136053B # Hitler finishes his speech
 		ai_chance = 1
-		command = { type = headofstate which = 211 } # Hermann Göring
-		command = { type = headofgovernment which = 213 } # Hermann Göring		
+		command = { type = headofstate which = 211 } # Hermann Gï¿½ring
+		command = { type = headofgovernment which = 213 } # Hermann Gï¿½ring		
 		command = { type = sleepminister which = 1 } # AH
 		command = { type = sleepminister which = 41 } # AH
 		command = { type = sleepminister which = 177 } # AH
@@ -3255,7 +3257,7 @@ event = {
 		name = ACTIONNAME3136054A # Hitler speaks above ground
 		ai_chance = 80
 		command = { type = sleepleader which = 354 } # von Witzleben
-		command = { type = sleepleader which = 344 } # von Stülpnagel C.H.
+		command = { type = sleepleader which = 344 } # von Stï¿½lpnagel C.H.
 		command = { type = sleepleader which = 212 } # Olbricht
 		command = { type = sleepleader which = 695 } # Erich Fellgiebel
 		command = { type = sleepleader which = 230 } # Erwin Rommel
@@ -5150,8 +5152,8 @@ event = {
 		name = ACTIONNAME3136110A # Form the Vlassov Army
 		command = { trigger = { event = 3183022 } type = wakeleader which = 579 } # Vlassov
 		command = { type = manpowerpool value = 15 } # 15,000 Serbians joined too
-		command = { trigger = { event = 3183022 } type = add_corps which = "Russische Befreiungsarmee" value = land when = 579 where = 134 } #Was formed on Truppenübungsplatz Münsingen
-		command = { trigger = { NOT = { event = 3183022 } } type = add_corps which = "Russische Befreiungsarmee" value = land where = 134 } #Was formed on Truppenübungsplatz Münsingen
+		command = { trigger = { event = 3183022 } type = add_corps which = "Russische Befreiungsarmee" value = land when = 579 where = 134 } #Was formed on Truppenï¿½bungsplatz Mï¿½nsingen
+		command = { trigger = { NOT = { event = 3183022 } } type = add_corps which = "Russische Befreiungsarmee" value = land where = 134 } #Was formed on Truppenï¿½bungsplatz Mï¿½nsingen
 		command = { type = activate_division which = 14500 value = 350 where = 134 }
 		command = { type = activate_division which = 14500 value = 351 where = 134 }
 		command = { type = activate_division which = 14500 value = 352 where = 134 }
@@ -5798,7 +5800,7 @@ event = {
 		command = { type = addclaim which = 882 } # Walvis Bay
 		command = { type = addclaim which = 885 } # Odangwa
 		command = { type = addclaim which = 886 } # Grootfontein
-		command = { type = addclaim which = 883 } # Lüderitz
+		command = { type = addclaim which = 883 } # Lï¿½deritz
 		command = { type = addclaim which = 884 } # Windhoek
 		command = { type = addclaim which = 849 } # Lindi
 		command = { type = addclaim which = 848 } # Tabora
@@ -5819,7 +5821,7 @@ event = {
 		command = { type = addclaim which = 911 }	# Douala
 		command = { type = addclaim which = 909 }	# Yaounde
 		command = { type = addclaim which = 910 }	# Yaounde
-		command = { type = addclaim which = 950 }	# Lomé
+		command = { type = addclaim which = 950 }	# Lomï¿½
 		command = { type = addclaim which = 1605 }	# Wewak
 		command = { type = addclaim which = 1602 }	# Lae
 		command = { type = addclaim which = 1610 } # Bismarck Range
@@ -6020,7 +6022,7 @@ event = {
 		command = { type = money value = 20 }
 		command = { type = dissent value = -1 }
 		command = { type = construct which = infrastructure where = 182 value = 10 } # Tilsit
-		command = { type = construct which = infrastructure where = 183 value = 10 } # Königsberg 
+		command = { type = construct which = infrastructure where = 183 value = 10 } # Kï¿½nigsberg 
 		command = { type = construct which = infrastructure where = 184 value = 10 } # 
 		command = { type = construct which = infrastructure where = 185 value = 10 } #  
 	} 
@@ -8078,7 +8080,7 @@ event = {
 	trigger =	{
 				ai = yes
 				control = { province = 172 data = GER } # Schwarzheide
-				control = { province = 170 data = GER } # Böhlen, Merseburg
+				control = { province = 170 data = GER } # Bï¿½hlen, Merseburg
 				control = { province = 169 data = GER } # Zeitz, Magdeburg
 				control = { province = 142 data = GER } # Gelsenkirchen
 				control = { province = 145 data = GER } # Bottrop
@@ -8167,12 +8169,12 @@ event = {
 				event = 3136217
 				OR = {
 						AND = {
-								control = { province = 170 data = -1 } # Böhlen, Merseburg
+								control = { province = 170 data = -1 } # Bï¿½hlen, Merseburg
 								year = 1944
 								}
 						AND = {
 								country = GER
-								NOT = { control = { province = 170 data = GER }} # Böhlen, Merseburg
+								NOT = { control = { province = 170 data = GER }} # Bï¿½hlen, Merseburg
 								}
 						AND = {
 								country = GER
@@ -8180,12 +8182,12 @@ event = {
 								}
 						AND = {
 								NOT = { country = GER }
-								control = { province = 170 data = -1 } # Böhlen, Merseburg
+								control = { province = 170 data = -1 } # Bï¿½hlen, Merseburg
 								ispuppet = GER
 								}
 						AND = {
 								NOT = { country = GER }
-								control = { province = 170 data = -1 } # Böhlen, Merseburg
+								control = { province = 170 data = -1 } # Bï¿½hlen, Merseburg
 								NOT = { exists = GER }
 								}
 						}
@@ -8903,17 +8905,17 @@ event = {
 # numbers taken from "Die Deutsche Handelsflotte 1939 - 1945"
 # http://forumarchiv.balsi.de/marine/187227.html
 # 
-# Am 1. September 1939 verfügte das Deutsche Reich über eine Handelsflotte von 2466 Einheiten über 100 BRT Größe mit zusammen 4492000 BRT. Hierunter befanden sich 838 Einheiten über 1600 BRT mit 3888000 BRT.
+# Am 1. September 1939 verfï¿½gte das Deutsche Reich ï¿½ber eine Handelsflotte von 2466 Einheiten ï¿½ber 100 BRT Grï¿½ï¿½e mit zusammen 4492000 BRT. Hierunter befanden sich 838 Einheiten ï¿½ber 1600 BRT mit 3888000 BRT.
 # Diese Flotte verteilte sich am genannten Tage wie folgt:
 # In der Heimat, bzw. Nord- u. Ostseefahrt	432 Schiffe
-# In überseeischen Häfen					230 Schiffe 
+# In ï¿½berseeischen Hï¿½fen					230 Schiffe 
 # Auf hoher See								176 Schiffe
 # 
-# Rückkehrer								127 Schiffe
-# Seit Kriegsbeginn kehrten als Blockadebrecher aus Übersee 109 Handelsschiffe mit 657 722 BRT zurück.
-# Weiterhin wurden nach Beendigung des Frankreich-Feldzuges 18 Schiffe mit 62 417 BRT aus Westspanien nach Frankreich überführt.
+# Rï¿½ckkehrer								127 Schiffe
+# Seit Kriegsbeginn kehrten als Blockadebrecher aus ï¿½bersee 109 Handelsschiffe mit 657 722 BRT zurï¿½ck.
+# Weiterhin wurden nach Beendigung des Frankreich-Feldzuges 18 Schiffe mit 62 417 BRT aus Westspanien nach Frankreich ï¿½berfï¿½hrt.
 #
-# => Verluste: 279 Schiffe (33,2 Prozent der großen Schiffe ) bzw. rund 1294000 BRT (33,3 Prozent der Tonnage aller großen Schiffe / 29 Prozent aller Schiffe)
+# => Verluste: 279 Schiffe (33,2 Prozent der groï¿½en Schiffe ) bzw. rund 1294000 BRT (33,3 Prozent der Tonnage aller groï¿½en Schiffe / 29 Prozent aller Schiffe)
 # 
 #################################################################################
 event = {
@@ -9118,7 +9120,7 @@ event = {
 }
 
 ########################################################
-# German–Turkish Non-Aggression Pact by Gerrit
+# Germanï¿½Turkish Non-Aggression Pact by Gerrit
 ########################################################
 event = {
 	id = 3136237
@@ -9235,7 +9237,7 @@ event = {
 }
 
 ########################################################
-# Ausfuhrgesellschaft für Kriegsgeräte GmbH
+# Ausfuhrgesellschaft fï¿½r Kriegsgerï¿½te GmbH
 ########################################################
  event = { 
 	id = 3136504
@@ -9273,7 +9275,7 @@ event = {
 		name = ACTIONNAME3136504B
 		ai_chance = 0
         command   = { type = sleepevent which = 3136505 } 
-		command   = { type = construct which = ic where = 163 value = -2 } # Berlin - Wartungswerke für Ausfuhr werden geschlossen
+		command   = { type = construct which = ic where = 163 value = -2 } # Berlin - Wartungswerke fï¿½r Ausfuhr werden geschlossen
 		command   = { type = sleepteam which = 41 } #Skoda
 	}	
 }
@@ -9299,7 +9301,7 @@ event = {
 }
 
 ########################################################
-# GER Neuhammer StuKa-Unglück	
+# GER Neuhammer StuKa-Unglï¿½ck	
 ########################################################
 event = {
 	id = 3136245
@@ -9323,7 +9325,7 @@ event = {
 }
 
 ########################################################
-# Schacht reicht sein Rücktrittsgesuch ein
+# Schacht reicht sein Rï¿½cktrittsgesuch ein
 ########################################################
 event = {
 	id = 3136246
@@ -9340,7 +9342,7 @@ event = {
 	name = EVT_3136246_NAME
 	desc = EVT_3136246_DESC
 	style = 2	
-	picture = "ger_event_schacht_rücktritt"
+	picture = "ger_event_schacht_rï¿½cktritt"
 	
 	date = { day = 4 month = november year = 1937 } 
 	offset = 5
@@ -9349,7 +9351,7 @@ event = {
 	action_a = {
 	    name = ACTIONNAME3136246A # 
 		ai_chance = 100
-		command = { type = armamentminister which = 79 } # Göring
+		command = { type = armamentminister which = 79 } # Gï¿½ring
 		command = { type = sleepminister    which = 77  }		
         command = { type = sleepevent       which = 3136247 } 		
     }
@@ -9358,13 +9360,13 @@ event = {
 		ai_chance = 0		
 		command = { trigger = { ai = no } type = money value = -100  }
 		command = { type = sleepminister  which = 79 }		
-		#command = { type = chiefofair     which = 10 } #Herman Göring
+		#command = { type = chiefofair     which = 10 } #Herman Gï¿½ring
         command = { type = sleepevent     which = 3136248 } 	 			
     }
 }
 
 ########################################################
-# Schacht reicht erneut sein Rücktrittsgesuch ein
+# Schacht reicht erneut sein Rï¿½cktrittsgesuch ein
 ########################################################
 event = {
 	id = 3136247
@@ -9374,7 +9376,7 @@ event = {
 	name = EVT_3136247_NAME
 	desc = EVT_3136247_DESC
 	style = 2	
-	picture = "ger_event_schacht_rücktritt_2"
+	picture = "ger_event_schacht_rï¿½cktritt_2"
 	
 	date = { day = 9 month = march year = 1940 } 
 	offset = 1
@@ -9395,7 +9397,7 @@ event = {
 }
 
 ########################################################
-# Göring gibt den Wirtschaftsminister an Walther Funk ab
+# Gï¿½ring gibt den Wirtschaftsminister an Walther Funk ab
 ########################################################
 event = {
 	id = 3136248
@@ -9419,14 +9421,14 @@ event = {
 		command = { type = armamentminister which = 80 } # Funk		
     }
 	action_b = {
-	    name = ACTIONNAME3136248B # Göring bleibt Minister!
+	    name = ACTIONNAME3136248B # Gï¿½ring bleibt Minister!
 		ai_chance = 0		
         command = { trigger = { ai = no } type = dissent  value = 2  }		
     }
 }
 
 ########################################################
-# Reichsminister für Bewaffnung und Munition
+# Reichsminister fï¿½r Bewaffnung und Munition
 ########################################################
 event = {
 	id = 3136249
