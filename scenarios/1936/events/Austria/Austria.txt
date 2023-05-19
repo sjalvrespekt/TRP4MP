@@ -20,14 +20,14 @@ event = {
 	
 	action_a = {
 		name = ACTIONNAME3114000A # Become part of the Greater Reich (Game Over)
-		ai_chance = 99
+		ai_chance = 100
 		command = { type = demobilize which = land when = 1 where = 1 value = 0 } 
 		command = { type = demobilize which = air  when = 1 where = 1 value = 0 } 
 		command = { type = trigger which = 3136006 }
 	}
 	action_b = {
 		name = ACTIONNAME3114000B # Austria shall remain independent
-		ai_chance = 1
+		ai_chance = 0
 		command = { type = dissent value = 40 }
 		command = { type = relation which = GER value = -25 }
 		command = { type = relation which = ITA value = 15 }
