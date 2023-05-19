@@ -114,7 +114,9 @@ event = {
         random = no
         country = ROM
         
-        # triggered by GER 3136083
+	trigger = { 
+		event = 3135001
+	}
         
         name = "EVT_2504_NAME"
         desc = "EVT_2504_DESC"
@@ -552,7 +554,7 @@ event = {
 
 	trigger = {
 		NOT = { exists = CZE }
-		event = 3136505 #GER Decision Kriegsgeräte GmbH
+		event = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 		control = { province = 207 data = GER } # Prague
 		random = 75
 		NOT = {
@@ -601,7 +603,7 @@ event = {
 	trigger = {
 		exists   = GER
 		alliance = { country = ROM  country = GER }
-		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		event    = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 		#war = { country = ROM  country = SOV }
 		#random = 7
 	}
@@ -637,7 +639,7 @@ event = {
 
 	trigger = {
 		exists = GER
-		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		event    = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 		alliance = { country = ROM country = GER }
 		war      = { country = ROM country = SOV }
 		random   = 50
@@ -675,7 +677,7 @@ event = {
 	trigger = {
 		exists = GER
 		alliance = { country = ROM  country = GER }
-        event    = 3136505 #GER Decision Kriegsgeräte GmbH
+        event    = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 		war = { country = ROM country = SOV }
 		random = 20
 	}
