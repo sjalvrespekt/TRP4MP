@@ -9342,7 +9342,7 @@ event = {
 	name = EVT_3136246_NAME
 	desc = EVT_3136246_DESC
 	style = 2	
-	picture = "ger_event_schacht_1"
+	picture = "ger_event_funk_wirtschaftsminister"
 	
 	date = { day = 4 month = november year = 1937 } 
 	offset = 5
@@ -9351,7 +9351,7 @@ event = {
 	action_a = {
 	    name = ACTIONNAME3136246A # 
 		ai_chance = 100
-		command = { type = armamentminister which = 79 } # G�ring
+		command = { type = armamentminister which = 79 } # Goring
 		command = { type = sleepminister    which = 77  }		
         command = { type = sleepevent       which = 3136247 } 		
     }
@@ -9360,7 +9360,7 @@ event = {
 		ai_chance = 0		
 		command = { trigger = { ai = no } type = money value = -100  }
 		command = { type = sleepminister  which = 79 }		
-		#command = { type = chiefofair     which = 10 } #Herman G�ring
+		#command = { type = chiefofair     which = 10 } #Goring
         command = { type = sleepevent     which = 3136248 } 	 			
     }
 }
@@ -9376,7 +9376,7 @@ event = {
 	name = EVT_3136247_NAME
 	desc = EVT_3136247_DESC
 	style = 2	
-	picture = "ger_event_schacht_2"
+	picture = "ger_event_funk_wirtschaftsminister"
 	
 	date = { day = 9 month = march year = 1940 } 
 	offset = 1
