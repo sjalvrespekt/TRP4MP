@@ -1,0 +1,251 @@
+# Last Update 09-JAN-2006
+#########################
+
+###########################################################################
+# 3186000 - 3186999	Yugoslavia events
+###########################################################################
+
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 3186000 # 3100002
+	random = no
+	country = YUG
+
+	# triggered by 3182091
+
+	name = EVT_3186000_NAME
+	desc = EVT_3186000_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME3186000A
+
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+###################################
+# 1940 - Reinforce of the Army Act
+# by CCM von Hausser
+###################################
+event = { 
+	id = 3186001
+	random = no
+	country = YUG
+	
+	trigger = {
+		NOT = { ispuppet = YUG }
+		atwar = GER
+	}
+	
+	name = EVT_3186001_NAME
+	desc = EVT_3186001_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1940 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3186001A
+		command = { type = manpowerpool value = 120 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3186001B
+		command = { }
+	}
+}
+###################################
+# Call the Reserve
+# by CCM von Hausser
+###################################
+event = { 
+	id = 3186002
+	random = no
+	country = YUG
+	
+	trigger = { under_attack = YUG }
+	
+	name = EVT_3186002_NAME
+	desc = EVT_3186002_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3186002A
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3186002B
+		command = { }
+	}
+}
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3186003
+	random = no
+	country = YUG
+	
+	trigger = { 
+		NOT = { alliance = { country = YUG country = ENG } }
+		NOT = { alliance = { country = YUG country = GER } }
+		NOT = { alliance = { country = YUG country = ITA } }
+		NOT = { alliance = { country = YUG country = SOV } }
+		OR = {
+			alliance = { country = YUG country = ROM }
+			alliance = { country = YUG country = GRE }
+			alliance = { country = YUG country = TUR }
+		}
+		atwar = GER
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3186003A
+		command = { type = leave_alliance }
+		command = { type = embargo which = YUG where = CZE value = 0 }
+		command = { type = embargo which = YUG where = BUL value = 0 }
+		command = { type = embargo which = YUG where = ROM value = 0 }
+		command = { type = embargo which = YUG where = HUN value = 0 }
+		command = { type = embargo which = YUG where = GRE value = 0 }
+		command = { type = embargo which = YUG where = TUR value = 0 }
+		command = { type = manpowerpool value = 150 }
+	}
+}
+########################################################## 
+# End of Balkan Entente 2
+########################################################## 
+event = { 
+	id = 3186004
+	random = no
+	country = YUG
+	
+	trigger = { 
+			NOT = { event = 3186003 }
+			alliance = { country = YUG country = GER }
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3186003A
+		command = { type = embargo which = YUG where = CZE value = 0 }
+		command = { type = embargo which = YUG where = BUL value = 0 }
+		command = { type = embargo which = YUG where = ROM value = 0 }
+		command = { type = embargo which = YUG where = HUN value = 0 }
+		command = { type = embargo which = YUG where = GRE value = 0 }
+		command = { type = embargo which = YUG where = TUR value = 0 }
+		command = { type = manpowerpool value = 150 }
+	}
+}
+######################################################################################### 
+# Yugoslavia at war with Germany: Weakening the army to help the german AI if it's late
+#########################################################################################
+event = { 
+	id = 3186005
+	random = no
+	country = YUG
+	
+	trigger = { 
+			war = { country = GER country = YUG }
+			AI = GER
+	}
+       
+	name = AI_EVENT
+	# desc = AI_EVENT
+	
+	date = { day = 0 month = april year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = -0.2 when = 1 }
+	}
+}
+
+######################################################################################### 
+# Barter Agreement
+#########################################################################################
+event = { 
+	id = 3186016
+	random = no
+	country = YUG
+	
+	trigger = { 
+			NOT = { war = { country = GER country = YUG }}
+			NOT = { atwar = yes }
+	}
+       
+	name = EVT_3186016_NAME
+	desc = EVT_3186016_DESC
+	picture = "ger_event_ger_yug_trade"
+	style = 2
+	
+	date = { day = 13 month = may year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+	  ai_chance = 80
+		name = ACTIONNAME3186016A
+		command = { type = trade which = YUG where = GER  metal = -10 money = 0.5 when = 270 value = 1 }
+		command = { type = embargo which = YUG where = ITA value = 1 }
+        command = { trigger = { ai = no }  type = dissent  value = 5 }	
+        command = { type = trigger    which = 3186017 } # GER info event		
+	}
+	
+	action_b = {
+	  ai_chance = 20
+		name = ACTIONNAME3186016B
+        command = { trigger = { ai = no }  type = dissent  value = 3    }
+		command = { trigger = { ai = no }  type = money    value = -150 }
+		command = { type = sleepevent which = 3186017 }
+	}	
+}
+
+event = { 
+	id = 3186017
+	random = no
+	country = GER
+       
+	name = EVT_3186016_NAME
+	desc = EVT_3186016_DESC
+	picture = "ger_event_ger_yug_trade"
+	style = 2
+
+	action = {
+		name = ACTION_NAME_OK
+		command = {  }
+	}
+}
+
+#########################################################################################

@@ -1,0 +1,22 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+model = {
+	cost 						= 3.325
+	buildtime					= 30
+	defaultorganisation 		= 100
+	morale						= 100
+	manpower					= 0
+	maxspeed					= 650
+	surfacedefence				= 30
+	airdefence					= 17 #11
+	strategicattack				= 6
+	softattack					= 0
+	hardattack					= 0
+	range						= 300
+	supplyconsumption 			= 0.11
+	fuelconsumption				= 1.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	equipment 	= {  rocket = 300 }
+}

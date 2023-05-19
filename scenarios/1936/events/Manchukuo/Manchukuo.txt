@@ -1,0 +1,86 @@
+# converted to DH, Kane, July 23 2011
+# Last Update 18-JAN-2006
+#####################################################################################################
+# 3151000 - 3151999	Manchukuo political events
+#####################################################################################################
+
+#########################################################################
+#  The Marco Polo Bridge Incident - Manchukuo event
+#########################################################################
+#	id = 3151000 Deleted by Lothos this event is obsolete with Kwantung
+
+#########################################################
+# Inner Mongolia independence (by Luxor)
+#########################################################
+event = { 
+	id = 3151001
+	random = no
+	country = MAN
+	
+	trigger = { 
+		NOT = { exists = MEN }
+		control = { province = 1238 data = MAN } # Huhehaote
+		control = { province = 1239 data = MAN } # Jining
+		control = { province = 1240 data = MAN } # Sili-Yin-Qota
+		control = { province = 1246 data = MAN } # 
+		NOT = {	
+			garrison = { country = JAP province = 1238 type = land size = 1 area = no }
+			garrison = { country = U00 province = 1238 type = land size = 1 area = no }
+			garrison = { country = MAN province = 1238 type = land size = 1 area = no }
+			garrison = { country = JAP province = 1239 type = land size = 1 area = no }
+			garrison = { country = U00 province = 1239 type = land size = 1 area = no }
+			garrison = { country = MAN province = 1239 type = land size = 1 area = no }
+			garrison = { country = JAP province = 1240 type = land size = 1 area = no }
+			garrison = { country = U00 province = 1240 type = land size = 1 area = no }
+			garrison = { country = MAN province = 1240 type = land size = 1 area = no }
+			garrison = { country = JAP province = 1246 type = land size = 1 area = no }
+			garrison = { country = U00 province = 1246 type = land size = 1 area = no }
+			garrison = { country = MAN province = 1246 type = land size = 1 area = no }
+				 } 
+	}
+	
+	name = EVT_3146001_NAME
+	desc = EVT_3146001_DESC
+	style = 2
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3146001A
+		command = { type = independence which = MEN value = 1 }
+		command = { type = trigger which = 3146002 }
+		command = { type = money value = 10 }
+	}
+}
+##########################################################################
+# Manchukuo - USSR peace event
+##########################################################################
+event = {
+	id = 3151002
+	random = no
+	country = MAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		ai = SOV
+		war = { country = MAN country = SOV }
+		alliance = { country = JAP country = MAN }
+		NOT = { war = { country = JAP country = SOV } }
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1955 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = peace which = SOV value = 1 }
+	}
+}

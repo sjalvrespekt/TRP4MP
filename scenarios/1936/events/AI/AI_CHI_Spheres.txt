@@ -1,0 +1,217 @@
+####################################
+# China Spheres adjustments events 31001 - 31100 by Lothos
+#
+# Converted to DH by Dendro 2011-May-29
+####################################
+################
+# Asia/Pacific
+#
+#    Sikiang
+#############################################
+event = {
+	id = 31001
+	random = no 
+	country = SIK
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = SIK country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+#    Xibei San Maa
+#############################################
+event = {
+	id = 31002
+	random = no 
+	country = CXB
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = CXB country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = end_puppet }
+		command = { type = leave_alliance }
+	}
+}
+################
+#    Shanxi
+#############################################
+event = {
+	id = 31003
+	random = no 
+	country = CSX
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = CSX country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+#    Yunnan 
+#############################################
+event = {
+	id = 31004
+	random = no 
+	country = CYN
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = CYN country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+#    Communist China
+#############################################
+event = {
+	id = 31005
+	random = no 
+	country = CHC
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = CHC country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+#    Guangxi Clique
+#############################################
+event = {
+	id = 31006
+	random = no 
+	country = CGX
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = CGX country = CHI } }
+		OR = {
+			attack = CHI
+			flag = CHI_Aggresion_Asia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+#    Tibet
+#############################################
+event = {
+	id = 31007
+	random = no 
+	country = TIB
+	
+	trigger = {
+		ai = yes
+		NOT = { alliance = { country = TIB country = CHI } }
+		attack = CHI
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = CHI_Aggresion_Asia }
+		command = { type = ai which = "switch/CHI_Aggression_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		#command = { type = sleepevent which = 20 }
+	}
+}

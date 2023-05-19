@@ -1,0 +1,59 @@
+# checked DH
+# USA Homeland defense AI File by Lothos
+
+###################################
+# Construction and Tech Research
+###################################
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 		= 360 
+	max_batch_war 			= 360 
+	max_batch_home_front 	= 360
+
+	#### Divisions etc...
+	infantry 		= 43
+	d_02			= 5 # will transmute into garrisons as long as no territory has been lost
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 6
+	mechanized 		= 3
+	light_armor 	= 0
+	armor 			= 7
+	paratrooper 	= 0
+	marine 			= 0
+	bergsjaeger 	= 0
+	garrison		= 0
+    hq 				= 2
+
+#				66 %
+	interceptor 		= 14
+	multi_role 		= 0
+	d_01			= 6
+	cas 			= 0
+	strategic_bomber = 2
+	tactical_bomber = 7
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				29 %
+	battleship 		= 0
+	carrier 		= 0
+	destroyer 		= 4
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 		= 0
+	d_09 = 1
+	d_08 = 0
+	transports 		= 0
+#				5 %
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 		= 1.5
+	overseas_multiplier 	= 0.0
+}

@@ -1,0 +1,852 @@
+# Nato/Warsaw Pact series events
+# 2501000 - 2501999
+################################
+
+# 05/26/2006 - Luxor
+# converted to DH map IDs by DerStudti
+####################
+
+# Note: event 3131007 is triggered if the Three Powers (USA, UK, USSR) have agreed at Yalta Conference.
+#######################################################################################################
+
+###########################################################################
+# The End of World War II - Historical
+###########################################################################
+event = {
+	id = 2501000
+	random = no
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = NATO_WARSAWPACT }
+		event = 3131007
+		OR = {
+			country = USA
+			country = ENG
+			country = SOV
+			country = FRA
+			country = U14
+			country = HOL
+			country = BEL
+			country = AST
+			country = NZL
+			country = SAF
+			country = CAN
+			country = ITA
+			country = U02
+			alliance = { country = -1 country = SOV }
+			alliance = { country = -1 country = ENG }
+			alliance = { country = -1 country = USA }
+		}
+		NOT = { war = { country = USA country = SOV } }
+		OR = {
+			ispuppet = GER
+			NOT = { exists = GER }
+		}
+		OR = {
+			ispuppet = ITA
+			NOT = { exists = ITA }
+		}
+		NOT = { exists = RSI }
+		NOT = {
+			war = { country = USA country = SOV }
+			war = { country = USA country = ENG }
+			war = { country = ENG country = SOV }
+		}
+	}
+
+	name = EVT_2501000_NAME #"The End of World War II"
+	desc = EVT_2501000_DESC #"The war in Europe is over! It is time to rebuild the old continent, as stated by The Yalta Conference agreement."
+	style = 0
+		
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME2501000A #"Fullfill agreement"
+		command = { type = local_setflag which = NATO_WARSAWPACT }
+		command = { type = setflag which = USA_NATO_WARSAWPACT }
+		
+		command = { trigger = { owned = { province = 349 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 349 } # Yugoslavia + Istria
+		command = { trigger = { owned = { province = 346 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 346 }
+		command = { trigger = { owned = { province = 345 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 345 }
+		command = { trigger = { owned = { province = 337 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 337 }
+		command = { trigger = { owned = { province = 344 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 344 }
+		command = { trigger = { owned = { province = 338 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 338 }
+		command = { trigger = { owned = { province = 352 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 352 }
+		command = { trigger = { owned = { province = 347 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 347 }
+		command = { trigger = { owned = { province = 353 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 353 }
+		command = { trigger = { owned = { province = 357 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 357 }
+		command = { trigger = { owned = { province = 350 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 350 }
+		command = { trigger = { owned = { province = 351 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 351 }
+		command = { trigger = { owned = { province = 358 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 358 }
+		command = { trigger = { owned = { province = 354 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 354 }
+		command = { trigger = { owned = { province = 355 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 355 }
+		command = { trigger = { owned = { province = 356 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 356 }
+		command = { trigger = { owned = { province = 343 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 343 }
+		command = { trigger = { owned = { province = 332 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 332 }
+		command = { trigger = { owned = { province = 327 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 327 }
+		command = { trigger = { owned = { province = 335 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 335 }
+		command = { trigger = { owned = { province = 340 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 340 }
+		command = { trigger = { owned = { province = 342 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 342 }
+		command = { trigger = { owned = { province = 330 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 330 }
+		command = { trigger = { owned = { province = 331 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 331 }
+		command = { trigger = { owned = { province = 339 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 339 }
+		command = { trigger = { owned = { province = 329 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 329 }
+		command = { trigger = { owned = { province = 334 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 334 }
+		command = { trigger = { owned = { province = 341 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 341 }
+		command = { trigger = { owned = { province = 336 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 336 }
+		command = { trigger = { owned = { province = 333 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 333 }
+		command = { trigger = { owned = { province = 328 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 328 }
+		command = { trigger = { owned = { province = 403 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 403 }
+		command = { trigger = { owned = { province = 406 data = -1 } NOT = { country = YUG } } type = secedeprovince which = SOV value = 406 }
+		
+		command = { trigger = { owned = { province = 359 data = -1 } NOT = { country = ALB } } type = secedeprovince which = SOV value = 359 } # Albania
+		command = { trigger = { owned = { province = 360 data = -1 } NOT = { country = ALB } } type = secedeprovince which = SOV value = 360 }
+		command = { trigger = { owned = { province = 361 data = -1 } NOT = { country = ALB } } type = secedeprovince which = SOV value = 361 }
+		command = { trigger = { owned = { province = 362 data = -1 } NOT = { country = ALB } } type = secedeprovince which = SOV value = 362 }
+		
+		command = { trigger = { owned = { province = 318 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 318 } # Bulgaria + Dobrich
+		command = { trigger = { owned = { province = 317 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 317 }
+		command = { trigger = { owned = { province = 322 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 322 }
+		command = { trigger = { owned = { province = 323 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 323 }
+		command = { trigger = { owned = { province = 325 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 325 }
+		command = { trigger = { owned = { province = 326 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 326 }
+		command = { trigger = { owned = { province = 319 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 319 }
+		command = { trigger = { owned = { province = 324 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 324 }
+		command = { trigger = { owned = { province = 321 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 321 }
+		command = { trigger = { owned = { province = 320 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 320 }
+		command = { trigger = { owned = { province = 307 data = -1 } NOT = { country = BUL } } type = secedeprovince which = SOV value = 307 }
+		
+		command = { trigger = { owned = { province = 285 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 285 } # Romania - Dobrich - Moldova
+		command = { trigger = { owned = { province = 286 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 286 }
+		command = { trigger = { owned = { province = 287 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 287 }
+		command = { trigger = { owned = { province = 288 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 288 }
+		command = { trigger = { owned = { province = 289 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 289 }
+		command = { trigger = { owned = { province = 291 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 291 }
+		command = { trigger = { owned = { province = 292 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 292 }
+		command = { trigger = { owned = { province = 293 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 293 }
+		command = { trigger = { owned = { province = 295 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 295 }
+		command = { trigger = { owned = { province = 296 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 296 }
+		command = { trigger = { owned = { province = 297 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 297 }
+		command = { trigger = { owned = { province = 298 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 298 }
+		command = { trigger = { owned = { province = 299 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 299 }
+		command = { trigger = { owned = { province = 301 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 301 }
+		command = { trigger = { owned = { province = 308 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 308 }
+		command = { trigger = { owned = { province = 309 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 309 }
+		command = { trigger = { owned = { province = 310 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 310 }
+		command = { trigger = { owned = { province = 311 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 311 }
+		command = { trigger = { owned = { province = 312 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 312 }
+		command = { trigger = { owned = { province = 313 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 313 }
+		command = { trigger = { owned = { province = 314 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 314 }
+		command = { trigger = { owned = { province = 315 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 315 }
+		command = { trigger = { owned = { province = 316 data = -1 } NOT = { country = ROM } } type = secedeprovince which = SOV value = 316 }
+		
+		command = { type = secedeprovince which = SOV value = 300 } # Moldova
+		command = { type = secedeprovince which = SOV value = 302 }
+		command = { type = secedeprovince which = SOV value = 303 }
+		command = { type = secedeprovince which = SOV value = 304 }
+		command = { type = secedeprovince which = SOV value = 305 }
+		command = { type = secedeprovince which = SOV value = 306 }
+		
+		command = { trigger = { owned = { province = 277 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 277 } # Hungary without claims
+		command = { trigger = { owned = { province = 284 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 284 }
+		command = { trigger = { owned = { province = 276 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 276 }
+		command = { trigger = { owned = { province = 278 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 278 }
+		command = { trigger = { owned = { province = 279 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 279 }
+		command = { trigger = { owned = { province = 282 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 282 }
+		command = { trigger = { owned = { province = 280 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 280 }
+		command = { trigger = { owned = { province = 281 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 281 }
+		command = { trigger = { owned = { province = 283 data = -1 } NOT = { country = HUN } } type = secedeprovince which = SOV value = 283 }
+		
+		command = { trigger = { owned = { province = 232 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 232 } # Poland + Silesia + Eastern Pommerania + southern part of East Prussia
+		command = { trigger = { owned = { province = 233 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 233 }
+		command = { trigger = { owned = { province = 234 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 234 }
+		command = { trigger = { owned = { province = 237 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 237 }
+		command = { trigger = { owned = { province = 228 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 228 }
+		command = { trigger = { owned = { province = 243 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 243 }
+		command = { trigger = { owned = { province = 239 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 239 }
+		command = { trigger = { owned = { province = 181 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 181 }
+		command = { trigger = { owned = { province = 226 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 226 }
+		command = { trigger = { owned = { province = 155 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 155 }
+		command = { trigger = { owned = { province = 158 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 158 }
+		command = { trigger = { owned = { province = 161 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 161 }
+		command = { trigger = { owned = { province = 159 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 159 }
+		command = { trigger = { owned = { province = 225 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 225 }
+		command = { trigger = { owned = { province = 224 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 224 }
+		command = { trigger = { owned = { province = 222 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 222 }
+		command = { trigger = { owned = { province = 230 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 230 }
+		command = { trigger = { owned = { province = 183 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 183 }
+		command = { trigger = { owned = { province = 185 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 185 }
+		command = { trigger = { owned = { province = 229 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 229 }
+		command = { trigger = { owned = { province = 250 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 250 }
+		command = { trigger = { owned = { province = 166 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 166 }
+		command = { trigger = { owned = { province = 167 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 167 }
+		command = { trigger = { owned = { province = 164 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 164 }
+		command = { trigger = { owned = { province = 168 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 168 }
+		command = { trigger = { owned = { province = 223 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 223 }
+		command = { trigger = { owned = { province = 231 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 231 }
+		command = { trigger = { owned = { province = 227 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 227 }
+		command = { trigger = { owned = { province = 221 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 221 }
+		command = { trigger = { owned = { province = 235 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 235 }
+		command = { trigger = { owned = { province = 236 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 236 }
+		command = { trigger = { owned = { province = 246 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 246 }
+		command = { trigger = { owned = { province = 203 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 203 }
+		command = { trigger = { owned = { province = 254 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 254 }
+		command = { trigger = { owned = { province = 252 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 252 }
+		command = { trigger = { owned = { province = 165 data = -1 } NOT = { country = POL } } type = secedeprovince which = SOV value = 165 }
+		
+		command = { type = secedeprovince which = SOV value = 258 } # Eastern Poland
+		command = { type = secedeprovince which = SOV value = 257 }
+		command = { type = secedeprovince which = SOV value = 255 }
+		command = { type = secedeprovince which = SOV value = 256 }
+		command = { type = secedeprovince which = SOV value = 251 }
+		command = { type = secedeprovince which = SOV value = 253 }
+		command = { type = secedeprovince which = SOV value = 247 }
+		command = { type = secedeprovince which = SOV value = 248 }
+		command = { type = secedeprovince which = SOV value = 245 }
+		command = { type = secedeprovince which = SOV value = 249 }
+		command = { type = secedeprovince which = SOV value = 244 }
+		command = { type = secedeprovince which = SOV value = 240 }
+		command = { type = secedeprovince which = SOV value = 238 }
+		command = { type = secedeprovince which = SOV value = 241 }
+		command = { type = secedeprovince which = SOV value = 242 }
+		command = { type = secedeprovince which = SOV value = 592 }
+		command = { type = secedeprovince which = SOV value = 599 }
+		command = { type = secedeprovince which = SOV value = 596 }
+		command = { type = secedeprovince which = SOV value = 597 }
+		command = { type = secedeprovince which = SOV value = 595 }
+		command = { type = secedeprovince which = SOV value = 614 }
+		command = { type = secedeprovince which = SOV value = 618 }
+		command = { type = secedeprovince which = SOV value = 616 }
+		
+		command = { trigger = { owned = { province = 199 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 199 } # Czechoslovakia without Chust & Uzhorod
+		command = { trigger = { owned = { province = 207 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 207 }
+		command = { trigger = { owned = { province = 198 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 198 }
+		command = { trigger = { owned = { province = 202 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 202 }
+		command = { trigger = { owned = { province = 205 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 205 }
+		command = { trigger = { owned = { province = 200 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 200 }
+		command = { trigger = { owned = { province = 204 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 204 }
+		command = { trigger = { owned = { province = 197 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 197 }
+		command = { trigger = { owned = { province = 201 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 201 }
+		command = { trigger = { owned = { province = 203 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 203 }
+		command = { trigger = { owned = { province = 206 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 206 }
+		command = { trigger = { owned = { province = 196 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 196 }
+		command = { trigger = { owned = { province = 212 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 212 }
+		command = { trigger = { owned = { province = 211 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 211 }
+		command = { trigger = { owned = { province = 209 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 209 }
+		command = { trigger = { owned = { province = 214 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 214 }
+		command = { trigger = { owned = { province = 208 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 208 }
+		command = { trigger = { owned = { province = 210 data = -1 } NOT = { country = CZE } } type = secedeprovince which = SOV value = 210 }
+	
+		command = { type = secedeprovince which = SOV value = 213 } # Chust & Uzhorod
+		command = { type = secedeprovince which = SOV value = 215 }
+		
+		command = { type = secedeprovince which = SOV value = 184 } # Northern part of East Prussia
+		command = { type = secedeprovince which = SOV value = 182 }
+		
+		command = { trigger = { owned = { province = 267 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 267 } # Latvia
+		command = { trigger = { owned = { province = 269 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 269 }
+		command = { trigger = { owned = { province = 268 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 268 }
+		command = { trigger = { owned = { province = 264 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 264 }
+		command = { trigger = { owned = { province = 266 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 266 }
+		command = { trigger = { owned = { province = 265 data = -1 } NOT = { country = SOV } NOT = { country = LAT } } type = secedeprovince which = SOV value = 265 } 
+		
+		command = { trigger = { owned = { province = 260 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 260 } # Lithuania
+		command = { trigger = { owned = { province = 262 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 262 }
+		command = { trigger = { owned = { province = 258 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 258 }
+		command = { trigger = { owned = { province = 263 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 263 }
+		command = { trigger = { owned = { province = 259 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 259 }
+		command = { trigger = { owned = { province = 261 data = -1 } NOT = { country = SOV } NOT = { country = LIT } } type = secedeprovince which = SOV value = 261 }
+		
+		command = { trigger = { owned = { province = 274 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 274 } # Estonia
+		command = { trigger = { owned = { province = 270 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 270 }
+		command = { trigger = { owned = { province = 272 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 272 }
+		command = { trigger = { owned = { province = 271 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 271 }
+		command = { trigger = { owned = { province = 275 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 275 }
+		command = { trigger = { owned = { province = 273 data = -1 } NOT = { country = SOV } NOT = { country = EST } } type = secedeprovince which = SOV value = 273 }
+		
+		command = { trigger = { owned = { province = 172 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 172 } # Cottbus, East Germany
+		command = { trigger = { owned = { province = 165 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 165 } # Liegnitz
+		command = { trigger = { owned = { province = 173 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 173 } # Dresden
+		command = { trigger = { owned = { province = 170 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 170 } # Leipzig
+		command = { trigger = { owned = { province = 163 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 163 } # Berlin
+		command = { trigger = { owned = { province = 156 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 156 } # Neu-Ruppin
+		command = { trigger = { owned = { province = 157 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 157 } # Potsdam
+		command = { trigger = { owned = { province = 162 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 162 } # Stralsund
+		command = { trigger = { owned = { province = 160 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 160 } # Frankfurt / Oder
+		command = { trigger = { owned = { province = 153 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 153 } # Rostock
+		command = { trigger = { owned = { province = 169 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 169 } # Magdeburg
+		command = { trigger = { owned = { province = 171 data = -1 } NOT = { country = DDR } } type = secedeprovince which = SOV value = 171 } # Erfurt
+		
+		command = { trigger = { owned = { province = 398 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 398 } # Turin, Italy
+		command = { trigger = { owned = { province = 407 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 407 } # Milan
+		command = { trigger = { owned = { province = 393 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 393 } # Brescia
+		command = { trigger = { owned = { province = 401 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 401 } # Trento
+		command = { trigger = { owned = { province = 395 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 395 } # Bergamo
+		command = { trigger = { owned = { province = 394 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 394 } # Belluno
+		command = { trigger = { owned = { province = 402 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 402 } # Bolzano
+		command = { trigger = { owned = { province = 400 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 400 } # Venice
+		command = { trigger = { owned = { province = 405 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 405 } # Udine
+		command = { trigger = { owned = { province = 404 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 404 } # Trieste
+		command = { trigger = { owned = { province = 396 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 396 } # Genoa
+		command = { trigger = { owned = { province = 399 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 399 } # Alessandria
+		command = { trigger = { owned = { province = 408 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 408 } # Parma
+		command = { trigger = { owned = { province = 411 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 411 } # Bologna
+		command = { trigger = { owned = { province = 410 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 410 } # Florence
+		command = { trigger = { owned = { province = 412 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 412 } # Ancona
+		command = { trigger = { owned = { province = 419 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 419 } # Rome
+		command = { trigger = { owned = { province = 413 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 413 } # Livorno
+		command = { trigger = { owned = { province = 414 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 414 } # Perugia
+		command = { trigger = { owned = { province = 415 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 415 } # Pescara
+		command = { trigger = { owned = { province = 417 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 417 } # Cassino
+		command = { trigger = { owned = { province = 416 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 416 } # Anzio
+		command = { trigger = { owned = { province = 420 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 420 } # Foggia
+		command = { trigger = { owned = { province = 421 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 421 } # Naples
+		command = { trigger = { owned = { province = 427 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 427 } # Salerno
+		command = { trigger = { owned = { province = 418 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 418 } # Gaeta
+		command = { trigger = { owned = { province = 423 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 423 } # Campobasso
+		command = { trigger = { owned = { province = 424 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 424 } # Potenza
+		command = { trigger = { owned = { province = 422 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 422 } # Taranto
+		command = { trigger = { owned = { province = 426 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 426 } # Bari
+		command = { trigger = { owned = { province = 425 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 425 } # Reggio di Calabria
+		command = { trigger = { owned = { province = 428 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 428 } # Cosenza
+		command = { trigger = { owned = { province = 430 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 430 } # Palermo
+		command = { trigger = { owned = { province = 431 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 431 } # Messina
+		command = { trigger = { owned = { province = 432 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 432 } # Catania
+		command = { trigger = { owned = { province = 433 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 433 } # Siracuse
+		command = { trigger = { owned = { province = 434 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 434 } # Cagliari
+		command = { trigger = { owned = { province = 435 data = -1 } NOT = { country = ITA } } type = secedeprovince which = USA value = 435 } # Sassari
+		
+		command = { trigger = { owned = { province = 381 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 381 } # Ermoupoli
+		command = { trigger = { owned = { province = 378 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 378 } # Kalymno
+		command = { trigger = { owned = { province = 379 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 379 } # Rodos
+		command = { trigger = { owned = { province = 364 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 364 } # Kavala, Greece
+		command = { trigger = { owned = { province = 363 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 363 } # Xanthi
+		command = { trigger = { owned = { province = 370 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 370 } # Alexandroupoli
+		command = { trigger = { owned = { province = 365 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 365 } # Thessaloniki
+		command = { trigger = { owned = { province = 366 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 366 } # Kozani
+		command = { trigger = { owned = { province = 367 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 367 } # Ioannina
+		command = { trigger = { owned = { province = 369 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 369 } # Metsovo
+		command = { trigger = { owned = { province = 368 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 368 } # Larissa
+		command = { trigger = { owned = { province = 376 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 376 } # Agrinion
+		command = { trigger = { owned = { province = 371 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 371 } # Kerkyra
+		command = { trigger = { owned = { province = 372 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 372 } # Patra
+		command = { trigger = { owned = { province = 373 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 373 } # Corinth
+		command = { trigger = { owned = { province = 377 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 377 } # Athens
+		command = { trigger = { owned = { province = 375 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 375 } # Levadhia
+		command = { trigger = { owned = { province = 374 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 374 } # Chalcis
+		command = { trigger = { owned = { province = 383 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 383 } # Mytilene
+		command = { trigger = { owned = { province = 381 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 381 } # Ermoupoli
+		command = { trigger = { owned = { province = 378 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 378 } # Kalymno
+		command = { trigger = { owned = { province = 379 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 379 } # Rodos
+		command = { trigger = { owned = { province = 382 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 382 } # Irakleio
+		command = { trigger = { owned = { province = 380 data = -1 } NOT = { country = GRE } } type = secedeprovince which = USA value = 380 } # Sitia
+		
+		command = { trigger = { owned = { province = 388 data = -1 } NOT = { country = CYP } } type = secedeprovince which = ENG value = 388 } # Cyprus, Nicosia
+		command = { trigger = { owned = { province = 387 data = -1 } NOT = { country = CYP } } type = secedeprovince which = ENG value = 387 } # Famagusta
+		
+		command = { trigger = { owned = { province = 487 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 487 } # Stavanger, Norway
+		command = { trigger = { owned = { province = 485 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 485 } # Kristiansand
+		command = { trigger = { owned = { province = 486 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 486 } # Honefoss
+		command = { trigger = { owned = { province = 483 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 483 } # Oslo
+		command = { trigger = { owned = { province = 488 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 488 } # Bergen
+		command = { trigger = { owned = { province = 489 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 489 } # Hamar
+		command = { trigger = { owned = { province = 491 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 491 } # Alesund
+		command = { trigger = { owned = { province = 490 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 490 } # Andalsnes
+		command = { trigger = { owned = { province = 492 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 492 } # Lillehammer
+		command = { trigger = { owned = { province = 493 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 493 } # Trondheim
+		command = { trigger = { owned = { province = 494 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 494 } # Bodo
+		command = { trigger = { owned = { province = 495 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 495 } # Narvik
+		command = { trigger = { owned = { province = 497 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 497 } # Tromso
+		command = { trigger = { owned = { province = 496 data = -1 } NOT = { country = NOR } } type = secedeprovince which = USA value = 496 } # Alta
+		
+		command = { trigger = { owned = { province = 2152 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2152 } # Malmoe, Sweden
+		command = { trigger = { owned = { province = 2155 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2155 } # Kalmar
+		command = { trigger = { owned = { province = 2156 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2156 } # Visby
+		command = { trigger = { owned = { province = 2154 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2154 } # Joenkoeping
+		command = { trigger = { owned = { province = 2153 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2153 } # Gothenburg
+		command = { trigger = { owned = { province = 2160 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2160 } # Oerebro
+		command = { trigger = { owned = { province = 2157 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2157 } # Linkoping
+		command = { trigger = { owned = { province = 2161 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2161 } # Karlstad
+		command = { trigger = { owned = { province = 2158 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2158 } # Uppsala
+		command = { trigger = { owned = { province = 2159 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2159 } # Stockholm
+		command = { trigger = { owned = { province = 2162 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2162 } # Gaevle
+		command = { trigger = { owned = { province = 2164 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2164 } # Oestersund
+		command = { trigger = { owned = { province = 2165 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2165 } # Umea
+		command = { trigger = { owned = { province = 2163 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2163 } # Vilhelmina
+		command = { trigger = { owned = { province = 2167 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2167 } # Kiruna
+		command = { trigger = { owned = { province = 2166 data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 2166 } # Lulea
+		command = { trigger = { owned = { province = 484  data = -1 } NOT = { country = SWE } } type = secedeprovince which = USA value = 484 } # Frederikstad		
+		
+		command = { trigger = { owned = { province = 216 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 216 } # Abenra, Denmark
+		command = { trigger = { owned = { province = 220 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 220 } # Aarhus
+		command = { trigger = { owned = { province = 217 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 217 } # Aalborg
+		command = { trigger = { owned = { province = 218 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 218 } # Frederikshavn
+		command = { trigger = { owned = { province = 219 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 219 } # Odense
+		command = { trigger = { owned = { province = 294 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 294 } # Copenhagen
+		command = { trigger = { owned = { province = 1 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 1 } # Reykjavik
+		command = { trigger = { owned = { province = 2 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 2 } # Torshavn
+		command = { trigger = { owned = { province = 3 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 3 } # Akureyri
+		command = { trigger = { owned = { province = 1783 data = -1 } NOT = { country = DEN } } type = secedeprovince which = USA value = 1783 } # Greenland
+		
+		command = { trigger = { owned = { province = 124 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 124 } # Groningen, Holland
+		command = { trigger = { owned = { province = 119 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 119 } # Arnhem
+		command = { trigger = { owned = { province = 122 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 122 } # Amsterdam
+		command = { trigger = { owned = { province = 125 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 125 } # Rotterdam
+		command = { trigger = { owned = { province = 123 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 123 } # Middelburg
+		command = { trigger = { owned = { province = 118 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 118 }  # Eindhoven
+		command = { trigger = { owned = { province = 120 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 120 }  # Nijmegen
+		command = { trigger = { owned = { province = 121 data = -1 } NOT = { country = HOL } } type = secedeprovince which = USA value = 121 }  # Maastricht
+		
+		command = { trigger = { owned = { province = 114 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 114 } # Bruges ( Brügge ), Belgium
+		command = { trigger = { owned = { province = 112 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 112 } # Mons
+		command = { trigger = { owned = { province = 116 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 116 } # Brussels
+		command = { trigger = { owned = { province = 113 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 113 } # Namur
+		command = { trigger = { owned = { province = 115 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 115 } # Antwerp
+		command = { trigger = { owned = { province = 117 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 117 } # Hasselt
+		command = { trigger = { owned = { province = 108 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 108 } # Liege
+		command = { trigger = { owned = { province = 110 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 110 } # Eupen
+		command = { trigger = { owned = { province = 111 data = -1 } NOT = { country = BEL } } type = secedeprovince which = USA value = 111 } # Arlon
+		
+		command = { trigger = { owned = { province = 109 data = -1 } NOT = { country = LUX } } type = secedeprovince which = USA value = 109 } # Luxembourg, Luxemburg
+		
+		command = { trigger = { owned = { province = 98  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 98 } # Pontarlier, France
+		command = { trigger = { owned = { province = 91  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 91 } # Chambery
+		command = { trigger = { owned = { province = 86  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 86 } # Toulon
+		command = { trigger = { owned = { province = 89  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 89 } # Marseille
+		command = { trigger = { owned = { province = 93  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 93 } # Avignon
+		command = { trigger = { owned = { province = 82  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 82 } # Montpellier
+		command = { trigger = { owned = { province = 79  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 79 } # Beziers
+		command = { trigger = { owned = { province = 80  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 80 } # Perpignan
+		command = { trigger = { owned = { province = 83  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 83 } # Pau
+		command = { trigger = { owned = { province = 84  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 84 } # Agen
+		command = { trigger = { owned = { province = 67  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 67 } # Mont-de-Marsan
+		command = { trigger = { owned = { province = 68  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 68 } # Bordeaux
+		command = { trigger = { owned = { province = 75  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 75 } # Perigueux
+		command = { trigger = { owned = { province = 77  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 77 } # Toulouse
+		command = { trigger = { owned = { province = 78  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 78 } # Saint-Etienne
+		command = { trigger = { owned = { province = 81  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 81 } # Rodez
+		command = { trigger = { owned = { province = 73  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 73 } # Limoges
+		command = { trigger = { owned = { province = 69  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 69 } # La Rochelle
+		command = { trigger = { owned = { province = 70  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 70 } # Angouleme
+		command = { trigger = { owned = { province = 57  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 57 } # Nantes
+		command = { trigger = { owned = { province = 62  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 62 } # Poitiers
+		command = { trigger = { owned = { province = 61  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 61 } # Tours
+		command = { trigger = { owned = { province = 65  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 65 } # Bourges
+		command = { trigger = { owned = { province = 63  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 63 } # Auxerre
+		command = { trigger = { owned = { province = 54  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 54 } # Troyes
+		command = { trigger = { owned = { province = 97  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 97 } # Belfort
+		command = { trigger = { owned = { province = 64  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 64 } # Le Creusot
+		command = { trigger = { owned = { province = 95  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 95 } # Chaumont
+		command = { trigger = { owned = { province = 50  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 50 } # Amiens
+		command = { trigger = { owned = { province = 53  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 53 } # Dieppe
+		command = { trigger = { owned = { province = 56  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 56 } # Chateau Thierry
+		command = { trigger = { owned = { province = 45  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 45 } # Le Havre
+		command = { trigger = { owned = { province = 55  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 55 } # Paris
+		command = { trigger = { owned = { province = 66  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 66 } # Orleans
+		command = { trigger = { owned = { province = 60  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 60 } # Chartres
+		command = { trigger = { owned = { province = 58  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 58 } # Le Mans
+		command = { trigger = { owned = { province = 37  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 37 } # Brest
+		command = { trigger = { owned = { province = 38  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 38 } # Rennes
+		command = { trigger = { owned = { province = 41  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 41 } # Saint Brieuc
+		command = { trigger = { owned = { province = 39  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 39 } # Lorient
+		command = { trigger = { owned = { province = 40  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 40 } # Saint Nazaire
+		command = { trigger = { owned = { province = 59  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 59 } # Angers
+		command = { trigger = { owned = { province = 42  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 42 } # Avranches
+		command = { trigger = { owned = { province = 43  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 43 } # Cherbourg
+		command = { trigger = { owned = { province = 44  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 44 } # Caen
+		command = { trigger = { owned = { province = 46  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 46 } # Bayeux
+		command = { trigger = { owned = { province = 47  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 47 } # Falaise
+		command = { trigger = { owned = { province = 48  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 48 } # Evreux
+		command = { trigger = { owned = { province = 74  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 74 } # Vichy
+		command = { trigger = { owned = { province = 72  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 72 } # Chateauroux
+		command = { trigger = { owned = { province = 85  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 85 } # Lyon
+		command = { trigger = { owned = { province = 88  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 88 } # Bourg-en-Bresse
+		command = { trigger = { owned = { province = 92  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 92 } # Valence
+		command = { trigger = { owned = { province = 71  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 71 } # Clermont-Ferrand
+		command = { trigger = { owned = { province = 76  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 76 } # Tulle
+		command = { trigger = { owned = { province = 52  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 52 } # Lille
+		command = { trigger = { owned = { province = 51  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 51 } # Dunkerque
+		command = { trigger = { owned = { province = 49  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 49 } # Calais
+		command = { trigger = { owned = { province = 87  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 87 } # Nice
+		command = { trigger = { owned = { province = 90  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 90 } # Grenoble
+		command = { trigger = { owned = { province = 94  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 94 } # Corsica
+		command = { trigger = { owned = { province = 99  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 99 } # Reims
+		command = { trigger = { owned = { province = 96  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 96 } # Longwy		
+		command = { trigger = { owned = { province = 106 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 106 } # Nancy
+		command = { trigger = { owned = { province = 100 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 100 } # Verdun
+		command = { trigger = { owned = { province = 102 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 102 } # Sedan
+		command = { trigger = { owned = { province = 105 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 105 } # Colmar
+		command = { trigger = { owned = { province = 107 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 107 } # Strasbourg
+		command = { trigger = { owned = { province = 104 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 104 } # Metz
+		command = { trigger = { owned = { province = 101 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 101 } # Laon
+		command = { trigger = { owned = { province = 103 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 103 } # Hirson
+		
+		# French overseas provinces	
+		
+		command = { trigger = { owned = { province = 717  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 717  }
+		command = { trigger = { owned = { province = 718  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 718  }
+		command = { trigger = { owned = { province = 719  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 719  }
+		command = { trigger = { owned = { province = 720  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 720  }
+		command = { trigger = { owned = { province = 721  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 721  }
+		command = { trigger = { owned = { province = 722  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 722  }
+		command = { trigger = { owned = { province = 723  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 723  }
+		command = { trigger = { owned = { province = 724  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 724  }
+		command = { trigger = { owned = { province = 725  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 725  }
+		command = { trigger = { owned = { province = 726  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 726  }
+		command = { trigger = { owned = { province = 727  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 727  }
+		command = { trigger = { owned = { province = 728  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 728  }
+		command = { trigger = { owned = { province = 729  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 729  }
+		command = { trigger = { owned = { province = 730  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 730  }
+		command = { trigger = { owned = { province = 731  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 731  }
+		command = { trigger = { owned = { province = 732  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 732  }
+		command = { trigger = { owned = { province = 733  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 733  }
+		command = { trigger = { owned = { province = 734  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 734  }
+		command = { trigger = { owned = { province = 735  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 735  }
+		command = { trigger = { owned = { province = 736  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 736  }
+		command = { trigger = { owned = { province = 737  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 737  }
+		command = { trigger = { owned = { province = 738  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 738  }
+		command = { trigger = { owned = { province = 739  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 739  }
+		command = { trigger = { owned = { province = 743  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 743  }
+		command = { trigger = { owned = { province = 740  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 740  }
+		command = { trigger = { owned = { province = 741  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 741  }
+		command = { trigger = { owned = { province = 742  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 742  }
+		command = { trigger = { owned = { province = 744  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 744  }
+		command = { trigger = { owned = { province = 745  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 745  }
+		command = { trigger = { owned = { province = 746  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 746  }
+		command = { trigger = { owned = { province = 747  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 747  }
+		command = { trigger = { owned = { province = 748  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 748  }
+		command = { trigger = { owned = { province = 749  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 749  }
+		command = { trigger = { owned = { province = 907  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 907  }
+		command = { trigger = { owned = { province = 908  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 908  }
+		command = { trigger = { owned = { province = 909  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 909  }
+		command = { trigger = { owned = { province = 910  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 910  }
+		command = { trigger = { owned = { province = 911  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 911  }
+		command = { trigger = { owned = { province = 914  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 914  }
+		command = { trigger = { owned = { province = 915  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 915  }
+		command = { trigger = { owned = { province = 917  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 917  }
+		command = { trigger = { owned = { province = 918  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 918  }
+		command = { trigger = { owned = { province = 919  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 919  }
+		command = { trigger = { owned = { province = 920  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 920  }
+		command = { trigger = { owned = { province = 921  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 921  }
+		command = { trigger = { owned = { province = 922  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 922  }
+		command = { trigger = { owned = { province = 923  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 923  }
+		command = { trigger = { owned = { province = 924  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 924  }
+		command = { trigger = { owned = { province = 925  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 925  }
+		command = { trigger = { owned = { province = 926  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 926  }
+		command = { trigger = { owned = { province = 927  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 927  }
+		command = { trigger = { owned = { province = 928  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 928  }
+		command = { trigger = { owned = { province = 942  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 942  }
+		command = { trigger = { owned = { province = 943  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 943  }
+		command = { trigger = { owned = { province = 944  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 944  }
+		command = { trigger = { owned = { province = 945  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 945  }
+		command = { trigger = { owned = { province = 946  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 946  }
+		command = { trigger = { owned = { province = 947  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 947  }
+		command = { trigger = { owned = { province = 948  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 948  }
+		command = { trigger = { owned = { province = 949  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 949  }
+		command = { trigger = { owned = { province = 950  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 950  }
+		command = { trigger = { owned = { province = 951  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 951  }
+		command = { trigger = { owned = { province = 957  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 957  }
+		command = { trigger = { owned = { province = 958  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 958  }
+		command = { trigger = { owned = { province = 959  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 959  }
+		command = { trigger = { owned = { province = 960  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 960  }
+		command = { trigger = { owned = { province = 961  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 961  }
+		command = { trigger = { owned = { province = 962  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 962  }
+		command = { trigger = { owned = { province = 965  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 965  }
+		command = { trigger = { owned = { province = 966  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 966  }
+		command = { trigger = { owned = { province = 967  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 967  }
+		command = { trigger = { owned = { province = 968  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 968  }
+		command = { trigger = { owned = { province = 970  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 970  }
+		command = { trigger = { owned = { province = 971  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 971  }
+		command = { trigger = { owned = { province = 972  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 972  }
+		command = { trigger = { owned = { province = 973  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 973  }
+		command = { trigger = { owned = { province = 974  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 974  }
+		command = { trigger = { owned = { province = 975  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 975  }
+		command = { trigger = { owned = { province = 976  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 976  }
+		command = { trigger = { owned = { province = 977  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 977  }
+		command = { trigger = { owned = { province = 978  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 978  }
+		command = { trigger = { owned = { province = 980  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 980  }
+		command = { trigger = { owned = { province = 981  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 981  }
+		command = { trigger = { owned = { province = 982  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 982  }
+		command = { trigger = { owned = { province = 983  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 983  }
+		command = { trigger = { owned = { province = 984  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 984  }
+		command = { trigger = { owned = { province = 985  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 985  }
+		command = { trigger = { owned = { province = 986  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 986  }
+		command = { trigger = { owned = { province = 833  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 833  }
+		command = { trigger = { owned = { province = 996  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 996  }
+		command = { trigger = { owned = { province = 999  data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 999  }
+		command = { trigger = { owned = { province = 1001 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1001 } 
+		command = { trigger = { owned = { province = 1002 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1002 } 
+		command = { trigger = { owned = { province = 1003 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1003 } 
+		command = { trigger = { owned = { province = 1000 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1000 } 
+		command = { trigger = { owned = { province = 2000 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 2000 } 
+		command = { trigger = { owned = { province = 1752 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1752 } 
+		command = { trigger = { owned = { province = 1767 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1767 } 
+		command = { trigger = { owned = { province = 1768 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1768 } 
+		command = { trigger = { owned = { province = 1581 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1581 } 
+		command = { trigger = { owned = { province = 1582 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1582 } 
+		command = { trigger = { owned = { province = 1583 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1583 } 
+		command = { trigger = { owned = { province = 1584 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1584 } 
+		command = { trigger = { owned = { province = 1585 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1585 } 
+		command = { trigger = { owned = { province = 1586 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1586 } 
+		command = { trigger = { owned = { province = 1730 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1730 } 
+		command = { trigger = { owned = { province = 1740 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1740 } 
+		command = { trigger = { owned = { province = 1743 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1743 } 
+		command = { trigger = { owned = { province = 1744 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 1744 } 
+		command = { trigger = { owned = { province = 2135 data = -1 } NOT = { country = FRA } } type = secedeprovince which = USA value = 2135 }
+		
+		
+		command = { trigger = { owned = { province = 189 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 189 } # Innsbruck, Austria
+		command = { trigger = { owned = { province = 190 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 190 } # Graz
+		command = { trigger = { owned = { province = 191 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 191 } # Klagenfurt
+		command = { trigger = { owned = { province = 192 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 192 } # Salzburg
+		command = { trigger = { owned = { province = 195 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 195 } # Vienna
+		command = { trigger = { owned = { province = 188 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 188 } # Eisenstadt
+		command = { trigger = { owned = { province = 193 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 193 } # Sankt Poelten
+		command = { trigger = { owned = { province = 194 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 194 } # Hollabrunn
+		command = { trigger = { owned = { province = 187 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 187 } # Linz
+		command = { trigger = { owned = { province = 186 data = -1 } NOT = { country = AUS } } type = secedeprovince which = USA value = 186 } # Freistadt
+		
+		command = { trigger = { owned = { province = 137 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 137 } # Kassel
+		command = { trigger = { owned = { province = 140 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 140 } # Fulda
+		command = { trigger = { owned = { province = 148 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 148 } # Bremen
+		command = { trigger = { owned = { province = 177 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 177 } # Nuremberg
+		command = { trigger = { owned = { province = 174 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 174 } # Bayreuth
+		command = { trigger = { owned = { province = 138 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 138 } # Frankfurt-am-Main
+		command = { trigger = { owned = { province = 139 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 139 } # Darmstadt
+		command = { trigger = { owned = { province = 180 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 180 } # Wuerzburg
+		command = { trigger = { owned = { province = 134 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 134 } # Stuttgart
+		command = { trigger = { owned = { province = 136 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 136 } # Karlsruhe
+		command = { trigger = { owned = { province = 178 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 178 } # Augsburg
+		command = { trigger = { owned = { province = 175 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 175 } # Regensburg
+		command = { trigger = { owned = { province = 179 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 179 } # Munich
+		command = { trigger = { owned = { province = 176 data = -1 } NOT = { country = DFR } } type = secedeprovince which = USA value = 176 } # Landshut
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 150 data = -1 } } type = secedeprovince which = USA value = 150 } # Flensburg		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 152 data = -1 } } type = secedeprovince which = USA value = 152 } # Kiel		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 154 data = -1 } } type = secedeprovince which = USA value = 154 } # Hamburg
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 151 data = -1 } } type = secedeprovince which = USA value = 151 } # Lübeck		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 149 data = -1 } } type = secedeprovince which = USA value = 149 } # Luneburg		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 146 data = -1 } } type = secedeprovince which = USA value = 146 } # Hannover		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 147 data = -1 } } type = secedeprovince which = USA value = 147 } # Wilhelmshaven, West Germany		
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 141 data = -1 } } type = secedeprovince which = USA value = 141 } # Münster
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 144 data = -1 } } type = secedeprovince which = USA value = 144 } # Bielefeld/Ruhrgebiet
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 142 data = -1 } } type = secedeprovince which = USA value = 142 } # Düsseldorf			
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 145 data = -1 } } type = secedeprovince which = USA value = 145 } # Essen
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 126 data = -1 } } type = secedeprovince which = USA value = 126 } # Aachen	
+		command = { trigger = { NOT = { country = ENG } NOT = { country = DFR } owned = { province = 131 data = -1 } } type = secedeprovince which = USA value = 131 } # Cologne	
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 143 data = -1 } } type = secedeprovince which = USA value = 143 } # Neuwied
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 129 data = -1 } } type = secedeprovince which = USA value = 129 } # Koblenz		
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 127 data = -1 } } type = secedeprovince which = USA value = 127 } # Saarbrücken
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 128 data = -1 } } type = secedeprovince which = USA value = 128 } # Trier	
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 130 data = -1 } } type = secedeprovince which = USA value = 130 } # Mainz
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 132 data = -1 } } type = secedeprovince which = USA value = 132 } # Freiburg
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 133 data = -1 } } type = secedeprovince which = USA value = 133 } # Konstanz 		
+		command = { trigger = { NOT = { country = FRA } NOT = { country = DFR } owned = { province = 135 data = -1 } } type = secedeprovince which = USA value = 135 } # Tubingen		
+	}
+}
+
+#############################
+# Virtual years flag events
+#############################
+event = {
+	id = 2501001
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 20
+		NOT = { day = 21 }
+		month = 1
+		NOT = { month = 2 }
+		local_flag = NATO_WARSAWPACT # end of WW2 event 
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1946 }
+	}
+}
+event = {
+	id = 2501002
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 19
+		NOT = { day = 20 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1946
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1947 }
+	}
+}
+event = {
+	id = 2501003
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 18
+		NOT = { day = 19 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1947
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1948 }
+	}
+}
+event = {
+	id = 2501004
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 17
+		NOT = { day = 18 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1948
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1949 }
+	}
+}
+event = {
+	id = 2501005
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 16
+		NOT = { day = 17 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1949
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1950 }
+	}
+}
+event = {
+	id = 2501006
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 15
+		NOT = { day = 16 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1950
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1951 }
+	}
+}
+event = {
+	id = 2501007
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 14
+		NOT = { day = 15 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1951
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1952 }
+	}
+}
+event = {
+	id = 2501008
+	random = no
+	
+	trigger = {
+		ai = yes
+		day = 13
+		NOT = { day = 14 }
+		month = 1
+		NOT = { month = 2 }
+		flag = virtual_1952
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		command = { type = setflag which = virtual_1953 }
+	}
+}

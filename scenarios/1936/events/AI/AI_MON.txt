@@ -1,0 +1,109 @@
+####################################
+# Mongolia AI events 35400 - 35499 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+####################################
+################
+# Minister of Security Section 35400 - 35409
+#############################################
+################
+# Chief of Staff Section 35410 - 35419
+#############################################
+################
+# Head of Intelligence Section 35420 - 35429
+#############################################
+################
+# Chief of the Army Section 35430 - 35439
+#############################################
+################
+# Armament Minister Section 35440 - 35449
+#############################################
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35460 - 35499
+#############################################
+# Behavior Flags
+#	MONReleaseEXP		= Release EXP forces to the soviets
+################
+#  Release EXP forces to SOV for major conflict
+#############################################
+event = {
+	id = 35463
+	random = no
+	country = MON
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = MONReleaseEXP }
+		alliance = { country = SOV country = MON }
+		OR = {
+			AND = {
+				lost_national = { country = SOV value = 35 }
+				atwar = SOV
+			}
+			war = { country = SOV country = JAP }
+			war = { country = SOV country = CHI }
+		}
+		
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Release.ai" }
+		command = { type = local_setflag which = MONReleaseEXP }
+	}
+}
+event = {
+	id = 35464
+	random = no
+	country = MON
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		local_flag = TANReleaseEXP
+		alliance = { country = SOV country = MON }
+		NOT = {
+			AND = {
+				lost_national = { country = SOV value = 1 }
+				atwar = SOV
+			}
+			war = { country = SOV country = GER }
+			war = { country = SOV country = JAP }
+			war = { country = SOV country = ENG }
+			war = { country = SOV country = FRA }
+			war = { country = SOV country = USA }
+			war = { country = SOV country = ITA }
+			war = { country = SOV country = TUR }
+			war = { country = SOV country = CHI }
+		}
+		
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Retrack.ai" }
+		command = { type = local_setflag which = MONReleaseEXP }
+	}
+}

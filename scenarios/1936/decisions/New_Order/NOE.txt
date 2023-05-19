@@ -1,0 +1,76 @@
+#####################################
+# GER-SOV non-aggression treaty lifted prematurely in case of ahistorical actions
+#####################################
+event = { 
+	id = 3183095
+	random = no
+	tag = { SOV GER }
+	
+	decision = {
+				OR = { # don't show the decision all the time
+						atwar = GER
+						atwar = SOV
+						}
+				non_aggression = { country = GER country = SOV }
+				}
+	
+	decision_trigger = {
+						OR = {
+								event = 3182130 # sea lion
+								# ahistorical wars
+								war = { country = GER country = TUR }
+								war = { country = ITA country = TUR }
+								war = { country = SOV country = TUR }
+								war = { country = GER country = SWE }
+								AND = {
+										war = { country = SOV country = SWE }
+										NOT = { event = 3134002 } # SWE enters Finnish Winter War
+										}
+								# GER trying to get a hand on soviet sphere of interest
+								war = { country = GER country = LIT }
+								war = { country = GER country = LAT }
+								war = { country = GER country = EST }
+								alliance = { country = GER country = LIT }
+								alliance = { country = GER country = LAT }
+								alliance = { country = GER country = EST }
+								}
+						}
+	
+	trigger = {
+				non_aggression = { country = GER country = SOV }
+				OR = {
+						event = 3182130 # sea lion
+						# ahistorical wars
+						war = { country = GER country = TUR }
+						war = { country = ITA country = TUR }
+						war = { country = SOV country = TUR }
+						war = { country = GER country = SWE }
+						AND = {
+								war = { country = SOV country = SWE }
+								NOT = { event = 3134002 } # SWE enters Finnish Winter War
+								}
+						# GER trying to get a hand on soviet sphere of interest
+						war = { country = GER country = LIT }
+						war = { country = GER country = LAT }
+						war = { country = GER country = EST }
+						alliance = { country = GER country = LIT }
+						alliance = { country = GER country = LAT }
+						alliance = { country = GER country = EST }
+						}
+					}
+
+	name = EVT_3183095_NAME
+	desc = EVT_3183095_DESC
+	style = 2
+	decision_picture = "decision_mr_end"
+	picture = "event_mr_end"
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = january year = 1941 }
+
+	action_a = {
+		name = EVT_3183095_ACTA # Abandon the treaty
+		command = { type = end_non_aggression which = GER where = SOV }
+	}
+}

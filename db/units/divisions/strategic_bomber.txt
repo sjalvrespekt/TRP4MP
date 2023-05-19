@@ -1,0 +1,240 @@
+allowed_brigades =  escort
+
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+# 0 - Strategic Bomber 1930
+model = {
+	cost 				= 13.19 #19.79
+	buildtime			= 315 #210
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 0.7
+	maxspeed			= 200
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 2
+	surfacedefence			= 8
+	airdefence			= 8 #3
+	airattack			= 5 #2
+	strategicattack			= 6
+	softattack			= 5
+	hardattack			= 0
+	navalattack			= 2
+	range				= 800
+	supplyconsumption 		= 4.62
+	fuelconsumption			= 8
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	#upgrade_time_factor 		= 0.6
+	#upgrade_cost_factor		= 0.7
+	equipment = { heavy_bomber = 100 manpower = 700 }
+}
+# 1 - Strategic Bomber 1936 
+model = {
+	cost 				= 15.94 #23.9
+	buildtime			= 330 #220
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 0.85
+	maxspeed			= 250
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 12
+	airdefence			= 9 #4
+	airattack			= 6 #3
+	strategicattack			= 10
+	softattack			= 6
+	hardattack			= 0
+	navalattack			= 3
+	range				= 1000
+	supplyconsumption 		= 5.85
+	fuelconsumption			= 8
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 1.0 #4+ years since last model
+	equipment = { heavy_bomber = 100 manpower = 850 }
+}
+# 2 - Strategic Bomber 1939 ( B17 )
+model = {
+	cost 				= 17.15 #25.72
+	buildtime			= 345 #230
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.3
+	maxspeed			= 300
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 16
+	airdefence			= 11 #6
+	airattack			= 7 #4
+	strategicattack			= 13
+	softattack			= 7
+	hardattack			= 1
+	navalattack			= 4
+	range				= 3000
+	supplyconsumption 		= 6.57
+	fuelconsumption			= 8
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.75 #3 years
+	equipment = { heavy_bomber = 100 manpower = 1300 }
+
+}
+# 3 - Strategic Bomber 1941 ( B24 )
+model = {
+	cost 				= 17.77 #26.66
+	buildtime			= 360 #240
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 350
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 20
+	airdefence			= 12 #9
+	airattack			= 8 #5
+	strategicattack			= 17
+	softattack			= 8
+	hardattack			= 1
+	navalattack			= 5
+	range				= 3500
+	supplyconsumption 		= 7.11
+	fuelconsumption			= 9
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.5 #2 years
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}
+# 4 - Strategic Bomber 1943 ( B29 )
+model = {
+	cost 				= 19.22 #28.84
+	buildtime			= 360 #240
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 400
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 23
+	airdefence			= 14 #17
+	airattack			= 8 #6
+	strategicattack			= 22
+	softattack			= 9
+	hardattack			= 1
+	navalattack			= 6
+	range				= 4500
+	supplyconsumption 		= 7.69
+	fuelconsumption			= 9
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.5
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}
+# 5 - Strategic Bomber 1945 ( B50 )
+model = {
+	cost 				= 20.79 #31.19
+	buildtime			= 360 #240
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 400
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 27
+	airdefence			= 16 #19
+	airattack			= 10 #9
+	strategicattack			= 28
+	softattack			= 10
+	hardattack			= 1
+	navalattack			= 8
+	range				= 5000
+	supplyconsumption 		= 8.32
+	fuelconsumption			= 9
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.5
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}
+# 6 - Strategic Bomber 1948 ( B36 )
+model = {
+	cost 				= 22.45 #33.68
+	buildtime			= 375 #250
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 400
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 27
+	airdefence			= 19 #21
+	airattack			= 12 #10
+	strategicattack			= 32
+	softattack			= 11
+	hardattack			= 1
+	navalattack			= 9
+	range				= 7500
+	supplyconsumption 		= 9.35
+	fuelconsumption			= 10
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.75
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}
+# 7 - Turbojet Strategic Bomber 1951 ( B47 )
+model = {
+	cost 				= 22.55 #33.83
+	buildtime			= 420 #280
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 900
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 30
+	airdefence			= 21 #27
+	airattack			= 13 #11
+	strategicattack			= 34
+	softattack			= 13
+	hardattack			= 1
+	navalattack			= 13
+	range				= 3500
+	supplyconsumption 		= 10.52
+	fuelconsumption			= 10
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.75
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}
+# 8 - Turbojet Strategic Bomber 1955 ( B52 )
+model = {
+	cost 				= 25.47 #38.21
+	buildtime			= 435 #290
+	defaultorganisation 		= 30
+	morale				= 100
+	manpower			= 1.1
+	maxspeed			= 950
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 30
+	airdefence			= 24 #33
+	airattack			= 15 #12
+	strategicattack			= 36
+	softattack			= 15
+	hardattack			= 2
+	navalattack			= 14
+	range				= 7500
+	supplyconsumption 		= 12.31
+	fuelconsumption			= 11
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 1.0
+	equipment = { heavy_bomber = 100 manpower = 1100 }
+}

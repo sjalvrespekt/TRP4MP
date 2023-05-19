@@ -1,0 +1,641 @@
+#########################################################################
+# 3167500 - 3167600	Romania political events for decisions
+#########################################################################
+
+#########################################################################
+# ROM rearmament program
+#########################################################################
+
+event = { 
+	id = 3167500
+	random = no
+	country = ROM
+
+	decision = { atwar = no }	
+	
+	decision_trigger = {
+	    ai      = no
+		year    = 1936
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	trigger = { 
+	    ai      = yes
+		year    = 1936
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	name = EVT_3167500_NAME
+	desc = EVT_3167500_DESC
+	style = 2
+	picture          = "rom_decision_rearmament_pic1"
+	decision_picture = "rom_decision_rearmament_pic2"
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1941 }
+
+	action_a = { 
+		name      = ACTIONNAME3167500A #we will need a rearmament program
+		ai_chance = 100
+		command   = { type = money value = -50   } 
+	}
+	
+	action_b = { 
+		name      = ACTIONNAME3167500B #we wont need a rearmament program
+		ai_chance = 0
+		command   = { type = sleepevent which = 3167501 } 
+	}
+}
+
+#########################################################################
+# ROM rearmament program
+#########################################################################
+
+event = { 
+	id = 3167501
+	random = no
+	country = ROM
+
+	decision = { atwar = no }	
+	
+	decision_trigger = {
+	    ai      = no
+		event   = 3167500
+		year    = 1937
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	trigger = { 
+	    ai      = yes
+		event   = 3167500
+		year    = 1937
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	name = EVT_3167500_NAME
+	desc = EVT_3167501_DESC
+	style = 2
+	picture          = "rom_decision_rearmament_pic1"
+	decision_picture = "rom_decision_rearmament_pic2"
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1941 }
+
+	action_a = { 
+		name      = ACTIONNAME3167501A #we need a small naval program
+		ai_chance = 0
+		command   = { type = sleepevent which = 3167506 } 
+		command   = { type = sleepevent which = 3167509 } 
+        command   = { type = trigger    which = 3167502 }
+		command   = { type = waketeam   which = 2942  }		
+	}
+	
+	action_b = { 
+		name      = ACTIONNAME3167501B #we need a big naval program
+		ai_chance = 0
+		command   = { type = sleepevent which = 3167502 } 
+		command   = { type = sleepevent which = 3167509 } 
+		command   = { type = trigger    which = 3167506 }
+		command   = { type = waketeam   which = 2942  }
+	}
+	
+	action_c = { 
+		name      = ACTIONNAME3167501C #we need an army program
+		ai_chance = 100
+		command   = { type = sleepevent which = 3167502 } #small program
+		command   = { type = sleepevent which = 3167506 } #big program
+	}
+}
+
+#########################################################################
+# ROM small naval program
+#########################################################################
+event = { 
+	id = 3167502
+	random = no
+	country = ROM
+	
+	save_date = yes
+	
+	name = EVT_3167502_NAME
+	desc = EVT_3167502_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+	
+	action_a = {
+		name = ACTIONNAME3167502A
+		ai_chance = 100
+		command = { type = relation which = ITA value = 75 }
+		command = { type = trigger  which = 3167508 } #info event for ITA
+		command = { type = money    value = -50   }
+		command = { type = oilpool  value = -1000 }
+		command = { type = sleepevent which = 31675082 } # ITA IC event
+		#Romania planed to buy 1 ITA scout cruiser, 4 ITA DDs and 3 subs
+        #Event will take 5 IC for the project
+		#command = { type = construct which = ic where = 291 value = -1   }
+		#command = { type = construct which = ic where = 285 value = -1   }
+		#command = { type = construct which = ic where = 315 value = -1   }
+		#command = { type = construct which = ic where = 316 value = -2   }
+		command = { type = free_ic   value = -5 }
+	}
+
+}
+
+#########################################################################
+# ROM big naval program
+#########################################################################
+event = { 
+	id = 3167506
+	random = no
+	country = ROM
+	
+	save_date = yes
+	
+	name = EVT_3167506_NAME
+	desc = EVT_3167506_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+	
+	action_a = {
+		name = ACTIONNAME3167502A
+		ai_chance = 100
+		command = { type = relation which = ITA value = 100 }
+		command = { type = trigger  which = 3167508 } #info event for ITA
+		command = { type = money    value = -150  }
+		command = { type = oilpool  value = -2000 }
+		command = { type = sleepevent which = 31675081 } # ITA IC event
+		#Romania planed to buy 2 ITA pocket BBs, 2 ITA scout cruiser, 4 ITA DDs and 3 subs
+        #Event will take 8 IC for the project
+		#command = { type = construct which = ic where = 291 value = -1   }
+		#command = { type = construct which = ic where = 285 value = -1   }
+		#command = { type = construct which = ic where = 315 value = -1   }
+		#command = { type = construct which = ic where = 309 value = -1   }
+		#command = { type = construct which = ic where = 299 value = -1   }
+		#command = { type = construct which = ic where = 297 value = -1   }
+		#command = { type = construct which = ic where = 316 value = -2   }
+		command = { type = free_ic   value = -8 }
+	}
+
+}
+
+#########################################################################
+# ROM naval program ships
+#########################################################################
+
+event = { 
+	id = 3167503
+	random = no
+	country = ROM
+	
+    trigger = {
+	OR = {
+	    event = { id = 3167502 days = 310 }
+        event = { id = 3167506 days = 310 }
+	}
+	}
+
+	name = EVT_3167503_NAME
+	desc = EVT_3167503_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"	
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }	
+	
+    action = {	
+	name = ACTIONNAME3167503A 
+	command = { type = activate_division which = 20600 value = 108 where = 310 when = 0 } 
+	command = { type = activate_division which = 20600 value = 109 where = 310 when = 0 } 
+	command = { type = activate_division which = 20600 value = 110 where = 310 when = 0 } 
+    command = { type = free_ic   value = 2 }
+	}
+}	
+	
+event = { 
+	id = 3167504
+	random = no
+	country = ROM
+	
+    trigger = {
+	OR = {
+	    event = { id = 3167502 days = 720 }
+		event = { id = 3167506 days = 720 }
+	}
+	}
+
+	name = EVT_3167503_NAME
+	desc = EVT_3167504_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"	
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+	
+    action = {	
+	name = ACTIONNAME3167503A 
+	command = { type = activate_division which = 20600 value = 104 where = 310 when = 0 } 
+	command = { type = activate_division which = 20600 value = 105 where = 310 when = 0 } 
+	command = { type = activate_division which = 20600 value = 106 where = 310 when = 0 } 
+	command = { type = activate_division which = 20600 value = 107 where = 310 when = 0 } 
+	command = { type = free_ic   value = 2 }
+	}
+}
+	
+event = { 
+	id = 3167505
+	random = no
+	country = ROM
+	
+    trigger = {
+	OR = {
+	    event = { id = 3167502 days = 900 }
+		event = { id = 3167506 days = 900 }
+	}
+	}
+
+	name = EVT_3167503_NAME
+	desc = EVT_3167505_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+
+    action = {	
+	name = ACTIONNAME3167503A 
+	command = { type = activate_division which = 20600   value = 102 where = 310 when  = 0 } 
+	command = { type = free_ic   value = 1 }
+	command = { trigger = { event = 3167506 } type = activate_division which = 20600 value = 103 where = 310 when = 0 } 
+	command = { trigger = { event = 3167506 } type = free_ic   value = 1   }
+	}
+}
+	
+event = { 
+	id = 3167507
+	random = no
+	country = ROM
+	
+    trigger = {
+		event = { id = 3167506 days = 1200 }
+	}
+
+	name = EVT_3167503_NAME
+	desc = EVT_3167507_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+
+    action = {	
+	name = ACTIONNAME3167503A 
+	command = { type = activate_division which = 20600   value = 100 where = 310 when  = 0 } 
+	command = { type = activate_division which = 20600   value = 101 where = 310 when  = 0 } 
+	command = { type = free_ic   value = 2 }
+	}
+}
+
+#########################################################################
+# ITA Event when naval program is launched
+#########################################################################
+
+event = { 
+	id = 3167508
+	random = no
+	country = ITA
+	
+	#triggerd by 3167502 or 3167506
+	
+	name = EVT_3167508_NAME
+	desc = EVT_3167508_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+
+	action_a = { 
+		name      = ACTIONNAME3167508A #okay
+		command = { trigger = { event = 3167502 } type = money     value = 50   }
+		command = { trigger = { event = 3167502 } type = oilpool   value = 1000 }
+		command = { trigger = { event = 3167506 } type = money     value = 150  }
+		command = { trigger = { event = 3167506 } type = oilpool   value = 2000 }
+		command = { type = dissent value = -2 }
+		#######
+		#command = { trigger = { event = 3167502 } type = construct which = ic where = 419 value = 2 }
+		#command = { trigger = { event = 3167506 } type = construct which = ic where = 419 value = 3 }
+	}
+}	
+
+
+event = { 
+	id = 31675081
+	random = no
+	country = ITA
+	
+    trigger = {
+	  event = { id = 3167502 days = 900 }
+	}
+	
+	name = EVT_3167508_NAME
+	desc = EVT_31675081_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+	
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1943 }	
+
+	action_a = { 
+		name      = ACTIONNAME31675081A #okay
+		command = { trigger = { event = 3167502 } type = construct which = ic where = 419 value = 1 }
+	}
+}	
+
+event = { 
+	id = 31675082
+	random = no
+	country = ITA
+	
+    trigger = {
+	  event = { id = 3167506 days = 1200 }
+	}	
+	
+	name = EVT_3167508_NAME
+	desc = EVT_31675081_DESC
+	style = 2
+	picture = "rom_decision_rearmament_naval"
+	
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1943 }	
+
+	action_a = { 
+		name      = ACTIONNAME31675081A #okay
+		command = { trigger = { event = 3167506 } type = construct which = ic where = 419 value = 2 }
+	}
+}
+	
+#########################################################################
+# ROM rearmament program for the land army
+#########################################################################
+
+event = { 
+	id = 3167509
+	random = no
+	country = ROM
+
+    decision = { atwar = no }	
+	
+	decision_trigger = {
+	    NOT = { event = 3167502 }
+		NOT = { event = 3167506 }
+	    ai      = no
+		year    = 1937
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	trigger = { 
+	    ai      = no
+		year    = 1937
+		exists  = ROM
+		atwar   = no
+		control = { province = 316 data = ROM } #Bucharest
+	}
+
+	name = EVT_3167509_NAME
+	desc = EVT_3167509_DESC
+	style = 2
+	picture          = "rom_decision_rearmament_pic1"
+	decision_picture = "rom_decision_rearmament_pic2"
+
+	date = { day = 0 month = december year = 1937 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1966 }
+
+	action_a = { 
+		name      = ACTIONNAME3167509A #ask france for renault tanks
+		ai_chance = 100
+		command = { type = trigger which = 3167510 }
+	}
+	
+	action_b = { 
+		name      = ACTIONNAME3167509B #we wont need a tank program
+		ai_chance = 0
+		command   = { type = sleepevent which = 3167510 } 
+		command   = { type = sleepevent which = 3167511 } 
+		command   = { type = trigger    which = 3167512 }#ROM program - no deal
+	}
+}
+
+#########################################################################
+# FRA Event when army program is launched
+#########################################################################
+
+event = { 
+	id = 3167510
+	random = no
+	country = FRA
+	
+	#triggerd by 3167509
+	
+	name = EVT_3167510_NAME
+	desc = EVT_3167510_DESC
+	style = 2
+	picture = "rom_decision_rearmament_renault"
+
+	action_a = { 
+		ai_chance = 99
+		name    = ACTIONNAME3167510A #Nope. No deal!
+		command = { type = sleepevent which = 3167511 } 
+		command = { type = relation which = ROM value = -75 }		
+		command = { type = trigger which = 3167512 }
+	}
+	
+	action_b = { 
+		ai_chance = 1
+		name    = ACTIONNAME3167510B #Okay. Deal!
+		command = { type = sleepevent which = 3167512 } 		
+		command = { type = relation  which = ROM value = 75 }
+		#command = { type = construct which = ic  where = 55 value = -2 }
+		command = { type = dissent value = 1 }
+		command = { type = supplies  value = -3000 }
+		command = { type = trade which = FRA where = ROM oil = 10 when = 1080 value = 1 }
+		command = { type = trigger which = 3167511 }#ROM program - deal
+	}
+}
+
+#########################################################################
+# ROM army program - tank deal with FRA
+#########################################################################
+
+event = { 
+	id = 3167511
+	random = no
+	country = ROM
+	
+	#triggerd by 3167510
+	
+	name = EVT_3167509_NAME
+	desc = EVT_3167511_DESC
+	style = 2
+	picture = "rom_decision_rearmament_renault"
+
+	action = { 
+		name    = ACTIONNAME3167511A #Deal!
+		command = { type = waketeam       which = 2941  }
+		command = { trigger = { ai = no } type  = money           value = -250   }
+		command = { type = construct      which = ic  where = 316 value = 1 }		
+        command = { type = add_division   value = armor }
+	}
+}
+
+#########################################################################
+# ROM army programm - NO tank deal with FRA
+#########################################################################
+
+event = { 
+	id = 3167512
+	random = no
+	country = ROM
+	
+	#triggerd by 3167910
+	
+	name = EVT_3167509_NAME
+	desc = EVT_3167512_DESC
+	style = 2
+	picture = "rom_decision_rearmament_weapons"
+
+	action = { 
+		name    = ACTIONNAME3167512A #Nope. No deal!
+		command = { type = construct           which = ic       where = 316 value = 1 }
+		command = { type = industrial_modifier which = supplies value = 5 }
+		command = { trigger = { ai = no }      type  = money    value = -150 }
+	}
+}
+
+#########################################################################
+#  Romania AA defense for Ploesti - 2nd wave
+#########################################################################
+event = {
+	id = 3167034
+	random = no
+	country = ROM
+
+	decision = { 
+	      ai = no
+        year = 1943
+	}
+
+	decision_trigger = { 		
+		alliance = { country = ROM country = GER }
+		war      = { country = ROM country = SOV }
+		event    = 3167033 #ROM Flak
+	}
+			
+	trigger = { 
+		alliance = { country = ROM country = GER }
+		war      = { country = ROM country = SOV }
+		event    = 3167033
+	}
+		
+	name = EVT_3167034_NAME
+	desc = EVT_3167034_DESC
+	style = 2
+	picture = "rom_event_ploesti_flak"
+	decision_picture = "rom_decision_ploesti_flak"
+
+	date = { day = 0 month = april year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		ai_chance = 1	
+		name = ACTIONNAME3167034A
+		command = { trigger = { ai = no } type = money     value = -25  }
+		command = { trigger = { ai = no } type = supplies  value = -500 }
+        command = { type = construct which = flak where = 311 value = 2 }		
+	}
+	action_b = {
+		ai_chance = 99
+		name = ACTIONNAME3167034B
+		command = { trigger = { ai = no } type = money     value = -25  }
+		command = { trigger = { ai = no } type = supplies  value = -500 }
+        command = { type = construct which = flak    where = 311 value = 2 }
+		command = { type = event     which = 3167035 where = GER }	#GER send 5. Flak-Division
+	}	
+	action_c = {
+		ai_chance = 0
+		name = ACTIONNAME3167034C
+		command = { type = dissent  value = -1 }
+		command = { type = sleepevent which = 3167035 }		
+	}	
+	
+}
+
+#########################################################################
+#  Germany send 5. Flak-Division at Ploesti
+#########################################################################
+event = {
+	id = 3167035
+	random = no
+	country = GER
+
+	name = EVT_3167035_NAME
+	desc = EVT_3167035_DESC
+	style = 2
+	picture = "ger_event_ploesti_flak"
+
+	date = { day = 29 month = december year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3167035A
+		command = { trigger = { ai = no } type = money     value = -125  }
+		command = { trigger = { ai = no } type = supplies  value = -2500 }
+        command = { type = construct which = flak          where = 311 value = 2  }	
+		command = { type = construct which = radar_station where = 311 value = 2  }	
+		command = { type = event which = 3167036 where = ROM }	#Info event for ROM
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167035B
+		command = { type = dissent  value = -1 }
+		command = { type = money    value = 250  }		
+		command = { type = relation which = ROM value = -55 }		
+	}	
+	
+}
+
+event = {
+	id = 3167036
+	random = no
+	country = ROM
+
+	name = EVT_3167035_NAME
+	desc = EVT_3167036_DESC
+	style = 2
+	picture = "ger_event_ploesti_flak_ger"
+
+	action_a = {
+		name = ACTIONNAME3167036A
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#########################################################################

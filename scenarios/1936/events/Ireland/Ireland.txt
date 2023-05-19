@@ -1,0 +1,406 @@
+# converted to DH, Kane, July 23 2011
+# Last Update 09-JAN-2006
+#########################
+
+###########################################################################
+# 3144000 - 3144999	Ireland events
+###########################################################################
+
+###############################################
+# Irish Volunteers for the Army
+# by CCM von Hausser
+###############################################
+event = {
+	id = 3144000
+	random = no
+	country = IRE
+
+	trigger = { atwar = GER }
+	
+	name = EVT_3144000_NAME
+	desc = EVT_3144000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1939 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3144000A
+		command = { type = manpowerpool value = 60 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3144000B
+		command = { }
+	}
+}
+
+###############################################
+# Irish Volunteers for the Army
+# by CCM von Hausser
+###############################################
+event = {
+	id = 3144001
+	random = no
+	country = IRE
+
+	trigger = { atwar = GER }
+	
+	name = EVT_3144001_NAME
+	desc = EVT_3144001_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1940 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3144000A
+		command = { type = manpowerpool value = 40 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3144000B
+		command = { }
+	}
+}
+
+###############################################
+# Irish Volunteers for the Army
+# by CCM von Hausser
+###############################################
+event = {
+	id = 3144002
+	random = no
+	country = IRE
+
+	trigger = { atwar = GER }
+	
+	name = EVT_3144001_NAME
+	desc = EVT_3144001_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1941 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3144000A
+		command = { type = manpowerpool value = 60 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3144000B
+		command = { }
+	}
+}
+
+###############################################
+# Irish Volunteers for the Army
+# by CCM von Hausser
+###############################################
+event = {
+	id = 3144003
+	random = no
+	country = IRE
+
+	trigger = { atwar = GER }
+	
+	name = EVT_3144001_NAME
+	desc = EVT_3144001_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1942 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1942 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3144000A
+		command = { type = manpowerpool value = 60 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3144000B
+		command = { }
+	}
+}
+
+###############################################
+# 272034 - (IRE) Irish Volunteers for Britain (by JRaup)
+###############################################
+event = {
+	id = 272034
+	random = no
+	country = IRE
+
+	# triggered by ENG 3131049
+	
+	name = EVT_272034_NAME
+	desc = EVT_272034_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME272034A
+		command = { type = manpowerpool value = -40 }
+		command = { type = dissent value = -2 }
+	}
+}
+#################################
+# 272039 - (IRE) Outlaw the IRA (by JRaup)
+#################################
+event = {
+	id = 272039
+	random = no
+	country = IRE
+
+	trigger = {
+		random = 60
+		event = 3131063
+		headofgovernment = 25002 # Eamon de Valera
+	}
+
+	name = EVT_272039_NAME
+ 	desc = EVT_272039_DESC
+	style = 0
+	
+	date = { day = 0 month = june year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1936 } 
+
+	action_a = {
+		name = ACTIONNAME272039A
+		command = { type = dissent value = 3 }
+		command = { type = money value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+
+	action_b = {
+		name = ACTIONNAME272039B 
+		command = { type = money value = -2 }   
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+##################################################
+# 272040 - (IRE) Irish Declaration of Neutrality (by JRaup)
+##################################################
+event = {
+	id = 272040
+	random = no
+	country = IRE
+
+	trigger = {
+		war = { country = ENG country = GER }
+		NOT = {
+			OR = {
+				alliance = { country = IRE country = GER }
+				alliance = { country = IRE country = ENG }
+				atwar = IRE 
+			}
+		}
+	}
+
+	name = EVT_272040_NAME  
+ 	desc = EVT_272040_DESC
+	style = 0
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1944 } 
+
+	action_a = {
+		name = ACTIONNAME272040A
+		command = { type = dissent value = -5 }
+		command = { type = money value = 4 }
+	}
+	action_b = {
+		name = ACTIONNAME272040B
+		command = { type = dissent value = 5 }
+		command = { type = money value = 2 }
+	}
+}
+
+###########################################
+# 272066 - (IRE) Irish Workers to Britain (by JRaup)
+###########################################
+event = {
+	id = 272066
+	random = no
+	country = IRE
+	
+	#triggered by ENG 3131050 
+
+	name = EVT_272066_NAME
+	desc = EVT_272066_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME272066A
+		command = { type = manpowerpool value = -12 }
+		command = { type = dissent value = -1 }
+# 		command = { type = warentry value = -5 }
+	}
+}
+#############################################
+# 272067 - (IRE) Irish Constitution of 1937 (by JRaup)
+#############################################
+event = {
+	id = 272067
+	random = no
+	country = IRE
+	trigger = {
+		headofgovernment = 25002 # Eamon de Valera
+		event = 272068
+	}
+
+	name = EVT_272067_NAME
+ 	desc = EVT_272067_DESC
+	style = 0
+
+	date = { day = 29 month = june year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME272067A
+		command = { type = addcore which = 36 }
+		command = { type = dissent value = -5 }
+	}
+}
+################################################
+# 272068 - (IRE) External Relations Act, 1936 (by JRaup)
+################################################
+event = {
+	id = 272068
+	random = no
+	country = IRE
+
+	trigger = { headofgovernment = 25002 } # Eamon de Valera - start
+
+	name = EVT_272068_NAME
+ 	desc = EVT_272068_DESC
+	style = 0
+
+	date = { day = 20 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME272068A
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 5 }
+	}
+	action_b = {
+		name = ACTIONNAME272068B
+		command = { type = dissent value = 5 }
+		command = { type = money value = 2 }
+	}
+}
+#####################################################
+# 272069 - (IRE) Aer Lingus Formed (by JRaup)
+#####################################################
+event = {
+	id = 272069
+	random = no
+	country = IRE
+	trigger = {
+		headofgovernment = 25002 # Eamon de Valera - start
+		random = 75
+	}
+
+	name = EVT_272069_NAME
+	desc = EVT_272069_DESC
+	style = 0
+
+	date = { day = 0 month = August year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME272069A
+		command = { type = waketeam which = 4007 } # Aer Lingus
+		command = { type = construct which = infrastructure where = 34 value = 10 } # Dublin
+		command = { type = construct which = infrastructure where = 31 value = 10 } # Cork
+		command = { type = construct which = infrastructure where = 32 value = 10 } # Galway
+		command = { type = money value = 2 }
+		command = { type = oilpool value = 1000 }
+	}
+}
+#####################
+# UK Consults Ireland
+#####################
+event = {
+	id = 272109
+	random = no
+	country = IRE
+
+	#triggered by 2720108-Abdication Crisis
+
+	name = EVT_272109_NAME
+ 	desc = EVT_272109_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME272109A
+		command = { }
+	}
+}
+######################
+# Edward Abdicates-IRE
+######################
+event = {
+	id = 272111
+	random = no
+	country = IRE
+
+	#triggered by 3131092
+
+	name = EVT_272111_NAME
+	desc = EVT_272111_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME272111A
+		command = { type = dissent value = -1 }
+	}
+}
+########################
+# Simpson as Consort-IRE
+########################
+event = {
+	id = 272112
+	random = no
+	country = IRE
+
+	#triggered by 3131092
+
+	name = EVT_272112_NAME
+	desc = EVT_272112_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME272112A
+		command = { type = money value = 4 }
+	}
+}
+#####################
+# Simpson as Queen-IRE
+#####################
+event = {
+	id = 272113
+	random = no
+	country = IRE
+
+	#triggered by 3131092
+
+	name = EVT_272113_NAME
+	desc = EVT_272113_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME272113A
+		command = { type = dissent value = 2 }
+	}
+}

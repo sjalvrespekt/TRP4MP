@@ -1,0 +1,170 @@
+# converted to Dh, Kane, July 23 2011
+################################################################################################
+# 3162000 - 3162999	Persia political events
+################################################################################################
+
+#######################################################################
+# Gaining Allied Access To Persia : Persia's Response to Allied Demands
+# (was 902040, 3500001 by OHgamer)
+#######################################################################
+event = { 
+	id = 3162000
+	random = no
+	country = PER
+ 
+	# Triggered by SOV 3183034A OR ENG 3131001B
+
+	name = EVT_3162000_NAME
+	desc = EVT_3162000_DESC 
+	style = 0 
+
+	action_a = {
+		name = ACTIONNAME3162000A
+		command = { type = trigger which = 3131002 }
+		command = { type = dissent value = -30 }
+	}
+	action_b = { 
+		name = ACTIONNAME3162000B
+		command = { type = access which = ENG }
+		command = { type = access which = SOV }
+ 		command = { type = headofstate which = 53031 }
+ 		command = { type = headofgovernment which = 53035 }
+		command = { type = dissent value = 30 }
+		command = { trigger = { division_in_province = { id = { type = 10848 id = 127 } province = 713 } } type = unlock_division which = 10848 value = 127 } #soviet division in Baku
+	}
+}
+#####################################################################
+# England creates northern Persian corridor for USSR
+# by Luxor
+#####################################################################
+event = {
+	id = 3131003
+	random = no
+	country = PER
+	
+#	trigger = {
+#			event = 3500002
+#	}
+	
+	name = EVT_3131003_NAME
+	desc = EVT_3131003_DESC
+	style = 0
+	
+#	date = { day = 0 month = august year = 1940 }
+#	offset = 25
+#	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3131003A
+		command = { type = secedeprovince which = SOV value = 1081 }
+		command = { type = secedeprovince which = SOV value = 1080 }
+		command = { type = access which = SOV }
+	}
+}
+
+###########################################################################
+#	3500000 - 3599999
+###########################################################################
+###############################################
+# Was 902039 - (PER) In Memoriam : `Ali Akbar Davar, Minister of Armament (by OHgamer)
+###############################################
+event = { 
+	id = 3500000
+	random = no
+	country = PER
+ 
+	name = EVT_3500000_NAME
+	desc = EVT_3500000_DESC 
+	style = 0 
+
+	date = { day = 10 month = february year = 1937 } 
+	offset = 1
+	deathdate = { day = 13 month = february year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME3500000A
+		command = { type = dissent value = 5 }
+		command = { type = armamentminister which = 53045 } #Mahmud Bader
+	}
+}
+#####################################################################
+# Gaining Allied Access To Persia : Persia rejects Allied Demands
+# (was 272037 by OHgamer) modified by Luxor
+#####################################################################
+event = { 
+	id = 3500001
+	random = no
+	country = PER
+
+	trigger = {
+#                AI = yes
+				event = 3131002
+				war = { country = PER country = ENG }
+				OR = {
+						lost_national = { country = PER value = 20 }	# X% or more of national provs of the country in question are in enemy hands => 16 provinces in Persia, 1 lost = 6.25%, 2 lost = 12.5%
+						lost_VP = { country = PER value = 20 }		# X% or more of _owned_ VPs of the country in question are in enemy hands => 7 VPs in Persia, 1 lost = 14.29%, 2 lost = 28.57%
+						}
+				}
+
+	name = EVT_3500001_NAME
+	desc = EVT_3500001_DESC
+	style = 0
+
+	date = { day = 10 month = february year = 1939 } 
+	offset = 1
+	deathdate = { day = 13 month = february year = 1943 } 
+
+	action_a = {
+		name = ACTIONNAME3500001A # We have no choice
+		command = { type = leave_alliance }
+		command = { type = peace which = SOV value = 1 }
+                command = { type = peace which = ENG value = 1 }
+                command = { type = peace which = IRQ value = 1 }
+                command = { type = peace which = HOL value = 1 }
+                command = { type = peace which = NIC value = 1 }
+                command = { type = peace which = COL value = 1 }
+                command = { type = peace which = FIN value = 1 }
+                command = { type = peace which = USA value = 1 }
+		command = { type = regime_falls }
+		command = { type = access which = ENG }
+		command = { type = access which = SOV }
+ 		command = { type = headofstate which = 53031 }
+ 		command = { type = headofgovernment which = 53035 }
+		command = { type = domestic which = democratic value = 3 }
+		command = { type = dissent value = 15 }
+                command = { type = non_aggression which = PER where = SOV }
+                command = { type = non_aggression which = PER where = ENG }
+		command = { type = relation which = SOV value = 100 }
+		command = { type = relation which = ENG value = 100 }
+		command = { type = relation which = GER value = -100 }
+		command = { trigger = { division_in_province = { id = { type = 10848 id = 127 } province = 713 } } type = unlock_division which = 10848 value = 127 } #soviet division in Baku
+	}
+}
+#########################################################################
+# Persia a UK puppet
+#########################################################################
+event = { 
+	id = 3500002
+	random = no 
+	country = ENG
+
+	trigger = {
+		event = 3500001
+		exists = PER
+		NOT = { war = { country = ENG country = PER } }
+	}
+
+	name = EVT_3500002_NAME
+	desc = EVT_3500002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3500002A # Suggest the UK and Soviets troops leave after the war
+		command = { type = make_puppet which = PER }
+		command = { type = trigger which = 3131003 }
+	}
+}

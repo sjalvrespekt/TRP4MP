@@ -1,0 +1,127 @@
+# German End of Norway Invasion AI File by Lothos
+# converted DH, Kane, June 4, 2011
+
+target = {
+}
+
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion	= no
+ 	base		= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random		= 8.0	#How big a random range.  (1.0 = 1%)
+	coastal		= 0.1	#increase to avoid coastal forts more.
+	beach		= 0.1	#higher, avoid worst beaches.
+	distance	= 0.1	#higher = avoid long distance.
+	max_distance = 25.0  #About the distance from Rostock to Narvik
+	pocket		= 20.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island		= 0.1	#prioritise taking pure islands.
+	enemy		= 2.0	#higher = much more vary of troops in province.
+	adjacentenemy = 2.0	#higher = much more vary of troops nearby
+	air_base	= 1.5 
+    naval_base 	= 0.1 
+    air_support = 3.0 
+    redirect 	= priority
+	ignore		= no
+	help_allies = no	#[yes/no]
+      
+	target = { 
+		#England
+		26 = -1 # Dover
+		25 = -1 # Norwich
+		27 = -1 # Portsmouth
+		23 = -1 # Plymouth
+		15 = -1 # Hull
+		16 = -1 # Lincoln
+		36 = -1 # Belfast
+		20 = -1 # Exeter
+		19 = -1 # Bristol
+		17 = -1 # Manchester
+		14 = -1 # Carlisle
+		13 = -1 # Sunderland
+		12 = -1 # Edinburgh
+		11 = -1 # Glasgow
+		10 = -1 # Dumfries
+
+		# Atlantic Wall DH
+		217 = -1 # Aalborg
+		216 = -1 # Abenra
+		218 = -1 # Frederikshavn
+		220  = -1 # Arhus
+		122  = -1 # Amsterdam
+		123  = -1 # Middleburg
+		125  = -1 # Rotterdam
+		114  = -1 # Bruges
+		49  = -1 # Calais
+		51  = -1 # Dunquerque
+		53  = -1 # Dieppe
+		45 = -1 # Le Havre
+		44  = -1 # Caen
+		46  = -1 # Bayeux
+		38 = -1 # Rennes
+		41 = -1 # St. Brieux
+		37  = -1 # Brest
+		39  = -1 # Lorient
+		40  = -1 # St. Nazaire
+		68 = -1 # Bordeaux
+		67 = -1 # Mont-de-Marsan
+		57 = -1 # Nantes	
+
+		#Norway DH
+		483 = 3750 # Oslo
+		485 = 4002 # Kristiansan
+		495 = 4001 # Narvik
+		491 = 3090 # Alesund
+		493 = 3090 # Trondheim
+		487 = 3090 # Stavanger
+		488 = 3090 # Bergen
+		490 = 3090 # Andalsnes
+		494 = 3090 # Bodo
+
+		#Sweden
+#		484   = 400 # Amal
+		2153  = 400 # Goterborg
+		2152  = 400 # Malmo
+		2155  = 400 # Kalmar
+		2157  = 375 # Linkoping
+		2159  = 375 # Stockholm
+		2158  = 375 # Uppsala
+		2162  = 375 # Gavle
+		2165  = 400 # Umea
+		2166  = 400 # Lulea
+
+		#Finland
+		529 = 200 # Kouvola
+		530 = 200 # Trijoki
+		531 = 200 # Vipurii
+		525 = 200 # Helsinki
+		524 = 200 # Turku
+		512 = 200 # Pori
+		521 = 200 # Vaasa
+		520 = 175 # Oulu
+		516 = 175 # Tornio
+	} 
+}
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 98    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 80 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	target = { }
+	core = { 
+		2690
+     	2694 
+     	2695 
+     	2696 
+     	2718 
+     	2719 
+     	2720 
+     	2721 
+     	2722 
+     	2723 
+     	2726 
+     	2727 
+		} 
+}

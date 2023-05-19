@@ -1,0 +1,38 @@
+# checked DH
+###########################################################################
+#  	8100000 - 8199999
+###########################################################################
+##########################################################################
+# Was 602026 - (SAL) Womens granted the vote (by Generalisimo)
+#########################################################################
+
+event = { 
+	id = 8100000 
+	random = no 
+	country = SAL
+
+	trigger = {
+		NOT = { ispuppet = SAL }
+		random = 10
+	}
+
+	name = EVT_8100000_NAME # Women granted the vote
+	desc = EVT_8100000_DESC
+	style = 0 
+
+	date = { day = 0 month = january year = 1939 } 
+	offset = 10
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = { 
+		name = ACTIONNAME8100000A # Ok
+		command = { type = dissent value = -5 }
+		command = { type = money value = 5 }
+		command = { type = domestic which = democratic value = 1 }
+	} 
+	action_b = { 
+		name = ACTIONNAME8100000B # It is not necessary
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}

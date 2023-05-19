@@ -1,0 +1,532 @@
+####################################
+# Yunnan AI events 35600 - 35699 by Lothos
+####################################
+################
+# Minister of Security Section 35600 - 35609
+#############################################
+################
+# Chief of Staff Section 35610 - 35619
+#############################################
+################
+# Head of Intelligence Section 35620 - 35629
+#############################################
+################
+# Chief of the Army Section 35630 - 35639
+#############################################
+################
+# Armament Minister Section 35640 - 35649
+#############################################
+
+# Converted to DH by Dendro 2011-May-29
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35660 - 35699
+#############################################
+# Behavior Flags
+#	ChinaFeeder1		= Release EXP forces to the China
+#	ChinaFeeder2		= Release EXP forces to the China
+#	ChinaFeeder3		= Release EXP forces to the China
+#	ChinaFeeder4		= Release EXP forces to the China
+#	ChinaFeeder5		= Release EXP forces to the China
+#	ChinaFeeder6		= Release EXP forces to the China
+#	ChinaFeeder7		= Release EXP forces to the China
+#	UPGPeace			= Upgrading of existing units flag
+
+# Attack flags
+#	CYNAttackJAP		= Flag turned on means they are free to attack at will
+################
+#  Release EXP forces to China
+#############################################
+event = {
+	id = 35660
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		flag = ChinaFeeder1
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder1 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_1.ai" }
+		command = { type = local_setflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35661
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		flag = ChinaFeeder2
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder2 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_2.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_setflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35662
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		flag = ChinaFeeder3
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder3 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_3.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_setflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35663
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		flag = ChinaFeeder4
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder4 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_4.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_setflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35664
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		flag = ChinaFeeder5
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder5 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_5.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_setflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35665
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		flag = ChinaFeeder6
+		NOT = { flag = ChinaFeeder7 }
+		NOT = { local_flag = CYNChinaFeeder6 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_6.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_setflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35666
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		ai = CHI
+		atwar = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		flag = ChinaFeeder7
+		NOT = { local_flag = CYNChinaFeeder7 }
+		alliance = { country = CHI country = CYN }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_7.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_setflag which = CYNChinaFeeder7 }
+	}
+}
+event = {
+	id = 35667
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			local_flag = CYNChinaFeeder1
+			local_flag = CYNChinaFeeder2
+			local_flag = CYNChinaFeeder3
+			local_flag = CYNChinaFeeder4
+			local_flag = CYNChinaFeeder5
+			local_flag = CYNChinaFeeder6
+			local_flag = CYNChinaFeeder7
+		}
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Feeder_Retrack.ai" }
+		command = { type = local_clrflag which = CYNChinaFeeder1 }
+		command = { type = local_clrflag which = CYNChinaFeeder2 }
+		command = { type = local_clrflag which = CYNChinaFeeder3 }
+		command = { type = local_clrflag which = CYNChinaFeeder4 }
+		command = { type = local_clrflag which = CYNChinaFeeder5 }
+		command = { type = local_clrflag which = CYNChinaFeeder6 }
+		command = { type = local_clrflag which = CYNChinaFeeder7 }
+	}
+}
+################
+# Concetrate on upgrading while at peace
+#############################################
+event = {
+	id = 35668
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		NOT = { local_flag = UPGPeace }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_Peace.ai" }
+		command = { type = local_setflag which = UPGPeace }
+	}
+}
+event = {
+	id = 35669
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = UPGPeace
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_War.ai" }
+		command = { type = local_clrflag which = UPGPeace }
+	}
+}
+################
+# Attack Japan controls
+#	CYNAttackJAP		= Flag turned on means they are free to attack at will
+#############################################
+event = {
+	id = 35670
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = CYNAttackJAP }
+		war = { country = JAP country = CYN }
+		OR = {
+			lost_national = { country = CHI value = 50 }
+			lost_national = { country = CYN value = 1 }
+		}
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/CYN_Attack_JAP.ai" }
+		command = { type = local_setflag which = CYNAttackJAP }
+	}
+}
+event = {
+	id = 35671
+	random = no
+	country = CYN
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		local_flag = CGXAttackJAP
+		NOT = { war = { country = JAP country = CYN } }
+		NOT = { lost_national = { country = CHI value = 50 } }
+		NOT = { lost_national = { country = CYN value = 1 } }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/CYN_Defend_JAP.ai" }
+		command = { type = local_clrflag which = CYNAttackJAP }
+	}
+}
+################
+# Yunnan  Backs off from Japan AI
+#############################################
+event = {
+	id = 35672
+	random = no 
+	country = CYN
+	
+	trigger = {
+		ai = yes
+		war = { country = CYN country = JAP }
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/WAR_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Yunnan changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 35673
+	random = no 
+	country = CYN
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CYN }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CYN_Japan.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}

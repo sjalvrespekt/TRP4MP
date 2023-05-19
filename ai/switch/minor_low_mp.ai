@@ -1,0 +1,89 @@
+# Minor Low MP AI file by DerStudti
+
+upgrading = 0.50
+reinforcement = 0.25
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.60 
+
+	AA_batteries = atwar
+	max_AA_level = 2
+	AA_provs = { } 
+	
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = {	} 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = no
+	max_air_base = 2 
+	air_base_provs = { } 
+
+	naval_base = no 
+	max_naval_base = 5 
+	naval_base_provs = { } 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = yes 
+	force_ic_until = 1935
+	ic_end_year = 1941
+	IC_provs = { } 
+}
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 180 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 10
+	d_02		= 0
+	militia		= 0
+	cavalry 	= 0
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 0
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 5
+	garrison	= 0
+    hq 			= 0
+#				15 %
+	interceptor 	= 15
+	multi_role 	= 0
+	d_01		= 0
+	cas 		= 0
+	strategic_bomber = 0
+	tactical_bomber = 0
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				15 %
+	battleship 	= 0
+	carrier 	= 0
+	light_carrier = 0
+	escort_carrier	= 0
+	destroyer 	= 35
+	light_cruiser 	= 20
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 5
+	nuclear_submarine = 5
+	d_09 = 0
+	d_08 = 0
+	transports 	= 5
+#				70 %
+	
+}

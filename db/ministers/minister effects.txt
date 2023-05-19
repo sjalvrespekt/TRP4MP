@@ -1,0 +1,117 @@
+0_PERSONALITY_none_ 						
+
+// Head of State:				Effects:
+1_PERSONALITY_Autocratic Charmer: 		CG need -5%; IC -10%; Dissent growth rate -10%; 
+2_PERSONALITY_Barking Buffoon: 			Organisation regain -5%; Peacetime Belligerence -0.4 per month;	Alliance chance with Democracies +30% 
+3_PERSONALITY_Benevolent Gentleman:		CG need -5%; Dissent growth rate -10%; Belligerence required for DOW +20% 
+4_PERSONALITY_Die-hard Reformer:		CG need -10%; Belligerence needed for DOW -15%; Money Production -25% 
+5_PERSONALITY_Insignificant Layman:		Dissent growth rate +5%; Money production +5% 
+6_PERSONALITY_Pig-headed Isolationist:		Belligerence required for declaration of war +30%; Money production +25% 
+7_PERSONALITY_Popular Figurehead:		Consumer goods need +10%; Dissent growth rate -50% 
+8_PERSONALITY_Power-Hungry Demagogue: 		Wartime Belligerence +0.2 per month; Peacetime Belligerence -0.5 per month; Alliance chance with Dictatorships + 50% 
+9_PERSONALITY_Resigned Generalissimo: 		Supplies +10%; Dissent growth rate +10%; Money production -10%; Transport Capacity +15% 
+10_PERSONALITY_Ruthless Powermonger:		Inf. constr -25%; Mill constr -25%; Money production -25%; Chance to coup us -80%; Unit Organisation -10% 
+11_PERSONALITY_Stern Imperialist: 		CG need -5%; Unit build costs -10%; Dissent growth rate +20% 
+12_PERSONALITY_Weary Stiffneck:			Organisation regain +5%; Diplomatic costs +10% 
+ 
+// Head of Government:
+13_PERSONALITY_Ambitious Union Boss:		CG need -15%; Dissent growth rate +5% Money production -30%  
+14_PERSONALITY_Backroom Backstabber:		IC -5%; Chance to coup us -30%; Coup Nation 900 (1000)  
+15_PERSONALITY_Corporate Suit:			Money production +50%; Dissent growth rate +10%; Unit build costs +5% 
+16_PERSONALITY_Flamboyant Tough Guy: 		Alliance chance with close ideologies +50%; Leader skill efficiency -10%  
+17_PERSONALITY_Happy Amateur:			Dissent Growth Rate -10%; Money Production -5% 
+18_PERSONALITY_Naive Optimist:			CG need -10%; Belligerence required for DOW +10%  
+19_PERSONALITY_Old Admiral:			CA+CL+DD constr bonus -5%; Tac+Escort constr bonus +5%; 	 
+20_PERSONALITY_Old Air Marshal:			Tac + Escort constr bonus -5%; Inf + Mount + Mill constr bonus +5%;  
+21_PERSONALITY_Old General:			Inf, Mount, Mil constr bonus -5%; CA, CL, DD constr bonus +5%;  
+22_PERSONALITY_Political Protege:		CG need +3%; Dissent growth rate -5% 	 
+23_PERSONALITY_Silent Workhorse:		IC +5%; Diplomacy costs +20% 
+24_PERSONALITY_Smiling Oilman:			Alliance chance -20%; Oil production +10%  
+
+// Foreign Minister:
+25_PERSONALITY_APOLOGETIC_CLERK 		Influence -133(-100), Cancelling or revoking mil. access 0(-30), Sue for peace 0(0).
+26_PERSONALITY_BIASED_INTELLECTUAL 		Target government of different type:offer alliance -50(-100),Bring to alliance -50(-100), join alliance -15(-30), Guarantee independence -15(-30), open negotiations -8(-30), offer trade 0(0),sue for peace 0(0)
+27_PERSONALITY_IDEOLOGICAL_CRUSADER 		Influence -67(-100), open negotiations -8(-30), offer trade 0(0)
+28_PERSONALITY_IRON_FISTED_BRUTE		Influence -67(-100) anneks 0(0), Demand Territory -67(-100).
+29_PERSONALITY_GENERAL_STAFFER 			Ask for mil. acces -75(-150), assume mil. control 0(0)
+30_PERSONALITY_GREAT_COMPROMISER		offer alliance -50(-100), bring to alliance -50(-100), join alliance -15(-30),leave alliance -90(-150),Ban from alliance -90(-150), guarantee indepedence -15(-30)
+31_PERSONALITY_THE_CLOAK_N_DAGGER_SCHEMER 	coup nations -667(-1000), puppet regime 0(0)
+
+// Armaments Minister:
+32_PERSONALITY_ADMINISTRATIVE_GENIUS_ 		IC +10%.  
+33_PERSONALITY_AIR_SUPERIORITY_PROPONENT_ 	Aircraft research +10%.
+34_PERSONALITY_BATTLE_FLEET_PROPONENT_ 		Naval research +10%. 
+35_PERSONALITY_RESOURCE_INDUSTRIALIST_ 		IC. +5%, Industry research. +10%. 
+36_PERSONALITY_LAISSEZ_FAIRES_CAPITALIST_ 	CG need -20%. 
+37_PERSONALITY_THEORETICAL_SCIENTIST_ 		Secret weapons research +10%.
+38_PERSONALITY_MILITARY_ENTREPRENEUR_ 		20% more supplies produced per IC
+39_PERSONALITY_SUBMARINE_PROPONENT_ 		SS construction -10%. 
+40_PERSONALITY_TANK_PROPONENT_ 			Armor and Artillery research +10%. 
+41_PERSONALITY_INFANTRY_PROPONENT_ 		Infantry research +10%.  
+42_PERSONALITY_CORRUPT_KLEPTOCRAT_ 		10% less supplies produced per IC, -5% IC.
+43_PERSONALITY_AIR_TO_GROUND_PROPONENT_ 	TAC. and CAS. construction -5%.
+44_PERSONALITY_AIR_TO_SEA_PROPONENT_ 		naval bombers + CAG construction -5%.
+45_PERSONALITY_STRATEGIC_AIR_PROPONENT_ 	strategic bombers construction -10%. 
+
+// Minister of Security:
+46_PERSONALITY_BACK_STABBER_ 			CG need +5%.
+47_PERSONALITY_COMPASSIONATE_GENTLEMAN_ 	Foreign IC +5%. Foreign Manpower use +5%. 
+48_PERSONALITY_CRIME_FIGHTER_ 			CG need -10%. 
+49_PERSONALITY_CROOKED_KLEPTOCRAT_  		IC -3%.  
+50_PERSONALITY_EFFICIENT_SOCIOPATH_ 		Foreign IC +10%. Manpower growth -10%.
+51_PERSONALITY_MAN_OF_THE_PEOPLE_ 		Foreign Manpower use +10%  Manpower growth +10%. 
+52_PERSONALITY_PRINCE_OF_TERROR_ 		foreign IC +15%. CG need +10%. 
+53_PERSONALITY_SILENT_LAWYER_ 			CG need -5%.
+
+// Head of Military Intelligence:
+54_PERSONALITY_DISMAL_ENIGMA_ 			    Intell +5%, send spy chance +5%, counter espionage chance +5%.
+55_PERSONALITY_INDUSTRIAL_SPECIALIST_ 		IC +5%, Steal Blueprint +5% chance, sabotage industry +5% chance  
+56_PERSONALITY_LOGISTICS_SPECIALIST_ 		land units detection +30% 
+57_PERSONALITY_NAVAL_INTELLIGENCE_SPECIALIST 	naval units detection +20%. Steal Blueprints chance +5%, sabotage techteam chance +5%.
+58_PERSONALITY_POLITICAL_SPECIALIST_ 		Influence nations chance +20%, Coup nation, assassinate minister, smear campaign, fund partisans and global manipulation chance +5%
+59_PERSONALITY_TECHNICAL_SPECIALIST_ 		research +5%, steal blueprint chance +5%, nuclear sabotage chance +5%, sabotage techteam chance +5% 
+
+// Chief of Staff:
+60_PERSONALITY_SCHOOL_OF_DEFENCE_		Def. combat modifier +10% 
+61_PERSONALITY_SCHOOL_OF_FIRE_SUPPORT_ 		5% cost and time reduction to Armor and Artillery research. 5% cost and time reduction to art, SP.Art, RCT.Art and SP.RCT.Art brigade construction.
+62_PERSONALITY_SCHOOL_OF_MASS_COMBAT_		Manpower growth +25%, Inf construction -5%.  
+63_PERSONALITY_SCHOOL_OF_MANOEUVRE_ 		Land unit speed +10% 
+64_PERSONALITY_SCHOOL_OF_PSYCHOLOGY_		organization regain +20% 
+
+// Chief of Army:
+65_PERSONALITY_ARMOURED_SPEARHEAD_DOCTRINE	ARM, Mech,TD, SP.ART, SP.RCT.ART constr. -5%, ARM, Mech,TD, SP.ART, SP.RCT.ART off. combat mod. +5%
+66_PERSONALITY_DECISIVE_BATTLE_DOCTRINE_	Inf, ART, RCT.ART AT.ART constr. -5% and off. combat mod. +5%.
+67_PERSONALITY_ELASTIC_DEFENCE_DOCTRINE_	MOT, Mech, SP.ART, SP.RCT.ART, construction -5% deff. combat mod. +5%
+68_PERSONALITY_GUNS_AND_BUTTER_DOCTRINE_	Units consume 15% less supplies.
+69_PERSONALITY_STATIC_DEFENCE_DOCTRINE_		Land Fort constr. Bonus -10%, Inf and AT. constr. bonus -5%, Inf and AT def. mod. +5% 
+
+// Chief of Navy:
+70_PERSONALITY_BASE_CONTROL_DOCTRINE_		marine and transport construction -10%, DD constr. -5%,CL and CA constr. +5% BC and BB off. combat mod. -10%
+71_PERSONALITY_DECISIVE_NAVAL_BATTLE_DOCTRINE_	BB, BC, CA and CL +5% off. combat mod. -10% off. combat mod to CV
+72_PERSONALITY_INDIRECT_APPROACH_DOCTRINE_	DD and TP constr -5%, BC and SS off. combat mod. +10%
+73_PERSONALITY_OPEN_SEAS_DOCTRINE_		CV, CL, DD and TP def. combat mod. + 5%, SS def. combat mod. -10%
+74_PERSONALITY_POWER_PROJECTION_DOCTRINE_       BB, CA, CL off. combat mod. +5%. CV off. combat mod. +10%, TP and DD constr. +10%
+
+// Chief of Air Force:
+75_PERSONALITY_AIR_SUPERIORITY_DOCTRINE_	FGT, INT and AA constr -5%. FGT, INT off. and def. combat mod. +5%, strategic and naval bombers constr. +10%
+76_PERSONALITY_ARMY_AVIATION_DOCTRINE_		TAC and CAS, constr. -5% off and def. combat mod. +5%, strategic bombers constr. +10% 
+77_PERSONALITY_CARPET_BOMBING_DOCTRINE_		Strat. bombers and Esc.FGT constr. bonus -10%, Strat. off. +10% def. +5% combat mod. Escorts. def.+10% off. +5% combat mod.
+78_PERSONALITY_NAVAL_AVIATION_DOCTRINE_		CV def. combat mod.+5%, Nav.Bomber off and Def. combat mod.+5% constr.-5% Strat. bombers constr. +10% 
+79_PERSONALITY_VERTICAL_ENVELOPMENT_DOCTRINE_	paratrooper and transport plane construction -5%. Para. off combat modifier +10%, def. combat modifier +5% 
+
+// All Ministers:
+80_PERSONALITY_UNDISTINGUISHED_SUIT_ 		None
+
+// DH Ministers:
+
+83_PERSONALITY_ADMINISTRATIVE_GENIUS		5% IC, 5% energy, 5% metal, 5% rares
+84_PERSONALITY_RESOURCE_INDUSTRIALIST		2.5% IC, 2.5% energy, 2.5% metal, 2.5% rares, -10% industry research time
+
+// TRP Ministers:
+81_PERSONALITY_PARANOID_EGOMANIAC			-5% IC, -75% leader skill, +200% upgrade cost, -10% dissent
+82_PERSONALITY_STERN_IMPERIALIST			+25% diplo. cost for opp. align., +20% dissent, +10% stockpiles, -5% armor research time
+85_PERSONALITY_Aerial Warfare Doctrine:     Prov. AA and AA brigade constr -15%, SPAA -10%
+86_PERSONALITY_Coastal Defense Doctrine:    CA +10% off. combat mod., CL, DD and DL +5% def. combat mod., CA constr. -5%, CA moral +5%, BB and BC constr. +20%
+87_PERSONALITY_OIL_INDUSTRIALIST:           Stockpile supplies +10%, Oil-production +15%
+88_PERSONALITY_REARMAMENT_INDUSTRIALIST:    Upgrade time -20%
+89_PERSONALITY_MERCHANT_NAVY_FOCUS			-25% costs for trade agreements, +5% TC, +15% stockpiles

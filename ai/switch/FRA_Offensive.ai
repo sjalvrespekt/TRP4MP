@@ -1,0 +1,43 @@
+# checked DH
+# France Offensive AI File by Lothos
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	home_peace_cap 		= 100
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 1.0
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 40	# Our capital
+	human_border	= 10	# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	province_priorities = {	}
+	area_multiplier = { }
+}
+front = { 
+	recklessness 		= 1 # 0-3
+	distrib_vs_ai 		= even
+	distrib_vs_human 	= even
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+	enemy_handicap = { } 
+	passivity = { } 
+} 

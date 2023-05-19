@@ -1,0 +1,195 @@
+#	elite cavalry				
+#allowed_brigades =  artillery					
+#allowed_brigades =  anti_tank					
+#allowed_brigades =  anti_air					
+#allowed_brigades =  rocket_artillery					
+allowed_brigades =  sp_artillery					
+allowed_brigades =  sp_rct_artillery					
+allowed_brigades =  tank_destroyer					
+allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+allowed_brigades =  sp_anti_air	
+allowed_brigades =  b_01				
+					
+#upgrade = { type = d_05 upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }					
+					
+# Great War Elite Cavalry Division (1918) - 0					
+model = {					
+	cost =				7.5
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				11
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				15
+	toughness =				16
+	softness =				100
+	suppression =				0
+	airdefence =				11
+	softattack =				13
+	hardattack =				0
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				1.83
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Early Cavalry Division (1933) - 1					
+model = {					
+	cost =				8.72
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				11
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				20
+	toughness =				21
+	softness =				100
+	suppression =				0
+	airdefence =				15
+	softattack =				17
+	hardattack =				0
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				2.13
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Basic Cavalry Division (1936) - 2					
+model = {					
+	cost =				8.99
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				11
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				21
+	toughness =				22
+	softness =				100
+	suppression =				0
+	airdefence =				16
+	softattack =				18
+	hardattack =				0
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				2.2
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Basic Cavalry Division (1938) - 3					
+model = {					
+	cost =				9.54
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				11
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				23
+	toughness =				24
+	softness =				100
+	suppression =				0
+	airdefence =				17
+	softattack =				20
+	hardattack =				0
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				2.33
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Semi-Motorized Cavalry Division (1941) - 4					
+model = {					
+	cost =				10.42
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				27
+	toughness =				29
+	softness =				100
+	suppression =				0
+	airdefence =				21
+	softattack =				24
+	hardattack =				1
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				2.55
+	fuelconsumption =				1
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Motorized Cavalry Division (1943) - 5					
+model = {					
+	cost =				11.05
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				30
+	toughness =				32
+	softness =				95
+	suppression =				0
+	airdefence =				23
+	softattack =				27
+	hardattack =				2
+	airattack =				1
+	transportweight =				12.5
+	supplyconsumption =				2.7
+	fuelconsumption =				2.1
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 15000                                    }
+}					
+# Elite Armored Cavalry Division (1945) - 6					
+model = {					
+	cost =				11.72
+	buildtime =			 	220
+	manpower =				15
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				34
+	toughness =				36
+	softness =				90
+	suppression =				0
+	airdefence =				26
+	softattack =				30
+	hardattack =				2
+	airattack =				2
+	transportweight =				12.5
+	supplyconsumption =				2.86
+	fuelconsumption =				4.125
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	d_05 =				4
+	equipment =				{ manpower = 15000                                    }
+}					

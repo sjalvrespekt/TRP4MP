@@ -1,0 +1,1158 @@
+# converted to DH, Kane, July 23 2011
+#########################################################################
+# 3165000 - 3165999	Poland events
+#########################################################################
+
+#########################################################################
+#  The UK offers an Alliance
+#########################################################################
+event = { 
+	id = 3600
+	random = no
+	country = POL
+	
+	# Triggered by ENG 3131031
+	
+	name = EVT_3600_NAME
+	desc = EVT_3600_DESC
+	style = 0
+	picture = "guarantee_POL"
+	
+	action_a = {
+		name = ACTIONNAME3600A # Accept
+		ai_chance = 98
+		command = { type = relation which = ENG value = 10 }
+		command = { type = relation which = FRA value = 10 }
+		command = { type = relation which = GER value = -15 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = trigger which = 3131032 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3600B # Decline
+		ai_chance = 2
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = relation which = GER value = 5 }
+		command = { type = relation which = SOV value = 5 }
+		command = { type = trigger which = 3131033 }
+	}
+}
+#########################################################################
+#  Danzig or War (Options) (was 3601)
+#########################################################################
+event = { 
+	id = 3165000
+	random = no
+	country = POL
+	
+	# Triggered by GER 2027
+	
+	name = EVT_3601_NAME
+	desc = EVT_3601_DESC
+	style = 0
+	picture = "Danzig"
+	
+	action_a = {
+		name = ACTIONNAME3165000A
+		ai_chance = 99
+		command = { type = relation which = SOV value = 5 }
+		command = { type = relation which = ENG value = 10 }
+		command = { type = relation which = FRA value = 10 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = trigger which = 3136029 }
+		command = { type = end_mastery which = U04 }
+		command = { type = dissent value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3165000B
+		ai_chance = 1
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = SOV value = -5 }
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = trigger which = 3136030 }
+		command = { type = dissent value = 20 }
+	}
+}
+########################################################################
+# Polish Mobilization
+# by CCM von Hausser
+#########################################################################
+event = { 
+	id = 3165001
+	random = no
+	country = POL
+	
+	trigger = { 
+		OR = {
+			event = 2040
+			event = 3136015
+		}
+		OR = {
+			NOT = { exists = CZE }
+			war = { country = CZE country = GER }
+		}
+	}
+	
+	name = EVT_3165001_NAME
+	desc = EVT_3165001_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3165001A
+		command = { type = manpowerpool value = 170 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3165001B
+		command = { }
+	}
+}
+#########################################################################
+# Polish Full Mobilization
+# by CCM von Hausser
+#########################################################################
+event = { 
+	id = 3165002
+	random = no
+	country = POL
+	
+	trigger = { war = { country = POL country = GER } }
+	
+	name = EVT_3165002_NAME
+	desc = EVT_3165002_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3165002A
+		command = { type = manpowerpool value = 200 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3165002B
+		command = { }
+	}
+}
+#########################################################################
+# German Early War
+#########################################################################
+event = { 
+	id = 3165003
+	random = no
+	country = POL
+	
+	trigger = { 
+		ai = yes
+		NOT = { war = { country = POL country = ENG } }
+		NOT = { alliance = { country = POL country = ENG } }
+		OR = {
+			control = { province = 5 data = GER } # British beaches
+			control = { province = 9 data = GER }
+			control = { province = 12 data = GER }
+			control = { province = 25 data = GER }
+			control = { province = 26 data = GER }
+			control = { province = 27 data = GER }
+			control = { province = 23 data = GER }
+			control = { province = 22 data = GER }
+			control = { province = 17 data = GER }
+			control = { province = 11 data = GER }
+			control = { province = 36 data = GER }
+		}
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = august year = 1939 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = alliance which = ENG }
+	}
+}
+
+#########################################################################
+# Poland occupies Tesin
+#########################################################################
+event = {
+	id = 3165004
+	random = no
+	country = POL
+	
+	#triggered by CZE 3127012
+	
+	name = EVT_3127012_NAME 
+	desc = EVT_3127012_DESC 
+	style = 0
+
+	
+	action_a = {
+		name = "ACTION_NAME_GREAT"
+		command = { type = dissent value = -1 }
+	}
+}
+
+#########################################################################
+# Peking Plan
+#########################################################################
+event = { 
+	id = 3165005
+	random = no
+	country = POL
+	
+	one_action = yes
+	
+	trigger = {
+				OR = { # Molotov-Ribbentrop pact outcomes
+						event = 2013
+						event = 2015
+						event = 2016
+						event = 3136024
+						}
+				atwar = no
+				OR = {
+						event = 3131032 # pact with ENG
+						alliance = { country = ENG country = POL }
+						}
+				NOT = { alliance = { country = GER country = POL }}
+				NOT = { alliance = { country = SOV country = POL }}
+				}
+	
+	name = EVT_3165005_NAME
+	desc = EVT_3165005_DESC 
+	style = 2
+	picture = "pol_event_peking"
+	
+	date = { day = 26 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action = { # Peking Plan full success
+		ai_chance = 40
+		name = ACTIONNAME3165005A
+		command = { type = switch_allegiance which = -2 where = ENG } # random naval unit switches over to ENG
+		command = { type = switch_allegiance which = -2 where = ENG } # random naval unit switches over to ENG
+		command = { type = trigger which = 3165006 }
+	}
+	action = { # Peking Plan partial success
+		ai_chance = 40
+		name = ACTIONNAME3165005B
+		command = { type = switch_allegiance which = -2 where = ENG } # random naval unit switches over to ENG
+		command = { type = trigger which = 3165006 }
+	}
+	action = { # Peking Plan fails
+		ai_chance = 20
+		name = ACTIONNAME3165005C
+		command = { }
+	}
+}
+
+event = { 
+	id = 3165006
+	random = no
+	country = ENG
+	
+	name = EVT_3165005_NAME
+	desc = EVT_3165005_DESC 
+	style = 2
+	picture = "pol_event_peking"
+	
+	action_a = {
+		name = ACTIONNAME3165006A
+		command = { }
+	}
+}
+
+###########################################################################
+#  	7400000 - 7499999
+###########################################################################
+#########################################################################
+# Was 702019 - (POL) Polish Refugees to Romania (by Generalisimo(New version: Rommel))
+#########################################################################
+event = {
+	id = 7400000
+	random = no
+	country = POL
+
+	trigger = {
+                war = { country = GER country = POL }
+                #war = { country = SOV country = POL }
+				NOT = { war = { country = ROM country = POL } }
+				#border to ROM
+				OR = { 
+						control = { province = 238 data = POL } # Stanislawow
+						control = { province = 240 data = POL } # Tarnopol
+						}
+				lost_national = { country = POL value = 2 }
+				}
+
+	name = EVT_7400000_NAME
+ 	desc = EVT_7400000_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+          ai_chance = 98
+		name = ACTIONNAME7400000A
+		command = { type = delete_unit which = -1 }
+		command = { type = trigger which = 6100006 }
+	}
+	action_b = {
+          ai_chance = 2
+		name = ACTIONNAME7400000B
+		command = { } 
+	}
+}
+
+#########################################################################
+# Was 702020 - (POL) Polish Refugees to Hungary (by Generalisimo(New version: Rommel))
+#########################################################################
+event = {
+	id = 7400001
+	random = no
+	country = POL
+	
+	trigger = {
+				war = { country = GER country = POL }
+				#war = { country = SOV country = POL }
+				NOT = { war = { country = HUN country = POL } }
+				#border to HUN
+				OR = { 
+						control = { province = 238 data = POL } # Stanislawow
+						control = { province = 241 data = POL } # Stryj
+						control = { province = 239 data = POL } # Przemysl
+						}
+				lost_national = { country = POL value = 2 }
+				}
+
+	name = EVT_7400001_NAME
+	desc = EVT_7400001_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+          ai_chance = 98
+		name = ACTIONNAME7400001A
+		command = { type = delete_unit which = -1 }
+		command = { type = trigger which = 3141013 }
+	}
+
+	action_b = {
+          ai_chance = 2
+		name = ACTIONNAME7400001B
+		command = { } 
+	}
+}
+###########################################################
+# Was 702029 Poland gets credit from France by Copper Nicus
+###########################################################
+event = { 
+	id = 7400003
+	random = no
+	country = POL
+
+	#Triggered by 432029
+
+	name = EVT_7400003_NAME
+	desc = EVT_7400003_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME7400003A
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+###########################################################
+# Was 702030 Polish pleas for credit from France rejected by Copper Nicus
+###########################################################
+event = { 
+	id = 7400004
+	random = no
+	country = POL
+
+	#Triggered by 432029
+
+	name = EVT_7400004_NAME
+	desc = EVT_7400003_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME7400004A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+###########################################################
+# Was 702033 Poland gets fighters tech from France by Copper Nicus
+###########################################################
+event = { 
+	id = 7400005
+	random = no
+	country = POL
+
+	# triggered by 6100012 & 6100013
+
+	name = EVT_7400005_NAME
+	desc = EVT_7400003_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME7400005A
+		command = { }
+		# command = { type = gain_tech which = 10002 }
+		# command = { type = gain_tech which = 10003 }  
+		# command = { type = gain_tech which = 30001 }
+		# command = { type = gain_tech which = 30002 }
+		# command = { type = gain_tech which = 30004 }
+		# command = { type = gain_tech which = 50000 }
+		# command = { type = gain_tech which = 50001 }
+	}
+}
+###########################################################
+# Was 702034 Poland gets fighters from France by Copper Nicus
+###########################################################
+event = { 
+	id = 7400006
+	random = no
+	country = POL
+
+	trigger = { event = 7400005 }  # Romania helped
+
+	name = EVT_7400006_NAME
+	desc = EVT_7400003_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400006A		
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = add_division value = interceptor }
+	}
+}
+###########################################################
+# Was 702035 Poland gets credit from UK by Copper Nicus
+###########################################################
+event = { 
+	id = 7400007
+	random = no
+	country = POL
+
+	#Triggered by 3131043
+
+	name = EVT_7400007_NAME
+	desc = EVT_7400007_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME7400007A
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = supplies value = 50 }
+	}
+}
+
+###########################################################
+# Was 702036 Polish pleas for credit from UK rejected by Copper Nicus
+###########################################################
+event = { 
+	id = 7400008
+	random = no
+	country = POL
+
+	#Triggered by 3131043
+
+	name = EVT_7400008_NAME
+	desc = EVT_7400007_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME7400008A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+###########################################################
+# Was 702039 Poland gets bombers from UK by Copper Nicus
+###########################################################
+event = { 
+	id = 7400009
+	random = no
+	country = POL
+
+	#Triggered by 6100014
+
+	name = EVT_7400009_NAME
+	desc = EVT_7400007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME7400009A	
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = add_division value = tactical_bomber }
+	}
+}
+
+
+
+################################################################
+# Was 702044 - (POL) Polish Communist Party (by Halibutt)
+################################################################
+event = {
+	id = 7400012
+	random = no
+	country = POL
+
+	trigger = {
+		random = 50
+		atwar = no
+		alliance = { country = POL country = SOV }
+	}
+
+	name = EVT_7400012_NAME
+	desc = EVT_7400012_DESC
+	style = 0
+
+	date = { day = 0 month = august year = 1937 }
+	offset = 15 
+	deathdate = { day = 29 month = october year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME7400012A #Great!
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = -3 }
+	}
+}
+###############################################################
+# Was 702045 - (POL) A polish melting-pot part 1 (by Halibutt)
+###############################################################
+event = { 
+	id = 7400013
+	random = no
+	country = POL
+
+	trigger = {
+		random = 30
+		atwar = no
+	}
+
+	name = EVT_7400013_NAME
+	desc = EVT_7400013_DESC
+	style = 0
+
+	date = { day = 2 month = january year = 1937 } 
+	offset = 15
+	deathdate = { day = 29 month = october year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME7400013A #Let them leave
+		command = { type = dissent value = -1 } 
+		command = { type = manpowerpool value = -16 }
+	}
+	action_b = {
+		name = ACTIONNAME7400013B #Make them stay
+		command = { type = dissent value = 3 }
+		command = { type = money value = -3 }
+		command = { type = manpowerpool value = -5 } #many of them emigrate anyway
+		command = { type = construct which = ic where = -1 value = -1 }
+		command = { type = construct which = ic where = -1 value = -1 }
+	}
+}
+###############################################################
+# Was 702046 - (POL) A polish melting-pot part 1 (by Halibutt)
+###############################################################
+event = { 
+	id = 7400014
+	random = no
+	country = POL
+
+	trigger = {
+		atwar = no
+		random = 20
+	}
+
+	name = EVT_7400014_NAME
+	desc = EVT_7400014_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME7400014A #Their demands are absurd
+		command = { type = dissent value = 2 } 
+	}
+	action_b = {
+		name = ACTIONNAME7400014B #We should revise it
+		command = { type = dissent value = -1 }
+		command = { type = manpowerpool value = -1 } #Deaths due to salmonella	
+	}
+}
+################################################################
+# Was 702047 - (POL) Central Industrial Zone (by Halibutt)
+################################################################
+event = { 
+	id = 7400015
+	random = no 
+	country = POL
+
+	trigger = { 
+		supplies = 300
+		energy = 2500
+		metal = 500
+	} 
+
+	name = EVT_7400015_NAME
+ 	desc = EVT_7400015_DESC
+	style = 0
+
+        date = { day = 0 month = may year = 1937 }
+        offset = 5
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME7400015A
+                command = { type = construct which = ic where = -1 value = 1 }
+		command = { type = dissent value = -5 }
+                command = { type = construct which = infrastructure where = -1 value = 5 }
+                command = { type = construct which = infrastructure where = -1 value = 5 }
+                command = { type = construct which = infrastructure where = -1 value = 5 }
+		command = { type = supplies value = -200 }
+		command = { type = metalpool value = -500 }
+		command = { type = energypool value = -2500 }
+		command = { type = setflag which = COP }
+	}
+	action_b = {
+		name = ACTIONNAME7400015B
+                command = { type = construct which = ic where = -1 value = -1 }
+                command = { type = construct which = ic where = -1 value = -1 }
+                command = { type = construct which = ic where = -1 value = -1 }
+                command = { type = construct which = ic where = -1 value = -1 }
+	}
+}
+################################################################
+# Was 702048 - (POL) Central Industrial Zone (by Halibutt)
+################################################################
+event = { 
+	id = 7400016
+	random = no
+	country = POL
+
+	trigger = {
+		random = 30
+		flag = COP # Set at 7400015
+		atwar = no			
+	} 
+
+	name = EVT_7400016_NAME
+ 	desc = EVT_7400016_DESC
+	style = 0
+
+	date = { day = 2 month = may year = 1938 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME7400016A
+		command = { type = construct which = ic where = 234 value = 1 } #Radom
+		command = { type = construct which = ic where = 239 value = 1 } #Przemysl
+		command = { type = construct which = ic where = 235 value = 1 } #Kraków
+		command = { type = construct which = ic where = 243 value = 2 } #Sandomierz
+		command = { type = construct which = infrastructure where = -1 value = 10 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+#################################################################
+# Was 702052 - (POL) Polish Melting-pot Part 2 (by Halibutt)
+#################################################################
+event = { 
+	id = 7400020
+	random = no
+	country = POL
+
+	trigger = {     
+		random = 20
+		atwar = no
+ 	}
+
+	name = EVT_7400020_NAME
+ 	desc = EVT_7400020_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 25
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME7400020A # Ukrainians should be happy with what they have
+		command = { type = dissent value = 3 } 
+	}
+	action_b = {
+		name = ACTIONNAME7400020B # It is their city as well
+		command = { type = dissent value = -2 }
+	}
+	action_c = {
+		name = ACTIONNAME7400020C # We do not need more problems in Lwów
+		command = { type = dissent value = -1 }
+	}
+}
+#################################################################
+# Was 702053 - (POL) Polish Melting-pot Part 2 (by Halibutt)
+#################################################################
+event = {
+	id = 7400021
+	random = no
+	country = POL
+
+	trigger = {
+		event = 7400020 # Ukrainian university
+		random = 10
+		atwar = no
+	}
+
+	name = EVT_7400021_NAME
+ 	desc = EVT_7400021_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 60
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400021A # Changes will lead us to nowhere
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME7400021B # Ok
+		command = { type = dissent value = 2 }
+	}
+	action_c = {
+		name = ACTIONNAME7400021C # Ok
+		command = { type = construct which = ic where = 242 value = -2 } # Lwów
+		command = { type = construct which = ic where = 244 value = -1 } # Równe
+		command = { type = dissent value = -5 }
+	}
+}
+#################################################################
+# Was 702054 - (POL) Polish Melting-pot Part 2 (by Halibutt)
+#################################################################
+event = {
+	id = 7400022
+	country = POL
+	random = no
+	trigger = {
+		random = 10
+		dissent = 6
+		atwar = no
+	}
+
+	name = EVT_7400022_NAME
+ 	desc = EVT_7400022_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400022A
+		command = { type = dissent value = -3 }
+	}
+}
+
+
+######################################################################
+# Was 702070 - (POL) Polish foreign affairs, communist (by Copper Nicus)
+######################################################################
+event = {
+        id = 7400037
+        random = no
+        country = POL
+
+	trigger = {
+		random = 15
+		exists = POL
+		exists = GER
+		exists = SOV
+                atwar = no
+		government = communist
+		NOT = {
+			OR = { 	
+				alliance = { country = POL country = SOV }
+				ispuppet = POL
+				ispuppet = GER
+			}
+		}
+	}
+
+        name = EVT_7400037_NAME
+        desc = EVT_7400037_DESC
+	style = 0
+
+        date = { day = 0 month = january year = 1936 }
+        offset = 30 # Maybe I should increase it to 250-300?
+	deathdate = { day = 29 month = december year = 1946 }
+
+        action_a = { 
+                name = ACTIONNAME7400037A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 1 }
+	}
+        action_b = {
+                name = ACTIONNAME7400037B
+		command = {  } # Nothing
+	}
+}
+######################################################################
+# Was 702071 - (POL) Polish foreign affairs, fascist (by Copper Nicus)
+######################################################################
+event = {
+        id = 7400038
+        random = no
+        country = POL
+
+	trigger = { 
+		random = 15
+		exists = POL
+		exists = GER
+		exists = SOV
+                atwar = no
+		government = fascist
+		NOT = {
+			OR = { 	
+				alliance = { country = POL country = GER }
+				ispuppet = POL
+				ispuppet = GER
+			}
+		}
+	}
+
+        name = EVT_7400037_NAME
+        desc = EVT_7400037_DESC
+	style = 0
+
+        date = { day = 0 month = january year = 1936 }
+        offset = 30
+	deathdate = { day = 29 month = december year = 1946 }
+
+        action_a = { 
+                name = ACTIONNAME7400037A
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 1 }
+	}
+        action_b = {
+                name = ACTIONNAME7400038B
+		command = {  } # Nothing
+	}
+}
+######################################################################
+# Was 702072 - (POL) German sabotage detected (by Halibutt & Copper Nicus)
+######################################################################
+event = {
+	id = 7400039
+	random = no
+	country = POL
+
+	trigger = {
+		random = 5
+		NOT = {
+			OR = {
+				war = { country = SOV country = GER }
+				alliance = { country = GER country = POL }
+				ispuppet = GER
+				ispuppet = POL
+				exists = AUS
+			}
+		}
+	}
+
+	name = EVT_7400039_NAME
+	desc = EVT_7400039_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400039A
+		command = {  type = research_sabotaged }
+	}
+}
+######################################################################
+# Was 702073 - (POL) German sabotage detected (by Halibutt & Copper Nicus)
+######################################################################
+event = {
+	id = 7400040
+	random = no
+	country = POL
+
+	trigger = {
+		random = 5
+		NOT = {
+			OR = {
+				war = { country = SOV country = GER }
+				alliance = { country = GER country = POL }
+				ispuppet = GER
+				ispuppet = POL
+				exists = AUS
+			}
+		}
+	}
+
+	name = EVT_7400039_NAME
+	desc = EVT_7400039_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1937 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400039A
+		command = {  type = construct which = ic where = 235 value = -2 }
+		command = {  type = energypool value = -350 } 
+		command = {  type = supplies value = -50 } 
+	}
+}
+######################################################################
+# Was 702074 - (POL) German sabotage detected (by Halibutt & Copper Nicus)
+######################################################################
+event = {
+	id = 7400041
+	random = no
+	country = POL
+
+	trigger = {
+		random = 5
+		NOT = {
+			OR = {
+				war = { country = SOV country = GER }
+				alliance = { country = GER country = POL }
+				ispuppet = GER
+				ispuppet = POL
+				exists = AUS
+			}
+		}
+	}
+
+	name = EVT_7400039_NAME
+	desc = EVT_7400039_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1938 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400039A
+		command = {  type = construct which = ic where = 226 value = -2 }
+		command = {  type = energypool value = -350 } 
+		command = {  type = supplies value = -50 } 
+	}
+}
+######################################################################
+# Was 702075 - (POL) German sabotage detected (by Halibutt & Copper Nicus)
+######################################################################
+event = {
+	id = 7400042
+	country = POL
+	random = no
+
+	trigger = {
+		random = 5
+		NOT = {
+			OR = {
+				war = { country = SOV country = GER }
+				alliance = { country = GER country = POL }
+				ispuppet = GER
+				ispuppet = POL
+				exists = AUS
+			}
+		}
+	}
+
+	name = EVT_7400039_NAME
+	desc = EVT_7400039_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1939 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME7400039A
+		command = {  type = research_sabotaged }
+	}
+}
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 7400043
+	random = no
+	country = POL
+
+	# triggered by 3182091
+
+	name = EVT_7400043_NAME
+	desc = EVT_7400043_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7400043A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+###################################
+# Polish reaction on Rhineland re-occupation by Kane
+###################################
+event = { 
+	id = 7400900
+	random = no
+	country = POL
+
+	# triggered by 3136001 Rhineland
+
+	name = EVT_7400900_NAME
+	desc = EVT_7400900_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7400900A
+		command = { type = manpowerpool value = 300 }
+	}
+}
+
+
+###################################
+# Polish reaction on the 'Anschluss of Österreich' to the german Reich by Kane
+###################################
+event = { 
+	id = 7400901
+	random = no
+	country = POL
+
+	# triggered by 3136005 Anschluss
+
+	name = EVT_7400901_NAME
+	desc = EVT_7400901_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7400901A
+		command = { type = manpowerpool value = 500 }
+	}
+}
+######################################################################
+# Rola-Zymierski
+######################################################################
+event = {
+	id = 7400902
+	country = POL
+	random = no
+
+	trigger = {
+				alliance = { country = SOV country = POL }
+				government = communist
+				NOT = { leader = 8113 }
+			}
+
+	name = EVT_7400902_NAME
+	desc = EVT_7400902_DESC
+	style = 0
+
+	date = { day = 29 month = july year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME7400039A
+		command = {  type = wakeleader which = 8113 }
+	}
+}
+
+######################################################################
+# Polish-Lithuanian Crisis 
+######################################################################
+event = {
+	id = 7400903
+	country = POL
+	random = no
+
+	trigger = {
+				NOT = { alliance = { country = LIT country = POL }}
+                NOT = { atwar = yes }
+			}
+
+	name = EVT_7400903_NAME
+	desc = EVT_7400903_DESC
+	style = 2
+	picture = "pol_event_pol_lit_crisis"
+
+	date = { day = 15 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME7400903A
+		command = { type = relation which = LIT value = -15 }
+		command = { type = money    value = 250  }
+		command = { type = dissent  value = -1   }	
+		command = { type = supplies value = 2500 }
+		command = { type = trigger which = 7400904 }
+	}
+}
+
+event = {
+	id = 7400904
+	country = LIT
+	random = no
+
+	name = EVT_7400903_NAME
+	desc = EVT_7400903_DESC
+	style = 2
+	picture = "pol_event_pol_lit_crisis"
+
+	action_a = {
+		name = ACTIONNAME7400904A
+		command = { type = relation which = POL value = -50 }
+		command = { trigger = { ai = no } type = money    value = -250  }
+		command = { trigger = { ai = no } type = dissent  value = 2     }	
+		command = { trigger = { ai = no } type = supplies value = -1500 }
+	}
+}

@@ -1,0 +1,333 @@
+#Large Destroyer/Destroyer Leader
+
+#allowed_brigades = naval_asw
+allowed_brigades = naval_anti_air_s
+#allowed_brigades = naval_radar_s
+allowed_brigades = naval_fire_controll_s
+allowed_brigades = naval_improved_hull_s
+allowed_brigades = naval_torpedoes_s
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0.1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB. BC. CA. CL. DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB. BC. CA. CL. DD
+#sea attack/2 for carriers/CAG
+
+#WW1 Aviso/Sloop (1500to)
+model = {
+	cost = 0.35
+	buildtime = 600
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.11
+	maxspeed = 16
+	surfacedetectioncapability = 0.2
+	airdetectioncapability = 0.01
+	subdetectioncapability = 3
+	visibility = 0.75
+	seadefence = 1
+	airdefence = 0
+	seaattack = 1
+	airattack = 0
+	subattack = 1
+	convoyattack = 1
+	transportcapability = 0
+	shorebombardment = 1
+	range = 2000
+	supplyconsumption = 0.12
+	fuelconsumption = 0.15
+	distance = 0.12
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 110 }
+	
+	}
+#Large WW1 Destroyer (1250to)
+model = {
+	cost = 0.29
+	buildtime = 600
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.16
+	maxspeed = 33
+	surfacedetectioncapability = 0.2
+	airdetectioncapability = 0.01
+	subdetectioncapability = 5
+	visibility = 0.625
+	seadefence = 1
+	airdefence = 1
+	seaattack = 2
+	airattack = 0
+	subattack = 2
+	convoyattack = 2
+	transportcapability = 0
+	shorebombardment = 1
+	range = 2000
+	supplyconsumption = 0.1
+	fuelconsumption = 0.13
+	distance = 0.14
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 160 }
+	
+	}
+#Modern Aviso/Sloop (2500to)
+model = {
+	cost = 0.49
+	buildtime = 720
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.18
+	maxspeed = 20
+	surfacedetectioncapability = 0.3
+	airdetectioncapability = 0.01
+	subdetectioncapability = 6
+	visibility = 1.25
+	seadefence = 1
+	airdefence = 1
+	seaattack = 2
+	airattack = 1
+	subattack = 2
+	convoyattack = 2
+	transportcapability = 0
+	shorebombardment = 1
+	range = 2800
+	supplyconsumption = 0.2
+	fuelconsumption = 0.25
+	distance = 0.14
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 180 }
+	
+	}
+#Large Washington Treaty Destroyer (2500to)
+model = {
+	cost = 0.39
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.21
+	maxspeed = 36
+	surfacedetectioncapability = 0.3
+	airdetectioncapability = 0.01
+	subdetectioncapability = 6
+	visibility = 1.25
+	seadefence = 1
+	airdefence = 2
+	seaattack = 3
+	airattack = 1
+	subattack = 2
+	convoyattack = 3
+	transportcapability = 0
+	shorebombardment = 2
+	range = 2400
+	supplyconsumption = 0.2
+	fuelconsumption = 0.25
+	distance = 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 210 }
+	
+	}
+#Large Pre-WW2 Destroyer (3000to)
+model = {
+	cost = 0.47
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.23
+	maxspeed = 38
+	surfacedetectioncapability = 0.3
+	airdetectioncapability = 0.01
+	subdetectioncapability = 7
+	visibility = 1.5
+	seadefence = 1
+	airdefence = 3
+	seaattack = 3
+	airattack = 2
+	subattack = 3
+	convoyattack = 3
+	transportcapability = 0
+	shorebombardment = 2
+	range = 2800
+	supplyconsumption = 0.24
+	fuelconsumption = 0.3
+	distance = 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 230 }
+	
+	}
+#Large WW2 Destroyer (3250to)
+model = {
+	cost = 0.51
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.25
+	maxspeed = 39
+	surfacedetectioncapability = 0.3
+	airdetectioncapability = 0.01
+	subdetectioncapability = 9
+	visibility = 1.625
+	seadefence = 2
+	airdefence = 4
+	seaattack = 4
+	airattack = 3
+	subattack = 4
+	convoyattack = 4
+	transportcapability = 0
+	shorebombardment = 3
+	range = 3500
+	supplyconsumption = 0.26
+	fuelconsumption = 0.33
+	distance = 0.17
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 250 }
+	
+	}
+#Large late-WW2 Destroyer (3500to)
+model = {
+	cost = 0.46
+	buildtime = 1080
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.33
+	maxspeed = 37
+	surfacedetectioncapability = 0.3
+	airdetectioncapability = 0.01
+	subdetectioncapability = 10
+	visibility = 1.75
+	seadefence = 2
+	airdefence = 6
+	seaattack = 4
+	airattack = 5
+	subattack = 5
+	convoyattack = 4
+	transportcapability = 0
+	shorebombardment = 3
+	range = 4250
+	supplyconsumption = 0.28
+	fuelconsumption = 0.35
+	distance = 0.18
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 330 }
+	
+	}
+#Large post-WW2 Destroyer (4000to)
+model = {
+	cost = 0.45
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.33
+	maxspeed = 36
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 12
+	visibility = 2
+	seadefence = 2
+	airdefence = 9
+	seaattack = 5
+	airattack = 6
+	subattack = 6
+	convoyattack = 5
+	transportcapability = 0
+	shorebombardment = 3
+	range = 5000
+	supplyconsumption = 0.32
+	fuelconsumption = 0.4
+	distance = 0.20
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 330 }
+	
+	}
+#Early Cold War Destroyer (4250to)
+model = {
+	cost = 0.48
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.3
+	maxspeed = 34
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 13
+	visibility = 2.125
+	seadefence = 2
+	airdefence = 14
+	seaattack = 5
+	airattack = 10
+	subattack = 7
+	convoyattack = 5
+	transportcapability = 0
+	shorebombardment = 3
+	range = 5900
+	supplyconsumption = 0.34
+	fuelconsumption = 0.43
+	distance = 0.22
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 300 }
+	
+	}
+#Guided Missile Destroyer (5250to)
+model = {
+	cost = 0.59
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.47
+	maxspeed = 33
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 14
+	visibility = 2.625
+	seadefence = 3
+	airdefence = 16
+	seaattack = 6
+	airattack = 15
+	subattack = 8
+	convoyattack = 6
+	transportcapability = 0
+	shorebombardment = 4
+	range = 6400
+	supplyconsumption = 0.41
+	fuelconsumption = 0.53
+	distance = 0.25
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.2
+	equipment = { destroyer = 1 manpower = 470 }
+	
+	}

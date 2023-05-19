@@ -1,0 +1,1178 @@
+# converted DH, Kane, July 2 2011
+####################################
+# France 21000 - 21999 by Lothos
+####################################
+# Air AI Flags
+#	FRAAirAIStrategic	= Stragegic Bombing is a priority
+#	FRAAirAIGround		= Ground support is a priority
+#	FRAAirAINaval		= Stragegic Bombing is a priority
+
+# Defense Flags
+#	FRASpanishFront		= SPR or SPA has allied with either the Axis or Comminterm
+
+# Homeland Defense Flags
+#	FRAHomeland			= Homeland under attack
+
+# Unit building AI
+#	FRABuildStandard	= Standard Building of units 
+#	FRABuildLand		= Priority Building land units
+
+################
+# Poland Invasion AI
+#############################################
+event = {
+	id = 21000
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		OR = {
+				atwar = GER
+				AND = {
+						NOT = { AI = GER }
+						NOT = { exists = CZE }
+						}
+				}
+		NOT = { war = { country = BEL country = GER } }
+		NOT = { war = { country = SCH country = GER } }
+		NOT = { war = { country = ITA country = GER } }
+		NOT = { war = { country = SPR country = GER } }
+		NOT = { war = { country = U01 country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Poland.ai" }
+		command = { type = ai which = "Air_Strategic.ai" }
+	}
+}
+################
+# France Invasion AI
+#############################################
+event = {
+	id = 21001
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = GER }
+		OR = {
+			lost_national = { country = FRA value = 2 }
+			AND = {
+				war = { country = BEL country = GER }
+				lost_national = { country = BEL value = 2 }
+			}
+			AND = {
+				war = { country = SCH country = GER }
+				lost_national = { country = SCH value = 2 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1948 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Germany.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 21004 }
+		command = { type = sleepevent which = 21000 }
+	}
+}
+################
+# France loads researching of nukes and special techs AI
+#############################################
+event = {
+	id = 21002
+	random = no 
+	country = FRA
+
+	trigger = {
+		ai = yes
+		year = 1941
+		NOT = { lost_national = { country = FRA value = 1 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Nuke_Research.ai" }
+	}
+}
+################
+# France loads possible war with Germany AI
+#############################################
+event = {
+	id = 21003
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = GER
+			atwar = yes
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_GER_Atwar.ai" }
+	}
+}
+################
+# France goes on the offensive AI but protects Belgium Border
+#############################################
+event = {
+	id = 21004
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = GER }
+		OR = {
+			AND = {
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 20
+			}
+			AND = {
+				month = 6 # July
+				NOT = {	month = 7 } # August
+				random = 50
+			}
+			AND = {
+				month = 7 # August
+				NOT = {	month = 8 } # September
+				random = 2
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_Offensive.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# France loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 21005
+	random = no 
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		war = { country = FRA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# France guards the Spanish Border
+#############################################
+event = { 
+	id = 21006
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = FRASpanishFront }
+		OR = {
+			alliance = { country = SPR country = SOV }
+			alliance = { country = U01 country = SOV }
+			alliance = { country = SPR country = GER }
+			alliance = { country = U01 country = GER }
+			alliance = { country = SPR country = ITA }
+			alliance = { country = U01 country = ITA }
+			control = { province = 443 data = ITA }
+			control = { province = 446 data = ITA }
+			control = { province = 438 data = ITA }
+			control = { province = 439 data = ITA }
+			control = { province = 437 data = ITA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = FRASpanishFront }
+		command = { type = ai which = "switch/FRA_Defense_Spain.ai" }
+	}
+}
+################
+# France removes guards on the Spanish Border
+#############################################
+event = { 
+	id = 21007
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = FRASpanishFront
+		NOT = {
+			alliance = { country = SPR country = SOV }
+			alliance = { country = U01 country = SOV }
+			alliance = { country = SPR country = GER }
+			alliance = { country = U01 country = GER }
+			alliance = { country = SPR country = ITA }
+			alliance = { country = U01 country = ITA }
+			control = { province = 443 data = ITA }
+			control = { province = 446 data = ITA }
+			control = { province = 438 data = ITA }
+			control = { province = 439 data = ITA }
+			control = { province = 437 data = ITA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = FRASpanishFront }
+		command = { type = ai which = "switch/FRA_Defense_Standard.ai" }
+	}
+}
+################
+# Unit building AI
+#	FRABuildStandard	= Standard Building of units 
+#	FRABuildLand		= Priority Building land units
+################
+# France loads Standard builds AI
+#############################################
+event = {
+	id = 21008
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { local_flag = FRABuildStandard }
+				OR = {
+						NOT = { manpower = 50 }
+						AND = {
+								land_percentage = { country = GER value = 1.2 }
+								land_percentage = { country = SOV value = 0.5 }
+								land_percentage = { country = USA value = 1.0 }
+								land_percentage = { country = ITA value = 1.0 }
+								}
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = may year = 1938 } # set to early summer 1938 so that initial buildup doesn't get interrupted
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = FRABuildStandard }
+		command = { type = local_clrflag which = FRABuildLand }
+		command = { type = ai which = "switch/FRA_Build_Standard.ai" }
+	}
+}
+################
+# France loads Land builds AI
+#############################################
+event = {
+	id = 21009
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { local_flag = FRABuildLand }
+				manpower = 100
+				OR = {
+						manpower = 500 # trigger army buildup as soon as mp is available
+						NOT = { land_percentage = { country = GER value = 1.1 } }
+						AND = {
+								war = { country = SOV country = FRA }
+								NOT = { land_percentage = { country = SOV value = 0.4 } }
+								}
+						AND = {
+								war = { country = USA country = FRA }
+								NOT = { land_percentage = { country = USA value = 0.9 } }
+								}
+						AND = {
+								war = { country = ITA country = FRA }
+								NOT = { land_percentage = { country = ITA value = 0.9 } }
+								}
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = may year = 1938 } # set to early summer 1938 so that initial buildup doesn't get interrupted
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = FRABuildStandard }
+		command = { type = local_setflag which = FRABuildLand }
+		command = { type = ai which = "switch/FRA_Build_Land.ai" }
+	}
+}
+################
+# Homeland Defense Flags
+#	FRAHomeland			= Homeland under attack
+################
+# France loads Homeland Defense AI
+#############################################
+event = {
+	id = 21010
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes	
+		NOT = { local_flag = FRAHomeland }
+		OR = {
+			lost_national = { country = FRA value = 2 }
+			AND = {
+				OR = {
+					war = { country = BEL country = GER }
+					war = { country = BEL country = SOV }
+				}
+				OR = {
+					# Belgium
+					NOT = { control = { province = 114 data = BEL } }
+					NOT = { control = { province = 112 data = BEL } }
+					NOT = { control = { province = 116 data = BEL } }
+					NOT = { control = { province = 115 data = BEL } }
+					NOT = { control = { province = 117 data = BEL } }
+					NOT = { control = { province = 108 data = BEL } }
+					NOT = { control = { province = 113 data = BEL } }
+					NOT = { control = { province = 110 data = BEL } }
+					NOT = { control = { province = 111 data = BEL } }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = FRAHomeland }
+		command = { type = ai which = "switch/FRA_Homeland.ai" }
+	}
+}
+################
+# France Rescinds Homeland Defense AI
+#############################################
+event = {
+	id = 21011
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = FRAHomeland
+		NOT = {
+			lost_national = { country = FRA value = 2 }
+			AND = {
+				OR = {
+					war = { country = BEL country = GER }
+					war = { country = BEL country = SOV }
+				}
+				OR = {
+					# Belgium
+					NOT = { control = { province = 114 data = BEL } }
+					NOT = { control = { province = 112 data = BEL } }
+					NOT = { control = { province = 116 data = BEL } }
+					NOT = { control = { province = 115 data = BEL } }
+					NOT = { control = { province = 117 data = BEL } }
+					NOT = { control = { province = 108 data = BEL } }
+					NOT = { control = { province = 113 data = BEL } }
+					NOT = { control = { province = 110 data = BEL } }
+					NOT = { control = { province = 111 data = BEL } }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = FRAHomeland }
+		command = { type = ai which = "switch/FRA_Homeland_Rescind.ai" }
+	}
+}
+################
+# France AI Slider manipulation
+#
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 21012
+	random = no
+	country = FRA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = interventionism value = 1}
+		NOT = { domestic = { type = interventionism value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 21013
+	random = no
+	country = FRA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = 1}
+		NOT = { domestic = { type = professional_army value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 21014
+	random = no
+	country = FRA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = 1}
+		NOT = { domestic = { type = defense_lobby value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+################
+# France builds V1 Bomb
+#############################################
+event = {
+	id = 21015
+	random = no
+	country = FRA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7100
+		NOT = { technology = 7110 } # V2 Rocket
+		NOT = { lost_national = { country = FRA value = 1 } }
+		NOT = { flying_bomb = { country = FRA value = 2 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_bomb }
+	}
+}
+################
+# France builds Rockets
+#############################################
+event = {
+	id = 21016
+	random = no
+	country = FRA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7110
+		NOT = { lost_national = { country = FRA value = 1 } }
+		NOT = { flying_rocket = { country = FRA value = 5 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_rocket }
+		command = { type = sleepevent which = 21015 }
+	}
+}
+
+################
+# France switches to upgrading and reinforcements
+#############################################
+event = {
+	id = 21017
+	random = no
+	country = FRA
+	#persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		OR = {
+				atwar = FRA
+				atwar = GER
+				year = 1939
+				event = 2030 # Treaty of Munich
+				}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = ai which = "switch/FRA_reinforce_and_upgrade.ai" }
+	}
+}
+
+####################################
+# France 21500 - 21599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 22500 - 22509
+#############################################
+event = { # Pierre Pené takes power
+	id = 21500
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2105 # Pierre Pené
+		NOT = { InCabinet = 2105 }
+		NOT = { minister = 2114 } # Camille Chautemps
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 2105 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Camille Chautemps takes power
+	id = 21501
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2114 # Camille Chautemps
+		NOT = { InCabinet = 2114 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 2114 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 21510 - 21519
+#############################################
+event = { # Maurice Gamelin takes power 
+	id = 21510
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = no
+			NOT = { minister = 2144 } # Jean-Marie Lattre de Tassigny
+			}
+		minister = 2007 # Maurice Gamelin
+		NOT = { InCabinet = 2007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 2007 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Jean-Marie Lattre de Tassigny takes power
+	id = 21511
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			NOT = { minister = 2007 } # Maurice Gamelin
+			}
+		minister = 2144 # Jean-Marie Lattre de Tassigny
+		NOT = { InCabinet = 2144 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 2144 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 21520 - 21529
+#############################################
+event = { # Roger Salengro takes power
+	id = 21520
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2123 # Roger Salengro
+		NOT = { InCabinet = 2123 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 2123 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Felix Gouin takes power
+	id = 21521
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2124 # Felix Gouin
+		NOT = { InCabinet = 2124 }
+		NOT = { minister = 2123 } # Roger Salengro
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 2124 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 21530 - 21539
+#############################################
+event = { # Leon Victor Bourgeois takes power
+	id = 21530
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 2157 # Leon Victor Bourgeois
+		NOT = { InCabinet = 2157 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 2157 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Maurice Gamelin takes power
+	id = 21531
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 2008 # Maurice Gamelin
+		NOT = { InCabinet = 2008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 2008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 21540 - 21549
+#############################################
+event = { # Edouard Daladier takes power
+	id = 21540
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = no
+			NOT = { minister = 2069 } # Jean Louis Barthou
+		}
+		minister = 2068 # Edouard Daladier
+		NOT = { InCabinet = 2068 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 2068 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Jean Louis Barthou takes power
+	id = 21541
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			NOT = { minister = 2068 } # Edouard Daladier
+		}
+		minister = 2069 # Jean Louis Barthou
+		NOT = { InCabinet = 2069 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 2069 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 21550 - 21559
+#############################################
+event = { # Marcel Deat takes power
+	id = 21550
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2183 # Marcel Deat
+		NOT = { InCabinet =  2183 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 2183 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Joseph Vuillemin takes power
+	id = 21551
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2187 # Joseph Vuillemin
+		NOT = { InCabinet =  2187 }
+		NOT = { minister = 2183 } # Marcel Deat
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 2187 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Government Section 21560 - 21569
+#
+# Pierre Laval 2040 
+# 24.01.36 Albert Sarraut 2002
+# 04.06.36 Léon Blum 2033
+# 22.06.37 Camille Chautemps 2036
+# 13.03.38 Léon Blum 2033
+# 10.04.38 Édouard Daladier 2037
+# 21.03.40 Paul Reynaud 2038
+#############################################
+event = { # Albert Sarraut takes power
+	id = 21560
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2040 # Pierre Laval
+		NOT = { InCabinet = 2002 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 23 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2002 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Léon Blum takes power
+	id = 21561
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2002 # Albert Sarraut
+		NOT = { InCabinet = 2033 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 3 month = june year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2033 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Camille Chautemps takes power
+	id = 21562
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2033 # Léon Blum
+		NOT = { InCabinet = 2036 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 21 month = june year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2036 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Léon Blum takes power 2
+	id = 21563
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2036 # Camille Chautemps
+		NOT = { InCabinet = 2033 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 12 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2033 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Édouard Daladier takes power
+	id = 21564
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2033 # Léon Blum
+		NOT = { InCabinet =  2037 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 9 month = april year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2037 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Paul Reynaud takes power
+	id = 21565
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2037 # Édouard Daladier
+		NOT = { InCabinet =  2038 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 20 month = march year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = headofgovernment which = 2038 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+##################################
+# Chief of navy 
+##################################
+
+event = { # Georges Durand-Viel takes power
+	id = 21566
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2239 # Louis-Hippolyte Violette
+		NOT = { InCabinet =  2238 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 16 month = february year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 2238 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+event = { # François Darlan takes power
+	id = 21567
+	random = no 
+	country = FRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 2238 # Georges Durand-Viel
+		NOT = { InCabinet =  2009 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 2009 }
+		command = { type = dissent value = -1 }
+	}
+}

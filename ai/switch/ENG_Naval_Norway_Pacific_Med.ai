@@ -1,0 +1,128 @@
+# England avoids English channel port attacks and invades Norway
+# Converted to DH by Dendro 2011-July-06
+
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 95    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 80 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 70 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	min_core_attack_fleets  = 1	# Minimum amount of attack fleets to defend CORE provinces (default 0)
+	num_attack_fleets	= 8 	# ENG/USA default 3, JAP default 2 everyone else is 1
+
+	target = { }
+	core = { } 
+
+	ignore = {
+		"Southeast Northsea"
+		"kattegat"
+		"Bothnian Bay"
+		"northern baltic"
+		"southern baltic"
+
+		#Central Mediterranean
+		"Adriatic Sea"
+		"Tyrrhenian Sea"
+
+		#Western Mediterranean
+		"Costa del Sol"
+		"Gulf of Lyon"
+		"Algerian Coast"
+
+		#Eastern Mediterranean
+		"Black Sea"
+		"Aegean Sea"
+
+		#England/France border Sea Areas
+		# "English Channel"
+		"Bay of Biscay"
+
+		#Indo-China, Borneo, Phillipenes
+		"Gulf of Siam"
+		"Coast of Indochina"
+		"Spratly Sea"
+		"Coast of Brunei"
+		"Flores Sea"
+		"Sulu Sea"
+		"Celebes Sea"
+		"Luzon Strait"
+
+		#China Coast
+		"Taiwan Strait"
+		"Yellow Sea"
+		
+		#Japanese Coast
+		"Sea of Japan"
+		"Ryukyus"
+		"Coast of Japan"
+		"South Sea of Okhotsk"
+		"West Sea of Okhotsk" 
+		"East Sea of Okhotsk" 
+		
+		#Mariana Basin, Phillipenes
+		"Philipine Trench"
+		"Central Philippine Sea"
+		"Mariana Trench"
+		"East Mariana Basin"
+		"Mid-Pacific Mountains"
+		"North Bismarck Sea"
+
+		#New Guinea, East/North Australia and New Zealan
+		"Coast of New Guinea"
+		"Molucca Sea"
+		"Banda Sea"
+		"Arafura Sea"
+		"South Bismarck Sea"
+		"Solomon Sea"
+		"West Coral Sea"
+		"East Coral Sea" 
+		"North Tasman Sea"
+		"South Tasman Sea" 
+		"East Cost of New Zealand"
+		
+		# South and West Australia
+		"Timor Sea"
+		"West Coast of Australia"
+		"East Great Australian Bight"
+		"West Great Australian Bight" 
+		
+		#North Pacific
+		"Coast of Kamchatka"
+		"East Bering Sea"
+		"West Bering Sea" 
+		"Aleutians"
+		"Northwest Pacific Basin"
+		"North Northeast Pacific Basin"
+		
+		#Central Pacific
+		"Hawaiian Rise"
+		"North East Pacific Ocean"
+		"Marshalls Sea"
+		"South East Pacific Ocean"
+		"Marianas"
+		"Western Solomons"
+		"Eastern Solomons"
+		"Carolines"
+		
+		#South Pacific
+		"Gilberts"
+		"Line Islands"
+		"Fiji Basin"
+		"Southwest Pacific Basin"
+
+		# South American West Coast
+		"Southeast Pacific Basin"
+		"West Coast of Chile"
+		"West Coast of Peru"
+		"South Southeast Pacific Ocean"
+		"North Southeast Pacific Ocean"
+
+		# USA West Coast
+		"Gulf of Alaska"
+		"West Coast of the United States"
+
+		#West Coast of Mexico
+		"West Coast of Mexico"
+		"West Coast of Central America"
+	}
+}

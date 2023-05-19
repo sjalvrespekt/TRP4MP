@@ -1,0 +1,194 @@
+# check for DH
+####################################
+# Honduras AI events 33100 - 33199 by Lothos
+####################################
+################
+# Minister of Security Section 33100 - 33109
+#############################################
+event = { # Carlos Alberto Ucles takes power
+	id = 33100
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79005 # Carlos Alberto Ucles
+		NOT = { InCabinet = 79005 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 79005 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33110 - 33119
+#############################################
+event = { # Raimundo Stochler Garcia takes power
+	id = 33110
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79088 # Raimundo Stochler Garcia
+		NOT = { InCabinet = 79088 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 79088 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33120 - 33129
+#############################################
+event = { # Hernan Fernandez Silva takes power
+	id = 33120
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79083 # Hernan Fernandez Silva
+		NOT = { InCabinet = 79083 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 79083 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Raul Sanchez Banados takes power
+	id = 33121
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79086 # Raul Sanchez Banados
+		NOT = { InCabinet = 79086 }
+		NOT = { minister = 79083 } # Hernan Fernandez Silva
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 79086 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33130 - 33139
+#############################################
+event = { # José Zuñiga Huete takes power
+	id = 33130
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79095 # José Zuñiga Huete
+		NOT = { InCabinet = 79095 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 79095 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33140 - 33149
+#############################################
+event = { # Carlos Alberto Ucles takes power
+	id = 33140
+	random = no 
+	country = HON
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 79057 # Carlos Alberto Ucles
+		NOT = { InCabinet = 79057 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 79057 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+#############################################
+# Regular AI Events 33160 - 33199
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33160
+	random = no 
+	country = HON
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

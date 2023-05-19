@@ -1,0 +1,51 @@
+detachable = yes
+# 0 - Floatplane 1930
+model = {
+	cost 				= 0.18
+	buildtime			= 100
+	defaultorganisation 		= 3
+	morale				= 3
+	manpower 			= 0.015
+	surfacedetectioncapability	= 0.3
+	airdetectioncapability		= 0.3
+	subdetectioncapability		= 0.3
+	airdefence			= 0
+	seaattack			= 0
+	subattack			= 0
+	airattack			= 0
+	shorebombardment		= 0
+	convoyattack			= 0
+	distance			= 0.03
+	supplyconsumption 		= 0.05
+	fuelconsumption			= 0.125
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.5
+	equipment = { fighter = 2 manpower = 15 }
+}
+# 1 - Floatplane 1938
+model = {
+	cost 				= 0.27
+	buildtime			= 100
+	defaultorganisation 		= 3
+	morale				= 3
+	manpower 			= 0.015
+	surfacedetectioncapability	= 0.5
+	airdetectioncapability		= 0.5
+	subdetectioncapability		= 0.5
+	airdefence			= 0
+	seaattack			= 0
+	subattack			= 0
+	airattack			= 0
+	shorebombardment		= 0
+	convoyattack			= 0
+	distance			= 0.05
+	supplyconsumption 		= 0.05
+	fuelconsumption			= 0.125
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 2 manpower = 15 }
+}

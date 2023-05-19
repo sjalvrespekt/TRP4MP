@@ -1,0 +1,129 @@
+# Guerilla Low MP AI file by DerStudti
+
+upgrading = 0.50
+reinforcement = 0.25
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.80 
+
+	AA_batteries = atwar
+	max_AA_level = 2
+	AA_provs = { } 
+	
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = {	} 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = no
+	max_air_base = 2 
+	air_base_provs = { } 
+
+	naval_base = no 
+	max_naval_base = 5 
+	naval_base_provs = { } 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = yes 
+	force_ic_until = 1935
+	ic_end_year = 1941
+	IC_provs = { } 
+}
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 180 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 10
+	d_02		= 0
+	militia		= 0
+	cavalry 	= 0
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 0
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 5
+	garrison	= 0
+    hq 			= 0
+#				15 %
+	interceptor 	= 10
+	multi_role 	= 0
+	d_01		= 0
+	cas 		= 5
+	strategic_bomber = 0
+	tactical_bomber = 0
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				15 %
+	battleship 	= 0
+	carrier 	= 0
+	light_carrier = 0
+	escort_carrier	= 0
+	destroyer 	= 35
+	light_cruiser 	= 20
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 5
+	nuclear_submarine = 5
+	d_09 = 0
+	d_08 = 0
+	transports 	= 5
+#				70 %
+
+###################################################################################################################################
+# Brigade building scheme for medium sized or mass assault countries
+# note: numbers don't have to add up to 100%; building probability is path-dependent, i.e. the engine checks this list top-down
+# probabilities and complementary probabilities multiply along this path; brigades not buildable are left aside
+#
+# desired brigade coverage: 65% (non-armored) / 90% (motorized) / 90% (armored) [cheap mass army, but well equipped elite units]
+###################################################################################################################################
+artillery				=	20 # 20% eff. (n.ar.)
+sp_artillery			=	23 # 23% eff. (mot.) & 23% eff. (ar.)
+rocket_artillery		=	11 # 9% eff. (n.ar.)
+sp_rct_artillery		=	15 # 11.5% eff (mot.) & 11.5% eff. (ar.)
+anti_tank				=	14 # 10% eff. (n.ar.)
+tank_destroyer			=	30 # 20% eff. (mot.) & 20% eff. (ar.)
+light_armor_brigade		=	8 # 5% eff. (n.ar.) & 3.5% eff. (mot.)
+heavy_armor				=	54 # 25% eff. (ar.)
+super_heavy_armor		=	47 # 10% eff. (ar.)
+armored_car				=	4 # 2% eff. (n.ar.) & 1.5% eff. (mot.)
+anti_air				=	19 # 10% eff. (n.ar.)
+police					=	11 # 5% eff. (n.ar.) & 4.5% eff. (mot.)
+engineer				=	10 # 5% eff. (n.ar.) & 3.5% eff. (mot.) & 1% eff. (ar.)
+sp_anti_air				=	46 # 15% eff. (mot.) & 5% eff. (ar.)
+						# n.ar.: 66%
+						# mot.: 82.5%
+						# ar.: 95.5%
+
+	cag = 100.000 
+	light_cag = 100.000 
+	escort = 100.000 
+	
+	naval_asw			= 15
+    naval_anti_air_s	= 10
+    naval_radar_s		= 6
+    naval_fire_controll_s = 6
+    naval_improved_hull_s = 9
+    naval_torpedoes_s	= 9
+    naval_anti_air_l	= 9
+    naval_radar_l		= 9
+    naval_fire_controll_l = 9
+    naval_improved_hull_l = 9
+    naval_torpedoes_l	= 9
+}

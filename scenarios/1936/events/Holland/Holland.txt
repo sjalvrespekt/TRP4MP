@@ -1,0 +1,633 @@
+# converted to DH, Kane, July 23 2011
+#########################################################################
+# 3155000 - 3155999	Holland events
+#########################################################################
+
+#########################################################################
+# Reaction to german re-occupation of the Rhineland
+#########################################################################
+event = { 
+	id = 3155000
+	random = no
+	country = HOL
+	
+	# Triggered by GER 3136001,3136002,3136003 : german re-occupation of the Rhineland
+	
+	name = EVT_3155000_NAME
+	desc = EVT_3155000_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3155000A
+		command = { type = peacetime_ic_mod value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3155000B
+		command = { type = peacetime_ic_mod value = 2 }
+		command = { type = domestic which = interventionism value = 2 }
+		command = { type = construct which = land_fort where = 121 value = 1 } # Maastricht
+		command = { type = construct which = land_fort where = 120 value = 1 } # Nijmegen
+		command = { type = construct which = land_fort where = 119 value = 1 } # Arnhem
+		command = { type = construct which = land_fort where = 124 value = 1 } # Groningen
+		command = { type = dissent value = 2 }
+	}
+}
+#########################################################################
+# Reaction to french decision to extend Maginot line
+#########################################################################
+event = { 
+	id = 3155001
+	random = no
+	country = HOL
+	
+	# Triggered by FRA 3135000 : French decision to extend Maginot line
+	
+	name = EVT_3155001_NAME
+	desc = EVT_3155001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3155001A
+		command = { type = domestic which = political_left value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME3155001B
+		command = { type = domestic which = political_left value = 1 }
+	}
+}
+#######################################################################
+# Holland surrenders to Germany
+#######################################################################
+event = { 
+	id = 3155002
+	random = no
+	country = HOL
+
+	trigger = {
+		war = { country = HOL country = GER }
+		lost_national = { country = HOL value = 60 }
+	}
+
+	name = EVT_3155002_NAME
+	desc = EVT_3155002_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3155002A
+		command = { type = dissent value = 20 }
+		command = { type = demobilize which = land when = 1 where = 0 value = 0 } # disbands all land units but 5 and returns MP to the pool
+		command = { type = demobilize which = air when = 1 where = 0 value = 5 } # disbands all air units but 5 and returns MP to the pool
+		#command = { type = demobilize which = naval when = 1 where = 0 value = 30 } # disbands all naval units but 30 and returns MP to the pool
+		command = { type = construct which = ic where = 1762 value = 1 }
+		command = { type = construct which = air_base where = 1762 value = 1 }
+		command = { type = construct which = naval_base where = 1762 value = 1 }
+		command = { type = construct which = ic where = 1999 value = 1 }
+		command = { type = construct which = air_base where = 1999 value = 1 }
+		command = { type = construct which = naval_base where = 1999 value = 1 }
+		command = { type = addcore which = 1762 }
+		command = { type = addcore which = 1999 }
+		command = { type = province_keypoints which = 1762 value = 1 }
+		command = { type = add_corps which = "Curacao Divisie" value = land where = 1762 }
+		command = { type = add_division value = garrison when = 1 where = police }
+		command = { type = add_corps which = "Guiana Divisie" value = land where = 1999 }
+		command = { type = add_division value = garrison when = 1 where = police }
+		command = { type = secedearea which = GER value = "Netherlands" }
+		command = { type = trigger which = 3136073 } # GER
+	}
+}
+event = {
+	id = 3055004
+	random = no
+	country = HOL
+
+	# triggered by GER 3136073
+
+	name = EVT_3155002_NAME #Holland surrenders
+	desc = EVT_3155002_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3155002A # Capitulate
+		command = { type = sleepevent which = 15052 }
+	}
+}
+#######################################################################
+# U.S. Occupation of Dutch Guiana
+#######################################################################
+event = { 
+	id = 3155003
+	random = no
+	country = HOL
+
+	trigger = {
+		war = { country = HOL country = GER }
+		NOT = { war = { country = HOL country = USA } }
+		control = { province = 1999 data = HOL }
+		control = { province = 1762 data = HOL }
+	}
+
+	name = EVT_3155003_NAME
+	desc = EVT_3155003_DESC
+	style = 0
+	
+	date = { day = 23 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME3155003A
+		command = { type = province_keypoints which = 1999 value = -1 }
+		command = { type = construct which = ic where = 1762 value = 1 }
+		command = { type = construct which = ic where = 1999 value = -1 }
+		command = { type = removecore which = 1999 }
+		command = { type = secedeprovince which = USA value = 1999 }
+		command = { type = trigger which = 3182049 } # USA
+	}
+}
+#######################################################################
+# Netherlands East Indies Declares Neutrality
+#######################################################################
+event = { 
+	id = 3155004
+	random = no
+	country = U19
+
+	trigger = {
+		war = { country = HOL country = GER }
+		war = { country = ENG country = GER }
+		NOT = { war = { country = HOL country = ENG } }
+		NOT = { war = { country = U19 country = ENG } }
+	}
+
+	name = EVT_3155004_NAME
+	desc = EVT_3155004_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3155004A
+		ai_chance = 99
+		command = { type = leave_alliance }
+		command = { type = peace which = GER value = 1 }
+		command = { type = guarantee which = ENG where = U19 }
+		command = { type = guarantee which = HOL where = U19 }
+		command = { type = guarantee which = USA where = U19 }
+	}
+	action_b = {
+		name = ACTIONNAME3155004B
+		ai_chance = 1
+		command = { type = leave_alliance }
+		command = { type = alliance which = ENG }
+		command = { type = trigger which = 3155005 }
+	}
+}
+event = {
+	id = 3155005
+	random = no
+	country = U19
+
+	# triggered by HOL 3055004
+	
+	name = EVT_3155004_NAME
+	desc = EVT_3155004_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3155005A
+		command = { type = leave_alliance }
+	}
+}
+event = {
+	id = 3155006
+	random = no
+	country = U19
+
+	trigger = {
+				war = { country = JAP country = U19 }
+				NOT = { participant = { value = 1 } }
+				NOT = { ispuppet = U19 }
+				NOT = { war = { country = ENG country = U19 }}
+				NOT = { alliance = { country = ENG country = GER } }
+				NOT = { alliance = { country = ENG country = JAP } }
+				AI = U19		
+				}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = alliance which = ENG }
+	}
+}
+
+#########################################################################
+# 3055000 - 3055999	Holland other events
+#########################################################################
+
+#########################################################################
+#  Netherlands Dams
+#########################################################################
+event = { 
+	id = 3055000
+	random = no
+	country = HOL
+
+        trigger = {
+		NOT = { ai = GER } # Germany is not AI-controlled
+        random = 20
+		war = { country = GER country = HOL }
+		OR = {
+			NOT = { control = { province = 124 data = HOL } } # Groningen
+			NOT = { control = { province = 119 data = HOL } } # Arnhem
+			NOT = { control = { province = 120 data = HOL } } # Nijmwegen
+			NOT = { control = { province = 118 data = HOL } } # Eindhoven
+		}
+		NOT = { control = { province = 122 data = GER } } #Amsterdam
+	}
+		
+	name = EVT_3055000_NAME
+	desc = EVT_3055000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3055000A
+		command = { type = trigger which = 3055001 }
+	}
+	action_b = {
+		name = ACTIONNAME3055000B
+		command = { }
+	}
+}
+event = {
+	id = 3055001
+	random = no
+	country = HOL
+
+	# triggered by HOL 3055000
+	
+	name = EVT_3055000_NAME
+	desc = EVT_3055000_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3055000A
+		command = { type = construct which = infrastructure where = 124 value = -30 } # Groningen
+		command = { type = construct which = infrastructure where = 123 value = -30 } # Middleburg
+		command = { type = construct which = infrastructure where = 119 value = -30 } # Arnhem
+		command = { type = construct which = infrastructure where = 118 value = -30 } # Eindhoven
+		command = { type = construct which = infrastructure where = 120 value = -30 } # Utrecht
+		command = { type = construct which = infrastructure where = 125 value = -30 } # Rotterdam
+		command = { type = construct which = infrastructure where = 122 value = -30 } # Amsterdam
+		command = { type = construct which = infrastructure where = 121 value = -30 } # Nijmegen
+	}
+}
+#########################################################################
+#  Netherlands Dams (was 5700012)
+#########################################################################
+event = {
+	id = 3055002
+	random = no
+	country = HOL
+
+        trigger = {
+                NOT = { ai = GER } # Germany is not AI-controlled
+		NOT = { event = 3055000 }
+		NOT = { control = { province = 122 data = HOL } } # Amsterdam
+	}
+		
+	name = EVT_3055000_NAME
+	desc = EVT_3055000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3055002A
+		command = { type = sleepevent which = 3055000 }
+	}
+}
+#########################################################################
+#  Netherlands Dams repaired (by Luxor)
+#########################################################################
+event = {
+	id = 3055003
+	random = no
+	country = HOL
+
+        trigger = {
+        		event = 3055001 # Dams damaged by Holland
+		NOT = { event = 3136026 } # Dams repaired by Germany
+		supplies = 300
+		owned = { province = 122 data = HOL } # Amsterdam
+		owned = { province = 124 data = HOL } # Groningen
+		owned = { province = 119 data = HOL } # Arnhem
+		owned = { province = 118 data = HOL } # Eindhoven
+		owned = { province = 125 data = HOL } # Rotterdam
+		owned = { province = 120 data = HOL } # Utrecht
+		owned = { province = 123 data = HOL } # Middleburg
+		owned = { province = 121 data = HOL } # Nijmegen
+		NOT = { war = { country = GER country = HOL } }
+	}
+		
+	name = EVT_3055003_NAME
+	desc = EVT_3055003_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3055003A
+		ai_chance = 100
+		command = { type = supplies value = -300 }
+		command = { type = construct which = infrastructure where = 118 value = 30 } # Eindhoven
+		command = { type = construct which = infrastructure where = 119 value = 30 } # Arnhem
+		command = { type = construct which = infrastructure where = 120 value = 30 } # Utrecht
+		command = { type = construct which = infrastructure where = 121 value = 30 } # Nijmegen
+		command = { type = construct which = infrastructure where = 122 value = 30 } # Amsterdam
+		command = { type = construct which = infrastructure where = 123 value = 30 } # Middleburg
+		command = { type = construct which = infrastructure where = 124 value = 30 } # Groningen
+		command = { type = construct which = infrastructure where = 125 value = 30 } # Rotterdam
+	}
+	action_b = {
+		name = ACTIONNAME3055003B
+		ai_chance = 0
+		command = { type = dissent value = 2 }
+	}
+}
+
+
+###########################################################################
+# 5700000 - 5799999
+###########################################################################
+
+############################################
+# Was 852012 1936 Chemistry
+############################################
+event = {
+	id = 5700006
+	random = no
+	country = HOL
+
+	trigger = {
+		exists = SWE 
+		exists = HOL
+		NOT = {
+			war = { country = SWE country = HOL }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_5700006_NAME
+	desc = EVT_5700006_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME5700006A
+		command = { type = dissent value = -1 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 5700007
+	random = no
+	country = HOL
+
+	# triggered by 3182091
+
+	name = EVT_5700007_NAME
+	desc = EVT_5700007_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME5700007A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = { 
+	id = 5700008
+	random = no
+	country = HOL
+
+	# triggered by 3182093
+
+
+	name = EVT_5700008_NAME
+	desc = EVT_5700008_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 100
+		name = ACTIONNAME5700008A
+		command = { type = alliance which = ENG }
+		command = { type = capital which = 122 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME5700008B
+		command = { }
+	}
+}
+#########################################################################
+#  Benelux Outrage - Holland
+#########################################################################
+event = { 
+	id = 15052
+	random = no
+	country = HOL
+
+	 # French Forts 15050
+
+	name = EVT_15052_NAME
+	desc = EVT_15052_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME15052A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME15052B
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3136149 } # GER
+		#some units switching sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+	action_c = {
+		name = ACTIONNAME15052C
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		#command = { type = alliance which = GER }
+		command = { type = leave_alliance } 
+		command = { type = trigger which = 3136152 } # GER
+		#a lot of units switching sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+}
+
+##########################################################
+# Battle of Rotterdam
+##########################################################
+
+event = {
+	id = 31362224
+	random = no
+	country = HOL
+	
+	# triggered by GER Event 31362223
+	
+	name = EVT_31362224_NAME
+	desc = EVT_31362224_DESC
+	style = 2
+	picture = "ger_hol_battle_of_rotterdam_2"
+	
+	action_a = {
+		name = ACTIONNAME31362224A
+		command = { type = dissent value = 5 }
+		command = { trigger = { NOT = { event = 3155002 } } type = trigger which = 3155002 }
+	}
+
+}
+
+##########################################################
+# Dutch Mariniersbrigade
+########################################################## 
+
+event = {
+	id = 3182136
+	random = no
+	country = HOL
+	
+	# triggered by USA Decision 3182135
+	
+	name = EVT_3182136_NAME
+	desc = EVT_3182136_DESC
+	style = 2
+	picture = "usa_hol_event_dutch_marines"
+	
+	action_a = {
+		name = ACTIONNAME3182136A
+		command = { type = dissent value = -1 }
+		command = { type = gain_tech which = 1160 }
+		command = { type = gain_tech which = 1170 }
+		command = { type = supplies value = 500 }
+		command = { type = escort_pool which = HOL value = 15 }
+		command = { type = add_corps which = "Korps Mariniers" value = land where = 1762 }
+		command = { type = activate_division which = 18500 value = 13 where = 1762 }
+		command = { type = add_corps which = "" value = naval where = 1762 }
+		command = { type = add_division which = "" value = transport when = 3 }	
+		
+	}
+
+}
+#########################################################################
+# Free dutch army in England
+#########################################################################
+event = { 
+	id = 3182137
+	random = no
+	country = HOL
+	
+	trigger = {
+	    event = 3155002
+		war = { country = HOL country = GER }
+		war = { country = ENG country = GER }
+		NOT = { exists = FRA }
+		NOT = { control = { province = 51 data = -3 }}
+		alliance = { country = HOL country = ENG }
+		random = 10
+	}
+
+	name = EVT_3182137_NAME #
+	desc = EVT_3182137_DESC
+	style = 2
+	picture = "hol_event_princess_brigade"
+
+	date = { day = 0 month = march year = 1942 }
+	offset = 7
+	deathdate = { day = 1 month = march year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3182137A 	
+		command = { type = add_corps which = "Koninklijke Landmacht" value = land when = 7856 where = 26 } #HOL army in ENG
+		command = { type = activate_division which = 18500 value = 14 where = 26 }
+	}
+}
+
+#########################################################################
+# Dutch East Indian Army is mobilising the armed forces
+#########################################################################
+event = { 
+	id = 3182138
+	random = no
+	country = U19
+	
+	trigger = {
+				event = 3155004
+				OR = {
+						war = { country = U19 country = JAP }
+						war = { country = U19 country = U00 }
+						}
+	}
+
+	name = EVT_3182138_NAME #
+	desc = EVT_3182138_DESC
+	style = 2
+	picture = "hol_event_KNIL_mobilise"
+
+	date = { day = 0 month = september year = 1939 }
+	offset = 7
+	deathdate = { day = 1 month = march year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3182138A 	
+		command = { type = add_division which = "ML-KNIL Vechters Groep"      value = interceptor     when = 2 where = -30 }
+		command = { type = add_division which = "ML-KNIL Bommenwerpers Groep" value = tactical_bomber when = 2 where = -30 }
+		command = { type = add_corps which = "KNIL Commando Noord-Sumatra" value = land   where = 1634 } #
+        command = { type = add_division which = "Territoriaal Com. Noord-Sumatra" value = militia when = 2  }
+	    command = { type = add_corps which = "KNIL Commando Zuid-Sumatra" value = land    where = 1641 } #
+		command = { type = add_division which = "Territoriaal Com. Zuid-Sumatra"  value = militia when = 2 where = anti_air  }
+		command = { type = supplies     value = 500 where = 1641 }
+		command = { type = dissent      value = 2    }  
+		command = { type = supplies     value = 1500 }
+		command = { type = manpowerpool value = -10  }
+	}
+}
+
+

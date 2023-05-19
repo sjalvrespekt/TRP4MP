@@ -1,0 +1,206 @@
+# USA Start Nuke Research 
+###################################
+
+construction = { 
+	max_factor = 0.1
+	
+	AA_batteries = yes
+	coastal_fort = no
+	radar_station = yes
+	air_base = no
+	naval_base = no
+	land_fort = no
+	ic_at_war = no
+	force_ic_until = 1936
+	ic_end_year = 1936
+	
+	nuclear_reactor = yes	
+	nuclear_reactor_prov = 1904 # Albuquerque
+	max_nuclear = 10
+}
+
+###################################
+# Construction and Tech Research
+###################################
+#technology = { 
+#	endgoal 	= { } 
+#	preference 	= {
+#		##############
+#		# Nuke Research Section
+#		######################
+#		# Industrial
+#		5470 5480 5490 5500 5510 5520 5530 5610 5620 5540 	# Nukes
+#		5550 5560 5570 5580 5590 							# Rockets
+#
+#		# Secret Weapons
+#		7170 7180 7190 16010 16020	# Nukes
+#		7100 7110 7120 7130 		# Rockets
+#		######################
+#	
+#		# CAG
+#		4570 4580 4590 4600 4610
+#	
+#		# Tools
+#		5050 5060 5070
+#
+#		# Engineering
+#		5080 5090 5100
+#		
+#		# Production Control
+#		5110 5120
+#		
+#		# Assembly Line 5140
+#		5130 5150 5160 5180
+#		
+#		# Cryptography
+#		5310 5320 5330 5340
+#		
+#		# Special Weapons
+#		7140 7150 7160
+#
+#		#Infantry
+#		1010 1020 1030 1040 1050 1060
+#
+#		# Inf support
+#		1310 1320 1330 1340 1350 1360
+#
+#		# Motorized
+#		1230 1240 1250
+#
+#		# Mechanized
+#		11750 1260 1270 1280 1290
+#
+#		# Medium tanks
+#		2630 2640 2650 2660 2670 2680 2690
+#
+#		# Light tanks
+#		2550 2560 2570 2580 2590 2600 2610 2620
+#		
+#		#Armour Divisions
+#		2010 2020 2030 2040 2050 2060 2070 2080 2090
+#
+#		# Marines
+#		1150 1160 1170 1180
+#
+#		# Amphib. man
+#		8810 8820 8830 8840 8850
+#
+#		# Double Engine TRP
+#		4290 4330 4380 4420 4460 4500 
+#
+#		# Naval Bomber TRP
+#		4310 4350 4400 4440 4480
+#
+#		# strat bomber TRP 41
+#		4520 4530 4540 4550 
+#
+#		# Single Engine TRP
+#		4010 4050 4090 4140 4190 4230 4270
+#
+#		# intercept Trp
+#		4020 4060 4100 4150
+#
+#		# Fighter Trp
+#		4030 4070 4110 4160 4200 4240
+#
+#		# Escort Trp
+#  		4130 4180 4220 4260		
+#
+#		# logistic strike trp
+#		# 9500 9510 9520 9530 9540 9550 9560 9570
+#
+#		# Air Superiority trp
+#		9120 9130 9140 9150 9160 9170 9180 9190
+#
+#		# Strategic Air Doc  trp
+#		9400 9410 9420 9430 9440 9450 9460 9470
+#
+#		# Airborne Doc trp
+#		# 9600 9610 9620 9630 9640 9650 9660 9670
+#
+#		# AT 38 + Art through 41
+#		2290 2300 2310 2320 2330 2340 2400 2410
+#
+#		# Escort ships TRP
+#		3010	3040	3070	3100	3130	3160	15160	15190	15220
+#		3020	3050	3080	3110	3140	3170	15170	15200	15230
+#		3030 15250	3060	3090	3120	3150	3180	15180	15210	15240
+#
+#		# Torpedo Op
+#		8130 8140 8150 8160 8170
+#
+#		# Torpedo Prac.
+#		8430 8440 8450 8460 8470 8480 
+#
+#		# Carrier and escort carrier Trp
+#		3190 3200 3210 3220 3230 3240 3250 3260 3270 3280 3290 3300  3320
+#
+#		# Carrier Op
+#		8010 8020 8030 8040 8050 8060 
+#
+#		# CAG Prac.
+#		8300 8310 8320 8330 8340 8350 
+#
+#		# carrier Man.
+#		8710 8720 8730 8740 8750
+#
+#		# transport
+#		3800 3810
+#
+#		# Torpedos cruiser
+#		3850
+#
+#		# ASW Op
+#		8180 8190 8200 8220 8230
+#
+#		# ASW Prac.
+#		8490 8500 8510 8520 8530 8540
+#
+#		# Escort Man.
+#		8760 8770 8780 8790 8800
+#
+#		# Cap Ops
+#		8070 8080 8090 8100 8110
+#
+#		# Gun tar. prac
+#		8370 8380 8390 8400 8410 8420 
+#		
+#		# Cap Man. 
+#		8660 8670 8680 8690 8700
+#	} 
+#	ignore 		= {
+#		# heavy Battleship Trp
+#		7530	7540
+#
+#		# Mountain Unit techs
+#		1110 1120 1130 1140
+#
+#		# CAS Trp
+#		#4040 4080 4120 
+#
+#		# SP Rocket Artillery
+#		2260 2270 2280 
+#
+#		# Rocket Artillery
+#		2370 2380 2390
+#		
+#		# Armoured Cars
+#		2800 2810 2820 2830
+#
+#		# Ground Att & Interdiction trp
+#		# 9200 9210 9220 9230 9240 9250 9260 9270
+#
+#		# Heavy Tanks and Semi-Modern Tank
+#		#2900 2910 2920
+#	}
+# 
+#	armor 		= 4 
+#	infantry 	= 5
+#	industry 	= 5
+#	aircraft 	= 4
+#	naval 		= 4
+#	land_doctrines 	= 4
+#	secret_weapons 	= 2
+#	air_doctrines 	= 2
+#	naval_doctrines = 4
+#}  

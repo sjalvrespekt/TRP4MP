@@ -1,0 +1,406 @@
+# converted and naval AI, Kane, JUly 2 2011
+# German the Norway Invasion AI File by Lothos
+
+max_garrison_prop = 0.1 #0.05
+min_garrison_prop = 0.05 #0.02
+
+max_front_ratios = {	# new
+	BEL = 15.0	# new
+	HOL = 12.0	# new
+	LUX = 15.0	# new
+	NOR = 3.0	# new
+	SOV = 0.1
+	SCH = 0.0
+	YUG = 0.0
+	HUN = 0.0
+	LIT = 0.0
+	ITA = 0.0
+}	# new
+target = {	# new 
+ 483 = 100 # Oslo	# new
+ 488 = 30 # Bergen	# new
+ 493 = 30 # Trondheim	# new
+ 495 = 100 # Narvik	# new
+ 490 = 30 # Andalsnes # new
+ 491 = 100 # Alesund # new
+} 	# new
+front = {	# new 
+   	recklessness     = 2 # 0-3	# new 
+  	distrib_vs_ai     = offensive	# new
+   	distrib_vs_human   = offensive	# new
+}	# new
+
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion		= yes
+ 	base			= 0.1	#Relative modifier. (lower = specific targets much more important.) #0.0
+	random			= 1.0	#How big a random range.  (1.0 = 1%) #8.0
+	coastal			= 0.2	#increase to avoid coastal forts more. #0.1
+	beach			= 0.1	#higher, avoid worst beaches.
+	distance		= 1.0	#higher = avoid long distance. #10 #0.1
+	max_distance    = 25.0  #About the distance from Rostock to Narvik #25 #30
+	max_staging_distance = 30.0	# How far should the staging area be from the target invasion point	#new
+	pocket			= 0.1	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island			= 0.1	#prioritise taking pure islands.
+	enemy			= 0.5	#higher = much more vary of troops in province.
+	adjacentenemy 	= 0.1	#higher = much more vary of troops nearby
+	air_base		= 1.5 
+    naval_base 		= 1.0 #0.1
+    air_support 	= 1.0 
+    redirect 		= priority
+	ignore			= yes
+	help_allies 	= no #yes	#[yes/no]
+    province_priorities = yes #Invade only provinces in target list with priority higher then 0 #new
+      
+	staging_province = {
+		152 #Kiel
+		162 #Stralsund
+		218 #Friedrichshafen #new
+	}
+	target = { 
+		#England
+		26 = -1 # Dover
+		25 = -1 # Norwich
+		27 = -1 # Portsmouth
+		23 = -1 # Plymouth
+		15 = -1 # Hull
+		16 = -1 # Lincoln
+		36 = -1 # Belfast
+		20 = -1 # Exeter
+		19 = -1 # Bristol
+		17 = -1 # Manchester
+		14 = -1 # Carlisle
+		13 = -1 # Sunderland
+		12 = -1 # Edinburgh
+		11 = -1 # Glasgow
+		10 = -1 # Dumfries
+
+		# Atlantic Wall DH
+		217 = -1 # Aalborg
+		216 = -1 # Abenra
+		218 = -1 # Frederikshavn
+		220  = -1 # Arhus
+		122  = -1 # Amsterdam
+		123  = -1 # Middleburg
+		125  = -1 # Rotterdam
+		114  = -1 # Bruges
+		49  = -1 # Calais
+		51  = -1 # Dunquerque
+		53  = -1 # Dieppe
+		45 = -1 # Le Havre
+		44  = -1 # Caen
+		46  = -1 # Bayeux
+		38 = -1 # Rennes
+		41 = -1 # St. Brieux
+		37  = -1 # Brest
+		39  = -1 # Lorient
+		40  = -1 # St. Nazaire
+		68 = -1 # Bordeaux
+		67 = -1 # Mont-de-Marsan
+		57 = -1 # Nantes	
+
+		#Norway DH
+		483 = 3750 # Oslo
+		485 = 4002 # Kristiansan
+		495 = 4001 # Narvik
+		491 = 3090 # Alesund
+		493 = 3090 # Trondheim
+		487 = 3090 # Stavanger
+		488 = 3090 # Bergen
+		490 = 3090 # Andalsnes
+		494 = 3090 # Bodo
+
+		#Sweden
+#		484   = 400 # Amal
+		2153  = 400 # Goterborg
+		2152  = 400 # Malmo
+		2155  = 400 # Kalmar
+		2157  = 375 # Linkoping
+		2159  = 375 # Stockholm
+		2158  = 375 # Uppsala
+		2162  = 375 # Gavle
+		2165  = 400 # Umea
+		2166  = 400 # Lulea
+
+		#Finland
+		529 = 200 # Kouvola
+		530 = 200 # Trijoki
+		531 = 200 # Vipurii
+		525 = 200 # Helsinki
+		524 = 200 # Turku
+		512 = 200 # Pori
+		521 = 200 # Vaasa
+		520 = 175 # Oulu
+		516 = 175 # Tornio
+	}
+} 
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 90    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 70 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	ignore = {
+		#Murmansk/Archangel
+		"Barents Sea"
+		"Arctic Ocean"
+		
+		#North Sea, East Coast of England
+		"Central Northsea"
+		"West Northsea"
+		"Southeast Northsea"
+		
+		#England/France border Sea Areas
+		"English Channel"
+		"Bay of Biscay"
+		"Cape Finisterre"
+		
+		#Spanish Coase (Atlantic Side)
+		"Portugese Coast"
+		"Cap St Vincent"
+		
+		#Iceland
+		"Faroes Gap"
+		"Denmark Strait"
+		
+		#Ireland/West Coast of England
+		"Irish Sea"
+		"The Hebreides"
+		"Irish West Coast"
+		
+		#Greenland
+		"Greenland Coast"
+		"Northern Sea of Labrador" 
+		"Southern Sea of Labrador"
+		
+		#Canada East Coast
+		"Hudson Bay"
+		"Grand Banks"
+		"Canadian Maritimes"
+		
+		#Western Mediterranean
+		"Costa del Sol"
+		"Gulf of Lyon"
+		"Algerian Coast"
+		
+		#Central Mediterranean
+		"Tyrrhenian Sea"
+		"Adriatic Sea"
+		
+		#Eastern Mediterranean
+		"Black Sea"
+		"Aegean Sea"
+		"Egyptian Coast"
+		
+		
+		#North Atlantic
+		"North Atlantic"
+		"Western Approaches"
+		"The Seamounts"
+		"Azores"
+		
+		#Central Atlantic
+		"Central Atlantic"
+		"Central Mid-Atlantic Ridge"
+		"Bermuda Triangle"
+		"Guiana Basin"
+		"South-Central Mid-Atlantic Ridge"
+		"Cap Verde"
+		
+		#South Atlantic
+		"Pernambuco Plain"
+		"Ascension Fracture Zone"
+		"Argentine Plain"
+		"Angola Plain"
+		
+		#Caribbean Sea and Guilf of Mexico
+		"West Gulf of Mexico"
+		"East Gulf of Mexico" 
+		"Florida Strait"
+		"Yucatan Strait"
+		"Windward Islands"
+		"Central Carribean"
+		
+		#Brazil and Argentina Coast
+		"Coast of Guyana"
+		"Coast of Recife" 
+		"Coast of Uruguay"
+		"Coast of Brazil"
+		"Coast of Argentina"
+		
+		# West Africa
+		"Coast of Africa"
+		"Coast of Bissao" 
+		
+		#Equitorial Africa
+		"Gulf of Guinea"
+		"Coast of Angola-Namibia"
+		
+		#South Africa
+		"Coast of South Africa"
+		"Atlantic-Indian Ridge"
+		
+		#East Africa
+		"Red Sea"
+		"Horn of Africa"
+		
+		#Madagascar Coast
+		"South Mozambique Channel"
+		"North Mozambique Channel" 
+		"Northeast Coast of Madagascar"
+		"Southeast Coast of Madagascar" 
+		
+		#North Indian Ocean (Persian Gulf)
+		"Persian Gulf"
+		"North Arabian Sea"
+		"South Arabian Sea" 
+		"Coast of Ceylon"
+		
+		#Central/South Indian Ocean
+		"Mascarene Plateau"
+		"Mid-Indian Ridge" 
+		"Ninetyeast Ridge" 
+		"Southeast Indian Ocean"
+		"Southwest Indian Ocean" 
+		
+		#Bay of Bengal & West Indonesia
+		"East Bay of Bengal"
+		"West Bay of Bengal"
+		"Malacca Strait"
+		"Java Ridge"
+		"Java Trench"
+		
+		#Indo-China, Borneo, Phillipenes
+		"Gulf of Siam"
+		"Coast of Indochina"
+		"Spratly Sea"
+		"Coast of Brunei"
+		"Flores Sea"
+		"Sulu Sea"
+		"Celebes Sea"
+		"Luzon Strait"
+		
+		#China Coast
+		"Taiwan Strait"
+		"Yellow Sea"
+		
+		#Japanese Coast
+		"Sea of Japan"
+		"Ryukyus"
+		"Coast of Japan"
+		"South Sea of Okhotsk"
+		"West Sea of Okhotsk" 
+		"East Sea of Okhotsk" 
+		
+		#Mariana Basin, Phillipenes
+		"Philipine Trench"
+		"Central Philippine Sea"
+		"Mariana Trench"
+		"East Mariana Basin"
+		"Mid-Pacific Mountains"
+		"North Bismarck Sea"
+		
+		#New Guinea, East/North Australia and New Zealan
+		"Coast of New Guinea"
+		"Molucca Sea"
+		"Banda Sea"
+		"Arafura Sea"
+		"South Bismarck Sea"
+		"Solomon Sea"
+		"West Coral Sea"
+		"East Coral Sea" 
+		"North Tasman Sea"
+		"South Tasman Sea" 
+		"East Cost of New Zealand"
+		
+		# South and West Australia
+		"Timor Sea"
+		"West Coast of Australia"
+		"East Great Australian Bight"
+		"West Great Australian Bight" 
+		
+		#North Pacific
+		"Coast of Kamchatka"
+		"East Bering Sea"
+		"West Bering Sea" 
+		"Aleutians"
+		"Northwest Pacific Basin"
+		"North Northeast Pacific Basin"
+		
+		#Central Pacific
+		"Hawaiian Rise"
+		"North East Pacific Ocean"
+		"Marshalls Sea"
+		"South East Pacific Ocean"
+		"Marianas"
+		"Western Solomons"
+		"Eastern Solomons"
+		"US Maritimes"
+		"Carolines"
+		
+		#South Pacific
+		"Gilberts"
+		"Line Islands"
+		"Fiji Basin"
+		"Southwest Pacific Basin"
+		
+		# South American West Coast
+		"Southeast Pacific Basin"
+		"West Coast of Chile"
+		"West Coast of Peru"
+		"South Southeast Pacific Ocean"
+		"North Southeast Pacific Ocean"
+		
+		# USA West Coast
+		"Gulf of Alaska"
+		"West Coast of the United States"
+		
+		#West Coast of Mexico
+		"West Coast of Mexico"
+		"West Coast of Central America"
+	}
+	
+		#Which provinces to use as bases..
+	base = {
+		147 # Wilhelmshaven
+		148 # Bremen
+		151 # Lübeck
+		154 # Hamburg
+		152	# Kiel
+		153	# Rostock
+		162 # Stralsund
+		158 # Stettin
+		183	# Elbing
+		184	# Königsberg
+		182	# Tilsit
+		181	# Danzig
+		217	# Aalborg
+		495	# Narvik
+		483 # Oslo
+		#125 # Rotterdam
+		#115 # Antwerpen
+		#114 # Bruges
+		#43	# Cherbourg
+		37	# Brest
+		68	# Bordeaux
+	}
+	
+	target = { 
+		2672 = 200
+		2673 = 100
+		2681 = 100
+		2690 = 100
+		2693 = 100
+		
+		} 
+	core = { 
+		290 # new
+		2694
+		2692
+		#2691
+		2689
+		2672
+		} 
+}

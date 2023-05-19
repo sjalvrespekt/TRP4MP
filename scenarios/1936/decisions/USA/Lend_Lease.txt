@@ -1,0 +1,96 @@
+#########################################################################
+# Help to China
+#########################################################################
+event = {
+	id = 3182035
+	random = no
+	country = USA
+
+	decision = {
+				NOT = { war = { country = CHI country = USA } }
+				war = { country = CHI country = JAP }
+				}
+				
+	decision_trigger = {
+						supplies = 1000
+						}
+	
+	trigger = {
+				#AI = CHI
+				NOT = { war = { country = CHI country = USA } }
+				war = { country = CHI country = JAP }
+				AI = USA 
+			}
+
+	name = EVT_3182035_NAME
+	desc = EVT_3182035_DESC
+	style = 2
+	decision_picture = "decision_lend_lease_CHI"
+	picture = "jap_us_protest"
+
+	date = { day = 24 month = september year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3182035A
+		ai_chance = 95
+		command = { trigger = { NOT = { AI = USA } } type = supplies value = -1000 }
+		command = { type = relation which = CHI value = 25 }
+		command = { type = trigger which = 3123000 } # CHI
+	}
+	action_b = {
+		name = ACTIONNAME3182035B
+		ai_chance = 5
+		command = { type = relation which = CHI value = -10 }
+		command = { type = sleepevent which = 3182036 }
+	}
+}
+#########################################################################
+# Help to China
+#########################################################################
+event = {
+	id = 3182036
+	random = no
+	country = USA
+
+	decision = {
+				NOT = { war = { country = CHI country = USA } }
+				war = { country = CHI country = JAP }
+				event = 3182035
+				}
+				
+	decision_trigger = {
+						supplies = 2000
+						}
+	
+	trigger = {
+				#AI = CHI
+				NOT = { war = { country = CHI country = USA } }
+				war = { country = CHI country = JAP }
+				AI = USA 
+			}
+
+	name = EVT_3182036_NAME
+	desc = EVT_3182036_DESC
+	style = 2
+	decision_picture = "decision_lend_lease_CHI"
+	picture = "jap_us_protest"
+
+	date = { day = 29 month = november year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME3182036A
+		ai_chance = 99
+		command = { trigger = { NOT = { AI = USA } } type = supplies value = -2000 }
+		command = { type = relation which = CHI value = 25 }
+		command = { type = trigger which = 3123001 } # CHI
+	}
+	action_b = {
+		name = ACTIONNAME3182036B
+		ai_chance = 1
+		command = { type = relation which = CHI value = -10 }
+	}
+}

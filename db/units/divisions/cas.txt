@@ -1,0 +1,241 @@
+allowed_brigades = escort
+max_allowed_brigades = 1
+
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+# 0 - CAS 1930
+model = {
+	cost 					= 4.84 #7.26
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 200
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 3
+	airdefence				= 3 #1
+	airattack				= 3 #1	
+	strategicattack			= 1
+	softattack				= 14
+	hardattack				= 7
+	navalattack				= 8
+	supplyconsumption 		= 1.45
+	range					= 275
+	fuelconsumption			= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.5
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 1 - CAS 1937
+model = {
+	cost 					= 6.37 #9.55
+	buildtime	 			= 270 #180
+	manpower 				= 0.2
+	maxspeed 				= 250
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 4
+	airdefence				= 4 #2
+	airattack				= 4 #2	
+	strategicattack			= 2
+	softattack				= 17
+	hardattack				= 10
+	navalattack				= 11
+	supplyconsumption 		= 1.91
+	range					= 300
+	fuelconsumption			= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0 # 4 years or more since last model
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 2 - CAS 1940
+model = {
+	cost 					= 7.16 #10.75
+	buildtime	 			= 270 #180
+	manpower 				= 0.25
+	maxspeed 				= 400
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 5
+	airdefence				= 4 #4
+	airattack				= 4 #2	
+	strategicattack			= 3
+	softattack				= 21
+	hardattack				= 12
+	navalattack				= 17
+	supplyconsumption 		= 2.15
+	range					= 325
+	fuelconsumption			= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75 # 3 years since last model
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 3 - CAS 1942
+model = {
+	cost 					= 7.75 #11.62
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 400
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 5 #5
+	airattack				= 5 #3	
+	strategicattack			= 3
+	softattack				= 23
+	hardattack				= 14
+	navalattack				= 23
+	supplyconsumption 		= 2.33
+	range					= 350
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5 # 2 years since last model
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 4 - CAS 1944
+model = {
+	cost 					= 8.38 #12.57
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 450
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 5 #7
+	airattack				= 5 #4	
+	strategicattack			= 4
+	softattack				= 26
+	hardattack				= 17
+	navalattack				= 23
+	supplyconsumption 		= 2.51
+	range					= 375
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { bomber = 120 manpower = 300 }
+}
+
+# 5 - CAS 1947
+model = {
+	cost 					= 9.43 #14.14
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 500
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 7 #12
+	airattack				= 7 #5	
+	strategicattack			= 6
+	softattack				= 31
+	hardattack				= 21
+	navalattack				= 34
+	supplyconsumption 		= 2.83
+	range					= 400
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 6 - CAS 1950
+model = {
+	cost 					= 10.6 #15.91
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 550
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 8 #16
+	airattack				= 8 #6	
+	strategicattack			= 6
+	softattack				= 35
+	hardattack				= 24
+	navalattack				= 51
+	supplyconsumption 		= 3.18
+	range					= 400
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 7 - CAS 1954
+model = {
+	cost 					= 12.41 #18.61
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 900
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 9 #20
+	airattack				= 9 #7	
+	strategicattack			= 7
+	softattack				= 41
+	hardattack				= 30
+	navalattack				= 51
+	supplyconsumption 		= 3.72
+	range					= 400
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { bomber = 120 manpower = 300 }
+}
+# 8 - CAS 1959
+model = {
+	cost 					= 15.09 #22.64
+	buildtime	 			= 270 #180
+	manpower 				= 0.3
+	maxspeed 				= 1000
+	defaultorganisation 	= 30
+	morale					= 150
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 1
+	surfacedefence			= 6
+	airdefence				= 10 #25
+	airattack				= 10 #8	
+	strategicattack			= 7
+	softattack				= 49
+	hardattack				= 39
+	navalattack				= 51
+	supplyconsumption 		= 4.53
+	range					= 400
+	fuelconsumption			= 4
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { bomber = 120 manpower = 300 }
+}

@@ -1,0 +1,94 @@
+# German operation Barbarosa Invasion AI File by Lothos
+# converted DH, Kane, June 4 2001
+
+max_front_ratio = 1.5
+max_garrison_prop = 0.25 #0.70 #0.99
+min_garrison_prop = 0.15 #0.50 #0.98
+max_front_ratios = {
+	YUG = 1.0
+	GRE = 1.0
+	SOV = 4.0
+}
+###################################
+# Diplomacy
+###################################
+combat = {
+}
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		SWE = -1
+		FIN = -1
+		ITA = -1
+		SCH = -1
+		AUS = -1
+		TUR = -1
+		SPR = -1
+		U01 = -1
+		SOV = 100
+		ENG = 10
+		USA = 10
+		FRA = 10
+		YUG = 10
+	}
+	province_priorities = {
+		# Army Group North
+		261 = 100 # Klaipeda
+		182 = 100 # Tilsit		
+		185 = 150 # Allenstein
+		252 = 150 # Suwalki	
+		
+		#Army Group Center
+		230 = 100 # Plock
+		229 = 100 # Ostroleka
+		228 = 100 # Siedlce
+		246 = 200 # Chelm
+
+		# Army Group South
+		243 = 100 # Lublin
+		237 = 100 # Tarnow
+		236 = 100 # Nowy Sacz
+		
+#		# Romania
+#		
+#		297 = 80 # Iasi #new
+#		300 = 80 # Cernauti #new
+#
+#		55  = 20 # Paris
+#		52  = 20 # Lille
+#		116 = 20 # Brussels
+#		207 = 20 # Prague
+#		96  = 20 # Metz
+#		43 =  20 # Cherbourg
+#		42 =  20 # Avranches
+#		69 =  10 # La Rochele
+#		147 = 20 # Wilhelmshafen
+#		148 = 20 # Bremen
+#		124 = 20 # Groningen
+#		338 = 40 # Belgrade
+	}
+	area_multiplier = {
+		# Army Group North
+		185 = 10.0 # Allenstein
+		261 = 10.0 # Klaipeda
+		
+		#Army Group Center
+		252 = 10.0 # Suwalki
+		228 = 5.0 # Siedlce
+
+		# Army Group South
+		243 = 10.0 # Lublin
+		237 = 5.0 # Tarnow
+	}
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion	= no
+} 

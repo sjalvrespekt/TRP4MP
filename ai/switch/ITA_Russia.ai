@@ -1,0 +1,20 @@
+# checked DH
+# Italy vs Russia/Usa/France AI File by Lothos
+
+max_garrison_prop = 0.30
+min_garrison_prop = 0.25
+
+exp_force_ratio = 0.10
+exp_force_ratios = {
+	GER = 1.0
+} 
+
+no_exp_forces_to = { ROM HUN BUL FIN VIC JAP SIA MAN }
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+front = { 
+	distrib_vs_ai 		= op_defensive
+	distrib_vs_human 	= op_defensive
+}

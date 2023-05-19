@@ -1,0 +1,71 @@
+detachable = yes
+
+# 0 - Search Radar 1936
+model = {
+	cost 						= 0.5
+	buildtime					= 60
+	manpower 					= 0.0
+	surfacedetectioncapability	= 0.75
+	airdetectioncapability		= 0.003
+	subdetectioncapability		= 0.375
+	airdefence					= 0
+	seaattack					= 0
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 0
+	shorebombardment			= 0
+	distance					= 0.02
+	supplyconsumption 			= 0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.6
+}
+# 1 - Search Radar 1941
+model = {
+	cost 						= 1.0
+	buildtime					= 60
+	manpower 					= 0.0
+	surfacedetectioncapability	= 1.125
+	airdetectioncapability		= 0.006
+	subdetectioncapability		= 0.75
+	airdefence					= 0
+	seaattack					= 0
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 0
+	shorebombardment			= 0
+	distance					= 0.03
+	supplyconsumption 			= 0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+}
+# 2 - Search Radar 1945
+model = {
+	cost 						= 1.0
+	buildtime					= 60
+	manpower 					= 0.0
+	surfacedetectioncapability	= 3.0
+	airdetectioncapability		= 0.01
+	subdetectioncapability		= 1.125
+	airdefence					= 0
+	seaattack					= 0
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 0
+	shorebombardment			= 0
+	distance					= 0.05
+	supplyconsumption 			= 0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+}
+
+########################################
+

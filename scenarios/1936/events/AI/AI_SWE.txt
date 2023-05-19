@@ -1,0 +1,322 @@
+# checked DH
+####################################
+# Sweden AI events 32600 - 32699 by Lothos
+####################################
+# checked DH
+################
+# Minister of Security Section 32600 - 32609
+#############################################
+event = { # K.G. Westman takes power
+	id = 32600
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7065 # K.G. Westman
+		NOT = { InCabinet = 7065 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 7066 } # Arvid G. Richert
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 7065 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Axel T. Ädelsvärd takes power
+	id = 32601
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { minister = 7065 } # K.G. Westman
+		minister = 7060 # Axel T. Ädelsvärd
+		NOT = { InCabinet = 7060 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 7066 } # Arvid G. Richert
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 7060 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Arvid G. Richert takes power
+	id = 32602
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { manpower = 200 }
+		minister = 7066 # Arvid G. Richert
+		NOT = { InCabinet = 7066 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 7066 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32610 - 32619
+#############################################
+event = { # Samuel Åkerhielm takes power
+	id = 32610
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 7074 # Samuel Åkerhielm
+		NOT = { InCabinet = 7074 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 7074 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sugiyama Hajime takes power
+	id = 32611
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { minister = 7074 } # Samuel Åkerhielm
+		minister = 7007 # Oscar Nygren
+		NOT = { InCabinet = 7007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 7007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32620 - 32629
+#############################################
+event = { # Erik Palmstierna takes power
+	id = 32620
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7069 # Erik Palmstierna
+		NOT = { InCabinet = 7069 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 7069 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32630 - 32639
+#############################################
+event = { # Oscar Nygren takes power
+	id = 32630
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7008 # Oscar Nygren
+		NOT = { InCabinet = 7008 }
+		OR = {
+			atwar = no
+			NOT = { minister = 7079 } # Per Sylvan
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 7008 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Per Sylvan takes power
+	id = 32631
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7079 # Per Sylvan
+		NOT = { InCabinet = 7079 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 7008 } # Oscar Nygren
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 7079 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32640 - 32649
+#############################################
+event = { # Gustav Cassel takes power
+	id = 32640
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7049 # Gustav Cassel
+		NOT = { InCabinet = 7049 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 7049 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Ernst Wigforss takes power
+	id = 32641
+	random = no 
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 7047 # Ernst Wigforss
+		NOT = { InCabinet = 7047 }
+		NOT = { minister = 7049 } # Gustav Cassel
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 7047 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+#############################################
+# Regular AI Events 32660 - 32699
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 32660
+	random = no 
+	country = SWE
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = SOV
+			atwar = FIN
+			atwar = NOR
+			NOT = { ai = NOR }
+			NOT = { ai = FIN }
+			year = 1940
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}

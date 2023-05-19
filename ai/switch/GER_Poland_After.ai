@@ -1,0 +1,89 @@
+# German the Poland Invasion AI File by Lothos
+# converted to DH, Kane, June 4 2011
+
+max_front_ratio = 1.2
+max_front_ratios = { 	# Override the default against specific countries. Ignored against humans.
+	FRA = 0.3
+}
+#max_garrison_prop = 0.95
+#min_garrison_prop = 0.80
+neutrality = 20.000 
+war = 50
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier = 1.0
+	home_peace_cap 		= 10
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.1
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 10	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 0		# bonus for provinces just behind a frontline.
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		FIN = -1
+		ITA = -1
+		SCH = -1
+		AUS = -1
+		CZE = -1
+		HUN = -1
+		FRA = 30
+		POL = -1
+		YUG = 5
+		HOL = 80
+		BEL = 100
+		DEN = 10
+		SOV = 1
+		LUX = -1
+	}
+	province_priorities = {
+		#Belgium Dutch Border
+		131 = 100 #Cologne
+		145 = 100 #Essen
+		127 = 200 #Saarbrücken
+		130 = 200 #Mainz
+		132 = 200 #Freiburg
+	}
+	area_multiplier = {
+		#Denmark border
+		158 = 0.1 # Stettin
+
+		#Belgium Dutch Border
+		131 = 15.0 #Cologne
+		126 = 15.0 #Aachen
+		
+		#Russian Border
+		252 = 0.1 #Suwalki
+		250 = 0.1 #Lomza
+		228 = 0.1 #Siedlce
+		243 = 0.1 #Lublin
+		239 = 0.1 #Przemysl
+	}
+}
+front = { 
+	distrib_vs_ai 		= reactive
+	distrib_vs_human 	= reactive
+ 
+	enemy_handicap = { } 
+	passivity = { FRA = 100 } 
+	province_priorities = {
+		#127 = 0.1 #Saarbrücken
+		#130 = 0.1 #Mainz
+		#132 = 0.1 #Freiburg
+	}
+}

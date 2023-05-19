@@ -1,0 +1,3590 @@
+#########################################################################
+#
+# 3183500 - 3183627 SOV Guards divisions events
+#
+#########################################################################
+# 1st Guards Special Infantry Corps
+#########################################################################
+event = {  
+	id = 3183550
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+	desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = September year = 1935 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 800 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 1st Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183551
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+	desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 3 month = October year = 1941 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 801 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 2nd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183552
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+	desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 29 month = December year = 1941 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 802 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 3rd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183553
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+	desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 4 month = January year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 803 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 4th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183554
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 15 month = January year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 804 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 5th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183555
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = February year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 805 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 6th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183556
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 15 month = March year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 806 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 7th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183557
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = April year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 807 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 8th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183558
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 19 month = April year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 808 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 9th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183559
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = June year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 809 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 10th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183560
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = August year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 810 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 11th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183561
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = August year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 811 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 12th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183562
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = October year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 812 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 13th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183563
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 29 month = October year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 813 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 14th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183564
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = November year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 814 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 15th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183565
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = December year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 815 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 16th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183566
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 816 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 17th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183567
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = February year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 817 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 18th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183568
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = April year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 818 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 19th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183569
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = May year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 819 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 20th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183570
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = June year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 820 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 21st Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183571
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = July year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 821 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 22nd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183572
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = August year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 822 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 23rd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183573
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = September year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 823 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 24th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183574
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = October year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 824 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 25th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183575
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = November year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 825 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 26th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183576
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = March year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 826 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 27th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183577
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = June year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 827 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 28th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183578
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = November year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 828 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 29th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183579
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = July year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 829 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 30th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183580
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = August year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 830 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 31st Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183581
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = May year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 831 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 32nd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183582
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = September year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 832 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 33rd Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183583
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = October year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 833 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 34th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183584
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = November year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 834 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 35th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183585
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 13 month = December year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 835 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 36th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183586
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = January year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 701 where = 836 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 37th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183587
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 18 month = January year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 837 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 38th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183588
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = March year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 838 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 39th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183589
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = August year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 839 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 40th Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183590
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 0 month = January year = 1945 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 840 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 41st Guards Infantry Corps
+#########################################################################
+event = {  
+	id = 3183591
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183401_NAME
+    desc = EVT_3183550_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_infantry" 
+	picture = "sov_guards_infantry"
+	
+	date = { day = 27 month = June year = 1945 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183401A
+		
+		command = { type = activate_division which = 10848  value = 841 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+#########################################################################
+#########################################################################
+# 1st Guards Cavalry Corps
+#########################################################################
+#########################################################################
+#########################################################################
+event = {  
+	id = 3183600
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 25 month = November year = 1941 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 842 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 2nd Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183601
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 24 month = December year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 843 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 3rd Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183602
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 24 month = December year = 1941 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 844 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 4th Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183603
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 26 month = August year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 845 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 5th Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183604
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 19 month = November year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 846 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 6th Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183605
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 18 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 847 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 7th Guards Cavalry Corps
+#########################################################################
+event = {  
+	id = 3183606
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		event = 3283018
+	}
+
+	name = EVT_3183600_NAME
+	desc = EVT_3183600_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_cavalry" 
+	picture = "sov_guards_cavalry"
+	
+	date = { day = 13 month = February year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183600A
+		
+		command = { type = activate_division which = 10848  value = 848 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+#########################################################################
+#########################################################################
+# 1st Guards Mechanized Corps
+#########################################################################
+#########################################################################
+#########################################################################
+event = {  
+	id = 3183607
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 6 month = June year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 849 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 2nd Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183608
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 6 month = November year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 850 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 3rd Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183609
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 17 month = December year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 851 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 4th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183610
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 8 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 852 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 5th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183611
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 7 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 853 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 6th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183612
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 27 month = June year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 854 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 7th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183613
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 6 month = April year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 855 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 8th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183614
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 6 month = October year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 856 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+# 9th Guards Mechanized Corps
+#########################################################################
+event = {  
+	id = 3183615
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 16
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 16
+		event = 3283018
+	}
+
+	name = EVT_3183607_NAME
+	desc = EVT_3183607_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_mech" 
+	picture = "sov_guards_mech"
+	
+	date = { day = 11 month = September year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183607A
+		
+		command = { type = activate_division which = 10848  value = 857 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -16 }
+	}
+}
+#########################################################################
+#########################################################################
+#########################################################################
+# 1st Guards Tank Corps
+#########################################################################
+#########################################################################
+#########################################################################
+event = {  
+	id = 3183616
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183616_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 0 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 858 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 2nd Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183617
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183617_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 5 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 859 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 3rd Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183618
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183618_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 10 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 860 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 4th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183619
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183619_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 15 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 861 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 5th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183620
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183620_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 20 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 862 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 6th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183621
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183621_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 17 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 863 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 7th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183622
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183622_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 20 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 864 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 8th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183623
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183623_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 25 month = January year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 865 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 9th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183624
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183624_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 19 month = November year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 866 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 10th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183625
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183625_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 24 month = October year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 867 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 11th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183626
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183626_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 22 month = October year = 1943 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 868 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 12th Guards Tank Corps
+#########################################################################
+event = {  
+	id = 3183627
+	random = no
+	country = SOV
+
+	decision = { 
+		event = 3283018
+	}
+	decision_trigger = { 	
+		atwar = yes
+		government = communist
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 9
+		event = 3283018
+		}
+
+	trigger = {
+		atwar = yes
+		government = communist
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		event = 3283018
+	}
+
+	name = EVT_3183616_NAME
+	desc = EVT_3183627_DESC
+	style = 2
+	decision_picture = "sov_decision_guards_tank" 
+	picture = "sov_guards_tank"
+	
+	date = { day = 19 month = November year = 1944 }
+	offset = 1
+	deathdate = { day = 2 month = September year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3183616A
+		
+		command = { type = activate_division which = 10848  value = 869 where = 1133 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################

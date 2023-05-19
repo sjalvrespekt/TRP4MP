@@ -1,0 +1,573 @@
+####################################
+# Minor AI Slider Events 12000 - XXXXXX by Lothos
+####################################
+################
+#	Free Market
+#############################################
+event = { # Free Market
+	id = 12000
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = free_market value = 1 }
+		government = democratic
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Free Market"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = 1 }
+	}
+}
+event = { # Free Market
+	id = 12001
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = free_market value = -1 }
+		OR = {
+			government = fascist
+			government = communist
+		}
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Free Market"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = -1 }
+	}
+}
+################
+#	Open Society
+#############################################
+event = { # Open Society
+	id = 12002
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = freedom value = -1 }
+		OR = {
+			government = fascist
+			government = communist
+		}
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Society"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = -1 }
+	}
+}
+event = { # Open Society
+	id = 12003
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = freedom value = 1 }
+		government = democratic
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Society"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = 1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 12004
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = defense_lobby value = 1 }
+		OR = {
+			government = fascist
+			government = communist
+		}
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Hawk"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+event = { # Dove Lobby
+	id = 12005
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = defense_lobby value = -1 }
+		government = democratic
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Hawk"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = -1 }
+	}
+}
+################
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 12006
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = interventionism value = 1 }
+		OR = {
+			AND = {
+				atwar = yes
+				NOT = {
+					country = GER
+					country = SOV
+					country = ITA
+					country = USA
+					country = ENG
+					country = CHI
+					country = JAP
+					country = FRA
+				}
+			}
+			AND = {
+				atwar = no
+				OR = {
+					atwar = ENG
+					atwar = USA
+				}
+				OR = {
+					country = BOL
+					country = BRA
+					country = COL
+					country = COS
+					country = CUB
+					country = DOM
+					country = ECU
+					country = SAL
+					country = GUA
+					country = HAI
+					country = HON
+					country = MEX
+					country = NIC
+					country = PRU
+					country = URU
+					country = PAR
+					country = VEN
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Inter"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 12007
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = professional_army value = 1 }
+		OR = {
+			government = fascist
+			government = communist
+		}
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Army"	
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+event = { # Drafted Army
+	id = 12008
+	random = no
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = {
+			country = GER
+			country = SOV
+			country = ITA
+			country = USA
+			country = ENG
+			country = CHI
+			country = JAP
+			country = FRA
+		}
+		can_change_policy = { type = professional_army value = -1 }
+		government = democratic
+		NOT = {
+			can_change_policy = { type = interventionism value = 1 }
+			atwar = no
+			OR = {
+				atwar = ENG
+				atwar = USA
+			}
+			OR = {
+				country = BOL
+				country = BRA
+				country = COL
+				country = COS
+				country = CUB
+				country = DOM
+				country = ECU
+				country = SAL
+				country = GUA
+				country = HAI
+				country = HON
+				country = MEX
+				country = NIC
+				country = PRU
+				country = URU
+				country = PAR
+				country = VEN
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	#name = "Army"	
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = -1 }
+	}
+}

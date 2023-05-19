@@ -1,0 +1,2162 @@
+# converted to DH, Kane, July 13 2011
+##########################################################################
+# 3123000 - 3123999	Nationalist China events
+##########################################################################
+
+#########################################################################
+# Help to China
+#########################################################################
+event = {
+	id = 3123000
+	random = no
+	country = CHI
+
+	# triggered by USA 3182035
+
+	name = EVT_3123000_NAME # Help to China
+	desc = EVT_3123000_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3123000A # Thanks the Americans
+		command = { type = supplies value = 1000 }
+		command = { type = add_division which = "1. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "2. Xin Jituanjun"  value = d_02 when = 0 }
+	}
+}
+#########################################################################
+# Help to China
+#########################################################################
+event = {
+	id = 3123001
+	random = no
+	country = CHI
+
+	# triggered by USA 3182036
+
+	name = EVT_3123001_NAME # Help to China
+	desc = EVT_3123001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3123001A # Thanks the Americans
+		command = { type = supplies value = 2000 }
+		command = { type = add_division which = "4. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "5. Xin Jituanjun"  value = d_02 when = 0 }
+	}
+}
+#########################################################################
+#  Burma Road
+#########################################################################
+event = {
+	id = 3123002
+	random = no
+	country = CHI
+	persistent = yes
+
+	# triggered by USA 3182100
+
+	name = EVT_3123002_NAME # Burma Road Shipment
+	desc = EVT_3182100_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3123002A # Thanks the Americans
+		command = { type = supplies value = 1000 }
+		#command = { type = free_ic value = 1 }
+	}
+}
+event = {
+	id = 3123003
+	random = no
+	country = CHI
+	persistent = yes
+
+	# triggered by USA 3182101
+
+	name = EVT_3123003_NAME # The Hump
+	desc = EVT_3182101_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3123003A # "Thanks the Americans"
+		command = { type = supplies value = 500 }
+		#command = { type = free_ic value = 1 }
+	}
+}
+################
+# Chinese alliance against the Soviets
+#############################################
+event = {
+	id = 29032
+	country = CHI
+	random = no
+
+	trigger = {
+		OR = {
+			war = { country = CHI country = SOV }
+			war = { country = CHC country = SOV }
+			war = { country = CSX country = SOV }
+			war = { country = CGX country = SOV }
+			war = { country = CXB country = SOV }
+			war = { country = SIK country = SOV }
+			war = { country = CYN country = SOV }
+		}
+		NOT = { alliance = { country = CHI country = SOV } }
+		NOT = { alliance = { country = CSX country = SOV } }
+		NOT = { alliance = { country = CHC country = SOV } }
+		NOT = { alliance = { country = CGX country = SOV } }
+		NOT = { alliance = { country = CYN country = SOV } }
+		NOT = { alliance = { country = CXB country = SOV } }
+		OR = {
+			NOT = { ispuppet = CSX }
+			puppet = { country = CSX country = CHI }
+			puppet = { country = CSX country = CHC }
+			puppet = { country = CSX country = CGX }
+			puppet = { country = CSX country = CYN }
+			puppet = { country = CSX country = CXB }
+		}
+		OR = {
+			NOT = { ispuppet = CHC }
+			puppet = { country = CHC country = CHI }
+			puppet = { country = CHC country = CSX }
+			puppet = { country = CHC country = CGX }
+			puppet = { country = CHC country = CYN }
+			puppet = { country = CHC country = CXB }
+		}
+		OR = {
+			NOT = { ispuppet = CGX }
+			puppet = { country = CGX country = CHI }
+			puppet = { country = CGX country = CSX }
+			puppet = { country = CGX country = CHC }
+			puppet = { country = CGX country = CYN }
+			puppet = { country = CGX country = CXB }
+		}
+		OR = {
+			NOT = { ispuppet = CYN }
+			puppet = { country = CYN country = CHI }
+			puppet = { country = CYN country = CSX }
+			puppet = { country = CYN country = CHC }
+			puppet = { country = CYN country = CGX }
+			puppet = { country = CYN country = CXB }
+		}
+		OR = {
+			NOT = { ispuppet = CXB }
+			puppet = { country = CXB country = CHI }
+			puppet = { country = CXB country = CSX }
+			puppet = { country = CXB country = CHC }
+			puppet = { country = CXB country = CGX }
+			puppet = { country = CXB country = CYN }
+		}
+
+	}
+
+	name = EVT_29032_NAME # United Front Against Soviet aggression
+	desc = EVT_29032_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		name = ACTIONNAME29032A # Yes
+		ai_chance = 99
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = freedom value = 1 }
+		command = { type = dissent value = -5 }
+		command = { type = peace which = CHC value = 0 }
+#		command = { type = peace which = CSX value = 1 } #just in case
+#		command = { type = peace which = CGX value = 1 } #just in case
+#		command = { type = peace which = CYN value = 1 } #just in case
+#		command = { type = peace which = CXB value = 1 } #just in case
+#		command = { type = peace which = SIK value = 1 } #just in case
+#		command = { type = alliance which = CHC }
+		command = { type = access which = CHC }
+		command = { type = trigger which = 6300001 }
+		command = { type = alliance which = CSX }
+		command = { type = alliance which = CGX }
+		command = { type = alliance which = CYN }
+		command = { type = alliance which = CXB }
+		command = { type = alliance which = SIK }
+	}
+
+	action_b = {
+		name = ACTIONNAME29032B # No
+		ai_chance = 1
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 5 }
+		command = { type = relation which = CHC value = -10 }
+		command = { type = relation which = CSX value = -15 }
+		command = { type = relation which = CGX value = -10 }
+	}
+
+}
+#########################################################################
+#  Xi'an Incident
+#########################################################################
+event = {
+	id = 90 # Referenced in AI files
+	random = no
+	country = CHI
+
+	trigger = {
+		war = { country = CHI country = CHC }
+		headofgovernment = 52002
+		NOT = { war = { country = CHI country = JAP } }
+		OR = {
+				random = 10
+				lost_national = { country = CHC value = 1 }
+				}
+	}
+
+	name = EVT_90_NAME
+	desc = EVT_90_DESC
+	picture = "chinese_incident"
+	style = 0
+
+	date = { day = 1 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = february year = 1937 }
+
+	action_a = {
+		name = EVT_90_ACTA
+		ai_chance = 98
+		command = { type = dissent value = -5 }
+		command = { trigger = { AI = yes NOT = { AI = JAP } } type = dissent value = -10 }
+		command = { type = peace which = CHC value = 0 }
+# 		command = { type = peace which = CSX value = 1 } #just in case
+# 		command = { type = peace which = CGX value = 1 } #just in case
+# 		command = { type = peace which = CYN value = 1 } #just in case
+# 		command = { type = peace which = CXB value = 1 } #just in case
+# 		command = { type = peace which = SIK value = 1 } #just in case
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = freedom value = 1 }
+		command = { type = relation which = CHC value = 10 }
+		command = { type = relation which = CSX value = 20 }
+		command = { type = relation which = CGX value = 10 }
+		command = { type = relation which = CYN value = 5 }
+		command = { type = relation which = CXB value = 10 }
+		command = { type = relation which = SIK value = 15 }
+		command = { type = sleepleader which = 50010 } # Zhang
+	}
+	action_b = {
+		name = EVT_90_ACTB
+		ai_chance = 1
+		command = { type = dissent value = 10 } # loss of support (mainly Manchurian exiles)
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = freedom value = 2 }
+		command = { type = relation which = CHC value = -20 }
+		command = { type = relation which = CGX value = -5 }
+		command = { type = relation which = CSX value = -10 }
+		command = { type = relation which = CYN value = -5 }
+		command = { type = relation which = CXB value = -5 }
+		command = { type = relation which = SIk value = -5 }
+		command = { type = sleepleader which = 50010 } # Zhang
+		command = { type = sleepevent which = 91 } # Alt Unified Front
+	}
+	action_c = {
+		name = EVT_90_ACTC
+		ai_chance = 1
+		command = { type = dissent value = 15 } #anti-communist dissent
+		command = { type = peace which = CHC value = 0 }
+# 		command = { type = peace which = CSX value = 1 } #just in case
+# 		command = { type = peace which = CGX value = 1 } #just in case
+# 		command = { type = peace which = CYN value = 1 } #just in case
+# 		command = { type = peace which = CXB value = 1 } #just in case
+# 		command = { type = peace which = SIK value = 1 } #just in case
+		command = { type = alliance which = CHC }
+		command = { type = alliance which = CSX }
+		command = { type = alliance which = CGX }
+		command = { type = alliance which = CYN }
+		command = { type = alliance which = CXB }
+		command = { type = alliance which = SIK }
+		command = { type = domestic which = democratic value = 2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = free_market value = -1 }
+		command = { type = domestic which = interventionism value = 2 }
+		command = { type = domestic which = freedom value = 2 }
+		command = { type = sleepevent which = 91 } # Alt Unified Front
+	}
+}
+
+#########################################################################
+#  United Front against Japan
+#########################################################################
+
+event = {
+	id = 91 # Referenced in AI files
+	country = CHI
+	random = no
+
+	trigger = {
+		OR = {
+			war = { country = CHI country = JAP }
+			war = { country = CHC country = JAP }
+			war = { country = CSX country = JAP }
+			war = { country = CGX country = JAP }
+			war = { country = CYN country = JAP }
+			war = { country = CXB country = JAP }
+			war = { country = TIB country = JAP }
+			war = { country = SIK country = JAP }
+		}
+		OR = {
+				NOT = { alliance = { country = CHI country = JAP } }
+				NOT = { alliance = { country = CHC country = JAP } }
+				NOT = { alliance = { country = CSX country = JAP } }
+				NOT = { alliance = { country = CGX country = JAP } }
+				NOT = { alliance = { country = CYN country = JAP } }
+				NOT = { alliance = { country = CXB country = JAP } }
+				NOT = { alliance = { country = TIB country = JAP } }
+				NOT = { alliance = { country = SIK country = JAP } }
+				
+				NOT = { alliance = { country = CHC country = CHI } }
+				NOT = { alliance = { country = CSX country = CHI } }
+				NOT = { alliance = { country = CGX country = CHI } }
+				NOT = { alliance = { country = CYN country = CHI } }
+				NOT = { alliance = { country = CXB country = CHI } }
+				NOT = { alliance = { country = TIB country = CHI } }
+				NOT = { alliance = { country = SIK country = CHI } }
+				}
+		OR = {
+				NOT = { ispuppet = CHC }
+				NOT = { ispuppet = CSX }
+				NOT = { ispuppet = CGX }
+				NOT = { ispuppet = CYN }
+				NOT = { ispuppet = CXB }
+				NOT = { ispuppet = TIB }
+				NOT = { ispuppet = SIK }
+				}
+	}
+
+	name = EVT_91_NAME
+	desc = EVT_91_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1937 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = EVT_91_ACTA
+		ai_chance = 100
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = freedom value = 1 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = set_domestic which = interventionism value = 10 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = set_domestic which = free_market value = 10 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = set_domestic which = defense_lobby value = 10 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = set_domestic which = professional_army value = 10 }
+		command = { type = dissent value = -5 }
+		command = { trigger = { war = { country = CHI country = CHC } NOT = { alliance = { country = JAP country = CHC } } } type = peace which = CHC value = 0 }
+ 		command = { trigger = { war = { country = CHI country = CSX } NOT = { alliance = { country = JAP country = CSX } } } type = peace which = CSX value = 0 } #just in case
+ 		command = { trigger = { war = { country = CHI country = CGX } NOT = { alliance = { country = JAP country = CGX } } } type = peace which = CGX value = 0 } #just in case
+ 		command = { trigger = { war = { country = CHI country = CYN } NOT = { alliance = { country = JAP country = CYN } } } type = peace which = CYN value = 0 } #just in case
+ 		command = { trigger = { war = { country = CHI country = CXB } NOT = { alliance = { country = JAP country = CXB } } } type = peace which = CXB value = 0 } #just in case
+ 		command = { trigger = { war = { country = CHI country = SIK } NOT = { alliance = { country = JAP country = SIK } } } type = peace which = SIK value = 0 } #just in case
+ 		command = { trigger = { war = { country = CHI country = TIB } NOT = { alliance = { country = JAP country = TIB } } } type = peace which = TIB value = 0 } #just in case
+		command = { trigger = { NOT = { alliance = { country = CHI country = CHC } } NOT = { alliance = { country = JAP country = CHC } } NOT = { ispuppet = CHC } } type = alliance which = CHC when = 2 }
+		command = { trigger = { NOT = { alliance = { country = CHI country = CSX } } NOT = { alliance = { country = JAP country = CSX } } NOT = { ispuppet = CSX } } type = alliance which = CSX when = 2 }
+		command = { trigger = { NOT = { alliance = { country = CHI country = CGX } } NOT = { alliance = { country = JAP country = CGX } } NOT = { ispuppet = CGX } } type = alliance which = CGX when = 2 }
+		command = { trigger = { NOT = { alliance = { country = CHI country = CYN } } NOT = { alliance = { country = JAP country = CYN } } NOT = { ispuppet = CYN } } type = alliance which = CYN when = 2 }
+		command = { trigger = { NOT = { alliance = { country = CHI country = CXB } } NOT = { alliance = { country = JAP country = CXB } } NOT = { ispuppet = CXB } } type = alliance which = CXB when = 2 }
+		command = { trigger = { NOT = { alliance = { country = CHI country = SIK } } NOT = { alliance = { country = JAP country = SIK } } NOT = { ispuppet = SIK } } type = alliance which = SIK when = 2 }
+		# chinese route armies for the defense mobilised.
+		command = { type = add_division which = "Beifang Lùxiàn Jituanjun" value = militia when = 0 }
+		command = { type = add_division which = "Nanfang Lùxiàn Jituanjun" value = militia when = 0 }
+		command = { type = add_division which = "1. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "2. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "3. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "4. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "5. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "6. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "7. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "11. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "12. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "14. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "15. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "16. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "17. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "19. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "20. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "21. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "22. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "26. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "29. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "32. Lùxiàn Jituanjun"     value = militia when = 0 }
+	}
+	action_b = {
+		name = EVT_91_ACTB
+		ai_chance = 0
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 5 }
+		command = { type = relation which = CHC value = -10 }
+		command = { type = relation which = CSX value = -15 }
+		command = { type = relation which = CGX value = -10 }
+		# chinese route armies for the defense mobilised - without the puppet state route armies.
+		command = { type = add_division which = "Beifang Lùxiàn Jituanjun" value = militia when = 0 }
+		command = { type = add_division which = "Nanfang Lùxiàn Jituanjun" value = militia when = 0 }
+		command = { type = add_division which = "1. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "2. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "4. Lùxiàn Jituanjun"      value = militia when = 0 }
+		command = { type = add_division which = "11. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "12. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "14. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "15. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "16. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "17. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "19. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "20. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "21. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "26. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "29. Lùxiàn Jituanjun"     value = militia when = 0 }
+		command = { type = add_division which = "32. Lùxiàn Jituanjun"     value = militia when = 0 }
+	}
+}
+#########################################################################
+#  The Nanking Massacre
+#########################################################################
+event = { 
+	id = 4100
+	random = no
+	country = CHI
+	
+	# Triggered by JAP 3146053
+	
+	name = EVT_4100_NAME
+	desc = EVT_4100_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME4100A # Tragedy!
+		command = { type = dissent value = -1 }
+		command = { type = add_division which = "7. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "8. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "9. Xin Jituanjun"  value = d_02 when = 0 }
+	}
+}
+#########################################################################
+#  The Sian Incident (Chiang Kai-Shek kidnapped)
+#########################################################################
+event = { 
+	id = 4101
+	random = no
+	country = CHI
+	
+	trigger = {
+		exists = CHC
+		war = { country = CHC country = CHI }
+	}
+	
+	name = EVT_4101_NAME
+	desc = EVT_4101_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1936 }
+	offset = 60
+	deathdate = { day = 0 month = march year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME4101A # Ally with the Commies
+		ai_chance = 100
+		command = { type = peace which = CHC }
+		command = { type = access which = CHC }
+		command = { type = dissent value = -10 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME4101B # Refuse
+		command = { type = dissent value = 15 } 
+	}
+}
+
+##################################################################################
+# 522009 CHI- The 4 big families control the economy (by nachinus)
+##################################################################################
+event = {
+	id = 522009
+	random = no
+	country = CHI
+
+	trigger = {
+		random = 60
+		headofgovernment = 52002 # Chiang kai shek
+		war = { country = CHI country = JAP }
+		war = { country = USA country = JAP }
+		control = { province = 1324 data = CHI } # Zhengzhou
+		control = { province = 1322 data = CHI } # Luoyang
+		NOT = {
+			OR = { 
+				control = { province = 1338 data = CHI } # Shanghai
+				control = { province = 1247 data = CHI } # Beijing
+				alliance = { country = CHI country = GER }
+				war = { country = CHI country = USA }
+				government = communist
+			}
+		}
+	}
+
+	name = EVT_522009_NAME # The Four Great Families of China and the economic crisis
+ 	desc = EVT_522009_DESC
+	style = 0
+
+	date = { day = 0 month = october year = 1942 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME522009A # Starvation has claimed many unfortunate lives
+		command = { type = money value = -2 }
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 5 }
+		command = { type = manpowerpool value = -80 }
+	}
+}
+#########################################################################
+#  Germany sends von Falkenhausen in China 1936
+#########################################################################
+event = { 
+	id = 522003
+	random = no
+	country = CHI
+	
+	# Triggered by 3136115
+	
+	name = EVT_522003_NAME # German military mission in China
+	desc = EVT_522003_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522003A # Accept the German offer, this will benefit us greatly.
+		command = { type = wakeleader which = 50304 } # von Falkenhausen
+		command = { type = supplies value = 750 }
+        command = { type = activate_division which = 22000 value = 500 when = 0 }
+		command = { type = activate_division which = 22000 value = 501 when = 0 }
+		command = { type = activate_division which = 22000 value = 502 when = 0 }
+		command = { type = construct which = ic where = 1317 value = 1 } #Wuhan arsenal expansion
+		command = { type = manpowerpool value = -60 }
+	}
+}
+
+#########################################################################
+#  Germany sends a limited mission to China 1936
+#########################################################################
+event = { 
+	id = 522004
+	random = no
+	country = CHI
+	
+	# Triggered by 3136115
+	
+	name = EVT_522004_NAME # German limited mission in China (CHI)
+	desc = EVT_522004_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522004A # Accept the German offer. This will help us in greatly.
+		command = { type = supplies value = 750 } # Uniforms and ammunition from Germany
+		command = { type = add_division value = d_02 when = 0 }
+		command = { type = add_division value = d_02 when = 0 }
+		command = { type = add_division value = d_02 when = 0 }
+		command = { type = add_division value = d_02 when = 0 }
+		command = { type = manpowerpool value = -40 }
+	}
+}
+#########################################################################
+#  Germany continues military mission in China 1937
+#########################################################################
+event = { 
+	id = 522005
+	random = no
+	country = CHI
+	
+	# Triggered by 3136116
+	
+	name = EVT_522005_NAME # German military mission in China (CHI)
+	desc = EVT_522005_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522005A # China will prosper.
+		command = { type = supplies value = 1250 }
+        command = { type = activate_division which = 22000 value = 503 when = 0 }
+		command = { type = activate_division which = 22000 value = 504 when = 0 }
+		command = { type = activate_division which = 22000 value = 505 when = 0 }
+        command = { type = activate_division which = 22000 value = 506 when = 0 }
+		command = { type = activate_division which = 22000 value = 507 when = 0 }	
+		command = { type = manpowerpool value = -100 }
+		command = { type = construct which = ic where = 1317 value = 1 } #Wuhan arsenal expansion
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+#  Germany withdraws the mission from China 1936 or 1937
+#########################################################################
+event = { 
+	id = 522006
+	random = no
+	country = CHI
+	
+	# Triggered by 3136116
+	
+	name = EVT_522006_NAME # Germany withdraws mission from China (CHI)
+	desc = EVT_522006_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522006A # China will not forget this insult.
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = sleepevent which = 522016 } # sleep allegiance event
+	}
+}
+#########################################################################
+#  Germany continues military mission in China 1938
+#########################################################################
+event = { 
+	id = 522007
+	random = no
+	country = CHI
+	
+	# Triggered by 5
+	
+	name = EVT_522007_NAME # German assistance in China (CHI)
+	desc = EVT_522007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522007A # China will prosper.
+		# command = { type = gain_tech which = 4300 } 
+		# command = { type = gain_tech which = 1300 } 
+		# command = { type = gain_tech which = 1400 } 
+		# command = { type = gain_tech which = 1976 } 
+		# command = { type = gain_tech which = 11200 } 
+		# command = { type = gain_tech which = 11204 } 
+		# command = { type = gain_tech which = 14300 } 
+		command = { type = supplies value = 750 } # Uniforms, ammunition and weapons from Germany (minus req for new division)
+        command = { type = activate_division which = 22000 value = 508 when = 0 }
+		command = { type = activate_division which = 22000 value = 509 when = 0 }
+		command = { type = activate_division which = 22000 value = 510 when = 0 }
+        command = { type = activate_division which = 22000 value = 511 when = 0 }
+		command = { type = activate_division which = 22000 value = 512 when = 0 }	
+        command = { type = activate_division which = 22000 value = 513 when = 0 }
+		command = { type = activate_division which = 22000 value = 514 when = 0 }
+		command = { type = activate_division which = 22000 value = 515 when = 0 }
+        command = { type = activate_division which = 22000 value = 516 when = 0 }
+		command = { type = activate_division which = 22000 value = 517 when = 0 }	
+		command = { type = activate_division which = 22000 value = 518 when = 0 }		
+        command = { type = construct which = ic where = 1317 value = 1 } #Wuhan arsenal expansion		
+		command = { type = manpowerpool value = -220 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+#  Germany withdraws the mission from China 1938
+#########################################################################
+event = { 
+	id = 522008
+	random = no
+	country = CHI
+	
+	# Triggered by 3136116
+	
+	name = EVT_522008_NAME # Germany withdraws mission from China
+	desc = EVT_522008_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522008A # China will not forget this insult.
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = sleepleader which = 50304 } # General von Falkenhausen
+		command = { type = sleepteam which = 1005 } # General von Falkenhausen
+		command = { type = sleepevent which = 522016 } # sleep allegiance event
+	}
+}
+#########################################################################
+#  Soviet equipment to China
+#########################################################################
+event = { 
+	id = 522014
+	random = no
+	country = CHI
+	
+	# Equipment received from USSR
+
+	trigger = {
+		event = 222028
+		random = 25
+		#control = { province = 1360 data = -1 }
+		NOT = { war = { country = CHI country = SOV } }
+		war = { country = CHI country = JAP }
+	}
+
+        date = { day = 0 month = april year = 1937 }
+        offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522014_NAME # Soviet assistance to China
+	desc = EVT_522014_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522014A # Use the Soviet 'donations' in our struggle
+		command = { type = supplies value = 200 }
+		command = { type = add_division value = interceptor }
+		command = { type = add_division value = tactical_bomber }
+		command = { type = add_division which = "5. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "6. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "7. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "8. Xin Jituanjun"  value = d_02 when = 0 }		
+        command = { type = manpowerpool value = -2 }
+	}
+}
+#########################################################################
+#  200th Division
+#########################################################################
+event = { 
+	id = 522032
+	random = no
+	country = CHI
+	
+	# Equipment received from USSR
+
+	trigger = {
+				OR = {
+						AND = {
+								event = 222028 #soviet operation Zet
+								random = 50
+								}
+						AND = {
+								NOT = { event = 222028 }
+								random = 10
+								}
+						}
+				NOT = { war = { country = CHI country = SOV } }
+				war = { country = CHI country = JAP }
+				manpower = 20
+	}
+
+    date = { day = 0 month = january year = 1938 }
+    offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522032_NAME 
+	desc = EVT_522032_DESC
+	style = 2
+	picture = "200th"
+
+	action_a = {
+		name = ACTION_NAME_OK # Form 200th Division
+		command = { type = activate_division which = 22000 value = 279 when = 0 }
+		command = { type = manpowerpool value = -20 }
+	}
+}
+#########################################################################
+#  Soviet credit to China
+#########################################################################
+event = { 
+	id = 522015
+	random = no
+	country = CHI
+	
+	# Credit received from USSR
+
+	trigger = {
+		event = 522014
+		random = 15
+		NOT = { war = { country = CHI country = SOV } }
+	}
+
+        date = { day = 0 month = april year = 1937 }
+        offset = 30
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	name = EVT_522015_NAME # Soviet economic assistance to China
+	desc = EVT_522015_DESC
+	style = 0
+
+	action_a = {
+		ai_chance = 5
+		name = ACTIONNAME522015A # Use the credits to purchase supplies and resources
+		command = { type = supplies value = 200 }
+		command = { type = oilpool value = 5000 }
+		command = { type = rarematerialspool value = 5000 }
+		command = { type = metalpool value = 5000 }
+		command = { type = energypool value = 5000 }
+		command = { type = add_division which = "11. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "12. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "31. Xin Jituanjun"  value = d_02 when = 0 }
+	}
+	action_b = {
+		ai_chance = 95
+		name = ACTIONNAME522015B # Use the credits to raise new infantry
+		command = { type = supplies value = 50 }
+		command = { type = oilpool value = 1000 }
+		command = { type = add_division value = d_02 when = 0 } 
+		command = { type = add_division value = d_02 when = 0 } 
+		command = { type = add_division value = d_02 when = 0 } 
+		command = { type = add_division which = "11. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "12. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = add_division which = "31. Xin Jituanjun"  value = d_02 when = 0 }
+		command = { type = manpowerpool value = -30 }
+	}
+	action_c = {
+		ai_chance = 0
+		name = ACTIONNAME522015C # Use the credits to purchase ships for the navy
+		command = { type = supplies value = 100 }
+		command = { type = oilpool value = 3000 }
+		command = { type = add_division value = destroyer }
+		command = { type = add_division value = destroyer }
+		command = { type = add_division value = destroyer }
+		command = { type = add_division value = transport }
+		command = { type = add_division value = transport }
+		command = { type = manpowerpool value = -5 }
+	}
+}
+########################################################
+# German mission withdraw as China switches allegiance
+########################################################
+event = { 
+	id = 522016
+	random = no
+	country = CHI
+	
+	# German mission withdraw as China switches allegiance
+
+	trigger = {
+		event = 522003
+		OR = {
+			alliance = { country = CHI country = SOV }
+			alliance = { country = CHI country = ENG }
+			war = { country = CHI country = GER }
+		}
+	}
+
+        date = { day = 0 month = april year = 1937 }
+        offset = 10
+	deathdate = { day = 29 month = december year = 1940 }
+	
+	name = EVT_522016_NAME # Germany withdraws the military mission from China
+	desc = EVT_522016_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522016A # We have lost valuable German support
+		command = { type = sleepleader which = 50304 } # General von Falkenhausen
+		command = { type = sleepevent which = 3136116 } # sleep 1937 mission 
+		command = { type = sleepevent which = 3136119 } # sleep 1938 mission 
+	}
+}
+#########################################################################
+# The Marco Polo Bridge Incident - settlement
+#########################################################################
+event = { 
+	id = 522010
+	random = no
+	country = CHI
+	
+	name = EVT_522010_NAME # The Marco Polo Bridge Incident
+	desc = EVT_20_DESC # tbd
+	style = 0
+
+	# Triggered by 20
+
+	action_a = {
+		name = ACTIONNAME522010A # Order has been restored
+		command = { type = sleepevent which = 522025 } # China shocked by japanese attack
+		command = { type = sleepevent which = 522026 }
+		command = { type = sleepevent which = 522027 }
+		command = { type = sleepevent which = 522028 }
+		command = { type = sleepevent which = 522029 }
+	}
+}
+#########################################################################
+#  China takes its case to the League of Nations
+#########################################################################
+event = { 
+	id = 522011
+	random = no
+	country = CHI
+	
+	name = EVT_522011_NAME # China calls for an international resolution to the Sino-Japanese war
+	desc = EVT_522011_DESC
+	style = 0
+
+	trigger = {
+		random = 5
+		war = { country = JAP country = CHI }
+	}
+
+        date = { day = 0 month = september year = 1937 }
+        offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME522011A # Seek international assistance to end the conflict
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME522011B # We do not need international help
+		command = { type = sleepevent which = 322034 } # Ahistorical
+	}
+}
+#########################################################################
+#  Kellogg Peace Act violated 
+#########################################################################
+event = { 
+	id = 322034
+	random = no
+	country = USA
+	
+	trigger = {
+		random = 20
+		war = { country = JAP country = CHI }
+		event = 522011
+		event = 20
+	}
+
+	name = EVT_322034_NAME # Kellogg Peace Act violated (USA)
+	desc = EVT_322034_DESC
+	style = 0
+
+        date = { day = 0 month = september year = 1937 }
+        offset = 1
+	deathdate = { day = 29 month = march year = 1938 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME322034A # Protest against Japanese aggression
+		command = { }
+	}
+#	action_b = {
+#		ai_chance = 0
+#		name = ACTIONNAME322034B # We should not get involved in the Far East
+#		command = { type = dissent value = 1 } # Ahistorical
+#	}
+}
+#########################################################################
+#  Chengchow flooding
+#########################################################################
+event = { 
+	id = 522012
+	random = no
+	country = CHI
+	
+	trigger = {
+		war = { country = JAP country = CHI }
+		control = { province = 1323 data = JAP }
+		NOT = {
+			OR = {
+		      		control = { province = 1323 data = CSX }
+		      		control = { province = 1323 data = CHC }
+		      		control = { province = 1323 data = CXB }
+		      		control = { province = 1323 data = CGX }
+		      		control = { province = 1323 data = CYN }
+		      		control = { province = 1323 data = CHI }
+		   	}
+		}
+	}
+
+	name = EVT_522012_NAME # The Chengchow flooding
+	desc = EVT_522012_DESC
+	style = 0
+	picture = "huayankow6"
+
+	date = { day = 0 month = july year = 1937 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME522012A # Destroy the Huayuankow Dike
+		ai_chance = 99
+		command = { type = construct which = infrastructure where = 1321 value = -5 }
+		command = { type = construct which = infrastructure where = 1327 value = -35 }
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 1 } # the KMT is killing its own people
+	}
+	action_b = {
+		name = ACTIONNAME522012B # Do not carry out such a terrible act
+		ai_chance = 1
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 1 } # the KMT does not do enough to stop the Japanese
+	}
+}
+#########################################################################
+# Industry evacuation to the interior (CHI)
+#########################################################################
+event = { 
+	id = 522022
+	random = no
+	country = CHI
+	
+	trigger = {
+		#event = 522024 # Sinkiang Unity
+		#control = { province = 1279 data = CHI }
+		
+	    control = { province = 1308 data = -3 }
+		control = { province = 1318 data = -3 }
+		control = { province = 1317 data = -3 }
+		control = { province = 1258 data = -3 }
+		control = { province = 1324 data = -3 }
+		control = { province = 1352 data = -3 }
+		control = { province = 1340 data = -3 }
+		control = { province = 1369 data = -3 }
+		control = { province = 1261 data = -3 }
+		control = { province = 1264 data = -3 }
+		control = { province = 1263 data = -3 }
+		control = { province = 1298 data = -3 }
+		control = { province = 1302 data = -3 }
+		control = { province = 1267 data = -3 }	
+		
+		war = { country = CHI country = JAP }
+	}
+
+
+	name = EVT_522022_NAME # Industry evacuation to the interior
+	desc = EVT_522022_DESC
+	style = 0
+	picture = "transfer"
+
+    date = { day = 10 month = february year = 1937 }
+    offset = 5
+	deathdate = { day = 25 month = october year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME522022A # Move the industry to the interior
+		ai_chance = 100
+        command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1308 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1318 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1317 value = -1 }
+		command = { type = construct which = ic where = 1258 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1324 value = -1 }
+		command = { type = construct which = ic where = 1352 value = -1 }
+		command = { type = construct which = ic where = 1340 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1369 value = -1 }
+		
+		command = { type = construct which = ic where = 1261 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1264 value = 2 }
+		command = { type = construct which = ic where = 1263 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1298 value = 2 }
+		command = { type = construct which = ic where = 1302 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1267 value = 1 }
+		
+		#command = { type = construct which = ic where = 1334 value = -1 }# Nantong
+        #command = { type = construct which = ic where = 1338 value = -1 }
+        #command = { type = construct which = ic where = 1337 value = -1 }
+        #command = { type = construct which = ic where = 1340 value = -1 }# Hefei
+        #command = { type = construct which = ic where = 1345 value = -1 }
+        #command = { type = construct which = ic where = 1358 value = -1 }
+        #command = { type = construct which = ic where = 1324 value = -1 }
+        #command = { type = construct which = ic where = 1352 value = -1 }# Nanchang
+        #command = { type = construct which = ic where = 1279 value = 8 } # Kashgar
+	command = { type = construct which = air_base where = 1264 value = 2 } # air base Lanzhou against industrial bombardment
+	command = { type = domestic which = defense_lobby value = 1 }
+	command = { type = setflag which = ICCHI2 }
+	}
+	action_b = {
+		name = ACTIONNAME522022B # Evacuation is admission of defeat
+		ai_chance = 0
+		command = { type = domestic which = defense_lobby value = -1 }
+	}
+}
+#########################################################################
+# Unity in the face of external enemies (CHI)
+#########################################################################
+event = { 
+	id = 522024
+	random = no
+	country = CHI
+	
+	# triggered by 5000000
+
+	name = EVT_522024_NAME # Unity in the face of external enemies (CHI)
+	desc = EVT_522024_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522024A  # Accept help from Sinkiang
+		command = { type = add_division value = d_02 when = 0 }
+		command = { type = add_division value = interceptor } # historically I-15 or I-16
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 1 }
+		command = { type = peace which = SIK value = 0 }
+#		command = { type = make_puppet which = SIK }
+		command = { type = alliance which = SIK }
+	}
+	action_b = {
+		name = ACTIONNAME522024B # We don't need their troops
+		command = { type = dissent value = -1 }
+	}
+}
+#########################################################################
+#  China moves their Capital when war with Japan starts
+#########################################################################
+event = { 
+	id = 5200000
+	random = no
+	country = CHI
+
+	trigger = {
+		war = { country = CHI country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_520000_NAME # Move capital
+	desc = EVT_520000_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME520000A # Captial to ChongQing
+		command = { type = capital which = 1299 } #ChongQing
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 1 }
+		command = { type = manpowerpool value = 1000 }
+	}
+}
+#########################################################################
+#  China in total shock by sudden Japaneese attack
+#########################################################################
+event = { 
+	id = 522025
+	random = no
+	country = CHI
+
+	trigger = {
+                AI = JAP
+				OR = {
+						AI = U00
+						NOT = { exists = U00 }
+						}
+				war = { country = CHI country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_522025_NAME
+	desc = EVT_522025_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522025A # Can we survive this?
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 15 } #2
+		command = { trigger = { AI = JAP } type = ground_def_eff value = -0.025 when = 1 }
+		command = { trigger = { AI = JAP OR = { NOT = { AI = USA } NOT = { AI = CHI } } } type = ground_def_eff value = -0.025 when = 1 }
+		command = { type = alliance which = CGX } # just in case
+		
+		# balancing against AI JAP and U00; compensated later
+		
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = -4 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = -4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = -4.4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = -4.8 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = -3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = -3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = -3.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = -3.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = -0.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = -0.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = -0.2 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = -0.2 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = -0.2 }
+
+	}
+}
+#########################################################################
+#  Shanxi in total shock by sudden Japaneese attack
+#########################################################################
+event = { 
+	id = 522026
+	random = no
+	country = CSX
+
+	trigger = {
+                event = 522025
+		war = { country = CSX country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_522026_NAME
+	desc = EVT_522026_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522026A # Can we survive this?
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 10 } #2
+		#command = { type = ground_def_eff value = 0.5 }
+		command = { type = manpowerpool value = 1000 }
+		
+		# balancing against AI JAP and U00; NOT compensated later
+		
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = -4 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = -4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = -4.4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = -4.8 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = -3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = -3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = -3.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = -3.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = -0.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = -0.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = -0.2 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = -0.2 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = -0.2 }
+	}
+}
+#########################################################################
+#  Guangxi Clique in total shock by sudden Japaneese attack
+#########################################################################
+event = { 
+	id = 522027
+	random = no
+	country = CGX
+
+	trigger = {
+                event = 522025
+		war = { country = CGX country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_522027_NAME
+	desc = EVT_522027_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522027A # Can we survive this?
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 10 } #2
+		#command = { type = ground_def_eff value = 0.5 }
+		command = { type = manpowerpool value = 800 }
+		
+		# balancing against AI JAP and U00; NOT compensated later
+		
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = -4 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = -4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = -4.4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = -4.8 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = -3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = -3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = -3.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = -3.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = -0.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = -0.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = -0.2 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = -0.2 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = -0.2 }
+	}
+}
+#########################################################################
+#  Xibei San Ma in total shock by sudden Japaneese attack
+#########################################################################
+event = { 
+	id = 522028
+	random = no
+	country = CXB
+
+	trigger = {
+                event = 522025
+		war = { country = CXB country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_522028_NAME
+	desc = EVT_522028_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522028A # Can we survive this?
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 10 } #2
+		#command = { type = ground_def_eff value = 0.5 }
+		command = { type = manpowerpool value = 80 }
+		
+		# balancing against AI JAP and U00; NOT compensated later
+		
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = -4 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = -4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = -4.4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = -4.8 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = -3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = -3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = -3.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = -3.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = -0.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = -0.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = -0.2 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = -0.2 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = -0.2 }
+	}
+}
+#########################################################################
+#  Yunnan in total shock by sudden Japaneese attack
+#########################################################################
+event = { 
+	id = 522029
+	random = no
+	country = CYN
+
+	trigger = {
+                event = 522025
+		war = { country = CYN country = JAP }	
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+	
+	name = EVT_522029_NAME
+	desc = EVT_522029_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME522029A # Can we survive this?
+		command = { trigger = { OR = { AI = no AND = { AI = JAP AI = CHI } } } type = dissent value = 10 } #2
+		#command = { type = ground_def_eff value = 0.5 }
+		command = { type = manpowerpool value = 300 }
+		
+		# balancing against AI JAP and U00; NOT compensated later
+		
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = -4 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = -4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = -4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = -4.4 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = -4.4 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = -4.8 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = -3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = -3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = -3.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = -3.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = -0.3 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = -0.3 }
+
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = -0.2 }
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = -0.2 } 
+		command = { trigger = { AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = -0.2 }
+	}
+}
+#########################################################################
+# Unity and fear of total annihilation by Japan mobilizes China (CHI)
+#########################################################################
+event = { 
+	id = 522023
+	random = no
+	country = CHI
+	
+	trigger = {
+				war = { country = CHI country = JAP }
+				OR = {	
+						lost_national = { country = CHI value = 65 }
+						AND = {
+								AI = CHI
+								NOT = { AI = JAP } 
+								lost_national = { country = CHI value = 20 }
+								}
+						}
+	}
+
+	name = EVT_522024_NAME # Unity in the face of external enemies (CHI)
+	desc = EVT_522024_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { AI = JAP } type = ground_def_eff value = 0.025 when = 1 }
+		command = { trigger = { AI = JAP OR = { NOT = { AI = USA } NOT = { AI = CHI } } } type = ground_def_eff value = 0.025 when = 1 }
+		
+		#bonus for AI CHI against human JAP from now on
+		command = { trigger = { AI = CHI OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = ground_def_eff value = 0.025 when = 1 }
+		
+		command = { type = supplies value = 500 }
+		
+		command = { trigger = { AI = CHI AI = CGX OR = { war = { country = JAP country = CGX } war = { country = U00 country = CGX } } } type = inherit which = CGX value = 1 }
+		command = { trigger = { AI = CHI AI = CXB OR = { war = { country = JAP country = CXB } war = { country = U00 country = CXB } } } type = inherit which = CXB value = 1 }
+		command = { trigger = { AI = CHI AI = CSX OR = { war = { country = JAP country = CSX } war = { country = U00 country = CSX } } } type = inherit which = CSX value = 1 }
+		command = { trigger = { AI = CHI AI = CYN OR = { war = { country = JAP country = CYN } war = { country = U00 country = CYN } } } type = inherit which = CYN value = 1 }
+#		command = { trigger = { AI = CHI AI = SIK OR = { war = { country = JAP country = SIK } war = { country = U00 country = SIK } } } type = inherit which = SIK value = 1 }
+		
+		# balancing against AI JAP and U00; compensation for event 522025
+		
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = 4 }
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = 4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = 4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = 4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = 4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = 4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = 4 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = 4.4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = 4.4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = 4.4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = 4.4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = 4.4 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = 4.4 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = 4.8 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = 3 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = 3 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = 3.3 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = 3.3 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = 0.3 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = 0.3 }
+
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = 0.2 }
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = 0.2 } 
+		command = { trigger = { event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = 0.2 }
+		
+		command = { type = setflag which = china_normal_combat }
+		
+
+# deactivated for new doctrine effects; has to be adapted		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = infantry value = 17 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = infantry value = 17 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = infantry value = 17 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = infantry value = 37 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = infantry value = 30 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = infantry value = 0 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = infantry value = 10 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = infantry value = 10 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = infantry value = 40 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = infantry value = 25 }	
+#
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = cavalry value = 17 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = cavalry value = 17 }		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = cavalry value = 13 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = cavalry value = 41 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = cavalry value = 31 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = cavalry value = 0 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = cavalry value = 10 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = cavalry value = 5 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = cavalry value = 45 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = cavalry value = 25 }	
+#
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = bergsjaeger value = 3 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = bergsjaeger value = 0 }		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = bergsjaeger value = 13 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = bergsjaeger value = 14 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = bergsjaeger value = 21 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = bergsjaeger value = 0 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = bergsjaeger value = 0 }		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = bergsjaeger value = 5 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = bergsjaeger value = 5 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = bergsjaeger value = 15 }	
+#
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = militia value = 17 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = militia value = 13 }		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = militia value = 13 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = militia value = 37 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = militia value = 31 }	
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = militia value = 0 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = militia value = 5 }		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = militia value = 5 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = militia value = 35 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = militia value = 20 }	
+#
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = d_02 value = 17 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = d_02 value = 17 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = d_02 value = 17 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = d_02 value = 37 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = d_02 value = 30 }
+##		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = d_02 value = 0 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = d_02 value = 10 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = d_02 value = 10 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = d_02 value = 40 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = d_02 value = 25 }
+#		
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = trigger which = 6300004 } # combat bonus for CHC
+	}
+}
+#######################################################################
+# Chinese Civil War
+#######################################################################
+event = {
+	id = 100
+	random = no
+	country = CHI
+
+	name = EVT_100_NAME
+	desc = EVT_100_DESC
+	style = 0
+	picture = "China_CW"
+
+	# triggered by ChiCom event 99
+
+	action_a = {
+		name = EVT_100_ACTA
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = dissent value = 10 } # torn by civil war
+	}
+
+}
+################
+# China offers Guangxi Clique peace
+#############################################
+event = {
+	id = 27008
+	random = no
+	country = CHI
+	
+	trigger = {
+		#ai = yes
+		event = 27005
+		war = { country = CGX country = CHI }
+		NOT = { war = { country = JAP country = CHI } }
+		NOT = { war = { country = JAP country = CGX } }
+		OR =	{
+				lost_national = { country = CGX value = 20 }
+				lost_vp = { country = CGX value = 20 }
+				AND =	{
+						month = 5
+						year = 1937
+						}
+				}
+	}
+
+	name = EVT_27008_NAME # End China vs Guangxi war
+	desc = EVT_27008_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		name = ACTIONNAME27008A # Offer Peace
+		#ai_chance = 99
+		command = { type = trigger which = 27009 }
+	}
+#	action_b = {
+#		name = ACTIONNAME27008B # Continue War
+#		ai_chance = 1
+#		command = { type = setflag which = CHI_Aggresion_Asia }
+#	}
+}
+################
+# China offers Guangxi Clique peace
+#############################################
+event = {
+	id = 27009
+	random = no
+	country = CGX
+
+	# trigger = { ai = yes }
+	
+	name = EVT_27008_NAME # End China vs Guangxi war
+	desc = EVT_27008_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME27009A # Accept offer
+		ai_chance = 99
+		
+		# transfer of Navy to CHI
+		command = { type = switch_allegiance which = 22400 value = 157 where = CHI }
+		# transfer of Air Force to CHI
+		command = { type = switch_allegiance which = -3 where = CHI }
+		
+		command = { type = secedeprovince which = CHI value = 1375 }
+		command = { type = secedeprovince which = CHI value = 1368 }
+		command = { type = secedeprovince which = CHI value = 1369 }
+		command = { type = secedeprovince which = CHI value = 1370 }
+#		command = { type = secedeprovince which = CHI value = 1371 }
+#		command = { type = secedeprovince which = CHI value = 1372 }
+		command = { type = secedeprovince which = CHI value = 1373 }
+		command = { type = secedeprovince which = CHI value = 1367 }
+		command = { type = secedeprovince which = CHI value = 1365 }
+		command = { type = secedeprovince which = CHI value = 1377 }
+		command = { type = peace which = CHI value = 1 }
+		command = { type = set_relation which = CHI value = 100 }
+		command = { type = add_division which = "Guangxi Xin Jituanjun"  value = d_02 when = 0 }
+}
+	action_b = {
+		name = ACTIONNAME27009B # Decline
+		ai_chance = 1
+		command = { } 
+	}
+}
+
+#########################################################################
+# IC relocation 1 
+# deactivated because IC relocation in event 522012 has been removed
+#########################################################################
+#event = { 
+#	id = 522030
+#	random = no
+#	
+#	trigger = {
+#		flag = ICCHI1
+#		not = {	
+#			war = { country = CHI country = JAP }
+#			war = { country = CHC country = JAP }
+#			war = { country = SIK country = JAP }
+#			war = { country = CSX country = JAP }
+#			war = { country = CGX country = JAP }
+#			war = { country = CYN country = JAP }
+#			war = { country = CXB country = JAP }
+#			war = { country = TIB country = JAP }
+#			}
+#		control = { province = 1430 data = -1 }
+#		}
+#
+#        date = { day = 0 month = january year = 1936 }
+#        offset = 10
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	name = EVT_522030_NAME
+#	desc = EVT_522030_DESC
+#	style = 0
+#
+#	action_a = {
+#		name = "ACTION_NAME_OK"
+#		command = { type = construct which = ic where = 1324 value = 2 } # Zhengzhou
+#		command = { type = construct which = ic where = 1325 value = 1 } # Nanyang
+#		command = { type = construct which = ic where = 1326 value = 1 } # Xinyang
+#		command = { type = construct which = ic where = 1279 value = -4 }
+#	}
+#}
+
+#########################################################################
+#  IC relocation 2
+#########################################################################
+event = { 
+	id = 522031
+	random = no
+	
+	trigger = {
+		flag = ICCHI2
+		not = {	
+			war = { country = CHI country = JAP }
+			war = { country = CHC country = JAP }
+			war = { country = SIK country = JAP }
+			war = { country = CSX country = JAP }
+			war = { country = CGX country = JAP }
+			war = { country = CYN country = JAP }
+			war = { country = CXB country = JAP }
+			war = { country = TIB country = JAP }
+			}
+		#control = { province = 1430 data = -1 }
+		control = { province = 1308 data = -1 }
+		control = { province = 1318 data = -1 }
+		control = { province = 1317 data = -1 }
+		control = { province = 1258 data = -1 }
+		control = { province = 1324 data = -1 }
+		control = { province = 1352 data = -1 }
+		control = { province = 1340 data = -1 }
+		control = { province = 1369 data = -1 }
+		control = { province = 1261 data = -1 }
+		control = { province = 1264 data = -1 }
+		control = { province = 1263 data = -1 }
+		control = { province = 1298 data = -1 }
+		control = { province = 1302 data = -1 }
+		control = { province = 1267 data = -1 }
+		}
+
+        date = { day = 0 month = january year = 1936 }
+        offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522031_NAME
+	desc = EVT_522031_DESC
+	style = 0
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+        command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1308 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1318 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1317 value = 1 }
+		command = { type = construct which = ic where = 1258 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1324 value = 1 }
+		command = { type = construct which = ic where = 1352 value = 1 }
+		command = { type = construct which = ic where = 1340 value = 1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1369 value = 1 }
+		
+		command = { type = construct which = ic where = 1261 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1264 value = -2 }
+		command = { type = construct which = ic where = 1263 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1298 value = -2 }
+		command = { type = construct which = ic where = 1302 value = -1 }
+		command = { trigger = { OR = { NOT = { AI = JAP } NOT = { AI = U00 } } AI = CHI } type = construct which = ic where = 1267 value = -1 }
+		
+        #command = { type = construct which = ic where = 1334 value = 1 }# Nantong
+        #command = { type = construct which = ic where = 1338 value = 1 }
+        #command = { type = construct which = ic where = 1337 value = 1 }
+        #command = { type = construct which = ic where = 1340 value = 1 }# Hefei
+        #command = { type = construct which = ic where = 1345 value = 1 }
+        #command = { type = construct which = ic where = 1358 value = 1 }
+        #command = { type = construct which = ic where = 1324 value = 1 }
+        #command = { type = construct which = ic where = 1352 value = 1 }# Nanchang
+        #command = { type = construct which = ic where = 1279 value = -8 } # Kashgar
+	}
+}
+
+##########################################################################################
+#  AI event: warlords created by partisans join alliance against JAP if CHI still fights
+##########################################################################################
+event = { 
+	id = 522033
+	random = no
+	tag = { CXB CSX CYN CGX SIK TIB }
+	
+	persistent = yes
+
+	trigger = {
+				AI = yes				
+				OR = {
+						event = 91 # alliance against JAP
+						event = 29032 # Chinese alliance against the Soviets
+						}					
+				OR = {
+						war = { country = -1 country = JAP }
+						war = { country = -1 country = U00 }
+						}
+				NOT = { war = { country = -1 country = CHI } }
+				NOT = { alliance = { country = -1 country = CHI } }
+				NOT = { alliance = { country = CHI country = -1 } }
+				NOT = { alliance = { country = -1 country = JAP } }
+				NOT = { alliance = { country = JAP country = -1 } }
+				NOT = { alliance = { country = -1 country = U00 } }
+				NOT = { alliance = { country = U00 country = -1 } }
+				NOT = { ispuppet = yes }
+				war = { country = CHI country = JAP }
+				NOT = { country = SIK event = 148012 }
+	}
+
+    date = { day = 0 month = january year = 1936 }
+    offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = "AI_EVENT" 
+	# desc = "AI_EVENT"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = alliance which = CHI }
+	}
+}
+
+##########################################################################################
+#  American Volunteer Group / Flying Tigers created
+##########################################################################################
+event = { 
+	id = 522034
+	random = no
+	country = CHI
+
+	trigger = {			
+				OR = {
+						NOT = { exists = FRA }
+						control = { province = 55 data = GER } #Paris
+						}
+				NOT = { war = { country = USA country = CHI } }
+				war = { country = CHI country = JAP }
+				NOT = { ispuppet = CHI }
+				NOT = { lost_national = { country = CHI value = 75 } }
+				OR = {
+						control = { province = 1299 data = CHI } #western provinces with airbases after the beginning of the war with JAP
+						control = { province = 1264 data = CHI }
+						control = { province = 1317 data = CHI }
+						control = { province = 1352 data = CHI }
+						control = { province = 1358 data = CHI }
+						control = { province = 1345 data = CHI }
+						}
+				random = 25
+	}
+
+    date = { day = 9 month = july year = 1941 }
+    offset = 21
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522034_NAME
+	desc = EVT_522034_DESC
+	style = 2
+	picture = "flyingtigers"
+
+	action_a = {
+		name = ACTIONNAME522034A
+		command = { trigger = { control = { province = 1299 data = CHI } } type = add_corps which = "1st American Volunteer Group" value = air where = 1299 when = 50370 }
+		command = { trigger = { control = { province = 1299 data = CHI } } type = activate_division which = 22000 value = 280 where = 1299 when = 0 }
+		command = { trigger = { control = { province = 1264 data = CHI } NOT = { control = { province = 1299 data = CHI } } } type = add_corps which = "American Volunteer Group" value = air where = 1299 when = 50370 }
+		command = { trigger = { control = { province = 1264 data = CHI } NOT = { control = { province = 1299 data = CHI } } } type = activate_division which = 22000 value = 280 where = 1299 when = 0 }
+	}
+}
+
+##########################################################################################
+#  American Volunteer Group / Flying Tigers pulled back (USA)
+##########################################################################################
+event = { 
+	id = 522035
+	random = no
+	country = USA
+
+	trigger = {			
+				event = 522034
+				division_exists = { type = 22000 id = 280 }
+				OR = {
+						lost_national = { country = CHI value = 85 }
+						war = { country = USA country = JAP }
+						ispuppet = CHI
+						NOT = { war = { country = CHI country = JAP } }
+						war = { country = USA country = CHI }
+						}
+	}
+
+    date = { day = 3 month = july year = 1942 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522035_NAME
+	desc = EVT_522035_DESC
+	style = 2
+	picture = "flyingtigers"
+
+	action_a = {
+		name = ACTIONNAME522035A
+		command = { type = activate_division which = 14800 value = 40 when = 0 }
+		command = { type = trigger which = 522036 } # CHI
+	}
+}
+
+##########################################################################################
+#  American Volunteer Group / Flying Tigers pulled back (CHI)
+##########################################################################################
+event = { 
+	id = 522036
+	random = no
+	country = CHI
+	
+	name = EVT_522035_NAME
+	desc = EVT_522035_DESC
+	style = 2
+	picture = "flyingtigers"
+
+	action_a = {
+		name = ACTIONNAME522036A
+		command = { trigger = { division_exists = { type = 22000 id = 280 }} type = remove_division which = 22000 value = 280 }
+	}
+}
+
+##########################################################################################
+#  Claire Chennault comes to China
+##########################################################################################
+event = { 
+	id = 522037
+	random = no
+	country = CHI
+
+	trigger = {			
+				NOT = { war = { country = USA country = CHI } }
+				war = { country = CHI country = JAP }
+				NOT = { ispuppet = CHI }
+	}
+
+    date = { day = 0 month = june year = 1937 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522037_NAME
+	desc = EVT_522037_DESC
+	style = 2
+	picture = "chennault"
+
+	action_a = {
+		name = ACTIONNAME522037A
+		command = { type = wakeleader which = 50370 } # Chennault
+		command = { type = waketeam which = 1007 } # Chennault
+		command = { type = gain_tech which = 9040 } # Air superiority defensive 1937
+		command = { type = gain_tech which = 9050 } # Air superiority defensive 1940
+	}
+}
+
+##########################################################################################
+#  Claire Chennault leaves China
+##########################################################################################
+event = { 
+	id = 522038
+	random = no
+	country = CHI
+
+	trigger = {			
+				event = 522037
+				OR = {
+						war = { country = CHI country = USA }
+						ispuppet = CHI
+						AND = {
+								year = 1945
+								NOT = { war = { country = JAP country = USA } }
+								}
+						}
+	}
+
+    date = { day = 0 month = june year = 1937 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522038_NAME
+	desc = EVT_522038_DESC
+	style = 2
+	picture = "chennault"
+
+	action_a = {
+		name = ACTIONNAME522038A
+		command = { type = sleepleader which = 50370 } # Chennault
+		command = { type = sleepteam which = 1007 } # Chennault
+	}
+}
+
+##########################################################################################
+#  AI event: warlord alliance with CHI in case of war against JAP 
+##########################################################################################
+event = { 
+	id = 522039
+	random = no
+	tag = { CGX CSX CYN CXB SIK TIB }
+	
+	persistent = yes
+
+	trigger = {			
+				AI = YES
+				AI = CHI
+				NOT = { war = { country = CHI country = -1 } }
+				NOT = { alliance = { country = CHI country = -1 } }
+				war = { country = JAP country = CHI }
+				war = { country = JAP country = -1 }
+				NOT = { country = SIK event = 148012 }
+	}
+
+    date = { day = 0 month = january year = 1936 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+
+	action_a = {
+		command = { type = alliance which = CHI when = 2 }
+	}
+}
+
+##########################################################################################
+# X-Force/Y-Force - US Military advisors for China 
+##########################################################################################
+event = { 
+	id = 522040
+	random = no
+	country = CHI
+	save_date = yes
+
+	#triggered by US Dec 3182191
+	
+	name = EVT_522040_NAME 
+	desc = EVT_3182191_DESC
+	style = 2
+	picture = "usa_event_us_help_for_china"
+	
+	action_a = {
+	    name = ACTIONNAME522040A
+		ai_chance = 100
+		command = { type = money     value = 250  }
+		command = { type = oilpool   value = 1000 }
+		command = { type = supplies  value = 3500 }
+		command = { type = add_corps which = "1. Xin Jituanjun" value = land where = 1390 }
+		command = { type = activate_division which = 22000    value = 290   where = 1390 }
+		command = { type = activate_division which = 22000    value = 291   where = 1390 }
+		command = { type = add_corps which = "6. Xin Jituanjun" value = land where = 1390 }
+		command = { type = activate_division which = 22000    value = 292   where = 1390 }
+		command = { type = activate_division which = 22000    value = 293   where = 1390 }	
+		command = { type = activate_division which = 22000    value = 294   where = 1390 }
+	}	
+}
+
+event = { 
+	id = 522041
+	random = no
+	country = CHI
+
+	trigger = {
+		war = { country = JAP country = CHI }
+		war = { country = JAP country = ENG }
+		war = { country = JAP country = USA }
+		war = { country = U00 country = CHI }
+		war = { country = U00 country = ENG }
+		war = { country = U00 country = USA }
+		event = { id = 522040 days = 270 }
+	}    	
+	
+	name = EVT_522040_NAME 
+	desc = EVT_3182191_DESC
+	style = 2
+	picture = "usa_event_us_help_for_china"
+	
+	action_a = {
+	    name = ACTIONNAME522040A
+		ai_chance = 100
+		command = { type = money     value = 50  }
+		command = { type = oilpool   value = 250 }
+		command = { type = supplies  value = 750 }
+		command = { type = add_corps which = "11. Zu Jituanjun" value = land where = 1292 }
+		command = { type = activate_division which = 22000    value = 295   where = 1292 }
+		command = { type = activate_division which = 22000    value = 296   where = 1292 }
+		command = { type = activate_division which = 22000    value = 297   where = 1292 }
+		command = { type = add_corps which = "20. Zu Jituanjun" value = land where = 1292 }
+		command = { type = activate_division which = 22000    value = 298   where = 1292 }
+		command = { type = activate_division which = 22000    value = 299   where = 1292 }	
+		command = { type = activate_division which = 22000    value = 300   where = 1292 }
+	}	
+}
+
+##########################################################################################
+# Korean Liberation Army 
+##########################################################################################
+
+event = { 
+	id = 522042
+	random = no
+	country = CHI
+	
+	one_action = yes
+	
+	trigger = {
+        lost_national = { country = CHI value = 55 }
+		event = 4100
+	}    	
+	
+    date = { day = 0 month = january year = 1938 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_522042_NAME 
+	desc = EVT_522042_DESC
+	style = 2
+	picture = "chi_event_korean_liberation_army"
+	
+	action_a = {
+	    name = ACTIONNAME522042A
+		ai_chance = 20
+		command = { type = revolt which = 1226 when = 1 }
+		command = { type = add_division which = "Hánguó guangfù jun" value = militia when = 2 }
+		command = { type = trigger which = 522043 } #=> JAP file
+	}	
+	action_b = {
+	    name = ACTIONNAME522042A
+		ai_chance = 20
+		command = { type = revolt which = 1227 when = 1 }
+		command = { type = add_division which = "Hánguó guangfù jun" value = militia when = 2 }
+		command = { type = trigger which = 522043 } 
+	}	
+	action_c = {
+	    name = ACTIONNAME522042A
+		ai_chance = 20
+		command = { type = revolt which = 1224 when = 1 }
+		command = { type = add_division which = "Hánguó guangfù jun" value = militia when = 2 }
+		command = { type = trigger which = 522043 } 
+	}	
+	action_d = {
+	    name = ACTIONNAME522042A
+		ai_chance = 20
+		command = { type = revolt which = 1223 when = 1 }
+		command = { type = add_division which = "Hánguó guangfù jun" value = militia when = 2 }
+		command = { type = trigger which = 522043 } 
+	}	
+}	
+	
+##########################################################################################

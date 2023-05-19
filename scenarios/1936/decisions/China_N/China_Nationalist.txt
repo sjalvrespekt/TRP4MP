@@ -1,0 +1,80 @@
+##########################################################################
+# 3123900+	Nationalist China decisions
+##########################################################################
+
+#########################
+# Annexation of warlords
+# following
+# Unity and fear of total annihilation by Japan mobilizes China (CHI)
+#########################
+
+event = { 
+	id = 3123900
+	random = no
+	country = CHI
+	
+	persistent = yes
+
+	decision = {
+				event = 522023
+				OR = {
+						exists = CGX
+						exists = CXB
+						exists = CSX
+						exists = CYN
+#						exists = SIK
+						}
+				war = { country = CHI country = JAP }
+				}
+
+	decision_trigger = {
+							OR = {
+									AND = { AI = CGX alliance = { country = CHI country = CGX } } 
+									AND = { AI = CXB alliance = { country = CHI country = CXB } }
+									AND = { AI = CSX alliance = { country = CHI country = CSX } }
+									AND = { AI = CYN alliance = { country = CHI country = CYN } }
+#									AND = { AI = SIK alliance = { country = CHI country = SIK } }
+									}
+							lost_national = { country = CHI value = 65 } #45
+						}
+
+	trigger = { 
+				ai = no
+				}
+
+	name = "EVT_3123900_NAME"
+	desc = "EVT_3123900_DESC" #"EVT_522024_DESC"
+	style = 2
+	picture = "warlords"
+	decision_picture = "decision_warlords"
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action = { 
+		name = "ACTIONNAME3123900A"  
+		trigger = { AI = CGX alliance = { country = CHI country = CGX } }
+		command = { type = inherit which = CGX value = 1 } 
+	}
+	action = { 
+		name = "ACTIONNAME3123900B"  
+		trigger = { AI = CXB alliance = { country = CHI country = CXB } }
+		command = { type = inherit which = CXB value = 1 } 
+	}
+	action = { 
+		name = "ACTIONNAME3123900C"  
+		trigger = { AI = CSX alliance = { country = CHI country = CSX } }
+		command = { type = inherit which = CSX value = 1 } 
+	}
+	action = { 
+		name = "ACTIONNAME3123900D"  
+		trigger = { AI = CYN alliance = { country = CHI country = CYN } }
+		command = { type = inherit which = CYN value = 1 } 
+	}
+#	action = { 
+#		name = "ACTIONNAME3123900E"  
+#		trigger = { AI = SIK alliance = { country = CHI country = SIK } }
+#		command = { type = inherit which = SIK value = 1 } 
+#	}
+}

@@ -1,0 +1,200 @@
+#####################################################################
+#  Szent László Division
+#####################################################################
+
+event = {
+	id = 3136450
+	random = no
+	country = HUN
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = HUN
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 12
+	}		
+	
+	trigger = {
+		atwar = HUN
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 12
+	}
+	
+	name = EVT_3136450_NAME # New Elite Division
+	desc = EVT_3136450_DESC
+	style = 0
+	picture = "Hun_Sld"
+	decision_picture = "decision_Hun_Sld"
+	
+	date = { day = 0 month = october year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136450A
+		command = { type = activate_division which = 20500 value = 100 when = 0 }
+		command = { type = energypool value = -6720 }
+		command = { type = metalpool value = -3360 }
+		command = { type = rarematerialspool value = -1680 }
+		command = { type = manpowerpool value = -12 }
+	}
+}
+
+########################################################## 
+# Hungary forms a tank division
+########################################################## 
+#event = { 
+#	id = 3136451
+#	random = no
+#	country = HUN
+#
+#	decision = { ai = no }
+#	decision_trigger = { 	
+#		atwar = HUN
+#		energy = 6720
+#		metal = 3360
+#		rare_materials = 1680
+#		manpower = 17
+#	}		
+#	
+#	trigger = {
+#		atwar = HUN
+#		energy = 13440
+#		metal = 6720
+#		rare_materials = 3360
+#		manpower = 17
+#	}
+#	
+#	name = EVT_3136451_NAME
+#	desc = EVT_3136451_DESC
+#	style = 2
+#	picture = "hun_swe_tanks_dec"
+#	decision_picture = "decision_Hun_tanks"
+#
+#	date = { day = 1 month = march year = 1942 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		ai_chance = 99
+#		name = ACTIONNAME3136451A # Time for our first tank division!
+#       command = { type = add_division value = armor when = 3 }
+#		
+#		command = { trigger = { AI = no }  type = energypool value = -6720 }
+#		command = { trigger = { AI = no }  type = metalpool value = -3360 }
+#		command = { trigger = { AI = no }  type = rarematerialspool value = -1680 }
+#		command = { trigger = { AI = no }  type = manpowerpool value = -17 }
+#		
+#		command = { trigger = { AI = yes } type = energypool value = -720 }
+#		command = { trigger = { AI = yes } type = metalpool value = -360 }
+#		command = { trigger = { AI = yes } type = rarematerialspool value = -680 }	
+#		}	
+#}	
+#
+########################################################## 
+# Hungary forms a mzj division
+########################################################## 
+event = { 
+	id = 3136452
+	random = no
+	country = HUN
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = HUN
+		event = 3141021	
+		alliance = { country = HUN country = GER } 
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 1
+	}		
+	
+	trigger = {
+		atwar = HUN
+		event = 3141021	
+		alliance = { country = HUN country = GER } 
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 1
+	}
+	
+	name = EVT_3136455_NAME
+	desc = EVT_3136455_DESC
+	style = 2
+	picture = "hun_ger_plane_dec"
+	decision_picture = "decision_Hun_plane"
+
+	date = { day = 1 month = january year = 1944 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3136452A # We build an AJ division with the Me 210
+        command = { type = add_division value = multi_role when = 3 }
+		
+		command = { trigger = { AI = no }  type = energypool value = -3360 }
+		command = { trigger = { AI = no }  type = metalpool value = -1680 }
+		command = { trigger = { AI = no }  type = rarematerialspool value = -840 }
+		command = { trigger = { AI = no }  type = manpowerpool value = -1 }
+		
+		command = { trigger = { AI = yes } type = energypool value = -500 }
+		command = { trigger = { AI = yes } type = metalpool value = -400 }
+		command = { trigger = { AI = yes } type = rarematerialspool value = -200 }	
+		}	
+}	
+
+########################################################## 
+# Germany forms a lsj division with hungarian Me 210
+########################################################## 
+event = { 
+	id = 3136453
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 
+        event = 3141021	
+		atwar = HUN
+		alliance = { country = HUN country = GER } 
+		supplies = 2500
+		manpower = 1
+	}		
+	
+	trigger = {
+		atwar = HUN
+		event = 3141021	
+		alliance = { country = HUN country = GER } 
+		supplies = 5000
+		manpower = 1
+	}
+	
+	name = EVT_3136453_NAME
+	desc = EVT_3136453_DESC
+	style = 2
+	picture = "hun_ger_plane2_dec"
+	decision_picture = "decision_ger_plane"
+
+	date = { day = 14 month = october year = 1943 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3136453A # We build an AJ division with the Me 210
+        command = { type = add_division value = d_01 when = 3 }
+		
+		command = { trigger = { AI = no }  type = supplies value = -2500 }
+		command = { trigger = { AI = no }  type = manpowerpool value = -1 }
+		
+		command = { trigger = { AI = yes } type = energypool value = -500 }
+		command = { trigger = { AI = yes } type = metalpool value = -400 }
+		command = { trigger = { AI = yes } type = rarematerialspool value = -200 }	
+		}	
+}

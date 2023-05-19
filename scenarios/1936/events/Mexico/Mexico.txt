@@ -1,0 +1,542 @@
+# converted to DH, Kane, July 23 2011
+####################################################################
+#
+# HoI - CORE Central America & Caribbean
+#
+# LIMIT:  602000 - 651999
+#
+#
+####################################################################
+
+##################################################
+# 602003 - (MEX) Leon Trotsky Assasination (by Copper Nicus)
+##################################################
+event = {
+	id = 602003 
+	random = no
+	country = MEX
+
+	# triggerd by SOV 222021
+
+	name = EVT_602003_NAME
+ 	desc = EVT_222021_DESC
+	style = 0 
+
+	action_a = {
+		name = ACTIONNAME602003A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+#########################################################################
+# 602004 - (MEX) Creation of C.T.M. (by Wineman)
+# creation of CTM - communist backed, state controlled union
+#########################################################################
+event = { 
+	id = 602004
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001 # Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602004_NAME
+ 	desc = EVT_602004_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME602004A
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME602004B
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 2 } 
+	}
+}
+#########################################################################
+# 602005 - (MEX) Deportation of Calles (by Wineman)
+#########################################################################
+event = { 
+	id = 602005
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001 #Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602005_NAME
+	desc = EVT_602005_DESC
+	style = 0
+
+	date = { day = 9 month = april year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME602005A
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+# 602006 - (MEX) Uprising in support of Calles (by Wineman)
+#########################################################################
+event = { 
+	id = 602006
+	random = no
+	country = MEX
+
+	trigger = {
+		event = 602005
+		headofstate = 36001 # Lázaro Cárdenas
+		headofgovernment = 36002 # Lázaro Cárdenas
+	}
+
+	name = EVT_602006_NAME
+	desc = EVT_602006_DESC
+	style = 0
+
+	date = { day = 0 month = may year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = { 
+		name = ACTIONNAME602006A
+		command = { type = dissent value = -3 }
+		# command = { type = province_manpower which = 243 value = -1 } # Potosi
+		command = { type = construct which = ic where = 1973 value = -1 } # Leon
+	}
+	action_b = { 
+		name = ACTIONNAME602006B
+		command = { type = dissent value = 20 }
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = set_domestic which = democratic value = 3 }		
+		command = { type = headofstate which = 36036 } # Pino G. Calles, NS cabinet
+		command = { type = headofgovernment which = 36046 } # Juan Andrew Almazan
+ 		command = { type = foreignminister which = 36053 } # Alesso Melecio
+ 		command = { type = armamentminister which = 36068 } # Juan Andrew Almazan
+ 		command = { type = ministerofsecurity which = 36081 } # Juan Andrew Almazan
+ 		command = { type = ministerofintelligence which = 36092 } # Jesus Garza Siller
+ 		command = { type = chiefofstaff which = 36101 } # Enrique  C. del Rio
+ 		command = { type = chiefofarmy which = 36109 } # Plutarco E. Calles
+ 		command = { type = chiefofnavy which = 36117 } # Luis Hiram Toledo
+ 		command = { type = chiefofair which = 36020 } # Jesus Garza Siller
+	}
+}
+#########################################################################
+# 602007 - (MEX) Creation of CNC, state controlled farmers association (by Wineman)
+#########################################################################
+event = {  
+	id = 602007
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602007_NAME
+	desc = EVT_602007_DESC
+	style = 0
+
+	date = { day = 0 month = august year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME602007A
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME602007B
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 2 } 
+	}
+}
+#########################################################################
+# 602008 - (MEX) Expropriation law (by Wineman)
+#########################################################################
+event = {  
+	id = 602008
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  # Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602008_NAME
+	desc = EVT_602008_DESC
+	style = 0
+
+	date = { day = 0 month = november year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME602008A
+		command = {  }
+	}
+}
+#########################################################################
+# 602009 - (MEX) Worker takeover of national railways (by Wineman)
+#########################################################################
+event = {
+	id = 602009
+	random = no
+	country = MEX
+
+	trigger = {
+		event = 602008
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602009_NAME
+	desc = EVT_602009_DESC
+	style = 0
+
+	date = { day = 0 month = june year = 1937 }
+	offset = 30
+	deathdate = { day = 0 month = june year = 1938 }
+
+	action_a = { 
+		name = ACTIONNAME602009A
+		command = { type = construct which = infrastructure where = 1978 value = -10 }
+		command = { type = construct which = infrastructure where = 1976 value = -10 }
+		command = { type = construct which = infrastructure where = 1975 value = -10 }
+		command = { type = construct which = infrastructure where = 1974 value = -10 }
+		command = { type = construct which = infrastructure where = 1971 value = -10 }
+		command = { type = construct which = infrastructure where = 1982 value = -10 }
+		command = { type = construct which = infrastructure where = 1969 value = -10 }
+		command = { type = construct which = infrastructure where = 1970 value = -10 }
+		command = { type = construct which = infrastructure where = 1972 value = -10 }
+		command = { type = construct which = infrastructure where = 1965 value = -10 }
+		command = { type = construct which = infrastructure where = 1968 value = -10 }
+		command = { type = construct which = infrastructure where = 1966 value = -10 }
+		command = { type = dissent value = -2 }
+	}
+	action_b = { 
+		name = ACTIONNAME602009B
+		command = { type = dissent value = 5 }
+	}
+}
+#########################################################################
+# 602010 - (MEX) Breaking the hacienda's (by Wineman)
+#########################################################################
+event = {  
+	id = 602010
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+		event = 602008	# expropriation law
+	}
+
+	name = EVT_602010_NAME
+ 	desc = EVT_602010_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 360
+	deathdate = { day = 0 month = january year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME602010A
+		command = { type = dissent value = -5 }
+		command = { type = supplies value = -200 }
+	}
+	action_b = {
+		name = ACTIONNAME602010B
+		command = { type = dissent value = 3 }
+		command = { type = construct which = ic where = -1 value = -1 }
+	}
+}
+#########################################################################
+# 602011 - (MEX) Breaking the hacienda's - part 2 (by Wineman)
+#########################################################################
+event = {  
+	id = 602011
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+		event = 602010	# hacienda breaking
+	}
+
+	name = EVT_602011_NAME
+	desc = EVT_602011_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 360
+	deathdate = { day = 0 month = january year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME602011A
+		command = { type = dissent value = -5 }
+		command = { type = supplies value = -200 }
+	}
+	action_b = {
+		name = ACTIONNAME602011B
+		command = { type = dissent value = 3 }
+		command = { type = construct which = ic where = -1 value = -1 }
+	}
+}
+#########################################################################
+# 602012 - (MEX) Expropriating the foreign held farms (by Wineman)
+#########################################################################
+event = {  
+	id = 602012
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+		event = 602008	# expropriation law
+	}
+
+	name = EVT_602012_NAME
+	desc = EVT_602012_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 300
+	deathdate = { day = 0 month = january year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME602012A
+		command = { type = dissent value = -5 }
+		command = { type = supplies value = -20 }
+		command = { type = trigger which = 3182012 } # USA
+	}
+	action_b = {
+		name = ACTIONNAME602012B
+		command = { type = dissent value = 5 }
+		command = { type = construct which = ic where = -1 value = -1 }
+	}
+}
+#########################################################################
+# 602013 - (MEX) Reorganizing the PNR (by Wineman)
+#########################################################################
+event = {  
+	id = 602013
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+		event = 602004	# CTM creation
+		event = 602007	# CNC creation
+	}
+
+	name = EVT_602013_NAME
+ 	desc = EVT_602013_DESC
+	style = 0
+
+	date = { day = 0 month = august year = 1938 }
+	offset = 90
+	deathdate = { day = 0 month = january year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME602013A
+		command = { type = dissent value = -1 }
+		command = { type = manpowerpool value = 10 }
+	}
+	action_b = {
+		name = ACTIONNAME602013B
+		command = { type = dissent value = 2 }
+	}	
+}
+#########################################################################
+# 602014 - (MEX) Mexican elections in 1940 - the official candidate (by Wineman)
+#########################################################################
+event = {
+	id = 602014
+	random = no
+	country = MEX
+
+	trigger = {
+		headofstate = 36001  #Cardenas
+		headofgovernment = 36002 # Cardenas
+	}
+
+	name = EVT_602014_NAME
+ 	desc = EVT_602014_DESC
+	style = 0
+
+	date = { day = 10 month = march year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1940 }
+	
+	action_a = {
+		name = ACTIONNAME602014A
+		command = { type = sleepevent which = 602016 }
+	}
+	action_b = {
+		name = ACTIONNAME602014B
+		command = { type = sleepevent which = 602015 }
+	}
+}
+#########################################################################
+# 602015 - (MEX) Mexican elections in 1940 (by Wineman)
+#########################################################################
+event = {
+	id = 602015
+	random = no
+	country = MEX
+
+	trigger = { event = 602014 }
+
+	name = EVT_602015_NAME
+ 	desc = EVT_602015_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1940 }
+	offset = 30
+	deathdate = { day = 0 month = august year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME602015A
+		command = { type = dissent value = 5 }
+		command = { type = trigger which = 602017 }
+		command = { type = headofstate which = 36032 } # Manuel Avila Camacho
+		command = { type = headofgovernment which = 36041 } # Manuel Avila Camacho
+ 		command = { type = foreignminister which = 36050 } # Ezequiel Padilla
+ 		command = { type = ministerofintelligence which = 36086 } # Lázaro Cárdenas
+ 		command = { type = ministerofsecurity which = 36076 } # Miguel Alemán Valdés
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME602015B
+		command = { type = dissent value = 10 }
+		command = { type = headofstate which = 36037 } # Juan Andreu Almazán
+ 		command = { type = headofgovernment which = 36046 } # Juan Andreu Almazán
+ 		command = { type = foreignminister which = 36054 } # Juan Andreu Alamaza
+ 		command = { type = armamentminister which = 36066 } # Francisco R. Serrano
+ 		command = { type = ministerofsecurity which = 36079 } # Enrique C. del Rio
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+# 602016 - (MEX) Alternative Mexican elections in 1940 (by Wineman)
+#########################################################################
+event = {
+	id = 602016
+	random = no
+	country = MEX
+
+	trigger = { event = 602014 }
+
+	name = EVT_602016_NAME
+ 	desc = EVT_602016_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1940 }
+	offset = 30
+	deathdate = { day = 0 month = august year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME602016A
+		command = { type = dissent value = 5 }
+		command = { type = headofstate which = 36038 } # Vicente Lombardo Toledano for Francisco Mugica
+		command = { type = headofgovernment which = 36047 } # Vicente Lombardo Toledano for Francisco Mugica
+ 		command = { type = foreignminister which = 36053 } # Mariano Ponton
+ 		command = { type = armamentminister which = 36054 } # Francisco I. Casian
+ 		command = { type = ministerofsecurity which = 36055 } # Mariano Ponton
+ 		command = { type = ministerofintelligence which = 36056 } # Manuel Palafox
+ 		command = { type = chiefofstaff which = 36057 } # Manuel Palafox
+		command = { type = chiefofarmy which = 36058 } # Matias Santos Ramos
+ 		command = { type = chiefofnavy which = 36059 } # Heriberto Jara Corona
+ 		command = { type = chiefofair which = 36060 } # Agustin Olachea Aviles
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME602016B
+		command = { type = dissent value = 10 }
+		command = { type = headofstate which = 36037 } # Juan Andreu Almazán
+		command = { type = headofgovernment which = 36046 } # Juan Andreu Almazán
+ 		command = { type = foreignminister which = 36054 } # Juan Andreu Alamaza
+ 		command = { type = armamentminister which = 36066 } # Francisco R. Serrano
+ 		command = { type = ministerofsecurity which = 36079 } # Enrique C. del Rio
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+# 602017 - (MEX) Mexican elections in 1940 - the aftermath (by Wineman)
+#########################################################################
+event = {
+	id = 602017
+	random = no
+	country = MEX
+
+	#Triggered by 602015
+
+	name = EVT_602017_NAME
+ 	desc = EVT_602017_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME602017A
+		command = { type = dissent value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME602017B
+		command = { type = dissent value = 2 }
+	}
+}
+#########################################
+# (MEX)promise to aid Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 602019
+	random = no
+	country = MEX
+
+	# triggered by SOV 222041
+
+	name = EVT_602019_NAME
+	desc = EVT_602019_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME602019A
+		command = { type = money value = 2 }
+		command = { type = trigger which = 1002071 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME602019B
+		command = { type = money value = -1 }
+		command = { type = trigger which = 1002071 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

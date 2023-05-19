@@ -1,0 +1,47 @@
+# checked DH
+###########################################################################
+#	3600000 - 3699999
+###########################################################################
+event = {
+	id = 3600000
+	random = no
+	country = LEB
+	
+	trigger = {
+		event = 3190006
+		ispuppet = LEB
+	}
+	
+	name = EVT_3600000_NAME
+	desc = EVT_3600000_DESC
+	style = 0
+	
+	date = { day = 7 month = november year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3600000A
+		command = { type = trigger which = 3600001 }
+	}
+	action_b = {
+		name = ACTIONNAME3600000B
+		command = { }
+	}
+}
+event = {
+	id = 3600001
+	random = no
+	country = LEB
+	
+	# Triggered by LEB 3600000
+	
+	name = EVT_3600001_NAME
+	desc = EVT_3600001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3600001A
+		command = { }
+	}
+}

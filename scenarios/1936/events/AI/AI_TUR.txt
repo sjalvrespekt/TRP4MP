@@ -1,0 +1,293 @@
+####################################
+# Turkey AI events 32300 - 32399
+####################################
+# converted to DH, Kane, June 5 2011
+################
+# Minister of Security Section 32300 - 32309
+#############################################
+event = { # Abdul Naci Tinaz takes power
+	id = 32300
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12061 # Abdul Naci Tinaz
+		NOT = { InCabinet = 12061 }
+		OR = {
+			manpower = 50
+			NOT = { minister = 12005 } # Sükrü Kaya
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 12061 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sükrü Kaya takes power
+	id = 32301
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { manpower = 50 }
+		minister = 12005 # Sükrü Kaya
+		NOT = { InCabinet = 12005 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 12005 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32310 - 32319
+#############################################
+event = { # Mustafa Ismet takes power
+	id = 32310
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12017 # Mustafa Ismet
+		NOT = { InCabinet = 12017 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 12017 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32320 - 32329
+#############################################
+event = { # Sükrü Ali Ogel takes power
+	id = 32320
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12006 # Sükrü Ali Ogel
+		NOT = { InCabinet = 12006 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 12006 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32330 - 32331
+#############################################
+event = { # Alparslan Türkes takes power
+	id = 32330
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12018 # Alparslan Türkes
+		NOT = { InCabinet = 12018 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 12008 } # Mehmet Nuri Yamut
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 12018 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Mehmet Nuri Yamut takes power
+	id = 32331
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 12008 # Mehmet Nuri Yamut
+		NOT = { InCabinet = 12008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 12008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32340 - 32349
+#############################################
+event = { # Ismet Inönü takes power
+	id = 32340
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12047 # Ismet Inönü
+		NOT = { InCabinet = 12047 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 12047 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Zekai Apaydin takes power
+	id = 32341
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12004 # Zekai Apaydin
+		NOT = { InCabinet = 12004 }
+		NOT = { minister = 12047 } # Arvi A. Oksala
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 12004 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 32350 - 32359
+#############################################
+event = { # Ali Örlungat takes power
+	id = 32350
+	random = no 
+	country = TUR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 12010 # Ali Örlungat
+		NOT = { InCabinet = 12010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 12010 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+####################################
+# Turkey AI events 32360 - 32399
+####################################
+################
+# Lowers neutrality to join Axis
+#############################################
+event = {
+	id = 32360
+	random = no 
+	country = TUR
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				control = { province = 641 data = GER } # Sevastopol
+				control = { province = 644 data = GER } # Rostov
+				control = { province = 708 data = GER } # Kutaisi
+				control = { province = 709 data = GER } # Tblisi
+			}
+			AND = {
+				control = { province = 641 data = ITA } # Sevastopol
+				control = { province = 644 data = ITA } # Rostov
+				control = { province = 708 data = ITA } # Kutaisi
+				control = { province = 709 data = ITA } # Tblisi
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

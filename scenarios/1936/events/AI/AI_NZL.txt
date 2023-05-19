@@ -1,0 +1,303 @@
+# checked DH
+####################################
+# New Zealand AI events 36300 - 36399 by Lothos
+####################################
+################
+# Minister of Security Section 36300 - 36309
+#############################################
+event = { # Adam Hamilton takes power
+	id = 36300
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55066 # Adam Hamilton
+		NOT = { InCabinet = 55066 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 55066 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Edward Blundell takes power
+	id = 36301
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55061 # Edward Blundell
+		NOT = { InCabinet = 55061 }
+		NOT = { minister = 55066 } # Adam Hamilton
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 55061 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 36310 - 36319
+#############################################
+event = { # William Sinclair-Burgess takes power
+	id = 36310
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55007 # William Sinclair-Burgess
+		NOT = { InCabinet = 55007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 55007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 36320 - 36329
+#############################################
+event = { # Ken MacKenzie takes power
+	id = 36320
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55072 # Ken MacKenzie
+		NOT = { InCabinet = 55072 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 55072 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Frederick Freeman takes power
+	id = 36321
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55026 # Frederick Freeman
+		NOT = { InCabinet = 55026 }
+		NOT = { minister = 55072 } # Ken MacKenzie
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 55026 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 36330 - 36339
+#############################################
+event = { # Edward Puttick takes power
+	id = 36330
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55083 # Edward Puttick
+		NOT = { InCabinet = 55083 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 55083 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # J.C. Nichols takes power
+	id = 36331
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55082 # J.C. Nichols
+		NOT = { InCabinet = 55082 }
+		NOT = { minister = 55083 } # Edward Puttick
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 55082 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 36340 - 36349
+#############################################
+event = { # Walter Nash takes power
+	id = 36340
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55004 # Walter Nash
+		NOT = { InCabinet = 55004 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 55004 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Dan Sullivan takes power
+	id = 36341
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55048 # Dan Sullivan
+		NOT = { InCabinet = 55048 }
+		NOT = { minister = 55004 } # Walter Nash
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 55048 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 36350 - 36359
+#############################################
+event = { # R.A. Cochrane takes power
+	id = 36350
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55010 # R.A. Cochrane
+		NOT = { InCabinet = 55010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 55010 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 36360 - 36369
+#############################################
+event = { # H.E. Horan takes power
+	id = 36360
+	random = no 
+	country = NZL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 55085 # H.E. Horan
+		NOT = { InCabinet = 55085 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 55085 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 36370 - 36399
+#############################################

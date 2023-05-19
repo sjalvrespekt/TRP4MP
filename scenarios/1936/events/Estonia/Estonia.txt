@@ -1,0 +1,58 @@
+# checked DH
+###############################################################################################
+# 3132000 - 3132999	Estonia political events
+###############################################################################################
+
+#########################################################################
+# Estonia into USSR sphere after Molotov-Ribbentrop
+#########################################################################
+event = {
+	id = 3132000
+	random = no
+	country = EST
+	
+	# triggered by SOV 3183007
+	
+	name = EVT_3132000_NAME # Estonia into USSR sphere
+	desc = EVT_3132000_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3132000A # Ok
+		command = { type = leave_alliance }
+		command = { type = access which = SOV }
+		command = { type = trigger which = 3147000 }
+	}
+}
+#########################################################################
+# Estonia leaves comintern before joining USSR
+#########################################################################
+event = {
+	id = 3132001
+	random = no
+	country = EST
+	
+	# triggered by SOV 3183010
+	
+	name = EVT_3132001_NAME # Estonia becomes a Soviet Republic
+	desc = EVT_3132001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3132001A # Game Over
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+		command = { type = leave_alliance }
+		command = { type = trigger which = 3183016 }
+	}
+}

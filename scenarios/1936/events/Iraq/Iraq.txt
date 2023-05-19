@@ -1,0 +1,707 @@
+# converted to DH, Kane, July 23 2011
+###########################################################################
+#	3800000 - 3899999
+###########################################################################
+#########################################################################
+# Was 902001 Anglo-Iraqi Treaty of Defense Activated
+#########################################################################
+event = {  
+	id = 3800000
+	random = no
+	country = IRQ
+
+	trigger = {
+		exists = ENG
+		OR = {
+                        war = { country = IRQ country = GER }
+       	                war = { country = IRQ country = TUR }
+               	        war = { country = IRQ country = ITA }
+                       	war = { country = IRQ country = PER }
+                        war = { country = IRQ country = SOV }
+		}
+		NOT = {
+			OR = {
+				alliance = { country = GER country = IRQ } 
+				alliance = { country = SOV country = IRQ } 
+				alliance = { country = ENG country = IRQ } 
+				war = { country = IRQ country = ENG }
+			}
+		}
+	}
+
+	name = EVT_3800000_NAME
+	desc = EVT_3800000_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3800000A
+		command = { type = alliance which = ENG } 
+		command = { type = dissent value = -10 }
+	}
+	action_b = { 
+		name = ACTIONNAME3800000B
+		command = {  }
+	}
+}
+#########################################################################
+# Was 902002 Confrontation at Habaniyya Air Base
+#########################################################################
+event = {  
+	id = 3800001
+	random = no
+	country = IRQ
+
+	trigger = {
+				exists = GER
+				NOT = { atwar = IRQ }
+				NOT = { headofgovernment = 91012 } # Rashid Ali Al-Gaylani
+				random = 25
+	}
+
+	name = EVT_3800001_NAME
+	desc = EVT_3800001_DESC
+	style = 0
+                     
+	date = { day = 0 month = march year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+     
+	###########################################################################################################	 
+	### Axis not active in any relevant region, Iraq enters Allies for sure ###################################	
+	###########################################################################################################
+	action = { 
+		trigger = {
+					NOT = {
+							OR = {
+									region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									}
+							}
+					NOT = {
+							OR = {
+									alliance = { country = GRE country = GER }
+									alliance = { country = TUR country = GER }
+									control = { province = 377 data = ITA } # Italians in Athens
+									control = { province = 377 data = GER } # Germans in Athens 
+									control = { province = 377 data = BUL } # Bulgaria in Athens
+									control = { province = 377 data = ROM } # Romania in Athens
+									control = { province = 377 data = HUN } # Hungary in Athens
+									control = { province = 377 data = U01 } # Nat.Spain in Athens
+									}
+							}
+					AND = {	# Axis NOT approaching from the North via Caucasus
+							control = { province = 708 data = SOV } # some provinces north of caucasus
+							control = { province = 703 data = SOV }
+							control = { province = 702 data = SOV }
+							control = { province = 700 data = SOV }
+							}
+					OR = { # Alexandria
+							control = { province = 789 data = EGY }
+							control = { province = 789 data = ENG }
+							}
+					OR = { # Cairo
+							control = { province = 787 data = EGY }
+							control = { province = 787 data = ENG }
+							}
+					OR = { # Suez
+							control = { province = 900 data = EGY }
+							control = { province = 900 data = ENG }
+							}
+					}
+		name = ACTIONNAME3800001A #Accept pro-british government
+		command = { type = alliance which = ENG } 		
+		command = { type = headofstate which = 91041 }
+# 		command = { type = headofgovernment which = 91042 }
+# 		command = { type = foreignminister which = 91043 }
+# 		command = { type = armamentminister which = 91044 }
+# 		command = { type = ministerofsecurity which = 91045 }
+# 		command = { type = ministerofintelligence which = 91006 }
+# 		command = { type = chiefofstaff which = 91047 }
+# 		command = { type = chiefofarmy which = 91008 }
+# 		command = { type = chiefofnavy which = 91009 }
+# 		command = { type = chiefofair which = 91010 } 
+	}
+	
+	###########################################################################################################
+	### Axis only occupy Greece, 10 per cent chance for Iraq joining the Axis##################################
+	###########################################################################################################
+	action = { 
+		trigger = {
+					NOT = {
+							OR = {
+									region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									}
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					AND = {	# Axis NOT approaching from the North via Caucasus
+							control = { province = 708 data = SOV } # some provinces north of caucasus
+							control = { province = 703 data = SOV }
+							control = { province = 702 data = SOV }
+							control = { province = 700 data = SOV }
+							}
+					OR = { # Alexandria
+							control = { province = 789 data = EGY }
+							control = { province = 789 data = ENG }
+							}
+					OR = { # Cairo
+							control = { province = 787 data = EGY }
+							control = { province = 787 data = ENG }
+							}
+					OR = { # Suez
+							control = { province = 900 data = EGY }
+							control = { province = 900 data = ENG }
+							}
+					}
+		name = ACTIONNAME3800001A #Accept pro-british government
+		ai_chance = 90
+		command = { type = alliance which = ENG } 		
+		command = { type = headofstate which = 91041 }
+# 		command = { type = headofgovernment which = 91042 }
+# 		command = { type = foreignminister which = 91043 }
+# 		command = { type = armamentminister which = 91044 }
+# 		command = { type = ministerofsecurity which = 91045 }
+# 		command = { type = ministerofintelligence which = 91006 }
+# 		command = { type = chiefofstaff which = 91047 }
+# 		command = { type = chiefofarmy which = 91008 }
+# 		command = { type = chiefofnavy which = 91009 }
+# 		command = { type = chiefofair which = 91010 } 
+	}		
+	action = { 
+		trigger = {
+					NOT = {
+							OR = {
+									region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+									}
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					AND = {	# Axis NOT approaching from the North via Caucasus
+							control = { province = 708 data = SOV } # some provinces north of caucasus
+							control = { province = 703 data = SOV }
+							control = { province = 702 data = SOV }
+							control = { province = 700 data = SOV }
+							}
+					OR = { # Alexandria
+							control = { province = 789 data = EGY }
+							control = { province = 789 data = ENG }
+							}
+					OR = { # Cairo
+							control = { province = 787 data = EGY }
+							control = { province = 787 data = ENG }
+							}
+					OR = { # Suez
+							control = { province = 900 data = EGY }
+							control = { province = 900 data = ENG }
+							}
+					}
+		name = ACTIONNAME3800001B
+		ai_chance = 10
+		command = { type = end_access which = ENG }
+		command = { type = war which = ENG }
+		command = { type = alliance which = GER } 
+		command = { type = domestic which = democratic value = -3 }
+		command = { type = domestic which = political_left value = -3 }
+		command = { type = headofgovernment which = 91012 }
+	}
+	
+	###########################################################################################################
+	### Axis only occupy Greece and Libya, 35 per cent chance for Iraq joining the Axis########################
+	###########################################################################################################
+	action = { 
+		trigger = {
+					OR = {
+							region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					AND = {	# Axis NOT approaching from the North via Caucasus
+							control = { province = 708 data = SOV } # some provinces north of caucasus
+							control = { province = 703 data = SOV }
+							control = { province = 702 data = SOV }
+							control = { province = 700 data = SOV }
+							}
+					OR = { # Alexandria
+							control = { province = 789 data = EGY }
+							control = { province = 789 data = ENG }
+							}
+					OR = { # Cairo
+							control = { province = 787 data = EGY }
+							control = { province = 787 data = ENG }
+							}
+					OR = { # Suez
+							control = { province = 900 data = EGY }
+							control = { province = 900 data = ENG }
+							}
+					}
+		name = ACTIONNAME3800001A #Accept pro-british government
+		ai_chance = 65
+		command = { type = alliance which = ENG } 		
+		command = { type = headofstate which = 91041 }
+# 		command = { type = headofgovernment which = 91042 }
+# 		command = { type = foreignminister which = 91043 }
+# 		command = { type = armamentminister which = 91044 }
+# 		command = { type = ministerofsecurity which = 91045 }
+# 		command = { type = ministerofintelligence which = 91006 }
+# 		command = { type = chiefofstaff which = 91047 }
+# 		command = { type = chiefofarmy which = 91008 }
+# 		command = { type = chiefofnavy which = 91009 }
+# 		command = { type = chiefofair which = 91010 } 
+	}		
+	action = { 
+		trigger = {
+					OR = {
+							region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					AND = {	# Axis NOT approaching from the North via Caucasus
+							control = { province = 708 data = SOV } # some provinces north of caucasus
+							control = { province = 703 data = SOV }
+							control = { province = 702 data = SOV }
+							control = { province = 700 data = SOV }
+							}
+					OR = { # Alexandria
+							control = { province = 789 data = EGY }
+							control = { province = 789 data = ENG }
+							}
+					OR = { # Cairo
+							control = { province = 787 data = EGY }
+							control = { province = 787 data = ENG }
+							}
+					OR = { # Suez
+							control = { province = 900 data = EGY }
+							control = { province = 900 data = ENG }
+							}
+					}
+		name = ACTIONNAME3800001B
+		ai_chance = 35
+		command = { type = end_access which = ENG }
+		command = { type = war which = ENG }
+		command = { type = alliance which = GER } 
+		command = { type = domestic which = democratic value = -3 }
+		command = { type = domestic which = political_left value = -3 }
+		command = { type = headofgovernment which = 91012 }
+	}
+	
+	###########################################################################################################
+	### Axis occupy Greece and Libya AND push into Middle East, 65 per cent chance for Iraq joining the Axis###
+	###########################################################################################################
+	action = { 
+		trigger = {
+					OR = {
+							region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					OR = {
+							AND = {	# Axis approaching from the North via Caucasus
+									war = { country = SOV country = GER }
+									OR = {
+											NOT = { control = { province = 708 data = SOV } } # some provinces north of caucasus
+											NOT = { control = { province = 703 data = SOV } } 
+											NOT = { control = { province = 702 data = SOV } } 
+											NOT = { control = { province = 700 data = SOV } } 
+											}
+									}
+							AND = {
+									NOT = {
+											OR = { # Alexandria
+													control = { province = 789 data = EGY }
+													control = { province = 789 data = ENG }
+													}
+											}
+									NOT = {
+											OR = { # Cairo
+													control = { province = 787 data = EGY }
+													control = { province = 787 data = ENG }
+													}
+											}
+									NOT = {
+											OR = { # Suez
+													control = { province = 900 data = EGY }
+													control = { province = 900 data = ENG }
+													}
+											}
+									}
+							}
+					}
+		name = ACTIONNAME3800001A #Accept pro-british government
+		ai_chance = 35
+		command = { type = alliance which = ENG } 		
+		command = { type = headofstate which = 91041 }
+# 		command = { type = headofgovernment which = 91042 }
+# 		command = { type = foreignminister which = 91043 }
+# 		command = { type = armamentminister which = 91044 }
+# 		command = { type = ministerofsecurity which = 91045 }
+# 		command = { type = ministerofintelligence which = 91006 }
+# 		command = { type = chiefofstaff which = 91047 }
+# 		command = { type = chiefofarmy which = 91008 }
+# 		command = { type = chiefofnavy which = 91009 }
+# 		command = { type = chiefofair which = 91010 } 
+	}		
+	action = { 
+		trigger = {
+					OR = {
+							region = { region = Libya country = ITA data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = GER data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = BUL data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = ROM data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = HUN data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							region = { region = Libya country = U01 data = 1 value = 1 } # at least 1 province in Libya controlled by Axis units
+							}
+					OR = {
+							alliance = { country = GRE country = GER }
+							alliance = { country = TUR country = GER }
+							control = { province = 377 data = ITA } # Italians in Athens
+							control = { province = 377 data = GER } # Germans in Athens 
+							control = { province = 377 data = BUL } # Bulgaria in Athens
+							control = { province = 377 data = ROM } # Romania in Athens
+							control = { province = 377 data = HUN } # Hungary in Athens
+							control = { province = 377 data = U01 } # Nat.Spain in Athens
+							}
+					OR = {
+							AND = {	# Axis approaching from the North via Caucasus
+									war = { country = SOV country = GER }
+									OR = {
+											NOT = { control = { province = 708 data = SOV } } # some provinces north of caucasus
+											NOT = { control = { province = 703 data = SOV } } 
+											NOT = { control = { province = 702 data = SOV } } 
+											NOT = { control = { province = 700 data = SOV } } 
+											}
+									}
+							AND = {
+									NOT = {
+											OR = { # Alexandria
+													control = { province = 789 data = EGY }
+													control = { province = 789 data = ENG }
+													}
+											}
+									NOT = {
+											OR = { # Cairo
+													control = { province = 787 data = EGY }
+													control = { province = 787 data = ENG }
+													}
+											}
+									NOT = {
+											OR = { # Suez
+													control = { province = 900 data = EGY }
+													control = { province = 900 data = ENG }
+													}
+											}
+									}
+							}
+					}
+		name = ACTIONNAME3800001B
+		ai_chance = 65
+		command = { type = end_access which = ENG }
+		command = { type = war which = ENG }
+		command = { type = alliance which = GER } 
+		command = { type = domestic which = democratic value = -3 }
+		command = { type = domestic which = political_left value = -3 }
+		command = { type = headofgovernment which = 91012 }
+	}
+}
+###################################################################
+# Was 902019 - (IRQ) The Baghdad Rail (by SykoNurse & Generalisimo)
+###################################################################
+event = { 
+	id = 3800002
+	random = no
+	country = IRQ
+
+	trigger = {
+		atwar = no
+		supplies = 100
+		random = 30
+	}
+
+	name = EVT_3800002_NAME
+	desc = EVT_3800002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 25
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3800002A 
+		command = { type = supplies value = -100 } 
+		command = { type = trigger which = 3800003 } 
+	}
+	action_b = {
+		name = ACTIONNAME3800002B 
+		command = { }
+	}
+}
+###################################################################
+# Was 902020 - (IRQ) The Bagdad Rail TRIGGER (by SykoNurse & Generalisimo)
+###################################################################
+event = { 
+	id = 3800003
+	random = no
+	country = IRQ
+
+	#triggered by IRQ 3800002
+
+	name = EVT_3800003_NAME
+	desc = EVT_3800003_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3800003A 
+		command = { } 
+	}
+}
+
+###################################################################
+# Was 902021 - (IRQ) The Bagdad Rail Finished (by SykoNurse & Generalisimo)
+###################################################################
+event = { 
+	id = 3800004
+	random = no
+	country = IRQ
+
+	trigger = {
+		event = 3800003
+		random = 50
+	}
+
+	name = EVT_3800004_NAME
+	desc = EVT_3800004_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1940 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3800004A 
+		command = { type = construct which = ic where = 1029 value = 1 } # Mosul
+		command = { type = construct which = infrastructure where = 1034 value = 20 } # Bagdad
+		command = { type = construct which = infrastructure where = 1029 value = 20 } # Mosul
+		command = { type = construct which = infrastructure where = 1027 value = 20 } # Arbil
+
+		# no Syria in game currently, so effect transferred here
+		# command = { type = trigger which = 902022 } # SYR
+		command = { type = construct which = ic where = 1021 value = 1 } # Aleppo
+		command = { type = construct which = infrastructure where = 1014 value = 20 }
+		command = { type = construct which = infrastructure where = 1015 value = 20 }
+		command = { type = construct which = infrastructure where = 1021 value = 20 }
+	}
+}
+###############################################
+# Was 902023 - (IRQ) In Memoriam, HRH King Ghazi (by OHgamer)
+###############################################
+event = { 
+	id = 3800005
+	random = no
+	country = IRQ
+ 
+	name = EVT_3800005_NAME
+	desc = EVT_3800005_DESC 
+	style = 0 
+
+	date = { day = 0 month = april year = 1939 } 
+	offset = 30
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3800005A
+		command = { type = dissent value = -15 }
+		command = { type = headofstate which = 91037 } # Regent `Abd al-Ilah
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+#  Iraq switches sides
+#########################################################################
+
+event = {
+	id = 3800006
+	random = no
+	country = IRQ
+
+	name = EVT_8_NAME
+	desc = EVT_8_DESC
+	style = 0
+	picture = "iraq"
+
+	trigger = {
+		war = { country = IRQ country = ENG }
+		#control = { province = 1034 data = ENG }
+		lost_national = { country = IRQ value = 10 }
+		random = 40
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1953 }
+
+	action_a = {
+		ai_chance = 90
+		name = EVT_8_ACTA
+		command = { type = peace which = ENG value = 1 }
+		command = { type = leave_alliance }
+		command = { type = dissent value = -2 }
+		command = { type = set_relation which = ENG value = 75 }
+		command = { type = set_relation which = GER value = -40 }
+		command = { type = end_access which = GER }
+		command = { type = end_access which = ITA }
+		command = { type = end_access which = SYR }
+		command = { type = set_domestic which = democratic value = 3 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = alliance which = ENG }
+		command = { type = trigger which = 3800007 }
+		command = { type = headofstate which = 91172 }
+		command = { type = headofgovernment which = 91052 }
+		command = { type = foreignminister which = 91076 }
+		command = { type = armamentminister which = 91099 }
+		command = { type = ministerofsecurity which = 91115 }
+		command = { type = ministerofintelligence which = 91131 }
+		command = { type = chiefofstaff which = 91143 }
+		command = { type = chiefofarmy which = 91153 }
+		command = { type = chiefofnavy which = 91009 }
+		command = { type = chiefofair which = 91170 }
+	}
+	action_b = {
+		ai_chance = 10
+		name = EVT_8_ACTB
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = sleepevent which = 3800007 }
+	}
+}
+
+event = {
+	id = 3800007
+	random = no
+	country = ENG
+
+	name = EVT_9_NAME
+	desc = EVT_9_DESC
+	style = 0
+	picture = "iraq"
+
+	# triggered by Iraqi event 3800006
+
+	action_a = {
+		name = EVT_9_ACTA
+		command = { type = make_puppet which = IRQ }
+		command = { type = relation which = IRQ value = 25 }
+		command = { type = dissent value = -2 }
+	}
+}
+
+#########################################################################
+#	ENG AI creates puppet in IRQ when persian corridor is created
+#	used for AI troop movements
+#########################################################################
+
+event = {
+	id = 3800008
+	random = no
+	country = ENG
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 0
+
+	trigger = {
+		event = 3162000 # corridor event Persia
+		AI = IRQ
+		AI = ENG
+		NOT = { war = { country = IRQ country = ENG }}
+		NOT = { ispuppet = IRQ }
+		NOT = { atwar = IRQ }
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = make_puppet which = IRQ }
+		command = { type = relation which = IRQ value = 25 }
+		command = { type = dissent value = -2 }
+	}
+}

@@ -1,0 +1,317 @@
+#	armor				
+#allowed_brigades =  artillery					
+#allowed_brigades =  anti_tank					
+#allowed_brigades =  anti_air					
+#allowed_brigades =  rocket_artillery					
+allowed_brigades =  sp_artillery					
+allowed_brigades =  sp_rct_artillery					
+allowed_brigades =  tank_destroyer					
+#allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+allowed_brigades =  super_heavy_armor					
+#allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+#allowed_brigades =  police					
+allowed_brigades =  sp_anti_air	
+#allowed_brigades =  b_01				
+					
+# Early Light Tank (1936) - 0					
+model = {					
+	cost =				20.97
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				24
+	toughness =				38
+	softness =				60
+	suppression =				1
+	airdefence =				14
+	softattack =				31
+	hardattack =				4
+	airattack =				1
+	transportweight =				30
+	supplyconsumption =				5.59
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 14000 equipment = 160 artillery = 36  anti_air = 12 anti_tank = 18  trucks = 760  armored_car = 48 light_armor = 300 medium_armor = 52            balloon = 3             }
+}					
+# Basic Light Tank (1938) - 1					
+model = {					
+	cost =				22.25
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				27
+	toughness =				42
+	softness =				52
+	suppression =				1
+	airdefence =				16
+	softattack =				35
+	hardattack =				11
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				5.93
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 14000 equipment = 160 artillery = 30  anti_air = 15 anti_tank = 15  trucks = 800  armored_car = 50 light_armor = 260 medium_armor = 90  tank_destroyer = 5 sp_artillery = 10         balloon = 6             }
+}					
+# Advanced Light Tank (1940) - 2					
+model = {					
+	cost =				23.61
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				30
+	toughness =				48
+	softness =				41
+	suppression =				1
+	airdefence =				18
+	softattack =				39
+	hardattack =				20
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				6.3
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 14000 equipment = 150 artillery = 25  anti_air = 15 anti_tank = 15  trucks = 850  armored_car = 50 light_armor = 250 medium_armor = 100  tank_destroyer = 5 sp_artillery = 15         balloon = 6             }
+}					
+# Early Medium Tank (1942) - 3					
+model = {					
+	cost =				25.05
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				34
+	toughness =				54
+	softness =				38
+	suppression =				1
+	airdefence =				20
+	softattack =				44
+	hardattack =				26
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				6.68
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 14000 equipment = 150 artillery = 15  anti_air = 15 anti_tank = 5  trucks = 850  armored_car = 50 light_armor = 150 medium_armor = 200  tank_destroyer = 15 sp_artillery = 25         balloon = 10             }
+}					
+# Basic Medium Tank (1943) - 4					
+model = {					
+	cost =				25.8
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				36
+	toughness =				57
+	softness =				37
+	suppression =				1
+	airdefence =				21
+	softattack =				46
+	hardattack =				28
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				6.88
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.25
+	equipment =				{ manpower = 14000 equipment = 150 artillery = 10  anti_air = 20   trucks = 650 halftracks = 200 armored_car = 50 light_armor = 100 medium_armor = 250  tank_destroyer = 20 sp_artillery = 30         balloon = 10             }
+}					
+# Improved Medium Tank (1944) - 5					
+model = {					
+	cost =				26.57
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				38
+	toughness =				60
+	softness =				37
+	suppression =				1
+	airdefence =				22
+	softattack =				49
+	hardattack =				29
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				7.09
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.25
+	equipment =				{ manpower = 14000 equipment = 140   anti_air = 20   trucks = 500 halftracks = 350 armored_car = 50 light_armor = 50 medium_armor = 290 heavy_armor = 10 tank_destroyer = 20 sp_artillery = 40         balloon = 12             }
+}					
+# Advanced Medium Tank (1945) - 6					
+model = {					
+	cost =				27.37
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				40
+	toughness =				64
+	softness =				37
+	suppression =				1
+	airdefence =				24
+	softattack =				52
+	hardattack =				31
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				7.3
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.25
+	equipment =				{ manpower = 14000 equipment = 140   anti_air = 20   trucks = 450 halftracks = 450 armored_car = 50 light_armor = 45 medium_armor = 290 heavy_armor = 15 tank_destroyer = 20 sp_artillery = 40         balloon = 12             }
+}					
+# Basic Heavy Tank (1946) - 7					
+model = {					
+	cost =				28.19
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				43
+	toughness =				68
+	softness =				37
+	suppression =				1
+	airdefence =				25
+	softattack =				55
+	hardattack =				33
+	airattack =				2
+	transportweight =				30
+	supplyconsumption =				7.52
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.25
+	equipment =				{ manpower = 14000 equipment = 140   anti_air = 20   trucks = 450 halftracks = 450 armored_car = 50 light_armor = 40 medium_armor = 290 heavy_armor = 20 tank_destroyer = 20 sp_artillery = 40         balloon = 10             }
+}					
+# Advanced Heavy Tank (1948) - 8					
+model = {					
+	cost =				29.62
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				47
+	toughness =				75
+	softness =				37
+	suppression =				1
+	airdefence =				28
+	softattack =				61
+	hardattack =				37
+	airattack =				3
+	transportweight =				30
+	supplyconsumption =				7.9
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 14000 equipment = 130   anti_air = 20   trucks = 450 halftracks = 450 armored_car = 50 light_armor = 35 medium_armor = 290 heavy_armor = 25 tank_destroyer = 20 sp_artillery = 40         balloon = 10             }
+}					
+# Semimodern Heavy Tank (1950) - 9					
+model = {					
+	cost =				30.81
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				77
+	toughness =				81
+	softness =				37
+	suppression =				1
+	airdefence =				30
+	softattack =				66
+	hardattack =				40
+	airattack =				3
+	transportweight =				30
+	supplyconsumption =				8.22
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 14000 equipment = 130   anti_air = 20   trucks = 400 halftracks = 500 armored_car = 50 light_armor = 35 medium_armor = 285 heavy_armor = 30 tank_destroyer = 20 sp_artillery = 40         balloon = 10             }
+}					
+# Modern Heavy Tank (1953) -10					
+model = {					
+	cost =				32.7
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				86
+	toughness =				91
+	softness =				37
+	suppression =				1
+	airdefence =				34
+	softattack =				74
+	hardattack =				44
+	airattack =				3
+	transportweight =				30
+	supplyconsumption =				8.72
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 14000 equipment = 130   anti_air = 25   trucks = 400 halftracks = 500 armored_car = 55 light_armor = 25 medium_armor = 300 heavy_armor = 20 tank_destroyer = 25 sp_artillery = 45         balloon = 6             }
+}					
+# Elite Heavy Tank (1960) - 10					
+model = {					
+	cost =				37.56
+	buildtime =			 	240
+	manpower =				14
+	maxspeed =				15
+	defaultorganisation =				20
+	morale =				20
+	defensiveness =				114
+	toughness =				120
+	softness =				37
+	suppression =				1
+	airdefence =				45
+	softattack =				98
+	hardattack =				59
+	airattack =				4
+	transportweight =				30
+	supplyconsumption =				10.02
+	fuelconsumption =				6
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 14000 equipment = 120   anti_air = 25   trucks = 400 halftracks = 550 armored_car = 55 light_armor = 25 medium_armor = 300 heavy_armor = 20 tank_destroyer = 25 sp_artillery = 45       helicopter = 6  balloon = 6             }
+}					

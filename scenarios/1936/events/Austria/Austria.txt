@@ -1,0 +1,241 @@
+# converted to DH, Kane, July 12 2011
+###############################################################
+# 3114000 - 3114999	Austria events
+###############################################################
+
+#########################################################################
+#  Anschluss
+#########################################################################
+event = { 
+	id = 3114000
+	random = no
+	country = AUS
+	
+	# Triggered by GER 3136005
+	
+	name = EVT_3114000_NAME # Anschluss
+	desc = EVT_2100_DESC
+	style = 0
+	picture = "anchsluss"
+	
+	action_a = {
+		name = ACTIONNAME3114000A # Become part of the Greater Reich (Game Over)
+		ai_chance = 99
+		command = { type = demobilize which = land when = 1 where = 1 value = 0 } 
+		command = { type = demobilize which = air  when = 1 where = 1 value = 0 } 
+		command = { type = trigger which = 3136006 }
+	}
+	action_b = {
+		name = ACTIONNAME3114000B # Austria shall remain independent
+		ai_chance = 1
+		command = { type = dissent value = 40 }
+		command = { type = relation which = GER value = -25 }
+		command = { type = relation which = ITA value = 15 }
+		command = { type = relation which = ENG value = 5 }
+		command = { type = relation which = FRA value = 5 }
+		command = { type = set_domestic which = democratic value = 1 }
+		command = { type = set_domestic which = political_left value = 2 }
+	}
+}
+#########################################################################
+# Austro-German Agreement (by Steel & Generalisimo)
+#########################################################################
+event = { 
+	id = 3114001
+	random = no
+	country = AUS
+
+	# triggered by GER 3136125 
+
+	name = EVT_3114001_NAME # Germany proposes the Austro-German Agreement
+	desc = EVT_172046_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3114001A # Accept the Agreement; it is an excellent offer
+		ai_chance = 95
+		command = { type = construct which = ic where = 195 value = 2 } # Capital
+		command = { type = construct which = ic where = -1 value = 1 } # random
+		command = { type = construct which = ic where = -1 value = 1 } # random
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3136124 } # GER
+		command = { type = relation which = GER value = 20 }
+	}
+	action_b = {
+		name = ACTIONNAME3114001B # Decline the agreement; it is unnecessary
+		ai_chance = 5
+        	command = { type = relation which = GER value = -5 }
+	}
+}
+#########################################################################
+# Was 652010 - (AUS) Austrian Government introduces mandatory Army service (by Sonic)
+#########################################################################
+event = { 
+	id = 3114002 # 6900001
+	random = no
+	country = AUS
+
+	trigger = {
+		random = 20
+		NOT = { war = { country = GER country = AUS } }
+	}	
+	
+	name = EVT_3114002_NAME # The Austrian government introduces mandatory Army service
+	desc = EVT_3114002_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1938 } 
+
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3114002A # We must quell the unrest; pass the bill
+		command = { type = add_division value = infantry }
+		command = { type = add_division value = infantry }
+		command = { type = dissent value = -1 }
+		command = { type = manpowerpool value = 30 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3114002B # Do not pass the bill; Austria needs no Wehrpflicht
+		command = { type = dissent value = -3 } 
+	}
+}
+############################################
+# Was 652013 1936 Physics
+############################################
+event = {
+	id = 3114003 # 6900002
+	random = no
+	country = AUS
+
+	trigger = {
+		exists = SWE 
+		exists = AUS
+		NOT = {
+			war = { country = SWE country = AUS }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_3114003_NAME # 1936 Nobel Prize in Physics
+	desc = EVT_3114003_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3114003A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 652014 1945 Physics
+############################################
+event = {
+	id = 3114004 # 6900003
+	random = no
+	country = AUS
+
+	trigger = {
+		exists = SWE 
+		exists = AUS
+		NOT = {
+			war = { country = SWE country = AUS }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_3114004_NAME # 1945 Nobel Prize in Physics
+	desc = EVT_3114004_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3114004A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Allied-occupied Austria
+############################################
+event = {
+	id = 3114005
+	random = no
+	country = AUS
+
+	name = EVT_3114005_NAME
+	desc = EVT_3114005_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = access which = USA }
+		command = { type = access which = ENG }
+		command = { type = access which = FRA }
+		command = { type = access which = SOV }
+		command = { type = set_domestic which = interventionism value = 1 } # total isolationism
+		command = { type = set_domestic which = defense_lobby value = 1 } # total isolationism
+		command = { type = guarantee which = USA where = AUS }
+		command = { type = guarantee which = ENG where = AUS }
+		command = { type = guarantee which = FRA where = AUS }
+		command = { type = guarantee which = SOV where = AUS }
+		command = { trigger = { owned = { province = 401 data = -1 } } type = secedeprovince which = ITA value = 401 } # South Tyrol; just in case that it got occupied before
+		command = { trigger = { owned = { province = 402 data = -1 } } type = secedeprovince which = ITA value = 402 }
+	}
+}
+
+############################################
+# Austrian State Visit to Italy
+############################################
+event = { 
+	id = 3114006 
+	random = no
+	country = AUS
+
+	trigger = {
+		NOT = { war = { country = ITA country = AUS } }
+	}	
+	
+	name = EVT_3114006_NAME 
+	desc = EVT_3114006_DESC
+	style = 2
+	picture = "aus_event_ita_state_visit"
+
+	date = { day = 21 month = april year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 } 
+
+	action_a = {
+		name = ACTIONNAME3114006A # 
+		command = { type = dissent  value = 1 }
+		command = { type = relation which = ITA value = -15 }	
+        command = { type = trigger  which = 3114007 } 			
+	}
+}
+
+event = { 
+	id = 3114007
+	random = no
+	country = ITA
+	
+	name = EVT_3114006_NAME 
+	desc = EVT_3114006_DESC
+	style = 2
+	picture = "aus_event_ita_state_visit"
+
+	action_a = {
+		name = ACTIONNAME3114007A # 
+		command = { type = dissent  value = -1 }
+		command = { type = relation which = AUS value = -15 }			
+	}
+}

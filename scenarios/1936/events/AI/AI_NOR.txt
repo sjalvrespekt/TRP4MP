@@ -1,0 +1,62 @@
+####################################
+# Norway AI events 38700 - 38799 by DerStudti
+####################################
+################
+# Norway war building ai
+#############################################
+event = {
+	id = 38700
+	random = no 
+	country = NOR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 15
+		NOT = { local_flag = Norway_war }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Norway_war.ai" }
+		command = { type = local_setflag which = Norway_war }
+	}
+}
+
+################
+# Switching back to normal ai
+#############################################
+event = {
+	id = 38701
+	random = no 
+	country = NOR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = Norway_war
+		OR =	{
+			atwar = no
+			NOT = { manpower = 15 }
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "NOR_1936.ai" }
+		command = { type = local_clrflag which = Norway_war }
+	}
+}

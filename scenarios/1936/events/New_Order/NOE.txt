@@ -1,0 +1,1223 @@
+#####################################################################
+# New Order in the East
+# 
+# 3236000 - 3236999	German New Order East events
+# 3283000 - 3283999	USSR New Order East events
+# Last used - 3283029, but 3283030 etc is used somewhere else!
+#####################################################################
+
+#################################################
+# Germany choses occupation policy
+#################################################
+event = { 
+	id = 3236000 
+	random = no 
+	country = GER
+ 
+	trigger = {
+		war = { country = GER country = SOV }
+		control = { province = 242 data = GER } # Lwov
+		control = { province = 258 data = GER } # Vilnius/Wilno
+		control = { province = 262 data = GER } # Kaunas
+	}
+
+	name = EVT_3236000_NAME #"Germany choses occupation policy"
+	desc = EVT_3236000_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236000A #"Examine the options"
+		command = { type = trigger which = 3236001 }
+	}
+}
+event = { 
+	id = 3236001 
+	random = no 
+	country = GER 
+
+	# triggered by GER 3236000
+
+	name = EVT_3236000_NAME #"Germany chooses occupation policy"
+	desc = EVT_3236001_DESC
+	picture = "ger_event_occupation_large" #"sieg_polen"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME3236001A #"Conquer, rule and exploit (Hard)"
+		ai_chance = 90
+		command = { type = setflag which = NOE_Hist } # choose historical plan
+	}
+	action_b = {
+		name = ACTIONNAME3236001B #"The Rosenberg Plan (Medium - Reichskommissariate)"
+		ai_chance = 5
+		command = { type = setflag which = NOE_Ros } # choose Rosenberg plan
+	}
+	action_c = {
+		name = ACTIONNAME3236001C #"The Ribbentrop-Schulenburg Plan (Ahistoric/Easy - liberate puppet states)" 
+		ai_chance = 5
+		command = { type = setflag which = NOE_RibSchu } # choose Ribbentrop-Schulenburg plan
+	}
+}
+
+###################################################
+# Soviet minorities hope for liberation
+###################################################
+event = { 
+	id = 3283030
+	random = no 
+	country = SOV
+
+	trigger = {
+		war = { country = GER  country = SOV }
+		event = 3236001
+	}
+
+	name = EVT_3283041_NAME
+	desc = EVT_3283030_DESC
+	style = 2
+	picture = "ger_event_minorities"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { flag = NOE_Hist } # Historical German occupation policy
+		name = ACTIONNAME3283041A
+		command = { trigger = { AI = yes } type = dissent value = 1 }
+		command = { trigger = { AI = no } type = dissent value = 2 } 
+	}
+	action = {
+		trigger = { flag = NOE_Ros } # Rosenberg plan chosen
+		name = ACTIONNAME3283040A
+		command = { trigger = { AI = yes } type = dissent value = 4 }
+		command = { trigger = { AI = no } type = dissent value = 10 } 
+	}
+	action = {
+		trigger = { flag = NOE_RibSchu } # Ribbentrop-Schulenburg plan chosen
+		name = ACTIONNAME3283040A
+		command = { trigger = { AI = yes } type = dissent value = 2 }
+		command = { trigger = { AI = no } type = dissent value = 3 } 
+	}
+}
+
+#############################################################
+# Bessarabia to Romania
+#############################################################
+event = { 
+	id = 3283000
+	random = no 
+	tag = { GER HUN }
+
+	trigger = { 
+		war = { country = ROM country = SOV }
+		owned = { province = 304 data = SOV } # Chisinau, Bessarabia must be Soviet-owned
+		owned = { province = 306 data = SOV } # Ismail
+		owned = { province = 305 data = SOV } # Cahul
+		owned = { province = 303 data = SOV } # Balti
+		owned = { province = 302 data = SOV } # Hotin
+		owned = { province = 300 data = SOV } # Cernauti
+		NOT = {
+			control = { province = 304 data = SOV } # Chisinau, Bessarabia and near area must not be Soviet-held
+			control = { province = 297 data = SOV } # Iasi
+			control = { province = 300 data = SOV } # Cernauti
+			control = { province = 298 data = SOV } # Galati
+			control = { province = 306 data = SOV } # Ismail
+			control = { province = 305 data = SOV } # Cahul
+			control = { province = 303 data = SOV } # Balti
+			control = { province = 302 data = SOV } # Hotin
+			control = { province = 626 data = SOV } # Odessa
+			control = { province = 620 data = SOV } # Balta
+			control = { province = 621 data = SOV } # Tiraspol
+			control = { province = 625 data = SOV } # Ochakov
+			control = { province = 619 data = SOV } # Mogilev Podolski
+			control = { province = 618 data = SOV } # Kamenets-Podolsky
+			control = { province = 238 data = SOV } # Stanislawow
+			control = { province = 241 data = SOV } # Stryj
+		}
+		OR = {
+				control = { province = 304 } # Chisinau, Bessarabia and near area must not be Soviet-held
+				control = { province = 297 } # Iasi
+				control = { province = 300 } # Cernauti
+				control = { province = 298 } # Galati
+				control = { province = 306 } # Ismail
+				control = { province = 305 } # Cahul
+				control = { province = 303 } # Balti
+				control = { province = 302 } # Hotin
+				control = { province = 626 } # Odessa
+				control = { province = 620 } # Balta
+				control = { province = 621 } # Tiraspol
+				control = { province = 625 } # Ochakov
+				control = { province = 619 } # Mogilev Podolski
+				control = { province = 618 } # Kamenets-Podolsky
+				control = { province = 238 } # Stanislawow
+				control = { province = 241 } # Stryj
+				}
+	}
+
+	name = EVT_3283000_NAME #"Bessarabia to Romania"
+	desc = EVT_3283000_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 40
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3283000A #"Give it back"
+		command = { type = secedeprovince which = ROM value = 304 } # Chisinau
+		command = { type = secedeprovince which = ROM value = 305 } # Cahul
+		command = { type = secedeprovince which = ROM value = 306 } # Ismail
+		command = { type = secedeprovince which = ROM value = 303 } # Balti
+		command = { type = secedeprovince which = ROM value = 302 } # Hotin
+		command = { type = secedeprovince which = ROM value = 304 } # Cernauti
+	}
+}
+#############################################################
+# Transnestria to Romania
+#############################################################
+event = { 
+	id = 3236035
+	random = no 
+	country = GER 
+
+	trigger = { 
+		OR = {
+				AND = {
+						flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+						NOT = { exists = UKR }
+						}
+				event = 3283000				
+				}
+				
+		war = { country = GER  country = SOV }
+		war = { country = ROM  country = SOV }
+		alliance = { country = GER country = ROM }
+		
+		control = { province = 626 data = GER } # 626	Odessa, Surrounding area must be German-controlled
+		control = { province = 628 data = GER } # 628	Kirovograd
+		control = { province = 613 data = GER } # 613	Cherkasy
+		control = { province = 615 data = GER } # 615	Uman
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 240 data = GER } # 240	Tarnopol
+		control = { province = 242 data = GER } # 242	Lwow
+		
+		NOT = {
+			control = { province = 303 data = SOV } # 303	Balti, Transnestria and Bessarabia must not be Soviet-held
+			control = { province = 302 data = SOV } # 302	Hotin
+			control = { province = 304 data = SOV } # 304	Chisinau
+			control = { province = 238 data = SOV } # 238	Stanislawow
+			control = { province = 619 data = SOV } # 619	Mogilev Podolski
+			control = { province = 618 data = SOV } # 618	Kamenets-Podolsky
+			control = { province = 620 data = SOV } # 620	Balta
+			control = { province = 621 data = SOV } # 621	Tiraspol
+			control = { province = 625 data = SOV } # 625	Ochakov
+		}
+		
+	}
+
+	name = EVT_3236035_NAME
+	desc = EVT_3236035_DESC
+	style = 2
+	picture = "rom_event_transnistria"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 50
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3236035A
+		command = { type = secedeprovince which = ROM value = 619 when = 2 } # 619	Mogilev Podolski
+#		command = { type = secedeprovince which = ROM value = 618 when = 2 } # 618	Kamenets-Podolsky
+		command = { type = secedeprovince which = ROM value = 620 when = 2 } # 620	Balta
+		command = { type = secedeprovince which = ROM value = 621 when = 2 } # 621	Tiraspol
+		command = { type = secedeprovince which = ROM value = 625 when = 2 } # 625	Ochakov
+		command = { type = secedeprovince which = ROM value = 626 when = 2 } # 626	Odessa
+	}
+}
+###########################################################################################
+# Soviet war on the Baltic States (In case these still exists when war with Germany begins)
+###########################################################################################
+event = { 
+	id = 3283005
+	random = no
+	country = SOV
+
+	trigger = {
+		war = { country = SOV country = GER }
+		OR = {	
+			war = { country = GER country = ENG } # Germany must be at war with the Allies
+			war = { country = GER country = FRA }
+		}
+		OR = {
+			exists = EST
+			exists = LIT
+			exists = LAT	
+		}
+		NOT = { 
+			OR = {
+				alliance = { country = EST country = ENG } # The baltic states must not be in the Allies
+				alliance = { country = EST country = FRA }
+				alliance = { country = EST country = USA }
+				alliance = { country = LIT country = ENG }
+				alliance = { country = LIT country = FRA }
+				alliance = { country = LIT country = USA }
+				alliance = { country = LAT country = ENG }
+				alliance = { country = LAT country = FRA }
+				alliance = { country = LAT country = USA }
+			}
+		}
+		NOT = {
+			alliance = { country = SOV country = EST }
+			alliance = { country = SOV country = LIT }
+			alliance = { country = SOV country = LAT }
+		}
+	}
+
+	name = EVT_3283005_NAME #"Soviet war on the Baltic States"
+	desc = EVT_3283005_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3283005A #"Declare war!"
+		command = { type = war which = EST }
+		command = { type = war which = LIT }
+		command = { type = war which = LAT }
+	}
+	action_b = {
+		name = ACTIONNAME3283005B #"Leave them be!"
+		command = { }
+	}
+}
+
+##########################################################
+# Leningrad mobilizes for defense
+##########################################################
+event = {
+	id = 3283008
+	random = no
+	country = SOV
+	
+	trigger = {
+                war = { country = GER country = SOV }
+                AI = yes
+                control = { province = 553 data = SOV } # Leningrad
+				OR = {
+						NOT = { control = { province = 550 data = SOV } } # Kingisepp
+						NOT = { control = { province = 551 data = SOV } } # Krasnogvardevsk
+						NOT = { control = { province = 530 data = SOV } } # Terijoki
+						}
+	}   
+	
+	name = EVT_3283008_NAME #"Leningrad mobilizes for defense"
+	desc = EVT_3283008_DESC #"As enemy troops pushed closer to the 'cradle of the revolution', the communist party mobilized its enormous human resources. Half a million civilians were used in the construction of a wide defensive perimeter around the city, and tens of thousands of workers were organized into infantry units by the 'Opolchenye' (Peoples Army). Within a month the city of Leningrad was turned into an inexpugnable fortress."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = add_corps which = "Leningrad PMC" value = land where = 553 } #Leningrad
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = activate_division which = 10848 value = 756 where = 553 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = activate_division which = 10848 value = 757 where = 553 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = activate_division which = 10848 value = 758 where = 553 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = activate_division which = 10848 value = 759 where = 553 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = activate_division which = 10848 value = 760 where = 553 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = construct which = land_fort where = 553 value = 6 } #Leningrad
+		command = { type = construct which = land_fort where = 553 value = 2 } #Leningrad
+		command = { type = construct which = flak where = 553 value = 4 } #Leningrad
+	}
+}
+##########################################################
+# Leningrad forts destroyed as Germans move in
+##########################################################
+event = {
+	id = 23126541
+	random = no
+	country = GER
+
+	trigger = {
+		NOT = { control = { province = 553 data = SOV } }#Leningrad
+                atwar = yes
+	}
+	
+	name = EVT_23126541_NAME #"Leningrad forts destroyed by combat"
+	desc = EVT_23126541_DESC #"Leningrad forts destroyed by combat"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+                command = { type = construct which = land_fort where = 553 value = -10 } #Leningrad
+                command = { type = construct which = flak where = 553 value = -5 } #Leningrad
+	}
+}
+##########################################################
+# Leningrad besieged, supplied via Lake Ladoga
+##########################################################
+event = {
+	id = 23126510
+	random = no
+	country = SOV
+	
+        trigger = {
+					AI = SOV				
+					war = { country = SOV country = GER }
+					control = { province = 553 data = SOV } # Leningrad
+					OR = {
+							control = { province = 532 data = SOV } # Sortavala
+							control = { province = 539 data = SOV } # Petrozavodsk
+							control = { province = 557 data = SOV } # Tikhvin      
+							}
+					OR = {
+							NOT = { control = { province = 550 data = SOV } } # Kingisepp
+							NOT = { control = { province = 551 data = SOV } } # Krasnogadrevsk
+							NOT = { control = { province = 530 data = SOV } } # Terijoki
+							}
+        }
+	
+	name = EVT_23126510_NAME #"Leningrad supplied"
+	desc = EVT_23126510_DESC #"Leningrad is cut off from the outside world, but a road over frozen lake Ladoga lets some supplies through for the besieged inhabitants."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = -1 }
+		command = { type = construct which = flak where = 553 value = 3 } #Leningrad
+		command = { trigger = { AI = SOV NOT = { AI = GER } } type = transport_pool which = SOV value = 50 }
+	}
+}
+##########################################################
+# Murmansk besieged, supplied via Archangelsk
+##########################################################
+event = {
+	id = 23126550
+	random = no
+	country = SOV
+
+	trigger = {
+                atwar = yes
+                AI = yes
+				NOT = { AI = GER }
+		control = { province = 535 data = SOV } # Murmansk
+		control = { province = 542 data = SOV } # Archangelsk
+		OR = { 
+			control = { province = 537 data = FIN } # Kem
+		        control = { province = 536 data = FIN } # Kandalaksja
+                        control = { province = 538 data = FIN } # Segezha
+		}
+	}
+	
+	name = EVT_23126550_NAME #"Murmansk supplied"
+	desc = EVT_23126550_DESC #"Murmansk is cut off from the outside world, but supplied through Archangelsk."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { AI = SOV NOT = { AI = GER } } type = transport_pool which = SOV value = 20 }
+	}
+}
+##########################################################
+# Narva besieged, supplied via Leningrad
+##########################################################
+event = {
+	id = 23126552
+	random = no
+	country = SOV
+
+	trigger = {
+                atwar = yes
+                AI = yes
+				NOT = { AI = GER }
+		control = { province = 274 data = SOV } # Narva
+		control = { province = 553 data = SOV } # Leningrad
+		OR = { 
+			control = { province = 549 data = GER } # Luga
+		        control = { province = 550 data = GER } # Kingisepp
+		}
+	}
+	
+	name = EVT_23126552_NAME #"Narva supplied"
+	desc = EVT_23126552_DESC #"Narva is cut off from the outside world, but supplied through Leningrad."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { AI = SOV NOT = { AI = GER } } type = transport_pool which = SOV value = 20 }
+	}
+}
+##########################################################
+# Caucasus besieged, supplied via Ashgabat
+##########################################################
+event = {
+	id = 23126551
+	random = no
+	country = SOV
+
+	trigger = {
+                NOT = { event = 3131003 } #North Persian corridor exists
+                atwar = yes
+                AI = yes
+				NOT = { AI = GER }
+				control = { province = 713 data = SOV } # Baku
+				control = { province = 1097 data = SOV } # Ashgabat
+                NOT = { control = { province = 702 data = SOV } } # Grozny
+	}
+	
+	name = EVT_23126551_NAME #"Caucasus supplied"
+	desc = EVT_23126551_DESC #"Caucasus is cut off from the outside world, but supplied through Ashgabat."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { AI = SOV NOT = { AI = GER } } type = transport_pool which = SOV value = 15 }
+	}
+}
+##########################################################
+# Sevastopol mobilizes for defense
+##########################################################
+event = {
+	id = 3283009
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = { province = 641 data = SOV } # Sevastopol
+		OR = { 
+			NOT = { control = { province = 637 data = SOV } } # Yevpatoriya
+			NOT = { control = { province = 638 data = SOV } } # Simferopol
+			NOT = { control = { province = 639 data = SOV } } # Dzhankoy
+			NOT = { control = { province = 640 data = SOV } } # Kerch
+		}
+		atwar = yes
+		AI = yes
+	}
+	
+	name = EVT_3283009_NAME #"Sevastopol mobilizes for defense"
+	desc = EVT_3283009_DESC #"Garrison units have been formed in Sevastopol in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_corps which = "Sevastopol PMC" value = land where = 641 } # Sevastopol
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = activate_division which = 10848 value = 761 where = 641 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = activate_division which = 10848 value = 762 where = 641 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = activate_division which = 10848 value = 763 where = 641 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = construct which = flak where = 641 value = 3 } #Sevastopol
+		command = { type = construct which = land_fort where = 641 value = 8 } #Sevastopol
+		command = { type = construct which = flak where = 641 value = 5 } #Sevastopol
+		command = { type = dissent value = -1 }
+	}
+}
+##########################################################
+# Stalingrad mobilizes for defense
+##########################################################
+event = {
+	id = 3283010
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = { province = 663 data = SOV } # Stalingrad
+		atwar = yes
+                AI = yes
+                OR = { 
+			AND = { 
+				NOT = { AI = GER }
+				war = { country = GER country = SOV }
+				}
+			AND = { 
+				NOT = { AI = FIN }
+				war = { country = FIN country = SOV }
+				}
+			AND = { 
+				NOT = { AI = ROM }
+				war = { country = ROM country = SOV }
+				}
+			AND = { 
+				NOT = { AI = HUN }
+				war = { country = HUN country = SOV }
+				}
+			AND = { 
+				NOT = { AI = TUR }
+				war = { country = TUR country = SOV }
+				}
+			AND = { 
+				NOT = { AI = ITA }
+				war = { country = ITA country = SOV }
+				}
+			}
+		OR = { 
+			NOT = { control = { province = 659 data = SOV } }# Kalach-On-Don
+			NOT = { control = { province = 660 data = SOV } }# Volzhsky
+			NOT = { control = { province = 661 data = SOV } }# Kamyshin
+			NOT = { control = { province = 662 data = SOV } }# Kotelnikovo
+		}
+	}
+	
+	name = EVT_3283010_NAME #"Stalingrad mobilizes for defense"
+	desc = EVT_3283010_DESC #infantry units have been formed in Stalingrad in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = -1 }
+		command = { type = add_corps which = "1. Stalingrad PMC" value = land where = 663 } # Stalingrad
+		command = { type = add_division which = "Cossack cavalry PMD" value = cavalry when = 3 }
+		command = { type = add_division which = "1. Stalingrad PMD" value = infantry when = 3 where = light_armor_brigade }
+		command = { type = add_division which = "6. Stalingrad PMD" value = infantry when = 3 where = light_armor_brigade }
+		command = { type = add_division which = "7. Stalingrad PMD" value = infantry when = 3 where = light_armor_brigade }
+		command = { type = add_corps which = "2. Stalingrad PMC" value = land where = 663 } # Stalingrad
+		command = { type = activate_division which = 10848 value = 764 where = 663 }
+		command = { type = activate_division which = 10848 value = 765 where = 663 }
+		command = { type = activate_division which = 10848 value = 766 where = 663 }
+		command = { type = activate_division which = 10848 value = 767 where = 663 }
+		command = { type = construct which = land_fort where = 663 value = 6 } #Stalingrad
+		command = { type = construct which = flak where = 663 value = 5 } #Stalingrad
+	}
+}
+##########################################################
+# Stalingrad forts destroyed as Germans move in
+##########################################################
+event = {
+	id = 23126542
+	random = no
+	country = GER
+
+	trigger = {
+                event = 3283010
+		NOT = { control = { province = 663 data = SOV } } #Stalingrad
+                atwar = yes
+	}
+	
+	name = EVT_23126542_NAME #"Stalingrad forts destroyed by combat"
+	desc = EVT_23126542_DESC #"Stalingrad forts destroyed by combat"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+                command = { type = construct which = land_fort where = 663 value = -9 } #Stalingrad
+                command = { type = construct which = flak where = 663 value = -9 } #Stalingrad
+	}
+}
+##########################################################
+# Novorossiysk mobilizes for defense
+##########################################################
+event = {
+	id = 3283011
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = { province = 694 data = SOV } # Novorossiysk
+		war = { country = GER country = SOV }
+		AI = yes
+		NOT = { AI = GER }
+		OR = {
+				NOT = { control = {  province = 640 data = SOV } } # Kerch
+				NOT = { control = {  province = 644 data = SOV } } # Rostov-On-Don
+			}
+	}
+	
+	name = EVT_3283011_NAME #"Novorossiysk mobilizes for defense"
+	desc = EVT_3283011_DESC #"infantry units have been formed in Novorossiysk in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = -1 }
+		command = { type = add_corps which = "Novorossiysk PMC" value = land where = 694 } 
+		command = { type = add_division which = "1. Cossack Division" value = cavalry when = 3 }
+		command = { type = add_division which = "2. Cossack Division" value = cavalry when = 3 }
+		command = { type = construct which = land_fort where = 694 value = 2 } #Krasnodar
+		command = { type = construct which = flak where = 694 value = 2 } #Krasnodar
+	}
+}
+##########################################################
+# Rostov mobilizes for defense
+##########################################################
+event = {
+	id = 3283012
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = {  province = 644 data = SOV } # Rostov-On-Don
+		war = { country = GER country = SOV }
+		AI = yes
+		NOT = { AI = GER }
+		OR = {
+			NOT = { control = { province = 631 data = SOV } } # Mariupol
+			NOT = { control = { province = 635 data = SOV } } # Stalino
+			NOT = { control = { province = 634 data = SOV } } # Voroshilovgrad
+			NOT = { control = { province = 649 data = SOV } } # Kamensk
+			NOT = { control = { province = 643 data = SOV } } # Morozovsk
+			NOT = { control = { province = 645 data = SOV } } # Konstantinovsk
+			NOT = { control = { province = 697 data = SOV } } # Volgodonsk
+			NOT = { control = { province = 692 data = SOV } } # Salsk
+			}
+	}
+	
+	name = EVT_3283012_NAME #"Rostov mobilizes for defense"
+	desc = EVT_3283012_DESC #"infantry units have been formed in Rostov in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = add_corps which = "1. Rostov PMC" value = land where = 644 } # Rostov
+		command = { type = add_division which = "Rostov cavalry PMD" value = cavalry when = 2 }
+		command = { type = add_corps which = "1. Rostov PMC" value = land where = 644 } # Rostov 
+		command = { type = activate_division which = 10848 value = 768 where = 644 }
+		command = { type = activate_division which = 10848 value = 769 where = 644 }
+		command = { type = activate_division which = 10848 value = 770 where = 644 }
+		command = { type = activate_division which = 10848 value = 771 where = 644 }
+		command = { type = construct which = land_fort where = 644 value = 5 } #Rostov
+		command = { type = construct which = flak where = 644 value = 2 } #Rostov
+	}
+}
+##########################################################
+# Moscow mobilizes for defense
+##########################################################
+event = {
+	id = 3283013
+	random = no
+	country = SOV
+
+	trigger = {
+		control = { province = 572 data = SOV } # Moscow
+		atwar = yes
+		AI = yes
+		OR = { 
+			NOT = { control = { province = 571 data = SOV } } # Orekhovo-Zuyevo
+			NOT = { control = { province = 567 data = SOV } } # Serpukhov
+			NOT = { control = { province = 568 data = SOV } } # Solnechnogorsk
+			NOT = { control = { province = 570 data = SOV } } # Zagorsk
+			NOT = { control = { province = 678 data = SOV } } # Vladimir
+		}
+	}
+	
+	name = EVT_3283013_NAME #"Stalin moves reserves west as Japan remains neutral"
+	desc = EVT_3283013_DESC #"As enemy troops pushed closer to the capital of the USSR, the communist party mobilized its enormous human resources. Half a million civilians were used in the construction of a wide defensive perimeter in front of the city, and tens of thousands of workers were organized into infantry units by the 'Opolchenye' (Peoples Army). Within a month Moscow was turned into an inexpugnable fortress."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = dissent value = -1 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_corps which = "Moscow PMC" value = land when = 10393 where = 572 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "1. Moscow PMD" value = infantry when = 3 where = engineer } 
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "2. Moscow PMD" value = infantry when = 3 where = anti_tank }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "3. Moscow PMD" value = bergsjaeger when = 1 where = engineer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "4. Moscow PMD" value = infantry when = 3 where = engineer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "5. Moscow PMD" value = bergsjaeger when = 1 where = engineer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "6. Moscow PMD" value = hq when = 1 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_corps which = "Tankskaya PMC" value = land where = 572 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "9. Moscow PMD" value = armor when = 3 where = sp_artillery }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "10. Moscow PMD" value = armor when = 3 where = tank_destroyer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "11. Moscow PMD" value = armor when = 2 where = sp_artillery }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "12. Moscow PMD" value = armor when = 3 where = tank_destroyer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "13. Moscow PMD" value = armor when = 2 where = sp_artillery }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_corps which = "Vladimir PMC" value = land where = 678 }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "Vladimir Communist Rifle PMC" value = infantry when = 3  }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "1. Vladimir PMD" value = infantry when = 3 where = anti_tank }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "2. Vladimir PMD" value = infantry when = 2 where = engineer }
+		command = { trigger = { NOT = { AI = GER } war = { country = GER country = SOV } } type = add_division which = "3. Vladimir PMD" value = infantry when = 2 where = engineer }
+		command = { type = construct which = land_fort where = 572 value = 8 } #Moscow
+		command = { type = construct which = flak where = 572 value = 4 } #Moscow
+	}
+}
+##########################################################
+# Rhzev mobilizes for defense
+##########################################################
+event = {
+	id = 3283028
+	random = no
+	country = SOV
+
+	trigger = {
+		control = { province = 558 data = SOV } # Rzhev
+		war = { country = GER country = SOV }
+		AI = yes
+		OR = { 
+			NOT = { control = { province = 568 data = SOV } } # Solnechnogorsk
+			NOT = { control = { province = 577 data = SOV } } # Nelidovo
+			NOT = { control = { province = 561 data = SOV } } # Staraya Russa
+			NOT = { control = { province = 559 data = SOV } } # Borovichi
+			NOT = { control = { province = 562 data = SOV } } # Kirishi
+			NOT = { control = { province = 563 data = SOV } } # Torzhok
+			NOT = { control = { province = 569 data = SOV } } # Kalinin
+		}
+	}
+	
+	name = EVT_3283028_NAME #"Rzhev mobilizes for defense"
+	desc = EVT_3283028_DESC #"As enemy troops pushed closer to the capital of the USSR, the communist party mobilized its enormous human resources. Half a million civilians were used in the construction of a wide defensive perimeter in front of the city, and tens of thousands of workers were organized into infantry units by the 'Opolchenye' (Peoples Army). Within a month Moscow was turned into an inexpugnable fortress."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = -1 }
+		command = { type = add_corps which = "Rhzev PMC" value = land where = 558 } 
+		command = { type = add_division which = "1. Rzhev PMD" value = infantry when = 2 }
+		command = { type = add_division which = "2. Rzhev PMD" value = infantry when = 3 }
+		command = { type = add_division which = "5. Rzhev PMD" value = armor when = 3 where = sp_artillery }
+	}
+}
+##########################################################
+# Moscow forts destroyed as Germans move in
+##########################################################
+event = {
+	id = 23126543
+	random = no
+	country = GER
+
+	trigger = {
+                event = 3283013
+		NOT = { control = { province = 572 data = SOV } } # Moscow
+                atwar = yes
+	}
+	
+	name = EVT_23126543_NAME #"Moscow forts destroyed by combat"
+	desc = EVT_23126543_DESC #"Moscow forts destroyed by combat"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+                command = { type = construct which = land_fort where = 572 value = -8 } #Moscow
+                command = { type = construct which = flak where = 572 value = -8 } #Moscow
+	}
+}
+##########################################################
+# Murmansk mobilizes for defense
+##########################################################
+event = {
+	id = 3283014
+	random = no
+	country = SOV
+	
+	trigger = {
+        AI = yes
+		atwar = yes
+        NOT = { AI = GER }
+		OR = {
+				NOT = { control = { province = 517 data = SOV } } # Petsamo	
+				NOT = { control = { province = 536 data = SOV } } # Kandalaksha
+				NOT = { control = { province = 534 data = SOV } } # Kola
+				NOT = { control = { province = 514 data = SOV } } # Kemijarvi
+				}
+		control = { province = 535 data = SOV } # Murmansk
+        OR = {
+				war = { country = FIN  country = SOV }
+				war = { country = GER country = SOV }
+				}
+	}	
+	
+	name = EVT_3283014_NAME #"Murmansk mobilizes for defense"
+	desc = EVT_3283014_DESC #"infantry units have been formed in Murmansk in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1941 }
+   	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = add_corps which = "Murmansk PMC" value = land where = 535 } # Murmansk
+		command = { type = activate_division which = 10848 value = 772 where = 535 }
+		command = { type = activate_division which = 10848 value = 773 where = 535 }
+		command = { type = construct which = land_fort where = 535 value = 5 } #Murmansk
+		command = { type = construct which = flak where = 535 value = 5 } #Murmansk
+	}
+}
+##########################################################
+# Voronezh mobilizes for defense
+##########################################################
+event = {
+	id = 3283015
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = { province = 654 data = SOV } # Voronezh
+		war = { country = GER country = SOV }
+		AI = yes
+		NOT = {
+			OR = {
+				control = {  province = 648 data = SOV } # Rossosh
+				control = {  province = 647 data = SOV } # Stary Oskol
+				control = {  province = 580 data = SOV } # Yelets
+				control = {  province = 652 data = SOV } # Lipetsk
+				control = {  province = 650 data = SOV } # Tambov
+				control = {  province = 651 data = SOV } # Borisoglebsk
+				control = {  province = 653 data = SOV } # Pavlovsk
+			}
+		}
+	}
+		
+	
+	name = EVT_3283015_NAME #"Voronezh mobilizes for defense"
+	desc = EVT_3283015_DESC #"infantry units have been formed in Voronezh in order to halt the enemy advance."
+	style = 0
+	picture = "226"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = add_corps which = "Voronezh PMC" value = land where = 654 } 
+		command = { type = add_division which = "1.Voronezh PMD" value = infantry when = 2  }
+		command = { type = add_division which = "2.Voronezh PMD" value = infantry when = 2  }
+		command = { type = add_division which = "3.Voronezh PMD" value = infantry when = 3  }
+		command = { type = construct which = land_fort where = 654 value = 5 } #Voronezh
+		command = { type = construct which = flak where = 654 value = 3 } #Voronezh
+	}
+}
+##########################################################
+# 1940 Mobilization event
+##########################################################
+event = {
+	id = 3283016
+	random = no
+	country = SOV
+	
+	trigger = { war = { country = GER country = ENG } }
+	
+	name = EVT_3131997_NAME #"1940 Soviet Mobilization"
+	desc = EVT_3283016_DESC
+	style = 0
+
+	date = { day = 0 month = may year = 1940 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Increase size of army"
+		command = { type = manpowerpool value = 700 }
+		command = { type = gain_tech which = 5180 } #small arms 
+		command = { type = gain_tech which = 5160 } #vehicle
+	}
+}
+##########################################################
+# 1941 Mobilization event
+##########################################################
+event = {
+	id = 3283017
+	random = no
+	country = SOV
+	
+	trigger = { war = { country = GER country = ENG } }
+	
+	name = EVT_3131997_NAME #"1941 Soviet Mobilization"
+	desc = EVT_3283016_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Increase size of army"
+		command = { type = manpowerpool value = 850 }
+		command = { type = gain_tech which = 6650 } #defense in depth
+	}
+}
+##########################################################
+# The Great Patriotic War + mobilization events 1942+
+# review mp values!
+# check on build time effects!
+##########################################################
+event = {
+	id = 3283018
+	random = no
+	country = SOV
+	
+	trigger = {
+				local_flag = purges
+				war = { country = GER country = SOV }
+				OR = {
+						AND = {
+								AI = yes
+								AI = GER
+								OR = {	
+										lost_national = { country = SOV value = 8 }	
+										event = { id = 3183077 days = 720 } # 2 years after war with Germany has begun; backup trigger if german offensive gets stuck
+										}
+								}
+						AND = {
+								AI = yes
+								NOT = { AI = GER }
+								OR = {
+										lost_national = { country = SOV value = 4 }
+										event = { id = 3183077 days = 720 } # 2 years after war with Germany has begun; backup trigger if german offensive gets stuck
+										}
+								}
+						AND = {
+								AI = no
+								OR = {
+										lost_national = { country = SOV value = 10 }
+										event = { id = 3183077 days = 720 } # 2 years after war with Germany has begun; backup trigger if german offensive gets stuck
+										}
+								}
+						}
+				}
+	
+	name = EVT_3283018_NAME #"The Great Patriotic War"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_FIGHT #"Fight to the death"
+		command = { type = local_setflag which = PatrioticWar }
+		command = { trigger = { AI = yes NOT = { local_flag = SOV_AI_IC } } type = industrial_modifier which = total value = 5 } #counters reduced starting efficiency
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = local_setflag which = SOVBuildLandPanic }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = ai which = "switch/SOV_Build_Panic.ai" }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 850 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = local_setflag which = PatrioticWar }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 6660 } #SOP
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 2650 } #medium tank
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 2050 } #basic medium armored
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = build_time which = land when = on_upgrade value = -20 } # total costs remain the same!
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = build_cost which = land when = on_upgrade value = 25 }
+
+	}
+}
+event = {
+	id = 3283019
+	random = no
+	country = SOV
+	
+	trigger = {
+		local_flag = PatrioticWar
+		war = { country = GER country = SOV }
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+	
+	name = EVT_3131997_NAME #"The Great Patriotic War : 1942 mobilization"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 60
+	deathdate = { day = 29 month = october year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Mobilize the reserves"
+		command = { trigger = { AI = yes AI = GER } type = manpowerpool value = 15 }
+		
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 1400 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 2380 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 2270 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 5220 }
+		
+		command = { trigger = { AI = no } type = manpowerpool value = 625 }
+	}
+}
+event = {
+	id = 3283020
+	random = no
+	country = SOV
+	
+	trigger = {
+		local_flag = PatrioticWar
+		war = { country = GER country = SOV }
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+	
+	name = EVT_3131997_NAME #"The Great Patriotic War : 1943 mobilization"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 10
+	deathdate = { day = 29 month = october year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Mobilize the reserves"
+		command = { trigger = { AI = yes AI = GER } type = manpowerpool value = 925 } 
+		
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 900 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 6680 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 6670 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = gain_tech which = 5230 }
+		
+		command = { trigger = { AI = no } type = manpowerpool value = 875 }
+	}
+}
+event = {
+	id = 3283021
+	random = no
+	country = SOV
+	
+	trigger = {
+		local_flag = PatrioticWar
+		war = { country = GER country = SOV }
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+	
+	name = EVT_3131997_NAME #"The Great Patriotic War : 1944 mobilization"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1944 }
+	offset = 25
+	deathdate = { day = 29 month = october year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Mobilize the reserves"
+		command = { trigger = { AI = yes AI = GER } type = manpowerpool value = 650 }
+		
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 500 }
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = build_time which = land when = on_upgrade value = 20 } # reverts effect of GPW event 3283018
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = build_cost which = land when = on_upgrade value = -25 }
+
+		command = { trigger = { AI = no } type = manpowerpool value = 550 }
+	}
+}
+event = {
+	id = 3283022
+	random = no
+	country = SOV
+	
+	trigger = {
+		local_flag = PatrioticWar
+		war = { country = GER country = SOV }
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+	
+	name = EVT_3131997_NAME #"The Great Patriotic War : 1945 mobilization"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 60
+	deathdate = { day = 29 month = october year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Mobilize the reserves"
+		command = { trigger = { AI = yes AI = GER } type = manpowerpool value = 200 }
+		
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 650 }
+		
+		command = { trigger = { AI = no } type = manpowerpool value = 300 }
+	}
+}
+event = {
+	id = 3283023
+	random = no
+	country = SOV
+	
+	trigger = {
+		local_flag = PatrioticWar
+		war = { country = GER country = SOV }
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+	
+	name = EVT_3131997_NAME #"The Great Patriotic War : 1946 mobilization"
+	desc = EVT_3283018_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 60
+	deathdate = { day = 29 month = october year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME3283019A #"Mobilize the reserves"
+		command = { trigger = { AI = yes AI = GER } type = manpowerpool value = 50 }
+		
+		command = { trigger = { AI = yes NOT = { AI = GER } } type = manpowerpool value = 250 }
+		
+		command = { trigger = { AI = no } type = manpowerpool value = 250 }
+	}
+}

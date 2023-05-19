@@ -1,0 +1,45 @@
+# checked DH
+###########################################################################
+#	4400000 - 4499999
+###########################################################################
+#########################################
+# Was 1052026 (PAR)Protest agains soviet attack on Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 4400000
+	random = no
+	country = PAR
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			alliance = { country = PAR country = SOV }
+			war = { country = PAR country = FIN }
+		}
+	}
+
+	name = EVT_4400000_NAME
+	desc = EVT_4400000_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 2 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME4400000A
+		command = { type = trigger which = 222053 }
+		command = { type = money value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4400000B
+		command = { type = sleepevent which = 222051 }
+		command = { type = money value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

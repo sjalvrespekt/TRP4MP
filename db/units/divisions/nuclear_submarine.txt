@@ -1,0 +1,300 @@
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB, BC, CA, CL, DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB, BC, CA, CL, DD
+#sea attack/2 for carriers/CAG
+
+# 0 - coastal submarine 1914 (450 to)
+model = {
+	cost						= 0.21 #2
+	buildtime					= 310 #90
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.022
+	maxspeed					= 9
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.225
+	seadefence					= 2
+	airdefence					= 0
+	seaattack					= 1
+	subattack					= 1
+	airattack					= 0
+	convoyattack				= 2
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 550 # 350
+	supplyconsumption			= 0.036
+	fuelconsumption				= 0.045 #0.12 #0.16
+	distance					= 0.13
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 22 nuclear_submarine = 1 }
+}
+
+# 1 - coastal submarine 1930 (750 to)
+model = {
+	cost						= 0.34
+	buildtime					= 310 #90
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.023
+	maxspeed					= 12
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.375
+	seadefence					= 3
+	airdefence					= 0
+	seaattack					= 1
+	subattack					= 1
+	airattack					= 0
+	convoyattack				= 3
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 1000 # 600
+	supplyconsumption			= 0.058
+	fuelconsumption				= 0.075 #0.18 #0.24
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 23 nuclear_submarine = 1 }
+}
+
+# 2 - coastal submarine 1936 (850 to)
+model = {
+	cost						= 0.39
+	buildtime					= 310 #110
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.024
+	maxspeed					= 12
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.425
+	seadefence					= 3
+	airdefence					= 0
+	seaattack					= 2
+	subattack					= 1
+	airattack					= 0
+	convoyattack				= 4
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 1300 # 800
+	supplyconsumption			= 0.067
+	fuelconsumption				= 0.085 #0.18 #0.24
+	distance					= 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 24 nuclear_submarine = 1 }
+}
+
+# 3 - coastal submarine 1939 (1000 to)
+model = {
+	cost						= 0.46
+	buildtime					= 310 #110
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.024
+	maxspeed					= 13
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.5
+	seadefence					= 3
+	airdefence					= 1
+	seaattack					= 2
+	subattack					= 2
+	airattack					= 0
+	convoyattack				= 5
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 1900 # 800
+	supplyconsumption			= 0.079
+	fuelconsumption				= 0.1 #0.18 #0.24
+	distance					= 0.17
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 24 nuclear_submarine = 1 }
+}
+# 4 - coastal submarine 1945 (conventional) (1150 to)
+model = {
+	cost						= 0.52
+	buildtime					= 310
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.035
+	maxspeed					= 13
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.575
+	seadefence					= 4
+	airdefence					= 2
+	seaattack					= 3
+	subattack					= 3 #10 #5
+	airattack					= 1
+	convoyattack				= 8
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 2200 # 1000
+	supplyconsumption			= 0.089
+	fuelconsumption				= 0.115 #0.21 #0.28
+	distance					= 0.19
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 35 nuclear_submarine = 1 }
+}
+# 5 - coastal submarine 1945 (walther) (1150 to)
+model = {
+	cost						= 0.52
+	buildtime					= 310
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.035
+	maxspeed					= 14
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.2875 # lowered to tonnage/4000 because of new design
+	seadefence					= 6 # rounded (base value * 1.5) because of better chances to avoid hits; base value 4
+	airdefence					= 3 # rounded (base value * 1.5) because of better chances to avoid hits; base value 2
+	seaattack					= 3
+	subattack					= 3 #10 #5
+	airattack					= 1
+	convoyattack				= 9
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 2400 # 1000
+	supplyconsumption			= 0.089
+	fuelconsumption				= 0.115 #0.21 #0.28
+	distance					= 0.19
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 35 nuclear_submarine = 1 }
+}
+# 6 - coastal submarine 1948 (1400 to) (Barracuda, Foxtrott)
+model = {
+	cost						= 0.64
+	buildtime					= 310
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.035
+	maxspeed					= 15
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.35 # lowered to tonnage/4000 because of new design
+	seadefence					= 8 # rounded (base value * 1.5) because of better chances to avoid hits; base value 5
+	airdefence					= 3 # rounded (base value * 1.5) because of better chances to avoid hits; base value 2
+	seaattack					= 3
+	subattack					= 4 #14 #7
+	airattack					= 1
+	convoyattack				= 10
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 2800 # 1000
+	supplyconsumption			= 0.11
+	fuelconsumption				= 0.14 #0.25 #0.28
+	distance					= 0.22
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 35 nuclear_submarine = 1 }
+}
+# 7 - coastal submarine 1954 (1400 to) (Albacore)
+model = {
+	cost						= 0.64
+	buildtime					= 310
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.035
+	maxspeed					= 18
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.31 # tonnage/4500; advances in noise reduction & underwater cruise time
+	seadefence					= 8 # rounded (base value * 1.5) because of better chances to avoid hits; base value 5
+	airdefence					= 5 # rounded (base value * 1.5) because of better chances to avoid hits; base value 3
+	seaattack					= 4
+	subattack					= 5
+	airattack					= 1
+	convoyattack				= 11
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 3000
+	supplyconsumption			= 0.11
+	fuelconsumption				= 0.14 #0.25 #0.28
+	distance					= 0.25
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 35 nuclear_submarine = 1 }
+}
+# 8 - coastal submarine 1958 (1400 to) (Explorer, Toti)
+model = {
+	cost						= 0.64
+	buildtime					= 310
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.035
+	maxspeed					= 21
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 0.28 # tonnage/5000; advances in noise reduction & underwater cruise time
+	seadefence					= 9 # rounded (base value * 1.5) because of better chances to avoid hits; base value 6
+	airdefence					= 5 # rounded (base value * 1.5) because of better chances to avoid hits; base value 3
+	seaattack					= 5
+	subattack					= 6
+	airattack					= 1
+	convoyattack				= 13
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 3200
+	supplyconsumption			= 0.11
+	fuelconsumption				= 0.14 #0.25 #0.28
+	distance					= 0.25
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 35 nuclear_submarine = 1 }
+}
+
+# ORIGINAL - 0 - Nuclear
+#model = {
+#	cost						= 6.4
+#	buildtime					= 320
+#	defaultorganisation 				= 30
+#	morale						= 30
+#	manpower					= 0.15
+#	maxspeed					= 25
+#	surfacedetectioncapability			= 7
+#	airdetectioncapability				= 1
+#	subdetectioncapability				= 5
+#	visibility					= 1
+#	seadefence					= 13
+#	airdefence					= 16
+#	seaattack					= 7
+#	convoyattack					= 14
+#	subattack					= 15
+#	airattack					= 1
+#	shorebombardment				= 0
+#	transportcapability				= 0
+#	
+#	range						= 8000
+#	supplyconsumption				= 1.9
+#	fuelconsumption					= 0
+#	distance					= 0.2
+#	reinforce_time = 0.2
+#	reinforce_cost = 3.5
+#	equipment 	= {  manpower = 150 nuclear_submarine = 1 }
+#}#

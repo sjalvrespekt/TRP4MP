@@ -1,0 +1,232 @@
+####################################
+# Dominican Republic AI events 33700 - 33799 by Lothos
+#
+# Converted to dh map by dendro 2011-may-30
+#
+####################################
+################
+# Minister of Security Section 33700 - 33709
+#############################################
+event = { # Alberto Garcia Vienda takes power
+	id = 33700
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49069 # Alberto Garcia Vienda
+		NOT = { InCabinet = 49069 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 49069 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33710 - 33719
+#############################################
+event = { # Jesus da Costa-Ruiz takes power
+	id = 33710
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49081 # Jesus da Costa-Ruiz
+		NOT = { InCabinet = 49081 }
+		OR = {
+			atwar = no
+			NOT = { minister = 49007 } # Rafél Trujillo
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 49081 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Rafél Trujillo takes power
+	id = 33711
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49007 # Rafél Trujillo
+		NOT = { InCabinet = 49007 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 49081 } # Jesus da Costa-Ruiz
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 49007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33720 - 33729
+#############################################
+event = { # Francisco Prats Ramirez takes power
+	id = 33720
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49077 # Francisco Prats Ramirez
+		NOT = { InCabinet = 49077 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 49077 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Jesus da Costa Ruiz takes power
+	id = 33721
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49006 # Jesus da Costa Ruiz
+		NOT = { InCabinet = 49006 }
+		NOT = { minister = 49077 } # Francisco Prats Ramirez
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 49006 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33730 - 33739
+#############################################
+event = { # Rafél Trujillo takes power
+	id = 33730
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49008 # Rafél Trujillo
+		NOT = { InCabinet = 49008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 49008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33740 - 33749
+#############################################
+event = { # Ignacio Bajordo takes power
+	id = 33740
+	random = no 
+	country = DOM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 49056 # Ignacio Bajordo
+		NOT = { InCabinet = 49056 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 49056 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+#############################################
+# Regular AI Events 33760 - 33799
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33760
+	random = no 
+	country = DOM
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

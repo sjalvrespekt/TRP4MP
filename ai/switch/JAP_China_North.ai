@@ -1,0 +1,52 @@
+# converted to DH, Kane, June 11 2011
+# Japan 1936 AI File by Lothos
+
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion			= yes
+ 	base				= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random				= 8.0	#How big a random range.  (1.0 = 1%)
+	coastal				= 0.1	#increase to avoid coastal forts more.
+	beach				= 0.1	#higher, avoid worst beaches.
+	max_distance   		= 250.0  #About the distance from Japan to Batavia
+	max_staging_distance = 15	# How far should the staging area be from the target invasion point
+	distance			= 20.0	#higher = avoid long distance.
+	pocket				= 20.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island				= 0.1	#prioritise taking pure islands.
+	enemy				= 2.0	#higher = much more vary of troops in province.
+	adjacentenemy 		= 2.0	#higher = much more vary of troops nearby
+	air_base			= 1.5 
+    naval_base 			= 0.1 
+    air_support 		= 3.0 
+    redirect 			= priority
+	ignore				= no
+      
+	staging_province = {
+		1399 # Saigon
+		1361 # Gaoxiong
+		1667 # Truk
+		1553 # Osaka
+		1726 # Rabaul
+		1560 # Nagasaki
+	}
+	target = {
+		1232 = 2000 # Busan
+		1228 = 2000 # Seoul
+		1221 = 2000 # Pyongyang
+		1328 = 3000 # Qingdao
+		1332 = 2500 # Zaozhuang
+		1333 = 2500 # Huaiyin
+		1334 = 2500 # Nantong
+		1338 = 4000 # Shanghai
+		1373 = 3500 # Jiangmen
+		1241 = 2500 # Tianjin
+		1329 = 2500 # Weifang
+		1331 = 2500 # Yantai
+		1358 = -1 # Fuzhou
+		1360 = -1 # Xiamen
+		1375 = -1 # Shantou
+		1365 = -1 # Haikou
+	} 
+} 

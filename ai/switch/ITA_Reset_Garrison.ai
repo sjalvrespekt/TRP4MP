@@ -1,0 +1,74 @@
+# converted to DH, Kane, June 16 2011
+# Italy Reset Garrison after Ethiopia AI File by Lothos
+
+max_garrison_prop = 0.80
+min_garrison_prop = 0.70
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier = 0.0
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.0
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.3
+
+	# PRIORITIES:
+	beach			= 30	# Beach level 2
+	capital			= 40	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		SCH = -1
+		ENG = 40
+		FRA = 40
+		USA = 40
+		AUS = -1
+		GER = -1
+		YUG = 50
+		SOV = 100
+		GRE = 100
+	}
+	province_priorities = {
+		400	= 10 # Venice
+		396 = 10 # Genoa
+		425 = 10 # Reggio
+		434 = 30 # Sardinia
+		379 = 30 # Rhodes
+		381 = 30 # Ermoupoli
+	
+		#Yugoslavia and ALbania
+		350 = 10 # Split
+		343 = 10 # Dubrovnik
+		359 = 10 # Tirana
+
+		# North Africa
+		752 = 30 # Az Zawiyah
+		750 = 30 # Tripolis
+		761 = 30 # Benghazi
+		765 = 30 # Tobruk
+	}
+	area_multiplier = {
+		434 = 2.0 # Sardinia
+		379 = 1.5 # Rhodes
+		381 = 1.5 # Dodecanese
+	
+		# North Africa
+		752 = 1.0 # Az Zawiyah
+		750 = 1.0 # Tripolis
+		761 = 1.0 # Benghazi
+		765 = 1.0 # Tobruk
+		771 = 1.0 # Bardia
+		772 = 1.0 # Bir el Gubi
+	}
+}

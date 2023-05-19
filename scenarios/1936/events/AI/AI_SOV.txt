@@ -1,0 +1,2170 @@
+####################################
+# Soviet Union 25000 - 25999 by Lothos
+####################################
+# converted to DH, Kane, June 6 2011
+####################################
+# Invasion Flags
+#	SOVInvadeGER			= Prepare to Invade Germany
+#	SOVInvadePOL			= Soviets prepare to invade Poland
+#	SOVInvadeBaltic			= Soviets invade Baltic States
+#	SOVInvadeFIN			= Soviets invade Finland
+
+# Defensive Flags
+#	SOVDefensePrepareGER	= Prepare defenses against Germany
+#	SOVHandicapGER			= Handicap File has been loaded against Germany
+
+# Unit building AI
+#	SOVBuildStandard		= Standard Building of units 
+#	SOVBuildLand			= Priority Building land units
+#	SOVBuildLandPanic		= Priority Building land units
+#	SOVUpgrading			= Soviets are concentrating on upgrading
+#	SOVLowMP				= Soviets switch to upgrading and aircraft production if manpower is low; added by DerStudti
+
+################
+# Soviets remove their Finland prep war AI
+#############################################
+event = {
+	id = 25000
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		local_flag = SOVInvadeFIN
+		OR = {
+			war = { country = FIN country = SOV }
+			event = 2622
+			event = 2628
+			AND = {
+				owned = { province = 531 data = SOV }
+				owned = { province = 530 data = SOV }
+				owned = { province = 532 data = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = september year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = january year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Finland_Release.ai" }
+		command = { type = local_clrflag which = SOVInvadeFIN }
+	}
+}
+################
+# Soviets Winter War AI
+#############################################
+event = {
+	id = 25001
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+#			flag = MolotovPact  # 1939 Grand Campaign
+			event = 2013  # Molotov Pact Historical
+			event = 2015  # Molotov Pact Alliance
+			event = 2016  # Molotov Pact Limited
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 25 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = january year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Finland.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = local_setflag which = SOVInvadeFIN }
+		command = { type = local_clrflag which = SOVDefensePrepareGER }
+	}
+}
+################
+# Soviet declare war on Germany AI
+#############################################
+event = {
+	id = 25002
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		NOT = { non_aggression = { country = GER country = SOV } }
+		OR = {
+			local_flag = SOVInvadeGER
+			war = { country = GER country = SOV }
+			AND = {
+				random = 5
+				year = 1942
+			}
+			AND = {
+				random = 15
+#				NOT = { flag = MolotovPact }
+				NOT = { event = 2013 } # Molotov Pact Historical
+				NOT = { event = 2015 } # Molotov Pact Alliance
+				NOT = { event = 2016 } # Molotov Pact Limited
+				OR = {
+					control = { province = 232 data = GER } # Warsaw
+					war = { country = GER country = POL }
+					war = { country = GER country = FRA }
+					war = { country = GER country = ENG }
+					puppet = { country = POL country = GER }
+				}
+			}
+			AND = {
+					war = { country = GER country = ENG }
+					lost_national = { country = ENG value = 20 }
+					NOT = { control = { province = 29 data = ENG } } # London
+					random = 10
+					}
+			AND = {
+					war = { country = GER country = FRA }
+					war = { country = GER country = ENG }
+					lost_national = { country = ENG value = 20 }
+					NOT = { control = { province = 29 data = ENG } } # London
+					random = 20
+					}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai which = "switch/sov_dow_off.ai" }
+		command = { type = sleepevent which = 25001 }
+		command = { type = sleepevent which = 25003 }
+		command = { type = local_setflag which = SOVInvadeGER }
+		command = { type = local_clrflag which = SOVInvadeFIN }
+	}
+}
+################
+# Soviet Load German war AI
+#############################################
+event = {
+	id = 25003
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany.ai" }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_Build_War.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_Build_War_light.ai" }
+		command = { type = ai which = "switch/sov_dow_off.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 25001 }
+		command = { type = sleepevent which = 25002 }
+	}
+}
+################
+# Soviet declare war on Japan AI
+#############################################
+event = {
+	id = 25004
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 5
+		NOT = { non_aggression = { country = JAP country = SOV } }
+		OR = {
+			NOT = { control = { province = 163 data = GER } } # Berlin
+			ispuppet = GER
+		}
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			war = { country = JAP country = USA }
+			war = { country = JAP country = CHC }
+			war = { country = JAP country = CHI }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1942}
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Japan.ai" }
+		command = { type = ai which = "Air_GRound.ai" }
+		command = { type = ai_prepare_war which = JAP }
+	}
+}
+################
+# Soviet increase troop production AI
+#############################################
+event = {
+	id = 25005
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			year = 1938
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_GER_atwar.ai" }
+	}
+}
+################
+# Soviet Union stops hounding Finland for border lands
+#############################################
+event = {
+	id = 25006
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = FIN country = SOV } }
+		OR = {
+			event = 2622
+			event = 2628
+			AND = {
+				owned = { province = 530 data = SOV }
+				owned = { province = 531 data = SOV }
+				owned = { province = 532 data = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Fin_Demands.ai" }
+	}
+}
+################
+# Soviet Winter War against Germany
+#############################################
+event = {
+	id = 25007
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		OR = {
+			month = 11 # December
+			AND = {
+				month = 0 # January
+				NOT = { month = 2 } # March
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Winter.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets go back on defense
+#############################################
+event = {
+	id = 25008
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 25007
+		war = { country = GER country = SOV }
+		month = 3 # April
+		NOT = { month = 7 } # August
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Germany_Second_Year.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = ai which = "switch/sov_dow_off.ai" }
+	}
+}
+################
+# Soviets go on the atack permanately
+#############################################
+event = {
+	id = 25009
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 25008
+		war = { country = GER country = SOV }
+		OR = {
+			month = 11 # December
+			AND = {
+				month = 0 # January
+				NOT = { month = 2 } # March
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Winter.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets Bitter Peace AI
+#############################################
+event = {
+	id = 25010
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		event = 2024 # Bitter Peace
+		NOT = { war = { country = GER country = SOV } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Bitter_Peace.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 25002 }  # Soviet DOW of Germany AI event
+	}
+}
+################
+# Soviets Monitor Baltic States
+#############################################
+event = {
+	id = 25011
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				under_attack = EST
+				war = { country = GER country = EST }
+			}
+			AND = {
+				under_attack = LAT
+				war = { country = GER country = LAT }
+			}
+			AND = {
+				under_attack = LIT
+				war = { country = GER country = LIT }
+			}
+			AND = {
+				under_attack = TUR
+				war = { country = GER country = TUR }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOVInvadeGER }
+	}
+}
+
+################
+# Soviets match German border buildup
+#############################################
+event = {
+	id = 25012
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = FIN country = SOV } }
+		NOT = {	lost_national = { country = SOV value = 2 } }
+		NOT = { local_flag = SOVDefensePrepareGER }
+		NOT = { local_flag = SOVInvadeFIN }
+#		OR = {
+#			flag = MolotovPact # 1939 Grand Campaign
+			event = 2018 #Eastern Poland given to the Soviets
+#		}
+		OR = {
+			garrison = { country = GER province = 243  type = land size = 8 area = no } # Zamosc
+			garrison = { country = GER province = 239  type = land size = 8 area = no } # Przemyst
+			garrison = { country = GER province = 228  type = land size = 8 area = no } # Siedlce
+			garrison = { country = GER province = 252  type = land size = 8 area = no } # Suwalki
+			garrison = { country = GER province = 184  type = land size = 8 area = no } # Konigsberg
+			garrison = { country = GER province = 261  type = land size = 8 area = no } # Memel
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOVDefensePrepareGER }
+		command = { type = ai which = "switch/SOV_Defense_GER_Border.ai" }
+	}
+}
+################
+# Soviets back down from German border buildup
+#############################################
+event = {
+	id = 25013
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = FIN country = SOV } }
+		NOT = {	lost_national = { country = SOV value = 2 } }
+		local_flag = SOVDefensePrepareGER
+		NOT = { local_flag = SOVInvadeFIN }
+
+		NOT = {
+#			OR = {
+#				flag = MolotovPact # 1939 Grand Campaign
+				event = 2018 #Eastern Poland given to the Soviets
+#			}
+			OR = {
+				garrison = { country = GER province = 243  type = land size = 8 area = no } # Zamosc
+				garrison = { country = GER province = 239  type = land size = 8 area = no } # Przemyst
+				garrison = { country = GER province = 228  type = land size = 8 area = no } # Siedlce
+				garrison = { country = GER province = 252  type = land size = 8 area = no } # Suwalki
+				garrison = { country = GER province = 184  type = land size = 8 area = no } # Konigsberg
+				garrison = { country = GER province = 261  type = land size = 8 area = no } # Memel
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = SOVDefensePrepareGER }
+		command = { type = ai which = "switch/SOV_Defense_Standard.ai" }
+	}
+}
+
+################
+# Unit building AI
+#	SOVBuildStandard		= Standard Building of units 
+#	SOVBuildLand			= Priority Building land units
+#	SOVBuildLandPanic		= Priority Building land units
+################
+# Soviets loads Standard builds AI
+#############################################
+event = {
+	id = 25014
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { local_flag = SOVBuildStandard }
+				NOT = { local_flag = SOVLowMP }
+				
+				OR = {
+						#SOV manpower too low for pure army buildup
+						NOT = { manpower = 500 }
+						
+						#SOV forces large enough compared to possible enemies
+						AND = {
+								land_percentage = { country = JAP value = 1.5 } #true if SOV has at least 1.5 times the land forces of JAP
+								OR = {
+										AND = {
+												ai = GER
+												land_percentage = { country = GER value = 2.0 } #true if SOV has at least 2 times the land forces of AI GER
+												}
+										AND = {
+												NOT = { ai = GER }
+												land_percentage = { country = GER value = 3.0 } #true if SOV has at least 3 times the land forces of human GER
+												}
+										}		
+								OR = {
+										NOT = { war = { country = ENG country = SOV } }
+										AND = {
+												war = { country = ENG country = SOV }
+												land_percentage = { country = ENG value = 2.0 } #true if SOV has at least 2 times the land forces of ENG
+												}
+										}
+								OR = {
+										NOT = { war = { country = USA country = SOV } }
+										AND = {
+												war = { country = USA country = SOV }
+												land_percentage = { country = USA value = 1.3 } #true if SOV has at least 1.3 times the land forces of USA
+												}
+										}
+								}
+							}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOVBuildStandard }
+		command = { type = local_clrflag which = SOVBuildLand }
+		command = { type = local_clrflag which = SOVBuildLandPanic }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_Build_Standard.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_Build_Standard_light.ai" }
+	}
+}
+################
+# Soviets loads Land builds AI
+#############################################
+event = {
+	id = 25015
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { local_flag = SOVBuildLand }
+				NOT = { local_flag = SOVLowMP }
+				
+				#SOV manpower large enough for pure army buildup
+				manpower = 1000
+				
+				#SOV forces not large enough compared to possible enemies
+				OR = {
+						NOT = { land_percentage = { country = JAP value = 1.5 } } #true if SOV has at less than 1.5 times the land forces of JAP
+						AND = {
+								ai = GER
+								NOT = { war = { country = GER country = SOV } }
+								NOT = { land_percentage = { country = GER value = 2.0 } } #true if SOV has less than 2 times the land forces of AI GER
+								}
+						AND = {
+								NOT = { ai = GER }
+								NOT = { war = { country = GER country = SOV } }
+								NOT = { land_percentage = { country = GER value = 3.0 } } #true if SOV has less than 3 times the land forces of human GER
+								}	
+						AND = {
+								war = { country = ENG country = SOV }
+								NOT = { land_percentage = { country = ENG value = 2.0 } } #true if SOV has less than 2 times the land forces of ENG
+								}
+						AND = {
+								war = { country = USA country = SOV }
+								NOT = { land_percentage = { country = USA value = 1.3 } } #true if SOV has less than 1.3 times the land forces of USA
+								}	
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = SOVBuildStandard }
+		command = { type = local_setflag which = SOVBuildLand }
+		command = { type = local_clrflag which = SOVBuildLandPanic }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_Build_Land.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_Build_Land_light.ai" }
+		
+	}
+}
+################
+# Soviets loads Panic builds AI
+#############################################
+event = {
+	id = 25016
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { local_flag = SOVBuildLandPanic }
+				NOT = { local_flag = SOVLowMP }
+		
+				#SOV manpower large enough for pure army buildup
+				manpower = 1000
+				
+				#SOV forces not large enough compared to possible enemies; 
+						OR = {
+								NOT = { land_percentage = { country = JAP value = 1.5 } } #true if SOV has at less than 1.5 times the land forces of JAP
+								AND = {
+										ai = GER
+										war = { country = GER country = SOV }
+										NOT = { land_percentage = { country = GER value = 2.0 } } #true if SOV has less than 2 times the land forces of AI GER
+										}
+								AND = {
+										NOT = { ai = GER }
+										war = { country = GER country = SOV }
+										NOT = { land_percentage = { country = GER value = 3.0 } } #true if SOV has less than 3 times the land forces of human GER
+										}	
+								AND = {
+										war = { country = ENG country = SOV }
+										NOT = { land_percentage = { country = ENG value = 2.0 } } #true if SOV has less than 2 times the land forces of ENG
+										}
+								AND = {
+										war = { country = USA country = SOV }
+										NOT = { land_percentage = { country = USA value = 1.3 } } #true if SOV has less than 1.3 times the land forces of USA
+										}	
+								}		
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = SOVBuildStandard }
+		command = { type = local_clrflag which = SOVBuildLand }
+		command = { type = local_setflag which = SOVBuildLandPanic }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_Build_Panic.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_Build_Panic_light.ai" }
+	}
+}
+################
+# Soviets move against Germany
+#	SOVInvadeGER			= Prepare to Invade Germany
+#	SOVInvadePOL			= Soviets prepare to invade Poland
+#	SOVInvadeBaltic			= Soviets invade Baltic States
+#############################################
+event = {
+	id = 25017
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		day = 3
+		NOT = { day = 4 }
+		local_flag = SOVInvadeGER
+		NOT = { non_aggression = { country = EST country = SOV } }
+		NOT = { non_aggression = { country = LIT country = SOV } }
+		NOT = { non_aggression = { country = LAT country = SOV } }
+		OR = {
+			exists = EST
+			exists = LIT
+			exists = LAT
+		}
+		OR = {
+			AND = {
+				local_flag = SOVInvadePOL
+				NOT = { exists = POL }
+				NOT = {
+					alliance = { country = ENG country = EST }
+					alliance = { country = ENG country = LIT }
+					alliance = { country = ENG country = LAT }
+				}
+			}
+			NOT = {
+				alliance = { country = GER country = EST }
+				alliance = { country = GER country = LIT }
+				alliance = { country = GER country = LAT }
+				alliance = { country = ENG country = EST }
+				alliance = { country = ENG country = LIT }
+				alliance = { country = ENG country = LAT }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = EST }
+		command = { type = ai_prepare_war which = LIT }
+		command = { type = ai_prepare_war which = LAT }
+		command = { type = local_setflag which = SOVInvadeBaltic }
+	}
+}
+event = {
+	id = 25018
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		day = 5
+		NOT = { day = 6 }
+		local_flag = SOVInvadeGER
+		NOT = { non_aggression = { country = POL country = SOV } }
+		NOT = { alliance = { country = ENG country = POL } }
+		OR = {
+			NOT = { local_flag = SOVInvadeBaltic }
+			AND = {
+				local_flag = SOVInvadeBaltic
+				NOT = {	exists = EST }
+				NOT = {	exists = LIT }
+				NOT = {	exists = LAT }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = POL }
+		command = { type = local_setflag which = SOVInvadePOL }
+	}
+}
+event = {
+	id = 25019
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		day = 7
+		NOT = { day = 8 }
+		local_flag = SOVInvadeGER
+		land_percentage = { country = GER value = 1.3 }
+		NOT = { non_aggression = { country = GER country = SOV } }
+		OR = {
+			NOT = { local_flag = SOVInvadeBaltic }
+			AND = {
+				local_flag = SOVInvadeBaltic
+				NOT = {	exists = EST }
+				NOT = {	exists = LIT }
+				NOT = {	exists = LAT }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { local_flag = SOVInvadePOL }
+				NOT = { alliance = { country = ENG country = POL } }
+			}
+			AND = {
+				local_flag = SOVInvadePOL
+				NOT = {	exists = POL }
+			}
+			AND = {
+				local_flag = SOVInvadePOL
+				local_flag = SOVInvadeBaltic
+				NOT = {	exists = EST }
+				NOT = {	exists = LIT }
+				NOT = {	exists = LAT }
+				NOT = {	exists = POL }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = GER }
+	}
+}
+################
+# Soviet upgrading and reinforcing of units
+#	SOVUpgrading	= Soviets are concentrating on upgrading
+#############################################
+event = {
+	id = 25020
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = SOVUpgrading }
+		NOT = { local_flag = SOVLowMP }
+		atwar = no
+		OR = {
+			atwar = GER
+			year = 1940 #1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOVUpgrading }
+		command = { type = ai which = "switch/SOV_Upg_Peace.ai" }
+	}
+}
+event = {
+	id = 25021
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = SOVLowMP }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { trigger = { local_flag = SOVUpgrading } type = local_clrflag which = SOVUpgrading }
+		command = { type = ai which = "switch/SOV_Upg_War.ai" }
+	}
+}
+################
+# Soviets prep against Baltic States
+#############################################
+event = { #  (Lithuania)
+	id = 25022
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 30
+		event = 2018 #Eastern Poland given to the Soviets
+		exists = LIT
+		NOT = { non_aggression = { country = LIT country = SOV } }
+		NOT = { alliance= { country = LIT country = GER } }
+		NOT = { alliance= { country = LIT country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = may year = 1940 }
+	offset = 4
+	deathdate = { day = 29 month = august year = 1940 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = LIT }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+event = { #  (Latvia)
+	id = 25023
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 30
+		event = 2018 #Eastern Poland given to the Soviets
+		exists = LAT
+		NOT = { non_aggression = { country = LAT country = SOV } }
+		NOT = { alliance= { country = LAT country = GER } }
+		NOT = { alliance= { country = LAT country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = may year = 1940 }
+	offset = 4
+	deathdate = { day = 29 month = august year = 1940 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = LAT }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+event = { #  (Estonia)
+	id = 25024
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		random = 30
+		event = 2018 #Eastern Poland given to the Soviets
+		exists = EST
+		NOT = { non_aggression = { country = EST country = SOV } }
+		NOT = { alliance= { country = EST country = GER } }
+		NOT = { alliance= { country = EST country = ENG } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 29 month = may year = 1940 }
+	offset = 4
+	deathdate = { day = 29 month = august year = 1940 }
+
+	action_a = {
+		command = { type = ai_prepare_war which = EST }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Soviets react to Finland advancements AI
+#############################################
+# deleted 25025
+################
+# Soviets loads researching of nukes and special techs AI
+#############################################
+event = {
+	id = 25026
+	random = no 
+	country = SOV
+
+	trigger = {
+		ai = yes
+		year = 1941
+		NOT = { lost_national = { country = SOV value = 1 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_Nuke_Research.ai" }
+	}
+}
+################
+# Soviets Handicap againt Germany AI
+#############################################
+event = {
+	id = 25027
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 20007 # German AI DOWing of SOV
+		NOT = { local_flag = SOVHandicapGER }
+		war = { country = GER country = SOV }
+		NOT = { war = { country = JAP country = SOV } }
+		NOT = { war = { country = CHI country = SOV } }
+		OR = {
+			NOT = { war = { country = TUR country = SOV } }
+			AND = {
+				ai = TUR
+				war = { country = TUR country = SOV }
+			}
+		}
+		month = 4
+		NOT = { month = 8 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_GER_Handicap.ai" }
+		command = { type = local_setflag which = SOVHandicapGER }
+	}
+}
+event = {
+	id = 25028
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		local_flag = SOVHandicapGER
+		OR = {
+			month = 11
+			lost_national = { country = SOV value = 25 }
+			war = { country = JAP country = SOV }
+			war = { country = CHI country = SOV }
+			AND = {
+				NOT = { ai = TUR }
+				war = { country = TUR country = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SOV_GER_Handicap_Remove.ai" }
+		command = { type = local_clrflag which = SOVHandicapGER }
+	}
+}
+################
+# Soviets fortify their country
+#############################################
+#event = {
+#	id = 25029
+#	random = no 
+#	country = SOV
+#	
+#	trigger = {
+#		ai = yes
+#		event = 25005
+#		atwar = no
+#		technology = 5100
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 12
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = ai which = "switch/SOV_Build_Fort.ai" }
+#	}
+#}
+################################################################
+###Soviets Move Capital => human player gets decision
+################################################################
+event = {
+	id = 25030
+	random = no
+	country = SOV
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+				control = { province = 668 data = SOV } # Kuybyshev
+				control = { province = 1151 data = SOV } # Sverdlovsk
+				}
+		capital = { province = 572 data = SOV } # Moscow 		
+
+		OR = { 
+				NOT  = { control = { province = 558 data = SOV } }
+				NOT  = { control = { province = 568 data = SOV } }
+				NOT  = { control = { province = 567 data = SOV } }
+				NOT  = { control = { province = 571 data = SOV } }
+				NOT  = { control = { province = 678 data = SOV } }
+				NOT  = { control = { province = 570 data = SOV } }
+		}
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = { 
+		name = "ACTION_NAME_OK"
+		command = { trigger = { control = { province = 668 data = SOV } } type = capital which = 668 } #Kuybyshev
+		command = { trigger = { NOT = { control = { province = 668 data = SOV }} control = { province = 1151 data = SOV } } type = capital which = 1151 } #Sverdlovsk
+		command = { trigger = { NOT = { control = { province = 668 data = SOV }} control = { province = 1151 data = SOV } } type = sleepevent which = 25031 }
+	}
+}
+event = {
+	id = 25031
+	random = no
+	country = SOV
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		event = 25030
+		capital = { province = 668 data = SOV } # Kuybyshev
+		OR = { 
+				NOT  = { control = { province = 656 data = SOV } }
+				NOT  = { control = { province = 665 data = SOV } }
+				NOT  = { control = { province = 667 data = SOV } }
+		}
+		OR = {
+				control = { province = 1151 data = SOV } # Sverdlovsk
+				control = { province = 1138 data = SOV } # Omsk
+				}
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { control = { province = 1151 data = SOV } } type = capital which = 1151 }
+		command = { trigger = { NOT = { control = { province = 1151 data = SOV }} control = { province = 1138 data = SOV } } type = capital which = 1138 } #Omsk
+		command = { trigger = { NOT = { control = { province = 1151 data = SOV }} control = { province = 1138 data = SOV } } type = sleepevent which = 25032 }		
+	}
+}
+event = {
+	id = 25032
+	random = no
+	country = SOV
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		capital = { province = 1151 data = SOV } # Sverdlovsk
+		OR = {
+				NOT = { control = { province = 1132 data = SOV }}
+				NOT = { control = { province = 1136 data = SOV }}
+				NOT = { control = { province = 1137 data = SOV }}
+				NOT = { control = { province = 1153 data = SOV }}
+				NOT = { control = { province = 1128 data = SOV }}
+				NOT = { control = { province = 1127 data = SOV }}
+		}
+		control = { province = 1138 data = SOV } # Omsk
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = { 
+		name = "ACTION_NAME_OK"
+		command = { type = capital which = 1138 } #Omsk
+	}
+}
+################
+# Soviet cancel non-aggression pact with Germany AI
+#############################################
+event = {
+	id = 25033
+	random = no 
+	country = SOV
+	
+	trigger = {
+		ai = yes
+		non_aggression = { country = GER country = SOV }
+		NOT = { war = { country = GER country = SOV } }
+		OR = {
+			local_flag = SOVInvadeGER
+			war = { country = GER country = SOV }
+			AND = {
+				NOT = { war = { country = GER country = SOV } }
+				year = 1942
+				atwar = GER
+			}
+			AND = {
+#				NOT = { flag = MolotovPact }
+				NOT = { event = 2013 } # Molotov Pact Historical
+				NOT = { event = 2015 } # Molotov Pact Alliance
+				NOT = { event = 2016 } # Molotov Pact Limited
+				OR = {
+					control = { province = 232 data = GER } # Warsaw
+					war = { country = GER country = POL }
+					war = { country = GER country = FRA }
+					war = { country = GER country = ENG }
+					puppet = { country = POL country = GER }
+				}
+			}
+			AND = {
+					war = { country = GER country = ENG }
+					lost_national = { country = ENG value = 20 }
+					NOT = { control = { province = 29 data = ENG } } # London
+					random = 10
+					}
+			AND = {
+					war = { country = GER country = FRA }
+					war = { country = GER country = ENG }
+					lost_national = { country = ENG value = 20 }
+					NOT = { control = { province = 29 data = ENG } } # London
+					random = 20
+					}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936}
+	offset = 12
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		command = { type = end_non_aggression which = SOV where = GER }
+	}
+}
+################
+# Soviet AI Slider manipulation
+#
+#	Free Market
+#############################################
+event = { # Free Market
+	id = 25034
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = 1}
+		government = democratic
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = 1 }
+	}
+}
+event = { # Free Market
+	id = 25035
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = -1}
+		OR = {
+			government = fascist
+			government = communist
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = -1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 25036
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = 1}
+		AND = {
+			NOT = { domestic = { type = professional_army value = 0 } } #9
+			OR = {
+				technology = 6310 # Spearhead Doctrine
+				AND = {
+					technology = 6600 # Human Wave Doctrine
+					OR = {
+						ideology = nazi
+						ideology = fascist
+						ideology = leninist
+						ideology = stalinist
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = -1 } #1
+	}
+}
+event = { # Standing Army
+	id = 25037
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = -1}
+		AND = {
+			domestic = { type = professional_army value = 0 }
+			OR = {
+				technology = 6020 # Superior Firepower Doctrine
+				technology = 6030 # Grand Battleplan Doctrine
+				AND = {
+					technology = 6300 # Human Wave Doctrine
+					NOT = {
+						ideology = nazi
+						ideology = fascist
+						ideology = leninist
+						ideology = stalinist
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = -1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 25038
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = 1}
+		AND = {
+			NOT = { domestic = { type = defense_lobby value = 9 } }
+			OR = {
+				ideology = nazi
+				ideology = fascist
+				ideology = leninist
+				ideology = stalinist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+event = { # Hawk Lobby
+	id = 25039
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = -1}
+		AND = {
+			domestic = { type = defense_lobby value = 0 }
+			NOT = {
+				ideology = nazi
+				ideology = fascist
+				ideology = leninist
+				ideology = stalinist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = -1 }
+	}
+}
+################
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 25040
+	random = no
+	country = SOV
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = interventionism value = 1}
+		OR = {
+			atwar = yes
+			AND = {
+				NOT = { domestic = { type = interventionism value = 9 } }
+				OR = {
+					ideology = nazi
+					ideology = fascist
+					ideology = leninist
+					ideology = stalinist
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+# Soviets turn DOWing off
+#############################################
+event = { 
+	id = 25041
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		lost_national = { country = SOV value = 1 }
+		NOT = { local_flag = SOV_DOW }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOV_DOW }
+		command = { type = ai which = "switch/sov_dow_off.ai" }
+	}
+}
+event = { 
+	id = 25042
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = SOV value = 1 } }
+		NOT = { war = { country = GER country = SOV } }
+		local_flag = SOV_DOW
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = SOV_DOW }
+		command = { type = ai which = "switch/sov_dow_on.ai" }
+	}
+}
+################
+# Soviets builds V1 Bomb
+#############################################
+event = {
+	id = 25043
+	random = no
+	country = SOV
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7100
+		NOT = { technology = 7110 } # V2 Rocket
+		NOT = { flying_bomb = { country = SOV value = 2 } }
+		OR = {
+			NOT = { lost_national = { country = SOV value = 1 } }
+			AND = {
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 572 data = SOV } # Moscow
+				NOT = { lost_national = { country = SOV value = 30 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_bomb }
+	}
+}
+################
+# Soviets builds Rockets
+#############################################
+event = {
+	id = 25044
+	random = no
+	country = SOV
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7110
+		NOT = { flying_rocket = { country = SOV value = 5 } }
+		OR = {
+			NOT = { lost_national = { country = SOV value = 1 } }
+			AND = {
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 572 data = SOV } # Moscow
+				NOT = { lost_national = { country = SOV value = 30 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_rocket }
+		command = { type = sleepevent which = 25043 }
+	}
+}
+
+
+
+
+####################################
+# Soviet 25500 - 25599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 25500 - 25509
+#############################################
+event = { # Sergej Uritskiy takes power
+	id = 25500
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4040 # Sergej Uritskiy
+		NOT = { InCabinet = 4040 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 4040 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Andriy G. Orlov takes power
+	id = 25501
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4042 # Andriy G. Orlov
+		NOT = { InCabinet = 4042 }
+		NOT = { minister = 4040 } # Sergej Uritskiy
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 4042 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Army Section 25510 - 25519
+#############################################
+event = { # Boris M. Shaposhnikov takes power
+	id = 25510
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4051 # Boris M. Shaposhnikov
+		NOT = { InCabinet = 4051 }
+		OR = {
+			atwar = no
+			NOT = { minister = 4053 } # Georgiy K. Zhukov
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 4051 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Georgiy K. Zhukov takes power
+	id = 25511
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4053 # Georgiy K. Zhukov
+		NOT = { InCabinet = 4053 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 4051 } # Boris M. Shaposhnikov
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 4053 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+event = { # Alesandr M. Vasilevskij takes power
+	id = 25512
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4054 
+		NOT = { InCabinet = 4054 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 12 month = june year = 1942 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 4054 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+event = { # Aleksei I. Antonov takes power
+	id = 25513
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4056
+		NOT = { InCabinet = 4056 }
+	}
+	
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = February year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 4056 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Head of Intelligence Section 25520 - 25529
+#############################################
+event = { # Igor I. Ilichev takes power
+	id = 25520
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4049 # Igor I. Ilichev
+		NOT = { InCabinet = 4049 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 4049 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 25530 - 25539
+#############################################
+event = { # Iosif V. Stalin takes power
+	id = 25530
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 5405 # Iosif V. Stalin
+		NOT = { InCabinet = 5405 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 5405 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Semen K. Timoshenko takes power
+	id = 25531
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 4058 # Semen K. Timoshenko
+		NOT = { InCabinet = 4058 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 7 month = may year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 4058 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 25540 - 25549
+#############################################
+event = { # Lazer Kaganovich takes power
+	id = 25540
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 4004 # Lazer Kaganovich
+		NOT = { InCabinet = 4004 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 4004 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Nikolaj Bulganin takes power
+	id = 25541
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 4071 # Nikolaj Bulganin
+		NOT = { InCabinet = 4071 }
+		NOT = { minister = 4004 } # Lazer Kaganovich
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 4071 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Iosif V. Stalin takes power
+	id = 25542
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 4073 # Iosif V. Stalin
+		NOT = { InCabinet = 4073 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 4073 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Chief of Air Minister Section 25550 - 25559
+#############################################
+event = { # Yakov I. Alksnis takes power
+	id = 25550
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4010 # Yakov I. Alksnis
+		NOT = { InCabinet = 4010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 4010 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Aleksandr D. Loktionov takes power
+	id = 25551
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 4064 # Aleksandr D. Loktionov
+		NOT = { InCabinet = 4064 }
+		NOT = { minister = 4010 } # Yakov I. Alksnis
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 4064 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Soviets load low manpower AI
+#############################################
+event = {
+	id = 25045
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = SOVLowMP }
+		atwar = yes
+		NOT = { manpower = 500 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = august year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = SOVBuildStandard }
+		command = { type = local_clrflag which = SOVBuildLand }
+		command = { type = local_clrflag which = SOVBuildLandPanic }
+		command = { type = local_setflag which = SOVLowMP }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_low_mp_war.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_low_mp_war_light.ai" }
+	}
+}
+################
+# Soviets switch from low manpower AI back to standard AI; ONLY WAY BACK, ALL OTHER PERSISTENT SWITCHES DEACTIVATED IF FLAG SOVLowMP IS SET!!!
+#############################################
+event = {
+	id = 25046
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = SOVBuildStandard }
+		local_flag = SOVLowMP
+		manpower = 1000
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = august year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = SOVBuildStandard }
+		command = { type = local_clrflag which = SOVBuildLand }
+		command = { type = local_clrflag which = SOVBuildLandPanic }
+		command = { type = local_clrflag which = SOVLowMP }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = ai which = "switch/SOV_Build_Standard.ai" }
+		command = { trigger = { local_flag = activation_light_infantry } type = ai which = "switch/SOV_Build_Standard_light.ai" }
+	}
+}
+
+###########################################
+# SOV panic builds (cheap) light infantry
+###########################################
+
+event = { 
+	id = 25047
+	random = no 
+	country = SOV
+	persistent = yes
+	
+	trigger = {
+		lost_national = { value = 1 }
+		ai = yes
+		atwar = yes
+		NOT = { army = { size = 300 type = 1 when = 0 where = 1 which = 1 } } # triggers if SOV has got less than 300 units left, excluding GAR and HQ, excluding serial builds that are not ready yet, excluding expeditionary units
+		manpower = 1000
+		NOT = { #shall not trigger for easy occupation policy after the Civil War has begun
+				flag = NOE_RibSchu
+				flag = Russia_Civil_War
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = may year = 1940 }
+	offset = 45 # enough time for first units to be completed
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 3 cost = -0.25 where = 40 }
+	}
+}
+
+###########################################
+# unit locked in Baku against Persian attack
+###########################################
+
+event = { 
+	id = 25048
+	random = no 
+	country = SOV
+	
+	trigger = {
+				ai = yes
+				division_in_province = { id = { type = 10848 id = 127 } province = 713 } 	# Baku
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = lock_division which = 10848 value = 127 }
+	}
+}

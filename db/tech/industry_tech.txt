@@ -1,0 +1,2212 @@
+# Changelog: Kane, May 5 2007, added naval brigade techs ( Radar, AA, Computers )
+# Changelog: Kane, Nov. 4 2006, changed historical date for Agro- and Oilrefining Techs, moved last nuclear Tech to year 1951  
+# Changelog: Kane, Nov. 5 2006, added two intermediate nuclear techs (5600,5610), added one cryptographic tech (5640), distrib. of research years crypto
+# Changelog: Gormadoc, June. 14 2008, Moved the two info theory techs from 45/48 to 47/51
+# Changelog: Gormadoc, June. 14 2008, Moved Flying Bomb and Rocket from 40/41 to 41/42
+# The Industry Technology Group
+technology =
+{ id          = 5
+  category    = industry
+  name        = TECH_INDUSTRY_NAME # Localized name
+  desc        = TECH_INDUSTRY_DESC # Localized description
+  label =
+  { tag      = TECH_CAT_MANUFACTURING
+    position = { x = 25 y = 10 }
+  }
+# moved to aircraft tech
+#  label =
+#  { tag      = TECH_CAT_ROCKETRY
+#    position = { x = 25 y = 246 }
+#  }
+  label =
+  { tag      = TECH_CAT_CONSTRUCTION
+    position = { x = 177 y = 10 }
+  }
+  label =
+  { tag      = TECH_CAT_ASSEMBLY
+    position = { x = 25 y = 95 }
+  }
+  label =
+  { tag      = TECH_CAT_AGRICULTURE
+    position = { x = 177 y = 112 }
+  }
+  label =
+  { tag      = TECH_CAT_RRWARNING
+    position = { x = 177 y = 231 }
+  }
+  label =
+  { tag      = TECH_CAT_CRYPTOGRAPHY
+    position = { x = 329 y = 10 }
+  }
+  label =
+  { tag      = TECH_CAT_SYNTHETICOIL
+    position = { x = 25 y = 231 }
+  }
+  label =
+  { tag      = TECH_CAT_NUCLEAR
+    position = { x = 481 y = 231 }
+  }
+  label =
+  { tag      = TECH_CAT_MATERIALS
+    position = { x = 41 y = 418 }
+  }
+  label =
+  { tag      = TECH_CAT_SUPPLY
+    position = { x = 329 y = 231 }
+  }
+  
+################################### 
+# Agriculture
+###################################
+ 
+  # Modern Agriculture
+  application =
+  { id        = 5010
+    name      = TECH_APP_INDUSTRY_1_NAME
+    desc      = TECH_APP_INDUSTRY_1_DESC
+    position  = { x = 176 y = 126 }
+    year      = 1936
+    # Scientific Plowing Technique
+    component = { id = 5011 name = TECH_CMP_INDUSTRY_1_1_NAME type = technical_efficiency difficulty = 5 }
+    # Scientific Sowing Technique
+    component = { id = 5012 name = TECH_CMP_INDUSTRY_1_2_NAME type = industrial_engineering difficulty = 5 }
+    # Scientific Mowing Technique
+    component = { id = 5013 name = TECH_CMP_INDUSTRY_1_3_NAME type = industrial_engineering difficulty = 5 }
+    # Scientific Cleaning Technique
+    component = { id = 5014 name = TECH_CMP_INDUSTRY_1_4_NAME type = industrial_engineering difficulty = 5 }
+    # Scientific Agricultural Processes
+    component = { id = 5015 name = TECH_CMP_INDUSTRY_1_5_NAME type = management difficulty = 6 double_time = yes }
+    required  = { 5050 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 1 }
+      command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Mechanized Agriculture
+  application =
+  { id        = 5020
+    name      = TECH_APP_INDUSTRY_2_NAME
+    desc      = TECH_APP_INDUSTRY_2_DESC
+    position  = { x = 176 y = 143 }
+    year      = 1939
+    # Plowing Machine
+    component = { id = 5021 name = TECH_CMP_INDUSTRY_2_1_NAME type = technical_efficiency difficulty = 6 }
+    # Sowing Machine
+    component = { id = 5022 name = TECH_CMP_INDUSTRY_2_2_NAME type = industrial_engineering difficulty = 6 }
+    # Mowing Machines
+    component = { id = 5023 name = TECH_CMP_INDUSTRY_2_3_NAME type = industrial_engineering difficulty = 6 }
+    # Cleaning Machines
+    component = { id = 5024 name = TECH_CMP_INDUSTRY_2_4_NAME type = industrial_engineering difficulty = 6 }
+    # Mechanized Agricultural Processes
+    component = { id = 5025 name = TECH_CMP_INDUSTRY_2_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 5060 5010 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 2 }
+      command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Agrichemistry
+  application =
+  { id        = 5030
+    name      = TECH_APP_INDUSTRY_3_NAME
+    desc      = TECH_APP_INDUSTRY_3_DESC
+    position  = { x = 176 y = 160 }
+    year      = 1941
+    # Synthetic Fertilizers
+    component = { id = 5031 name = TECH_CMP_INDUSTRY_3_1_NAME type = technical_efficiency difficulty = 7 }
+    # Synthetic Insecticides
+    component = { id = 5032 name = TECH_CMP_INDUSTRY_3_2_NAME type = industrial_engineering difficulty = 7 }
+    # Synthetic Herbicides
+    component = { id = 5033 name = TECH_CMP_INDUSTRY_3_3_NAME type = industrial_engineering difficulty = 7 }
+    # Synthetic Fungicides
+    component = { id = 5034 name = TECH_CMP_INDUSTRY_3_4_NAME type = industrial_engineering difficulty = 7 }
+    # Hybridization
+    component = { id = 5035 name = TECH_CMP_INDUSTRY_3_5_NAME type = management difficulty = 8 }
+    required  = { 5070 5020 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 2 }
+      command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Agricultural Production
+  application =
+  { id        = 5040
+    name      = TECH_APP_INDUSTRY_4_NAME
+    desc      = TECH_APP_INDUSTRY_4_DESC
+    position  = { x = 176 y = 177 }
+    year      = 1944
+    # Industrial Pasteurization
+    component = { id = 5041 name = TECH_CMP_INDUSTRY_4_1_NAME type = technical_efficiency difficulty = 8 }
+    # Large Scale Refrigeration
+    component = { id = 5042 name = TECH_CMP_INDUSTRY_4_2_NAME type = industrial_engineering difficulty = 8 }
+    # Sterile Packaging
+    component = { id = 5043 name = TECH_CMP_INDUSTRY_4_3_NAME type = industrial_engineering difficulty = 8 }
+    # Dehydration Techniques
+    component = { id = 5044 name = TECH_CMP_INDUSTRY_4_4_NAME type = industrial_engineering difficulty = 8 }
+    # Agrimanagement Processes
+    component = { id = 5045 name = TECH_CMP_INDUSTRY_4_5_NAME type = management difficulty = 9 double_time = yes }
+    required  = { 5030 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 2 }
+      command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Advanced Agricultural Production
+  application =
+  { id        = 13000
+    name      = TECH_APP_INDUSTRY_100_NAME
+    desc      = TECH_APP_INDUSTRY_100_DESC
+    position  = { x = 176 y = 194 }
+    year      = 1946
+    # Industrial Pasteurization
+    component = { id = 13001 name = TECH_CMP_INDUSTRY_100_1_NAME type = technical_efficiency difficulty = 8 }
+    # Large Scale Refrigeration
+    component = { id = 13002 name = TECH_CMP_INDUSTRY_100_2_NAME type = industrial_engineering difficulty = 8 }
+    # Sterile Packaging
+    component = { id = 13003 name = TECH_CMP_INDUSTRY_100_3_NAME type = industrial_engineering difficulty = 8 }
+    # Dehydration Techniques
+    component = { id = 13004 name = TECH_CMP_INDUSTRY_100_4_NAME type = industrial_engineering difficulty = 8 }
+    # Agrimanagement Processes
+    component = { id = 13005 name = TECH_CMP_INDUSTRY_100_5_NAME type = management difficulty = 9 double_time = yes }
+    required  = { 5040 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 3 }
+      command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Modern Agricultural Production
+  application =
+  { id        = 13010
+    name      = TECH_APP_INDUSTRY_101_NAME
+    desc      = TECH_APP_INDUSTRY_101_DESC
+    position  = { x = 176 y = 211 }
+    year      = 1950
+    # Industrial Pasteurization
+    component = { id = 13011 name = TECH_CMP_INDUSTRY_101_1_NAME type = technical_efficiency difficulty = 9 }
+    # Large Scale Refrigeration
+    component = { id = 13012 name = TECH_CMP_INDUSTRY_101_2_NAME type = industrial_engineering difficulty = 9 }
+    # Sterile Packaging
+    component = { id = 13013 name = TECH_CMP_INDUSTRY_101_3_NAME type = industrial_engineering difficulty = 9 }
+    # Dehydration Techniques
+    component = { id = 13014 name = TECH_CMP_INDUSTRY_101_4_NAME type = industrial_engineering difficulty = 9 }
+    # Agrimanagement Processes
+    component = { id = 13015 name = TECH_CMP_INDUSTRY_101_5_NAME type = management difficulty = 9 double_time = yes }
+    required  = { 13000 }
+    effects =
+    { #command = { type = relative_manpower value = 5 }
+      command = { type = industrial_modifier which = total value = 3 }
+      command = { type = industrial_modifier which = supplies value = 3 }
+    }
+  }
+ 
+################################### 
+# Construction
+################################### 
+  
+  # Basic Machine Tools
+  application =
+  { id        = 5050
+    name      = TECH_APP_INDUSTRY_5_NAME
+    desc      = TECH_APP_INDUSTRY_5_DESC
+    position  = { x = 24 y = 24 }
+    year      = 1936
+    # Cemented Tungsten Carbide
+    component = { id = 5051 name = TECH_CMP_INDUSTRY_5_1_NAME type = chemistry difficulty = 5 }
+    # Precision Techniques
+    component = { id = 5052 name = TECH_CMP_INDUSTRY_5_2_NAME type = industrial_engineering difficulty = 5 }
+    # Basic Welding Techniques
+    component = { id = 5053 name = TECH_CMP_INDUSTRY_5_3_NAME type = industrial_engineering difficulty = 5 }
+    # High Temperature Resistance
+    component = { id = 5054 name = TECH_CMP_INDUSTRY_5_4_NAME type = industrial_engineering difficulty = 6 }
+    # Basic Machine Tools Development Process
+    component = { id = 5055 name = TECH_CMP_INDUSTRY_5_5_NAME type = industrial_engineering difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = industrial_modifier which = total value = 5 }
+    }
+  }
+  # Improved Machine Tools
+  application =
+  { id        = 5060
+    name      = TECH_APP_INDUSTRY_6_NAME
+    desc      = TECH_APP_INDUSTRY_6_DESC
+    position  = { x = 24 y = 41 }
+    year      = 1937
+    # Industrial Ceramic
+    component = { id = 5061 name = TECH_CMP_INDUSTRY_6_1_NAME type = chemistry difficulty = 6 }
+    # Sensor Techniques
+    component = { id = 5062 name = TECH_CMP_INDUSTRY_6_2_NAME type = industrial_engineering difficulty = 6 }
+    # Improved Welding Techniques
+    component = { id = 5063 name = TECH_CMP_INDUSTRY_6_3_NAME type = industrial_engineering difficulty = 6 }
+    # High Speed Performance
+    component = { id = 5064 name = TECH_CMP_INDUSTRY_6_4_NAME type = industrial_engineering difficulty = 7 }
+    # Improved Machine Tools Development Process
+    component = { id = 5065 name = TECH_CMP_INDUSTRY_6_5_NAME type = industrial_engineering difficulty = 8 double_time = yes }
+    required  = { 5050 }
+    effects =
+    { command = { type = industrial_modifier which = total value = 5 }
+    }
+  }
+  # Advanced Machine Tools
+  application =
+  { id        = 5070
+    name      = TECH_APP_INDUSTRY_7_NAME
+    desc      = TECH_APP_INDUSTRY_7_DESC
+    position  = { x = 24 y = 58 }
+    year      = 1938
+    # Industrial Diamonds
+    component = { id = 5071 name = TECH_CMP_INDUSTRY_7_1_NAME type = chemistry difficulty = 7 }
+    # Automatization
+    component = { id = 5072 name = TECH_CMP_INDUSTRY_7_2_NAME type = industrial_engineering difficulty = 7 }
+    # Advanced Welding Techniques
+    component = { id = 5073 name = TECH_CMP_INDUSTRY_7_3_NAME type = industrial_engineering difficulty = 7 }
+    # Very High Speed Performance
+    component = { id = 5074 name = TECH_CMP_INDUSTRY_7_4_NAME type = industrial_engineering difficulty = 8 }
+    # Advanced Machine Tools Development Process
+    component = { id = 5075 name = TECH_CMP_INDUSTRY_7_5_NAME type = industrial_engineering difficulty = 9 double_time = yes }
+    required  = { 5060 }
+    effects =
+    { command = { type = industrial_modifier which = total value = 5 }
+    }
+  }
+  # Basic Construction Engineering
+  application =
+  { id        = 5080
+    name      = TECH_APP_INDUSTRY_8_NAME
+    desc      = TECH_APP_INDUSTRY_8_DESC
+    position  = { x = 176 y = 24 }
+    year      = 1936
+    # Basic Standardization
+    component = { id = 5081 name = TECH_CMP_INDUSTRY_8_1_NAME type = industrial_engineering difficulty = 5 }
+    # Basic Quality Control
+    component = { id = 5082 name = TECH_CMP_INDUSTRY_8_2_NAME type = management difficulty = 5 }
+    # Basic Reliability Engineering
+    component = { id = 5083 name = TECH_CMP_INDUSTRY_8_3_NAME type = industrial_engineering difficulty = 5 }
+    # Basic Test Planning
+    component = { id = 5084 name = TECH_CMP_INDUSTRY_8_4_NAME type = industrial_engineering difficulty = 6 }
+    # Basic Construction Engineering Development Process
+    component = { id = 5085 name = TECH_CMP_INDUSTRY_8_5_NAME type = industrial_engineering difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = allow_dig_in }
+      command = { type = allow_building which = infrastructure }
+      command = { type = allow_building which = ic }
+      command = { type = allow_building which = land_fort }
+      command = { type = allow_building which = coastal_fort }
+	  command = { type = allow_building which = air_base }
+      command = { type = allow_building which = naval_base }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #1.50
+    }
+  }
+  # Improved Construction Engineering
+  application =
+  { id        = 5090
+    name      = TECH_APP_INDUSTRY_9_NAME
+    desc      = TECH_APP_INDUSTRY_9_DESC
+    position  = { x = 176 y = 41 }
+    year      = 1937
+    # Improved Standardization
+    component = { id = 5091 name = TECH_CMP_INDUSTRY_9_1_NAME type = industrial_engineering difficulty = 6 }
+    # Improved Quality Control
+    component = { id = 5092 name = TECH_CMP_INDUSTRY_9_2_NAME type = management difficulty = 6 }
+    # Improved Reliability Engineering
+    component = { id = 5093 name = TECH_CMP_INDUSTRY_9_3_NAME type = industrial_engineering difficulty = 6 }
+    # Improved Test Planning
+    component = { id = 5094 name = TECH_CMP_INDUSTRY_9_4_NAME type = industrial_engineering difficulty = 7 }
+    # Improved Construction Engineering Development Process
+    component = { id = 5095 name = TECH_CMP_INDUSTRY_9_5_NAME type = industrial_engineering difficulty = 8 double_time = yes }
+    required  = { 5080 }
+    effects =
+    { 
+      command = { type = building_prod_mod which = infrastructure value = 5 }
+	  command = { type = building_prod_mod which = land_fort value = 15 }
+      command = { type = building_prod_mod which = coastal_fort value = 15 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #0.25
+	  command = { type = building_prod_mod which = air_base value = 10 }
+	  command = { type = building_prod_mod which = naval_base value = 10 }
+    }
+  }
+  # Advanced Construction Engineering
+  application =
+  { id        = 5100
+    name      = TECH_APP_INDUSTRY_10_NAME
+    desc      = TECH_APP_INDUSTRY_10_DESC
+    position  = { x = 176 y = 58 }
+    year      = 1938
+    # Advanced Standardization
+    component = { id = 5101 name = TECH_CMP_INDUSTRY_10_1_NAME type = industrial_engineering difficulty = 7 }
+    # Advanced Quality Control
+    component = { id = 5102 name = TECH_CMP_INDUSTRY_10_2_NAME type = management difficulty = 7 }
+    # Advanced Reliability Engineering
+    component = { id = 5103 name = TECH_CMP_INDUSTRY_10_3_NAME type = industrial_engineering difficulty = 7 }
+    # Advanced Test Planning
+    component = { id = 5104 name = TECH_CMP_INDUSTRY_10_4_NAME type = industrial_engineering difficulty = 8 }
+    # Advanced Construction Engineering Development Process
+    component = { id = 5105 name = TECH_CMP_INDUSTRY_10_5_NAME type = industrial_engineering difficulty = 9 double_time = yes }
+    required  = { 5090 }
+    effects =
+    { 
+	  command = { type = building_prod_mod which = infrastructure value = 5 }
+	  command = { type = building_prod_mod which = land_fort value = 15 }
+      command = { type = building_prod_mod which = coastal_fort value = 15 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #0.25
+	  command = { type = building_prod_mod which = air_base value = 10 }
+	  command = { type = building_prod_mod which = naval_base value = 10 }
+    }
+  }
+  # Production Control
+  application =
+  { id        = 5110
+    name      = TECH_APP_INDUSTRY_11_NAME
+    desc      = TECH_APP_INDUSTRY_11_DESC
+    position  = { x = 24 y = 75 }
+    year      = 1939
+    # Mass Production
+    component = { id = 5111 name = TECH_CMP_INDUSTRY_11_1_NAME type = industrial_engineering difficulty = 7 }
+    # Scientific Management
+    component = { id = 5112 name = TECH_CMP_INDUSTRY_11_2_NAME type = management difficulty = 7 }
+    # Continuous Improvement
+    component = { id = 5113 name = TECH_CMP_INDUSTRY_11_3_NAME type = management difficulty = 7 }
+    # Setup Time Reduction
+    component = { id = 5114 name = TECH_CMP_INDUSTRY_11_4_NAME type = management difficulty = 7 }
+    # Production Control Development Process
+    component = { id = 5115 name = TECH_CMP_INDUSTRY_11_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 5070 }
+    effects =
+    { 
+	  command = { type = building_prod_mod which = infrastructure value = 5 }
+	  command = { type = building_prod_mod which = land_fort value = 10 }
+      command = { type = building_prod_mod which = coastal_fort value = 10 }
+	  command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+	  command = { type = industrial_modifier which = supplies value = 5 }
+    }
+  }
+  # Production Planning
+  application =
+  { id        = 5120
+    name      = TECH_APP_INDUSTRY_12_NAME
+    desc      = TECH_APP_INDUSTRY_12_DESC
+    position  = { x = 176 y = 75 }
+    year      = 1939
+    # General Production Planning
+    component = { id = 5121 name = TECH_CMP_INDUSTRY_12_1_NAME type = management difficulty = 7 }
+    # Inventory Planning
+    component = { id = 5122 name = TECH_CMP_INDUSTRY_12_2_NAME type = management difficulty = 7 }
+    # Resource Queue System
+    component = { id = 5123 name = TECH_CMP_INDUSTRY_12_3_NAME type = management difficulty = 7 }
+    # Advanced Worker Time Tables
+    component = { id = 5124 name = TECH_CMP_INDUSTRY_12_4_NAME type = management difficulty = 7 }
+    # Production Planning Development Process
+    component = { id = 5125 name = TECH_CMP_INDUSTRY_12_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 5100 }
+    effects =
+    { 
+	  command = { type = building_prod_mod which = infrastructure value = 5 }
+	  command = { type = building_prod_mod which = land_fort value = 10 }
+      command = { type = building_prod_mod which = coastal_fort value = 10 }
+	  command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+	  command = { type = industrial_modifier which = supplies value = 5 }
+    }
+  }
+  # Assembly Line Experimentation
+  application =
+  { id        = 5130
+    name      = TECH_APP_INDUSTRY_13_NAME
+    desc      = TECH_APP_INDUSTRY_13_DESC
+    position  = { x = 24 y = 109 }
+    year      = 1940
+    # Modular Design
+    component = { id = 5131 name = TECH_CMP_INDUSTRY_13_1_NAME type = management difficulty = 8 }
+    # Platform Development
+    component = { id = 5132 name = TECH_CMP_INDUSTRY_13_2_NAME type = management difficulty = 8 }
+    # Sectional Assembly
+    component = { id = 5133 name = TECH_CMP_INDUSTRY_13_3_NAME type = industrial_engineering difficulty = 8 }
+    # Fracture Mechanics
+    component = { id = 5134 name = TECH_CMP_INDUSTRY_13_4_NAME type = industrial_engineering difficulty = 8 }
+    # Experimentation Process
+    component = { id = 5135 name = TECH_CMP_INDUSTRY_13_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5110 5120 }
+    effects =
+    { command = { type = industrial_modifier which = supplies value = 5 } #moved 10 of 15 to small arms assembly line
+    }
+  }
+  # Aircraft Assembly Line
+  application =
+  { id        = 5140
+    name      = TECH_APP_INDUSTRY_14_NAME
+    desc      = TECH_APP_INDUSTRY_14_DESC
+    position  = { x = 40 y = 126 }
+    year      = 1941
+    # Aircraft Modules
+    component = { id = 5141 name = TECH_CMP_INDUSTRY_14_1_NAME type = aeronautics difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5142 name = TECH_CMP_INDUSTRY_14_2_NAME type = industrial_engineering difficulty = 10 }
+    # Propulsion Adaptation
+    component = { id = 5143 name = TECH_CMP_INDUSTRY_14_3_NAME type = industrial_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5144 name = TECH_CMP_INDUSTRY_14_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5145 name = TECH_CMP_INDUSTRY_14_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { command = { type = build_time which = interceptor when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = multi_role when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = d_01 when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = escort when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = cas when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_bomber when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = strategic_bomber when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = tactical_bomber when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = transport_plane when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = cag when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = light_cag when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = floatplane when = on_upgrade where = relative value = -20 }
+    }
+  }
+  # Ship Assembly Line - Effects from Modular ship building technices and 3 man shift warproduction.
+  application =
+  { id        = 5150
+    name      = TECH_APP_INDUSTRY_15_NAME
+    desc      = TECH_APP_INDUSTRY_15_DESC
+    position  = { x = 40 y = 143 }
+    year      = 1940
+    # Ship Modules
+    component = { id = 5151 name = TECH_CMP_INDUSTRY_15_1_NAME type = naval_engineering difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5152 name = TECH_CMP_INDUSTRY_15_2_NAME type = industrial_engineering difficulty = 10 }
+    # Propulsion Adaptation
+    component = { id = 5153 name = TECH_CMP_INDUSTRY_15_3_NAME type = industrial_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5154 name = TECH_CMP_INDUSTRY_15_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5155 name = TECH_CMP_INDUSTRY_15_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { #command = { type = build_time which = battlecruiser when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = battleship when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = carrier when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = destroyer when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = d_09 when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = heavy_cruiser when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = light_cruiser when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = submarine when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = nuclear_submarine when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = d_08 when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = transport when = on_upgrade where = relative value = -15 }
+      command = { type = convoy_prod_mod which = transports value = 20 }
+      command = { type = convoy_prod_mod which = escorts value = 20 }
+    }
+  }
+  # Emergency Wartime production - 3 man shift warproduction Schedule
+  application =
+  { id        = 5280
+    name      = TECH_APP_INDUSTRY_28_NAME
+    desc      = TECH_APP_INDUSTRY_28_DESC
+    position  = { x = 40 y = 160 }
+    year      = 1940
+    # Ship Modules
+    component = { id = 5281 name = TECH_CMP_INDUSTRY_15_1_NAME type = naval_engineering difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5282 name = TECH_CMP_INDUSTRY_15_2_NAME type = industrial_engineering difficulty = 10 }
+    # Propulsion Adaptation
+    component = { id = 5283 name = TECH_CMP_INDUSTRY_15_3_NAME type = naval_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5284 name = TECH_CMP_INDUSTRY_15_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5285 name = TECH_CMP_INDUSTRY_15_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { command = { type = build_time which = carrier when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = carrier when = on_upgrade where = relative value = 5 }
+      command = { type = build_time which = light_carrier when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = light_carrier when = on_upgrade where = relative value = 5 }
+      command = { type = build_time which = escort_carrier when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = escort_carrier when = on_upgrade where = relative value = 5 }
+      command = { type = build_time which = battleship when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = battleship when = on_upgrade where = relative value = 5 }
+      command = { type = build_time which = battlecruiser when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = battlecruiser when = on_upgrade where = relative value = 5 }
+      command = { type = build_time which = heavy_cruiser when = on_upgrade where = relative value = -25 }
+      command = { type = build_cost which = heavy_cruiser when = on_upgrade where = relative value = 5 }
+	  command = { type = build_time which = transport when = on_upgrade where = relative value = -15 }
+      #command = { type = build_time which = destroyer when = on_upgrade where = relative value = -25 }
+      #command = { type = build_time which = light_cruiser when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = submarine when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = transport when = on_upgrade where = relative value = -20 }
+      #command = { type = convoy_prod_mod which = transports value = 20 }
+      #command = { type = convoy_prod_mod which = escorts value = 20 }
+    }
+  }
+  # Vehicle Assembly Line
+  application =
+  { id        = 5160
+    name      = TECH_APP_INDUSTRY_16_NAME
+    desc      = TECH_APP_INDUSTRY_16_DESC
+    position  = { x = 40 y = 177 }
+    year      = 1941
+    # Vehicle Modules
+    component = { id = 5161 name = TECH_CMP_INDUSTRY_16_1_NAME type = mechanics difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5162 name = TECH_CMP_INDUSTRY_16_2_NAME type = industrial_engineering difficulty = 10 }
+    # Propulsion Adaptation
+    component = { id = 5163 name = TECH_CMP_INDUSTRY_16_3_NAME type = industrial_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5164 name = TECH_CMP_INDUSTRY_16_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5165 name = TECH_CMP_INDUSTRY_16_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { command = { type = build_time which = armor when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = light_armor when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = light_armor_brigade when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = mechanized when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = d_06 when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = motorized when = on_upgrade where = relative value = -13 }
+	  command = { type = build_time which = d_05 when = on_upgrade where = relative value = -13 }	  
+	  command = { trigger = { technology = 10150 } type = build_time which = cavalry when = on_upgrade where = relative value = -13 }
+	  command = { trigger = { technology = 10150 } type = build_time which = d_04 when = on_upgrade where = relative value = -13 }  
+      command = { type = build_time which = armored_car when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = heavy_armor when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = super_heavy_armor when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = tank_destroyer when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = sp_artillery when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = sp_rct_artillery when = on_upgrade where = relative value = -20 }
+	  command = { type = build_time which = sp_anti_air when = on_upgrade where = relative value = -20 }
+    }
+  }
+  # Rocket Assembly Line
+  application =
+  { id        = 5170
+    name      = TECH_APP_INDUSTRY_17_NAME
+    desc      = TECH_APP_INDUSTRY_17_DESC
+    position  = { x = 40 y = 194 }
+    year      = 1943
+    # Rocket Modules
+    component = { id = 5171 name = TECH_CMP_INDUSTRY_17_1_NAME type = rocketry difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5172 name = TECH_CMP_INDUSTRY_17_2_NAME type = industrial_engineering difficulty = 10 }
+    # Propulsion Adaptation
+    component = { id = 5173 name = TECH_CMP_INDUSTRY_17_3_NAME type = industrial_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5174 name = TECH_CMP_INDUSTRY_17_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5175 name = TECH_CMP_INDUSTRY_17_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { command = { type = build_time which = flying_bomb when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = flying_rocket when = on_upgrade where = relative value = -20 }
+    }
+  }
+  # Small Arms Assembly Line - Need another name ?
+  application =
+  { id        = 5180
+    name      = TECH_APP_INDUSTRY_18_NAME
+    desc      = TECH_APP_INDUSTRY_18_DESC
+    position  = { x = 40 y = 211 }
+    year      = 1940
+    # Modular Construction
+    component = { id = 5181 name = TECH_CMP_INDUSTRY_18_1_NAME type = general_equipment difficulty = 10 }
+    # Environmental Tests
+    component = { id = 5182 name = TECH_CMP_INDUSTRY_18_2_NAME type = industrial_engineering difficulty = 10 }
+    # Efficiency Tests
+    component = { id = 5183 name = TECH_CMP_INDUSTRY_18_3_NAME type = industrial_engineering difficulty = 10 }
+    # Assembly Line Process
+    component = { id = 5184 name = TECH_CMP_INDUSTRY_18_4_NAME type = industrial_engineering difficulty = 10 }
+    # Production Tests
+    component = { id = 5185 name = TECH_CMP_INDUSTRY_18_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5130 }
+    effects =
+    { #command = { type = build_time which = infantry when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = cavalry when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = militia when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = garrison when = on_upgrade where = relative value = -20 }
+      #command = { type = build_time which = police when = on_upgrade where = relative value = -10 }
+      #command = { type = build_time which = paratrooper when = on_upgrade where = relative value = -10 }
+      #command = { type = build_time which = bergsjaeger when = on_upgrade where = relative value = -10 }
+      #command = { type = build_time which = marine when = on_upgrade where = relative value = -10 }
+      #command = { type = build_time which = engineer when = on_upgrade where = relative value = -10 }
+      #command = { type = build_time which = mechanized when = on_upgrade where = relative value = -7 }
+      #command = { type = build_time which = motorized when = on_upgrade where = relative value = -7 }
+
+      command = { type = build_time which = anti_tank when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = anti_air when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = artillery when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = rocket_artillery when = on_upgrade where = relative value = -20 }
+
+      command = { type = build_time which = naval_anti_air_s when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_anti_air_l when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_asw when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_torpedoes_s when = on_upgrade where = relative value = -20 }
+
+      command = { type = build_time which = naval_radar_s when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_radar_l when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_fire_controll_s when = on_upgrade where = relative value = -20 }
+      command = { type = build_time which = naval_fire_controll_l when = on_upgrade where = relative value = -20 }
+
+	  command = { type = building_prod_mod which = radar_station value = 10 }
+	  command = { type = building_prod_mod which = flak value = 10 }
+	  command = { type = industrial_modifier which = supplies value = 10 }
+
+    }
+  }
+  # Basic Oil Refining => Name bleibt
+  application =
+  { id        = 5190
+    name      = TECH_APP_INDUSTRY_19_NAME
+    desc      = TECH_APP_INDUSTRY_19_DESC
+    position  = { x = 24 y = 245 }
+    year      = 1936
+    # Basic Distillation
+    component = { id = 5191 name = TECH_CMP_INDUSTRY_19_1_NAME type = chemistry difficulty = 7 }
+    # Basic Cracker
+    component = { id = 5192 name = TECH_CMP_INDUSTRY_19_2_NAME type = chemistry difficulty = 7 }
+    # Basic Isomerisation
+    component = { id = 5193 name = TECH_CMP_INDUSTRY_19_3_NAME type = chemistry difficulty = 7 }
+    # Basic Hydrogen Treatment
+    component = { id = 5194 name = TECH_CMP_INDUSTRY_19_4_NAME type = chemistry difficulty = 7 }
+    # Basic Test Facility
+    component = { id = 5195 name = TECH_CMP_INDUSTRY_19_5_NAME type = industrial_engineering difficulty = 8 double_time = yes }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 1 }
+		command = { type = industrial_modifier which = supplies value = 0 }
+    }
+  }
+  # Improved Oil Refining => Name bleibt
+  application =
+  { id        = 5200
+    name      = TECH_APP_INDUSTRY_20_NAME
+    desc      = TECH_APP_INDUSTRY_20_DESC
+    position  = { x = 24 y = 262 }
+    year      = 1939
+    # Improved Distillation
+    component = { id = 5201 name = TECH_CMP_INDUSTRY_20_1_NAME type = chemistry difficulty = 7 }
+    # Improved Cracker
+    component = { id = 5202 name = TECH_CMP_INDUSTRY_20_2_NAME type = chemistry difficulty = 7 }
+    # Improved Isomerisation
+    component = { id = 5203 name = TECH_CMP_INDUSTRY_20_3_NAME type = chemistry difficulty = 7 }
+    # Improved Hydrogen Treatment
+    component = { id = 5204 name = TECH_CMP_INDUSTRY_20_4_NAME type = chemistry difficulty = 7 }
+    # Improved Test Facility
+    component = { id = 5205 name = TECH_CMP_INDUSTRY_20_5_NAME type = industrial_engineering difficulty = 8 double_time = yes }
+    required  = { 5190 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 1 }
+		command = { type = industrial_modifier which = supplies value = 1 }
+    }
+  }
+  # Advanced Oil Refining => Name bleibt
+  application =
+  { id        = 5210
+    name      = TECH_APP_INDUSTRY_21_NAME
+    desc      = TECH_APP_INDUSTRY_21_DESC
+    position  = { x = 24 y = 279 }
+    year      = 1942
+    # Advanced Distillation
+    component = { id = 5211 name = TECH_CMP_INDUSTRY_21_1_NAME type = chemistry difficulty = 8 }
+    # Advanced Cracker
+    component = { id = 5212 name = TECH_CMP_INDUSTRY_21_2_NAME type = chemistry difficulty = 8 }
+    # Advanced Isomerisation
+    component = { id = 5213 name = TECH_CMP_INDUSTRY_21_3_NAME type = chemistry difficulty = 8 }
+    # Advanced Hydrogen Treatment
+    component = { id = 5214 name = TECH_CMP_INDUSTRY_21_4_NAME type = chemistry difficulty = 8 }
+    # Advanced Test Facility
+    component = { id = 5215 name = TECH_CMP_INDUSTRY_21_5_NAME type = industrial_engineering difficulty = 9 double_time = yes }
+    required  = { 5200 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 2 }
+		command = { type = industrial_modifier which = supplies value = 1 }
+    }
+  }
+  # Basic Synthetic Oil Plant => Name ändern: "Modern Oil Refining"
+  application =
+  { id        = 5220
+    name      = TECH_APP_INDUSTRY_22_NAME
+    desc      = TECH_APP_INDUSTRY_22_DESC
+    position  = { x = 40 y = 296 }
+    year      = 1945
+    # Basic Catalysts
+    component = { id = 5221 name = TECH_CMP_INDUSTRY_22_1_NAME type = chemistry difficulty = 8 }
+    # Basic Reactors
+    component = { id = 5222 name = TECH_CMP_INDUSTRY_22_2_NAME type = chemistry difficulty = 8 }
+    # Basic Product Processing
+    component = { id = 5223 name = TECH_CMP_INDUSTRY_22_3_NAME type = chemistry difficulty = 8 }
+    # Basic Feedstock Preparation
+    component = { id = 5224 name = TECH_CMP_INDUSTRY_22_4_NAME type = chemistry difficulty = 8 }
+    # Basic Oil Plant Prototype Tests
+    component = { id = 5225 name = TECH_CMP_INDUSTRY_22_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 5210 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 2 }
+		command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Improved Synthetic Oil Plant => Name ändern: "Basic Polymers"
+  application =
+  { id        = 5230
+    name      = TECH_APP_INDUSTRY_23_NAME
+    desc      = TECH_APP_INDUSTRY_23_DESC
+    position  = { x = 40 y = 313 }
+    year      = 1948
+    # Improved Catalysts
+    component = { id = 5231 name = TECH_CMP_INDUSTRY_23_1_NAME type = mathematics difficulty = 8 }
+    # Improved Reactors
+    component = { id = 5232 name = TECH_CMP_INDUSTRY_23_2_NAME type = chemistry difficulty = 8 }
+    # Improved Product Processing
+    component = { id = 5233 name = TECH_CMP_INDUSTRY_23_3_NAME type = chemistry difficulty = 8 }
+    # Improved Feedstock Preparation
+    component = { id = 5234 name = TECH_CMP_INDUSTRY_23_4_NAME type = management difficulty = 8 }
+    # Improved Oil Plant Prototype Tests
+    component = { id = 5235 name = TECH_CMP_INDUSTRY_23_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 5220 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 3 }
+		command = { type = industrial_modifier which = supplies value = 2 }
+    }
+  }
+  # Advanced Synthetic Oil Plant => Name ändern: "Improved Polymers"
+  application =
+  { id        = 5240
+    name      = TECH_APP_INDUSTRY_24_NAME
+    desc      = TECH_APP_INDUSTRY_24_DESC
+    position  = { x = 40 y = 330 }
+    year      = 1951
+    # Advanced Catalysts
+    component = { id = 5241 name = TECH_CMP_INDUSTRY_24_1_NAME type = mathematics difficulty = 8 }
+    # Advanced Reactors
+    component = { id = 5242 name = TECH_CMP_INDUSTRY_24_2_NAME type = chemistry difficulty = 8 }
+    # Advanced Product Processing
+    component = { id = 5243 name = TECH_CMP_INDUSTRY_24_3_NAME type = chemistry difficulty = 8 }
+    # Advanced Feedstock Preparation
+    component = { id = 5244 name = TECH_CMP_INDUSTRY_24_4_NAME type = management difficulty = 8 }
+    # Advanced Oil Plant Prototype Tests
+    component = { id = 5245 name = TECH_CMP_INDUSTRY_24_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 5230 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 3 }
+		command = { type = industrial_modifier which = supplies value = 3 }
+    }
+  }
+  # Modern Synthetic Oil Plant => Name ändern: "Advanced Polymers"
+  application =
+  { id        = 13020
+    name      = TECH_APP_INDUSTRY_102_NAME
+    desc      = TECH_APP_INDUSTRY_102_DESC
+    position  = { x = 40 y = 347 }
+    year      = 1954
+    # Modern Catalysts
+    component = { id = 13021 name = TECH_CMP_INDUSTRY_102_1_NAME type = mathematics difficulty = 8 }
+    # Modern Reactors
+    component = { id = 13022 name = TECH_CMP_INDUSTRY_102_2_NAME type = chemistry difficulty = 8 }
+    # Modern Product Processing
+    component = { id = 13023 name = TECH_CMP_INDUSTRY_102_3_NAME type = chemistry difficulty = 8 }
+    # Modern Feedstock Preparation
+    component = { id = 13024 name = TECH_CMP_INDUSTRY_102_4_NAME type = management difficulty = 8 }
+    # Modern Oil Plant Prototype Tests
+    component = { id = 13025 name = TECH_CMP_INDUSTRY_102_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 5240 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 4 }
+		command = { type = industrial_modifier which = supplies value = 3 }
+    }
+  }
+  # Plastics => Ölraffinierung neu 1, andere Koordinaten, Name ändern: "Modern Polymers"
+  application =
+  { id        = 13030
+    name      = TECH_APP_INDUSTRY_103_NAME
+    desc      = TECH_APP_INDUSTRY_103_DESC
+    position  = { x = 40 y = 364 }
+    year      = 1957
+    # ?
+    component = { id = 13031 name = TECH_CMP_INDUSTRY_103_1_NAME type = mathematics difficulty = 8 }
+    # ?
+    component = { id = 13032 name = TECH_CMP_INDUSTRY_103_2_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13033 name = TECH_CMP_INDUSTRY_103_3_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13034 name = TECH_CMP_INDUSTRY_103_4_NAME type = management difficulty = 8 }
+    # ?
+    component = { id = 13035 name = TECH_CMP_INDUSTRY_103_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 13020 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 4 }
+		command = { type = industrial_modifier which = supplies value = 4 }
+    }
+  }
+  # Advanced material sciences => Ölraffinierung neu 2, andere Koordinaten, Name ändern: "Advanced Material Sciences"
+  application =
+  { id        = 13040
+    name      = TECH_APP_INDUSTRY_104_NAME
+    desc      = TECH_APP_INDUSTRY_104_DESC
+    position  = { x = 40 y = 381 }
+    year      = 1960
+    # ?
+    component = { id = 13041 name = TECH_CMP_INDUSTRY_104_1_NAME type = mathematics difficulty = 8 }
+    # ?
+    component = { id = 13042 name = TECH_CMP_INDUSTRY_104_2_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13043 name = TECH_CMP_INDUSTRY_104_3_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13044 name = TECH_CMP_INDUSTRY_104_4_NAME type = management difficulty = 8 }
+    # ?
+    component = { id = 13045 name = TECH_CMP_INDUSTRY_104_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 13030 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 5 }
+		command = { type = industrial_modifier which = supplies value = 4 }
+    }
+  }
+    # Advanced material sciences => Ölraffinierung neu 3, andere Koordinaten, Name ändern: "Modern Material Sciences"
+  application =
+  { id        = 13050
+    name      = TECH_APP_INDUSTRY_105_NAME
+    desc      = TECH_APP_INDUSTRY_105_DESC
+    position  = { x = 40 y = 398 }
+    year      = 1963
+    # ?
+    component = { id = 13051 name = TECH_CMP_INDUSTRY_105_1_NAME type = mathematics difficulty = 8 }
+    # ?
+    component = { id = 13052 name = TECH_CMP_INDUSTRY_105_2_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13053 name = TECH_CMP_INDUSTRY_105_3_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13054 name = TECH_CMP_INDUSTRY_105_4_NAME type = management difficulty = 8 }
+    # ?
+    component = { id = 13055 name = TECH_CMP_INDUSTRY_105_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 13040 }
+    effects =
+    { 
+		command = { type = industrial_modifier which = total value = 5 }
+		command = { type = industrial_modifier which = supplies value = 5 }
+    }
+  }
+    # Plastics => neue Ölsynthetisierung 1942, neuer Name: "Basic Synthetic Oil Plant"
+  application =
+  { id        = 13070
+    name      = TECH_APP_INDUSTRY_107_NAME
+    desc      = TECH_APP_INDUSTRY_107_DESC
+    position  = { x = 40 y = 432 }
+    year      = 1942
+    # ?
+    component = { id = 13071 name = TECH_CMP_INDUSTRY_107_1_NAME type = mathematics difficulty = 8 double_time = yes }
+    # ?
+    component = { id = 13072 name = TECH_CMP_INDUSTRY_107_2_NAME type = chemistry difficulty = 8 double_time = yes }
+    # ?
+    component = { id = 13073 name = TECH_CMP_INDUSTRY_107_3_NAME type = chemistry difficulty = 8 double_time = yes }
+    # ?
+    component = { id = 13074 name = TECH_CMP_INDUSTRY_107_4_NAME type = management difficulty = 8 double_time = yes }
+    # ?
+    component = { id = 13075 name = TECH_CMP_INDUSTRY_107_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 5210 }
+    effects =
+    { 
+	command = { type = industrial_multiplier which = energy_to_oil value = 0.4 }
+    }
+  }
+  # Advanced material sciences => neue Ölsynthetisierung 1944, neuer Name: "Improved Synthetic Oil Plant"
+  application =
+  { id        = 13080
+    name      = TECH_APP_INDUSTRY_108_NAME
+    desc      = TECH_APP_INDUSTRY_108_DESC
+    position  = { x = 40 y = 449 }
+    year      = 1944
+    # ?
+    component = { id = 13081 name = TECH_CMP_INDUSTRY_108_1_NAME type = mathematics difficulty = 8 }
+    # ?
+    component = { id = 13082 name = TECH_CMP_INDUSTRY_108_2_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13083 name = TECH_CMP_INDUSTRY_108_3_NAME type = chemistry difficulty = 8 }
+    # ?
+    component = { id = 13084 name = TECH_CMP_INDUSTRY_108_4_NAME type = management difficulty = 8 }
+    # ?
+    component = { id = 13085 name = TECH_CMP_INDUSTRY_108_5_NAME type = industrial_engineering difficulty = 10 double_time = yes }
+    required  = { 13070 }
+    effects =
+    { 
+	  command = { type = industrial_multiplier which = energy_to_oil value = 0.6 }
+    }
+  }
+  
+################################  
+# Cryptography
+################################
+
+  # Census Tabulating Machine
+  application =
+  { id        = 5310
+    name      = TECH_APP_INDUSTRY_31_NAME
+    desc      = TECH_APP_INDUSTRY_31_DESC
+    position  = { x = 328 y = 24 }
+    year      = 1936
+    # Fine Mechanics
+    component = { id = 5311 name = TECH_CMP_INDUSTRY_31_1_NAME type = mechanics difficulty = 8 }
+    # Manual Reconfiguration
+    component = { id = 5312 name = TECH_CMP_INDUSTRY_31_2_NAME type = mechanics difficulty = 7 }
+    # Card Storage and Sorting
+    component = { id = 5313 name = TECH_CMP_INDUSTRY_31_3_NAME type = mechanics difficulty = 7 }
+    # Punch Cards
+    component = { id = 5314 name = TECH_CMP_INDUSTRY_31_4_NAME type = mechanics difficulty = 3 }
+    # CT Machine Prototype Tests
+    component = { id = 5315 name = TECH_CMP_INDUSTRY_31_5_NAME type = mechanics difficulty = 10 double_time = yes }
+    effects =
+    { command = { type = research_mod value = 5 }
+    }
+  }
+  # Basic Computing Machine
+  application =
+  { id        = 5320
+    name      = TECH_APP_INDUSTRY_32_NAME
+    desc      = TECH_APP_INDUSTRY_32_DESC
+    position  = { x = 328 y = 49 }
+    year      = 1937
+    # Applied Mathematics
+    component = { id = 5321 name = TECH_CMP_INDUSTRY_32_1_NAME type = mathematics difficulty = 8 }
+    # Control and Arithmetic Unit
+    component = { id = 5322 name = TECH_CMP_INDUSTRY_32_2_NAME type = electronics difficulty = 8 }
+    # Memory Device
+    component = { id = 5323 name = TECH_CMP_INDUSTRY_32_3_NAME type = mechanics difficulty = 8 }
+    # Punch Tape and Reader
+    component = { id = 5324 name = TECH_CMP_INDUSTRY_32_4_NAME type = mechanics difficulty = 8 }
+    # Basic Computing Machine Prototype Tests
+    component = { id = 5325 name = TECH_CMP_INDUSTRY_32_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 5310 }
+    effects =
+    { command = { type = research_mod value = 5 }
+    }
+  }
+  # Improved Computing Machine
+  application =
+  { id        = 5330
+    name      = TECH_APP_INDUSTRY_33_NAME
+    desc      = TECH_APP_INDUSTRY_33_DESC
+    position  = { x = 328 y = 86 }
+    year      = 1940
+    # Machine Code
+    component = { id = 5331 name = TECH_CMP_INDUSTRY_33_1_NAME type = mathematics difficulty = 8 }
+    # Control and Arithmetic Unit
+    component = { id = 5332 name = TECH_CMP_INDUSTRY_33_2_NAME type = electronics difficulty = 8 }
+    # Data Storage Relays
+    component = { id = 5333 name = TECH_CMP_INDUSTRY_33_3_NAME type = electronics difficulty = 8 }
+    # Punch Tape and Reader
+    component = { id = 5334 name = TECH_CMP_INDUSTRY_33_4_NAME type = mechanics difficulty = 8 }
+    # Improved Computing Machine Prototype Tests
+    component = { id = 5335 name = TECH_CMP_INDUSTRY_33_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 5320 }
+    effects =
+    { command = { type = research_mod value = 5 }
+      command = { type = new_model which = naval_fire_controll_l value = 0 }
+      command = { type = activate_unit_type which = naval_fire_controll_l }
+      command = { type = new_model which = naval_fire_controll_s value = 0 }
+      command = { type = activate_unit_type which = naval_fire_controll_s }
+    }
+  }
+  # Advanced Computing Machine
+  application =
+  { id        = 5340
+    name      = TECH_APP_INDUSTRY_34_NAME
+    desc      = TECH_APP_INDUSTRY_34_DESC
+    position  = { x = 328 y = 123 }
+    year      = 1943
+    # Assembler Languages
+    component = { id = 5341 name = TECH_CMP_INDUSTRY_34_1_NAME type = mathematics difficulty = 8 }
+    # Control and Arithmetic Unit
+    component = { id = 5342 name = TECH_CMP_INDUSTRY_34_2_NAME type = electronics difficulty = 8 }
+    # Multiple Data Storage Relays
+    component = { id = 5343 name = TECH_CMP_INDUSTRY_34_3_NAME type = mechanics difficulty = 8 }
+    # Multiple Punch Tapes and Readers
+    component = { id = 5344 name = TECH_CMP_INDUSTRY_34_4_NAME type = electronics difficulty = 8 }
+    # Advanced Computing Machine Prototype Tests
+    component = { id = 5345 name = TECH_CMP_INDUSTRY_34_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 5330 }
+    effects =
+    { command = { type = research_mod value = 5 }
+      command = { type = info_may_cause which = 7140 }
+      command = { type = new_model which = naval_fire_controll_l value = 1 }
+      command = { type = scrap_model which = naval_fire_controll_l value = 0 }
+      command = { type = new_model which = naval_fire_controll_s value = 1 }
+      command = { type = scrap_model which = naval_fire_controll_s value = 0 }
+    }
+  }
+  # Basic Encryption Devices
+  application =
+  { id        = 5350
+    name      = TECH_APP_INDUSTRY_35_NAME
+    desc      = TECH_APP_INDUSTRY_35_DESC
+    position  = { x = 440 y = 58 }
+    year      = 1938
+    # Keyboard
+    component = { id = 5351 name = TECH_CMP_INDUSTRY_35_1_NAME type = mechanics difficulty = 7 }
+    # Portable battery
+    component = { id = 5352 name = TECH_CMP_INDUSTRY_35_2_NAME type = electronics difficulty = 7 }
+    # 3-Rotor system
+    component = { id = 5353 name = TECH_CMP_INDUSTRY_35_3_NAME type = mechanics difficulty = 7 }
+    # Basic Reflector
+    component = { id = 5354 name = TECH_CMP_INDUSTRY_35_4_NAME type = mechanics difficulty = 7 }
+    # Basic Code
+    component = { id = 5355 name = TECH_CMP_INDUSTRY_35_5_NAME type = mathematics difficulty = 7 }
+    required  = { 5320 }
+    effects =
+    { command = { type = intelligence which = them value = -15 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = them value = -15 }
+    }
+  }
+  # Basic Decryption Devices
+  application =
+  { id        = 5360
+    name      = TECH_APP_INDUSTRY_36_NAME
+    desc      = TECH_APP_INDUSTRY_36_DESC
+    position  = { x = 440 y = 41 }
+    year      = 1938
+    # Identification of Message Keys
+    component = { id = 5361 name = TECH_CMP_INDUSTRY_36_1_NAME type = mathematics difficulty = 8 }
+    # Identification of Cribs
+    component = { id = 5362 name = TECH_CMP_INDUSTRY_36_2_NAME type = mathematics difficulty = 8 }
+    # Basic Cryptographical Mathematical Theory
+    component = { id = 5363 name = TECH_CMP_INDUSTRY_36_3_NAME type = mathematics difficulty = 8 }
+    # Special Decryption Teams
+    component = { id = 5364 name = TECH_CMP_INDUSTRY_36_4_NAME type = training difficulty = 8 }
+    # Basic Computing Machine Support
+    component = { id = 5365 name = TECH_CMP_INDUSTRY_36_5_NAME type = mechanics difficulty = 8 }
+    required  = { 5320 }
+    effects =
+    { command = { type = intelligence which = us value = 25 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = us value = 15 }
+    }
+  }
+  # Improved Encryption Devices
+  application =
+  { id        = 5370
+    name      = TECH_APP_INDUSTRY_37_NAME
+    desc      = TECH_APP_INDUSTRY_37_DESC
+    position  = { x = 440 y = 95 }
+    year      = 1941
+    # Binary system characters
+    component = { id = 5371 name = TECH_CMP_INDUSTRY_37_1_NAME type = mathematics difficulty = 7 }
+    # Improved powersource
+    component = { id = 5372 name = TECH_CMP_INDUSTRY_37_2_NAME type = electronics difficulty = 7 }
+    # 6-rotor system
+    component = { id = 5373 name = TECH_CMP_INDUSTRY_37_3_NAME type = mechanics difficulty = 7 }
+    # Double teleprinter
+    component = { id = 5374 name = TECH_CMP_INDUSTRY_37_4_NAME type = mechanics difficulty = 7 }
+    # Unique settings
+    component = { id = 5375 name = TECH_CMP_INDUSTRY_37_5_NAME type = management difficulty = 7 }
+    required  = { 5330 5350 }
+    effects =
+    { command = { type = intelligence which = them value = -15 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = them value = -15 }
+    }
+  }
+  # Improved Decryption Devices
+  application =
+  { id        = 5380
+    name      = TECH_APP_INDUSTRY_38_NAME
+    desc      = TECH_APP_INDUSTRY_38_DESC
+    position  = { x = 440 y = 78 }
+    year      = 1941
+    # Identification of Multiple Message Keys
+    component = { id = 5381 name = TECH_CMP_INDUSTRY_38_1_NAME type = mathematics difficulty = 8 }
+    # Identification of Repetitions
+    component = { id = 5382 name = TECH_CMP_INDUSTRY_38_2_NAME type = mathematics difficulty = 8 }
+    # Theoretical Computer
+    component = { id = 5383 name = TECH_CMP_INDUSTRY_38_3_NAME type = mathematics difficulty = 8 }
+    # Special Decryption Facility
+    component = { id = 5384 name = TECH_CMP_INDUSTRY_38_4_NAME type = training difficulty = 8 }
+    # Improved Computing Machine Support
+    component = { id = 5385 name = TECH_CMP_INDUSTRY_38_5_NAME type = mechanics difficulty = 8 }
+    required  = { 5330 5360 }
+    effects =
+    { command = { type = intelligence which = us value = 25 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = us value = 15 }
+    }
+  }
+  # Advanced Encryption Devices
+  application =
+  { id        = 5390
+    name      = TECH_APP_INDUSTRY_39_NAME
+    desc      = TECH_APP_INDUSTRY_39_DESC
+    position  = { x = 440 y = 132 }
+    year      = 1944
+    # 5-Bit combinations
+    component = { id = 5391 name = TECH_CMP_INDUSTRY_39_1_NAME type = mathematics difficulty = 7 }
+    # Advanced electro-mechanics
+    component = { id = 5392 name = TECH_CMP_INDUSTRY_39_2_NAME type = electronics difficulty = 7 }
+    # 10 Rotor-system
+    component = { id = 5393 name = TECH_CMP_INDUSTRY_39_3_NAME type = mechanics difficulty = 7 }
+    # Simultaneous encryption
+    component = { id = 5394 name = TECH_CMP_INDUSTRY_39_4_NAME type = mathematics difficulty = 7 }
+    # One time code pads
+    component = { id = 5395 name = TECH_CMP_INDUSTRY_39_5_NAME type = mathematics difficulty = 7 }
+    required  = { 5340 5370 }
+    effects =
+    { command = { type = intelligence which = them value = -15 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = them value = -15 }
+    }
+  }
+  # Advanced Decryption Device
+  application =
+  { id        = 5400
+    name      = TECH_APP_INDUSTRY_40_NAME
+    desc      = TECH_APP_INDUSTRY_40_DESC
+    position  = { x = 440 y = 115 }
+    year      = 1944
+    # Identification of Parallel Texts
+    component = { id = 5401 name = TECH_CMP_INDUSTRY_40_1_NAME type = mathematics difficulty = 8 }
+    # Advanced Reconstruction
+    component = { id = 5402 name = TECH_CMP_INDUSTRY_40_2_NAME type = mathematics difficulty = 8 }
+    # Advanced Prime Number Theory
+    component = { id = 5403 name = TECH_CMP_INDUSTRY_40_3_NAME type = mathematics difficulty = 8 }
+    # Multiple Cooperating Decryption Facilities
+    component = { id = 5404 name = TECH_CMP_INDUSTRY_40_4_NAME type = training difficulty = 8 }
+    # Advanced Computing Machine Support
+    component = { id = 5405 name = TECH_CMP_INDUSTRY_40_5_NAME type = mechanics difficulty = 8 }
+    required  = { 5340 5380 }
+    effects =
+    { command = { type = intelligence which = us value = 25 }
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = us value = 15 }
+    }
+  }
+  # Basic information theory
+  application =
+  { id        = 13060
+    name      = TECH_APP_INDUSTRY_106_NAME
+    desc      = TECH_APP_INDUSTRY_106_DESC
+    position  = { x = 456 y = 152 }
+    year      = 1947
+    # ?
+    component = { id = 13061 name = TECH_CMP_INDUSTRY_106_1_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 13062 name = TECH_CMP_INDUSTRY_106_2_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 13063 name = TECH_CMP_INDUSTRY_106_3_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 13064 name = TECH_CMP_INDUSTRY_106_4_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 13065 name = TECH_CMP_INDUSTRY_106_5_NAME type = mathematics difficulty = 7 }
+    required  = { 5390 }
+    effects =
+    { 
+	 #command = { type = intelligence which = them value = -15 } #avoid negative values
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = them value = -15 }
+    }
+  }
+  # Improved information theory
+  application =
+  { id        = 5640
+    name      = TECH_APP_INDUSTRY_64_NAME
+    desc      = TECH_APP_INDUSTRY_64_DESC
+    position  = { x = 456 y = 169 }
+    year      = 1951
+    # ?
+    component = { id = 5641 name = TECH_CMP_INDUSTRY_64_1_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 5642 name = TECH_CMP_INDUSTRY_64_2_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 5643 name = TECH_CMP_INDUSTRY_64_3_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 5644 name = TECH_CMP_INDUSTRY_64_4_NAME type = mathematics difficulty = 7 }
+    # ?
+    component = { id = 5645 name = TECH_CMP_INDUSTRY_64_5_NAME type = mathematics difficulty = 7 }
+    required  = { 13060 }
+    effects =
+    { 
+	 #command = { type = intelligence which = them value = -15 } #avoid negative values
+      command = { type = surprise which = naval value = 15 }
+      command = { type = surprise which = land value = 15 }
+      command = { type = surprise which = air value = 15 }
+      command = { type = army_detection which = them value = -15 }
+    }
+  }
+  
+##############################
+# Radar
+##############################
+
+  # Basic Radar Warning Sites
+  application =
+  { id        = 5410
+    name      = TECH_APP_INDUSTRY_41_NAME
+    desc      = TECH_APP_INDUSTRY_41_DESC
+    position  = { x = 176 y = 245 }
+    year      = 1936
+    # Basic Antenna
+    component = { id = 5411 name = TECH_CMP_INDUSTRY_41_1_NAME type = mechanics difficulty = 6 }
+    # Transmitter Frequency 10m/30MHz
+    component = { id = 5412 name = TECH_CMP_INDUSTRY_41_2_NAME type = electronics difficulty = 6 }
+    # Large mechanical structure
+    component = { id = 5413 name = TECH_CMP_INDUSTRY_41_3_NAME type = electronics difficulty = 6 }
+    # Basic Manual Plotting Device
+    component = { id = 5414 name = TECH_CMP_INDUSTRY_41_4_NAME type = electronics difficulty = 6 }
+    # Basic Air Defence Integration
+    component = { id = 5415 name = TECH_CMP_INDUSTRY_41_5_NAME type = management difficulty = 6 }
+    effects =
+    { command = { type = allow_building which = radar_station }
+      command = { type = activate_unit_type which = naval_radar_l}
+      command = { type = new_model which = naval_radar_l value = 0 }
+      command = { type = activate_unit_type which = naval_radar_s}
+      command = { type = new_model which = naval_radar_s value = 0 }
+    }
+  }
+  # Basic Decimetric Radar Warning Sites
+  application =
+  { id        = 5420
+    name      = TECH_APP_INDUSTRY_42_NAME
+    desc      = TECH_APP_INDUSTRY_42_DESC
+    position  = { x = 176 y = 262 }
+    year      = 1940
+    # Improved Antenna
+    component = { id = 5421 name = TECH_CMP_INDUSTRY_42_1_NAME type = mechanics difficulty = 7 }
+    # Transmitter Frequency 1.5m/200MHz
+    component = { id = 5422 name = TECH_CMP_INDUSTRY_42_2_NAME type = electronics difficulty = 7 }
+    # Medium mechanical structure
+    component = { id = 5423 name = TECH_CMP_INDUSTRY_42_3_NAME type = electronics difficulty = 7 }
+    # Improved Manual Plotting Device
+    component = { id = 5424 name = TECH_CMP_INDUSTRY_42_4_NAME type = electronics difficulty = 7 }
+    # Improved Air Defence Integration
+    component = { id = 5425 name = TECH_CMP_INDUSTRY_42_5_NAME type = management difficulty = 7 }
+    required  = { 5410 }
+    effects =
+    { command = { type = radar_eff value = 5 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 3 } #effect removed => radar sites increase AA effectiveness anyway
+    }
+  }
+  # Improved Decimetric Radar Warning Sites
+  application =
+  { id        = 5430
+    name      = TECH_APP_INDUSTRY_43_NAME
+    desc      = TECH_APP_INDUSTRY_43_DESC
+    position  = { x = 176 y = 279 }
+    year      = 1941
+    # Advanced Antenna
+    component = { id = 5431 name = TECH_CMP_INDUSTRY_43_1_NAME type = mechanics difficulty = 7 }
+    # Transmitter Frequency 50cm/600MHz
+    component = { id = 5432 name = TECH_CMP_INDUSTRY_43_2_NAME type = electronics difficulty = 7 }
+    # Electrical mechanical structure
+    component = { id = 5433 name = TECH_CMP_INDUSTRY_43_3_NAME type = electronics difficulty = 7 }
+    # Advanced Manual Plotting Device
+    component = { id = 5434 name = TECH_CMP_INDUSTRY_43_4_NAME type = electronics difficulty = 7 }
+    # Advanced Air Defence Integration
+    component = { id = 5435 name = TECH_CMP_INDUSTRY_43_5_NAME type = management difficulty = 7 }
+    required  = { 5420 }
+    effects =
+    { command = { type = radar_eff value = 10 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 5 }
+    }
+  }
+  # First On Board Application
+  application =
+  { id        = 5440
+    name      = TECH_APP_INDUSTRY_44_NAME
+    desc      = TECH_APP_INDUSTRY_44_DESC
+    position  = { x = 192 y = 296 }
+    year      = 1941
+    # Transportable Antenna
+    component = { id = 5441 name = TECH_CMP_INDUSTRY_44_1_NAME type = mechanics difficulty = 7 }
+    # Transmitter Frequency 10cm/3GHz
+    component = { id = 5442 name = TECH_CMP_INDUSTRY_44_2_NAME type = electronics difficulty = 9 }
+    # Electrical mechanical structure
+    component = { id = 5443 name = TECH_CMP_INDUSTRY_44_3_NAME type = electronics difficulty = 7 }
+    # Basic Electromechanical Plotting Device
+    component = { id = 5444 name = TECH_CMP_INDUSTRY_44_4_NAME type = electronics difficulty = 8 }
+    # Basic Air Defence Network
+    component = { id = 5445 name = TECH_CMP_INDUSTRY_44_5_NAME type = management difficulty = 10 }
+    required  = { 5430 }
+    effects =
+    { command = { type = air_detection value = 4 when = on_upgrade which = Interceptor }
+	  command = { type = air_detection value = 4 when = on_upgrade which = multi_role }
+	  command = { type = air_detection value = 4 when = on_upgrade which = d_01 }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = cas }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = multi_role }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = transport_plane }
+	  command = { type = surface_detection value = 1.00 when = on_upgrade which = tactical_bomber }
+	  command = { type = surface_detection value = 1.00 when = on_upgrade which = strategic_bomber }
+	  command = { type = surface_detection value = 1.33 when = on_upgrade which = naval_bomber }
+	  command = { type = surface_detection value = 1.33 when = on_upgrade which = cag }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = light_cag }
+	  command = { type = surface_detection value = 0.16 when = on_upgrade which = floatplane }
+	  command = { type = surface_detection value = 0.66 which = escort_carrier }
+	  command = { type = surface_detection value = 0.50 which = submarine }
+	  command = { type = surface_detection value = 0.50 which = nuclear_submarine }
+	  command = { type = surface_detection value = 0.50 which = d_08 }
+	  command = { type = night_defense when = on_upgrade which = d_01 value = 5 }
+	  command = { type = night_defense when = on_upgrade which = interceptor value = 5 }
+	  command = { type = night_defense when = on_upgrade which = multi_role value = 5 }
+	  command = { type = night_attack when = on_upgrade which = d_01 value = 8 }
+	  command = { type = night_attack when = on_upgrade which = interceptor value = 8 }
+	  command = { type = night_attack when = on_upgrade which = multi_role value = 8 }
+	  command = { type = sub_detection value = 3.3 which = escort_carrier }
+	  command = { type = sub_detection value = 0.33 which = submarine }
+	  command = { type = sub_detection value = 0.33 which = nuclear_submarine }
+	  command = { type = sub_detection value = 0.33 which = d_08 }
+      command = { type = task_efficiency which = strategic_bombardment value = 0.05 }
+      command = { type = task_efficiency which = asw value = 0.03 }
+      command = { type = night_attack which = strategic_bomber value = 5 }
+      command = { type = night_attack which = naval_bomber value = 5 }
+      command = { type = new_model which = naval_radar_l value = 1 }
+      command = { type = scrap_model which = naval_radar_l value = 0 }
+      command = { type = new_model which = naval_radar_s value = 1 }
+      command = { type = scrap_model which = naval_radar_s value = 0 }
+    }
+  }
+  # Basic Centimetric Radar Warning Sites
+  application =
+  { id        = 5450
+    name      = TECH_APP_INDUSTRY_45_NAME
+    desc      = TECH_APP_INDUSTRY_45_DESC
+    position  = { x = 176 y = 313 }
+    year      = 1942
+    # Movable Antenna
+    component = { id = 5451 name = TECH_CMP_INDUSTRY_45_1_NAME type = mechanics difficulty = 8 }
+    # Transmitter Frequency ??cm/?GHz
+    component = { id = 5452 name = TECH_CMP_INDUSTRY_45_2_NAME type = electronics difficulty = 10 }
+    # Improved electrical structure
+    component = { id = 5453 name = TECH_CMP_INDUSTRY_45_3_NAME type = electronics difficulty = 8 }
+    # Improved Electromechanical Plotting Device
+    component = { id = 5454 name = TECH_CMP_INDUSTRY_45_4_NAME type = electronics difficulty = 9 }
+    # Basic Air Defence Network
+    component = { id = 5455 name = TECH_CMP_INDUSTRY_45_5_NAME type = management difficulty = 10 }
+    required  = { 5430 }
+    effects =
+    { command = { type = radar_eff value = 15 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 10 }
+    }
+  }
+  # Improved Centimetric Radar Warning Sites
+  application =
+  { id        = 5460
+    name      = TECH_APP_INDUSTRY_46_NAME
+    desc      = TECH_APP_INDUSTRY_46_DESC
+    position  = { x = 176 y = 330 }
+    year      = 1943
+    # Tower Antenna
+    component = { id = 5461 name = TECH_CMP_INDUSTRY_46_1_NAME type = mechanics difficulty = 10 }
+    # Transmitter Frequency ??cm/?GHz
+    component = { id = 5462 name = TECH_CMP_INDUSTRY_46_2_NAME type = electronics difficulty = 10 }
+    # Advanced electrical structure
+    component = { id = 5463 name = TECH_CMP_INDUSTRY_46_3_NAME type = electronics difficulty = 10 }
+    # Advanced Electromechanical Plotting Device
+    component = { id = 5464 name = TECH_CMP_INDUSTRY_46_4_NAME type = electronics difficulty = 10 }
+    # Improved Air Defence Network
+    component = { id = 5465 name = TECH_CMP_INDUSTRY_46_5_NAME type = management difficulty = 10 }
+    required  = { 5450 }
+    effects =
+    { command = { type = radar_eff value = 20 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 15 }
+    }
+  }
+  # Advanced Centimetric Radar Warning Sites
+  application =
+  { id        = 5250
+    name      = TECH_APP_INDUSTRY_25_NAME
+    desc      = TECH_APP_INDUSTRY_25_DESC
+    position  = { x = 176 y = 347 }
+    year      = 1944
+    component = { id = 5251 name = TECH_CMP_INDUSTRY_25_1_NAME type = mechanics difficulty = 5 }
+    component = { id = 5252 name = TECH_CMP_INDUSTRY_25_2_NAME type = electronics difficulty = 5 }
+    component = { id = 5253 name = TECH_CMP_INDUSTRY_25_3_NAME type = electronics difficulty = 5 }
+    component = { id = 5254 name = TECH_CMP_INDUSTRY_25_4_NAME type = electronics difficulty = 5 }
+    # Advanced Air Defence Network
+    component = { id = 5255 name = TECH_CMP_INDUSTRY_25_5_NAME type = management difficulty = 5 }
+    required  = { 5460 }
+    effects =
+    { command = { type = radar_eff value = 25 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 20 }
+    }
+  }
+  # Improved On Board Application
+  application =
+  { id        = 5260
+    name      = TECH_APP_INDUSTRY_26_NAME
+    desc      = TECH_APP_INDUSTRY_26_DESC
+    position  = { x = 192 y = 364 }
+    year      = 1945
+    component = { id = 5261 name = TECH_CMP_INDUSTRY_26_1_NAME type = mechanics difficulty = 5 }
+    component = { id = 5262 name = TECH_CMP_INDUSTRY_26_2_NAME type = electronics difficulty = 5 }
+    component = { id = 5263 name = TECH_CMP_INDUSTRY_26_3_NAME type = electronics difficulty = 5 }
+    component = { id = 5264 name = TECH_CMP_INDUSTRY_26_4_NAME type = electronics difficulty = 5 }
+    # Improved Air Defence Network
+    component = { id = 5265 name = TECH_CMP_INDUSTRY_26_5_NAME type = management difficulty = 5 }
+    required  = { 5250 }
+    effects =
+    { command = { type = air_detection value = 5 when = on_upgrade which = Interceptor }
+	  command = { type = air_detection value = 5 when = on_upgrade which = multi_role }
+	  command = { type = air_detection value = 5 when = on_upgrade which = d_01 }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = cas }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = multi_role }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = transport_plane }
+	  command = { type = surface_detection value = 1.00 when = on_upgrade which = tactical_bomber }
+	  command = { type = surface_detection value = 1.00 when = on_upgrade which = strategic_bomber }
+	  command = { type = surface_detection value = 1.33 when = on_upgrade which = naval_bomber }
+	  command = { type = surface_detection value = 1.33 when = on_upgrade which = cag }
+	  command = { type = surface_detection value = 0.66 when = on_upgrade which = light_cag }
+	  command = { type = surface_detection value = 0.16 when = on_upgrade which = floatplane }
+	  command = { type = surface_detection value = 0.66 which = escort_carrier }
+	  command = { type = surface_detection value = 0.50 which = submarine }
+	  command = { type = surface_detection value = 0.50 which = nuclear_submarine }
+	  command = { type = surface_detection value = 0.50 which = d_08 }
+	  command = { type = night_defense when = on_upgrade which = d_01 value = 5 }
+	  command = { type = night_defense when = on_upgrade which = interceptor value = 5 }
+	  command = { type = night_defense when = on_upgrade which = multi_role value = 5 }
+	  command = { type = night_attack when = on_upgrade which = d_01 value = 8 }
+	  command = { type = night_attack when = on_upgrade which = interceptor value = 8 }
+	  command = { type = night_attack when = on_upgrade which = multi_role value = 8 }
+	  command = { type = sub_detection value = 3.30 which = escort_carrier }
+	  command = { type = sub_detection value = 0.33 which = submarine }
+	  command = { type = sub_detection value = 0.33 which = nuclear_submarine }
+	  command = { type = sub_detection value = 0.33 which = d_08 }
+      command = { type = task_efficiency which = strategic_bombardment value = 0.1 }
+      command = { type = task_efficiency which = asw value = 0.07 }
+      command = { type = night_attack which = strategic_bomber value = 10 }
+      command = { type = night_attack which = naval_bomber value = 10 }
+      command = { type = new_model which = naval_radar_l value = 2 }
+      command = { type = scrap_model which = naval_radar_l value = 1 }
+      command = { type = new_model which = naval_radar_s value = 2 }
+      command = { type = scrap_model which = naval_radar_s value = 1 }
+    }
+  }
+  # Radar Aids Armament Systems
+  application =
+  { id        = 5270
+    name      = TECH_APP_INDUSTRY_60_NAME
+    desc      = TECH_APP_INDUSTRY_60_DESC
+    position  = { x = 176 y = 381 }
+    year      = 1951
+    component = { id = 5271 name = TECH_CMP_INDUSTRY_60_1_NAME type = mechanics difficulty = 5 }
+    component = { id = 5272 name = TECH_CMP_INDUSTRY_60_2_NAME type = general_equipment difficulty = 5 }
+    component = { id = 5273 name = TECH_CMP_INDUSTRY_60_3_NAME type = general_equipment difficulty = 5 }
+    component = { id = 5274 name = TECH_CMP_INDUSTRY_60_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 5275 name = TECH_CMP_INDUSTRY_60_5_NAME type = general_equipment difficulty = 5 }
+    required  = { 5250 }
+    effects =
+    { command = { type = radar_eff value = 30 }
+	  command = { type = building_prod_mod which = radar_station value = 5 }
+#      command = { type = AA_batteries value = 25 }
+      command = { type = night_attack which = strategic_bomber value = 15 }
+      command = { type = night_attack which = naval_bomber value = 15 }
+      command = { type = task_efficiency which = strategic_bombardment value = 0.15 }
+      command = { type = task_efficiency which = asw value = 0.15 }
+    }
+  }
+  
+##############################
+# Nuclear
+##############################
+  
+  # Faculty of Atomic Research
+  application =
+  { id        = 5470
+    name      = TECH_APP_INDUSTRY_47_NAME
+    desc      = TECH_APP_INDUSTRY_47_DESC
+    position  = { x = 480 y = 245 }
+    year      = 1936
+    # Department of Atomic Physics
+    component = { id = 5471 name = TECH_CMP_INDUSTRY_47_1_NAME type = nuclear_physics difficulty = 10 }
+    # Department of Radioactivity
+    component = { id = 5472 name = TECH_CMP_INDUSTRY_47_2_NAME type = nuclear_physics difficulty = 10 }
+    # Department of Higher Mathematics
+    component = { id = 5473 name = TECH_CMP_INDUSTRY_47_3_NAME type = mathematics difficulty = 10 }
+    # Department of Astro-Physics
+    component = { id = 5474 name = TECH_CMP_INDUSTRY_47_4_NAME type = nuclear_physics difficulty = 10 }
+    # Department of Physical Chemistry
+    component = { id = 5475 name = TECH_CMP_INDUSTRY_47_5_NAME type = chemistry difficulty = 10 }
+    required  = { }
+    effects =
+    { command = { }
+    }
+  }
+  # Atomic Research Laboratories
+  application =
+  { id        = 5480
+    name      = TECH_APP_INDUSTRY_48_NAME
+    desc      = TECH_APP_INDUSTRY_48_DESC
+    position  = { x = 480 y = 262 }
+    year      = 1936
+    # X-ray Spectrometry Lab
+    component = { id = 5481 name = TECH_CMP_INDUSTRY_48_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Cathode Spectrometry Lab
+    component = { id = 5482 name = TECH_CMP_INDUSTRY_48_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Anodic Spectrometry Lab
+    component = { id = 5483 name = TECH_CMP_INDUSTRY_48_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Radionuclide Lab
+    component = { id = 5484 name = TECH_CMP_INDUSTRY_48_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Transmutation Lab
+    component = { id = 5485 name = TECH_CMP_INDUSTRY_48_5_NAME type = nuclear_engineering difficulty = 10 }
+    required  = { 5470 }
+    effects =
+    { command = { }
+    }
+  }
+  # Faculty of Nuclear Research
+  application =
+  { id        = 5490
+    name      = TECH_APP_INDUSTRY_49_NAME
+    desc      = TECH_APP_INDUSTRY_49_DESC
+    position  = { x = 480 y = 279 }
+    year      = 1939
+    # Department of Nuclear Physics
+    component = { id = 5491 name = TECH_CMP_INDUSTRY_49_1_NAME type = nuclear_physics difficulty = 10 }
+    # Department of High Energy Radiation
+    component = { id = 5492 name = TECH_CMP_INDUSTRY_49_2_NAME type = nuclear_physics difficulty = 10 }
+    # Department of Mathematical Physics
+    component = { id = 5493 name = TECH_CMP_INDUSTRY_49_3_NAME type = mathematics difficulty = 10 }
+    # Department of Relativistic Mechanics
+    component = { id = 5494 name = TECH_CMP_INDUSTRY_49_4_NAME type = nuclear_physics difficulty = 10 }
+    # Department of Nuclear Chemistry
+    component = { id = 5495 name = TECH_CMP_INDUSTRY_49_5_NAME type = nuclear_physics difficulty = 10 }
+    required  = { 5480 }
+    effects =
+    { command = { }
+    }
+  }
+  # Isotope Separation Facility
+  application =
+  { id        = 5500
+    name      = TECH_APP_INDUSTRY_50_NAME
+    desc      = TECH_APP_INDUSTRY_50_DESC
+    position  = { x = 480 y = 296 }
+    year      = 1941
+    # Experimental Proof of the Equivalence of Mass and Energy
+    component = { id = 5501 name = TECH_CMP_INDUSTRY_50_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Radioactive Material Analysis
+    component = { id = 5502 name = TECH_CMP_INDUSTRY_50_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Laboratory produced Fission
+    component = { id = 5503 name = TECH_CMP_INDUSTRY_50_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Chain Reaction Process Discovered
+    component = { id = 5504 name = TECH_CMP_INDUSTRY_50_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Isotope Separation Process
+    component = { id = 5505 name = TECH_CMP_INDUSTRY_50_5_NAME type = nuclear_engineering difficulty = 10 double_time = yes }
+    required  = { 5490 }
+    effects =
+    { command = { type = allow_building which = nuclear_reactor }
+      command = { type = max_reactor_size value = 1 }
+    }
+  }
+  # Nuclear Fuel Analysis
+  application =
+  { id        = 5510
+    name      = TECH_APP_INDUSTRY_51_NAME
+    desc      = TECH_APP_INDUSTRY_51_DESC
+    position  = { x = 480 y = 313 }
+    year      = 1941
+    # Betatron Particle Accelerator
+    component = { id = 5511 name = TECH_CMP_INDUSTRY_51_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Uranium 238
+    component = { id = 5512 name = TECH_CMP_INDUSTRY_51_2_NAME type = nuclear_physics difficulty = 10 }
+    # Thorium 232
+    component = { id = 5513 name = TECH_CMP_INDUSTRY_51_3_NAME type = nuclear_physics difficulty = 10 }
+    # Uranium 235
+    component = { id = 5514 name = TECH_CMP_INDUSTRY_51_4_NAME type = nuclear_physics difficulty = 10 }
+    # Material Stability Tests
+    component = { id = 5515 name = TECH_CMP_INDUSTRY_51_5_NAME type = nuclear_engineering difficulty = 10 double_time = yes }
+    required  = { 5500 }
+    effects =
+    { command = { type = max_reactor_size value = 2 }
+    }
+  }
+  # Experimental Reactor
+  application =
+  { id        = 5520
+    name      = TECH_APP_INDUSTRY_52_NAME
+    desc      = TECH_APP_INDUSTRY_52_DESC
+    position  = { x = 480 y = 330 }
+    year      = 1941
+    # Nuclear Reactor Design
+    component = { id = 5521 name = TECH_CMP_INDUSTRY_52_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Reflector Material Tests
+    component = { id = 5522 name = TECH_CMP_INDUSTRY_52_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Moderator Material Tests
+    component = { id = 5523 name = TECH_CMP_INDUSTRY_52_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Heavy Water Plant
+    component = { id = 5524 name = TECH_CMP_INDUSTRY_52_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Reactor Prototype Tests
+    component = { id = 5525 name = TECH_CMP_INDUSTRY_52_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5510 }
+    effects =
+    { command = { type = max_reactor_size value = 3 }
+    }
+  }
+  # Nuclear Reactor Operability
+  application =
+  { id        = 5530
+    name      = TECH_APP_INDUSTRY_53_NAME
+    desc      = TECH_APP_INDUSTRY_53_DESC
+    position  = { x = 480 y = 347 }
+    year      = 1943
+    # Core Structure
+    component = { id = 5531 name = TECH_CMP_INDUSTRY_53_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Reflector
+    component = { id = 5532 name = TECH_CMP_INDUSTRY_53_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Moderator
+    component = { id = 5533 name = TECH_CMP_INDUSTRY_53_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Applied Rare Minerals
+    component = { id = 5534 name = TECH_CMP_INDUSTRY_53_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Operationability Tests
+    component = { id = 5535 name = TECH_CMP_INDUSTRY_53_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5520 }
+    effects =
+    { command = { type = max_reactor_size value = 4 }
+    }
+  }
+  # Nuclear Power Production
+  application =
+  { id        = 5540
+    name      = TECH_APP_INDUSTRY_54_NAME
+    desc      = TECH_APP_INDUSTRY_54_DESC
+    position  = { x = 480 y = 398 }
+    year      = 1951
+    # Nuclear Power Plant Design
+    component = { id = 5541 name = TECH_CMP_INDUSTRY_54_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Propulsion Design
+    component = { id = 5542 name = TECH_CMP_INDUSTRY_54_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Emergency Shut-down System
+    component = { id = 5543 name = TECH_CMP_INDUSTRY_54_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Waste Disposal
+    component = { id = 5544 name = TECH_CMP_INDUSTRY_54_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Power Station Prototype Tests
+    component = { id = 5545 name = TECH_CMP_INDUSTRY_54_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5620 }
+    effects =
+    { command = { type = max_reactor_size value = 10 }
+      command = { type = add_prov_resource which = -4 value = 50 where = energy }
+      command = { type = info_may_cause which = 16020 }
+    }
+  }
+  # Production of nuclear-weapons warhead
+  application =
+  { id        = 5610
+    name      = TECH_APP_INDUSTRY_61_NAME
+    desc      = TECH_APP_INDUSTRY_61_DESC
+    position  = { x = 480 y = 364 }
+    year      = 1945
+    # Nuclear Power Plant Design
+    component = { id = 5611 name = TECH_CMP_INDUSTRY_61_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Propulsion Design
+    component = { id = 5612 name = TECH_CMP_INDUSTRY_61_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Emergency Shut-down System
+    component = { id = 5613 name = TECH_CMP_INDUSTRY_61_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Waste Disposal
+    component = { id = 5614 name = TECH_CMP_INDUSTRY_61_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Power Station Prototype Tests
+    component = { id = 5615 name = TECH_CMP_INDUSTRY_61_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5530 }
+    effects =
+    { command = { type = max_reactor_size value = 5 }
+      command = { type = info_may_cause which = 7170 }
+      command = { type = info_may_cause which = 7180 }
+      command = { type = info_may_cause which = 7190 }
+    }
+  }
+  # Prerequisites Nuclear Power Production
+  application =
+  { id        = 5620
+    name      = TECH_APP_INDUSTRY_62_NAME
+    desc      = TECH_APP_INDUSTRY_62_DESC
+    position  = { x = 480 y = 381 }
+    year      = 1948
+    # Nuclear Power Plant Design
+    component = { id = 5621 name = TECH_CMP_INDUSTRY_62_1_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Propulsion Design
+    component = { id = 5622 name = TECH_CMP_INDUSTRY_62_2_NAME type = nuclear_engineering difficulty = 10 }
+    # Emergency Shut-down System
+    component = { id = 5623 name = TECH_CMP_INDUSTRY_62_3_NAME type = nuclear_engineering difficulty = 10 }
+    # Nuclear Waste Disposal
+    component = { id = 5624 name = TECH_CMP_INDUSTRY_62_4_NAME type = nuclear_engineering difficulty = 10 }
+    # Power Station Prototype Tests
+    component = { id = 5625 name = TECH_CMP_INDUSTRY_62_5_NAME type = management difficulty = 10 double_time = yes }
+    required  = { 5610 }
+    effects =
+    { command = { type = max_reactor_size value = 7 }
+      command = { type = info_may_cause which = 7200 }
+      command = { type = info_may_cause which = 7210 }
+      command = { type = info_may_cause which = 7220 }
+      command = { type = info_may_cause which = 7230 }
+	  command = { type = info_may_cause which = 7250 }
+      command = { type = info_may_cause which = 16010 }
+    }
+  }
+  
+##################################################################
+# Supply & Repair techs
+##################################################################
+  # Rear Area Supply Dumps
+  application =
+  { id        = 1310
+    name      = TECH_APP_INFANTRY_31_NAME
+    desc      = TECH_APP_INFANTRY_31_DESC
+    year      = 1936
+    position  = { x = 328 y = 245 }
+    # Static Area Supply System
+    component = { id = 1311 name = TECH_CMP_INFANTRY_31_1_NAME type = centralized_execution difficulty = 5 }
+    # Requisition Order System
+    component = { id = 1312 name = TECH_CMP_INFANTRY_31_2_NAME type = management difficulty = 5 }
+    # Land Convoy System
+    component = { id = 1313 name = TECH_CMP_INFANTRY_31_3_NAME type = management difficulty = 5 }
+    # Basic Stock and Storage
+    component = { id = 1314 name = TECH_CMP_INFANTRY_31_4_NAME type = general_equipment difficulty = 5 }
+    # Strategic refuel and replenishment
+    component = { id = 1315 name = TECH_CMP_INFANTRY_31_5_NAME type = rt_user_17 difficulty = 5 }
+    required  = { }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+      command = { type = enable_task which = strat_redeploy }
+      command = { type = task_efficiency which = strat_redeploy value = 0.2 } #0.5
+      command = { type = activate_unit_type which = engineer }
+      command = { type = new_model which = engineer value = 0 }
+	  command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Deep Logistic Organization
+  application =
+  { id        = 1320
+    name      = TECH_APP_INFANTRY_32_NAME
+    desc      = TECH_APP_INFANTRY_32_DESC
+    position  = { x = 328 y = 279 }
+    year      = 1940
+    # Dynamic Priority Supply System
+    component = { id = 1321 name = TECH_CMP_INFANTRY_32_1_NAME type = centralized_execution difficulty = 6 }
+    # Mean Consumption Statistics
+    component = { id = 1322 name = TECH_CMP_INFANTRY_32_2_NAME type = management difficulty = 6 }
+    # Flexible Dumpspot System 
+    component = { id = 1323 name = TECH_CMP_INFANTRY_32_3_NAME type = management difficulty = 6 }
+    # Improved Stock and Storage
+    component = { id = 1324 name = TECH_CMP_INFANTRY_32_4_NAME type = general_equipment difficulty = 6 }
+    # Operational refuel and replenishment
+    component = { id = 1325 name = TECH_CMP_INFANTRY_32_5_NAME type = rt_user_17 difficulty = 6 }
+    required  = { 1310 }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+      command = { type = new_model which = engineer value = 1 }
+      command = { type = scrap_model which = engineer value = 0 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #new
+	  command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Frontline Supply Service
+  application =
+  { id        = 1330
+    name      = TECH_APP_INFANTRY_33_NAME
+    desc      = TECH_APP_INFANTRY_33_DESC
+    position  = { x = 328 y = 313 }
+    year      = 1943
+    # Low Echelon Supply System
+    component = { id = 1331 name = TECH_CMP_INFANTRY_33_1_NAME type = decentralized_execution difficulty = 7 }
+    # Dynamic Supply Reports
+    component = { id = 1332 name = TECH_CMP_INFANTRY_33_2_NAME type = management difficulty = 7 }
+    # Circular Transport System
+    component = { id = 1333 name = TECH_CMP_INFANTRY_33_3_NAME type = management difficulty = 7 }
+    # Advanced Stock and Storage
+    component = { id = 1334 name = TECH_CMP_INFANTRY_33_4_NAME type = general_equipment difficulty = 7 }
+    # Tactical refuel and replenishment
+    component = { id = 1335 name = TECH_CMP_INFANTRY_33_5_NAME type = rt_user_17 difficulty = 7 }
+    required  = { 1320 }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+	  command = { type = new_model which = engineer value = 2 }
+      command = { type = scrap_model which = engineer value = 1 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #new
+	  command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Improved Frontline Supply Service
+  application =
+  { id        = 1620
+    name      = TECH_APP_INFANTRY_62_NAME
+    desc      = TECH_APP_INFANTRY_62_DESC
+    position  = { x = 328 y = 347 }
+    year      = 1946
+    # ?
+    component = { id = 1621 name = TECH_CMP_INFANTRY_62_1_NAME type = decentralized_execution difficulty = 7 }
+    # ?
+    component = { id = 1622 name = TECH_CMP_INFANTRY_62_2_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1623 name = TECH_CMP_INFANTRY_62_3_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1624 name = TECH_CMP_INFANTRY_62_4_NAME type = general_equipment difficulty = 7 }
+    # ?
+    component = { id = 1625 name = TECH_CMP_INFANTRY_62_5_NAME type = rt_user_17 difficulty = 7 }
+    required  = { 1330 }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+      command = { type = new_model which = engineer value = 3 }
+      command = { type = scrap_model which = engineer value = 2 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #new
+	  command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  # Advanced logistics
+  application =
+  { id        = 1630
+    name      = TECH_APP_INFANTRY_63_NAME
+    desc      = TECH_APP_INFANTRY_63_DESC
+    position  = { x = 328 y = 381 }
+    year      = 1950
+    # ?
+    component = { id = 1631 name = TECH_CMP_INFANTRY_63_1_NAME type = decentralized_execution difficulty = 7 }
+    # ?
+    component = { id = 1632 name = TECH_CMP_INFANTRY_63_2_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1633 name = TECH_CMP_INFANTRY_63_3_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1634 name = TECH_CMP_INFANTRY_63_4_NAME type = general_equipment difficulty = 7 }
+    # ?
+    component = { id = 1635 name = TECH_CMP_INFANTRY_63_5_NAME type = rt_user_17 difficulty = 7 }
+    required  = { 1620 }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+	  command = { type = new_model which = engineer value = 4 }
+      command = { type = scrap_model which = engineer value = 3 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #new
+	  command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  # Modern logistics
+  application =
+  { id        = 1670
+    name      = TECH_APP_INFANTRY_67_NAME
+    desc      = TECH_APP_INFANTRY_67_DESC
+    position  = { x = 328 y = 415 }
+    year      = 1954
+    # ?
+    component = { id = 1671 name = TECH_CMP_INFANTRY_67_1_NAME type = decentralized_execution difficulty = 7 }
+    # ?
+    component = { id = 1672 name = TECH_CMP_INFANTRY_67_2_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1673 name = TECH_CMP_INFANTRY_67_3_NAME type = management difficulty = 7 }
+    # ?
+    component = { id = 1674 name = TECH_CMP_INFANTRY_67_4_NAME type = general_equipment difficulty = 7 }
+    # ?
+    component = { id = 1675 name = TECH_CMP_INFANTRY_67_5_NAME type = rt_user_17 difficulty = 7 }
+    required  = { 1630 }
+    effects =
+    { command = { type = tc_mod value = 10 }
+      command = { type = tc_occupied_mod value = 20 }
+      command = { type = attrition_mod value = 15 }
+#      command = { type = supply_dist_mod value = 10 }
+	  command = { type = new_model which = engineer value = 5 }
+      command = { type = scrap_model which = engineer value = 4 }
+	  command = { type = task_efficiency which = strat_redeploy value = 0.2 } #new
+	  command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  # Rear Area Vehicle Repair Shop
+  application =
+  { id        = 1340
+    name      = TECH_APP_INFANTRY_34_NAME
+    desc      = TECH_APP_INFANTRY_34_DESC
+    year      = 1937
+    position  = { x = 344 y = 262 }
+    # Bulky Tools
+    component = { id = 1341 name = TECH_CMP_INFANTRY_34_1_NAME type = mechanics difficulty = 5 }
+    # Standardized Repair Capacity
+    component = { id = 1342 name = TECH_CMP_INFANTRY_34_2_NAME type = mechanics difficulty = 5 }
+    # Basic Vehicle Repair
+    component = { id = 1343 name = TECH_CMP_INFANTRY_34_3_NAME type = technical_efficiency difficulty = 5 }
+    # Basic Gun Repair
+    component = { id = 1344 name = TECH_CMP_INFANTRY_34_4_NAME type = technical_efficiency difficulty = 5 }
+    # Worktask Requisition System 
+    component = { id = 1345 name = TECH_CMP_INFANTRY_34_5_NAME type = management difficulty = 5 }
+    required  = { 1310 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Deep Vehicle Repair Organization
+  application =
+  { id        = 1350
+    name      = TECH_APP_INFANTRY_35_NAME
+    desc      = TECH_APP_INFANTRY_35_DESC
+    position  = { x = 344 y = 296 }
+    year      = 1941
+    # Movable Tools
+    component = { id = 1351 name = TECH_CMP_INFANTRY_35_1_NAME type = mechanics difficulty = 6 }
+    # Unit-specific Repair Capacity
+    component = { id = 1352 name = TECH_CMP_INFANTRY_35_2_NAME type = mechanics difficulty = 6 }
+    # Improved Vehicle Repair
+    component = { id = 1353 name = TECH_CMP_INFANTRY_35_3_NAME type = technical_efficiency difficulty = 6 }
+    # Improved Gun Repair
+    component = { id = 1354 name = TECH_CMP_INFANTRY_35_4_NAME type = technical_efficiency difficulty = 6 }
+    # Worktask Prioritation System
+    component = { id = 1355 name = TECH_CMP_INFANTRY_35_5_NAME type = management difficulty = 6 }
+    required  = { 1320 1340 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Frontline Vehicle Repair Shop
+  application =
+  { id        = 1360
+    name      = TECH_APP_INFANTRY_36_NAME
+    desc      = TECH_APP_INFANTRY_36_DESC
+    year      = 1943
+    position  = { x = 344 y = 330 }
+    # Flexible Tools
+    component = { id = 1361 name = TECH_CMP_INFANTRY_36_1_NAME type = mechanics difficulty = 7 }
+    # Multitask Repair Capacity
+    component = { id = 1362 name = TECH_CMP_INFANTRY_36_2_NAME type = mechanics difficulty = 7 }
+    # Advanced Vehicle Repair
+    component = { id = 1363 name = TECH_CMP_INFANTRY_36_3_NAME type = technical_efficiency difficulty = 7 }
+    # Advanced Gun Repair
+    component = { id = 1364 name = TECH_CMP_INFANTRY_36_4_NAME type = technical_efficiency difficulty = 7 }
+    # Dynamic Damage Classification
+    component = { id = 1365 name = TECH_CMP_INFANTRY_36_5_NAME type = management difficulty = 7 }
+    required  = { 1330 1350 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 5 }
+	  command = { type = building_prod_mod which = naval_base value = 5 }
+    }
+  }
+  # Improved Frontline Vehicle Repair Shop
+  application =
+  { id        = 1650
+    name      = TECH_APP_INFANTRY_65_NAME
+    desc      = TECH_APP_INFANTRY_65_DESC
+    year      = 1947
+    position  = { x = 344 y = 364 }
+    # Flexible Tools
+    component = { id = 1651 name = TECH_CMP_INFANTRY_65_1_NAME type = mechanics difficulty = 7 }
+    # Multitask Repair Capacity
+    component = { id = 1652 name = TECH_CMP_INFANTRY_65_2_NAME type = mechanics difficulty = 7 }
+    # Advanced Vehicle Repair
+    component = { id = 1653 name = TECH_CMP_INFANTRY_65_3_NAME type = technical_efficiency difficulty = 7 }
+    # Advanced Gun Repair
+    component = { id = 1654 name = TECH_CMP_INFANTRY_65_4_NAME type = technical_efficiency difficulty = 7 }
+    # Dynamic Damage Classification
+    component = { id = 1655 name = TECH_CMP_INFANTRY_65_5_NAME type = management difficulty = 7 }
+    required  = { 1360 1620 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  # Advanced Frontline Vehicle Repair Shop
+  application =
+  { id        = 1660
+    name      = TECH_APP_INFANTRY_66_NAME
+    desc      = TECH_APP_INFANTRY_66_DESC
+    year      = 1951
+    position  = { x = 344 y = 398 }
+    # Flexible Tools
+    component = { id = 1661 name = TECH_CMP_INFANTRY_66_1_NAME type = mechanics difficulty = 7 }
+    # Multitask Repair Capacity
+    component = { id = 1662 name = TECH_CMP_INFANTRY_66_2_NAME type = mechanics difficulty = 7 }
+    # Advanced Vehicle Repair
+    component = { id = 1663 name = TECH_CMP_INFANTRY_66_3_NAME type = technical_efficiency difficulty = 7 }
+    # Advanced Gun Repair
+    component = { id = 1664 name = TECH_CMP_INFANTRY_66_4_NAME type = technical_efficiency difficulty = 7 }
+    # Dynamic Damage Classification
+    component = { id = 1665 name = TECH_CMP_INFANTRY_66_5_NAME type = management difficulty = 7 }
+    required  = { 1650 1630 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  # Modern Frontline Vehicle Repair Shop
+  application =
+  { id        = 1680
+    name      = TECH_APP_INFANTRY_68_NAME
+    desc      = TECH_APP_INFANTRY_68_DESC
+    year      = 1955
+    position  = { x = 344 y = 432 }
+    # Flexible Tools
+    component = { id = 1681 name = TECH_CMP_INFANTRY_68_1_NAME type = mechanics difficulty = 7 }
+    # Multitask Repair Capacity
+    component = { id = 1682 name = TECH_CMP_INFANTRY_68_2_NAME type = mechanics difficulty = 7 }
+    # Advanced Vehicle Repair
+    component = { id = 1683 name = TECH_CMP_INFANTRY_68_3_NAME type = technical_efficiency difficulty = 7 }
+    # Advanced Gun Repair
+    component = { id = 1684 name = TECH_CMP_INFANTRY_68_4_NAME type = technical_efficiency difficulty = 7 }
+    # Dynamic Damage Classification
+    component = { id = 1685 name = TECH_CMP_INFANTRY_68_5_NAME type = management difficulty = 7 }
+    required  = { 1660 1670 }
+    effects =
+    { command = { type = repair_mod value = 20 }
+      command = { type = building_prod_mod which = air_base value = 2.5 }
+	  command = { type = building_prod_mod which = naval_base value = 2.5 }
+    }
+  }
+  
+  
+# moved to aircraft tech
+#  # Rocket Test and Research Facility
+#  application =
+#  { id        = 5550
+#    name      = TECH_APP_INDUSTRY_55_NAME
+#    desc      = TECH_APP_INDUSTRY_55_DESC
+#    position  = { x = 24 y = 260 }
+#    year      = 1936
+#    # Wind Tunnels
+#    component = { id = 5551 name = TECH_CMP_INDUSTRY_55_1_NAME type = aeronautics difficulty = 7 }
+#    # Test Range
+#    component = { id = 5552 name = TECH_CMP_INDUSTRY_55_2_NAME type = rocketry difficulty = 7 }
+#    # Telemetrics Station
+#    component = { id = 5553 name = TECH_CMP_INDUSTRY_55_3_NAME type = rocketry difficulty = 7 }
+#    # Rocket Fuels
+#    component = { id = 5554 name = TECH_CMP_INDUSTRY_55_4_NAME type = chemistry difficulty = 7 }
+#    # Basic Rocket Flight Tests
+#    component = { id = 5555 name = TECH_CMP_INDUSTRY_55_5_NAME type = management difficulty = 7 double_time = yes }
+#    effects =
+#    { command = { type = allow_building which = rocket_test }
+#    }
+#  }
+#  # Rocket Engine
+#  application =
+#  { id        = 5560
+#    name      = TECH_APP_INDUSTRY_56_NAME
+#    desc      = TECH_APP_INDUSTRY_56_DESC
+#    position  = { x = 24 y = 280 }
+#    year      = 1939
+#    # Chamber
+#    component = { id = 5561 name = TECH_CMP_INDUSTRY_56_1_NAME type = rocketry difficulty = 8 }
+#    # Diffuser
+#    component = { id = 5562 name = TECH_CMP_INDUSTRY_56_2_NAME type = rocketry difficulty = 8 }
+#    # Nozzle
+#    component = { id = 5563 name = TECH_CMP_INDUSTRY_56_3_NAME type = rocketry difficulty = 8 }
+#    # Fuel injector
+#    component = { id = 5564 name = TECH_CMP_INDUSTRY_56_4_NAME type = rocketry difficulty = 8 }
+#    # Burner
+#    component = { id = 5565 name = TECH_CMP_INDUSTRY_56_5_NAME type = rocketry difficulty = 8 }
+#    required  = { 5550 }
+#    effects =
+#    { command = { type = info_may_cause which = 7100 }
+#      command = { type = info_may_cause which = 7260 }
+#      command = { type = info_may_cause which = 7270 }
+#    }
+#  }
+#  # Turbojet Engine
+#  application =
+#  { id        = 5570
+#    name      = TECH_APP_INDUSTRY_57_NAME
+#    desc      = TECH_APP_INDUSTRY_57_DESC
+#    position  = { x = 40 y = 300 }
+#    year      = 1939
+#    # Compressor
+#    component = { id = 5571 name = TECH_CMP_INDUSTRY_57_1_NAME type = rocketry difficulty = 8 }
+#    # Fan
+#    component = { id = 5572 name = TECH_CMP_INDUSTRY_57_2_NAME type = rocketry difficulty = 8 }
+#    # Air intake
+#    component = { id = 5573 name = TECH_CMP_INDUSTRY_57_3_NAME type = rocketry difficulty = 8 }
+#    # Fuel injector
+#    component = { id = 5574 name = TECH_CMP_INDUSTRY_57_4_NAME type = rocketry difficulty = 8 }
+#    # Burner
+#    component = { id = 5575 name = TECH_CMP_INDUSTRY_57_5_NAME type = rocketry difficulty = 8 }
+#    required  = { 5560 }
+#    effects =
+#    { command = { type = info_may_cause which = 7010 }
+#      command = { type = info_may_cause which = 7030 }
+#      command = { type = info_may_cause which = 7080 }
+#      command = { type = info_may_cause which = 7400 }
+#    }
+#  }
+#  # Flying Bomb Development
+#  application =
+#  { id        = 5580
+#    name      = TECH_APP_INDUSTRY_58_NAME
+#    desc      = TECH_APP_INDUSTRY_58_DESC
+#    position  = { x = 40 y = 320 }
+#    year      = 1943
+#    # Solid Fuel Rocket Engine
+#    component = { id = 5581 name = TECH_CMP_INDUSTRY_58_1_NAME type = rocketry difficulty = 6 }
+#    # Gyroscope Autopilot
+#    component = { id = 5582 name = TECH_CMP_INDUSTRY_58_2_NAME type = rocketry difficulty = 6 }
+#    # Launch Catapult
+#    component = { id = 5583 name = TECH_CMP_INDUSTRY_58_3_NAME type = rocketry difficulty = 6 }
+#    # Modified Steering Fens
+#    component = { id = 5584 name = TECH_CMP_INDUSTRY_58_4_NAME type = rocketry difficulty = 6 }
+#    # Trajectory Test Flights
+#    component = { id = 5585 name = TECH_CMP_INDUSTRY_58_5_NAME type = management difficulty = 6 double_time = yes }
+#    required  = { 5560 }
+#    effects =
+#    { command = { type = info_may_cause which = 7100 }
+#    }
+#  }
+#  # Flying Rocket Development
+#  application =
+#  { id        = 5590
+#    name      = TECH_APP_INDUSTRY_59_NAME
+#    desc      = TECH_APP_INDUSTRY_59_DESC
+#    position  = { x = 40 y = 340 }
+#    year      = 1943
+#    # Liquid Fuel Rocket Engine
+#    component = { id = 5591 name = TECH_CMP_INDUSTRY_59_1_NAME type = rocketry difficulty = 7 }
+#    # Advanced Gyroscope Autopilot
+#    component = { id = 5592 name = TECH_CMP_INDUSTRY_59_2_NAME type = rocketry difficulty = 7 }
+#    # Mobile Launch Sites
+#    component = { id = 5593 name = TECH_CMP_INDUSTRY_59_3_NAME type = rocketry difficulty = 7 }
+#    # Reinforced Ribs
+#    component = { id = 5594 name = TECH_CMP_INDUSTRY_59_4_NAME type = rocketry difficulty = 7 }
+#    # Trajectory Test Flights
+#    component = { id = 5595 name = TECH_CMP_INDUSTRY_59_5_NAME type = management difficulty = 7 double_time = yes }
+#    required  = { 5580 }
+#    effects =
+#    { command = { type = info_may_cause which = 7110 }
+#    }
+#  }
+#
+}

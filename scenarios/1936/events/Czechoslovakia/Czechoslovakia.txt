@@ -1,0 +1,490 @@
+# converted to DH
+# Last Update 18-JAN-2006
+#########################
+
+#########################################################################
+# 3127000 - 3127999	Czechoslovakia events
+#########################################################################
+
+#########################################################################
+#  The Treaty of Munich
+#########################################################################
+event = { 
+	id = 2200 # Referenced in AI files
+	random = no
+	country = CZE
+	
+	# triggered by GER 2030
+	
+	name = EVT_2200_NAME # The Treaty of Munich
+	desc = EVT_2200_DESC
+	style = 0
+	picture = "Munich"
+	
+	action_a = {
+		name = ACTIONNAME2200A # Accept the Claims
+		ai_chance = 100
+		command = { type = leave_alliance }
+		command = { type = secedeprovince which = GER value = 204 } # Strakonice
+		command = { type = secedeprovince which = GER value = 197 } # Tabor
+		command = { type = secedeprovince which = GER value = 205 } # Usti
+		command = { type = secedeprovince which = GER value = 200 } # Liberec
+		command = { type = secedeprovince which = GER value = 206 } # Opava
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 25 }
+		command = { type = trigger which = 3136008 } # GER
+	}
+	action_b = {
+		name = ACTIONNAME2200B # No way!
+		ai_chance = 0
+		command = { type = leave_alliance }
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = SOV value = 30 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = dissent value = 25 }
+		command = { type = trigger which = 2005 } # GER
+	}
+}
+#########################################################################
+#  The End of Czechoslovakia - Slovakia Independent
+#########################################################################
+event = { 
+	id = 3127001
+	random = no
+	country = CZE
+	
+	# Triggered by GER 2040
+	
+	name = EVT_3127001_NAME # The End of Czechoslovakia - Slovakia Independent
+	desc = EVT_3127001_DESC
+	style = 0
+	picture = "End_Czech"
+	
+	action_a = {
+		name = ACTIONNAME3127001A # Accept the inevitable
+		ai_chance = 100
+#		command = { type = switch_allegiance which = -1 where = GER }
+#		command = { type = switch_allegiance which = -1 where = GER }
+		command = { type = leave_alliance }
+		command = { type = demobilize which = land when = 1 where = 0 value = 15 } # disbands all land units but 15 and returns MP to the pool
+		command = { type = removecore which = 208 } # Slovakia
+		command = { type = removecore which = 209 }
+		command = { type = removecore which = 210 }
+		command = { type = removecore which = 211 }
+		command = { type = removecore which = 212 }
+		command = { type = removecore which = 213 }
+		command = { type = removecore which = 214 }
+		command = { type = removecore which = 215 }
+		command = { type = independence which = SLO value = 1 }
+		command = { type = trigger which = 3136013 } # GER
+		command = { type = secedeprovince which = HUN value = 213 } # Chust
+		command = { type = secedeprovince which = HUN value = 215 } # Uzhorod
+	}
+	action_b = {
+		name = ACTIONNAME3127001B # Fight!
+		ai_chance = 0
+		command = { type = leave_alliance }
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = SOV value = 25 }
+		command = { type = dissent value = 30 }
+		command = { type = trigger which = 3136014 } # GER
+	}
+}
+#########################################################################
+#  The End of Czechoslovakia - Partitioning
+#########################################################################
+#event = { 
+#	id = 3127002
+#	random = no
+#	country = CZE
+#	
+#	# Triggered by GER 2040
+#
+#	name = EVT_3127002_NAME # The End of Czechoslovakia - Partitioning
+#	desc = EVT_3127002_DESC
+#	style = 0
+#	picture = "CZE_Partition"
+#		
+#	action_a = {
+#		name = ACTIONNAME3127002A # Accept the inevitable
+#		command = { type = leave_alliance }
+#		command = { type = secedeprovince which = HUN value = 213 } # Chust
+#		command = { type = secedeprovince which = HUN value = 208 } # Bratislava
+#		command = { type = secedeprovince which = HUN value = 210 } # Komarno
+#		command = { type = secedeprovince which = HUN value = 211 } # Banska
+#		command = { type = secedeprovince which = HUN value = 212 } # Zilina
+#		command = { type = secedeprovince which = HUN value = 209 } # Kosice
+#		command = { type = secedeprovince which = HUN value = 214 } # Presov
+#		command = { type = secedeprovince which = HUN value = 215 } # Uzhorod
+#		command = { type = trigger which = 3136011 } # GER
+#		command = { type = trigger which = 3141001 } # HUN
+#	}
+#	action_b = {
+#		name = ACTIONNAME3127002B # Fight!
+#		command = { type = leave_alliance }
+#		command = { type = relation which = GER value = -50 }
+#		command = { type = relation which = HUN value = -25 }
+#		command = { type = relation which = SOV value = 20 }
+#		command = { type = domestic which = political_left value = 2 }
+#		command = { type = dissent value = 10 }
+#		command = { type = trigger which = 3136012 } # GER
+#		command = { type = trigger which = 3141002 } # HUN
+#	}
+#}
+#########################################################################
+#  The End of Czechoslovakia - Slovakia Independent - no Hungary (was 2203)
+#########################################################################
+event = { 
+	id = 3127003
+	random = no
+	country = CZE
+	
+	# Triggered by GER 3136015
+
+	name = EVT_3127003_NAME # The End of Czechoslovakia - Slovakia Independent
+	desc = EVT_3127003_DESC
+	style = 0
+		
+	action_a = {
+		name = ACTIONNAME3127003A # Accept the inevitable
+		#command = { type = secedeprovince which = HUN value = 213 } # Chust
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = independence which = SLO value = 0 }
+		command = { type = trigger which = 3136016 } # GER
+		command = { type = trigger which = 3127004 }
+	}
+	action_b = {
+		name = ACTIONNAME3127003B # Fight!
+		command = { type = dissent value = 30 }
+		command = { type = trigger which = 3136014 } # GER
+	}
+}
+event = { 
+	id = 3127004
+	random = no
+	country = CZE
+	
+	# Triggered by CZE 3127003
+
+	name = EVT_3127004_NAME # The End of Czechoslovakia - Slovakia Independent
+	desc = EVT_3127004_DESC
+	style = 0
+		
+	action_a = {
+		name = ACTIONNAME3127004A # Accept the inevitable
+		#command = { type = secedeprovince which = SLO value = 213 } # Chust
+		command = { type = secedeprovince which = SLO value = 215 } # Uzhorod
+	}
+}
+event = {
+	id = 3127005
+	random = no
+	country = CZE
+	
+	name = EVT_3127005_NAME # Secede Presov to USSR
+	desc = EVT_3127005_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3127005A # Ok
+		command = { type = secedeprovince which = SOV value = 213 } # Chust
+		command = { type = secedeprovince which = SOV value = 215 } # Uzhorod
+		command = { type = removecore which = 499 }
+	}
+}
+########################################################## 
+# End of Little Entente
+########################################################## 
+event = { 
+	id = 3127006
+	random = no
+	country = CZE
+	
+	trigger = { 
+		OR = {
+			NOT = { alliance = { country = CZE country = ROM } }
+			NOT = { alliance = { country = CZE country = YUG } }
+			event = 3136008 # The Treaty of Munich - Sudetenland to Germany
+			}
+	}
+       
+	name = EVT_3127006_NAME # End of Little Entente
+	desc = EVT_3127006_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3127006A # End the Alliance
+		command = { type = leave_alliance }
+		command = { type = end_non_aggression which = CZE where = HUN }
+	}
+}
+#########################################################################
+# German Early War
+#########################################################################
+event = { 
+	id = 3127007
+	random = no
+	country = CZE
+	
+	trigger = { 
+		ai = yes
+		NOT = { war = { country = CZE country = ENG } }
+		NOT = { alliance = { country = CZE country = ENG } }
+		OR = {
+			control = { province = 9 data = GER } # British beaches
+			control = { province = 12 data = GER }
+			control = { province = 25 data = GER }
+			control = { province = 26 data = GER }
+			control = { province = 27 data = GER }
+			control = { province = 23 data = GER }
+			control = { province = 22 data = GER }
+			control = { province = 17 data = GER }
+			control = { province = 11 data = GER }
+			control = { province = 36 data = GER }
+		}
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = august year = 1939 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = alliance which = ENG }
+	}
+}
+#########################################################################
+# Resignation of Benes
+#########################################################################
+event = {
+	id = 3127008
+	random = no
+	country = CZE
+	
+	trigger = { event = 3136008 # Sudetenland to Germany 
+	}
+	
+	name = EVT_3127008_NAME
+	desc = EVT_3127008_DESC
+	style = 0
+
+	date = { day = 4 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = october year = 1938 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofstate which = 24034 } # Jan Syrovy
+	}
+}
+#########################################################################
+# Hacha New President
+#########################################################################
+event = {
+	id = 3127009
+	random = no
+	country = CZE
+	
+	trigger = { event = 3127008 # Resignation of Benes 
+	}
+	
+	name = EVT_3127009_NAME
+	desc = EVT_3127009_DESC
+	style = 0
+
+	date = { day = 29 month = november year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofstate which = 24031 } # Emil Hácha
+		command = { type = headofgovernment which = 24046 } # Rudolf Beran
+	}
+}
+#########################################################################
+# Resignation of Hodza
+#########################################################################
+event = {
+	id = 3127010
+	random = no
+	country = CZE
+	
+	trigger = {
+		headofgovernment = 24002 # Milan Hodza
+		NOT = { war = { country = GER country = CZE } }
+	}
+	
+	name = EVT_3127010_NAME
+	desc = EVT_3127010_DESC
+	style = 0
+
+	date = { day = 22 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1938 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 24045 } # Jan Syrovy
+	}
+}
+#########################################################################
+# First Vienna Award
+#########################################################################
+event = {
+	id = 3127011
+	random = no
+	country = CZE
+	
+	trigger = {
+		event = 3136008 #Treaty of Munich accepted
+		atwar = no
+	}
+	
+	name = EVT_3127011_NAME 
+	desc = EVT_3127011_DESC 
+	style = 0
+
+	date = { day = 3 month = november year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3127011A # We've got no choice!
+		command = { type = dissent value = 5 }
+		command = { type = secedeprovince which = HUN value = 209 } # Kosice
+		command = { type = secedeprovince which = HUN value = 210 } # Komarno
+		command = { type = secedeprovince which = HUN value = 215 } # Uzhorod
+		command = { type = trigger which = 3141021 } #HUN
+	}
+}
+#########################################################################
+# Poland occupies Tesin
+#########################################################################
+event = {
+	id = 3127012
+	random = no
+	country = CZE
+	
+	trigger = {
+		event = 3136008 #Treaty of Munich accepted
+		atwar = no
+	}
+	
+	name = EVT_3127012_NAME 
+	desc = EVT_3127012_DESC 
+	style = 0
+
+	date = { day = 29 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1939 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = 1 }
+		command = { type = secedeprovince which = POL value = 203 } # Tesin
+		command = { type = trigger which = 3165004 } #POL
+	}
+}
+#########################################################################
+# Was 652011 - (CZE) Agrarian Party and SdP unite! (by Burris)
+#########################################################################
+event = { 
+	id = 7000001
+	random = no
+	country = CZE
+
+	trigger = {
+		control = { province = 204 data = CZE }
+		control = { province = 197 data = CZE }
+		control = { province = 205 data = CZE }
+		control = { province = 200 data = CZE }
+		control = { province = 201 data = CZE }
+		control = { province = 203 data = CZE }
+		control = { province = 206 data = CZE }
+		event = 3136006 # Anschluss
+		NOT = { war = { country = GER country = CZE } }
+	}
+
+	name = EVT_7000001_NAME # Sudetenland's Agrarian Party and SdP
+	desc = EVT_7000001_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1938 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME7000001A # This is not a good sign..
+		command = { type = dissent value = 2 }
+	}
+}
+
+#########################################################################
+# Was 652012 - (CZE) Slovaks demand Alliance (by Burris)
+#########################################################################
+event = { 
+	id = 7000002
+	random = no
+	country = CZE
+
+	trigger = {
+		random = 30
+		NOT = { atwar = CZE }
+	}
+
+	name = EVT_7000002_NAME # Slovak Nationalists demand alliance
+	desc = EVT_7000002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME7000002A # They must be joking!
+		command = { }
+	}
+}
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 7000003
+	random = no
+	country = CZE
+
+	# triggered by 3182091
+
+	name = EVT_7000003_NAME
+	desc = EVT_7000003_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7000003A # Ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}

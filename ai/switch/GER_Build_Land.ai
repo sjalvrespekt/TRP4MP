@@ -1,0 +1,54 @@
+# German Build Standard AI file by Lothos adapted to TRP
+# checked for DH
+###################################
+# Construction and Tech Research
+###################################
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 720 
+	max_batch_war 		= 360 
+	max_batch_home_front 	= 360
+
+	#### Divisions etc...
+	infantry 	= 42
+	d_02		= 4 # will transmute into garrisons as long as no territory has been lost
+	cavalry 	= 0
+	motorized 	= 8
+	mechanized 	= 6
+	light_armor 	= 0
+	armor 		= 10
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 3
+	garrison	= 0
+    hq 			= 4
+	militia 	= 0
+#				77 %
+	interceptor 	= 5
+	multi_role 	= 2
+	d_01		= 1
+	cas 		= 7
+	strategic_bomber = 0
+	tactical_bomber = 5
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 3
+	flying_rocket 	= 0
+#				23 %
+	battleship 	= 0
+	carrier 	= 0
+	light_carrier	= 0
+	escort_carrier	= 0
+	destroyer 	= 0
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 0
+#				0 %
+
+}

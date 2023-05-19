@@ -1,0 +1,129 @@
+# Event IDs - 3141200 - ...
+# file by Gerrit
+#########################################################################
+# Hungary bought german weapons 1
+#########################################################################
+event = { 
+	id = 3141200
+	random = no
+	country = HUN
+
+	decision = {
+	    ai      = no
+		year    = 1942
+		atwar   = yes
+	}
+
+	decision_trigger = { atwar = yes }
+
+	trigger = { 
+		exists   = GER
+		atwar    = yes
+		alliance = { country = HUN country = GER }
+		NOT = {
+			OR = {
+			alliance = { country = HUN country = SOV }
+			alliance = { country = HUN country = ENG }
+		    }
+		}
+		war = { country = HUN  country = SOV }
+		war = { country = GER  country = SOV }
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+	}
+
+	name = EVT_3141200_NAME
+	desc = EVT_3141200_DESC
+	style = 2
+	picture          = "hun_decision_armored_div_pic2"
+	decision_picture = "hun_decision_armored_div_pic1"
+
+	date = { day = 0 month = march year = 1942 }
+	offset = 30
+	deathdate = { day = 1 month = march year = 1945 }
+
+	action_a = { 
+		name      = ACTIONNAME3141200A #
+		ai_chance = 100
+		command = { trigger = { ai = no }    type  = money    value = -50  } 
+		command = { trigger = { ai = no }    type  = supplies value = -500 }
+		command = { type = sleepteam         which = 1602 }
+		command = { type = waketeam          which = 1627 }
+		command = { type = activate_division which = 20500 value = 101 where = 284 when = 0 } 
+		command = { type = gain_tech         which = 2020 } #PzDiv 38'
+		command = { type = gain_tech         which = 2030 } #PzDiv 40'
+		command = { type = gain_tech         which = 2650 } #Pz 38'
+		command = { type = gain_tech         which = 2660 } #Pz 39'
+		command = { type = gain_tech         which = 2670 } #Pz 40'
+		command = { type = relation          which = GER value = 10 }
+	}
+	
+	action_b = { 
+		name      = ACTIONNAME3141200B #
+		ai_chance = 0
+		command   = { type = sleepevent which = 3141201 } 
+		command   = { type = relation   which = GER value = -25 }
+	}
+}
+#########################################################################
+# Hungary bought german weapons 2
+#########################################################################
+event = { 
+	id = 3141201
+	random = no
+	country = HUN
+
+	decision = {
+	    ai      = no
+		year    = 1944
+		atwar   = yes
+	}
+
+	decision_trigger = { atwar = yes }
+
+	trigger = { 
+		exists   = GER
+		atwar    = yes
+		alliance = { country = HUN country = GER }
+		NOT = {
+			OR = {
+			alliance = { country = HUN country = SOV }
+			alliance = { country = HUN country = ENG }
+		    }
+		}
+		war = { country = HUN  country = SOV }
+		war = { country = GER  country = SOV }
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		event    = 3141200 #
+	}
+
+	name = EVT_3141201_NAME
+	desc = EVT_3141201_DESC
+	style = 2
+	picture          = "hun_decision_armored_div_pic3"
+	decision_picture = "hun_decision_armored_div_pic1"
+
+	date = { day = 0 month = march year = 1944 }
+	offset = 30
+	deathdate = { day = 1 month = march year = 1945 }
+
+	action_a = { 
+		name      = ACTIONNAME3141200A #
+		ai_chance = 100
+		command = { trigger = { ai = no }    type  = money    value = -50  } 
+		command = { trigger = { ai = no }    type  = supplies value = -500 }
+		command = { type = activate_division which = 20500 value = 102 where = 284 when = 0 } 
+		command = { type = gain_tech         which = 2040 } #PzDiv 42'
+		command = { type = gain_tech         which = 2050 } #PzDiv 43'
+		command = { type = gain_tech         which = 2680 } #Pz 41'
+		command = { type = gain_tech         which = 2690 } #Pz 42'
+		command = { type = relation          which = GER value = 10 }
+	}
+	
+	action_b = { 
+		name      = ACTIONNAME3141200B #
+		ai_chance = 0
+		command   = { type = sleepevent which = 3141201 } 
+		command   = { type = relation   which = GER value = -25 }
+	}
+}
+#########################################################################

@@ -1,0 +1,273 @@
+allowed_brigades = naval_anti_air_s
+#allowed_brigades = naval_improved_hull_s
+allowed_brigades = naval_radar_s
+max_allowed_brigades = 2
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# remark: -50% costs per ton for CVEs because of their non-combat-vessel construction standards!
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB, BC, CA, CL, DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB, BC, CA, CL, DD
+#sea attack/2 for carriers/CAG
+
+# 0 - CVE 1920 (7000 to)
+model = {
+	cost				= 0.92
+	buildtime 			= 540 #350
+	defaultorganisation 		= 20 # was 30
+	morale				= 30
+	manpower			= 0.15
+	maxspeed			= 16
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 6 #10
+	visibility			= 3.5
+	seadefence			= 1
+	airdefence			= 2
+	seaattack			= 3
+	convoyattack			= 1
+	subattack			= 8 #4
+	airattack			= 7
+	shorebombardment		= 1
+	transportcapability		= 0
+	range				= 3000 # 2500
+	supplyconsumption		= 0.275
+	fuelconsumption			= 0.7
+	distance			= 0.8
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 150 escort_carrier = 1 }
+}
+# 1 - CVE 1925 (9000 to)
+model = {
+	cost				= 1.18
+	buildtime 			= 540 #350
+	defaultorganisation 		= 28
+	morale				= 38
+	manpower			= 0.3
+	maxspeed			= 17
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 6 #10
+	visibility			= 4.5
+	seadefence			= 1
+	airdefence			= 3
+	seaattack			= 4
+	convoyattack			= 2
+	subattack			= 8 #10 #5
+	airattack			= 8
+	shorebombardment		= 1
+	transportcapability		= 0
+	range				= 3500 # 2500
+	supplyconsumption		= 0.5003
+	fuelconsumption			= 0.9
+	distance			= 0.9
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 300 escort_carrier = 1 }
+}
+# 2 - CVE 1930 (13000 to)
+model = {
+	cost				= 1.7
+	buildtime 			= 540 #350
+	defaultorganisation 		= 36
+	morale				= 46
+	manpower			= 0.7
+	maxspeed			= 18
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 5
+	subdetectioncapability		= 7 #10
+	visibility			= 6.5
+	seadefence			= 1
+	airdefence			= 4
+	seaattack			= 5
+	convoyattack			= 2
+	subattack			= 9 #12 #6
+	airattack			= 9
+	shorebombardment		= 2
+	transportcapability		= 0
+	range				= 4000 # 2500
+	supplyconsumption		= 0.51
+	fuelconsumption			= 1.3
+	distance			= 1.0
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 700 escort_carrier = 1 }
+}
+# 3 - CVE 1937 (13000 to)
+model = {
+	cost				= 1.7
+	buildtime 			= 540 #400
+	defaultorganisation 		= 44
+	morale				= 54
+	manpower			= 0.8
+	maxspeed			= 18 #22
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	subdetectioncapability		= 7 #10
+	visibility			= 6.5
+	seadefence			= 2
+	airdefence			= 6
+	seaattack			= 5
+	convoyattack			= 2
+	subattack			= 10 #16 #8
+	airattack			= 11
+	shorebombardment		= 2
+	transportcapability		= 0
+	range				= 4800 # 3000
+	supplyconsumption		= 0.51
+	fuelconsumption			= 1.3
+	distance			= 1.0
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 800 escort_carrier = 1 }
+}
+# 4 - CVE 1939 (14000 to)
+model = {
+	cost				= 1.83
+	buildtime 			= 540 #420
+	defaultorganisation 		= 52
+	morale				= 62
+	manpower			= 1
+	maxspeed			= 19 #28
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	subdetectioncapability		= 8 #10
+	visibility			= 7
+	seadefence			= 2
+	airdefence			= 9
+	seaattack			= 6
+	convoyattack			= 3
+	subattack			= 12 #20 #10
+	airattack			= 14
+	shorebombardment		= 2 
+	transportcapability		= 0
+	range				= 5600 # 3500
+	supplyconsumption		= 0.549
+	fuelconsumption			= 1.4
+	distance			= 1.1
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1000 escort_carrier = 1 }
+}
+# 4 - CVE 1941 (15000 to)
+model = {
+	cost				= 1.96
+	buildtime 			= 540
+	defaultorganisation 		= 60
+	morale				= 70
+	manpower			= 1
+	maxspeed			= 19
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	subdetectioncapability		= 8 #10
+	visibility			= 7.5
+	seadefence			= 2
+	airdefence			= 10
+	seaattack			= 7
+	convoyattack			= 3
+	subattack			= 13
+	airattack			= 15
+	shorebombardment		= 2 
+	transportcapability		= 0
+	range				= 6000
+	supplyconsumption		= 0.588
+	fuelconsumption			= 1.5
+	distance			= 1.1
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1000 escort_carrier = 1 }
+}
+# 6 - CVE 1943 (17000 to)
+model = {
+	cost				= 2.23
+	buildtime 			= 540 #420
+	defaultorganisation 		= 68
+	morale				= 78
+	manpower			= 1
+	maxspeed			= 20
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	subdetectioncapability		= 9 #10
+	visibility			= 8.5
+	seadefence			= 2
+	airdefence			= 12
+	seaattack			= 8
+	convoyattack			= 4
+	subattack			= 15 #24 #12
+	airattack			= 17
+	shorebombardment		= 3 
+	transportcapability		= 0
+	range				= 6400 # 4000
+	supplyconsumption		= 0.668
+	fuelconsumption			= 1.7
+	distance			= 1.1
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1000 escort_carrier = 1 }
+}
+# 7 - CVE 1955 / Landing Platform Helicopter LPH (18000 to)
+model = {
+	cost				= 2.36
+	buildtime 			= 540 #450
+	defaultorganisation 		= 76
+	morale				= 86
+	manpower			= 1.5
+	maxspeed			= 26
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	subdetectioncapability		= 11 #10
+	visibility			= 9
+	seadefence			= 3
+	airdefence			= 27
+	seaattack			= 9
+	convoyattack			= 4
+	subattack			= 18 #30 #15
+	airattack			= 25
+	shorebombardment		= 3 
+	transportcapability		= 0
+	range				= 6400 # 4000
+	supplyconsumption		= 0.71
+	fuelconsumption			= 1.8
+	distance			= 1.2
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1500 escort_carrier = 1 }
+}
+# 8 - CVE 1960 / Landing Platform Helicopter LPH II (18000 to)
+model = {
+	cost				= 2.36
+	buildtime 			= 540 #450
+	defaultorganisation 		= 84
+	morale				= 94
+	manpower			= 1.5
+	maxspeed			= 28
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	subdetectioncapability		= 12
+	visibility			= 9
+	seadefence			= 3
+	airdefence			= 27
+	seaattack			= 11
+	convoyattack			= 5
+	subattack			= 20
+	airattack			= 22
+	shorebombardment		= 4 
+	transportcapability		= 0
+	range				= 68
+	supplyconsumption		= 0.71
+	fuelconsumption			= 1.8
+	distance			= 1.2
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1500 escort_carrier = 1 }
+}

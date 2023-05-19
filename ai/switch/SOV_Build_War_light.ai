@@ -1,0 +1,109 @@
+# Soviet war build AI file by Lothos adapted to TRP 
+# new file event id 25003
+# checked for DH
+###################################
+# Construction and Tech Research
+###################################
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 300 
+	max_batch_home_front 	= 280
+
+	#### Divisions etc...
+	infantry 	= 10
+	d_02		= 55
+	militia 	= 0	
+	cavalry 	= 5
+	motorized 	= 4
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 12
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 4
+	garrison	= 0
+    	hq 		= 3
+
+#				93 %
+	interceptor 	= 3
+	multi_role 	= 0
+	cas 		= 3
+	strategic_bomber = 0
+	tactical_bomber = 1
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				7 %
+	battleship 	= 0
+	carrier 	= 0
+	escort_carrier	= 0
+	destroyer 	= 0
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 0
+#				0 %
+
+###################################################################################################################################
+# Brigade building scheme for medium sized or mass assault countries
+# note: numbers don't have to add up to 100%; building probability is path-dependent, i.e. the engine checks this list top-down
+# probabilities and complementary probabilities multiply along this path; brigades not buildable are left aside
+#
+# desired brigade coverage: 65% (non-armored) / 90% (motorized) / 90% (armored) [cheap mass army, but well equipped elite units]
+###################################################################################################################################
+artillery				=	20 # 20% eff. (n.ar.)
+sp_artillery			=	23 # 23% eff. (mot.) & 23% eff. (ar.)
+rocket_artillery		=	11 # 9% eff. (n.ar.)
+sp_rct_artillery		=	15 # 11.5% eff (mot.) & 11.5% eff. (ar.)
+anti_tank				=	14 # 10% eff. (n.ar.)
+tank_destroyer			=	30 # 20% eff. (mot.) & 20% eff. (ar.)
+light_armor_brigade		=	8 # 5% eff. (n.ar.) & 3.5% eff. (mot.)
+heavy_armor				=	54 # 25% eff. (ar.)
+super_heavy_armor		=	47 # 10% eff. (ar.)
+armored_car				=	4 # 2% eff. (n.ar.) & 1.5% eff. (mot.)
+anti_air				=	19 # 10% eff. (n.ar.)
+police					=	11 # 5% eff. (n.ar.) & 4.5% eff. (mot.)
+engineer				=	10 # 5% eff. (n.ar.) & 3.5% eff. (mot.) & 1% eff. (ar.)
+sp_anti_air				=	46 # 15% eff. (mot.) & 5% eff. (ar.)
+						# n.ar.: 66%
+						# mot.: 82.5%
+						# ar.: 95.5%
+
+#	#### Brigades
+#	artillery 		= 16
+#	sp_artillery 		= 5
+#	rocket_artillery	= 4 
+#	sp_rct_artillery 	= 4
+#	anti_tank 		= 10
+#	tank_destroyer 		= 10
+#	light_armor_brigade = 15
+#	heavy_armor 		= 8
+#	super_heavy_armor 	= 0
+#	armored_car 		= 0
+#	anti_air 		= 6
+#	sp_anti_air		= 2
+#	police 			= 0
+#	engineer 		= 5 
+
+	cag = 100.000 
+	 light_cag = 100.000 
+	 escort = 100.000
+
+    naval_asw			= 2
+    naval_anti_air_s	= 12
+    naval_radar_s		= 9
+    naval_fire_controll_s = 9
+    naval_improved_hull_s = 9
+    naval_torpedoes_s	= 12
+    naval_anti_air_l	= 9
+    naval_radar_l		= 9
+    naval_fire_controll_l = 9
+    naval_improved_hull_l = 9
+    naval_torpedoes_l	= 11
+}

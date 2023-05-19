@@ -1,0 +1,374 @@
+# checked for DH
+####################################
+# Poland AI events 36900 - 36999 by Lothos
+####################################
+################
+# Minister of Security Section 36900 - 36909
+#############################################
+event = { # Witold Grabowski takes power
+	id = 36900
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 13103 # Witold Grabowski
+		NOT = { InCabinet = 13103 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 13103 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Adam Rose takes power
+	id = 36901
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 13090 # Adam Rose
+		NOT = { InCabinet = 13090 }
+		NOT = { minister = 13103 } # Witold Grabowski
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 13090 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 36910 - 36919
+#############################################
+event = { # Waclaw Stachiewicz takes power
+	id = 36910
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 13115 # Waclaw Stachiewicz
+		NOT = { InCabinet = 13115 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 13115 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Wladyslaw Moczar takes power
+	id = 36911
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 13017 # Wladyslaw Moczar
+		NOT = { InCabinet = 13017 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 13017 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 36920 - 36929
+#############################################
+event = { # Wieslaw Domaniewski takes power
+	id = 36920
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 13114 # Wieslaw Domaniewski
+		NOT = { InCabinet = 13114 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 13114 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 36930 - 36939
+#############################################
+################
+# Armament Minister Section 36940 - 36949
+#############################################
+event = { # Eugeniusz Kwiatkowski takes power
+	id = 36940
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 13072 # Eugeniusz Kwiatkowski
+		NOT = { InCabinet = 13072 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 13072 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 36950 - 36959
+#############################################
+event = { # Ludomil Rayski takes power
+	id = 36950
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 13134 # Ludomil Rayski
+		NOT = { InCabinet = 13134 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 13134 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Józef Zajac takes power
+	id = 36951
+	random = no 
+	country = POL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 13010 # Józef Zajac
+		NOT = { InCabinet = 13010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 13010 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 36960 - 36969
+#############################################
+
+
+
+
+#############################################
+# Regular AI Events 36970 - 36999
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 36970
+	random = no 
+	country = POL
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = SOV
+			year = 1937
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}
+################
+# Shift Upgrading
+#############################################
+event = {
+	id = 36971
+	random = no 
+	country = POL
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			year = 1938
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/POL_Upg_War.ai" }
+	}
+}
+################
+# Poland prepares for German invasion
+#############################################
+event = {
+	id = 36972
+	random = no 
+	country = POL
+
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = POL country = GER }
+			event = 2040 # Annexation of CZE
+			event = 2005 # CZE Refuses claim
+			event = 2004 # CZE joins Axis
+			AND = {
+				event = 2030 # Treaty of Munich
+				NOT = { event = 2200  } # CZE response to Treaty of Munich
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/POL_Defense_GER.ai" }
+	}
+}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 36973
+	random = no 
+	country = POL
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = POL_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1938 } # polish standard AI already aims for a low mp buildup => switch to 'no construction" AI in event 36970 in 1937
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/POL_low_mp.ai" }
+		command = { type = local_setflag which = POL_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 36974
+	random = no 
+	country = POL
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = POL_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/POL_normal_mp.ai" }
+		command = { type = local_clrflag which = POL_low_mp }
+	}
+}

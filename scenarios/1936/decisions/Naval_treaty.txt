@@ -1,0 +1,166 @@
+################
+# Ship building caps info decisions for human players
+#############################################
+
+event = {
+	id = 2600003
+	random = no
+	country = GER
+	style = 2	
+	
+	persistent = yes
+	
+	decision = {
+					atwar = no
+					local_flag = NavalTreaty1935
+	}
+	
+	decision_trigger = {
+							ai = no
+	}
+
+	trigger = {
+		ai = no
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600003_NAME
+	desc = EVT_2600003_DESC
+	decision_picture = "decision_naval_treaty"
+	picture = "event_naval_treaty"
+
+	action_a = {
+		ai_chance = 100
+		name = "ACTION_NAME_OK"
+		command = { }
+	}
+	
+	action_b = {
+		ai_chance = 0
+		name = "ACTIONNAME2600003B"
+		command = { type = sleepevent which = 2600003 }
+		command = { type = local_clrflag which = NavalTreaty1935 }
+		command = { type = trigger which = 2600016 } # GB treaty removal
+		
+		}
+	}
+
+event = {
+	id = 2600005
+	random = no
+	country = ENG
+	style = 2	
+
+	persistent = yes
+	
+	decision = {
+					atwar = no
+					OR = {
+					local_flag = NavalTreaty1930
+					local_flag = NavalTreaty1936
+						}
+	}
+	
+	decision_trigger = {
+							ai = no
+	}
+
+	trigger = {
+		ai = no
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600005_NAME
+	desc = EVT_2600005_DESC
+	decision_picture = "decision_naval_treaty"
+	picture = "event_naval_treaty"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { }
+	}
+}
+
+event = {
+	id = 2600007
+	random = no
+	country = USA
+	style = 2	
+
+	persistent = yes
+	
+	decision = {
+					atwar = no
+					OR = {
+					local_flag = NavalTreaty1930
+					local_flag = NavalTreaty1936
+						}
+	}
+	
+	decision_trigger = {
+							ai = no
+	}
+
+	trigger = {
+		ai = no
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600007_NAME
+	desc = EVT_2600007_DESC
+	decision_picture = "decision_naval_treaty"
+	picture = "event_naval_treaty"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { }
+	}
+}
+
+event = {
+	id = 2600009
+	random = no
+	country = JAP
+	style = 2
+
+	persistent = yes
+	
+	decision = {
+					atwar = no
+					OR = {
+					local_flag = NavalTreaty1930
+					local_flag = NavalTreaty1936
+						}
+	}
+	
+	decision_trigger = {
+							ai = no
+	}
+
+	trigger = {
+		ai = no
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600009_NAME
+	desc = EVT_2600009_DESC
+	decision_picture = "decision_naval_treaty"
+	picture = "event_naval_treaty"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { }
+	}
+}

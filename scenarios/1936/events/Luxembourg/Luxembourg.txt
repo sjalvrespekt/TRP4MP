@@ -1,0 +1,238 @@
+# checked DH
+###############################################################################################
+# 3050000 - 3050999	Luxembourg other events
+###############################################################################################
+
+#########################################################################
+#  Benelux violation
+#########################################################################
+event = { #852014
+	id = 3050000
+	random = no
+	country = LUX
+
+	trigger = { 	
+      	ai = yes
+		war = { country = ENG country = GER }
+		OR = {
+			war = { country = HOL country = GER }
+			war = { country = GER country = BEL }
+			war = { country = GER country = LUX }
+		}
+		NOT = {	alliance = { country = ENG  country = LUX } }
+		NOT = {	war = { country = ENG country = LUX } }
+	}
+		
+	name = EVT_3050000_NAME
+	desc = EVT_3050000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3050000A
+		command = { type = alliance which = ENG }
+	}
+}
+########################################################################
+# Legislative & executive power for the Duchess (by Armoured Warrior)
+#########################################################################
+event = {
+	id = 3050001
+	random = no
+	country = LUX
+	
+	trigger = {
+		government = democratic
+		war = { country = GER country = FRA }
+	}
+	
+	name = EVT_3050001_NAME
+	desc = EVT_3050001_DESC
+	style = 0
+	
+	date = { day = 29 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3050001A
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+############################################
+# 852009 - (LUX) Luxembourg Radio
+##################################################
+event = { 
+	id = 852009
+	random = no
+	country = LUX
+
+	name = EVT_852009_NAME
+	desc = EVT_852009_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1937 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME852009A
+		command = { type = dissent value = -2 }
+	}
+}
+
+##################################################
+# 852010 - (LUX) Volunteers
+##################################################
+
+event = { 
+	id = 852010
+	random = no
+	country = LUX
+
+	name = EVT_852010_NAME
+	desc = EVT_852010_DESC
+	style = 0
+
+	date = { day = 29 month = september year = 1938 } 
+	offset = 1
+	deathdate = { day = 2 month = october year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME852010A
+		command = { type = manpowerpool value = 1 }
+		command = { type = money value = -1 }
+		command = { type = supplies value = -50 }
+		command = { type = domestic which = defense_lobby value = 1 } 
+	}
+}
+
+##################################################
+# 852011 - (LUX) Shortened Work Day
+##################################################
+
+event = { 
+	id = 852011
+	random = no
+	country = LUX
+
+	trigger = { atwar = no }
+	
+	name = EVT_852011_NAME
+	desc = EVT_852011_DESC
+	style = 0
+
+	date = { day = 17 month = october year = 1937 } 
+	offset = 1
+	deathdate = { day = 20 month = october year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME852011A
+		command = { type = dissent value = -1 }
+		command = { type = peacetime_ic_mod value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME852011B
+		command = { type = dissent value = 1 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 852012
+	random = no
+	country = LUX 
+
+	# triggered by 3182091
+
+	name = EVT_852012_NAME
+	desc = EVT_852012_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME852012A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = { 
+	id = 852013
+	random = no
+	country = LUX
+
+	# triggered by 3182093
+
+
+	name = EVT_852013_NAME
+	desc = EVT_852013_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 100
+		name = ACTIONNAME852013A
+		command = { type = alliance which = ENG }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME852013B
+		command = { }
+	}
+}
+#########################################################################
+#  Benelux Outrage - Luxembourg
+#########################################################################
+event = { 
+	id = 15051
+	random = no
+	country = LUX
+
+	 # French Forts 15050
+
+	name = EVT_15051_NAME
+	desc = EVT_15051_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME15051A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME15051B
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3136148 } # GER
+		#a lot of units changes sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+	action_c = {
+		name = ACTIONNAME15051C
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		#command = { type = alliance which = GER }
+		command = { type = leave_alliance } 
+		command = { type = trigger which = 3136151 } # GER
+		#a lot of units changes sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+}

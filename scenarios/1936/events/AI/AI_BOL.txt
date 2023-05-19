@@ -1,0 +1,234 @@
+####################################
+# Bolivia AI events 36700 - 36799 by Lothos
+####################################
+################
+# Minister of Security Section 36700 - 36709
+#############################################
+event = { # José Franz Tamayo takes power
+	id = 36700
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43124 # José Franz Tamayo
+		NOT = { InCabinet = 43124 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 43124 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 36710 - 36719
+#############################################
+event = { # Gualberto Villarroel Lopez takes power
+	id = 36710
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43007 # Gualberto Villarroel Lopez
+		NOT = { InCabinet = 43007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 43007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 36720 - 36729
+#############################################
+event = { # José Maria Gutierrez takes power
+	id = 36720
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43150 # José Maria Gutierrez
+		NOT = { InCabinet = 43150 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 43150 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 36730 - 36739
+#############################################
+event = { # Hans Kundt takes power
+	id = 36730
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43008 # Hans Kundt
+		NOT = { InCabinet = 43008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 43008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 36740 - 36749
+#############################################
+event = { # Moritz Hochschild takes power
+	id = 36740
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43004 # Moritz Hochschild
+		NOT = { InCabinet = 43004 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 43004 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 36750 - 36759
+#############################################
+event = { # Hector Bilbao Roja takes power
+	id = 36750
+	random = no 
+	country = BOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 43010 # Hector Bilbao Roja
+		NOT = { InCabinet = 43010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 43010 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 36760 - 36769
+#############################################
+
+
+
+
+#############################################
+# Regular AI Events 36770 - 36799
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 36770
+	random = no 
+	country = BOL
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			NOT = { ai = ARG }
+			NOT = { ai = BRA }
+			NOT = { ai = CHL }
+			NOT = { ai = PRU }
+			lost_national = { country = ARG value = 2 }
+			lost_national = { country = BRA value = 2 }
+			lost_national = { country = CHL value = 2 }
+			lost_national = { country = PRU value = 2 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}
+################
+# Bolivia will get involved in the war
+#############################################
+event = {
+	id = 36771
+	random = no 
+	country = BOL
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

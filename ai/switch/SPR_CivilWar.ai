@@ -1,0 +1,214 @@
+# converted to DH, Kane, July 4 2011
+# Republic Spain 1936 AI File by Lothos adapted to TRP 
+
+switch = no # [yes/no]
+max_front_ratio = 1.2
+max_garrison_prop = 0.10
+min_garrison_prop = 0.20
+neutrality = 150
+war = 0
+exp_force_ratio = 0.650
+exp_force_ratios = { } 
+no_exp_forces_to = { }
+use_offensive_supply = no
+
+###################################
+# Diplomacy
+###################################
+combat = { }
+
+# Special resistance against "influence" by the listed nations. Value range = [0 - 10]  
+resistance = {  
+	GER = 4
+	ITA = 2
+}
+befriend = {
+	ENG = 80
+	FRA = 80
+	SOV = 100
+	POR = 50
+}
+protect = { }
+target = { 
+	# United Kingdom
+	348 = 80 # Gibraltar
+} 
+trade = {
+	cancel_deal_threshold = 2
+
+	energy 		= -1
+	rare_materials 	= -1
+	metal 		= -1
+	oil 		= -1
+	supplies 	= -1
+	money 		= -1
+
+	favored = {
+		ENG = 100
+		FRA = 100
+		SOV = 100
+		POR = 50
+	}
+	embargo = {
+		GER ITA
+	}
+}
+tech_sharing = {
+	favored = {
+		ENG = 80
+		FRA = 80
+		SOV = 80
+		POR = 50
+	}
+	embargo = {
+		GER ITA
+	}
+	not = { }
+	prioritized = {
+		# Agriculture
+		5020 = 100
+		5030 = 100
+		5040 = 100
+
+		# Inf support
+		1310 = 100
+		1320 = 100
+		1330 = 100
+		1340 = 100
+		1350 = 100
+		1360 = 100
+
+		# Production
+		5050 = 100
+		5060 = 100
+		5070 = 100
+		5080 = 100
+		5090 = 100
+		5100 = 100
+		5110 = 100
+		5120 = 100
+		5130 = 100
+		5150 = 100
+		5180 = 100
+
+		# Mountain Unit techs
+		1110 = 100
+		1120 = 100
+		1130 = 100
+		1140 = 100
+
+		# Light tanks
+		2550 = 100
+		2560 = 100
+		2570 = 100
+		2580 = 100
+		2590 = 100
+		2600 = 100
+		2610 = 100
+		2620 = 100
+	}
+}
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.00 
+}
+military = { 
+	#### Divisions etc...
+	infantry 	= 62
+	d_02		= 0
+	militia 	= 10	
+	cavalry 	= 4
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 0
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 20
+	garrison	= 0
+    hq 			= 4
+
+#				100 %
+	interceptor 	= 0
+	multi_role 	= 0
+	cas 		= 0
+	strategic_bomber = 0
+	tactical_bomber = 0
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				0 %
+	battleship 	= 0
+	carrier 	= 0
+	escort_carrier	= 0
+	destroyer 	= 0
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 0
+#				0 %
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 		= 2.0
+	overseas_multiplier 	= 0.1
+	home_peace_cap 			= 50
+	war_zone_odds 			= 1.001
+	key_point_prio_mult		= 0.0
+	revolt_risk_mult		= 0.0
+
+	# PRIORITIES:
+	beach		= 0		# Beach level 2
+	capital		= 20	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target	= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		FRA = -1
+		ENG = -1
+		POR = -1
+		U01 = 150
+	}
+	province_priorities = {
+		460 = 30 # Madrid
+	}
+	area_multiplier = { }
+}
+front = { 
+	recklessness 		= 0 # 0-3
+	distrib_vs_ai 		= defensive
+	distrib_vs_human 	= defensive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+   	enemy_handicap = {
+		SPR = 3
+	} 
+   	passivity = {
+		SPR = 3
+	} 
+}

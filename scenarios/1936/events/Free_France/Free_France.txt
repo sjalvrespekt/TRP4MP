@@ -1,0 +1,1340 @@
+# converted to DH, Kane, July 15 2011
+# Last Update 18-JAN-2006
+#################################################################################################
+# 3190000 - 3190999	Free France political events
+# 670001 - 670032 Defecting navy, events for VIC and U14
+#################################################################################################
+
+#########################################################################
+# Free France joins Allies (by Luxor)
+#########################################################################
+event = {
+	id = 3190000
+	random = no
+	country = U14
+
+	# Triggered by GER 3136074
+
+	name = EVT_3190000_NAME
+	desc = EVT_3190000_DESC
+	style = 2
+	picture = "fff_de_gaulle"
+
+	action_a = {
+		name = ACTIONNAME3190000A
+		command = { type = alliance which = ENG }
+		command = { type = belligerence value = -200 }
+	}
+}
+#########################################################################
+# Free France leaves Allies after NATO (by Luxor)
+#########################################################################
+event = {
+	id = 3190001
+	random = no
+	country = U14
+
+	# Triggered by FRA 3135009
+
+	name = EVT_3190001_NAME
+	desc = EVT_3190001_DESC
+	style = 2
+	picture = "fff_de_gaulle"
+
+	action_a = {
+		name = ACTIONNAME3190001A
+		command = { type = leave_alliance }
+		command = { type = trigger which = 3135010 }
+	}
+}
+#########################################################################
+# Free France capital moves to Brazzaville (by Luxor)
+#########################################################################
+event = {
+	id = 3190002
+	random = no
+	country = U14
+
+	# Triggered by VIC 3188006
+
+	name = EVT_3190002_NAME
+	desc = EVT_3190002_DESC
+	style = 2
+	picture = "fff_brazzaville"
+
+	action_a = {
+		name = ACTIONNAME3190002A
+		command = { type = addcore which = 925 }
+		command = { type = addcore which = 924 }
+		command = { type = addcore which = 928 }
+		command = { type = addcore which = 911 }
+		command = { type = addcore which = 909 }
+		command = { type = addcore which = 910 }
+		command = { type = addcore which = 919 }
+		command = { type = addcore which = 926 }
+		command = { type = addcore which = 923 }
+		command = { type = addcore which = 908 }
+		command = { type = addcore which = 907 }
+		command = { type = addcore which = 914 }
+		command = { type = addcore which = 915 }
+		command = { type = addcore which = 917 }
+		command = { type = addcore which = 918 }
+		command = { type = capital which = 907 } # Brazzaville
+#		command = { type = construct which = coastal_fort where = 915 value = 2 } # Libreville
+#		command = { type = construct which = naval_base where = 1092 value = 1 } # old ID
+#		command = { type = construct which = naval_base where = 1768 value = 1 } # Martinique; old ID
+		command = { type = transport_pool which = U14 value = 150 }
+		command = { type = free_manpower value = 0.01 } # volunteers
+		command = { type = add_division which = "Légion Étrangère" value = d_03 when = 2 where = engineer } 
+	}
+}
+#########################################################################
+# Syria independence (by Luxor)
+#########################################################################
+event = {
+	id = 3190003
+	random = no
+	country = U14
+	
+	trigger = {
+		#event = 3188007 # VIC
+		control = { province = 1020 data = U14 } # Damascus
+		control = { province = 1016 data = U14 }
+		control = { province = 1017 data = U14 }
+		control = { province = 1021 data = U14 }
+		control = { province = 1014 data = U14 }
+		control = { province = 1015 data = U14 }
+		NOT = { exists = SYR }
+	}
+	
+	name = EVT_3190003_NAME
+	desc = EVT_3190003_DESC
+	style = 2
+	picture = "franco_syrian"
+	
+	date = { day = 15 month = september year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3190003A
+		command = { type = removeclaim which = 1020 }
+		command = { type = removeclaim which = 1016 }
+		command = { type = removeclaim which = 1017 }
+		command = { type = removeclaim which = 1021 }
+		command = { type = removeclaim which = 1014 }
+		command = { type = removeclaim which = 1015 }
+		command = { type = independence which = SYR value = 1 }
+		command = { type = trigger which = 3190004 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3190003B
+		command = { type = dissent value = 5 }
+	}
+}
+event = {
+	id = 3190004
+	random = no
+	country = U14
+
+	# Triggered by U14 3190003
+
+	name = EVT_3190004_NAME
+	desc = EVT_3190004_DESC
+	style = 2
+	picture = "franco_syrian"
+
+	action_a = {
+		name = ACTIONNAME3190004A
+		command = { type = make_puppet which = SYR }
+	}
+}
+#########################################################################
+# Lebanon independence (by Luxor)
+#########################################################################
+event = {
+	id = 3190005
+	random = no
+	country = U14
+	
+	trigger = {
+		#event = 3188007 # VIC
+		control = { province = 1019 data = U14 } # Beirut
+		control = { province = 1018 data = U14 }
+		NOT = { exists = LEB }
+	}
+	
+	name = EVT_3190005_NAME
+	desc = EVT_3190005_DESC
+	style = 2
+	picture = "franco_lebanese"
+	
+	date = { day = 25 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3190005A
+		command = { type = removeclaim which = 1019 }
+		command = { type = removeclaim which = 1018 }
+		command = { type = independence which = LEB value = 1 }
+		command = { type = trigger which = 3190006 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3190005B
+		command = { type = dissent value = 5 }
+	}
+}
+event = {
+	id = 3190006
+	random = no
+	country = U14
+
+	# Triggered by U14 3190005
+
+	name = EVT_3190006_NAME
+	desc = EVT_3190006_DESC
+	style = 2
+	picture = "franco_lebanese"
+
+	action_a = {
+		name = ACTIONNAME3190006A
+		command = { type = make_puppet which = LEB }
+	}
+}
+#########################################################################
+# End of French Levantine mandate (by Luxor)
+#########################################################################
+event = {
+	id = 3190007
+	random = no
+	country = U14
+	
+	trigger = { event = 3600001 } # LEB
+	
+	name = EVT_3190007_NAME
+	desc = EVT_3190007_DESC
+	style = 2
+	picture = "fff_levantine_end"
+	
+	date = { day = 21 month = november year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3190007A
+		command = { type = end_mastery which = LEB }
+	}
+	action_b = {
+		name = ACTIONNAME3190007B
+		command = { type = dissent value = 5 }
+	}
+}
+event = {
+	id = 3190008
+	random = no
+	country = U14
+	
+	trigger = { event = 3700001 } # SYR 
+	
+	name = EVT_3190008_NAME
+	desc = EVT_3190008_DESC
+	style = 2
+	picture = "fff_levantine_end"
+	
+	date = { day = 16 month = april year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3190008A
+		command = { type = end_mastery which = SYR }
+	}
+	action_b = {
+		name = ACTIONNAME3190008B
+		command = { type = dissent value = 5 }
+	}
+}
+event = { 
+	id = 3190009
+	random = no
+	country = U14 # Free France
+	
+	trigger = {
+		not = { event = 3146003 } # japanese surrender
+		event = 3182054
+		alliance = { country = U14 country = USA }
+		control = { province = 1586 data = U14 }
+		control = { province = 1585 data = U14 }
+		control = { province = 1584 data = U14 }
+		control = { province = 1581 data = U14 }
+		control = { province = 1582 data = U14 }
+		control = { province = 1583 data = U14 }
+	}
+	
+	name = EVT_3190009_NAME
+	desc = EVT_3190009_DESC
+	style = 2
+	picture = "fff_levantine_end"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1950 }
+
+	action_a = {
+		name = ACTIONNAME3190009A 
+		command = { type = secedeprovince which = USA value = 1586 }
+		command = { type = secedeprovince which = USA value = 1585 }
+		command = { type = secedeprovince which = USA value = 1584 }
+		command = { type = secedeprovince which = USA value = 1583 }
+		command = { type = secedeprovince which = USA value = 1582 }
+		command = { type = secedeprovince which = USA value = 1581 }
+	}
+}
+############################
+#Leadership of Free France
+############################
+event = {
+	id = 3190010
+	random = no
+	persistent = no
+	country = U14
+
+	name = "EVT_970_NAME"
+	desc = "EVT_970_DESC"
+	style = 2
+	picture = "fra_is_back"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "EVT_970_ACTA"
+		ai_chance = 94
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = SOV value = -15 }
+		command = { type = set_domestic which = democratic value = 5 }	
+		command = { type = set_domestic which = political_left value = 4 }
+		command = { type = manpowerpool value = 73 } #defections and new recruits; was 10; value raised according to http://fr.wikipedia.org/wiki/Forces_fran%C3%A7aises_libres and numbers by Jean-François Muracciole (73.300 men totally in FFL)
+		command = { type = domestic which = freedom value = -1 }
+
+		##De Gaulle Cabinet##
+		command = { type = headofstate            which = 992031  } #Head of State;Charles de Gaulle
+        command = { type = headofgovernment       which = 992046  } #Head of Government;Charles de Gaulle
+        command = { type = foreignminister        which = 9292216 } #Foreign Minister;Georges-Augustin Bidault
+        command = { type = armamentminister       which = 9392217 } #Minister of Armament;Pierre Mendès France
+        command = { type = ministerofsecurity     which = 9492218 } #Minister of Security;Marc André Laguerre
+        command = { type = ministerofintelligence which = 992134  } #Head of Military Intelligence;Charles Luizet
+        command = { type = chiefofstaff           which = 9192215 } #Chief of Staff;Henri-Honoré Giraud
+        command = { type = chiefofarmy            which = 992158  } #Chief of Army;Jean-Marie Lattre de Tassigny
+        command = { type = chiefofnavy            which = 9892237 } #Chief of Navy;Georges Thierry d'Argenlieu
+        command = { type = chiefofair             which = 992193  } #Chief of Air Force;Martial Valín
+		
+		
+	}
+	action_b = {
+		name = "EVT_970_ACTB"
+		ai_chance = 4
+		command = { type = relation which = ENG value = 5 }
+		command = { type = manpowerpool value = 73 }
+		command = { type = relation which = SOV value = -25 }
+		command = { type = set_domestic which = democratic value = 6 }
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = domestic which = freedom value = -1 }
+
+		##Giraud Cabinet-Military junta effectively##
+		command = { type = headofstate which = 992211 } #Giraud
+		command = { type = headofgovernment which = 992212 } #Giraud
+		command = { type = foreignminister which = 992213 } #Mast
+		command = { type = armamentminister which = 992214 } #Koenig
+		command = { type = ministerofsecurity which = 992114 } #Chautemps
+		command = { type = ministerofintelligence which = 992133 } #Marie
+		command = { type = chiefofstaff which = 992215 } #Giraud
+		command = { type = chiefofarmy which = 992158 } #DeLattre de Tassigny
+		command = { type = chiefofnavy which = 992173 } #Campinchi
+		command = { type = chiefofair which = 992193 } #Valin
+	}
+	action_c = {  #Ahistorical-presumes escape by politicians to N.Africa##
+		name = "EVT_970_ACTC"
+		ai_chance = 2
+		command = { type = relation which = SOV value = -10 }
+		command = { type = set_domestic which = democratic value = 8 }
+		command = { type = set_domestic which = political_left value = 7 }
+		command = { type = domestic which = freedom value = -1 }
+
+		##Civilian Cabinet##
+		command = { type = headofstate which = 992208 } #Chautemps
+		command = { type = headofgovernment which = 992209 } #Mandel
+		command = { type = foreignminister which = 992054 } #Deladier
+		command = { type = armamentminister which = 992082 } #Herriot
+		command = { type = ministerofsecurity which = 992210 } #Delbos
+		command = { type = ministerofintelligence which = 992134 } #Luizet
+		command = { type = chiefofstaff which = 992150 } #DeGaulle
+		command = { type = chiefofarmy which = 992164 } #Bertin-Boussus
+		command = { type = chiefofnavy which = 992173 } #Campinchi
+		command = { type = chiefofair which = 992184 } #Cot
+	}
+}
+#########################################################################
+#  French Ministers Caught, Tried and found guilty 1941?? (by 2Coats)
+#########################################################################
+event = { 
+	id = 3190012
+	random = no
+	country = U14
+
+	#  Event triggered by VIC 432035 - War guilt trial 
+
+	name = EVT_432040_NAME
+	desc = EVT_432040_DESC
+	style = 2
+	picture = "fff_trials"
+
+	action_a = {
+		name = ACTIONNAME432040A
+		command = { type = sleepminister which = 2037 } # Daladier
+		command = { type = sleepminister which = 2054 } # Daladier
+		command = { type = sleepminister which = 2068 } # Daladier
+		command = { type = sleepminister which = 2051 } # Leon Blum
+		command = { type = sleepminister which = 2188 } # La Chambre
+		command = { type = sleepminister which = 2007 } # Gamelin
+		command = { type = sleepminister which = 2008 } # Gamelin
+		command = { type = sleepminister which = 2055 } # Reynaud
+		command = { type = sleepminister which = 2038 } # Reynaud
+		command = { type = dissent value = 3 }
+		command = { type = sleepevent which = 432041 }
+	}
+}
+
+#############################################################
+###FRENCH LEADERS DEFECTING TO VICHY - SLEPT IN U14.CSV###
+#############################################################
+
+event = {
+ id = 3190013
+ trigger = {
+  exists = U14
+  exists = VIC
+    }
+ random = no
+ country = U14
+ name = "VICHY_DEFECT_NAME"
+ desc = "VICHY_DEFECT_DESC"
+ style = 2
+ picture = "fra_fff"
+date = { day = 0 month = january year = 1936 }
+offset = 1
+deathdate = { day = 29 month = december year = 1953 }
+
+
+ action_a = {
+  		name = "ACTION_NAME_OK" #French leaders to the Vichy Government
+        	command = { type = sleepleader which = 1424004 } #Arnaud
+          	command = { type = sleepleader which = 1424005 } #Audet
+            	command = { type = sleepleader which = 1424020 } #Bridoux
+            	command = { type = sleepleader which = 1424022 } #Brocard
+            	command = { type = sleepleader which = 1424027 } #Carles
+            	command = { type = sleepleader which = 1424029 } #Castroux
+            	command = { type = sleepleader which = 1424034 } #Colson
+            	command = { type = sleepleader which = 1424043 } #de Boissieu de Lugne
+            	command = { type = sleepleader which = 1424046 } #de Cyvoct
+            	command = { type = sleepleader which = 1424054 } #de Verdillac
+            	command = { type = sleepleader which = 1424056 } #Debeney
+            	command = { type = sleepleader which = 1424059 } #Dentz
+            	command = { type = sleepleader which = 1424060 } #Desmazes
+            	command = { type = sleepleader which = 1424062 } #Doumenc
+            	command = { type = sleepleader which = 1424065 } #Dubuisson
+            	command = { type = sleepleader which = 1424070 } #Fagalde
+            	command = { type = sleepleader which = 1424071 } #Falvy
+            	command = { type = sleepleader which = 1424074 } #Francois H.N.
+            	command = { type = sleepleader which = 1424095 } #Huntziger
+            	command = { type = sleepleader which = 1424103 } #Keime
+            	command = { type = sleepleader which = 1424115 } #Laure
+            	command = { type = sleepleader which = 1424117 } #Lemonnier
+            	command = { type = sleepleader which = 1424120 } #Mer
+            	command = { type = sleepleader which = 1424124 } #Nogues
+            	command = { type = sleepleader which = 1424145 } #Weygand
+            	command = { type = sleepleader which = 1424146 } #Abrial
+            	command = { type = sleepleader which = 1424151 } #Darlan
+            	command = { type = sleepleader which = 1424153 } #de Geffrier
+            	command = { type = sleepleader which = 1424154 } #de Laborde
+            	command = { type = sleepleader which = 1424157 } #Decoux
+            	command = { type = sleepleader which = 1424158 } #Escudier
+            	command = { type = sleepleader which = 1424159 } #Esteva
+            	command = { type = sleepleader which = 1424160 } #Gensoul
+            	command = { type = sleepleader which = 1424161 } #Godfroy
+            	command = { type = sleepleader which = 1424167 } #Luc
+            	command = { type = sleepleader which = 1424176 } #Baltus
+            	command = { type = sleepleader which = 1424178 } #Bergeret
+            	command = { type = sleepleader which = 1424182 } #Bouscat
+            	command = { type = sleepleader which = 1424183 } #Clostermann
+            	command = { type = sleepleader which = 1424186 } #d'Arnaud de Vitrolles
+            	command = { type = sleepleader which = 1424188 } #Goys de Meyzerac
+            	command = { type = sleepleader which = 1424199 } #Jannekeyn
+            	command = { type = sleepleader which = 1424200 } #Jauneaud
+            	command = { type = sleepleader which = 1424208 } #Paskewicz
+            	command = { type = sleepleader which = 1424209 } #Pinsard
+            	command = { type = sleepleader which = 1424213 } #Rousselot de Saint-Ceran
+            	command = { type = sleepleader which = 1424215 } #Royer de Marancour
+            	command = { type = sleepleader which = 1424082 } #Georges
+
+   }
+ }
+ 
+#########################################################################
+#  Free France Ships 1
+#########################################################################
+event = {
+	id = 670001
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 456 } # Surcouf
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_surcouf"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Surcouf" value = VIC }
+		command = { type = trigger which = 670002 }
+	}
+}
+
+event = {
+	id = 670002
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_surcouf"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Surcouf" value = d_08 when = 1 }
+	}
+}
+
+#########################################################################
+#  Free France Ships 2
+#########################################################################
+event = {
+	id = 670003
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 101 } # Courbet
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_courbet"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Courbet" value = VIC }
+		command = { type = trigger which = 670004 }
+	}
+}
+
+event = {
+	id = 670004
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_courbet"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Courbet" value = battleship when = 1 }
+	}
+}
+#########################################################################
+#  Free France Ships 3
+#########################################################################
+event = {
+	id = 670005
+    random = no
+	country = VIC
+	
+	trigger = { 	
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 103 } # Paris
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_paris"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Paris" value = VIC }
+		command = { type = trigger which = 670006 }
+	}
+}
+event = {
+	id = 670006
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_paris"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Paris" value = battleship when = 1 }
+	}
+}
+#########################################################################
+#  Free France Ships 4
+#########################################################################
+event = {
+	id = 670007
+    random = no
+	country = VIC
+	
+	trigger = { 	
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 508 } # Le Triomphant
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_triomphant"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Le Triomphant" value = VIC }
+		command = { type = trigger which = 670008 }
+	}
+}
+event = {
+	id = 670008
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_triomphant"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Le Triomphant" value = d_09 when = 4 }
+	}
+}
+#########################################################################
+#  Free France Ships 5
+#########################################################################
+event = {
+	id = 670009
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 469 } # Léopard
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_leopard"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Léopard" value = VIC }
+		command = { type = trigger which = 670010 }
+	}
+}
+event = {
+	id = 670010
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_leopard"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Léopard" value = d_09 when = 3 }
+	}
+}
+#########################################################################
+#  Free France Ships 6
+#########################################################################
+event = {
+	id = 670011
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 426 } # Minerve
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_minerve"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Minerve" value = VIC }
+		command = { type = trigger which = 6700012 }
+	}
+}
+event = {
+	id = 670012
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_minerve"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Minerve" value = submarine when = 1 }
+	}
+}
+#########################################################################
+#  Free France Ships 7
+#########################################################################
+event = {
+	id = 670013
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	division_exists = { type = 13500 id = 423 } # Junon
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_minerve"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Junon" value = VIC }
+		command = { type = trigger which = 670014 }
+	}
+}
+event = {
+	id = 670014
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_minerve"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Junon" value = submarine when = 1 }
+	}
+}
+
+#########################################################################
+#  Free France Ships 8
+#########################################################################
+event = {
+	id = 670015
+    random = no
+	country = U14
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	}
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_leopard"
+
+	action_a = {
+		name = ACTIONNAME670002A
+		command = { type = add_division which = "" value = submarine when = 1 }
+		command = { type = add_division which = "" value = submarine when = 1 }
+		command = { type = add_division which = "" value = submarine when = 1 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+		command = { type = add_division which = "" value = destroyer when = 2 }
+	}
+	}
+
+#########################################################################
+#  Free France Ships Dakar 1
+#########################################################################
+event = {
+	id = 670016
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 302 } # Richelieu
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_richelieu"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Richelieu" value = VIC }
+		command = { type = trigger which = 6700017 }
+	}
+}
+event = {
+	id = 670017
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_richelieu"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Richelieu" value = battleship when = 9 }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 2
+#########################################################################
+event = {
+	id = 670018
+    random = no
+	country = VIC
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 118 } # Suffren
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_suffren"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Suffren" value = VIC }
+		command = { type = trigger which = 6700019 }
+	}
+}
+event = {
+	id = 670019
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_suffren"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Suffren" value = heavy_cruiser when = 4 }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 3
+#########################################################################
+event = {
+	id = 670020
+    random = no
+	country = VIC
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 304 } # Gloire
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_gloire"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Gloire" value = VIC }
+		command = { type = trigger which = 6700020 }
+	}
+}
+event = {
+	id = 670021
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_gloire"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Gloire" value = light_cruiser when = 1 where = naval_improved_hull_s }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 4
+#########################################################################
+event = {
+	id = 670022
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 307 } # Montcalm
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_montcalm"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Montcalm" value = VIC }
+		command = { type = trigger which = 6700023 }
+	}
+}
+event = {
+	id = 670023
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_montcalm"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Montcalm" value = light_cruiser when = 1 where = naval_improved_hull_s }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 5
+#########################################################################
+event = {
+	id = 670024
+    random = no
+	country = VIC
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 303 } # Georges Leygues
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_georges_leygues"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Georges Leygues" value = VIC }
+		command = { type = trigger which = 6700025 }
+	}
+}
+event = {
+	id = 670025
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_georges_leygues"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Georges Leygues" value = light_cruiser when = 1 where = naval_improved_hull_s }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 6
+#########################################################################
+event = {
+	id = 670026
+    random = no
+	country = VIC
+	
+	trigger = { 
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 503 } # Le Fantasque
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Le Fantasque" value = VIC }
+		command = { type = trigger which = 6700027 }
+	}
+}
+event = {
+	id = 670027
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Le Fantasque" value = d_09 when = 4 }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 7
+#########################################################################
+event = {
+	id = 670028
+    random = no
+	country = VIC
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 505 } # Le Terrible
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Le Terrible" value = VIC }
+		command = { type = trigger which = 6700029 }
+	}
+}
+event = {
+	id = 670029
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Le Terrible" value = d_09 when = 4 }
+	}
+}
+#########################################################################
+#  Free France Ships Dakar 8
+#########################################################################
+event = {
+	id = 670030
+    random = no
+	country = VIC
+	
+	trigger = {
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	division_exists = { type = 13500 id = 508 } # Le Triomphant
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670001A
+        command = { type = remove_division which = "Le Triomphant" value = VIC }
+		command = { type = trigger which = 6700031 }
+	}
+}
+event = {
+	id = 670031
+    random = no
+	country = U14
+	
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670002A
+        command = { type = add_division which = "Le Triomphant" value = d_09 when = 4 }
+	}
+}
+
+#########################################################################
+#  Free France Ships Dakar 9
+#########################################################################
+event = {
+	id = 670032
+    random = no
+	country = U14
+	
+	trigger = {  
+	event = 3190002 # capital in Brazzaville	
+	exists = VIC
+	exists = U14
+	NOT = { exists = FRA }
+	event = 3131014
+	}
+	
+	date = { day = 0 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1953 }
+
+	name = EVT_670001_NAME		# same stuff
+	desc = EVT_670001_DESC
+	style = 2
+	picture = "fff_le_fantasque"
+
+	action_a = {
+		name = ACTIONNAME670002A
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+		command = { type = add_division which = "" value = destroyer when = 3 }
+	}
+	}
+	
+#########################################################################
+#  Syria–Lebanon campaign
+#########################################################################
+event = {
+	id = 670033
+    random = no
+	country = U14
+	
+	trigger = {  
+    OR = {
+	event = 3188007 #VIC
+	event = 3131028	#ENG
+	}
+	}
+	
+	date = { day = 0 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1999 }
+
+	name = EVT_670033_NAME		
+	desc = EVT_670033_DESC
+	style = 2
+	picture = "fff_event_syria_lebanon"
+	
+	action_a = {
+		name = ACTIONNAME670033A
+        command = { type = trigger which = 3131422 }
+		command = { type = add_corps which = "Armée du Levant" value = land where = 1021 }
+		command = { type = add_division which = "Troupes Speciales du Levant"   value = d_02    when = 1 where = artillery }
+		command = { type = add_division which = "Cavalerie Speciales du Levant" value = cavalry when = 2 where = light_armor_brigade }
+		command = { type = supplies     value = 2500 }
+		command = { type = manpowerpool value = 5    }
+		command = { trigger = { ai = yes } type = build_division which = motorized when = 1 cost = -4.5 name = "1ére division de marche d'infanterie" where = 90 }		
+	}
+	}	
+	
+#########################################################################
+#  Première Division légère française libre
+#########################################################################
+
+event = {
+	id = 670034
+    random = no
+	country = U14
+	
+	trigger = {  event = 670033  }
+	
+	date = { day = 0 month = august year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1945 }
+
+	name = EVT_670034_NAME		
+	desc = EVT_670034_DESC
+	style = 2
+	picture = "fff_event_1ere_div_legere"
+	
+	action_a = {
+		name = ACTIONNAME670034A
+	    ai_chance = 99		
+		command = { type = add_division which = "1ère Division légère française libre"  value = d_02  when = 2 where = artillery }
+		command = { type = supplies     value = 1500  }
+		command = { type = manpowerpool value = -5    }	
+	}
+	action_b = {
+		name = ACTIONNAME670034B
+	    ai_chance = 1
+		command = { type = dissent value = 1      }
+		command = { type = manpowerpool value = 5 }	
+	}		
+	}
+	

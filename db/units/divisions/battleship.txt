@@ -1,0 +1,455 @@
+allowed_brigades = naval_anti_air_l
+allowed_brigades = naval_radar_l
+allowed_brigades = naval_fire_controll_l
+allowed_brigades = naval_improved_hull_l
+allowed_brigades = floatplane
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0.1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB. BC. CA. CL. DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB. BC. CA. CL. DD
+#sea attack/2 for carriers/CAG
+
+#Pre-Dreadnought (15000to)
+model = {
+	cost = 1.68
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.8
+	maxspeed = 18
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 7.5
+	seadefence = 6
+	airdefence = 1
+	seaattack = 9
+	airattack = 1
+	subattack = 0.01
+	convoyattack = 9
+	transportcapability = 0
+	shorebombardment = 6
+	range = 2800
+	supplyconsumption = 1.18
+	fuelconsumption = 1.5
+	distance = 0.18
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 800 }
+	
+	}
+#Dreadnought (26000to)
+model = {
+	cost = 4.08
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.1
+	maxspeed = 21
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 13
+	seadefence = 7
+	airdefence = 1
+	seaattack = 10
+	airattack = 1
+	subattack = 0.01
+	convoyattack = 10
+	transportcapability = 0
+	shorebombardment = 7
+	range = 3200
+	supplyconsumption = 2.04
+	fuelconsumption = 2.6
+	distance = 0.21
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1100 }
+	battleship = 6
+	}
+#Super-Dreadnought (32000to)
+model = {
+	cost = 5.02
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.3
+	maxspeed = 23
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 16
+	seadefence = 8
+	airdefence = 2
+	seaattack = 12
+	airattack = 2
+	subattack = 0.01
+	convoyattack = 12
+	transportcapability = 0
+	shorebombardment = 8
+	range = 3600
+	supplyconsumption = 2.51
+	fuelconsumption = 3.2
+	distance = 0.27
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1300 }
+	battleship = 7
+	}
+#WW1-Super-Dreadnought (33000to)
+model = {
+	cost = 3.7
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.3
+	maxspeed = 25
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 16.5
+	seadefence = 9
+	airdefence = 3
+	seaattack = 14
+	airattack = 2
+	subattack = 0.01
+	convoyattack = 14
+	transportcapability = 0
+	shorebombardment = 9
+	range = 4000
+	supplyconsumption = 2.59
+	fuelconsumption = 3.3
+	distance = 0.30
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1300 }
+	battleship = 8
+	}
+#Washington Treaty Battleship (34000to)
+model = {
+	cost = 3.81
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.4
+	maxspeed = 23
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 17
+	seadefence = 10
+	airdefence = 3
+	seaattack = 17
+	airattack = 3
+	subattack = 0.01
+	convoyattack = 17
+	transportcapability = 0
+	shorebombardment = 11
+	range = 4400
+	supplyconsumption = 2.67
+	fuelconsumption = 3.4
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1400 }
+	
+	}
+#Fast London Treaty Battleship (32000to)
+model = {
+	cost = 3.59
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.6
+	maxspeed = 31
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 16
+	seadefence = 11
+	airdefence = 5
+	seaattack = 16
+	airattack = 4
+	subattack = 0.01
+	convoyattack = 16
+	transportcapability = 0
+	shorebombardment = 11
+	range = 4800
+	supplyconsumption = 2.51
+	fuelconsumption = 3.2
+	distance = 0.39
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1600 }
+	
+	}
+#Dreadnought (mod.) (29000to)
+model = {
+	cost = 4.55
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.5
+	maxspeed = 26
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 14.5
+	seadefence = 8
+	airdefence = 3
+	seaattack = 11
+	airattack = 3
+	subattack = 0.01
+	convoyattack = 11
+	transportcapability = 0
+	shorebombardment = 7
+	range = 3600
+	supplyconsumption = 2.28
+	fuelconsumption = 2.9
+	distance = 0.27
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 32.0 #64.0 # compensates for obsolete model upgrade speed bonus if BB 9 (London Battleship) has been researched; upgrade will become disproportionally cheaper if newer models are researched
+	upgrade_cost_factor = 0.3 #0.15
+	equipment = { battleship = 1  manpower = 1500 }
+	
+	}
+#Super-Dreadnougt (mod.) (36000to)
+model = {
+	cost = 5.65
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.5
+	maxspeed = 26
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 18
+	seadefence = 9
+	airdefence = 4
+	seaattack = 13
+	airattack = 4
+	subattack = 0.01
+	convoyattack = 13
+	transportcapability = 0
+	shorebombardment = 9
+	range = 4000
+	supplyconsumption = 2.83
+	fuelconsumption = 3.6
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 24.5 #49.0 # compensates for obsolete model upgrade speed bonus if BB 9 (London Battleship) has been researched; upgrade will become disproportionally cheaper if newer models are researched
+	upgrade_cost_factor = 0.3 #0.15
+	equipment = { battleship = 1  manpower = 1500 }
+	
+	}
+#WW1-Super-Dreadnought (mod.) (39000to)
+model = {
+	cost = 4.37
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.7
+	maxspeed = 26
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 19.5
+	seadefence = 10
+	airdefence = 5
+	seaattack = 15
+	airattack = 4
+	subattack = 0.01
+	convoyattack = 15
+	transportcapability = 0
+	shorebombardment = 10
+	range = 4400
+	supplyconsumption = 3.06
+	fuelconsumption = 3.9
+	distance = 0.36
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 18 #36.0 # compensates for obsolete model upgrade speed bonus if BB 9 (London Battleship) has been researched; upgrade will become disproportionally cheaper if newer models are researched
+	upgrade_cost_factor = 0.3 #0.15
+	equipment = { battleship = 1  manpower = 1700 }
+	
+	}
+#Fast WW2 Battleship (45000to)
+model = {
+	cost = 5.05
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.8
+	maxspeed = 30
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 22.5
+	seadefence = 12
+	airdefence = 6
+	seaattack = 18
+	airattack = 5
+	subattack = 0.01
+	convoyattack = 18
+	transportcapability = 0
+	shorebombardment = 12
+	range = 4800
+	supplyconsumption = 3.54
+	fuelconsumption = 4.5
+	distance = 0.39
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 1800 }
+	
+	}
+#Fast Big-Gun Battleship (52000to)
+model = {
+	cost = 5.83
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 2.7
+	maxspeed = 31
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 26
+	seadefence = 14
+	airdefence = 6
+	seaattack = 21
+	airattack = 8
+	subattack = 0.01
+	convoyattack = 21
+	transportcapability = 0
+	shorebombardment = 14
+	range = 5200
+	supplyconsumption = 4.08
+	fuelconsumption = 5.2
+	distance = 0.40
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 2700 }
+	battleship = 13
+	}
+#Heavy Battleship (69000to)
+model = {
+	cost = 6.77
+	buildtime = 1440
+	defaultorganisation = 30
+	morale = 30
+	manpower = 2.7
+	maxspeed = 28
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 34.5
+	seadefence = 16
+	airdefence = 8
+	seaattack = 21
+	airattack = 7
+	subattack = 0.01
+	convoyattack = 21
+	transportcapability = 0
+	shorebombardment = 14
+	range = 5600
+	supplyconsumption = 5.42
+	fuelconsumption = 6.9
+	distance = 0.42
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 2700 }
+	
+	}
+#Heavy Battleship II (90000to)
+model = {
+	cost = 8.83
+	buildtime = 1440
+	defaultorganisation = 30
+	morale = 30
+	manpower = 3.0
+	maxspeed = 31
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 45
+	seadefence = 18
+	airdefence = 12
+	seaattack = 24
+	airattack = 10
+	subattack = 0.01
+	convoyattack = 24
+	transportcapability = 0
+	shorebombardment = 16
+	range = 6400
+	supplyconsumption = 7.06
+	fuelconsumption = 9
+	distance = 0.42
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { battleship = 1  manpower = 3000 }
+	
+	}
+#Nuclear powered Battleship (60000to)
+model = {
+	cost = 5.89
+	buildtime = 1440
+	defaultorganisation = 30
+	morale = 30
+	manpower = 2.5
+	maxspeed = 31
+	surfacedetectioncapability = 1
+	airdetectioncapability = 0.01
+	subdetectioncapability = 1
+	visibility = 30
+	seadefence = 16
+	airdefence = 27
+	seaattack = 24
+	airattack = 21
+	subattack = 0.01
+	convoyattack = 24
+	transportcapability = 0
+	shorebombardment = 16
+	range = 12800
+	supplyconsumption = 4.71
+	fuelconsumption = 0
+	distance = 0.40
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 4.5 #9.0 # compensates for obsolete model upgrade speed bonus if BB 9 (London Battleship) has been researched
+	upgrade_cost_factor = 0.3 #0.15
+	equipment = { battleship = 1  manpower = 2500 }
+	
+	}

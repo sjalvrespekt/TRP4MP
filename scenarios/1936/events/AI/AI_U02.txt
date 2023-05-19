@@ -1,0 +1,99 @@
+####################################
+# Raj AI events 552500 - 552501 by DerStudti
+####################################
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 552500
+	random = no 
+	country = U02
+	
+	persistent = yes
+	
+	trigger = {
+		year = 1939 # give nation a chance to use their individual AI
+		NOT = { local_flag = U02_low_mp }
+		not = { manpower = 30 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/U02_low_mp.ai" }
+		command = { type = local_setflag which = U02_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 552501
+	random = no 
+	country = U02
+	
+	persistent = yes
+	
+	trigger = {
+		year = 1939 # give nation a chance to use their individual AI
+		local_flag = U02_low_mp
+		manpower = 100
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/U02_normal_mp.ai" }
+		command = { type = local_clrflag which = U02_low_mp }
+	}
+}
+################
+# U02 panic-builds new divisions of (cheap) light infantry if there's an invasion
+#############################################
+event = {
+	id = 552502
+	random = no 
+	country = U02
+	
+	persistent = yes
+	
+	trigger = {
+		OR = { 
+				AND = {
+						lost_national = { value = 1 }
+						NOT = { army = { size = 30 type = 1 when = 1 where = 1 which = 1 } } # triggers if U02 has got less than 30 units left, excluding GAR and HQ, excluding serial builds that are not ready yet, excluding expeditionary units
+						}
+				lost_national = { value = 15 }
+				}
+		manpower = 100
+		atwar = yes
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 45 # enough time for first units to be completed
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = d_02 when = 2 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 2 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 2 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 2 cost = -0.25 where = 40 }
+		command = { type = build_division which = d_02 when = 2 cost = -0.25 where = 40 }
+	}
+}

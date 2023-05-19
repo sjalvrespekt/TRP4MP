@@ -1,0 +1,622 @@
+####################################################################################
+# Barbarossa events with Historical Policy
+####################################################################################
+
+#################################################
+# USSR asks for terms
+#################################################
+event = { 
+	id = 3283054
+	random = no
+	country = SOV
+
+	trigger = {
+		flag = NOE_Hist # Historical German occupation policy
+		war = { country = GER country = SOV }	
+		control = { province = 55 data = -2 } # Paris held by enemy
+		
+		#############################################################################################################################################
+		# GER AI vs. human SOV:		Moscow, Leningrad, Rostov & Sevastopol needed + Stalingrad OR Baku OR Murmansk needed
+		#
+		# AI vs. AI:				Moscow, Leningrad, Rostov & Sevastopol needed + Stalingrad needed + Baku OR Murmansk needed
+		#
+		# human GER vs. human SOV:	Moscow, Leningrad, Rostov & Sevastopol needed + Stalingrad needed + Kujbysev, Tolyatti needed + Baku OR Murmansk needed
+		#
+		# human GER vs. SOV AI:		Moscow, Leningrad, Rostov & Sevastopol needed + Stalingrad needed + Kujbysev, Tolyatti needed + Baku AND Murmansk needed 
+		#############################################################################################################################################
+		
+		NOT = { control = { province = 572 data = SOV } } # Moscow
+		NOT = { control = { province = 553 data = SOV } } # Leningrad
+		NOT = { control = { province = 644 data = SOV } } # Rostov
+		NOT = { control = { province = 641 data = SOV } } # Sevastopol
+		
+		OR =	{
+				AND = {	
+						AI = GER
+						NOT = { AI = SOV }
+						lost_VP = { country = SOV value = 40 }
+						OR = {
+								NOT = { control = { province = 663 data = SOV } } # Stalingrad
+								NOT = { control = { province = 713 data = SOV } } # Baku
+								NOT = { control = { province = 535 data = SOV } } # Murmansk
+								}
+						}				
+				AND = {	
+						AI = GER
+						AI = SOV
+						lost_VP = { country = SOV value = 50 }
+						NOT = { control = { province = 663 data = SOV } } # Stalingrad
+						OR = {
+								NOT = { control = { province = 713 data = SOV } } # Baku
+								NOT = { control = { province = 535 data = SOV } } # Murmansk
+								}
+						}
+				AND = {
+						NOT = { AI = SOV }
+						NOT = { AI = GER }
+						lost_VP = { country = SOV value = 50 }
+						NOT = { control = { province = 663 data = SOV } } # Stalingrad
+						NOT = { control = { province = 668 data = SOV } } # Kujbysev
+						NOT = { control = { province = 667 data = SOV } } # Tolyatti
+						OR = {
+								NOT = { control = { province = 713 data = SOV } } # Baku
+								NOT = { control = { province = 535 data = SOV } } # Murmansk
+								}
+						#NOT = { control = { province = 1133 data = SOV } } # Orsk # harder conditions?
+						}						
+				AND = {	
+						AI = SOV
+						NOT = { AI = GER }
+						lost_VP = { country = SOV value = 50 }	
+						NOT = { control = { province = 663 data = SOV } } # Stalingrad
+						NOT = { control = { province = 668 data = SOV } } # Kujbysev
+						NOT = { control = { province = 667 data = SOV } } # Tolyatti
+						NOT = { control = { province = 713 data = SOV } } # Baku
+						NOT = { control = { province = 535 data = SOV } } # Murmansk
+						#NOT = { control = { province = 1133 data = SOV } } # Orsk # harder conditions?
+						}
+				}
+	}
+
+	name = EVT_3283054_NAME
+	desc = EVT_3283054_DESC
+	style = 2
+	picture = "sov_event_bitter_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3283054A
+		command = { type = trigger which = 3236053 } # GER 
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3283054B
+		command = { trigger = { AI = yes } type = dissent value = 15 }
+		command = { trigger = { AI = no } type = dissent value = 25 }
+		command = { type = trigger which = 3283201 }	
+	}
+}
+########################################################################################
+# Germany presents her demands
+########################################################################################
+event = { 
+	id = 3236053
+	random = no
+	country = GER
+
+	# triggered by SOV 3283054
+
+	name = EVT_3283054_NAME
+	desc = EVT_3283053_DESC
+	style = 2
+	picture = "ger_event_bitter_peace"
+
+	action_a = {
+		ai_chance = 30
+		name = ACTIONNAME3283053A
+		command = { type = setflag which = SOV_PEACE_URALS }
+	}
+	action_b = {
+		ai_chance = 70
+		name = ACTIONNAME3283053B
+		command = { type = setflag which = SOV_PEACE_VOLGA }
+	}
+	action_c = {
+		ai_chance = 0
+		name = ACTIONNAME3283053C
+		command = { }	
+	}
+}
+########################################################################################
+# Germany presents her demands (neutral Japan) - Urals border
+########################################################################################
+event = { 
+	id = 3283055
+	random = no
+	country = SOV
+
+	trigger = {
+		flag = SOV_PEACE_URALS
+		NOT = { alliance = { country = GER country = JAP } }
+		war = { country = GER country = SOV }
+		NOT = { event = 3283056 }
+	}
+
+	name = EVT_3283055_NAME
+	desc = EVT_3283055_DESC
+	style = 2
+	picture = "ger_event_bitter_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 50
+		name = ACTIONNAME3283055A
+		command = { type = trigger which = 3283200 }
+		command = { type = dissent value = 10 }
+		command = { type = sleepevent which = 3283056 }
+	}
+	action_b = {
+		ai_chance = 50
+		name = ACTIONNAME3283055B
+		command = { type = trigger which = 2024 } # SOV 
+		command = { type = sleepevent which = 3283056 }
+	}
+}
+########################################################################################
+# Germany presents her demands (with Japan in the Axis) - Urals border
+########################################################################################
+event = { 
+	id = 3283056
+	random = no
+	country = SOV
+
+	trigger = {
+		flag = SOV_PEACE_URALS
+		alliance = { country = GER country = JAP }
+		war = { country = GER country = SOV }
+		NOT = { event = 3283055 }
+	}
+
+	name = EVT_3283055_NAME
+	desc = EVT_3283056_DESC
+	style = 2
+	picture = "ger_event_bitter_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 30
+		name = ACTIONNAME3283056A
+		command = { type = trigger which = 3283200 }
+		command = { type = dissent value = 10 }
+		command = { type = sleepevent which = 3283055 }
+	}
+	action_b = {
+		ai_chance = 70
+		name = ACTIONNAME3283056B
+		command = { type = trigger which = 2024 } # SOV
+		command = { type = sleepevent which = 3283055 }
+	}
+}
+########################################################################################
+# SOV refuses to accept Urals border
+########################################################################################
+event = { 
+	id = 3283200
+	random = no
+	country = GER
+
+	# triggered by SOV 3283055 & 3283056
+
+	name = EVT_3283200_NAME
+	desc = EVT_3283200_DESC
+	style = 2
+	picture = "sov_event_bitter_peace"
+
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3283053B # accept Volga borders
+		command = { type = setflag which = SOV_PEACE_VOLGA }
+		command = { type = clrflag which = SOV_PEACE_URALS }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3283200B # switch to Ribbentrop Plan and create an anti-communist Russia
+		command = { type = clrflag which = NOE_Hist }
+		command = { type = setflag which = NOE_RibSchu }
+		command = { type = setflag which = Russia_Civil_War }
+		command = { type = sleepevent which = 3236034 } # peace event for Ribbentrop Plan
+		command = { type = dissent value = 5 }
+	}
+	action_c = {
+		ai_chance = 0
+		name = ACTIONNAME3283053C # fight on
+		command = { }	
+	}
+}
+########################################################################################
+# Germany presents her demands (neutral Japan) - Volga-Don-Peipus border
+########################################################################################
+event = { 
+	id = 3283057
+	random = no
+	country = SOV
+
+	trigger = {
+		flag = SOV_PEACE_VOLGA
+		NOT = { alliance = { country = GER country = JAP } }
+		war = { country = GER country = SOV }
+		NOT = { event = 3283058 }
+	}
+
+	name = EVT_3283055_NAME
+	desc = EVT_3283057_DESC
+	style = 2
+	picture = "ger_event_bitter_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3283057A
+		command = { type = trigger which = 2024 } # SOV
+		command = { type = sleepevent which = 3283058 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3283057B
+		command = { type = trigger which = 3283201 }
+		command = { type = dissent value = 5 }
+		command = { type = sleepevent which = 3283058 }
+	}
+}
+########################################################################################
+# Germany presents her demands (with Japan in the Axis) - Volga-Don-Peipus border
+########################################################################################
+event = { 
+	id = 3283058
+	random = no
+	country = SOV
+
+	trigger = {
+		flag = SOV_PEACE_VOLGA
+		alliance = { country = GER country = JAP }
+		war = { country = GER country = SOV }
+		NOT = { event = 3283057 }
+	}
+
+	name = EVT_3283055_NAME
+	desc = EVT_3283058_DESC
+	style = 2
+	picture = "ger_event_bitter_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3283058A
+		command = { type = trigger which = 2024 } # SOV
+		command = { type = sleepevent which = 3283057 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3283058B
+		command = { type = trigger which = 3283201 }
+		command = { type = dissent value = 5 }
+		command = { type = sleepevent which = 3283057 }
+	}
+}
+########################################################################################
+# SOV refuses to accept Volga border
+########################################################################################
+event = { 
+	id = 3283201
+	random = no
+	country = GER
+
+	# triggered by SOV 3283057 & 3283058 & 3283037 (Rosenberg)
+
+	name = EVT_3283200_NAME
+	desc = EVT_3283200_DESC
+	style = 2
+	picture = "sov_event_bitter_peace"
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3283200B # switch to Ribbentrop Plan and create an anti-communist Russia
+		command = { trigger = { flag = NOE_Hist } type = clrflag which = NOE_Hist } #if NOE_Hist => flag cleared, new flag NOE_Rib_Schu, puppets created, civil war
+		command = { trigger = { NOT = { flag = NOE_Ros } } type = setflag which = NOE_RibSchu } #if NOE_Ros => flag stays, Reichskommissariate may still be created, civil war
+		command = { type = setflag which = Russia_Civil_War }
+		command = { type = sleepevent which = 3236034 } # peace event for Ribbentrop Plan
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3283053C # fight on
+		command = { }	
+	}
+}
+##########################################################################
+# The Bitter peace
+##########################################################################
+event = { 
+	id = 2024 # Referenced in AI files
+	random = no
+	country = SOV
+	
+	# triggered by SOV 3283055, 3283056, 3283057, 3283058
+	
+	name = EVT_2024_NAME
+	desc = EVT_2024_DESC
+	style = 0
+	picture = "Bitter_Peace"
+	
+	action_a = {
+		name = ACTIONNAME2024A
+		# internal changes
+		command = { type = headofstate which = 4001 }   	# Kalinin
+		command = { type = headofgovernment which = 4076 } 	# Molotov
+		command = { type = foreignminister which = 4034 } 	# Molotov
+		command = { type = ministerofsecurity which = 4041 }# Beria
+		command = { type = chiefofstaff which = 4053 } 		# Zhukov
+		command = { type = chiefofarmy which = 4058 } 		# Timoshenko
+		command = { type = sleepminister which = 4002 } # Stalin executed
+		command = { type = sleepminister which = 4094 } # Stalin (paranoid egomaniac) executed
+		command = { type = sleepminister which = 4074 }
+		command = { type = sleepminister which = 4073 }
+		command = { type = sleepminister which = 4059 }
+		command = { type = ai which = "switch/SOV_Bitter_Peace.ai" }
+		command = { type = ai which = "switch/SOV_dow_off.ai" }
+		# make peace
+		command = { trigger = { war = { country = SOV country = GER } } type = peace which = GER value = 0 }
+		command = { trigger = { war = { country = SOV country = JAP } } type = peace which = JAP value = 0 }
+		command = { trigger = { war = { country = SOV country = U00 } } type = peace which = U00 value = 0 }
+		command = { trigger = { war = { country = SOV country = FIN } } type = peace which = FIN value = 0 }
+		command = { trigger = { war = { country = SOV country = ROM } } type = peace which = ROM value = 0 }			
+		# Finland
+		command = { type = secedearea which = FIN value = "Oesterbotten" 		when = 2 }
+		command = { type = secedearea which = FIN value = "South Finland" 		when = 2 }
+		command = { type = secedearea which = FIN value = "Central Finland" 	when = 2 }
+		command = { type = secedeprovince which = FIN value = 515				when = 2 } # 515	Rovaniemi
+		command = { type = secedeprovince which = FIN value = 511				when = 2 } # 511	Enontekio
+		command = { type = secedeprovince which = FIN value = 513				when = 2 } # 513	Inari
+		command = { type = secedeprovince which = FIN value = 516				when = 2 } # 516	Tornio
+		command = { type = secedeprovince which = FIN value = 519				when = 2 } # 519	Salla
+		command = { type = secedeprovince which = FIN value = 514				when = 2 } # 514	Kemijarvi
+		command = { trigger = { NOT = { alliance = { country = FIN country = SOV }}} type = secedeprovince which = FIN value = 517					when = 1 } # 517	Petsamo
+		command = { trigger = { NOT = { alliance = { country = FIN country = SOV }}} type = secederegion which = FIN value = "White Sea Tundra"		when = 1 }	
+		# Secede the west of Volga to Germany
+		command = { type = secederegion which = GER value = "Ukraine" 			when = 1 }
+		command = { type = secederegion which = GER value = "Poland" 			when = 1 }
+		command = { type = secederegion which = GER value = "Belarus" 			when = 1 }
+		command = { type = secederegion which = GER value = "Baltic States" 	when = 1 }
+		command = { type = secederegion which = GER value = "Russia" 			when = 1 }
+		command = { type = secederegion which = GER value = "Western Russia" 	when = 1 }
+		command = { type = secederegion which = GER value = "Southern Russia" 	when = 1 }
+		command = { type = secederegion which = GER value = "Kaukasus" 			when = 1 }
+		# + west of Urals
+		command = { trigger = { OR = { flag = SOV_PEACE_URALS flag = NOE_Ros } } type = secederegion which = GER value = "Northern Russia" 		when = 1 }
+		command = { trigger = { OR = { flag = SOV_PEACE_URALS flag = NOE_Ros } } type = secedearea which = GER value = "Syzran" 				when = 1 }
+		command = { trigger = { OR = { flag = SOV_PEACE_URALS flag = NOE_Ros } } type = secedearea which = GER value = "Orenburg" 				when = 1 }
+		command = { trigger = { OR = { flag = SOV_PEACE_URALS flag = NOE_Ros } } type = secedearea which = GER value = "Engels" 				when = 1 }
+		command = { trigger = { OR = { flag = SOV_PEACE_URALS flag = NOE_Ros } } type = secedeprovince which = GER value = 1113 				when = 1 } #Uralsk		
+		# Romania
+		command = { type = secederegion which = ROM value = "Romania" 			when = 2 }
+		#Transnistria
+		command = { trigger = { alliance = { country = GER country = ROM } } type = secedearea which = ROM value = "Odessa" 		when = 2 } 
+#		command = { trigger = { alliance = { country = GER country = ROM } } type = secedeprovince which = ROM value = 618 			when = 2 }
+		# Anything east of GER to GER if SOV has annexed
+		command = { type = secederegion which = GER value = "Finland"			when = 1 }
+		command = { type = secederegion which = GER value = "White Sea Tundra"	when = 1 }
+		command = { type = secederegion which = GER value = "Romania"			when = 1 }
+		command = { type = secederegion which = GER value = "Hungary"			when = 1 }
+		command = { type = secederegion which = GER value = "Balkan"			when = 1 }
+		command = { type = secederegion which = GER value = "Czechoslovakia"	when = 1 }
+		command = { type = secederegion which = GER value = "Italy"				when = 1 }		
+		# diplomatic actions
+		command = { type = access which = GER }
+		command = { type = non_aggression which = GER where = SOV }
+		command = { trigger = { alliance = { country = GER country = JAP } } type = access which = JAP }
+		command = { trigger = { alliance = { country = GER country = JAP } } type = non_aggression which = JAP where = SOV }
+		command = { trigger = { alliance = { country = GER country = U00 } } type = access which = U00 }
+		command = { trigger = { alliance = { country = GER country = U00 } } type = non_aggression which = U00 where = SOV }
+		command = { trigger = { NOT = { exists = AFG } } type = independence which = AFG value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = PER } } type = independence which = PER value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = SWE } } type = independence which = SWE value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = FIN } } type = independence which = FIN value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = ROM } } type = independence which = ROM value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = BUL } } type = independence which = BUL value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = HUN } } type = independence which = HUN value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = YUG } } type = independence which = YUG value = 1 when = 1 }
+		command = { trigger = { NOT = { exists = NOR } } type = independence which = NOR value = 1 when = 1 }
+		# In case USSR is still at war with Sweden
+		command = { trigger = { war = { country = SOV country = SWE } } type = peace which = SWE value = 0 }
+		command = { type = secederegion which = SWE value = "Sweden"			when = 1 }
+		# Some to Japan
+		command = { type = secedeprovince which = JAP value = 1541				when = 1 } # 1541	Okha, Northern Sakhalin
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1191				when = 1 } # 1191	Vladivostok, Far East Siberia
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1193				when = 1 } # 1193	Nakhodka
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1196				when = 1 } # 1196	Nikolsk-Ussurysky
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1195				when = 1 } # 1195	Tetyukhe
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1192				when = 1 } # 1192	Semyonovka
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1194				when = 1 } # 1194	Lesozavodsk
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1185				when = 1 } # 1185	Gavan
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1190				when = 1 } # 1190	Khabarovsk
+		command = { trigger = { alliance = { country = GER country = U00 } } type = secedeprovince which = U00 value = 1187				when = 1 } # 1187	Sofiysk
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1191				when = 1 } # 1191	Vladivostok, Far East Siberia # in case U00 doesn't exist
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1193				when = 1 } # 1193	Nakhodka
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1196				when = 1 } # 1196	Nikolsk-Ussurysky
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1195				when = 1 } # 1195	Tetyukhe
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1192				when = 1 } # 1192	Semyonovka
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1194				when = 1 } # 1194	Lesozavodsk
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1185				when = 1 } # 1185	Gavan
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1190				when = 1 } # 1190	Khabarovsk
+		command = { trigger = { alliance = { country = GER country = JAP } } type = secedeprovince which = JAP value = 1187				when = 1 } # 1187	Sofiysk
+		# Estonia # 
+		command = { type = removecore which = 273 } # 273	Voru
+		command = { type = removecore which = 272 } # 272	Tartu
+		command = { type = removecore which = 271 } # 271	Parnu
+		command = { type = removecore which = 275 } # 275	Kuressaare
+		command = { type = removecore which = 274 } # 274	Narva
+		command = { type = removecore which = 270 } # 270	Tallinn
+		# Latvia #
+		command = { type = removecore which = 265 } # 265	Valmiera
+		command = { type = removecore which = 266 } # 266	Daugavpils
+		command = { type = removecore which = 264 } # 264	Riga
+		command = { type = removecore which = 267 } # 267	Jekabpils
+		command = { type = removecore which = 269 } # 269	Jelgava
+		command = { type = removecore which = 268 } # 268	Liepaja
+		# Lithuania # 
+		command = { type = removecore which = 261 } # 261	Klaipeda
+		command = { type = removecore which = 259 } # 259	Siauliau
+		command = { type = removecore which = 263 } # 263	Alytus
+		command = { type = removecore which = 262 } # 262	Kaunas
+		command = { type = removecore which = 260 } # 260	Panevezys
+		command = { type = removecore which = 258 } # 258	Wilno
+		# Bessarabia # 
+		command = { type = removecore which = 303 } # 303	Balti
+		command = { type = removecore which = 302 } # 302	Hotin
+		command = { type = removecore which = 304 } # 304	Chisinau
+		command = { type = removecore which = 297 } # 297	Iasi
+		command = { type = removecore which = 300 } # 300	Cernauti
+		command = { type = removecore which = 298 } # 298	Galati
+		command = { type = removecore which = 306 } # 306	Ismail
+		command = { type = removecore which = 305 } # 305	Cahul
+		# Claims on Finland # 
+		command = { type = removecore which = 531 } # 531	Viipuri
+		command = { type = removecore which = 530 } # 530	Terijoki
+		command = { type = removecore which = 532 } # 532	Sortavala
+		command = { type = removecore which = 539 } # 539	Petrozavodsk
+		command = { type = removecore which = 517 } # 517	Petsamo
+	}
+}
+
+########################################################################################
+# The Soviet Union is shattered
+########################################################################################
+event = { 
+	id = 3283070
+	random = no
+	country = SOV
+
+	trigger = {
+				event = 2024
+				atwar = no
+				random = 15
+				}
+				
+	one_action = yes
+
+	name = EVT_3283070_NAME
+	desc = EVT_3283070_DESC
+	style = 2
+	picture = "sov_event_shattered"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = {
+		ai_chance = 50
+		name = ACTIONNAME3283070A #revolt in Siberia
+		
+		command = { type = independence which = SIB value = 0 when = 1 }
+		command = { type = war which = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -3 where = SIB }
+		command = { type = switch_allegiance which = -3 where = SIB }
+	}
+	action = {
+		ai_chance = 30
+		name = ACTIONNAME3283070B #revolt in mid Asia
+		
+		command = { type = independence which = KAZ value = 0 when = 1 }
+		command = { type = war which = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -3 where = KAZ }
+		
+		command = { type = independence which = UZB value = 0 when = 1 }
+		command = { type = war which = UZB }
+		command = { type = switch_allegiance which = -1 where = UZB }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		
+		command = { type = independence which = TRK value = 0 when = 1 }
+		command = { type = war which = TRK }
+		command = { type = switch_allegiance which = -1 where = TRK }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+
+		command = { type = independence which = KYG value = 0 when = 1 }
+		command = { type = war which = KYG }
+		command = { type = switch_allegiance which = -1 where = KYG }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		
+		command = { type = independence which = TAJ value = 0 when = 1 }
+		command = { type = war which = TAJ }
+		command = { type = switch_allegiance which = -1 where = TAJ }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+	}
+	action = {
+		ai_chance = 20
+		name = ACTIONNAME3283070B #revolts everywhere
+		
+		command = { type = independence which = SIB value = 0 when = 1 }
+		command = { type = war which = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -1 where = SIB }
+		command = { type = switch_allegiance which = -3 where = SIB }
+		command = { type = switch_allegiance which = -3 where = SIB }
+		
+		command = { type = independence which = KAZ value = 0 when = 1 }
+		command = { type = war which = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -1 where = KAZ }
+		command = { type = switch_allegiance which = -3 where = KAZ }
+		
+		command = { type = independence which = UZB value = 0 when = 1 }
+		command = { type = war which = UZB }
+		command = { type = switch_allegiance which = -1 where = UZB }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		
+		command = { type = independence which = TRK value = 0 when = 1 }
+		command = { type = war which = TRK }
+		command = { type = switch_allegiance which = -1 where = TRK }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+
+		command = { type = independence which = KYG value = 0 when = 1 }
+		command = { type = war which = KYG }
+		command = { type = switch_allegiance which = -1 where = KYG }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+		
+		command = { type = independence which = TAJ value = 0 when = 1 }
+		command = { type = war which = TAJ }
+		command = { type = switch_allegiance which = -1 where = TAJ }	# -1 is a random land unit -2 random naval unit -3 random air unit (value will be ignored).
+	}
+}

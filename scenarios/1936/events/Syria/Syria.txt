@@ -1,0 +1,72 @@
+# converted to DH, Kane, August 3 2011
+###########################################################################
+#	3700000 - 3799999
+###########################################################################
+event = {
+	id = 3700000
+	random = no
+	country = SYR
+	
+	trigger = {
+		event = 3190004
+		ispuppet = SYR
+	}
+	
+	name = EVT_3700000_NAME
+	desc = EVT_3700000_DESC
+	style = 0
+	
+	date = { day = 29 month = december year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3700000A
+		command = { type = trigger which = 3700001 }
+	}
+	action_b = {
+		name = ACTIONNAME3700000B
+		command = { }
+	}
+}
+event = {
+	id = 3700001
+	random = no
+	country = SYR
+	
+	# Triggered by SYR 3700000
+	
+	name = EVT_3700001_NAME
+	desc = EVT_3700001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3700001A
+		command = { }
+	}
+}
+
+###################################################################
+# 902022 - (SYR) The Bagdad Rail Finished (by SykoNurse & Generalisimo)
+###################################################################
+
+
+event = { 
+	id = 902022
+	random = no
+	country = SYR
+
+	# triggered by IRQ 3800004
+
+	name = EVT_902022_NAME
+	desc = EVT_902022_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME902022A
+		command = { type = construct which = ic where = 1021 value = 1 } # Aleppo
+		command = { type = construct which = infrastructure where = 1014 value = 20 }
+		command = { type = construct which = infrastructure where = 1015 value = 20 }
+		command = { type = construct which = infrastructure where = 1021 value = 20 }
+		}
+}

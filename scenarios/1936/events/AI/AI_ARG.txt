@@ -1,0 +1,184 @@
+# checked for DH
+####################################
+# Open  Event AI IDs Other Minors 29200 - 29999
+####################################
+####################################
+# Argentina AI events 35200 - 35299 by Lothos
+####################################
+################
+# Minister of Security Section 35200 - 35209
+#############################################
+event = { # Augusto Díaz Bustan takes power
+	id = 35200
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 35132 # Augusto Díaz Bustan
+		NOT = { InCabinet = 35132 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 35132 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 35210 - 35219
+#############################################
+event = { # Carlos O. Marquez takes power
+	id = 35210
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 35167 # Carlos O. Marquez
+		NOT = { InCabinet = 35167 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 35167 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 35220 - 35229
+#############################################
+event = { # Diogenes Taboada takes power
+	id = 35220
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 35135 # Diogenes Taboada
+		NOT = { InCabinet = 35135 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 35135 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 35230 - 35239
+#############################################
+event = { # Thomas Martínez takes power
+	id = 35230
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 35178 # Thomas Martínez
+		NOT = { InCabinet = 35178 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 35179 } # Juan Domingo Peron
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 35178 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Juan Domingo Peron takes power
+	id = 35231
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 35179 # Juan Domingo Peron
+		NOT = { InCabinet = 35179 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 35179 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 35240 - 35249
+#############################################
+event = { # Lisandro de la Torre takes power
+	id = 35240
+	random = no 
+	country = ARG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 35084 # Lisandro de la Torre
+		NOT = { InCabinet = 35084 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 35084 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35260 - 35299
+#############################################

@@ -1,0 +1,651 @@
+# converted to DH, Kane, July 12 2011
+# Last Update 12-NOV-2006
+#########################
+#########################################################################
+# Reaction to german re-occupation of the Rhineland
+#########################################################################
+event = { 
+	id = 3113000
+	random = no
+	country = AST
+	
+	# Triggered by GER 3136001,3136002,3136003 : german re-occupation of the Rhineland
+	
+	name = EVT_3131120_NAME
+	desc = EVT_3115000_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+#########################################################################
+# Reaction to Anschluss
+#########################################################################
+event = { 
+	id = 3113001
+	random = no
+	country = AST
+	
+	# Triggered by GER 3136006
+	
+	name = EVT_3135034_NAME
+	desc = EVT_2100_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+#########################################################################
+# Treaty of Munich
+#########################################################################
+event = { 
+	id = 3113002
+	random = no
+	country = AST
+	
+	# Triggered by GER
+	
+	name = EVT_3131122_NAME
+	desc = EVT_2030_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+#########################################################################
+# The End of Czechoslovakia
+#########################################################################
+event = { 
+	id = 3113003
+	random = no
+	country = AST
+	
+	# Triggered by GER
+	
+	name = EVT_3131123_NAME
+	desc = EVT_2040_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = trigger which = 913113003 }
+	}
+}
+
+
+#########################################
+event = { 
+	id = 5500004
+	random = no
+	country = AST
+	
+	trigger = {
+		event = 3182054
+		alliance = { country = AST country = USA }
+		control = { province = 1605 data = AST }
+		control = { province = 1602 data = AST }
+		control = { province = 1610 data = AST }
+		control = { province = 1606 data = AST }
+		control = { province = 1608 data = AST }
+		control = { province = 1609 data = AST }
+		control = { province = 1234 data = AST }
+		control = { province = 1603 data = AST }
+		control = { province = 1607 data = AST }
+		control = { province = 1604 data = AST }
+		control = { province = 1724 data = AST }
+		control = { province = 1727 data = AST }
+		control = { province = 1726 data = AST }
+		control = { province = 1725 data = AST }
+		control = { province = 1587 data = AST }
+	}
+	
+	name = EVT_5500004_NAME # USA takes command of the Pacific
+	desc = EVT_5500004_DESC
+	style = 2
+	picture = "usa_far_east"
+
+	date = { day = 0 month = january year = 1936 }
+        offset = 1
+	deathdate = { day = 25 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME5500004A # Give the islands to the USA
+		command = { type = secedeprovince which = USA value = 1605 }
+		command = { type = secedeprovince which = USA value = 1602 }
+		command = { type = secedeprovince which = USA value = 1610 }
+		command = { type = secedeprovince which = USA value = 1606 }
+		command = { type = secedeprovince which = USA value = 1608 }
+		command = { type = secedeprovince which = USA value = 1609 }
+		command = { type = secedeprovince which = USA value = 1234 }
+		command = { type = secedeprovince which = USA value = 1603 }
+		command = { type = secedeprovince which = USA value = 1604 }
+		command = { type = secedeprovince which = USA value = 1607 }
+		command = { type = secedeprovince which = USA value = 1724 }
+		command = { type = secedeprovince which = USA value = 1725 }
+		command = { type = secedeprovince which = USA value = 1726 }
+		command = { type = secedeprovince which = USA value = 1727 }
+		command = { type = secedeprovince which = USA value = 1587 }
+	}
+}
+############################################
+# Was 372016 1945 Medicine
+############################################
+event = {
+	id = 3400000
+	random = no
+	country = AST
+
+	trigger = {
+		exists = SWE 
+		exists = AST
+		NOT = {
+			war = { country = SWE country = AST }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_3400000_NAME # 1945 Nobel Prize in Medicine
+	desc = EVT_3400000_DESC
+	style = 2
+	picture = "medicine_1945"
+
+	date = { day = 14 month = december year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3400000A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+#########################################################################
+# Event Series Manpower controls
+# Was 372004 Australia Volunteers
+#########################################################################
+event = { 
+	id = 3400001
+	random = no
+	country = AST
+
+	trigger = { war = { country = AST country = GER } }
+
+	name = EVT_3400001_NAME # Australian volunteers flock to the colours
+	desc = EVT_3400001_DESC
+	style = 2
+	picture = "ast_manpower"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 7
+	deathdate = { day = 29 month = november year = 1941 } 
+
+	action_a = { 
+		name = ACTIONNAME3400001A # If England needs a hand, here it is
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = -5 }
+	}
+}
+#########################################################################
+# Was 372005 The Capture of Paris, Australia's Deep Thinkers
+#########################################################################
+event = { 
+	id = 3400002
+	random = no
+	country = AST
+
+	trigger = {
+		war = { country = AST country = GER }
+		control = { province = 55 data = -2 } #Paris 
+	}
+
+	name = EVT_3400002_NAME # Desperate times change the minds of some Australians
+	desc = EVT_3400002_DESC
+	style = 2
+	picture = "ast_manpower_2"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = november year = 1941 }
+
+	action_a = { 
+		name = ACTIONNAME3400002A # We go to war for King and Country
+		command = { type = manpowerpool value = 40 }
+		command = { type = dissent value = -3 }
+	}
+}
+#########################################################################
+# Event Series Manpower controls
+# Was 372006 Australia Full Mobilasation
+#########################################################################
+event = { 
+	id = 3400003
+	random = no
+	country = AST
+
+	trigger = { war = { country = AST country = JAP } }
+
+	name = EVT_3400003_NAME # Australia comes under threat of invasion
+	desc = EVT_3400003_DESC
+	style = 2
+	picture = "ast_manpower"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = { 
+		name = ACTIONNAME3400003A # Conscript and mobilize; our freedom is threatened
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = -10 }
+	} 
+} 
+#########################################################################
+# Event Series Manpower controls
+# Was 372007 Australian Conscription
+#########################################################################
+event = { 
+	id = 3400004
+	random = no
+	country = AST
+
+	trigger = { random = 10	}
+
+	name = EVT_3400004_NAME # Australian lack of overseas manpower
+	desc = EVT_3400004_DESC
+	style = 2
+	picture = "ast_manpower_2"
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = { 
+		name = ACTIONNAME3400004A # We will do what must be done
+		command = { type = manpowerpool value = 60 }
+		command = { type = dissent value = 5 }
+	} 
+} 
+#########################################################################
+# Was 372008 Joseph A. Lyons dies
+#########################################################################
+event = { 
+	id = 3400005
+	random = no
+	country = AST
+
+	trigger = {
+		random = 25
+		headofgovernment = 56002 # Joseph A. Lyons
+	}
+
+	name = EVT_3400005_NAME # Joseph A. Lyons dies in office
+	desc = EVT_3400005_DESC
+	style = 2
+	picture = "ast_joseph_a_lyons"
+
+	date = { day = 0 month = december year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = September year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3400005A # Where do we go from here?
+		command = { type = headofgovernment which = 56037 } # Robert G. Menzies
+		command = { type = sleepminister which = 56002 } # Lyons
+		command = { type = sleepminister which = 56007 } # Lyons
+# 		command = { type = foreignminister which = 56012 } # Henry S. Gullett
+# 		command = { type = armamentminister which = 56013 } # GA Street
+# 		command = { type = ministerofsecurity which = 56014 } # Hattil S. Foll
+# 		command = { type = chiefofstaff which = 56084 } # James V. Fairbairn
+		command = { type = dissent value = 3 }
+	}
+}
+#########################################################################
+# Was 372009 Menzies Resigns
+#########################################################################
+event = { 
+	id = 3400006
+	random = no
+	country = AST
+
+	trigger = {
+		random = 5
+		headofgovernment = 56037 # Robert G. Menzies
+	}
+
+	name = EVT_3400006_NAME # Robert G. Menzies forced to retire due to poor popularity
+	desc = EVT_3400006_DESC
+	style = 2
+	picture = "ast_menzies_resigns"
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME3400006A # Time for new direction and leadership
+		command = { type = headofgovernment which = 56038 } # John Curtin		
+# 		command = { type = sleepminister which = 56012 } # Gullet (dead in aircrash)
+# 		command = { type = sleepminister which = 56013 } # Street (dead in aircrash)
+		command = { type = sleepminister which = 56084 } # Fairbairn (dead in aircrash) 
+# 		command = { type = foreignminister which = 56016 }
+# 		command = { type = armamentminister which = 56017 }
+# 		command = { type = ministerofsecurity which = 56018 }
+# 		command = { type = chiefofstaff which = 56086 } # John J. Curtin
+		command = { type = dissent value = -10 }
+	}
+}
+#########################################################################
+# Was 372010 Curtin dies
+#########################################################################
+event = { 
+	id = 3400007
+	random = no
+	country = AST
+
+	trigger = {
+		random = 15
+		headofgovernment = 56038 # John J. Curtin - 1943 election
+	}
+
+	name = EVT_3400007_NAME # John Curtin dies in office
+	desc = EVT_3400007_DESC
+	style = 2
+	picture = "ast_john_curtin"
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3400007A # Another change in leadership
+		command = { type = headofgovernment which = 56039 } # Ben Chifley
+# 		command = { type = sleepminister which = 56019 } # Curtin
+# 		command = { type = chiefofstaff which = 56087 } # Leslie Beavis
+	}
+}
+###################################################################
+# Was 372013 - (AST) Demand of ex-german colonies (by SykoNurse)
+###################################################################
+event = {
+	id = 3400008
+	random = no
+	country = AST
+
+	# triggered by 3136126
+
+	name = EVT_3400008_NAME # Germany demands the return of her former colonies
+	desc = EVT_3400008_DESC
+	style = 2
+	picture = "ger_kolonien"
+
+	action_a = {
+		name = ACTIONNAME3400008A # We have little choice but to give in
+		command = { } 
+	}
+}
+###################################################################
+# Was 372014 - (AST) Return of Kaiser-Wilhelm-Land (by SykoNurse)
+###################################################################
+event = { 
+	id = 3400009
+	random = no
+	country = AST
+
+	trigger = {
+		ispuppet = VIC
+		ispuppet = ENG
+		ispuppet = AST 
+		NOT = { exists = FRA }
+		event = 3400008 # GER demanded AST land
+	}
+
+	name = EVT_3400009_NAME # The defeat of Australia
+	desc = EVT_3400009_DESC
+	style = 2
+	picture = "ast_wilhelm_land"
+
+	date = { day = 29 month = january year = 1939 } 
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3400009A # We do not have much choice
+		# Goroka, Wewak, Lae, New Britain, Admirality Isl, New Ireland, North Solomon, Yaren, Samoa
+		command = { type = secedeprovince which = GER value = 1610 }
+		command = { type = secedeprovince which = GER value = 1606 }
+		command = { type = secedeprovince which = GER value = 1608 }
+		command = { type = secedeprovince which = GER value = 1609 }
+		command = { type = secedeprovince which = GER value = 1605 }
+		command = { type = secedeprovince which = GER value = 1602 }
+		command = { type = secedeprovince which = GER value = 1234 }
+		command = { type = secedeprovince which = GER value = 1603 }
+		command = { type = secedeprovince which = GER value = 1607 }
+		command = { type = secedeprovince which = GER value = 1604 }
+		command = { type = secedeprovince which = GER value = 1724 }
+		command = { type = secedeprovince which = GER value = 1725 }
+		command = { type = secedeprovince which = GER value = 1726 }
+		command = { type = secedeprovince which = GER value = 1727 }
+		command = { type = secedeprovince which = GER value = 1587 }
+		command = { type = secedeprovince which = GER value = 1588 }
+		command = { type = secedeprovince which = GER value = 1589 }
+		command = { type = secedeprovince which = GER value = 1682 }
+	}
+}
+#######################
+# Was 372017 UK Consults Australia 
+#######################
+event = {
+	id = 3400010
+	random = no
+	country = AST
+
+	#triggered by 3131091
+
+	name = EVT_3400010_NAME # UK consults on Abdication
+ 	desc = EVT_3400010_DESC
+	style = 2
+	picture = "edward_abdication"
+
+	action_a = {
+		name = ACTIONNAME3400010A # We will meet our obligations under the law.
+		command = { type = dissent value = -2 }
+	}
+}
+######################
+# Was 372020 Edward Abdicates-AST
+######################
+event = {
+	id = 3400011
+	random = no
+	country = AST
+
+	#triggered bu 3131092
+
+	name = EVT_3400011_NAME # Edward has abdicated
+ 	desc = EVT_3400011_DESC
+	style = 2
+	picture = "edward_abdication"
+
+	action_a = {
+		name = ACTIONNAME3400011A # All Hail Kinge George VI!
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 2 }
+	}
+}
+########################
+# Was 372021 Simpson as consort-AST
+########################
+event = {
+	id = 3400012
+	random = no
+	country = AST
+
+	#triggered by 3131092
+
+	name = EVT_3400012_NAME # Simpson accpeted as consort
+ 	desc = EVT_3400012_DESC
+	style = 2
+	picture = "edward_marry"
+
+	action_a = {
+		name = ACTIONNAME3400012A # It was the only compromise available
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+######################
+# Was 372022 Simpson as queen-AST
+######################
+event = {
+	id = 3400013
+	random = no
+	country = AST
+
+	#triggered by 3131092
+
+	name = EVT_3400013_NAME # Simpson to be queen
+ 	desc = EVT_3400013_DESC
+	style = 2
+	picture = "edward_marry"
+
+	action_a = {
+		name = ACTIONNAME3400013A # It is out of our hands
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = money value = -2 }
+	}
+}
+###################################################################
+# Jungle Division
+###################################################################
+event = { 
+	id = 3400014
+	random = no
+	country = AST
+
+	trigger = {
+				OR = {
+						lost_national = { value = 1 }
+						war = { country = AST country = JAP }
+						year = 1943
+						}
+				}
+
+	name = EVT_3400014_NAME
+	desc = EVT_3400014_DESC
+	style = 2
+	picture = "ast_event_jungle_division"
+
+	date = { day = 29 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3400014A #
+		command = { type = unlock_division which = 30001 value = 302 }
+		command = { type = unlock_division which = 30001 value = 308 }
+		command = { type = gain_tech which = 1160 }
+		command = { type = gain_tech which = 1170 }
+		command = { type = waketeam which = 529 }
+	}
+}
+
+###################################################################
+# Citizens Forces
+###################################################################
+event = { 
+	id = 3400018
+	random = no
+	country = AST
+
+	trigger = {
+				OR = {
+						lost_national = { value = 1 }
+						war = { country = AST country = JAP }
+						}
+				}
+
+	name = EVT_3400018_NAME
+	desc = EVT_3400018_DESC
+	style = 2
+	picture = "ast_event_citizens_forces"
+	
+	date = { day = 29 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3400018A #
+		ai_chance = 100
+		command = { trigger = { ai = no } type = money             value = -500  }
+		command = { trigger = { ai = no } type = supplies          value = -1500 }
+		command = { trigger = { ai = no } type = dissent           value = 3     }
+		#
+		command = { trigger = { ai = yes } type = supplies value = -1000 }
+		#
+        command = { type = activate_division which = 30001 value = 315 when = 0 }
+		command = { type = activate_division which = 30001 value = 316 when = 0 }
+		command = { type = activate_division which = 30001 value = 317 when = 0 }
+	}
+	action_b = {
+		name = ACTIONNAME3400018B #
+		ai_chance = 0
+		command = { type = dissent value = -1 }
+	}
+}	
+
+############################################
+# Australian Tariff Increase
+############################################
+
+event = {
+	id = 3400019
+	random = no
+	country = AST
+
+	name = EVT_3400019_NAME
+	desc = EVT_3400019_DESC
+	style = 2
+	picture = "ast_event_tariff_increase"
+	
+	date = { day = 22 month = may year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }	
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = money    value = 150 }
+		command = { type = relation which = JAP value = -30 }
+		command = { type = trigger  which = 3400020 } #
+	}
+}
+
+event = { 
+	id = 3400020
+	random = no
+	country = JAP
+       
+	name = EVT_3400019_NAME
+	desc = EVT_3400019_DESC
+	style = 2
+	picture = "ast_event_tariff_increase"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = relation which = AST value = -30 }
+	}
+}

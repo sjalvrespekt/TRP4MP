@@ -1,0 +1,1512 @@
+#########################################################################
+#  Multiplayer decisions for assuming military control over non-allied countries
+#
+#  options limited to those countries which
+#  a) are usually played in MP games
+#  b) suffer from either boring or stressful times
+#  c) can't or shouldn't ally in crucial stages of the game (to get shared control and vision)
+#########################################################################
+
+#########################################################################
+#  Allies
+#
+#  ENG -> USA, SOV [CAN, FRA, AST allied, USA only late in the game]
+#  SOV -> USA, ENG, CAN, AST
+#  USA -> SOV, ENG, CAN, AST [ENG, CAN, AST allied only late in the game]
+#  CAN -> USA, SOV [ENG, FRA, AST allied]
+#  AST -> USA, SOV [ENG, FRA, CAN allied]
+#  FRA -> USA, SOV [ENG, CAN, AST allied]
+#########################################################################
+
+#########################################################################
+#  ENG grants control
+#########################################################################
+event = { 
+	id = 777800
+	random = no
+	country = ENG
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = USA }
+								NOT = { war = { country = USA country = ENG } }
+								NOT = { alliance = { country = USA country = ENG } }
+								NOT = { military_control = { country = USA country = ENG } }
+#								NOT = { flag = military_control_USA_over_ENG }
+								}
+						AND = {
+								NOT = { AI = SOV }
+								NOT = { war = { country = SOV country = ENG } }
+								NOT = { alliance = { country = SOV country = ENG } }
+								NOT = { military_control = { country = SOV country = ENG } }
+#								NOT = { flag = military_control_SOV_over_ENG }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_USA_over_ENG }
+#								NOT = { flag = military_control_SOV_over_ENG }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = USA country = ENG } } NOT = { AI = USA } }
+				name = CONTROL_GIVE_USA # Grant control to USA
+				command = { type = military_control which = USA where = ENG value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_USA_over_ENG } } type = setflag which = military_control_USA_over_ENG }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = SOV country = ENG } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_SOV # Grant control to SOV
+				command = { type = military_control which = SOV where = ENG value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_SOV_over_ENG } } type = setflag which = military_control_SOV_over_ENG }
+				}
+}
+#########################################################################
+#  ENG revokes control
+#########################################################################
+event = { 
+	id = 777801
+	random = no
+	country = ENG
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = ENG }
+								flag = military_control_USA_over_ENG
+								}
+						AND = {
+								military_control = { country = SOV country = ENG }
+								flag = military_control_SOV_over_ENG
+								}	
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_USA_over_ENG
+								flag = military_control_SOV_over_ENG
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = ENG }
+								flag = military_control_USA_over_ENG
+								}
+						AND = {
+								military_control = { country = SOV country = ENG }
+								flag = military_control_SOV_over_ENG
+								}	
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_USA_over_ENG }
+		name = CONTROL_REVOKE_USA # Revoke USA control
+		command = { type = military_control which = USA where = ENG value = 0 }
+		command	= { type = clrflag which = military_control_USA_over_ENG }
+	}
+	action = {
+		trigger = { flag = military_control_SOV_over_ENG }
+		name = CONTROL_REVOKE_SOV # Revoke SOV control
+		command = { type = military_control which = SOV where = ENG value = 0 }
+		command	= { type = clrflag which = military_control_SOV_over_ENG }
+	}
+}
+#########################################################################
+#  SOV grants control
+#########################################################################
+event = { 
+	id = 777802
+	random = no
+	country = SOV
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = USA }
+								NOT = { war = { country = USA country = SOV } }
+								NOT = { alliance = { country = USA country = SOV } }
+								NOT = { military_control = { country = USA country = SOV } }
+#								NOT = { flag = military_control_USA_over_SOV }
+								}
+						AND = {
+								NOT = { AI = ENG }
+								NOT = { war = { country = ENG country = SOV } }
+								NOT = { alliance = { country = ENG country = SOV } }
+								NOT = { military_control = { country = ENG country = SOV } }
+#								NOT = { flag = military_control_ENG_over_SOV }
+								}
+						AND = {
+								NOT = { AI = CAN }
+								NOT = { war = { country = CAN country = SOV } }
+								NOT = { alliance = { country = CAN country = SOV } }
+								NOT = { military_control = { country = CAN country = SOV } }
+#								NOT = { flag = military_control_CAN_over_SOV }
+								}
+						AND = {
+								NOT = { AI = AST }
+								NOT = { war = { country = AST country = SOV } }
+								NOT = { alliance = { country = AST country = SOV } }
+								NOT = { military_control = { country = AST country = SOV } }
+#								NOT = { flag = military_control_AST_over_SOV }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_USA_over_SOV }
+#								NOT = { flag = military_control_ENG_over_SOV }
+#								NOT = { flag = military_control_CAN_over_SOV }
+#								NOT = { flag = military_control_AST_over_SOV }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = USA country = SOV } } NOT = { AI = USA } }
+				name = CONTROL_GIVE_USA # Grant control to USA
+				command = { type = military_control which = USA where = SOV value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_USA_over_SOV } } type = setflag which = military_control_USA_over_SOV }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = ENG country = SOV } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_ENG # Grant control to ENG
+				command = { type = military_control which = ENG where = SOV value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_ENG_over_SOV } } type = setflag which = military_control_ENG_over_SOV }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = CAN country = SOV } } NOT = { AI = CAN } }
+				name = CONTROL_GIVE_CAN # Grant control to CAN
+				command = { type = military_control which = CAN where = SOV value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_CAN_over_SOV } } type = setflag which = military_control_CAN_over_SOV }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = AST country = SOV } } NOT = { AI = AST } }
+				name = CONTROL_GIVE_AST # Grant control to AST
+				command = { type = military_control which = AST where = SOV value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_AST_over_SOV } } type = setflag which = military_control_AST_over_SOV }
+				}
+}
+#########################################################################
+#  SOV revokes control
+#########################################################################
+event = { 
+	id = 777803
+	random = no
+	country = SOV
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = SOV }
+								flag = military_control_USA_over_SOV
+								}
+						AND = {
+								military_control = { country = ENG country = SOV }
+								flag = military_control_ENG_over_SOV
+								}	
+						AND = {
+								military_control = { country = CAN country = SOV }
+								flag = military_control_CAN_over_SOV
+								}
+						AND = {
+								military_control = { country = AST country = SOV }
+								flag = military_control_AST_over_SOV
+								}
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_USA_over_SOV
+								flag = military_control_ENG_over_SOV
+								flag = military_control_CAN_over_SOV
+								flag = military_control_AST_over_SOV
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = SOV }
+								flag = military_control_USA_over_SOV
+								}
+						AND = {
+								military_control = { country = ENG country = SOV }
+								flag = military_control_ENG_over_SOV
+								}	
+						AND = {
+								military_control = { country = CAN country = SOV }
+								flag = military_control_CAN_over_SOV
+								}
+						AND = {
+								military_control = { country = AST country = SOV }
+								flag = military_control_AST_over_SOV
+								}
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_USA_over_SOV }
+		name = CONTROL_REVOKE_USA # Revoke USA control
+		command = { type = military_control which = USA where = SOV value = 0 }
+		command	= { type = clrflag which = military_control_USA_over_SOV }
+	}
+	action = {
+		trigger = { flag = military_control_ENG_over_SOV }
+		name = CONTROL_REVOKE_ENG # Revoke ENG control
+		command = { type = military_control which = ENG where = SOV value = 0 }
+		command	= { type = clrflag which = military_control_ENG_over_SOV }
+	}
+	action = {
+		trigger = { flag = military_control_CAN_over_SOV }
+		name = CONTROL_REVOKE_CAN # Revoke CAN control
+		command = { type = military_control which = CAN where = SOV value = 0 }
+		command	= { type = clrflag which = military_control_CAN_over_SOV }
+	}
+	action = {
+		trigger = { flag = military_control_AST_over_SOV }
+		name = CONTROL_REVOKE_AST # Revoke AST control
+		command = { type = military_control which = AST where = SOV value = 0 }
+		command	= { type = clrflag which = military_control_AST_over_SOV }
+	}
+}
+#########################################################################
+#  USA grants control
+#########################################################################
+event = { 
+	id = 777804
+	random = no
+	country = USA
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = SOV }
+								NOT = { war = { country = SOV country = USA } }
+								NOT = { alliance = { country = SOV country = USA } }
+								NOT = { military_control = { country = SOV country = USA } }
+#								NOT = { flag = military_control_SOV_over_USA }
+								}
+						AND = {
+								NOT = { AI = ENG }
+								NOT = { war = { country = ENG country = USA } }
+								NOT = { alliance = { country = ENG country = USA } }
+								NOT = { military_control = { country = ENG country = USA } }
+#								NOT = { flag = military_control_ENG_over_USA }
+								}
+						AND = {
+								NOT = { AI = CAN }
+								NOT = { war = { country = CAN country = USA } }
+								NOT = { alliance = { country = CAN country = USA } }
+								NOT = { military_control = { country = CAN country = USA } }
+#								NOT = { flag = military_control_CAN_over_USA }
+								}
+						AND = {
+								NOT = { AI = AST }
+								NOT = { war = { country = AST country = USA } }
+								NOT = { alliance = { country = AST country = USA } }
+								NOT = { military_control = { country = AST country = USA } }
+#								NOT = { flag = military_control_AST_over_USA }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_SOV_over_USA }
+#								NOT = { flag = military_control_ENG_over_USA }
+#								NOT = { flag = military_control_CAN_over_USA }
+#								NOT = { flag = military_control_AST_over_USA }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = SOV country = USA } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_SOV # Grant control to SOV
+				command = { type = military_control which = SOV where = USA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_SOV_over_USA } } type = setflag which = military_control_SOV_over_USA }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = ENG country = USA } } NOT = { AI = ENG } }
+				name = CONTROL_GIVE_ENG # Grant control to ENG
+				command = { type = military_control which = ENG where = USA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_ENG_over_USA } } type = setflag which = military_control_ENG_over_USA }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = CAN country = USA } } NOT = { AI = CAN } }
+				name = CONTROL_GIVE_CAN # Grant control to CAN
+				command = { type = military_control which = CAN where = USA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_CAN_over_USA } } type = setflag which = military_control_CAN_over_USA }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = AST country = USA } } NOT = { AI = AST } }
+				name = CONTROL_GIVE_AST # Grant control to AST
+				command = { type = military_control which = AST where = USA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_AST_over_USA } } type = setflag which = military_control_AST_over_USA }
+				}
+}
+#########################################################################
+#  USA revokes control
+#########################################################################
+event = { 
+	id = 777805
+	random = no
+	country = USA
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = SOV country = USA }
+								flag = military_control_SOV_over_USA
+								}
+						AND = {
+								military_control = { country = ENG country = USA }
+								flag = military_control_ENG_over_USA
+								}	
+						AND = {
+								military_control = { country = CAN country = USA }
+								flag = military_control_CAN_over_USA
+								}
+						AND = {
+								military_control = { country = AST country = USA }
+								flag = military_control_AST_over_USA
+								}
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_SOV_over_USA
+								flag = military_control_ENG_over_USA
+								flag = military_control_CAN_over_USA
+								flag = military_control_AST_over_USA
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = SOV country = USA }
+								flag = military_control_SOV_over_USA
+								}
+						AND = {
+								military_control = { country = ENG country = USA }
+								flag = military_control_ENG_over_USA
+								}	
+						AND = {
+								military_control = { country = CAN country = USA }
+								flag = military_control_CAN_over_USA
+								}
+						AND = {
+								military_control = { country = AST country = USA }
+								flag = military_control_AST_over_USA
+								}
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_SOV_over_USA }
+		name = CONTROL_REVOKE_SOV # Revoke SOV control
+		command = { type = military_control which = SOV where = USA value = 0 }
+		command	= { type = clrflag which = military_control_SOV_over_USA }
+	}
+	action = {
+		trigger = { flag = military_control_ENG_over_USA }
+		name = CONTROL_REVOKE_ENG # Revoke ENG control
+		command = { type = military_control which = ENG where = USA value = 0 }
+		command	= { type = clrflag which = military_control_ENG_over_USA }
+	}
+	action = {
+		trigger = { flag = military_control_CAN_over_USA }
+		name = CONTROL_REVOKE_CAN # Revoke CAN control
+		command = { type = military_control which = CAN where = USA value = 0 }
+		command	= { type = clrflag which = military_control_CAN_over_USA }
+	}
+	action = {
+		trigger = { flag = military_control_AST_over_USA }
+		name = CONTROL_REVOKE_AST # Revoke AST control
+		command = { type = military_control which = AST where = USA value = 0 }
+		command	= { type = clrflag which = military_control_AST_over_USA }
+	}
+}
+#########################################################################
+#  CAN grants control
+#########################################################################
+event = { 
+	id = 777806
+	random = no
+	country = CAN
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = USA }
+								NOT = { war = { country = USA country = CAN } }
+								NOT = { alliance = { country = USA country = CAN } }
+								NOT = { military_control = { country = USA country = CAN } }
+#								NOT = { flag = military_control_USA_over_CAN }
+								}
+						AND = {
+								NOT = { AI = SOV }
+								NOT = { war = { country = SOV country = CAN } }
+								NOT = { alliance = { country = SOV country = CAN } }
+								NOT = { military_control = { country = SOV country = CAN } }
+#								NOT = { flag = military_control_SOV_over_CAN }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_USA_over_CAN }
+#								NOT = { flag = military_control_SOV_over_CAN }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = USA country = CAN } } NOT = { AI = USA } }
+				name = CONTROL_GIVE_USA # Grant control to USA
+				command = { type = military_control which = USA where = CAN value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_USA_over_CAN } } type = setflag which = military_control_USA_over_CAN }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = SOV country = CAN } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_SOV # Grant control to SOV
+				command = { type = military_control which = SOV where = CAN value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_SOV_over_CAN } } type = setflag which = military_control_SOV_over_CAN }
+				}
+}
+#########################################################################
+#  CAN revokes control
+#########################################################################
+event = { 
+	id = 777807
+	random = no
+	country = CAN
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = CAN }
+								flag = military_control_USA_over_CAN
+								}
+						AND = {
+								military_control = { country = SOV country = CAN }
+								flag = military_control_SOV_over_CAN
+								}	
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_USA_over_CAN
+								flag = military_control_SOV_over_CAN
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = CAN }
+								flag = military_control_USA_over_CAN
+								}
+						AND = {
+								military_control = { country = SOV country = CAN }
+								flag = military_control_SOV_over_CAN
+								}	
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_USA_over_CAN }
+		name = CONTROL_REVOKE_USA # Revoke USA control
+		command = { type = military_control which = USA where = CAN value = 0 }
+		command	= { type = clrflag which = military_control_USA_over_CAN }
+	}
+	action = {
+		trigger = { flag = military_control_SOV_over_CAN }
+		name = CONTROL_REVOKE_SOV # Revoke SOV control
+		command = { type = military_control which = SOV where = CAN value = 0 }
+		command	= { type = clrflag which = military_control_SOV_over_CAN }
+	}
+}
+#########################################################################
+#  AST grants control
+#########################################################################
+event = { 
+	id = 777808
+	random = no
+	country = AST
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = USA }
+								NOT = { war = { country = USA country = AST } }
+								NOT = { alliance = { country = USA country = AST } }
+								NOT = { military_control = { country = USA country = AST } }
+#								NOT = { flag = military_control_USA_over_AST }
+								}
+						AND = {
+								NOT = { AI = SOV }
+								NOT = { war = { country = SOV country = AST } }
+								NOT = { alliance = { country = SOV country = AST } }
+								NOT = { military_control = { country = SOV country = AST } }
+#								NOT = { flag = military_control_SOV_over_AST }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_USA_over_AST }
+#								NOT = { flag = military_control_SOV_over_AST }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = USA country = AST } } NOT = { AI = USA } }
+				name = CONTROL_GIVE_USA # Grant control to USA
+				command = { type = military_control which = USA where = AST value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_USA_over_AST } } type = setflag which = military_control_USA_over_AST }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = SOV country = AST } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_SOV # Grant control to SOV
+				command = { type = military_control which = SOV where = AST value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_SOV_over_AST } } type = setflag which = military_control_SOV_over_AST }
+				}
+}
+#########################################################################
+#  AST revokes control
+#########################################################################
+event = { 
+	id = 777809
+	random = no
+	country = AST
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = AST }
+								flag = military_control_USA_over_AST
+								}
+						AND = {
+								military_control = { country = SOV country = AST }
+								flag = military_control_SOV_over_AST
+								}	
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_USA_over_AST
+								flag = military_control_SOV_over_AST
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = AST }
+								flag = military_control_USA_over_AST
+								}
+						AND = {
+								military_control = { country = SOV country = AST }
+								flag = military_control_SOV_over_AST
+								}	
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_USA_over_AST }
+		name = CONTROL_REVOKE_USA # Revoke USA control
+		command = { type = military_control which = USA where = AST value = 0 }
+		command	= { type = clrflag which = military_control_USA_over_AST }
+	}
+	action = {
+		trigger = { flag = military_control_SOV_over_AST }
+		name = CONTROL_REVOKE_SOV # Revoke SOV control
+		command = { type = military_control which = SOV where = AST value = 0 }
+		command	= { type = clrflag which = military_control_SOV_over_AST }
+	}
+}
+#########################################################################
+#  FRA grants control
+#########################################################################
+event = { 
+	id = 777810
+	random = no
+	country = FRA
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = USA }
+								NOT = { war = { country = USA country = FRA } }
+								NOT = { alliance = { country = USA country = FRA } }
+								NOT = { military_control = { country = USA country = FRA } }
+#								NOT = { flag = military_control_USA_over_FRA }
+								}
+						AND = {
+								NOT = { AI = SOV }
+								NOT = { war = { country = SOV country = FRA } }
+								NOT = { alliance = { country = SOV country = FRA } }
+								NOT = { military_control = { country = SOV country = FRA } }
+#								NOT = { flag = military_control_SOV_over_FRA }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_USA_over_FRA }
+#								NOT = { flag = military_control_SOV_over_FRA }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = USA country = FRA } } NOT = { AI = USA } }
+				name = CONTROL_GIVE_USA # Grant control to USA
+				command = { type = military_control which = USA where = FRA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_USA_over_FRA } } type = setflag which = military_control_USA_over_FRA }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = SOV country = FRA } } NOT = { AI = SOV } }
+				name = CONTROL_GIVE_SOV # Grant control to SOV
+				command = { type = military_control which = SOV where = FRA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_SOV_over_FRA } } type = setflag which = military_control_SOV_over_FRA }
+				}
+}
+#########################################################################
+#  FRA revokes control
+#########################################################################
+event = { 
+	id = 777811
+	random = no
+	country = FRA
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = FRA }
+								flag = military_control_USA_over_FRA
+								}
+						AND = {
+								military_control = { country = SOV country = FRA }
+								flag = military_control_SOV_over_FRA
+								}	
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_USA_over_FRA
+								flag = military_control_SOV_over_FRA
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = USA country = FRA }
+								flag = military_control_USA_over_FRA
+								}
+						AND = {
+								military_control = { country = SOV country = FRA }
+								flag = military_control_SOV_over_FRA
+								}	
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_USA_over_FRA }
+		name = CONTROL_REVOKE_USA # Revoke USA control
+		command = { type = military_control which = USA where = FRA value = 0 }
+		command	= { type = clrflag which = military_control_USA_over_FRA }
+	}
+	action = {
+		trigger = { flag = military_control_SOV_over_FRA }
+		name = CONTROL_REVOKE_SOV # Revoke SOV control
+		command = { type = military_control which = SOV where = FRA value = 0 }
+		command	= { type = clrflag which = military_control_SOV_over_FRA }
+	}
+}
+
+
+#########################################################################
+#  Axis
+#
+#  GER -> JAP, ITA [HUN, ROM usually allied early on]
+#  JAP -> GER, ITA, HUN, ROM
+#  ITA -> JAP [GER, HUN, ROM usually allied early on]
+#  HUN -> JAP [GER, ITA, ROM usually allied early on]
+#  ROM -> JAP [GER, ITA, HUN usually allied early on]
+#########################################################################
+
+#########################################################################
+#  GER grants control
+#########################################################################
+event = { 
+	id = 777812
+	random = no
+	country = GER
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = JAP }
+								NOT = { war = { country = JAP country = GER } }
+								NOT = { alliance = { country = JAP country = GER } }
+								NOT = { military_control = { country = JAP country = GER } }
+#								NOT = { flag = military_control_JAP_over_GER }
+								}
+						AND = {
+								NOT = { AI = ITA }
+								NOT = { war = { country = ITA country = GER } }
+								NOT = { alliance = { country = ITA country = GER } }
+								NOT = { military_control = { country = ITA country = GER } }
+#								NOT = { flag = military_control_ITA_over_GER }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_JAP_over_GER }
+#								NOT = { flag = military_control_ITA_over_GER }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = JAP country = GER } } NOT = { AI = JAP } }
+				name = CONTROL_GIVE_JAP # Grant control to JAP
+				command = { type = military_control which = JAP where = GER value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_JAP_over_GER } } type = setflag which = military_control_JAP_over_GER }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = ITA country = GER } } NOT = { AI = ITA } }
+				name = CONTROL_GIVE_ITA # Grant control to ITA
+				command = { type = military_control which = ITA where = GER value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_ITA_over_GER } } type = setflag which = military_control_ITA_over_GER }
+				}
+}
+#########################################################################
+#  GER revokes control
+#########################################################################
+event = { 
+	id = 777813
+	random = no
+	country = GER
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = JAP country = GER }
+								flag = military_control_JAP_over_GER
+								}
+						AND = {
+								military_control = { country = ITA country = GER }
+								flag = military_control_ITA_over_GER
+								}	
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_JAP_over_GER
+								flag = military_control_ITA_over_GER
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = JAP country = GER }
+								flag = military_control_JAP_over_GER
+								}
+						AND = {
+								military_control = { country = ITA country = GER }
+								flag = military_control_ITA_over_GER
+								}	
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_JAP_over_GER }
+		name = CONTROL_REVOKE_JAP # Revoke JAP control
+		command = { type = military_control which = JAP where = GER value = 0 }
+		command	= { type = clrflag which = military_control_JAP_over_GER }
+	}
+	action = {
+		trigger = { flag = military_control_ITA_over_GER }
+		name = CONTROL_REVOKE_ITA # Revoke ITA control
+		command = { type = military_control which = ITA where = GER value = 0 }
+		command	= { type = clrflag which = military_control_ITA_over_GER }
+	}
+}
+#########################################################################
+#  JAP grants control
+#########################################################################
+event = { 
+	id = 777814
+	random = no
+	country = JAP
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				OR = {
+						AND = {
+								NOT = { AI = GER }
+								NOT = { war = { country = GER country = JAP } }
+								NOT = { alliance = { country = GER country = JAP } }
+								NOT = { military_control = { country = GER country = JAP } }
+#								NOT = { flag = military_control_GER_over_JAP }
+								}
+						AND = {
+								NOT = { AI = ITA }
+								NOT = { war = { country = ITA country = JAP } }
+								NOT = { alliance = { country = ITA country = JAP } }
+								NOT = { military_control = { country = ITA country = JAP } }
+#								NOT = { flag = military_control_ITA_over_JAP }
+								}
+						AND = {
+								NOT = { AI = HUN }
+								NOT = { war = { country = HUN country = JAP } }
+								NOT = { alliance = { country = HUN country = JAP } }
+								NOT = { military_control = { country = HUN country = JAP } }
+#								NOT = { flag = military_control_HUN_over_JAP }
+								}
+						AND = {
+								NOT = { AI = ROM }
+								NOT = { war = { country = ROM country = JAP } }
+								NOT = { alliance = { country = ROM country = JAP } }
+								NOT = { military_control = { country = ROM country = JAP } }
+#								NOT = { flag = military_control_ROM_over_JAP }
+								}
+						}
+				}
+	
+	decision_trigger = { 
+#						OR = {
+#								NOT = { flag = military_control_GER_over_JAP }
+#								NOT = { flag = military_control_ITA_over_JAP }
+#								NOT = { flag = military_control_HUN_over_JAP }
+#								NOT = { flag = military_control_ROM_over_JAP }
+#								}
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = GER country = JAP } } NOT = { AI = GER } }
+				name = CONTROL_GIVE_GER # Grant control to GER
+				command = { type = military_control which = GER where = JAP value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_GER_over_JAP } } type = setflag which = military_control_GER_over_JAP }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = ITA country = JAP } } NOT = { AI = ITA } }
+				name = CONTROL_GIVE_ITA # Grant control to ITA
+				command = { type = military_control which = ITA where = JAP value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_ITA_over_JAP } } type = setflag which = military_control_ITA_over_JAP }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = HUN country = JAP } } NOT = { AI = HUN } }
+				name = CONTROL_GIVE_HUN # Grant control to HUN
+				command = { type = military_control which = HUN where = JAP value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_HUN_over_JAP } } type = setflag which = military_control_HUN_over_JAP }
+				}
+	action = {
+				trigger = { NOT = { military_control = { country = ROM country = JAP } } NOT = { AI = ROM } }
+				name = CONTROL_GIVE_ROM #Grant control to ROM
+				command = { type = military_control which = ROM where = JAP value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_ROM_over_JAP } } type = setflag which = military_control_ROM_over_JAP }
+				}
+}
+#########################################################################
+#  JAP revokes control
+#########################################################################
+event = { 
+	id = 777815
+	random = no
+	country = JAP
+
+	persistent = yes
+	
+	decision = {
+				OR = {
+						AND = {
+								military_control = { country = GER country = JAP }
+								flag = military_control_GER_over_JAP
+								}
+						AND = {
+								military_control = { country = ITA country = JAP }
+								flag = military_control_ITA_over_JAP
+								}
+						AND = {
+								military_control = { country = HUN country = JAP }
+								flag = military_control_HUN_over_JAP
+								}
+						AND = {
+								military_control = { country = ROM country = JAP }
+								flag = military_control_ROM_over_JAP
+								}
+						}		
+				}
+	
+	decision_trigger = { 
+						OR = {
+								flag = military_control_GER_over_JAP
+								flag = military_control_ITA_over_JAP
+								flag = military_control_HUN_over_JAP
+								flag = military_control_ROM_over_JAP
+								}
+						}
+			
+	trigger = {
+				OR = {
+						AND = {
+								military_control = { country = GER country = JAP }
+								flag = military_control_GER_over_JAP
+								}
+						AND = {
+								military_control = { country = ITA country = JAP }
+								flag = military_control_ITA_over_JAP
+								}
+						AND = {
+								military_control = { country = HUN country = JAP }
+								flag = military_control_HUN_over_JAP
+								}
+						AND = {
+								military_control = { country = ROM country = JAP }
+								flag = military_control_ROM_over_JAP
+								}
+						}
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_GER_over_JAP }
+		name = CONTROL_REVOKE_GER # Revoke GER control
+		command = { type = military_control which = GER where = JAP value = 0 }
+		command	= { type = clrflag which = military_control_GER_over_JAP }
+	}
+	action = {
+		trigger = { flag = military_control_ITA_over_JAP }
+		name = CONTROL_REVOKE_ITA # Revoke ITA control
+		command = { type = military_control which = ITA where = JAP value = 0 }
+		command	= { type = clrflag which = military_control_ITA_over_JAP }
+	}
+	action = {
+		trigger = { flag = military_control_HUN_over_JAP }
+		name = CONTROL_REVOKE_HUN # Revoke HUN control
+		command = { type = military_control which = HUN where = JAP value = 0 }
+		command	= { type = clrflag which = military_control_HUN_over_JAP }
+	}
+	action = {
+		trigger = { flag = military_control_ROM_over_JAP }
+		name = CONTROL_REVOKE_ROM # Revoke ROM control
+		command = { type = military_control which = ROM where = JAP value = 0 }
+		command	= { type = clrflag which = military_control_ROM_over_JAP }
+	}
+}
+#########################################################################
+#  ITA grants control
+#########################################################################
+event = { 
+	id = 777816
+	random = no
+	country = ITA
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				NOT = { AI = JAP }
+				NOT = { war = { country = JAP country = ITA } }
+				NOT = { alliance = { country = JAP country = ITA } }
+				NOT = { military_control = { country = JAP country = ITA } }
+#				NOT = { flag = military_control_JAP_over_ITA }
+				}
+	
+	decision_trigger = { 
+#						NOT = { flag = military_control_JAP_over_ITA }
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = JAP country = ITA } } NOT = { AI = JAP } }
+				name = CONTROL_GIVE_JAP # Grant control to JAP
+				command = { type = military_control which = JAP where = ITA value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_JAP_over_ITA } } type = setflag which = military_control_JAP_over_ITA }
+				}
+}
+#########################################################################
+#  ITA revokes control
+#########################################################################
+event = { 
+	id = 777817
+	random = no
+	country = ITA
+
+	persistent = yes
+	
+	decision = {
+				military_control = { country = JAP country = ITA }
+				flag = military_control_JAP_over_ITA
+				}
+	
+	decision_trigger = { 
+						flag = military_control_JAP_over_ITA
+						}
+			
+	trigger = {
+				military_control = { country = JAP country = ITA }
+				flag = military_control_JAP_over_ITA				
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_JAP_over_ITA }
+		name = CONTROL_REVOKE_JAP # Revoke JAP control
+		command = { type = military_control which = JAP where = ITA value = 0 }
+		command	= { type = clrflag which = military_control_JAP_over_ITA }
+	}
+}
+#########################################################################
+#  HUN grants control
+#########################################################################
+event = { 
+	id = 777818
+	random = no
+	country = HUN
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				NOT = { AI = JAP }
+				NOT = { war = { country = JAP country = HUN } }
+				NOT = { alliance = { country = JAP country = HUN } }
+				NOT = { military_control = { country = JAP country = HUN } }
+#				NOT = { flag = military_control_JAP_over_HUN }
+				}
+	
+	decision_trigger = { 
+#						NOT = { flag = military_control_JAP_over_HUN }
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = JAP country = HUN } } NOT = { AI = JAP } }
+				name = CONTROL_GIVE_JAP # Grant control to JAP
+				command = { type = military_control which = JAP where = HUN value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_JAP_over_HUN } } type = setflag which = military_control_JAP_over_HUN }
+				}
+}
+#########################################################################
+#  HUN revokes control
+#########################################################################
+event = { 
+	id = 777819
+	random = no
+	country = HUN
+
+	persistent = yes
+	
+	decision = {
+				military_control = { country = JAP country = HUN }
+				flag = military_control_JAP_over_HUN
+				}
+	
+	decision_trigger = { 
+						flag = military_control_JAP_over_HUN
+						}
+			
+	trigger = {
+				military_control = { country = JAP country = HUN }
+				flag = military_control_JAP_over_HUN				
+				ai = yes #AI revokes control if human player leaves the country
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_JAP_over_HUN }
+		name = CONTROL_REVOKE_JAP # Revoke JAP control
+		command = { type = military_control which = JAP where = HUN value = 0 }
+		command	= { type = clrflag which = military_control_JAP_over_HUN }
+	}
+}
+#########################################################################
+#  ROM grants control
+#########################################################################
+event = { 
+	id = 777820
+	random = no
+	country = ROM
+
+	persistent = yes
+	
+	decision = {
+				AI = no
+				NOT = { AI = JAP }
+				NOT = { war = { country = JAP country = ROM } }
+				NOT = { alliance = { country = JAP country = ROM } }
+				NOT = { military_control = { country = JAP country = ROM } }
+#				NOT = { flag = military_control_JAP_over_ROM }
+				}
+	
+	decision_trigger = { 
+#						NOT = { flag = military_control_JAP_over_ROM }
+						}
+			
+	trigger = {
+				ai = no
+				}
+	
+	name = "DEC_GIVE_CONTROL"
+	desc = "DEC_GIVE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control"
+	decision_picture = "decision_mp_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+				trigger = { NOT = { military_control = { country = JAP country = ROM } } NOT = { AI = JAP } }
+				name = CONTROL_GIVE_JAP # Grant control to JAP
+				command = { type = military_control which = JAP where = ROM value = 1 }
+				command	= { trigger = { NOT = { flag = military_control_JAP_over_ROM } } type = setflag which = military_control_JAP_over_ROM }
+				}
+}
+#########################################################################
+#  ROM revokes control
+#########################################################################
+event = { 
+	id = 777821
+	random = no
+	country = ROM
+
+	persistent = yes
+	
+	decision = {
+				military_control = { country = JAP country = ROM }
+				flag = military_control_JAP_over_ROM
+				}
+	
+	decision_trigger = { 
+						flag = military_control_JAP_over_ROM
+						}
+			
+	trigger = {
+				military_control = { country = JAP country = ROM }
+				flag = military_control_JAP_over_ROM					
+				ai = yes #AI revokes control if human player leaves the country	
+				}
+	
+	name = "DEC_REVOKE_CONTROL"
+	desc = "DEC_REVOKE_CONTROL_DESC"
+	style = 2
+	picture = "event_mp_control_over"
+	decision_picture = "decision_mp_control_over"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		trigger = { flag = military_control_JAP_over_ROM }
+		name = CONTROL_REVOKE_JAP # Revoke JAP control
+		command = { type = military_control which = JAP where = ROM value = 0 }
+		command	= { type = clrflag which = military_control_JAP_over_ROM }
+	}
+}

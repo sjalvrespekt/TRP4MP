@@ -1,0 +1,973 @@
+#########################################################################
+# Increase of Army - 1st Phase by Lord Rommel
+#########################################################################
+event = {
+	id = 3182116
+	random = no
+	country = USA
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182015
+		NOT = { event = 3182028 } # Early war
+		energy = 2260
+		metal = 1330
+		rare_materials = 998
+		manpower = 30
+			}
+	
+	trigger = {
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182015
+		NOT = { event = 3182028 } # Early war
+		energy = 2260
+		metal = 1330
+		rare_materials = 998
+		manpower = 30
+	}
+
+	name = EVT_3182015_NAME
+	desc = EVT_3182015B_DESC
+	style = 2
+        picture = "usarmy1939"
+		decision_picture = "decision_grand_offensive2"
+
+	date = { day = 10 month = october year = 1939 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3182015B
+
+		command = { type = energypool value = -2660 }
+		command = { type = metalpool value = -1330 }
+		command = { type = rarematerialspool value = -998 }
+		command = { type = manpowerpool value = -30 }
+
+		command = { type = activate_division which = 14800 value = 80 when = 0 }
+                command = { type = activate_division which = 14800 value = 81 when = 0 }
+	}
+}
+
+
+#########################################################################
+# Increase of Army - 2nd Phase by Lord Rommel
+#########################################################################
+event = {
+	id = 3182117
+	random = no
+	country = USA
+
+	decision = { event = 3182116 }
+	decision_trigger = { 		
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182116
+		NOT = { event = 3182028 } # Early war
+		energy = 18760
+		metal = 9380
+		rare_materials = 5356
+		manpower = 74
+			}
+	
+	trigger = {
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182116
+		NOT = { event = 3182028 } # Early war
+		energy = 18760
+		metal = 9380
+		rare_materials = 5356
+		manpower = 74
+	}
+
+	name = EVT_3182015_NAME
+	desc = EVT_3182015C_DESC
+	style = 2
+        picture = "usarmy1940"
+		decision_picture = "decision_grand_offensive2"
+
+	date = { day = 0 month = july year = 1940 } #1940
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+
+	action_a = {
+		name = ACTIONNAME3182015C
+
+		command = { type = energypool value = -18760}
+		command = { type = metalpool value = -9380}
+		command = { type = rarematerialspool value = -5356}
+		command = { type = manpowerpool value = -74 }
+
+		command = { type = activate_division which = 14800 value = 82 when = 0 }
+        command = { type = activate_division which = 14800 value = 83 when = 0 }
+		command = { type = activate_division which = 14800 value = 84 when = 0 }
+        command = { type = activate_division which = 14800 value = 85 when = 0 }
+		command = { type = activate_division which = 14800 value = 86 when = 0 }
+
+	}
+}
+
+
+#########################################################################
+# Increase of Army - 3rd Phase by Lord Rommel
+#########################################################################
+event = {
+	id = 3182118
+	random = no
+	country = USA
+	
+	decision = { event = 3182117 }
+	decision_trigger = { 		
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182117
+		NOT = { event = 3182028 } # Early war
+		energy = 40320
+		metal = 20160
+		rare_materials = 10080
+		manpower = 42
+			}
+
+	trigger = {
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+                event = 3182117
+		NOT = { event = 3182028 } # Early war
+		energy = 40320
+		metal = 20160
+		rare_materials = 10080
+		manpower = 42
+	}
+
+	name = EVT_3182015_NAME
+	desc = EVT_3182015D_DESC
+	style = 2
+        picture = "usarmy1941"
+		decision_picture = "decision_grand_offensive2"
+
+	date = { day = 15 month = april year = 1941 } #1941
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+
+	action_a = {
+		name = ACTIONNAME3182015D
+
+		command = { type = energypool value = -40320}
+		command = { type = metalpool value = -20160}
+		command = { type = rarematerialspool value = -10080}
+		command = { type = manpowerpool value = -42 }
+
+		command = { type = activate_division which = 14800 value = 87 when = 0 }
+                command = { type = activate_division which = 14800 value = 88 when = 0 }
+                command = { type = activate_division which = 14800 value = 89 when = 0 }
+ 
+	}
+}
+
+#####################################################################################
+# USA diplomatic offensive
+#####################################################################################
+event = { 
+	id = 3182127
+	random = no
+	country = USA
+
+	decision = { 
+				NOT = { flag = USA_diplomatic_offensive }
+				OR = {
+						#expand for additional nations using neutrality event 552211 and USA
+						NOT = { alliance = { country = USA country = ECU } }
+						NOT = { alliance = { country = USA country = PAR } }
+						NOT = { alliance = { country = USA country = PER } }
+						NOT = { alliance = { country = USA country = CHL } }
+						NOT = { alliance = { country = USA country = VEN } }
+						NOT = { alliance = { country = USA country = URU } }
+						NOT = { alliance = { country = USA country = TUR } }
+						NOT = { alliance = { country = USA country = SAU } }
+						NOT = { alliance = { country = USA country = ARG } }
+						NOT = { alliance = { country = ENG country = ECU } }
+						NOT = { alliance = { country = ENG country = PAR } }
+						NOT = { alliance = { country = ENG country = PER } }
+						NOT = { alliance = { country = ENG country = CHL } }
+						NOT = { alliance = { country = ENG country = VEN } }
+						NOT = { alliance = { country = ENG country = URU } }
+						NOT = { alliance = { country = ENG country = TUR } }
+						NOT = { alliance = { country = ENG country = SAU } }
+						NOT = { alliance = { country = ENG country = ARG } }
+						}
+				OR = {
+						atwar = GER
+						atwar = SOV
+						atwar = USA
+						atwar = ENG
+						atwar = JAP
+						}
+				}
+				
+	decision_trigger = {
+						OR = {
+								AND = {
+										war = { country = USA country = GER }
+										lost_national = { country = GER value = 35 }
+										}
+								NOT = { exists = GER }
+								war = { country = USA country = JAP }
+								war = { country = USA country = SOV }
+								war = { country = USA country = ENG }
+								}	
+						}
+						
+	trigger= { 
+				NOT = { flag = USA_diplomatic_offensive }
+				OR = {
+						#expand for additional nations using neutrality event 552211 and USA
+						NOT = { alliance = { country = USA country = ECU } }
+						NOT = { alliance = { country = USA country = PAR } }
+						NOT = { alliance = { country = USA country = PER } }
+						NOT = { alliance = { country = USA country = CHL } }
+						NOT = { alliance = { country = USA country = VEN } }
+						NOT = { alliance = { country = USA country = URU } }
+						NOT = { alliance = { country = USA country = TUR } }
+						NOT = { alliance = { country = USA country = SAU } }
+						NOT = { alliance = { country = USA country = ARG } }
+						NOT = { alliance = { country = ENG country = ECU } }
+						NOT = { alliance = { country = ENG country = PAR } }
+						NOT = { alliance = { country = ENG country = PER } }
+						NOT = { alliance = { country = ENG country = CHL } }
+						NOT = { alliance = { country = ENG country = VEN } }
+						NOT = { alliance = { country = ENG country = URU } }
+						NOT = { alliance = { country = ENG country = TUR } }
+						NOT = { alliance = { country = ENG country = SAU } }
+						NOT = { alliance = { country = ENG country = ARG } }
+						}
+				OR = {
+						AND = {
+								war = { country = USA country = GER }
+								lost_national = { country = GER value = 35 }
+								}
+						NOT = { exists = GER }
+						war = { country = USA country = JAP }
+						war = { country = USA country = SOV }
+						war = { country = USA country = ENG }
+						}	
+				}
+
+	name = EVT_3182127_NAME
+	desc = EVT_3182127_DESC
+	style = 2
+	decision_picture = "decision_diplomatic_offensive"
+	picture = "event_diplomatic_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTIONNAME3182127A"
+		command = { type = setflag which = USA_diplomatic_offensive }
+	}
+}
+
+
+#########################################################################
+# FSSF - 1st special service forces
+#########################################################################
+event = {
+	id = 3182128
+	random = no
+	country = USA
+
+	decision = {
+				ai = NO
+				atwar = YES
+				alliance = { country = USA country = CAN }
+				}
+	
+	decision_trigger = { 		
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 2
+			}
+
+	trigger = {
+		atwar = YES
+		alliance = { country = USA country = CAN }
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 2
+	}
+
+	name = EVT_3182128_NAME
+	desc = EVT_3182128_DESC
+	style = 2
+        picture = "decision_us_fssf_a"
+        decision_picture = "decision_us_fssf_b"
+
+	date = { day = 9 month = july year = 1942 } #1942
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+
+	action_a = {
+		name = ACTIONNAME3182015A
+		command = { type = energypool value = -5720 }
+		command = { type = metalpool value = -2360 }
+		command = { type = rarematerialspool value = -880 }
+		command = { type = manpowerpool value = -2 }
+		command = { type = gain_tech which = 1120 }
+		command = { type = gain_tech which = 1130 }
+		command = { type = activate_division which = 14800 value = 90 when = 0 }
+ 
+	}
+}
+
+#########################################################################
+# Ranger - 1st us rangers
+#########################################################################
+event = {
+	id = 3182129
+	random = no
+	country = USA
+
+	decision = {
+				ai = NO
+				atwar = YES
+				}
+	
+	decision_trigger = { 		
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 3
+			}
+
+	trigger = {
+		atwar = YES
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 3
+	}
+
+	name = EVT_3182129_NAME
+	desc = EVT_3182129_DESC
+	style = 2
+        picture = "decision_us_ranger_a"
+        decision_picture = "decision_us_ranger_b"
+
+	date = { day = 19 month = june year = 1942 } #1942
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+
+	action_a = {
+		name = ACTIONNAME3182015A
+		command = { type = energypool value = -5720 }
+		command = { type = metalpool value = -2360 }
+		command = { type = rarematerialspool value = -880 }
+		command = { type = manpowerpool value = -3 }
+		#command = { type = waketeam which = } #Ranger school
+		command = { type = activate_division which = 14800 value = 91 when = 0 }
+ 
+	}
+}
+
+########################################################
+# USS Wyoming
+########################################################
+event = { 
+	id = 3182134
+	random = no
+	country = USA
+	
+	decision = {
+				ai = no
+				atwar = yes
+	}
+	decision_trigger = {
+						supplies = 1000
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				random = 2
+	}
+       
+	name = EVT_3182134_NAME
+	desc = EVT_3182134_DESC
+	style = 2
+	decision_picture = "usa_decision_wyoming"
+	picture = "usa_event_wyoming"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		ai_chance = 1
+		command = { trigger = { ai = no } type = supplies value = -1000 }
+		command = { type = activate_division which = 14800 value = 448 where = 1812 when = 0 } #Norfolk
+	}
+	
+	action_b = {
+		ai_chance = 99
+		name = ACTIONNAME3182134B # keep ship for training duties
+		command = { type = sleepevent which = 3182134 }
+		command = { type = gain_tech which = 8390 }
+		command = { type = gain_tech which = 8400 }
+	}
+}
+
+########################################################
+# US help for dutch marines
+########################################################
+event = { 
+	id = 3182135
+	random = no
+	country = USA
+	
+	decision = {
+				ai = no
+				atwar = yes
+				exists = HOL
+				alliance = { country = USA country = HOL }	
+	}
+	decision_trigger = {
+				supplies = 3000
+				money    = 500
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				random = 2
+				exists = HOL
+				alliance = { country = USA country = HOL }					
+	}
+       
+	name = EVT_3182135_NAME
+	desc = EVT_3182135_DESC
+	style = 2
+	decision_picture = "usa_hol_decision_dutch_marines"
+	picture = "usa_hol_event_dutch_marines"
+
+	date = { day = 0 month = january year = 1944 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3182135A
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { trigger = { ai = no } type = money    value = -250 }
+		command = { type = trigger which = 3182136 } #NL marinesbrigade
+	}
+}
+
+########################################################
+# US pacific command HQ on new caledonia
+########################################################
+event = { 
+	id = 3182140
+	random = no
+	country = USA
+	
+	decision = {
+				ai    = no
+				atwar = yes
+				war   = { country = USA country = JAP }	
+	}
+	decision_trigger = {
+	       OR = {
+			    event    = 3182054 #Far East Command Established
+				control  = { province = 1726 data = -2 } #Rabaul
+				control  = { province = 1607 data = -2 } #Port Morseby
+				control  = { province = 1680 data = -2 } #Tarawa
+				control  = { province = 1728 data = -2 } #Suwa
+				lost_national = { country = AST value = 1 } #JAP has landed in AST
+				}
+				manpower = 30
+				supplies = 3500
+				oil      = 750
+				money    = 250		
+				control  = { province = 1586 data = -3 }
+				control  = { province = 1582 data = -3 }
+	}
+	trigger = {
+				ai      = yes
+				atwar   = yes
+				war     = { country = USA country = JAP }	
+	       OR = {
+			    event    = 3182054 #Far East Command Established
+				control  = { province = 1726 data = -2 } #Rabaul
+				control  = { province = 1607 data = -2 } #Port Morseby
+				control  = { province = 1680 data = -2 } #Tarawa
+				control  = { province = 1728 data = -2 } #Suwa
+				lost_national = { country = AST value = 1 }
+				}
+				manpower = 30
+				control = { province = 1586 data = -3 }
+				control = { province = 1582 data = -3 }
+	}
+       
+	name = EVT_3182140_NAME
+	desc = EVT_3182140_DESC
+	style = 2
+	decision_picture = "usa_decision_pacific_command"
+	picture          = "usa_event_pacific_command"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+    action_a = {
+		name = ACTIONNAME3182140A
+		command = { trigger = { ai = no } type  = supplies value = -3000 }
+		command = { trigger = { ai = no } type  = oilpool  value = -500  }
+		command = { trigger = { ai = no } type  = money    value = -250  }
+		command = { type = supplies       value = 750      where = 1586  }
+		command = { type = oilpool        value = 250      where = 1586  }
+		command = { type = supplies       value = 350      where = 1582  }
+		command = { type = oilpool        value = 100      where = 1582  }
+		command = { type = manpowerpool   value = -30 }
+		
+		command = { type = construct which = air_base     where = 1586 value = 5 }
+		command = { type = construct which = naval_base   where = 1586 value = 4 }
+		command = { type = construct which = flak         where = 1586 value = 3 }
+		command = { type = construct which = coastal_fort where = 1586 value = 2 }
+		
+		command = { type = add_corps which = "US Army Forces in the Far East" value = land where = 1586 }
+		command = { type = activate_division which = 14800 value = 92 where = 1586 }
+		command = { type = activate_division which = 14800 value = 93 where = 1586 }
+		command = { type = activate_division which = 14800 value = 95 where = 1586 }
+		
+        command = { type = add_corps which = "New Hebrides Defense Force Command" value = land where = 1582	}
+		command = { type = activate_division which = 14800 value = 94 where = 1582 }		
+
+		}
+}
+
+########################################################
+# US support for polish home army in warwas uprising
+########################################################
+event = { 
+	id = 3182190
+	random = no
+	country = USA
+	
+	decision = {
+				ai    = no
+                event = 3136233 #GER Event Warsaw uprising
+	}
+	decision_trigger = {
+	            event    = 3136233 
+				supplies = 2500
+				oil      = 250
+				money    = 750	
+				atwar = yes
+				war   = { country = USA country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+	trigger = {
+	            event    = 3136233 
+				ai       = yes
+				supplies = 2500
+				oil      = 250
+				money    = 750	
+				atwar = yes
+				war   = { country = USA country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+       
+	name = EVT_3182190_NAME
+	desc = EVT_3182190_DESC
+	style = 2
+	decision_picture = "usa_decision_us_help_for_warsaw"
+	picture          = "usa_event_us_help_for_warsaw"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+		name = ACTIONNAME3182190A	
+		command = { type = revolt which = 232 when = -1 } #Polish army could equip more soldiers for the battle
+		command = { type = revolt which = 232 when = -1 } 
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { trigger = { ai = no } type = oilpool  value = -250  }
+		command = { trigger = { ai = no } type = money    value = -750  }
+		command = { type = dissent value = 4 }
+	}
+}
+
+########################################################
+# US military advisors for China national army
+########################################################
+event = { 
+	id = 3182191
+	random = no
+	country = USA
+	
+	decision = {
+				ai    = no
+				exists = CHI
+				OR = {
+						war   = { country = USA country = JAP }	
+						war   = { country = USA country = U00 }
+				}
+				OR = {
+						war   = { country = CHI country = JAP }
+						war   = { country = CHI country = U00 }	
+				}
+				OR = {
+						war   = { country = ENG country = JAP }	
+						war   = { country = ENG country = U00 }
+				}
+				OR = {
+						war   = { country = U02 country = JAP }					
+						war   = { country = U02 country = U00 }
+				}
+	}
+	
+	decision_trigger = {
+	OR = {
+	            event    = 3182100
+				event    = 3182101
+				year     = 1942
+				# Burma Road Event
+        }				
+				supplies = 5000
+				oil      = 1500
+				money    = 750			
+	}
+	
+	trigger = {
+		exists = CHI
+		OR = {
+	            event    = 3182100
+				event    = 3182101
+				year     = 1942
+				# Burma Road Event
+        }				
+				supplies = 5000
+				oil      = 1500
+				money    = 750	
+        OR = {
+				war   = { country = USA country = JAP }	
+				war   = { country = USA country = U00 }
+	     }
+        OR = {
+				war   = { country = CHI country = JAP }
+				war   = { country = CHI country = U00 }	
+	     }
+        OR = {
+				war   = { country = ENG country = JAP }	
+				war   = { country = ENG country = U00 }
+	     }
+        OR = {
+				war   = { country = U02 country = JAP }					
+				war   = { country = U02 country = U00 }
+	     }		
+	}
+       
+	name = EVT_3182191_NAME
+	desc = EVT_3182191_DESC
+	style = 2
+	decision_picture = "usa_decision_us_help_for_china"
+	picture          = "usa_event_us_help_for_china"
+
+	date = { day = 0 month = april year = 1942 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+		name = ACTIONNAME3182191A	
+		command = { trigger = { ai = no } type = supplies value = -5000 }
+		command = { trigger = { ai = no } type = oilpool  value = -1500 }
+		command = { trigger = { ai = no } type = money    value = -750  }
+		command = { type = trigger    which = 522040 } #CHI
+	}
+	
+    action_b = {
+		name = ACTIONNAME3182191B	
+		command = { type = sleepevent which = 522040 } #CHI
+	}	
+	
+}
+
+########################################################
+# Frank Whittles trip to the USA
+########################################################
+event = { 
+	id = 3182192
+	random = no
+	country = USA
+	
+    #triggered by ENG
+	
+	name = EVT_3131409_NAME
+	desc = EVT_3182192_DESC
+	style = 2
+	picture          = "usa_event_us_turbojets"
+	
+    action_a = {
+		name = ACTIONNAME3182192A	
+		command = { trigger = { ai = no } type = supplies value = -1500 }
+		command = { trigger = { ai = no } type = oilpool  value = -500  }
+		command = { trigger = { ai = no } type = money    value = -250  }
+		command = { type = gain_tech which = 5570 }
+	}
+	
+    action_b = {
+		name = ACTIONNAME3182192B	
+		command = { type = sleepevent which = 3182193 } #
+		command = { type = relation which = ENG value = -35 }
+		command = { type = dissent  value = -1 }
+	}	
+	
+}
+
+########################################################
+# US turbojet P-80 shooting star in service
+########################################################
+event = { 
+	id = 3182193
+	random = no
+	country = USA
+	
+	decision = {
+				ai    = no
+	}
+	
+	decision_trigger = {
+	            event    = 3131409
+				event    = 3182170
+				year     = 1942
+				supplies = 2500
+				oil      = 500
+				money    = 250	
+				atwar = yes		
+	}
+	
+	trigger = {
+	            event    = 3131409
+				event    = 3182170
+				year     = 1942
+				supplies = 2500
+				oil      = 500
+				money    = 250	
+				atwar = yes
+	}
+       
+	name = EVT_3182193_NAME
+	desc = EVT_3182193_DESC
+	style = 2
+	decision_picture = "usa_decision_us_turbojets2"
+	picture          = "usa_event_us_turbojets2"
+
+	date = { day = 0 month = july year = 1945 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+		name = ACTIONNAME3182193A	
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { trigger = { ai = no } type = oilpool  value = -500  }
+		command = { trigger = { ai = no } type = money    value = -250  }
+		command = { type = gain_tech which = 8000 }
+		command = { type = add_corps         which = "USAAF Tactical Wing" value = air              where = 1809 }
+		command = { type = activate_division which = 14800                 value = 41  where = 1809 when  = 1    }
+	}
+	
+    action_b = {
+		name = ACTIONNAME3182193B	
+		command = { type = sleepevent which = 3182193 } #
+	}	
+	
+}
+
+########################################################
+# US Eagle Squadrons
+########################################################
+
+event = { 
+	id = 3182195
+	random = no
+	country = USA
+	
+	decision = {
+				ai    = no
+	}
+
+	decision_trigger = {
+	            money = 1500
+                war = { country  = GER country = ENG }
+			    NOT = { alliance = { country = USA country = ENG }}
+	            NOT = { war      = { country = GER country = USA }}
+				year = 1940 
+	}
+	
+	trigger = {
+                war = { country  = GER country = ENG }
+			    NOT = { alliance = { country = USA country = ENG }}
+	            NOT = { war      = { country = GER country = USA }}
+	}
+       
+	name = EVT_3182195_NAME
+	desc = EVT_3182195_DESC
+	style = 2
+	decision_picture = "usa_decision_us_eagle_sqdrs"
+	picture          = "usa_event_us_eagle_sqdrs"
+	
+	date = { day = 0 month = january year = 1940 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+	    ai_chance = 99
+		name = ACTIONNAME3182195A	
+		command = { trigger = { ai = no } type = money value = -1500 }
+		command = { type = trigger which = 3131415 } #ENG Eagle Sqdrs
+	}
+	
+    action_b = {
+	    ai_chance = 1
+		name = ACTIONNAME3182195B	
+		command = { type = sleepevent which = 3131415 } # ENG Eagle Sqdr
+	}	
+	
+}	
+
+event = { 
+	id = 3182196 #
+	random = no
+	country = USA
+	
+    trigger = {
+	    event = { id = 3131415 days = 180 }
+	}
+	 
+	name = EVT_3182195_NAME
+	desc = EVT_3182196_DESC
+	style = 2
+	picture = "usa_event_us_eagle_sqdrs"
+	
+	action = {
+		name = ACTIONNAME3182196A
+        command = { type = gain_tech which = 9050 } #Fighter docs 1940
+		command = { type = gain_tech which = 9130 }
+	}
+}
+
+event = { 
+	id = 3182197 #
+	random = no
+	country = USA
+		
+    # trigger by ENG Evt 3131416
+	 
+	name = EVT_3182195_NAME 
+	desc = EVT_3131416_DESC
+	style = 2
+	picture = "usa_event_us_eagle_sqdrs"
+	
+	action = {
+		name = ACTIONNAME3182197A
+        command = { type = activate_division which = 14800 value = 42 when = 0 } #Eagles Unit
+		command = { type = dissent  value = -3  }
+	}
+}
+
+########################################################
+# US Executive Order 8682
+########################################################
+
+event = { 
+	id = 3182198
+	random = no
+	country = USA
+	
+	decision = {
+				ai = no
+		     event = 3146086	#JAP decision island defense			
+	}
+
+	decision_trigger = {
+				control = { province = 1739 data = USA } #Midway
+				control = { province = 1734 data = USA } #Hawaii			
+				supplies = 2500
+				metal = 500
+		        manpower = 16
+				NOT = { war = { country = JAP country = USA }}
+	}
+	
+	trigger = {
+				control = { province = 1739 data = USA } #Midway
+				control = { province = 1734 data = USA } #Hawaii			
+				supplies = 2500
+				metal = 500
+				manpower = 16
+				NOT = { war = { country = JAP country = USA }}
+	}
+       
+	name = EVT_3182198_NAME
+	desc = EVT_3182198_DESC
+	style = 2
+	decision_picture = "usa_decision_us_island_defense"
+	picture          = "usa_event_us_island_defense"
+	
+	date = { day = 0 month = january year = 1941 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1945 }
+	
+    action_a = {
+	    ai_chance = 99
+		name = ACTIONNAME3182198A	
+		command = { trigger = { ai = no } type = dissent  value = 2 }
+		command = { type = construct which = coastal_fort where = 1739 value = 1 }	
+		command = { type = construct which = coastal_fort where = 1734 value = 3 }			
+		command = { type = construct which = flak         where = 1739 value = 1 }	
+		command = { type = construct which = flak         where = 1734 value = 3 }	
+		command = { trigger = { ai = no } type = supplies  value = -2500 }
+		command = { trigger = { ai = no } type = metalpool value = -500 }
+		command = { trigger = { ai = no } type = manpowerpool value = -16 }		
+		command = { type = add_corps which = "Midway Garrison" value = land where = 1739 } 
+		command = { type = activate_division which = 14800 value = 96 where = 1739 }	
+		command = { type = add_corps which = "Hawaiian Division" value = land where = 1734 } 
+		command = { type = activate_division which = 14800 value = 97 where = 1734 }
+		command = { type = activate_division which = 14800 value = 98 where = 1734 }		
+	}
+	
+    action_b = {
+	    ai_chance = 1
+		name = ACTIONNAME3182198B	
+        command = { type = dissent  value = -3 }		
+		command = { type = money    value = 250  }	
+	}	
+	
+}	
+
+########################################################

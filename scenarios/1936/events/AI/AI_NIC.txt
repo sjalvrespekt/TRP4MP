@@ -1,0 +1,173 @@
+# checked DH
+####################################
+# Nicaragua AI events 33200 - 33299 by Lothos
+####################################
+################
+# Minister of Security Section 33200 - 33209
+#############################################
+event = { # Gustavo Pavon Ochoa takes power
+	id = 33200
+	random = no 
+	country = NIC
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 48061 # Gustavo Pavon Ochoa
+		NOT = { InCabinet = 48061 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 48061 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33210 - 33219
+#############################################
+################
+# Head of Intelligence Section 33220 - 33229
+#############################################
+event = { # Francisco Estrasa takes power
+	id = 33220
+	random = no 
+	country = NIC
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 48064 # Francisco Estrasa
+		NOT = { InCabinet = 48064 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 48064 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33230 - 33239
+#############################################
+event = { # Victor Roman y Reyes takes power
+	id = 33230
+	random = no 
+	country = NIC
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 48075 # Victor Roman y Reyes
+		NOT = { InCabinet = 48075 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 48075 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33240 - 33249
+#############################################
+event = { # Benjamin Lacayo Sacasa takes power
+	id = 33240
+	random = no 
+	country = NIC
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 48054 # Benjamin Lacayo Sacasa
+		NOT = { InCabinet = 48054 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 48054 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Carlos Brenes Jarquin takes power
+	id = 33241
+	random = no 
+	country = NIC
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 48051 # Carlos Brenes Jarquin
+		NOT = { InCabinet = 48051 }
+		NOT = { minister = 48054 } # Benjamin Lacayo Sacasa
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 48051 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+#############################################
+# Regular AI Events 33260 - 33299
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33260
+	random = no 
+	country = NIC
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

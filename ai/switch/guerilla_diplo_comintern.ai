@@ -1,0 +1,186 @@
+# Guerilla diplomacy AI file (comintern) by DerStudti
+
+# neutrality = 95
+exp_force_ratio = 0.5000
+exp_force_ratios = { SOV = 1.0 } 
+no_exp_forces_to = { }
+
+###################################
+# Diplomacy
+###################################
+combat = { }
+
+befriend = {
+	SOV = 100
+	CHC = 20
+	MON = 20
+	TAN = 20
+}
+protect = {
+	SOV = 150
+	CHC = 10
+	MON = 10
+	TAN = 10
+}
+
+claim_acceptance = 0
+
+demand_claims = { }
+
+# Special resistance against "influence" by the listed nations. Value range = [0 - 10]  
+resistance = { 
+	USA = 8
+	ENG = 8
+	FRA = 8
+	CAN = 8
+	AST = 8
+	SAF = 8
+	NZL = 8
+	BEL = 8
+	HOL = 8
+	NOR = 8
+	GRE = 8
+	LUX = 8
+	PHI = 8
+	LIB = 8
+	EGY = 8
+	U02 = 8
+	BUR = 8
+	U14 = 8
+	U19 = 8
+	GER = 8
+	ITA = 8
+	JAP = 8
+	HUN = 8
+	ROM = 8
+	BUL = 8
+	FIN = 8
+	MAN = 8
+	MEN = 8
+	U00 = 8
+	U01 = 8
+}
+
+target = { } 
+
+trade = {
+	cancel_deal_threshold = 2
+
+	energy 		= -1
+	rare_materials 	= -1
+	metal 		= -1
+	oil 		= -1
+	supplies 	= -1
+	money 		= -1
+
+	favored = { 
+	SOV = 100
+	CHC = 20
+	MON = 20
+	TAN = 20
+	}
+	embargo = { }
+}
+tech_sharing = {
+	favored = { 
+	SOV = 100
+	CHC = 20
+	MON = 20
+	TAN = 20
+	}
+	embargo = { }
+	not = { }
+	prioritized = {
+		# Agriculture
+		5020 = 100
+		5030 = 100
+		5040 = 100
+
+		# Inf support
+		1310 = 100
+		1320 = 100
+		1330 = 100
+		1340 = 100
+		1350 = 100
+		1360 = 100
+
+		# Production
+		5050 = 100
+		5060 = 100
+		5070 = 100
+		5080 = 100
+		5090 = 100
+		5100 = 100
+		5110 = 100
+		5120 = 100
+		5130 = 100
+		5150 = 100
+		5180 = 100
+
+		6440 = 100  # temperate warfare trp
+	}
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier = 0.5
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 1.0
+
+	# PRIORITIES:
+	beach			= 20	# Beach level 2
+	capital			= 40	# Our capital
+	human_border		= 0	# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = { 
+		USA = -1
+	ENG = 5
+	FRA = 5
+	CAN = 5
+	AST = 5
+	SAF = 5
+	NZL = 5
+	BEL = 5
+	HOL = 5
+	NOR = 5
+	GRE = 5
+	LUX = 5
+	PHI = 5
+	LIB = 5
+	EGY = 5
+	U02 = 5
+	BUR = 5
+	U14 = 5
+	U19 = 5
+	
+	SOV = -1
+	CHC = -1
+	MON = -1
+	TAN = -1
+	
+	GER = 20
+	ITA = 20
+	JAP = 20
+	HUN = 20
+	ROM = 20
+	BUL = 20
+	FIN = 20
+	MAN = 20
+	MEN = 20
+	U00 = 20
+	U01 = 20
+	}
+	province_priorities = {	}
+	area_multiplier = { }
+}

@@ -1,0 +1,298 @@
+# converted to Dh, Kane, July 13 2011
+###########################################################################
+#	4800000 - 4899999
+###########################################################################
+##########################################################
+## Was 1052001 ECU reaction a
+##########################################################
+event = {
+	id = 4800000
+	random = no
+	country = ECU
+
+	#Triggered by 4900000
+
+	name = EVT_4800000_NAME # The territorial conflict between Perú and Ecuador
+ 	desc = EVT_4800000_DESC
+	style = 0
+
+	action_a = { name = ACTIONNAME4800000A
+		 command = { type = dissent value = 2 }
+	}
+}
+
+##########################################################
+## Was 1052002 ECU reaction b
+##########################################################
+event = {
+	id = 4800001
+	random = no
+	country = ECU
+
+	#Triggered by 4900000
+
+	name = EVT_4800001_NAME # The territorial conflict between Perú and Ecuador
+ 	desc = EVT_4800001_DESC
+	style = 0
+
+	action_a = { name = ACTIONNAME4800001A # Diplomacy has served us once again
+		 command = { type = dissent value = -5 }
+		 command = { type = money value = 5 }
+	}
+}
+##########################################################
+## Was 1052006 Colombian help
+##########################################################
+event = {
+	id = 4800002
+	random = no
+	country = ECU
+
+	# Triggered by 3124000
+
+	name = EVT_4800002_NAME # Colombia sends help to Ecuador
+	desc = EVT_4800002_DESC
+	style = 0
+
+	action_a = { name = ACTIONNAME4800002A # We will use the resources well
+		 command = { type = oilpool  value = 600 }
+		 command = { type = rarematerialspool  value = 600 }
+		 command = { type = energypool  value = 600 }
+		 command = { type = supplies  value = 40 }
+		 command = { type = construct which = infrastructure where = -1 value = 1 }
+	}
+}
+##########################################################
+## Was 1052007 The protocol of Rio
+##########################################################
+event = {
+	id = 4800003
+	random = no
+	country = ECU
+
+	trigger = { 
+		war = { country = PRU country = ECU }
+		lost_national = { value = 1 }
+	}
+
+	name = EVT_4800003_NAME # The Rio de Janeiro protocol
+ 	desc = EVT_4800003_DESC
+	style = 0
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = june year = 1943 }
+
+	action_a = { name = ACTIONNAME4800003A # Sign the Protocols; make peace with Peru
+		 ai_chance = 100
+		 command = { type = peace which = PRU value = 1 }
+		 #command = { type = removecore  which = 2008 }
+		 command = { type = secedeprovince which = PRU value = 2008 }
+		 command = { type = secedeprovince which = PRU value = 2010 }
+		 command = { type = secedeprovince which = PRU value = 2033 }
+		 command = { type = dissent value = 10 }
+		 command = { type = trigger which = 4900003 }
+	}
+	action_b = { name = ACTIONNAME4800003B # We will not give up until Amazonia is ours
+		 ai_chance = 0
+		 command = { type = dissent value = -5 }
+		 command = { type = sleepevent which = 4800004 }
+	}
+}
+##########################################################
+## Was 1052008 uprisings of 1944 in ECU
+##########################################################
+event = {
+	id = 4800004
+	random = no
+	country = ECU
+
+	trigger = { event = 4800003 }
+
+	name = EVT_4800004_NAME # The Ecuadorian uprisings of 1944
+ 	desc = EVT_4800004_DESC
+	style = 0
+
+	date = { day = 0 month = may year = 1944 }
+	offset = 60
+	deathdate = { day = 0 month = august year = 1944 }
+
+	action_a = { name = ACTIONNAME4800004A # This trouble will spread like wildfire
+		 command = { type = dissent value = 20 }
+	}
+}
+##########################################################
+## Was 1052016 Policy towards the Axis and the USA
+##########################################################
+event = {
+	id = 4800005
+	random = no
+	country = ECU
+
+	trigger = { 
+		NOT = {
+			OR = {
+				alliance = { country = ECU country = GER }
+				alliance = { country = ECU country = SOV }
+			} 
+		}
+	}
+
+	name = EVT_4800005_NAME # The Ecuadorian policy towards the Axis and the U.S.A.
+	desc = EVT_4800005_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1942 }
+	offset = 90
+	deathdate = { day = 0 month = june year = 1942 }
+
+	action_a = { name = ACTIONNAME4800005A # Help the Allied effort
+		 command = { type = access which = USA }
+		 command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = { name = ACTIONNAME4800005B # Maintain our neutrality
+		 command = { type = end_access which = USA }
+		 command = { type = sleepevent which = 4800006 }
+	}
+}
+##########################################################
+## Was 1052017 Join the allies!!
+##########################################################
+event = {
+	id = 4800006
+	random = no
+	country = ECU
+
+	trigger = {	
+		exists = ENG
+		exists = GER
+		exists = ENG
+		exists = SOV
+		NOT = { 
+			OR = { 
+				alliance = { country = ECU country = GER }
+				alliance = { country = ECU country = SOV }
+				alliance = { country = ECU country = ENG }
+			} 
+		} 
+	}
+
+	name = EVT_4800006_NAME # Ecuador joins the Allies
+ 	desc = EVT_4800006_DESC
+	style = 0
+
+	date = { day = 2 month = january year = 1945 }
+	offset = 90
+	deathdate = { day = 0 month = april year = 1945 }
+
+	action_a = { name = ACTIONNAME4800006A # Join the Allies; expropriate Axis property
+		 command = { type = alliance which = ENG }
+		 command = { type = domestic which = democratic value = 1 }
+		 command = { type = construct which = ic where = -1 value = -1 }
+		 command = { type = supplies value = 65 }
+	}
+	action_b = { name = ACTIONNAME4800006B # Maintain our neutrality
+		 command = { type = dissent value = 2 }
+		 command = { type = end_access which = USA }
+		 command = { type = steal_tech which = GER }
+		 command = { type = steal_tech which = GER }
+	}
+	action_c = { name = ACTIONNAME4800006C # Join the Comintern
+		 command = { type = dissent value = 3 }
+		 command = { type = alliance which = SOV }
+		 command = { type = set_domestic which = political_left value = 8 }
+		 command = { type = set_domestic which = democratic value = 1 }
+		 command = { type = construct which = ic where = -1 value = -1 }
+		 command = { type = supplies value = 65 }
+		 command = { type = end_access which = USA }
+	}
+}
+##########################################################
+# Was 1052018 - (ECU) The Academy of Artillery (by mfigueras)
+##########################################################
+event = {
+	id = 4800007
+	random = no
+	country = ECU
+
+	trigger = { random = 40 }
+
+	name = EVT_4800007_NAME # The Ecuadorian Academy of Artillery
+	desc = EVT_4800007_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1936 }
+
+	action_a = { name = ACTIONNAME4800007A # Create the Academy and begin training officers
+		 command = { type = manpowerpool value = -5 }
+		 command = { type = supplies value = -50 }
+	}
+	action_b = { name = ACTIONNAME4800007B # Invest our resources in infrastructure instead
+		 command = { type = construct which = infrastructure where = -1 value = 2 }
+		 command = { type = dissent value = -2 }
+		 command = { type = supplies value = -20 }
+	}
+	action_c = { name = ACTIONNAME4800007C # We can not afford the Academy
+		command = { }
+	}
+}
+##########################################################
+# Was 1052019 - (ECU) Army modernization (by mfigueras)
+##########################################################
+event = {
+	id = 4800008
+	random = no
+	country = ECU
+
+	trigger = { NOT = { owned = { province = 818 data = -1 } } }
+
+	name = EVT_4800008_NAME # Army modernization
+ 	desc = EVT_4800008_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1942 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1943 }
+
+	action_a = { name = ACTIONNAME4800008A # Yes, we need a modernization of the army
+		 command = { type = manpowerpool value = -12 }
+		 command = { type = supplies value = -55 }
+		 command = { type = metalpool value = -250 }
+		 command = { type = add_division value = interceptor }
+	}
+	action_b = { name = ACTIONNAME4800008B # No, we have had enough of war
+		 command = { type = construct which = infrastructure where = -1 value = 3 }
+		 command = { type = construct which = ic where = -1 value = 2 }
+		 command = { type = metalpool value = -200 }
+	}
+}
+#########################################
+# Was 1052030 (ECU)promise to aid Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 4800009
+	random = no
+	country = ECU
+
+	# triggered by SOV 222041
+
+	name = EVT_4800009_NAME # Promise aid to Finland
+	desc = EVT_4800009_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME4800009A # Promise aid
+		command = { type = money value = 2 }
+		command = { type = trigger which = 1002067 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4800009B # We cant help
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 1002067 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

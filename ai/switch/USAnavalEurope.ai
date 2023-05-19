@@ -1,0 +1,116 @@
+# USA goes for naval warfare in Europe
+ 
+###################################
+# Invasions and Naval
+###################################
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 98    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 80 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	#Which provinces to use as bases..
+	base = {
+		1734 # Pearl harbour
+	    1889 # San Francisco 
+		1673 #wake
+     	1812 # Norfolk 
+     	1953 # Miami 
+     	1795 # New York 
+     	1789 # Boston 
+		1726 # Rabaul
+		1399 # Saigon
+		1432 # Singapore
+		1647 # Batavia
+		1565 # Manila
+		1683 # Guam
+		747 # Tunis
+		750 # Tripoli
+		348 # Gibraltar
+		17 # Liverpool/Manchester 
+		5	# Scapa Flow
+       	429 #Malta
+		1661 #Iwo Jima
+		1559
+		1 # Reykjavik
+		718 # Casablanca
+	}
+	target = {
+		2475 = 1000
+		2489 = 500
+		2476 = 500
+		2491 = 500
+		2490 = 500
+		2424 = 500
+		2425 = 500
+		2429 = 500
+		2470 = 500
+		2471 = 500
+		2473 = 500
+		2485 = 300
+		2486 = 300
+		2555 = 300
+		
+		# Mediterranean; fight the italian Navy
+		2175 = 50
+		2176 = 50
+		2177 = 50
+		2178 = 50
+		2179 = 100
+		2180 = 100
+		2181 = 100
+		2182 = 100
+		2183 = 100
+		2184 = 100
+		2185 = 100
+		2186 = 100
+		2187 = 25
+		2188 = 25
+		2189 = 25
+		2190 = 25
+		2191 = 25
+		2192 = 25
+		2193 = 25
+		2194 = 25
+		2195 = 25
+		2196 = 25
+		
+		2740 = 100 # Eastern Mediterranean
+		
+		2710 = 500 # Channel & Biscaya
+		2704 = 500
+		2700 = 500
+		2698 = 500
+		2699 = 500
+		2701 = 500
+		2709 = 500
+		2702 = 500
+		
+		2686 = 150 # North Sea to Northern Atlantic
+		2690 = 150
+		
+	} 
+	core = {
+		2388 
+		2389 
+		2339 
+		2338 
+		2336 
+		2316 
+		2315 
+		2321 
+		2323 
+		2325 
+		#Panama/guantanamo
+		2346 
+		2575 
+		#Pearl
+		2631
+		2636
+		2637
+		2639
+		2475
+		
+			
+	} 
+} 

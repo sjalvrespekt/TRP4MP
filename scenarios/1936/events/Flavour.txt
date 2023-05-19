@@ -1,0 +1,3915 @@
+# Last Update 04-JUL-2006
+#########################
+# converted to DH map IDs by DerStudti
+######################################################
+# Flavour events
+######################################################
+
+######################################################
+# TRP Notes 1
+######################################################
+event = {
+	id = 3000000
+	random = no
+	
+	trigger = { ai = no }
+	
+	name = EVT_3000000_NAME
+	desc = EVT_3000000_DESC
+	style = 1
+	picture = "TRP"
+	
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+	
+	action_b = {
+        name = ACTIONNAME3999999A
+		command = { type = local_setflag which = sleep_trp_notes } 
+        }
+}
+######################################################
+# TRP Notes 2 (infantry)
+######################################################
+event = {
+	id = 3000087
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000087_NAME
+	desc = EVT_3000087_DESC
+	style = 1
+	picture = "TRP"
+	
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+######################################################
+# TRP Notes 3 (airforce)
+######################################################
+event = {
+	id = 3000088
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000088_NAME
+	desc = EVT_3000088_DESC
+	style = 1
+	picture = "TRP"
+	
+	date = { hour = 1 day = 2 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+######################################################
+# TRP Notes 4 (help allies)
+######################################################
+event = {
+	id = 3000089
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ic = 50
+				ai = no
+				}
+	
+	name = EVT_3000089_NAME
+	desc = EVT_3000089_DESC
+	style = 2
+	picture = "TRP_help_allies"
+	
+	date = { hour = 1 day = 3 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 5 (war weariness)
+######################################################
+event = {
+	id = 3000090
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				atwar = yes
+				}
+	
+	name = EVT_3000090_NAME
+	desc = EVT_3000090_DESC
+	style = 1
+	picture = "TRP"
+	
+	date = { hour = 1 day = 4 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 6 (nation-specific units Germany)
+######################################################
+event = {
+	id = 3000091
+	random = no
+	country = GER
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000091_NAME
+	desc = EVT_3000091_DESC
+	style = 2
+	picture = "TRP_nat_spec_Germany"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 7 (nation-specific units Japan)
+######################################################
+event = {
+	id = 3000092
+	random = no
+	country = JAP
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000091_NAME
+	desc = EVT_3000092_DESC
+	style = 2
+	picture = "TRP_nat_spec_Japan"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 8 (Norway)
+######################################################
+event = {
+	id = 3000093
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				OR = {
+						atwar = GER
+						atwar = NOR
+						}				
+				participant = { value = 4 } # any alliance
+				}
+	
+	name = EVT_3000093_NAME
+	desc = EVT_3000093_DESC
+	style = 2
+	picture = "TRP_info_norway1"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 9 (lake and inland sea connections)
+######################################################
+event = {
+	id = 3000094
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				OR = {
+						atwar = GER
+						atwar = YES
+						}				
+				}
+	
+	name = EVT_3000094_NAME
+	desc = EVT_3000094_DESC
+	style = 2
+	picture = "TRP_info_supply_lakes"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 10 (offensive chits)
+######################################################
+event = {
+	id = 3000095
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				OR = {
+						atwar = GER
+						atwar = YES
+						}				
+				}
+	
+	name = EVT_3000095_NAME
+	desc = EVT_3000095_DESC
+	style = 2
+	picture = "TRP_info_offensive_chit"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 11 (USA conditions for war)
+######################################################
+event = {
+	id = 3000096
+	random = no
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				OR = {
+						country = USA
+						atwar = YES
+						atwar = GER
+						atwar = JAP
+						}				
+				}
+	
+	name = EVT_3000096_NAME
+	desc = EVT_3000096_DESC
+	style = 2
+	picture = "usa_event_may_enter_war"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 12 (Reichskommissariate)
+######################################################
+event = {
+	id = 3000101
+	random = no
+	
+	trigger = { 
+				atwar = GER
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000101_NAME
+	desc = EVT_3000101_DESC
+	style = 2
+	picture = "TRP_info_RK"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 13 (nation-specific units USA)
+######################################################
+event = {
+	id = 3000105
+	random = no
+	country = USA
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000091_NAME
+	desc = EVT_3000105_DESC
+	style = 2
+	picture = "TRP_nat_spec_USA"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 14 (nation-specific units Commonwealth)
+######################################################
+event = {
+	id = 3000106
+	random = no
+	tag = { ENG CAN AST NZL SAF U02 BUR }
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000091_NAME
+	desc = EVT_3000106_DESC
+	style = 2
+	picture = "TRP_nat_spec_ENG"
+	
+	date = { hour = 1 day = 6 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+######################################################
+# TRP Notes 15 (assembly line bonus for cavalry)
+######################################################
+event = {
+	id = 3000107
+	random = no
+	
+	trigger = { 
+				OR = {
+						technology = 5160 # vehicle assembly line
+						technology = 10150 # 1943 motorized cavalry
+						}
+				NOT = { local_flag = sleep_trp_notes }
+				ai = no
+				}
+	
+	name = EVT_3000107_NAME
+	desc = EVT_3000107_DESC
+	style = 2
+	picture = "TRP_info_assembly_line_cavalry"
+	
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+
+
+# next: 3000108
+
+#########################################################################
+# Exposition Internationale d'Arts et Techniques.
+#########################################################################
+
+event = {
+	id = 3000001
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		headofstate = 2001
+		headofgovernment = 2033
+	}
+	
+	name = EVT_3000001_NAME
+	desc = EVT_3000001_DESC
+	style = 0
+	picture = "exposition"
+	
+	date = { day = 23 month = may year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1937 }
+	
+	action_a = {
+		name = ACTIONNAME3000001A
+		ai_chance = 90
+		command = { type = money value = -50 }
+		command = { type = dissent value = -1 }
+	}
+} 
+###############################
+# News Chain Events
+###############################
+#####################
+# Germany
+#####################
+
+# Fraco soviet pact
+event = {
+	id = 3000002
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136000 # 1936 Franco-Soviet Pact
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000002_DESC
+	style = 2
+	picture = "franco_sov_pact"        
+	
+	date = { day = 26 month = february year = 1936 }
+	offset = 3
+	deathdate = { day = 3 month = march year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3000002A
+		command = { }
+	}
+}
+
+# Re-occupation of the Rhineland
+event = {
+	id = 3000003
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3135000 # Re-occupation of the Rhineland
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000003_DESC
+	style = 2
+        picture = "news_besetzung_rheinland"
+	
+	date = { day = 6 month = march year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = march year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3000003A
+		command = { }
+	}
+}
+
+# Austro-German Agreement
+event = {
+	id = 3000004
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136124 # Austro-German Agreement
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000004_DESC
+	style = 2
+	picture = "ger_aus_handel" 
+	
+	date = { day = 10 month = july year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3000004A
+		command = { }
+	}
+}
+
+# nazi coup austria
+event = {
+	id = 3000005
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000005_DESC
+	style = 2
+	picture = "news_dr_tavs_arrested" 
+	
+	date = { day = 27 month = January year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000005A
+		command = { }
+	}
+}
+
+# schuschnigg at Berchtesgaden
+event = {
+	id = 3000006
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000006_DESC
+	style = 2
+	picture = "news_schuschnigg_hitler" 
+	
+	date = { day = 14 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000006A
+		command = { }
+	}
+}
+
+# schuschnigg changed minister
+event = {
+	id = 3000007
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000007_DESC
+	style = 2
+	picture = "news_schuschnigg_ns_minister" 
+	
+	date = { day = 15 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000007A
+		command = { }
+	}
+}
+
+# british reaction
+event = {
+	id = 3000008
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000008_DESC
+	style = 2
+        picture = "news_eden_speech"
+	
+	date = { day = 16 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000008A
+		command = { }
+	}
+}
+
+# papen speech
+event = {
+	id = 3000009
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000009_DESC
+	style = 2
+        picture = "news_papen_speech"
+	
+	date = { day = 17 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000009A
+		command = { }
+	}
+}
+
+# hitler's reaction
+event = {
+	id = 3000010
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000010_DESC
+	style = 2
+        picture = "news_hitler_speech"
+	
+	date = { day = 19 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000010A
+		command = { }
+	}
+}
+
+# austrian fatherland front
+event = {
+	id = 3000011
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000011_DESC
+	style = 2
+        picture = "news_fatherland_front"
+	
+	date = { day = 20 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000011A
+		command = { }
+	}
+}
+
+# schuschnigg speech
+event = {
+	id = 3000012
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000012_DESC
+	style = 2
+        picture = "news_schuschnigg_speech"
+	
+	date = { day = 23 month = February year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000012A
+		command = { }
+	}
+}
+
+# seyss inquart and ns symbols
+event = {
+	id = 3000013
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000013_DESC
+	style = 2
+        picture = "news_seyss_inquart"
+	
+	date = { day = 4 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000013A
+		command = { }
+	}
+}
+
+# schuschnigg reaction to crisis
+event = {
+	id = 3000014
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000014_DESC
+	style = 2
+        picture = "news_schuschnigg_speech"
+	
+	date = { day = 9 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000014A
+		command = { }
+	}
+}
+
+# bundesheer called reservists to arms
+event = {
+	id = 3000015
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		exists = AUS
+		NOT = { war = { country = GER country = AUS } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000015_DESC
+	style = 2
+        picture = "news_bundesheer_mobilisiert"
+	
+	date = { day = 11 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000015A
+		command = { }
+	}
+}
+
+# seyss inquart österreichischer kanzler
+event = {
+	id = 3000016
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		NOT = { war = { country = GER country = ITA } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000016_DESC
+	style = 2
+        picture = "news_seyss_inquart"
+	
+	date = { day = 12 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000016A
+		command = { }
+	}
+}
+
+# anschluss
+event = {
+	id = 3000017
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000017_DESC
+	style = 2
+        picture = "news_anschluss"
+	
+	date = { day = 13 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000017A
+		command = { }
+	}
+}
+
+# british reaction to anschluss
+event = {
+	id = 3000018
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		NOT = { war = { country = GER country = ITA } }
+		NOT = { war = { country = GER country = ENG } }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000018_DESC
+	style = 2
+        picture = "news_anschluss_british_reaction"
+	
+	date = { day = 19 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000018A
+		command = { }
+	}
+}
+
+# austrians vote for anschluss
+event = {
+	id = 3000019
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000019_DESC
+	style = 2
+        picture = "news_volk_reich_fuehrer"
+	
+	date = { day = 10 month = april year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000019A
+		command = { }
+	}
+}
+
+# 
+event = {
+	id = 3000020
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000020_DESC
+	style = 2
+        picture = "news_sudeten_crisis"
+	
+	date = { day = 29 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000020A
+		command = { }
+	}
+}
+event = {
+	id = 3000021
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000021_DESC
+	style = 2
+        picture = "news_sudeten_crisis_czech_reaction"
+	
+	date = { day = 0 month = april year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000021A
+		command = { }
+	}
+}
+event = {
+	id = 3000022
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000022_DESC
+	style = 2
+        picture = "news_sudeten_crisis_henlein_speech"
+	
+	date = { day = 24 month = april year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000022A
+		command = { }
+	}
+}
+event = {
+	id = 3000023
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000023_DESC
+	style = 2
+        picture = "news_sudeten_crisis_czech_protest"
+	
+	date = { day = 7 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000023A
+		command = { }
+	}
+}
+event = {
+	id = 3000024
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000024_DESC
+	style = 2
+        picture = "news_sudeten_crisis_polish_protest"
+	
+	date = { day = 10 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000024A
+		command = { }
+	}
+}
+event = {
+	id = 3000025
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000025_DESC
+	style = 2
+        picture = "news_sudeten_crisis_czech_army"
+	
+	date = { day = 20 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000025A
+		command = { }
+	}
+}
+event = {
+	id = 3000026
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000026_DESC
+	style = 2
+    picture = "news_sudeten_crisis_henlein_speech"
+	
+	date = { day = 22 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000026A
+		command = { }
+	}
+}
+event = {
+	id = 3000027
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000027_DESC
+	style = 2
+    picture = "news_sudeten_crisis_fra_sov_help"
+	
+	date = { day = 25 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000027A
+		command = { }
+	}
+}
+event = {
+	id = 3000028
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000028_DESC
+	style = 2
+    picture = "news_sudeten_crisis_sudeten_conference"
+	
+	date = { day = 6 month = june year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000028A
+		command = { }
+	}
+}
+event = {
+	id = 3000029
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000029_DESC
+	style = 2
+    picture = "news_sudeten_crisis_sudeten_conference"
+	
+	date = { day = 22 month = june year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000029A
+		command = { }
+	}
+}
+event = {
+	id = 3000030
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000030_DESC
+	style = 2
+    picture = "news_sudeten_crisis_henlein_speech2"
+	
+	date = { day = 20 month = august year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000030A
+		command = { }
+	}
+}
+event = {
+	id = 3000031
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000031_DESC
+	style = 2
+    picture = "news_eden_speech"
+	
+	date = { day = 26 month = august year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000031A
+		command = { }
+	}
+}
+event = {
+	id = 3000032
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000032_DESC
+	style = 2
+    picture = "news_sudeten_crisis_henlein_speech2"
+	
+	date = { day = 0 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000032A
+		command = { }
+	}
+}
+event = {
+	id = 3000033
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000033_DESC
+	style = 2
+    picture = "news_sudeten_crisis_henlein_hitler"
+	
+	date = { day = 4 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000033A
+		command = { }
+	}
+}
+event = {
+	id = 3000034
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000034_DESC
+	style = 2
+    picture = "news_sudeten_crisis_czech_reaction"
+	
+	date = { day = 5 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000034A
+		command = { }
+	}
+}
+event = {
+	id = 3000035
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000035_DESC
+	style = 2
+    picture = "news_sudeten_crisis_sudeten_party"
+	
+	date = { day = 6 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000035A
+		command = { }
+	}
+}
+event = {
+	id = 3000036
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000036_DESC
+	style = 2
+    picture = "news_sudeten_crisis_sudeten_party"
+	
+	date = { day = 8 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3000036A
+		command = { }
+	}
+}
+event = {
+	id = 3000037
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000037_DESC
+	style = 2
+    picture = "news_sudeten_crisis_chamberlain"
+	
+	date = { day = 10 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000037A
+		command = { }
+	}
+}
+event = {
+	id = 3000038
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000038_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 11 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000038A
+		command = { }
+	}
+}
+event = {
+	id = 3000039
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000039_DESC
+	style = 2
+    picture = "news_sudeten_crisis_sudeten_protest"
+	
+	date = { day = 12 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000039A
+		command = { }
+	}
+}
+event = {
+	id = 3000040
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000040_DESC
+	style = 2
+    picture = "news_sudeten_crisis_fall_gruen"
+	
+	date = { day = 13 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000040A
+		command = { }
+	}
+}
+event = {
+	id = 3000041
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000041_DESC
+	style = 2
+    picture = "news_sudeten_crisis_henlein_speech2"
+	
+	date = { day = 14 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000041A
+		command = { }
+	}
+}
+event = {
+	id = 3000042
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000042_DESC
+	style = 2
+    picture = "news_sudeten_crisis_polish_protest"
+	
+	date = { day = 15 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000042A
+		command = { }
+	}
+}
+event = {
+	id = 3000043
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000043_DESC
+	style = 2
+    picture = "news_sudeten_crisis_muenchner_abkommen"
+	
+	date = { day = 17 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000043A
+		command = { }
+	}
+}
+event = {
+	id = 3000044
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000044_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 22 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000044A
+		command = { }
+	}
+}
+event = {
+	id = 3000045
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000045_DESC
+	style = 2
+    picture = "usa_roosevelt"
+	
+	date = { day = 26 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000045A
+		command = { }
+	}
+}
+event = {
+	id = 3000046
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136006
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000046_DESC
+	style = 2
+    picture = "news_sudeten_crisis_muenchner_abkommen"
+	
+	date = { day = 27 month = september year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000046A
+		command = { }
+	}
+}
+event = {
+	id = 3000047
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000047_DESC
+	style = 2
+    picture = "news_sudeten_crisis_peace_in_our_time"
+	
+	date = { day = 0 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000048
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3127008 # Resignation of Benes
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000048_DESC
+	style = 2
+    picture = "news_sudeten_crisis_benes_resigned"
+	
+	date = { day = 5 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000049
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000049_DESC
+	style = 2
+    picture = "news_sudeten_crisis_czech_signed"
+	
+	date = { day = 8 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000050
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000050_DESC
+	style = 2
+    picture = "news_danzig_korridor"
+	
+	date = { day = 24 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000051
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000051_DESC
+	style = 2
+    picture = "news_polish_jews_arrested"
+	
+	date = { day = 28 month = october year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000052
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000052_DESC
+	style = 2
+    picture = "news_von_rath_killed"
+	
+	date = { day = 7 month = november year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000053
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000053_DESC
+	style = 0
+	
+	date = { day = 24 month = november year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000054
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000054_DESC
+	style = 2
+    picture = "news_kiosseivanov"
+	
+	date = { day = 16 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000055
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000055_DESC
+	style = 2
+    picture = "news_danzig_greiser"
+	
+	date = { day = 19 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000056
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000056_DESC
+	style = 2
+    picture = "news_free_slovakia"
+	
+	date = { day = 0 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000057
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000057_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 29 month = february year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000058
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000058_DESC
+	style = 2
+    picture = "news_sudeten_crisis_czech_reaction"
+	
+	date = { day = 6 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000059
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000059_DESC
+	style = 2
+    picture = "news_sudeten_crisis_czech_reaction"
+	
+	date = { day = 10 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000060
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000060_DESC
+	style = 2
+    picture = "news_Coulondre_informs"
+	
+	date = { day = 11 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000061
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000061_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 12 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000062
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		event = 3136008 # Sudetenland to Germany
+		exists = CZE
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000062_DESC
+	style = 2
+    picture = "news_tiso_and_hitler"
+	
+	date = { day = 14 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000063
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		OR = {
+			event = 3136011 # End of Czechoslovakia
+			event = 3136013
+			event = 3136016
+		}
+		exists = GER
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000063_DESC
+	style = 2
+    picture = "news_hacha_and_hitler"
+	
+	date = { day = 15 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000064
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		OR = {
+			event = 3136011 # End of Czechoslovakia
+			event = 3136013
+		}
+		exists = GER
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000064_DESC
+	style = 2
+    picture = "news_honved_ruthenia"
+	
+	date = { day = 16 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000065
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000065_DESC
+	style = 2
+    picture = "news_beck_and_hitler"
+	
+	date = { day = 6 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000066
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000066_DESC
+	style = 2
+    picture = "news_beck_and_hitler"
+	
+	date = { day = 20 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000067
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000067_DESC
+	style = 2
+    picture = "news_memelland"
+	
+	date = { day = 22 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000068
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000068_DESC
+	style = 2
+    picture = "news_beck_and_hitler"
+	
+	date = { day = 26 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000069
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000069_DESC
+	style = 2
+    picture = "news_sudeten_crisis_chamberlain"
+	
+	date = { day = 29 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000070
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000070_DESC
+	style = 2
+    picture = "news_sudeten_crisis_chamberlain"
+	
+	date = { day = 18 month = April year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000071
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000071_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 27 month = April year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000072
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000072_DESC
+	style = 2
+    picture = "news_beck_and_hitler"
+	
+	date = { day = 5 month = may year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000073
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000073_DESC
+	style = 2
+    picture = "news_Coulondre_informs"
+	
+	date = { day = 27 month = june year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000074
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000074_DESC
+	style = 2
+    picture = "news_danzig_greiser"
+	
+	date = { day = 29 month = july year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000075
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000075_DESC
+	style = 2
+    picture = "news_beck_speech"
+	
+	date = { day = 4 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000076
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000076_DESC
+	style = 2
+    picture = "news_danzig_greiser"
+	
+	date = { day = 7 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000077
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000077_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 9 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000078
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000078_DESC
+	style = 2
+    picture = "news_beck_speech"
+	
+	date = { day = 10 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000079
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000079_DESC
+	style = 2
+    picture = "news_molotov_ribbentrop_pact"
+	
+	date = { day = 23 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000080
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000080_DESC
+	style = 2
+    picture = "news_beck_speech"
+	
+	date = { day = 24 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000081
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000081_DESC
+	style = 2
+    picture = "news_italian_army_prepared_for_war"
+	
+	date = { day = 25 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000082
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000082_DESC
+	style = 2
+    picture = "news_fall_weiss"
+	
+	date = { day = 26 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000083
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000083_DESC
+	style = 2
+    picture = "news_hitler_speech"
+	
+	date = { day = 27 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000084
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000084_DESC
+	style = 2
+    picture = "news_polish_army"
+	
+	date = { day = 28 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000085
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		NOT = {
+			OR = {
+				owned = { province = 181 data = GER } # Danzig
+				alliance = { country = GER country = POL }
+				war = { country = GER country = POL }
+				puppet = { country = POL country = GER }
+				ispuppet = GER
+			}
+		}
+		exists = GER
+		NOT = { atwar = GER }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000085_DESC
+	style = 2
+    picture = "news_radio_silence"
+	
+	date = { day = 29 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000086
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+		war = { country = GER country = POL }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000086_DESC
+	style = 2
+    picture = "news_fall_weiss_war"
+	
+	date = { day = 29 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000097
+	random = no
+	
+	trigger = {
+		ai = no 
+ NOT = { local_flag = sleep_flavour }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000097_DESC
+	style = 0
+	
+	date = { day = 24 month = september year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+event = {
+	id = 3000098
+	random = no
+	
+	trigger = {
+		ai = no 
+		NOT = { local_flag = sleep_flavour }
+		OR = {
+				event = 3174037
+				event = 31733023
+				}
+		NOT = {
+				OR = {
+						country = U01
+						country = SPR
+						}
+				}
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_31733023_DESC
+	style = 2
+	picture = "spa_event_non-intervention"
+	
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+
+event = {
+	id = 3000099
+	random = no
+	
+	trigger = {
+		ai = no 
+		NOT = { local_flag = sleep_flavour }
+		event = 3146124
+		NOT = {
+				OR = {
+						country = VIC
+						country = JAP
+						}
+				}
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3146123_DESC
+	style = 2
+	picture = "jap_event_indochina_ultimatum"
+	
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+
+event = {
+	id = 3000100
+	random = no
+	
+	trigger = {
+		ai = no 
+		NOT = { local_flag = sleep_flavour }
+		event = 3199208
+		NOT = {
+				OR = {
+						country = VIC
+						country = SIA
+						}
+				}
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3199207_DESC
+	style = 2
+	picture = "event_franco_thai_war"
+	
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+
+event = {
+	id = 3000102
+	random = no
+	
+	trigger = {
+		ai = no 
+		NOT = { local_flag = sleep_flavour }
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000102_DESC
+	style = 2
+	picture = "news_coup_liechtenstein"
+	
+	date = { day = 23 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+
+event = {
+	id = 3000103
+	random = no
+	
+	trigger = {
+		war = { country = GER country = NOR }
+		lost_national = { country = NOR value = 20 }
+		NOT = { local_flag = sleep_flavour }
+		ai = no 
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000103_DESC
+	style = 2
+	picture = "news_coup_propagandawar_in_norway"
+	
+	date = { day = 8 month = april year = 1940 }
+	offset = 1
+	deathdate = { day = 9 month = june year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME3000047A
+		command = { }
+	}
+}
+
+
+event = {
+	id = 3000104
+	random = no
+	
+	trigger = {
+				exists = U39  
+				NOT = { local_flag = sleep_flavour }
+                ai = no
+	}
+	
+	name = EVT_NEWS_NAME
+	desc = EVT_3000104_DESC
+	style = 2
+	picture = "news_coup_nazis_in_hatay"
+	
+	date = { day = 7 month = september year = 1938 }
+	offset = 5
+	deathdate = { day = 29 month = june year = 1939 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+	}
+}
+
+
+
+##########################################################################
+# 172075 - Hindenburg destroyed! (by SykoNurse & Generalisimo & emperor dennis)
+##########################################################################
+event = { 
+	id = 172075
+	random = no 
+	country = GER 
+
+	trigger = { random = 70 }
+
+	name = EVT_172075_NAME 
+ 	desc = EVT_172075_DESC
+	style = 2 
+	picture = "usa_event_lakehurst"
+
+	date = { day = 0 month = may year = 1937 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = { 
+		name = ACTIONNAME172075A
+		command = { type = trigger which = 322251 }
+		command = { type = construct which = IC where = 163 value = -1 }
+	} 
+}
+event = { 
+	id = 172019
+	random = no
+	country = GER
+	
+	trigger = { atwar = no }
+	
+	name = EVT_172019_NAME
+	desc = EVT_172019_DESC
+	style = 0
+
+        date = { day = 0 month = april year = 1939 }
+        offset = 30
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME172019A
+		command = { type = money value = 5 } # influence increases
+		command = { type = supplies value = -10 }
+	}
+}
+event = { 
+	id = 172020
+	random = no
+	country = GER
+	
+	trigger = {
+		event = 172019
+                atwar = no
+	}
+
+	name = EVT_172020_NAME
+	desc = EVT_172020_DESC
+	style = 0
+
+        date = { day = 0 month = april year = 1940 }
+        offset = 30
+	deathdate = { day = 29 month = august year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME172020A
+		command = { type = money value = 5 } # influence increases
+		command = { type = supplies value = -50 }
+	}
+	action_b = {
+		name = ACTIONNAME172020B
+		command = { type = money value = -1 } # influence decreases
+	}
+}
+
+############################################
+# 1938 Chemistry
+############################################
+event = {
+	id = 172136
+	random = no
+	country = GER
+
+	trigger = {
+		exists = SWE 
+		exists = GER
+		NOT = {
+			war = { country = SWE country = GER }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_172136_NAME
+	desc = EVT_172136_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME172136A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1939 Medicine
+############################################
+event = {
+	id = 172137
+	random = no
+	country = GER
+
+	trigger = {
+		exists = SWE 
+		exists = GER
+		NOT = {
+			war = { country = SWE country = GER }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_172137_NAME
+	desc = EVT_172137_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME172137A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1939 Chemistry
+############################################
+event = {
+	id = 172138
+	random = no
+	country = GER
+
+	trigger = {
+		exists = SWE 
+		exists = GER
+		NOT = {
+			war = { country = SWE country = GER }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_172138_NAME
+	desc = EVT_172138_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME172138A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1944 Chemistry
+############################################
+event = {
+	id = 172139
+	random = no
+	country = GER
+
+	trigger = {
+		exists = SWE 
+		exists = GER
+		NOT = {
+			war = { country = SWE country = GER }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_172139_NAME
+	desc = EVT_172139_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME172139A
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+############################################
+# 1936 Physics
+############################################
+event = {
+	id = 322057
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322057_NAME
+	desc = EVT_322057_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME322057A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1936 Literature
+############################################
+event = {
+	id = 322058
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322058_NAME
+	desc = EVT_322058_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME322058A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1938 Literature
+############################################
+event = {
+	id = 322060
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322060_NAME
+	desc = EVT_322060_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME322060A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1939 Physics
+############################################
+event = {
+	id = 322061
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322061_NAME
+	desc = EVT_322061_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME322062A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1943 Physics
+############################################
+event = {
+	id = 322062
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322062_NAME
+	desc = EVT_322062_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME322062A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1943 Medicine
+############################################
+event = {
+	id = 322063
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322063_NAME
+	desc = EVT_322063_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME322063A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1944 Physics
+############################################
+event = {
+	id = 322064
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322064_NAME
+	desc = EVT_322064_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME322064A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1944 Medicine
+############################################
+event = {
+	id = 322065
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322065_NAME
+	desc = EVT_322065_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME322065A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1945 Nobel Peace Prize
+############################################
+event = {
+	id = 322066
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322066_NAME
+	desc = EVT_322066_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME322066A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1946 Nobel Peace Prize
+############################################
+event = {
+	id = 322067
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322067_NAME
+	desc = EVT_322067_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME322067A
+		command = { }
+	}
+}
+############################################
+# 1946 Chemistry
+############################################
+event = {
+	id = 322068
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322068_NAME
+	desc = EVT_322068_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME322068A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1946 Physics
+############################################
+event = {
+	id = 322069
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322069_NAME
+	desc = EVT_322069_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME322069A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1946 Medicine
+############################################
+event = {
+	id = 322070
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322070_NAME
+	desc = EVT_322070_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME322070A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1947 Medicine
+############################################
+event = {
+	id = 322071
+	random = no
+	country = USA
+
+	trigger = {
+		exists = SWE 
+		exists = USA
+		NOT = {
+			war = { country = SWE country = USA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_322071_NAME
+	desc = EVT_322071_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1947 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME322071A
+		command = { type = dissent value = -1 }
+	}
+}
+################################################
+# War of the Worlds Event by MateDow
+################################################
+event = {
+	id = 322250
+	random = no
+	country = USA
+
+	trigger = { atwar = no }
+
+	name = EVT_322250_NAME
+ 	desc = EVT_322250_DESC
+	style = 0
+
+	date = { day = 29 month = october year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME322250A
+		command = { type = dissent value = 1 }
+	}
+}
+##################################################
+# US Hindenburg Crashes in NJ Event by MateDow
+##################################################
+event = {
+	id = 322251
+	random = no
+	country = USA
+
+	# triggered by 172075
+
+	name = EVT_322251_NAME
+ 	desc = EVT_322251_DESC
+	style = 2 
+	picture = "usa_event_lakehurst"
+
+	action_a = {
+		name = ACTIONNAME322251A
+		command = { }
+	}
+}
+
+############################################
+# Was 702055 1937 Medicine
+############################################
+event = {
+	id = 7300006
+	random = no
+	country = HUN
+
+	trigger = {
+		exists = SWE 
+		exists = HUN
+		NOT = {
+			war = { country = SWE country = HUN }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_7300006_NAME
+	desc = EVT_7300006_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME7300006A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 702077 1943 Chemistry
+############################################
+event = {
+	id = 7300007
+	random = no
+	country = HUN
+
+	trigger = {
+		exists = SWE 
+		exists = HUN
+		NOT = {
+			war = { country = SWE country = HUN }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_7300007_NAME
+	desc = EVT_7300007_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME7300007A
+		command = { type = dissent value = -1 }
+	}
+}
+###############################################
+# 1938 Football World Cup ( by Papero )
+###############################################
+event = {
+	id = 3045000
+	random = no
+	country = ITA
+
+	name = EVT_3045000_NAME
+	desc = EVT_3045000_DESC
+	style = 0
+	
+	date = { day = 19 month = june year = 1938 }
+	
+	action_a = {
+		name = ACTIONNAME3045000A
+		command = { type = dissent value = -2 }
+	}
+}

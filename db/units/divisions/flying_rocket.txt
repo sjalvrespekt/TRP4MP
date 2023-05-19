@@ -1,0 +1,66 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+model = { #Model 0#Flying Rocket V2A5 -1944-
+	cost 						= 12.47
+	buildtime					= 40
+	defaultorganisation 		= 100
+	morale						= 100
+	manpower					= 0
+	maxspeed					= 5000
+	surfacedefence				= 100
+	airdefence					= 100
+	strategicattack				= 7
+	softattack					= 0
+	hardattack					= 0
+	range						= 380
+	supplyconsumption 			= 0.55
+	fuelconsumption				= 2
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.7
+	equipment 	= { rocket = 50 }
+}
+model = { #Model 1#Ballistic Missile V2A9 -1948-
+	cost 						= 9.72
+	buildtime					= 60
+	defaultorganisation 		= 100
+	morale						= 100
+	manpower					= 0
+	maxspeed					= 6000
+	surfacedefence				= 100
+	airdefence					= 100
+	strategicattack				= 9
+	softattack					= 0
+	hardattack					= 0
+	range						= 2400
+	supplyconsumption 			= 0.65
+	fuelconsumption				= 2.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment 	= { rocket = 50 }
+}
+model = { #Model 2#Inter Continental Ballistic Missile V2A10 -1951-
+	cost 						= 7.29
+	buildtime					= 90
+	defaultorganisation 		= 100
+	morale						= 100
+	manpower					= 0
+	maxspeed					= 8000
+	surfacedefence				= 100
+	airdefence					= 100
+	strategicattack				= 11
+	softattack					= 0
+	hardattack					= 0
+	range						= 8000
+	supplyconsumption 			= 0.73
+	fuelconsumption				= 5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment 	= { rocket = 50 }
+}

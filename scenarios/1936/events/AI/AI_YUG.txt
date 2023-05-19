@@ -1,0 +1,307 @@
+####################################
+# Yugoslavia AI events 32700 - 32799 by Lothos
+####################################
+################
+# Regular Events 32750 - 32799
+#############################################
+################
+# Yugoslavia exp forces to Germany
+#############################################
+event = {
+	id = 32750
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+		war = { country = YUG country = SOV }
+		alliance = { country = GER country = YUG }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Yugoslavia loads Baklans AI
+#############################################
+event = {
+	id = 32751
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		war = { country = YUG country = GER }
+		war = { country = YUG country = ITA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/YUG_Balklans.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Yugoslavia turns Passive from fear with fall of Greece
+#############################################
+event = {
+	id = 32752
+	random = no 
+	country = YUG
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = ITA }
+		NOT = { ispuppet = YUG }
+		NOT = { atwar = YUG }
+		OR = {
+				control = { province = 55 data = GER } # Paris
+				control = { province = 55 data = VIC } # Paris
+				}
+		OR = {
+			NOT = { exists = GRE }
+			AND = {
+				NOT = { control = { province = 377 data = GRE } } # Athens
+				NOT = { control = { province = 375 data = GRE } }
+				NOT = { control = { province = 371 data = GRE } }
+				NOT = { control = { province = 373 data = GRE } }
+				NOT = { control = { province = 372 data = GRE } }
+				NOT = { control = { province = 376 data = GRE } }
+				NOT = { control = { province = 368 data = GRE } }
+				NOT = { control = { province = 367 data = GRE } }
+				NOT = { control = { province = 369 data = GRE } }
+				NOT = { control = { province = 366 data = GRE } }
+				NOT = { control = { province = 365 data = GRE } }
+				NOT = { control = { province = 364 data = GRE } }
+				NOT = { control = { province = 363 data = GRE } }
+				NOT = { control = { province = 370 data = GRE } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/YUG_Neutrality.ai" }
+	}
+}
+
+
+
+################
+# Minister of Security Section 32700 - 32709
+#############################################
+################
+# Chief of Staff Section 32710 - 32719
+#############################################
+event = { # Petar Kosic takes power
+	id = 32710
+	random = no 
+	country = YUG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 20007 # Petar Kosic
+		NOT = { InCabinet = 20007 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 20017 } # Mihailo Lukic
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 20007 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Mihailo Lukic takes power
+	id = 32711
+	random = no 
+	country = YUG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 20017 # Mihailo Lukic
+		NOT = { InCabinet = 20017 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 20017 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32720 - 32729
+#############################################
+event = { # Djorde Petreli takes power
+	id = 32720
+	random = no 
+	country = YUG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 20064 # Djorde Petreli
+		NOT = { InCabinet = 20064 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 20064 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32730 - 32739
+#############################################
+event = { # Aleksandar Cincar-Markovic takes power
+	id = 32730
+	random = no 
+	country = YUG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 20008 # Aleksandar Cincar-Markovic
+		NOT = { InCabinet = 20008 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 20008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32740 - 32749
+#############################################
+event = { # Edo Bogdan Markovic takes power
+	id = 32740
+	random = no 
+	country = YUG
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 20049 # Edo Bogdan Markovic
+		NOT = { InCabinet = 20049 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 20049 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 32741
+	random = no 
+	country = YUG
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = YUG_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/YUG_low_mp.ai" }
+		command = { type = local_setflag which = YUG_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 32742
+	random = no 
+	country = YUG
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = YUG_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/YUG_normal_mp.ai" }
+		command = { type = local_clrflag which = YUG_low_mp }
+	}
+}

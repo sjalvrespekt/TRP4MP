@@ -1,0 +1,103 @@
+# converted to DH, Kane, July 23 2011
+#####################################################################################################
+# 3199300 - 3199399	Inner Mongolia political events
+#####################################################################################################
+#########################################################
+# Inner Mongolia created with initial divisions
+#########################################################
+event = { 
+	id = 3199000
+	random = no
+	country = MEN
+	
+	# Triggered by JAP 3146002
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3146002A
+		command = { type = add_corps which = "" value = land where = 1239 }
+		command = { type = add_division value = cavalry when = 3 }
+		command = { type = add_division value = infantry when = 2 }
+		command = { type = manpowerpool value = 70 }
+
+	}
+}
+##########################################################################
+# Inner Mongolia - USSR peace event
+##########################################################################
+event = {
+	id = 3199300
+	random = no
+	country = MEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		ai = SOV
+		war = { country = MEN country = SOV }
+		alliance = { country = JAP country = MEN }
+		NOT = { war = { country = JAP country = SOV } }
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1955 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+##########################################################################
+# Inner Mongolia - getting Kalgan by Kane
+##########################################################################
+#event = {
+#	id = 3199001
+#	random = no
+#	
+#	trigger = { 
+#		or = { country = U00 country = JAP }
+#		or = { control = { province = 1251 data = JAP }  #Datong
+#		control = { province = 1251 data = U00 } }
+#	}
+#
+#	
+#	name = "Mengukko gets Kalgan"
+#	desc = "Mengukko gets Kalgan"
+#	style = 0
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	deathdate = { day = 29 month = december year = 1955 }
+#	offset = 30
+#
+#	action_a = {
+#		name = "Great"
+#		command = { type = secedeprovince which = MEN value = 1246 }
+#		command = { type = trigger which = 3199002 }
+#	}
+#}
+#
+#event = {
+#	id = 3199002
+#	country = MEN
+#	random = no
+#	
+#	name = "Mengukko gets Kalgan"
+#	desc = "Mengukko gets Kalgan"
+#	style = 0
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	deathdate = { day = 29 month = december year = 1955 }
+#
+#	action_a = {
+#		name = "Great"
+#		command = { type = addcore which = 1246 }
+#	   }
+#}

@@ -1,0 +1,408 @@
+# converted to DH, Kane, August 3 2011
+###########################################################################
+# 6800000 - 6899999
+###########################################################################
+######################################################################### 
+# Was 652000 - The Swiss 1936 Rearmament Programs
+#########################################################################
+event = {
+	id = 6800000 
+	random = no
+	country = SCH
+
+	trigger = { random = 30	}
+	
+	name = EVT_6800000_NAME
+	desc = EVT_6800000_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1936 } 
+	offset = 25
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME6800000A
+		command = { type = manpowerpool  value = 50 }
+		# command = { type = gain_tech  which = 14003 }
+		# command = { type = gain_tech  which = 14006 }
+		command = { type = construct which = land_fort where = 389 value = 1 }
+		#command = { type = construct which = land_fort where = 390 value = 1 }
+		command = { type = supplies  value = -50 }
+	}
+	action_b = {
+		name = ACTIONNAME6800000B
+		command = { }
+	}
+}
+
+
+######################################################################### 
+# Was 652007 - Purchasing Me109's (by Burris)
+#########################################################################
+event = {
+	id = 6800007
+	random = no
+	country = SCH
+
+	trigger = {        
+		NOT = {            
+			OR = {
+				war = { country = SCH country = GER }
+				alliance = { country = SCH country = ENG }
+				alliance = { country = SCH country = SOV }
+			}
+		}   
+ 	}
+
+	date = { day = 0 month = january year = 1938 } 
+	offset = 90
+	deathdate = { day = 29 month = march year = 1938 }
+
+	name = EVT_6800007_NAME
+	desc = EVT_6800007_DESC
+	style = 0
+	picture = "Swi_109"	
+
+	action_a = {
+		name = ACTIONNAME6800007A
+		command = { type = add_division value = multi_role when = 2 }
+		command = { type = supplies  value = -50 }
+	}
+	action_b = {
+		name = ACTIONNAME6800007B
+		command = { }
+	}
+}
+
+############################################
+# Was 652015 1937 Chemistry
+############################################
+event = {
+	id = 6800009
+	random = no
+	country = SCH
+
+	trigger = {
+		exists = SWE 
+		exists = SCH
+		NOT = {
+			war = { country = SWE country = SCH }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_6800009_NAME
+	desc = EVT_6800009_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME6800009A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 652016 1938 Nobel Peace Prize
+############################################
+event = {
+	id = 6800010
+	random = no
+	country = SCH
+
+	trigger = {
+		exists = SWE 
+		exists = SCH
+		NOT = {
+			war = { country = SWE country = SCH }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_6800010_NAME
+	desc = EVT_6800010_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME6800010A
+		command = { }
+	}
+}
+############################################
+# Was 652017 1939 Chemistry
+############################################
+event = {
+	id = 6800011
+	random = no
+	country = SCH
+
+	trigger = {
+		exists = SWE 
+		exists = SCH
+		NOT = {
+			war = { country = SWE country = SCH }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_6800011_NAME
+	desc = EVT_6800011_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME6800011A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 652018 1944 Nobel Peace Prize
+############################################
+event = {
+	id = 6800012
+	random = no
+	country = SCH
+
+	trigger = {
+		exists = SWE 
+		exists = SCH
+		NOT = {
+			war = { country = SWE country = SCH }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_6800012_NAME
+	desc = EVT_6800012_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME6800010A
+		command = { }
+	}
+}
+############################################
+# Was 652019 1946 Literature
+############################################
+event = {
+	id = 6800013
+	random = no
+	country = SCH
+
+	trigger = {
+		exists = SWE 
+		exists = SCH
+		NOT = {
+			war = { country = SWE country = SCH }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_6800013_NAME
+	desc = EVT_6800013_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME6800013A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Mobilization regular units "Aktivdienst"
+############################################
+event = {
+	id = 6800014
+	random = no
+	country = SCH
+
+	trigger = {
+				OR = {
+						atwar = SCH
+						atwar = GER 
+						}
+				NOT = { ispuppet = SCH }
+				}
+
+	name = EVT_6800014_NAME
+	desc = EVT_6800014_DESC
+	style = 1
+	picture = "aktivdienst"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		name = ACTIONNAMEMOBDMENA # Call every man to defend the country
+		command = { type = dissent value = 3 }
+		command = { type = add_division which = "7. Division" value = infantry    when = 1 }
+		command = { type = add_division which = "8. Division" value = bergsjaeger when = 0 }
+		command = { type = add_division which = "9. Division" value = infantry    when = 1 }
+		command = { type = add_division which = "Grenzbrigade 9" value = garrison when = 1 }
+		command = { type = add_corps which = "Festung Mittelland" value = land where = 389 } # Zürich
+		command = { type = activate_division which = 30600 value = 46 when = 0 where = 389 }
+		command = { type = activate_division which = 30600 value = 47 when = 0 where = 389 }
+		command = { type = add_corps which = "Réduit" value = land where = 392 } # Bern
+		command = { type = activate_division which = 30600 value = 48 when = 0 where = 389 }
+		
+		#command = { type = add_corps which = "Festung Mittelland" value = land where = 389 } # Zürich
+		#command = { type = activate_division which = 30600 value = 30 when = 0 where = 389 }
+		#command = { type = activate_division which = 30600 value = 31 when = 0 where = 389 }
+		#command = { type = activate_division which = 30600 value = 32 when = 0 where = 389 }
+		#command = { type = activate_division which = 30600 value = 33 when = 0 where = 389 }
+		#command = { type = add_corps which = "Festung Jura" value = land where = 391 } # Genf
+		#command = { type = activate_division which = 30600 value = 34 when = 0 where = 391 }
+		#command = { type = activate_division which = 30600 value = 35 when = 0 where = 391 }
+		#command = { type = activate_division which = 30600 value = 36 when = 0 where = 391 }
+		#command = { type = activate_division which = 30600 value = 37 when = 0 where = 391 }
+		#command = { type = add_corps which = "Réduit" value = land where = 392 } # Bern
+		#command = { type = activate_division which = 30600 value = 38 when = 0 where = 392 }
+		#command = { type = activate_division which = 30600 value = 39 when = 0 where = 392 }
+		#command = { type = activate_division which = 30600 value = 40 when = 0 where = 392 }
+		#command = { type = activate_division which = 30600 value = 41 when = 0 where = 392 }
+		#command = { type = add_corps which = "Festung Alpen" value = land where = 390 } # Lugano
+		#command = { type = activate_division which = 30600 value = 42 when = 0 where = 390 }
+		#command = { type = activate_division which = 30600 value = 43 when = 0 where = 390 }
+		#command = { type = activate_division which = 30600 value = 44 when = 0 where = 390 }
+		#command = { type = activate_division which = 30600 value = 45 when = 0 where = 390 }
+	}
+}
+############################################
+# Mobilization emergency units "Aktivdienst"
+############################################
+event = {
+	id = 6800015 # mob event 3177903 sleeping; 250.000 men "Hilfsdienst"
+	random = no
+	country = SCH
+
+	trigger = {
+				atwar = SCH
+				NOT = { ispuppet = SCH }
+				}
+
+	name = EVT_MOBDMEN_NAME
+	desc = EVT_6800014_DESC
+	style = 1
+	picture = "aktivdienst"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		name = ACTIONNAMEMOBDMENA # Call every man to defend the country
+		command = { type = dissent value = 3 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+		command = { type = add_division which = "" value = d_02 when = 2 }
+	}
+}
+###########################################
+# Mobilization warning event for Axis
+###########################################
+event = {
+	id = 6800016
+	random = no
+	tag = { GER ITA }
+
+	trigger = {
+				NOT = { ispuppet = SCH }
+				exists = SCH
+				NOT = { atwar = SCH }
+				OR = {
+						AND = {
+								country = GER
+								NOT = { AI = GER }
+								}
+						AND = {
+								country = ITA
+								not = { AI = ITA }
+								}
+						}
+				}
+
+	name = EVT_6800016_NAME
+	desc = EVT_6800016_DESC
+	style = 1
+	picture = "aktivdienst"
+
+	date = { day = 13 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+	}
+}
+
+###########################################
+# Assassination of Gustloff 
+###########################################
+event = {
+	id = 6800017
+	random = no
+	country = SCH 
+
+	trigger = {	NOT = { atwar = yes }}
+
+	name = EVT_6800017_NAME
+	desc = EVT_6800017_DESC
+	style = 2
+	picture = "sch_event_assassination_gustloff"
+
+	date = { day = 3 month = february year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = dissent value = 1 }
+		command = { type = trigger which = 6800018 } 
+	}
+}
+
+event = {
+	id = 6800018
+	random = no
+	country = GER 
+
+	name = EVT_6800017_NAME
+	desc = EVT_6800017_DESC
+	style = 2
+	picture = "sch_event_assassination_gustloff"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = relation which = SCH value = -15 }
+	}
+}

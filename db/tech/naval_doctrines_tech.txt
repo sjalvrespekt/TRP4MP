@@ -1,0 +1,2732 @@
+# #####################################
+# NAVAL DOCTRINES	     	 #
+# #####################################
+technology =
+{ id          = 8
+  category    = naval_doctrines
+  name        = TECH_ND_NAME # Localized name
+  desc        = TECH_ND_DESC # Localized description
+  label =
+  { tag      = TECH_CAT_CARRIEROPERATIONS
+    position = { x = 1 y = 1 }
+  }
+  label =
+  { tag      = TECH_CAT_SURFACE_OPERATIONS
+    position = { x = 112 y = 1 }
+  }
+  label =
+  { tag      = TECH_CAT_TORPEDO_OPERATIONS
+    position = { x = 230 y = 1 }
+  }
+  label =
+  { tag      = TECH_CAT_ASW_OPERATIONS
+    position = { x = 336 y = 1 }
+  }
+  label =
+  { tag      = TECH_CAT_SUB_OPERATIONS
+    position = { x = 450 y = 1 }
+  }
+  label =
+  { tag      = TECH_CAT_CAG_PRACTICE
+    position = { x = 1 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_GUN_PRACTICE
+    position = { x = 115 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_TORPEDO_PRACTICE
+    position = { x = 226 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_ASW_PRACTICE
+    position = { x = 337 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_SUB_PRACTICE
+    position = { x = 451 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_SUB_MANOUVRE
+    position = { x = 1 y = 239 }
+  }
+  label =
+  { tag      = TECH_CAT_CAPITAL_MANOUVRE
+    position = { x = 1 y = 271 }
+  }
+  label =
+  { tag      = TECH_CAT_CARRIER_MANOUVRE
+    position = { x = 1 y = 303 }
+  }
+  label =
+  { tag      = TECH_CAT_ESCORT_MANOUVRE
+    position = { x = 1 y = 335 }
+  }
+  label =
+  { tag      = TECH_CAT_AMPHIBIOUS_MANOUVRE
+    position = { x = 1 y = 367 }
+  }
+  label =
+  { tag      = TECH_CAT_SUPPORT
+    position = { x = 1 y = 399 }
+  } 
+  # Carrier Operations 1936
+  application =
+  { id        = 8010
+    name      = TECH_APP_ND_1_NAME
+    desc      = TECH_APP_ND_1_DESC
+    position  = { x = 1 y = 17 }
+    year      = 1936
+    # Naval HQ Infrastructure
+    component = { id = 8011 name = TECH_CMP_ND_1_1_NAME type = rt_user_15 difficulty = 3 }
+    # Task Force Co-ordination
+    component = { id = 8012 name = TECH_CMP_ND_1_2_NAME type = rt_user_8 difficulty = 3 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8013 name = TECH_CMP_ND_1_3_NAME type = rt_user_8 difficulty = 3 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8014 name = TECH_CMP_ND_1_4_NAME type = rt_user_8 difficulty = 3 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8015 name = TECH_CMP_ND_1_5_NAME type = rt_user_15 difficulty = 3 }
+    required  = { }
+    effects =
+    { command = { type = enable_task which = naval_interdiction }
+      command = { type = enable_task which = naval_combat_patrol }
+#      command = { type = enable_task which = naval_port_strike } #moved to secret weapons
+      command = { type = enable_task which = naval_airbase_strike }
+      command = { type = task_efficiency which = naval_port_strike value = 0.05 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.05 }
+      command = { type = max_organization which = carrier value = 1 }
+      command = { type = morale which = carrier value = 1 }
+      command = { type = max_organization which = light_carrier value = 1 }
+      command = { type = morale which = light_carrier value = 1 }
+      command = { type = max_organization which = escort_carrier value = 1 }
+      command = { type = morale which = escort_carrier value = 1 }
+    }
+  }
+  # Carrier Operations 1939
+  application =
+  { id        = 8020
+    name      = TECH_APP_ND_2_NAME
+    desc      = TECH_APP_ND_2_DESC
+    year      = 1939
+    position  = { x = 1 y = 34 }
+    # Naval HQ Infrastructure
+    component = { id = 8021 name = TECH_CMP_ND_2_1_NAME type = rt_user_15 difficulty = 4 }
+    # Task Force Co-ordination
+    component = { id = 8022 name = TECH_CMP_ND_2_2_NAME type = rt_user_8 difficulty = 4 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8023 name = TECH_CMP_ND_2_3_NAME type = rt_user_8 difficulty = 4 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8024 name = TECH_CMP_ND_2_4_NAME type = rt_user_8 difficulty = 4 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8025 name = TECH_CMP_ND_2_5_NAME type = rt_user_15 difficulty = 4 }
+    required  = { 8010 8710 }
+    effects =
+    { command = { type = task_efficiency which = naval_port_strike value = 0.05 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.05 }
+      command = { type = max_organization which = carrier value = 1 }
+      command = { type = morale which = carrier value = 1 }
+      command = { type = max_organization which = light_carrier value = 1 }
+      command = { type = morale which = light_carrier value = 1 }
+      command = { type = max_organization which = escort_carrier value = 2 }
+      command = { type = morale which = escort_carrier value = 2 }
+    }
+  }
+  # Carrier Operations 1941
+  application =
+  { id        = 8030
+    name      = TECH_APP_ND_3_NAME
+    desc      = TECH_APP_ND_3_DESC
+    position  = { x = 1 y = 51 }
+    year      = 1941
+    # Naval HQ Infrastructure
+    component = { id = 8031 name = TECH_CMP_ND_3_1_NAME type = rt_user_15 difficulty = 5 }
+    # Task Force Co-ordination
+    component = { id = 8032 name = TECH_CMP_ND_3_2_NAME type = rt_user_8 difficulty = 5 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8033 name = TECH_CMP_ND_3_3_NAME type = rt_user_8 difficulty = 5 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8034 name = TECH_CMP_ND_3_4_NAME type = rt_user_8 difficulty = 5 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8035 name = TECH_CMP_ND_3_5_NAME type = rt_user_15 difficulty = 5 }
+    required  = { 8020 8720 }
+    effects =
+    { command = { type = task_efficiency which = naval_port_strike value = 0.1 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.1 }
+      command = { type = max_organization which = carrier value = 2 }
+      command = { type = morale which = carrier value = 2 }
+      command = { type = max_organization which = light_carrier value = 2 }
+      command = { type = morale which = light_carrier value = 2 }
+      command = { type = max_organization which = escort_carrier value = 2 }
+      command = { type = morale which = escort_carrier value = 2 }
+    }
+  }
+  # Carrier Operations 1943
+  application =
+  { id        = 8040
+    name      = TECH_APP_ND_4_NAME
+    desc      = TECH_APP_ND_4_DESC
+    position  = { x = 1 y = 68 }
+    year      = 1943
+    # Naval HQ Infrastructure
+    component = { id = 8041 name = TECH_CMP_ND_4_1_NAME type = rt_user_15 difficulty = 6 }
+    # Task Force Co-ordination
+    component = { id = 8042 name = TECH_CMP_ND_4_2_NAME type = rt_user_8 difficulty = 6 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8043 name = TECH_CMP_ND_4_3_NAME type = rt_user_8 difficulty = 6 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8044 name = TECH_CMP_ND_4_4_NAME type = rt_user_8 difficulty = 6 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8045 name = TECH_CMP_ND_4_5_NAME type = rt_user_15 difficulty = 6 }
+    required  = { 8030 8730 }
+    effects =
+    { command = { type = task_efficiency which = naval_port_strike value = 0.1 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.1 }
+      command = { type = max_organization which = carrier value = 2 }
+      command = { type = morale which = carrier value = 2 }
+      command = { type = max_organization which = light_carrier value = 2 }
+      command = { type = morale which = light_carrier value = 2 }
+      command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = morale which = escort_carrier value = 3 }
+    }
+  }
+  # Carrier Operations 1947
+  application =
+  { id        = 8050
+    name      = TECH_APP_ND_5_NAME
+    desc      = TECH_APP_ND_5_DESC
+    position  = { x = 1 y = 85 }
+    year      = 1947
+    # Naval HQ Infrastructure
+    component = { id = 8051 name = TECH_CMP_ND_5_1_NAME type = rt_user_15 difficulty = 7 }
+    # Task Force Co-ordination
+    component = { id = 8052 name = TECH_CMP_ND_5_2_NAME type = rt_user_8 difficulty = 7 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8053 name = TECH_CMP_ND_5_3_NAME type = rt_user_8 difficulty = 7 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8054 name = TECH_CMP_ND_5_4_NAME type = rt_user_8 difficulty = 7 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8055 name = TECH_CMP_ND_5_5_NAME type = rt_user_15 difficulty = 7 }
+    required  = { 8040 8740 }
+    effects =
+    { command = { type = task_efficiency which = naval_port_strike value = 0.15 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.15 }
+      command = { type = max_organization which = carrier value = 3 }
+      command = { type = morale which = carrier value = 3 }
+      command = { type = max_organization which = light_carrier value = 3 }
+      command = { type = morale which = light_carrier value = 3 }
+      command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = morale which = escort_carrier value = 3 }
+    }
+  }
+  # Carrier Operations 1951
+  application =
+  { id        = 8060
+    name      = TECH_APP_ND_6_NAME
+    desc      = TECH_APP_ND_6_DESC
+    position  = { x = 1 y = 102 }
+    year      = 1951
+    # Naval HQ Infrastructure
+    component = { id = 8061 name = TECH_CMP_ND_6_1_NAME type = rt_user_15 difficulty = 8 }
+    # Task Force Co-ordination
+    component = { id = 8062 name = TECH_CMP_ND_6_2_NAME type = rt_user_8 difficulty = 8 } #double_time = yes }
+    # Defensive Carrier Taskforce Operations
+    component = { id = 8063 name = TECH_CMP_ND_6_3_NAME type = rt_user_8 difficulty = 8 } #double_time = yes }
+    # Offensive Carrier Taskforce Operations
+    component = { id = 8064 name = TECH_CMP_ND_6_4_NAME type = rt_user_8 difficulty = 8 } #double_time = yes }
+    # Carrier Focus
+    component = { id = 8065 name = TECH_CMP_ND_6_5_NAME type = rt_user_15 difficulty = 8 }
+    required  = { 8050 8750 }
+    effects =
+    { command = { type = task_efficiency which = naval_port_strike value = 0.15 }
+      command = { type = task_efficiency which = naval_airbase_strike value = 0.15 }
+      command = { type = max_organization which = carrier value = 3 }
+      command = { type = morale which = carrier value = 3 }
+      command = { type = max_organization which = light_carrier value = 3 }
+      command = { type = morale which = light_carrier value = 3 }
+      command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = morale which = escort_carrier value = 4 }
+    }
+  }
+  # Capital ships operations 1936
+  application =
+  { id        = 8070
+    name      = TECH_APP_ND_7_NAME
+    desc      = TECH_APP_ND_7_DESC
+    position  = { x = 112 y = 17 }
+    year      = 1936
+    # Task Force Co-ordination
+    component = { id = 8071 name = TECH_CMP_ND_7_1_NAME type = centralized_execution difficulty = 3 }
+    # Skilled Repair Teams
+    component = { id = 8072 name = TECH_CMP_ND_7_2_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8073 name = TECH_CMP_ND_7_3_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8074 name = TECH_CMP_ND_7_4_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8075 name = TECH_CMP_ND_7_5_NAME type = training difficulty = 3 }
+    required  = { }
+    effects =
+    { command = { type = enable_task which = naval_interdiction }
+      command = { type = enable_task which = naval_combat_patrol }
+      command = { type = enable_task which = shore_bombardment }
+      command = { type = enable_task which = convoy_raiding }
+      command = { type = enable_task which = naval_scramble }
+      command = { type = task_efficiency which = naval_interdiction value = 0.03 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.03 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.03 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.03 }
+      command = { type = task_efficiency which = naval_scramble value = 0.03 }
+    }
+  }
+  # Capital ships operations 1939
+  application =
+  { id        = 8080
+    name      = TECH_APP_ND_8_NAME
+    desc      = TECH_APP_ND_8_DESC
+    position  = { x = 112 y = 34 }
+    year      = 1939
+    # Task Force Co-ordination
+    component = { id = 8081 name = TECH_CMP_ND_8_1_NAME type = centralized_execution difficulty = 4 }
+    # Skilled Repair Teams
+    component = { id = 8082 name = TECH_CMP_ND_8_2_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8083 name = TECH_CMP_ND_8_3_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8084 name = TECH_CMP_ND_8_4_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8085 name = TECH_CMP_ND_8_5_NAME type = training difficulty = 4 }
+    required  = { 8070 8660 }
+    effects =
+    { command = { type = task_efficiency which = naval_interdiction value = 0.04 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.04 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.04 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.04 }
+      command = { type = task_efficiency which = naval_scramble value = 0.04 }
+    }
+  }
+  # Capital ships operations 1941
+  application =
+  { id        = 8090
+    name      = TECH_APP_ND_9_NAME
+    desc      = TECH_APP_ND_9_DESC
+    position  = { x = 112 y = 51 }
+    year      = 1941
+    # Task Force Co-ordination
+    component = { id = 8091 name = TECH_CMP_ND_9_1_NAME type = centralized_execution difficulty = 5 }
+    # Skilled Repair Teams
+    component = { id = 8092 name = TECH_CMP_ND_9_2_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8093 name = TECH_CMP_ND_9_3_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8094 name = TECH_CMP_ND_9_4_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8095 name = TECH_CMP_ND_9_5_NAME type = training difficulty = 5 }
+    required  = { 8080 8670 }
+    effects =
+    { command = { type = task_efficiency which = naval_interdiction value = 0.05 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.05 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.05 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.05 }
+      command = { type = task_efficiency which = naval_scramble value = 0.05 }
+    }
+  }
+  # Capital ships operations 1943
+  application =
+  { id        = 8100
+    name      = TECH_APP_ND_10_NAME
+    desc      = TECH_APP_ND_10_DESC
+    position  = { x = 112 y = 68 }
+    year      = 1943
+    # Task Force Co-ordination
+    component = { id = 8101 name = TECH_CMP_ND_10_1_NAME type = centralized_execution difficulty = 6 }
+    # Skilled Repair Teams
+    component = { id = 8102 name = TECH_CMP_ND_10_2_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8103 name = TECH_CMP_ND_10_3_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8104 name = TECH_CMP_ND_10_4_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8105 name = TECH_CMP_ND_10_5_NAME type = training difficulty = 6 }
+    required  = { 8090 8680 }
+    effects =
+    { command = { type = task_efficiency which = naval_interdiction value = 0.06 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.06 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.06 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.06 }
+      command = { type = task_efficiency which = naval_scramble value = 0.06 }
+    }
+  }
+  # Capital ships operations 1947
+  application =
+  { id        = 8110
+    name      = TECH_APP_ND_11_NAME
+    desc      = TECH_APP_ND_11_DESC
+    position  = { x = 112 y = 85 }
+    year      = 1947
+    # Task Force Co-ordination
+    component = { id = 8111 name = TECH_CMP_ND_11_1_NAME type = centralized_execution difficulty = 7 }
+    # Skilled Repair Teams
+    component = { id = 8112 name = TECH_CMP_ND_11_2_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8113 name = TECH_CMP_ND_11_3_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8114 name = TECH_CMP_ND_11_4_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8115 name = TECH_CMP_ND_11_5_NAME type = training difficulty = 7 }
+    required  = { 8100 8690 }
+    effects =
+    { command = { type = task_efficiency which = naval_interdiction value = 0.07 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.07 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.07 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.07 }
+      command = { type = task_efficiency which = naval_scramble value = 0.07 }
+    }
+  }
+  # Capital ships operations 1951
+  application =
+  { id        = 8120
+    name      = TECH_APP_ND_12_NAME
+    desc      = TECH_APP_ND_12_DESC
+    position  = { x = 112 y = 102 }
+    year      = 1951
+    # Task Force Co-ordination
+    component = { id = 8121 name = TECH_CMP_ND_12_1_NAME type = centralized_execution difficulty = 8 }
+    # Skilled Repair Teams
+    component = { id = 8122 name = TECH_CMP_ND_12_2_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Well Trained officercorps
+    component = { id = 8123 name = TECH_CMP_ND_12_3_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8124 name = TECH_CMP_ND_12_4_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8125 name = TECH_CMP_ND_12_5_NAME type = training difficulty = 8 }
+    required  = { 8110 8700 }
+    effects =
+    { command = { type = task_efficiency which = naval_interdiction value = 0.08 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.08 }
+      command = { type = task_efficiency which = shore_bombardment value = 0.08 }
+      command = { type = task_efficiency which = convoy_raiding value = 0.08 }
+      command = { type = task_efficiency which = naval_scramble value = 0.08 }
+    }
+  }
+  # Torpedo Operations 1937
+  application =
+  { id        = 8130
+    name      = TECH_APP_ND_13_NAME
+    desc      = TECH_APP_ND_13_DESC
+    position  = { x = 223 y = 17 }
+    year      = 1937
+    # Flexible Chain Of Command
+    component = { id = 8131 name = TECH_CMP_ND_13_1_NAME type = decentralized_execution difficulty = 3 }
+    # Independent Destroyer Captains
+    component = { id = 8132 name = TECH_CMP_ND_13_2_NAME type = rt_user_11 difficulty = 3 } #double_time = yes }
+    # Excellent Team Spirit
+    component = { id = 8133 name = TECH_CMP_ND_13_3_NAME type = rt_user_11 difficulty = 3 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8134 name = TECH_CMP_ND_13_4_NAME type = rt_user_11 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8135 name = TECH_CMP_ND_13_5_NAME type = training difficulty = 3 }
+    required  = { 3850 }
+    effects =
+    { command = { type = enable_task which = naval_interdiction }
+      command = { type = enable_task which = naval_combat_patrol }
+      command = { type = task_efficiency which = naval_interdiction value = 0.03 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.03 }
+      command = { type = max_positioning which = destroyer value = 0.04 }
+      command = { type = min_positioning which = destroyer value = 0.02 }
+      command = { type = max_positioning which = light_cruiser value = 0.03 }
+      command = { type = min_positioning which = light_cruiser value = 0.01 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.03 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.01 }
+      command = { type = night_attack which = destroyer value = 3 }
+      command = { type = night_defense which = destroyer value = 3 }
+      command = { type = night_attack which = light_cruiser value = 3 }
+      command = { type = night_defense which = light_cruiser value = 3 }
+      command = { type = night_attack which = heavy_cruiser value = 3 }
+      command = { type = night_defense which = heavy_cruiser value = 3 }
+	  command = { type = max_positioning which = d_09 value = 0.04 }
+      command = { type = min_positioning which = d_09 value = 0.02 }
+	  command = { type = night_attack which = d_09 value = 3 }
+      command = { type = night_defense which = d_09 value = 3 }
+    }
+  }
+  # Torpedo Operations 1941
+  application =
+  { id        = 8140
+    name      = TECH_APP_ND_14_NAME
+    desc      = TECH_APP_ND_14_DESC
+    position  = { x = 223 y = 34 }
+    year      = 1941
+    # Flexible Chain Of Command
+    component = { id = 8141 name = TECH_CMP_ND_14_1_NAME type = decentralized_execution difficulty = 4 }
+    # Independent Destroyer Captains
+    component = { id = 8142 name = TECH_CMP_ND_14_2_NAME type = rt_user_11 difficulty = 4 } #double_time = yes }
+    # Excellent Team Spirit
+    component = { id = 8143 name = TECH_CMP_ND_14_3_NAME type = rt_user_11 difficulty = 4 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8144 name = TECH_CMP_ND_14_4_NAME type = rt_user_11 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8145 name = TECH_CMP_ND_14_5_NAME type = training difficulty = 4 }
+    required  = { 8130 8760 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.05 }
+      command = { type = min_positioning which = destroyer value = 0.03 }
+      command = { type = max_positioning which = light_cruiser value = 0.04 }
+      command = { type = min_positioning which = light_cruiser value = 0.02 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.02 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.01 }
+      command = { type = task_efficiency which = naval_interdiction value = 0.04 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.04 }
+      command = { type = night_attack which = destroyer value = 4 }
+      command = { type = night_defense which = destroyer value = 4 }
+      command = { type = night_attack which = light_cruiser value = 4 }
+      command = { type = night_defense which = light_cruiser value = 4 }
+      command = { type = night_attack which = heavy_cruiser value = 2 }
+      command = { type = night_defense which = heavy_cruiser value = 2 }
+	  command = { type = max_positioning which = d_09 value = 0.05 }
+      command = { type = min_positioning which = d_09 value = 0.03 }
+	  command = { type = night_attack which = d_09 value = 4 }
+      command = { type = night_defense which = d_09 value = 4 }
+    }
+  }
+  # Torpedo Operations 1943
+  application =
+  { id        = 8150
+    name      = TECH_APP_ND_15_NAME
+    desc      = TECH_APP_ND_15_DESC
+    position  = { x = 223 y = 51 }
+    year      = 1943
+    # Flexible Chain Of Command
+    component = { id = 8151 name = TECH_CMP_ND_15_1_NAME type = decentralized_execution difficulty = 5 }
+    # Independent Destroyer Captains
+    component = { id = 8152 name = TECH_CMP_ND_15_2_NAME type = rt_user_11 difficulty = 5 } #double_time = yes }
+    # Excellent Team Spirit
+    component = { id = 8153 name = TECH_CMP_ND_15_3_NAME type = rt_user_11 difficulty = 5 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8154 name = TECH_CMP_ND_15_4_NAME type = rt_user_11 difficulty = 5 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8155 name = TECH_CMP_ND_15_5_NAME type = training difficulty = 5 }
+    required  = { 8140 8770 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.07 }
+      command = { type = min_positioning which = destroyer value = 0.05 }
+      command = { type = max_positioning which = light_cruiser value = 0.06 }
+      command = { type = min_positioning which = light_cruiser value = 0.04 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.03 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.02 }
+      command = { type = task_efficiency which = naval_interdiction value = 0.05 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.05 }
+      command = { type = night_attack which = destroyer value = 5 }
+      command = { type = night_defense which = destroyer value = 5 }
+      command = { type = night_attack which = light_cruiser value = 5 }
+      command = { type = night_defense which = light_cruiser value = 5 }
+      command = { type = night_attack which = heavy_cruiser value = 2 }
+      command = { type = night_defense which = heavy_cruiser value = 2 }
+	  command = { type = max_positioning which = d_09 value = 0.07 }
+      command = { type = min_positioning which = d_09 value = 0.05 }
+	  command = { type = night_attack which = d_09 value = 5 }
+      command = { type = night_defense which = d_09 value = 5 }
+    }
+  }
+  # Torpedo Operations 1946
+  application =
+  { id        = 8160
+    name      = TECH_APP_ND_16_NAME
+    desc      = TECH_APP_ND_16_DESC
+    position  = { x = 223 y = 68 }
+    year      = 1946
+    # Flexible Chain Of Command
+    component = { id = 8161 name = TECH_CMP_ND_16_1_NAME type = decentralized_execution difficulty = 6 }
+    # Independent Destroyer Captains
+    component = { id = 8162 name = TECH_CMP_ND_16_2_NAME type = rt_user_11 difficulty = 6 } #double_time = yes }
+    # Excellent Team Spirit
+    component = { id = 8163 name = TECH_CMP_ND_16_3_NAME type = rt_user_11 difficulty = 6 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8164 name = TECH_CMP_ND_16_4_NAME type = rt_user_11 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8165 name = TECH_CMP_ND_16_5_NAME type = training difficulty = 6 }
+    required  = { 8150 8780 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.08 }
+      command = { type = min_positioning which = destroyer value = 0.06 }
+      command = { type = max_positioning which = light_cruiser value = 0.07 }
+      command = { type = min_positioning which = light_cruiser value = 0.05 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.04 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.02 }
+      command = { type = task_efficiency which = naval_interdiction value = 0.06 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.06 }
+      command = { type = night_attack which = destroyer value = 6 }
+      command = { type = night_defense which = destroyer value = 6 }
+      command = { type = night_attack which = light_cruiser value = 6 }
+      command = { type = night_defense which = light_cruiser value = 6 }
+      command = { type = night_attack which = heavy_cruiser value = 3 }
+      command = { type = night_defense which = heavy_cruiser value = 3 }
+	  command = { type = max_positioning which = d_09 value = 0.08 }
+      command = { type = min_positioning which = d_09 value = 0.06 }
+	  command = { type = night_attack which = d_09 value = 6 }
+      command = { type = night_defense which = d_09 value = 6 }
+    }
+  }
+  # Torpedo Operations 1949
+  application =
+  { id        = 8170
+    name      = TECH_APP_ND_17_NAME
+    desc      = TECH_APP_ND_17_DESC
+    position  = { x = 223 y = 85 }
+    year      = 1949
+    # Flexible Chain Of Command
+    component = { id = 8171 name = TECH_CMP_ND_17_1_NAME type = decentralized_execution difficulty = 8 }
+    # Independent Destroyer Captains
+    component = { id = 8172 name = TECH_CMP_ND_17_2_NAME type = rt_user_11 difficulty = 8 } #double_time = yes }
+    # Excellent Team Spirit
+    component = { id = 8173 name = TECH_CMP_ND_17_3_NAME type = rt_user_11 difficulty = 8 } #double_time = yes }
+    # Defensive positioning
+    component = { id = 8174 name = TECH_CMP_ND_17_4_NAME type = rt_user_11 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8175 name = TECH_CMP_ND_17_5_NAME type = training difficulty = 8 }
+    required  = { 8160 8790 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.1 }
+      command = { type = min_positioning which = destroyer value = 0.08 }
+      command = { type = max_positioning which = light_cruiser value = 0.09 }
+      command = { type = min_positioning which = light_cruiser value = 0.07 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.05 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.03 }
+      command = { type = task_efficiency which = naval_interdiction value = 0.08 }
+      command = { type = task_efficiency which = naval_combat_patrol value = 0.08 }
+      command = { type = night_attack which = destroyer value = 8 }
+      command = { type = night_defense which = destroyer value = 8 }
+      command = { type = night_attack which = light_cruiser value = 8 }
+      command = { type = night_defense which = light_cruiser value = 8 }
+      command = { type = night_attack which = heavy_cruiser value = 4 }
+      command = { type = night_defense which = heavy_cruiser value = 4 }
+	  command = { type = max_positioning which = d_09 value = 0.1 }
+      command = { type = min_positioning which = d_09 value = 0.08 }
+	  command = { type = night_attack which = d_09 value = 8 }
+      command = { type = night_defense which = d_09 value = 8 }
+    }
+  }
+  # ASW Ops 1937
+  application =
+  { id        = 8180
+    name      = TECH_APP_ND_18_NAME
+    desc      = TECH_APP_ND_18_DESC
+    position  = { x = 334 y = 17 }
+    year      = 1937
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8181 name = TECH_CMP_ND_18_1_NAME type = decentralized_execution difficulty = 7 }
+    # Land-Air Co-ordination
+    component = { id = 8182 name = TECH_CMP_ND_18_2_NAME type = rt_user_9 difficulty = 7 double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8183 name = TECH_CMP_ND_18_3_NAME type = rt_user_9 difficulty = 7 double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8184 name = TECH_CMP_ND_18_4_NAME type = rt_user_9 difficulty = 7 double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8185 name = TECH_CMP_ND_18_5_NAME type = training difficulty = 7 }
+    required  = { 3900 8760 }
+    effects =
+    { command = { type = enable_task which = asw }
+      command = { type = task_efficiency which = asw value = 0.25 } #0.5
+      command = { type = convoy_def_eff value = 0.25 }
+    }
+  }
+  # ASW Ops 1941
+  application =
+  { id        = 8190
+    name      = TECH_APP_ND_19_NAME
+    desc      = TECH_APP_ND_19_DESC
+    position  = { x = 334 y = 34 }
+    year      = 1941
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8191 name = TECH_CMP_ND_19_1_NAME type = decentralized_execution difficulty = 4 }
+    # Land-Air Co-ordination
+    component = { id = 8192 name = TECH_CMP_ND_19_2_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8193 name = TECH_CMP_ND_19_3_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8194 name = TECH_CMP_ND_19_4_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8195 name = TECH_CMP_ND_19_5_NAME type = training difficulty = 4 }
+    required  = { 8180 8760 3910 }
+    effects =
+    { command = { type = task_efficiency which = asw value = 0.1 } #0.15
+      command = { type = convoy_def_eff value = 0.15 }
+    }
+  }
+  # ASW Ops 1943
+  application =
+  { id        = 8200
+    name      = TECH_APP_ND_20_NAME
+    desc      = TECH_APP_ND_20_DESC
+    position  = { x = 334 y = 51 }
+    year      = 1943
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8201 name = TECH_CMP_ND_20_1_NAME type = decentralized_execution difficulty = 5 }
+    # Land-Air Co-ordination
+    component = { id = 8202 name = TECH_CMP_ND_20_2_NAME type = rt_user_9 difficulty = 5 } #double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8203 name = TECH_CMP_ND_20_3_NAME type = rt_user_9 difficulty = 5 } #double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8204 name = TECH_CMP_ND_20_4_NAME type = rt_user_9 difficulty = 5 } #double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8205 name = TECH_CMP_ND_20_5_NAME type = training difficulty = 5 }
+    required  = { 8190 8770 3920 }
+    effects =
+    { command = { type = task_efficiency which = asw value = 0.15 } #0.25
+      command = { type = convoy_def_eff value = 0.15 }
+    }
+  }
+  # ASW Ops 1946
+  application =
+  { id        = 8210
+    name      = TECH_APP_ND_21_NAME
+    desc      = TECH_APP_ND_21_DESC
+    position  = { x = 334 y = 68 }
+    year      = 1946
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8211 name = TECH_CMP_ND_21_1_NAME type = decentralized_execution difficulty = 6 }
+    # Land-Air Co-ordination
+    component = { id = 8212 name = TECH_CMP_ND_21_2_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8213 name = TECH_CMP_ND_21_3_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8214 name = TECH_CMP_ND_21_4_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8215 name = TECH_CMP_ND_21_5_NAME type = training difficulty = 6 }
+    required  = { 8200 8780 3930 }
+    effects =
+    { command = { type = task_efficiency which = asw value = 0.15 } #0.3
+      command = { type = convoy_def_eff value = 0.15 }
+    }
+  }
+  # ASW Ops 1949
+  application =
+  { id        = 8220
+    name      = TECH_APP_ND_22_NAME
+    desc      = TECH_APP_ND_22_DESC
+    position  = { x = 334 y = 85 }
+    year      = 1949
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8221 name = TECH_CMP_ND_22_1_NAME type = decentralized_execution difficulty = 7 }
+    # Land-Air Co-ordination
+    component = { id = 8222 name = TECH_CMP_ND_22_2_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8223 name = TECH_CMP_ND_22_3_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8224 name = TECH_CMP_ND_22_4_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8225 name = TECH_CMP_ND_22_5_NAME type = training difficulty = 7 }
+    required  = { 8210 8790 3940 }
+    effects =
+    { command = { type = task_efficiency which = asw value = 0.15 } #0.35
+      command = { type = convoy_def_eff value = 0.15 }
+    }
+  }
+  # ASW Ops 1953
+  application =
+  { id        = 8230
+    name      = TECH_APP_ND_23_NAME
+    desc      = TECH_APP_ND_23_DESC
+    position  = { x = 334 y = 102 }
+    year      = 1953
+    # Coordination of CVE, DD and Airial Reconnaissance
+    component = { id = 8231 name = TECH_CMP_ND_23_1_NAME type = decentralized_execution difficulty = 8 }
+    # Land-Air Co-ordination
+    component = { id = 8232 name = TECH_CMP_ND_23_2_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Sea-Air Coordination within Taskforces
+    component = { id = 8233 name = TECH_CMP_ND_23_3_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Dedicated Tactical Command
+    component = { id = 8234 name = TECH_CMP_ND_23_4_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Combined Arms Focus
+    component = { id = 8235 name = TECH_CMP_ND_23_5_NAME type = training difficulty = 8 }
+    required  = { 8220 8800 3950 }
+    effects =
+    { command = { type = task_efficiency which = asw value = 0.2 } #0.4
+      command = { type = convoy_def_eff value = 0.15 }
+    }
+  }
+  # Submarine Operations 1937
+  application =
+  { id        = 8240
+    name      = TECH_APP_ND_24_NAME
+    desc      = TECH_APP_ND_24_DESC
+    position  = { x = 445 y = 17 }
+    year      = 1937
+    # Submarine Co-ordination
+    component = { id = 8241 name = TECH_CMP_ND_24_1_NAME type = decentralized_execution difficulty = 3 }
+    # Replenish At Sea
+    component = { id = 8242 name = TECH_CMP_ND_24_2_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8243 name = TECH_CMP_ND_24_3_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Experienced Submariners
+    component = { id = 8244 name = TECH_CMP_ND_24_4_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8245 name = TECH_CMP_ND_24_5_NAME type = training difficulty = 3 }
+    required  = { 8610 3850 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.08 }
+    }
+  }
+  # Submarine Operations 1941
+  application =
+  { id        = 8250
+    name      = TECH_APP_ND_25_NAME
+    desc      = TECH_APP_ND_25_DESC
+    position  = { x = 445 y = 34 }
+    year      = 1941
+    # Submarine Co-ordination
+    component = { id = 8251 name = TECH_CMP_ND_25_1_NAME type = decentralized_execution difficulty = 4 }
+    # Replenish At Sea
+    component = { id = 8252 name = TECH_CMP_ND_25_2_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8253 name = TECH_CMP_ND_25_3_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Experienced Submariners
+    component = { id = 8254 name = TECH_CMP_ND_25_4_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8255 name = TECH_CMP_ND_25_5_NAME type = training difficulty = 4 }
+    required  = { 8240 8620 3860 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.08 }
+    }
+  }
+  # Submarine Operations 1943
+  application =
+  { id        = 8260
+    name      = TECH_APP_ND_26_NAME
+    desc      = TECH_APP_ND_26_DESC
+    position  = { x = 445 y = 51 }
+    year      = 1943
+    # Submarine Co-ordination
+    component = { id = 8261 name = TECH_CMP_ND_26_1_NAME type = decentralized_execution difficulty = 5 }
+    # Replenish At Sea
+    component = { id = 8262 name = TECH_CMP_ND_26_2_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8263 name = TECH_CMP_ND_26_3_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Experienced Submariners
+    component = { id = 8264 name = TECH_CMP_ND_26_4_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8265 name = TECH_CMP_ND_26_5_NAME type = training difficulty = 5 }
+    required  = { 8250 8620 3870 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.08 }
+    }
+  }
+  # Submarine Operations 1946
+  application =
+  { id        = 8270
+    name      = TECH_APP_ND_27_NAME
+    desc      = TECH_APP_ND_27_DESC
+    position  = { x = 445 y = 68 }
+    year      = 1946
+    # Submarine Co-ordination
+    component = { id = 8271 name = TECH_CMP_ND_27_1_NAME type = decentralized_execution difficulty = 6 }
+    # Replenish At Sea
+    component = { id = 8272 name = TECH_CMP_ND_27_2_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8273 name = TECH_CMP_ND_27_3_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Experienced Submariners
+    component = { id = 8274 name = TECH_CMP_ND_27_4_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8275 name = TECH_CMP_ND_27_5_NAME type = training difficulty = 6 }
+    required  = { 8260 8630 3880 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.09 }
+    }
+  }
+  # Submarine Operations 1949
+  application =
+  { id        = 8280
+    name      = TECH_APP_ND_28_NAME
+    desc      = TECH_APP_ND_28_DESC
+    position  = { x = 445 y = 85 }
+    year      = 1949
+    # Submarine Co-ordination
+    component = { id = 8281 name = TECH_CMP_ND_28_1_NAME type = decentralized_execution difficulty = 7 }
+    # Replenish At Sea
+    component = { id = 8282 name = TECH_CMP_ND_28_2_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8283 name = TECH_CMP_ND_28_3_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Experienced Submariners
+    component = { id = 8284 name = TECH_CMP_ND_28_4_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8285 name = TECH_CMP_ND_28_5_NAME type = training difficulty = 7 }
+    required  = { 8270 8640 3890 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.1 }
+    }
+  }
+  # Submarine Operations 1953
+  application =
+  { id        = 8290
+    name      = TECH_APP_ND_29_NAME
+    desc      = TECH_APP_ND_29_DESC
+    position  = { x = 445 y = 102 }
+    year      = 1953
+    # Submarine Co-ordination
+    component = { id = 8291 name = TECH_CMP_ND_29_1_NAME type = decentralized_execution difficulty = 8 }
+    # Timing of Engagement Discipline
+    component = { id = 8292 name = TECH_CMP_ND_29_2_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Replenish At Sea
+    component = { id = 8293 name = TECH_CMP_ND_29_3_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Hit & Run
+    component = { id = 8294 name = TECH_CMP_ND_29_4_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Independent Submarine HQs
+    component = { id = 8295 name = TECH_CMP_ND_29_5_NAME type = training difficulty = 8 }
+    required  = { 8280 8650 3960 }
+    effects =
+    { command = { type = task_efficiency which = convoy_raiding value = 0.11 }
+    }
+  }
+  # CAG Practice 1937
+  application =
+  { id        = 8300
+    name      = TECH_APP_ND_30_NAME
+    desc      = TECH_APP_ND_30_DESC
+    position  = { x = 1 y = 136 }
+    year      = 1937
+    # Dive Bomber Targetting
+    component = { id = 8301 name = TECH_CMP_ND_30_1_NAME type = rt_user_6 difficulty = 3 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8302 name = TECH_CMP_ND_30_2_NAME type = rt_user_5 difficulty = 3 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8303 name = TECH_CMP_ND_30_3_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8304 name = TECH_CMP_ND_30_4_NAME type = rt_user_3 difficulty = 3 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8305 name = TECH_CMP_ND_30_5_NAME type = piloting difficulty = 3 } #double_time = yes } #rt_user_1
+    required  = { }
+    effects =
+    { command = { type = max_organization which = cag value = 3 }
+      command = { type = morale which = cag value = 1 }
+      command = { type = max_organization which = light_cag value = 3 }
+      command = { type = morale which = light_cag value = 1 }
+	  command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = morale which = escort_carrier value = 1 }
+    }
+  }
+  # CAG Practice 1939
+  application =
+  { id        = 8310
+    name      = TECH_APP_ND_31_NAME
+    desc      = TECH_APP_ND_31_DESC
+    position  = { x = 1 y = 153 }
+    year      = 1939
+    # Dive Bomber Targetting
+    component = { id = 8311 name = TECH_CMP_ND_31_1_NAME type = rt_user_6 difficulty = 4 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8312 name = TECH_CMP_ND_31_2_NAME type = rt_user_5 difficulty = 4 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8313 name = TECH_CMP_ND_31_3_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8314 name = TECH_CMP_ND_31_4_NAME type = rt_user_3 difficulty = 4 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8315 name = TECH_CMP_ND_31_5_NAME type = piloting difficulty = 4 } #double_time = yes }
+    required  = { 8300 }
+    effects =
+    { command = { type = max_organization which = cag value = 4 }
+      command = { type = morale which = cag value = 2 }
+      command = { type = max_organization which = light_cag value = 4 }
+      command = { type = morale which = light_cag value = 2 }
+	  command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = morale which = escort_carrier value = 2 }
+    }
+  }
+  # CAG Practice 1941
+  application =
+  { id        = 8320
+    name      = TECH_APP_ND_32_NAME
+    desc      = TECH_APP_ND_32_DESC
+    position  = { x = 1 y = 170 }
+    year      = 1941
+    # Dive Bomber Targetting
+    component = { id = 8321 name = TECH_CMP_ND_32_1_NAME type = rt_user_6 difficulty = 5 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8322 name = TECH_CMP_ND_32_2_NAME type = rt_user_5 difficulty = 5 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8323 name = TECH_CMP_ND_32_3_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8324 name = TECH_CMP_ND_32_4_NAME type = rt_user_3 difficulty = 5 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8325 name = TECH_CMP_ND_32_5_NAME type = piloting difficulty = 5 } #double_time = yes }
+    required  = { 8310 }
+    effects =
+    { command = { type = max_organization which = cag value = 5 }
+      command = { type = morale which = cag value = 3 }
+      command = { type = max_organization which = light_cag value = 5 }
+      command = { type = morale which = light_cag value = 3 }
+	  command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = morale which = escort_carrier value = 3 }
+    }
+  }
+  # CAG Practice 1943
+  application =
+  { id        = 8330
+    name      = TECH_APP_ND_33_NAME
+    desc      = TECH_APP_ND_33_DESC
+    position  = { x = 1 y = 187 }
+    year      = 1943
+    # Dive Bomber Targetting
+    component = { id = 8331 name = TECH_CMP_ND_33_1_NAME type = rt_user_6 difficulty = 6 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8332 name = TECH_CMP_ND_33_2_NAME type = rt_user_5 difficulty = 6 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8333 name = TECH_CMP_ND_33_3_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8334 name = TECH_CMP_ND_33_4_NAME type = rt_user_3 difficulty = 6 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8335 name = TECH_CMP_ND_33_5_NAME type = piloting difficulty = 6 } #double_time = yes }
+    required  = { 8320 }
+    effects =
+    { command = { type = max_organization which = cag value = 6 }
+      command = { type = morale which = cag value = 4 }
+      command = { type = max_organization which = light_cag value = 6 }
+      command = { type = morale which = light_cag value = 4 }
+	  command = { type = max_organization which = escort_carrier value = 6 }
+      command = { type = morale which = escort_carrier value = 4 }
+    }
+  }
+  # CAG Practice 1947
+  application =
+  { id        = 8340
+    name      = TECH_APP_ND_34_NAME
+    desc      = TECH_APP_ND_34_DESC
+    position  = { x = 1 y = 204 }
+    year      = 1947
+    # Dive Bomber Targetting
+    component = { id = 8341 name = TECH_CMP_ND_34_1_NAME type = rt_user_6 difficulty = 7 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8342 name = TECH_CMP_ND_34_2_NAME type = rt_user_5 difficulty = 7 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8343 name = TECH_CMP_ND_34_3_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8344 name = TECH_CMP_ND_34_4_NAME type = rt_user_3 difficulty = 7 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8345 name = TECH_CMP_ND_34_5_NAME type = piloting difficulty = 7 } #double_time = yes }
+    required  = { 8330 }
+    effects =
+    { command = { type = max_organization which = cag value = 7 }
+      command = { type = morale which = cag value = 5 }
+      command = { type = max_organization which = light_cag value = 7 }
+      command = { type = morale which = light_cag value = 5 }
+	  command = { type = max_organization which = escort_carrier value = 7 }
+      command = { type = morale which = escort_carrier value = 5 }
+    }
+  }
+  # CAG Practice 1951
+  application =
+  { id        = 8350
+    name      = TECH_APP_ND_35_NAME
+    desc      = TECH_APP_ND_35_DESC
+    position  = { x = 1 y = 221 }
+    year      = 1951
+    # Dive Bomber Targetting
+    component = { id = 8351 name = TECH_CMP_ND_35_1_NAME type = rt_user_6 difficulty = 8 } #double_time = yes }
+    # Torpedobomber Targetting
+    component = { id = 8352 name = TECH_CMP_ND_35_2_NAME type = rt_user_5 difficulty = 8 } #double_time = yes }
+    # Escort Missions
+    component = { id = 8353 name = TECH_CMP_ND_35_3_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    # CAP Missions
+    component = { id = 8354 name = TECH_CMP_ND_35_4_NAME type = rt_user_3 difficulty = 8 } #double_time = yes }
+    # Experienced Carrier Crews
+    component = { id = 8355 name = TECH_CMP_ND_35_5_NAME type = piloting difficulty = 8 } #double_time = yes }
+    required  = { 8340 }
+    effects =
+    { command = { type = max_organization which = cag value = 8 }
+      command = { type = morale which = cag value = 6 }
+      command = { type = max_organization which = light_cag value = 8 }
+      command = { type = morale which = light_cag value = 6 }
+	  command = { type = max_organization which = escort_carrier value = 8 }
+      command = { type = morale which = escort_carrier value = 6 }
+    }
+  }
+  # Gun Practice 1936
+  application =
+  { id        = 8370
+    name      = TECH_APP_ND_37_NAME
+    desc      = TECH_APP_ND_37_DESC
+    position  = { x = 112 y = 136 }
+    year      = 1936
+    # Gun Technology
+    component = { id = 8371 name = TECH_CMP_ND_37_1_NAME type = seamanship difficulty = 3 }
+    # Ammuniation Types And Penetration
+    component = { id = 8372 name = TECH_CMP_ND_37_2_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8373 name = TECH_CMP_ND_37_3_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8374 name = TECH_CMP_ND_37_4_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8375 name = TECH_CMP_ND_37_5_NAME type = training difficulty = 3 }
+    required  = { }
+    effects =
+    { command = { type = max_organization which = battleship value = 3 }
+      command = { type = max_organization which = battlecruiser value = 3 }
+      command = { type = max_organization which = heavy_cruiser value = 3 }
+      command = { type = morale which = battleship value = 3 }
+      command = { type = morale which = battlecruiser value = 3 }
+      command = { type = morale which = heavy_cruiser value = 3 }
+      command = { type = max_organization which = destroyer value = 1 }
+      command = { type = max_organization which = light_cruiser value = 1 }
+      command = { type = morale which = destroyer value = 1 }
+      command = { type = morale which = light_cruiser value = 1 }
+	  command = { type = max_organization which = d_09 value = 1 }
+	  command = { type = morale which = d_09 value = 1 }
+    }
+  }
+  # Gun Practice 1939
+  application =
+  { id        = 8380
+    name      = TECH_APP_ND_38_NAME
+    desc      = TECH_APP_ND_38_DESC
+    position  = { x = 112 y = 153 }
+    year      = 1939
+    # Gun Technology
+    component = { id = 8381 name = TECH_CMP_ND_38_1_NAME type = seamanship difficulty = 4 }
+    # Ammuniation Types And Penetration
+    component = { id = 8382 name = TECH_CMP_ND_38_2_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8383 name = TECH_CMP_ND_38_3_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8384 name = TECH_CMP_ND_38_4_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8385 name = TECH_CMP_ND_38_5_NAME type = training difficulty = 4 }
+    required  = { 8370 }
+    effects =
+    { command = { type = max_organization which = battleship value = 4 }
+      command = { type = max_organization which = battlecruiser value = 4 }
+      command = { type = max_organization which = heavy_cruiser value = 4 }
+      command = { type = morale which = battleship value = 4 }
+      command = { type = morale which = battlecruiser value = 4 }
+      command = { type = morale which = heavy_cruiser value = 4 }
+      command = { type = max_organization which = destroyer value = 2 }
+      command = { type = max_organization which = light_cruiser value = 2 }
+      command = { type = morale which = destroyer value = 2 }
+      command = { type = morale which = light_cruiser value = 2 }
+	  command = { type = max_organization which = d_09 value = 2 }
+	  command = { type = morale which = d_09 value = 2 }
+    }
+  }
+  # Gun Practice 1941
+  application =
+  { id        = 8390
+    name      = TECH_APP_ND_39_NAME
+    desc      = TECH_APP_ND_39_DESC
+    position  = { x = 112 y = 170 }
+    year      = 1941
+    # Gun Technology
+    component = { id = 8391 name = TECH_CMP_ND_39_1_NAME type = seamanship difficulty = 5 }
+    # Ammuniation Types And Penetration
+    component = { id = 8392 name = TECH_CMP_ND_39_2_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8393 name = TECH_CMP_ND_39_3_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8394 name = TECH_CMP_ND_39_4_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8395 name = TECH_CMP_ND_39_5_NAME type = training difficulty = 5 }
+    required  = { 8380 }
+    effects =
+    { command = { type = max_organization which = battleship value = 5 }
+      command = { type = max_organization which = battlecruiser value = 5 }
+      command = { type = max_organization which = heavy_cruiser value = 5 }
+      command = { type = morale which = battleship value = 5 }
+      command = { type = morale which = battlecruiser value = 5 }
+      command = { type = morale which = heavy_cruiser value = 5 }
+      command = { type = max_organization which = destroyer value = 2 }
+      command = { type = max_organization which = light_cruiser value = 2 }
+      command = { type = morale which = destroyer value = 2 }
+      command = { type = morale which = light_cruiser value = 2 }
+	  command = { type = max_organization which = d_09 value = 2 }
+	  command = { type = morale which = d_09 value = 2 }
+    }
+  }
+  # Gun Practice 1943
+  application =
+  { id        = 8400
+    name      = TECH_APP_ND_40_NAME
+    desc      = TECH_APP_ND_40_DESC
+    position  = { x = 112 y = 187 }
+    year      = 1943
+    # Gun Technology
+    component = { id = 8401 name = TECH_CMP_ND_40_1_NAME type = seamanship difficulty = 6 }
+    # Ammuniation Types And Penetration
+    component = { id = 8402 name = TECH_CMP_ND_40_2_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8403 name = TECH_CMP_ND_40_3_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8404 name = TECH_CMP_ND_40_4_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8405 name = TECH_CMP_ND_40_5_NAME type = training difficulty = 6 }
+    required  = { 8390 }
+    effects =
+    { command = { type = max_organization which = battleship value = 6 }
+      command = { type = max_organization which = battlecruiser value = 6 }
+      command = { type = max_organization which = heavy_cruiser value = 6 }
+      command = { type = morale which = battleship value = 6 }
+      command = { type = morale which = battlecruiser value = 6 }
+      command = { type = morale which = heavy_cruiser value = 6 }
+      command = { type = max_organization which = destroyer value = 3 }
+      command = { type = max_organization which = light_cruiser value = 3 }
+      command = { type = morale which = destroyer value = 3 }
+      command = { type = morale which = light_cruiser value = 3 }
+	  command = { type = max_organization which = d_09 value = 3 }
+	  command = { type = morale which = d_09 value = 3 }
+    }
+  }
+  # Gun Practice 1947
+  application =
+  { id        = 8410
+    name      = TECH_APP_ND_41_NAME
+    desc      = TECH_APP_ND_41_DESC
+    position  = { x = 112 y = 204 }
+    year      = 1947
+    # Gun Technology
+    component = { id = 8411 name = TECH_CMP_ND_41_1_NAME type = seamanship difficulty = 7 }
+    # Ammuniation Types And Penetration
+    component = { id = 8412 name = TECH_CMP_ND_41_2_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8413 name = TECH_CMP_ND_41_3_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8414 name = TECH_CMP_ND_41_4_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8415 name = TECH_CMP_ND_41_5_NAME type = training difficulty = 7 }
+    required  = { 8400 }
+    effects =
+    { command = { type = max_organization which = battleship value = 7 }
+      command = { type = max_organization which = battlecruiser value = 7 }
+      command = { type = max_organization which = heavy_cruiser value = 7 }
+      command = { type = morale which = battleship value = 7 }
+      command = { type = morale which = battlecruiser value = 7 }
+      command = { type = morale which = heavy_cruiser value = 7 }
+      command = { type = max_organization which = destroyer value = 3 }
+      command = { type = max_organization which = light_cruiser value = 3 }
+      command = { type = morale which = destroyer value = 3 }
+      command = { type = morale which = light_cruiser value = 3 }
+	  command = { type = max_organization which = d_09 value = 3 }
+	  command = { type = morale which = d_09 value = 3 }
+    }
+  }
+  # Gun Practice 1951
+  application =
+  { id        = 8420
+    name      = TECH_APP_ND_42_NAME
+    desc      = TECH_APP_ND_42_DESC
+    position  = { x = 112 y = 221 }
+    year      = 1951
+    # Gun Technology
+    component = { id = 8421 name = TECH_CMP_ND_42_1_NAME type = seamanship difficulty = 8 }
+    # Ammuniation Types And Penetration
+    component = { id = 8422 name = TECH_CMP_ND_42_2_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8423 name = TECH_CMP_ND_42_3_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Well Trained Gunners
+    component = { id = 8424 name = TECH_CMP_ND_42_4_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8425 name = TECH_CMP_ND_42_5_NAME type = training difficulty = 8 }
+    required  = { 8410 }
+    effects =
+    { command = { type = max_organization which = battleship value = 8 }
+      command = { type = max_organization which = battlecruiser value = 8 }
+      command = { type = max_organization which = heavy_cruiser value = 8 }
+      command = { type = morale which = battleship value = 8 }
+      command = { type = morale which = battlecruiser value = 8 }
+      command = { type = morale which = heavy_cruiser value = 8 }
+      command = { type = max_organization which = destroyer value = 4 }
+      command = { type = max_organization which = light_cruiser value = 4 }
+      command = { type = morale which = destroyer value = 4 }
+      command = { type = morale which = light_cruiser value = 4 }
+	  command = { type = max_organization which = d_09 value = 4 }
+	  command = { type = morale which = d_09 value = 4 }
+    }
+  }
+  # Torpedo Practice 1938
+  application =
+  { id        = 8430
+    name      = TECH_APP_ND_43_NAME
+    desc      = TECH_APP_ND_43_DESC
+    position  = { x = 223 y = 136 }
+    year      = 1938
+    # Torpedo Technology
+    component = { id = 8431 name = TECH_CMP_ND_43_1_NAME type = seamanship difficulty = 3 }
+    # Ammuniation Types And Penetration
+    component = { id = 8432 name = TECH_CMP_ND_43_2_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8433 name = TECH_CMP_ND_43_3_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Well Trained Torpedo Crews
+    component = { id = 8434 name = TECH_CMP_ND_43_4_NAME type = rt_user_7 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8435 name = TECH_CMP_ND_43_5_NAME type = training difficulty = 3 }
+    required  = { 8130 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 3 }
+      command = { type = max_organization which = light_cruiser value = 3 }
+      command = { type = morale which = destroyer value = 3 }
+      command = { type = morale which = light_cruiser value = 3 }
+	  command = { type = max_organization which = d_09 value = 3 }
+	  command = { type = morale which = d_09 value = 3 }
+    }
+  }
+  # Torpedo Practice 1942
+  application =
+  { id        = 8440
+    name      = TECH_APP_ND_44_NAME
+    desc      = TECH_APP_ND_44_DESC
+    position  = { x = 223 y = 153 }
+    year      = 1942
+    # Torpedo Technology
+    component = { id = 8441 name = TECH_CMP_ND_44_1_NAME type = seamanship difficulty = 4 }
+    # Ammuniation Types And Penetration
+    component = { id = 8442 name = TECH_CMP_ND_44_2_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8443 name = TECH_CMP_ND_44_3_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Well Trained Torpedo Crews
+    component = { id = 8444 name = TECH_CMP_ND_44_4_NAME type = rt_user_7 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8445 name = TECH_CMP_ND_44_5_NAME type = training difficulty = 4 }
+    required  = { 8430 8140 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 4 }
+      command = { type = max_organization which = light_cruiser value = 4 }
+      command = { type = morale which = destroyer value = 4 }
+      command = { type = morale which = light_cruiser value = 4 }
+	  command = { type = max_organization which = d_09 value = 4 }
+	  command = { type = morale which = d_09 value = 4 }
+    }
+  }
+  # Torpedo Practice 1944
+  application =
+  { id        = 8450
+    name      = TECH_APP_ND_45_NAME
+    desc      = TECH_APP_ND_45_DESC
+    position  = { x = 223 y = 170 }
+    year      = 1944
+    # Torpedo Technology
+    component = { id = 8451 name = TECH_CMP_ND_45_1_NAME type = seamanship difficulty = 5 }
+    # Ammuniation Types And Penetration
+    component = { id = 8452 name = TECH_CMP_ND_45_2_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8453 name = TECH_CMP_ND_45_3_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Well Trained Torpedo Crews
+    component = { id = 8454 name = TECH_CMP_ND_45_4_NAME type = rt_user_7 difficulty = 5 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8455 name = TECH_CMP_ND_45_5_NAME type = training difficulty = 5 }
+    required  = { 8440 8150 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 5 }
+      command = { type = max_organization which = light_cruiser value = 5 }
+      command = { type = morale which = destroyer value = 5 }
+      command = { type = morale which = light_cruiser value = 5 }
+	  command = { type = max_organization which = d_09 value = 5 }
+	  command = { type = morale which = d_09 value = 5 }
+    }
+  }
+  # Torpedo Practice 1947
+  application =
+  { id        = 8460
+    name      = TECH_APP_ND_46_NAME
+    desc      = TECH_APP_ND_46_DESC
+    position  = { x = 223 y = 187 }
+    year      = 1947
+    # Torpedo Technology
+    component = { id = 8461 name = TECH_CMP_ND_46_1_NAME type = seamanship difficulty = 6 }
+    # Ammuniation Types And Penetration
+    component = { id = 8462 name = TECH_CMP_ND_46_2_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8463 name = TECH_CMP_ND_46_3_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Well Trained Torpedo Crews
+    component = { id = 8464 name = TECH_CMP_ND_46_4_NAME type = rt_user_7 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8465 name = TECH_CMP_ND_46_5_NAME type = training difficulty = 6 }
+    required  = { 8450 8160 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 6 }
+      command = { type = max_organization which = light_cruiser value = 6 }
+      command = { type = morale which = destroyer value = 6 }
+      command = { type = morale which = light_cruiser value = 6 }
+	  command = { type = max_organization which = d_09 value = 6 }
+	  command = { type = morale which = d_09 value = 6 }
+    }
+  }
+  # Torpedo Practice 1950
+  application =
+  { id        = 8470
+    name      = TECH_APP_ND_47_NAME
+    desc      = TECH_APP_ND_47_DESC
+    position  = { x = 223 y = 204 }
+    year      = 1950
+    # Torpedo Technology
+    component = { id = 8471 name = TECH_CMP_ND_47_1_NAME type = seamanship difficulty = 7 }
+    # Ammuniation Types And Penetration
+    component = { id = 8472 name = TECH_CMP_ND_47_2_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8473 name = TECH_CMP_ND_47_3_NAME type = rt_user_7 difficulty = 7 } #double_time = yes}
+    # Well Trained Torpedo Crews
+    component = { id = 8474 name = TECH_CMP_ND_47_4_NAME type = rt_user_7 difficulty = 7 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8475 name = TECH_CMP_ND_47_5_NAME type = training difficulty = 7 }
+    required  = { 8460 8170 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 7 }
+      command = { type = max_organization which = light_cruiser value = 7 }
+      command = { type = morale which = destroyer value = 7 }
+      command = { type = morale which = light_cruiser value = 7 }
+	  command = { type = max_organization which = d_09 value = 7 }
+	  command = { type = morale which = d_09 value = 7 }
+    }
+  }
+  # Torpedo Practice 1954
+  application =
+  { id        = 8480
+    name      = TECH_APP_ND_48_NAME
+    desc      = TECH_APP_ND_48_DESC
+    position  = { x = 223 y = 221 }
+    year      = 1954
+    # Torpedo Technology
+    component = { id = 8481 name = TECH_CMP_ND_48_1_NAME type = seamanship difficulty = 8 }
+    # Ammuniation Types And Penetration
+    component = { id = 8482 name = TECH_CMP_ND_48_2_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8483 name = TECH_CMP_ND_48_3_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Well Trained Torpedo Crews
+    component = { id = 8484 name = TECH_CMP_ND_48_4_NAME type = rt_user_7 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8485 name = TECH_CMP_ND_48_5_NAME type = training difficulty = 8 }
+    required  = { 8470 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 8 }
+      command = { type = max_organization which = light_cruiser value = 8 }
+      command = { type = morale which = destroyer value = 8 }
+      command = { type = morale which = light_cruiser value = 8 }
+	  command = { type = max_organization which = d_09 value = 8 }
+	  command = { type = morale which = d_09 value = 8 }
+    }
+  }
+  # ASW Practice 1938
+  application =
+  { id        = 8490
+    name      = TECH_APP_ND_49_NAME
+    desc      = TECH_APP_ND_49_DESC
+    position  = { x = 334 y = 136 }
+    year      = 1938
+    # Depth Charges
+    component = { id = 8491 name = TECH_CMP_ND_49_1_NAME type = seamanship difficulty = 3 }
+    # Warheads And Penetration
+    component = { id = 8492 name = TECH_CMP_ND_49_2_NAME type = rt_user_9 difficulty = 3 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8493 name = TECH_CMP_ND_49_3_NAME type = rt_user_9 difficulty = 3 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8494 name = TECH_CMP_ND_49_4_NAME type = rt_user_9 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8495 name = TECH_CMP_ND_49_5_NAME type = training difficulty = 3 }
+    required  = { 8180 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 3 }
+      command = { type = max_organization which = light_cruiser value = 3 }
+      command = { type = morale which = destroyer value = 3 }
+      command = { type = morale which = light_cruiser value = 3 }
+      command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = morale which = escort_carrier value = 3 }
+	  command = { type = max_organization which = d_09 value = 3 }
+	  command = { type = morale which = d_09 value = 3 }
+    }
+  }
+  # ASW Practice 1942
+  application =
+  { id        = 8500
+    name      = TECH_APP_ND_50_NAME
+    desc      = TECH_APP_ND_50_DESC
+    position  = { x = 334 y = 153 }
+    year      = 1942
+    # Depth Charges
+    component = { id = 8501 name = TECH_CMP_ND_50_1_NAME type = seamanship difficulty = 4 }
+    # Warheads And Penetration
+    component = { id = 8502 name = TECH_CMP_ND_50_2_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8503 name = TECH_CMP_ND_50_3_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8504 name = TECH_CMP_ND_50_4_NAME type = rt_user_9 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8505 name = TECH_CMP_ND_50_5_NAME type = training difficulty = 4 }
+    required  = { 8490 8190 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 4 }
+      command = { type = max_organization which = light_cruiser value = 4 }
+      command = { type = morale which = destroyer value = 4 }
+      command = { type = morale which = light_cruiser value = 4 }
+      command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = morale which = escort_carrier value = 4 }
+	  command = { type = max_organization which = d_09 value = 4 }
+	  command = { type = morale which = d_09 value = 4 }
+    }
+  }
+  # ASW Practice 1944
+  application =
+  { id        = 8510
+    name      = TECH_APP_ND_51_NAME
+    desc      = TECH_APP_ND_51_DESC
+    position  = { x = 334 y = 170 }
+    year      = 1944
+    # Depth Charges
+    component = { id = 8511 name = TECH_CMP_ND_51_1_NAME type = seamanship difficulty = 5 }
+    # Warheads And Penetration
+    component = { id = 8512 name = TECH_CMP_ND_51_2_NAME type = rt_user_9 difficulty = 5 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8513 name = TECH_CMP_ND_51_3_NAME type = rt_user_9 difficulty = 5 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8514 name = TECH_CMP_ND_51_4_NAME type = rt_user_9 difficulty = 5 double_time = yes5 }
+    # Offensive Positioning
+    component = { id = 8515 name = TECH_CMP_ND_51_5_NAME type = training difficulty = 5 }
+    required  = { 8500 8200 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 5 }
+      command = { type = max_organization which = light_cruiser value = 5 }
+      command = { type = morale which = destroyer value = 5 }
+      command = { type = morale which = light_cruiser value = 5 }
+      command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = morale which = escort_carrier value = 5 }
+	  command = { type = max_organization which = d_09 value = 5 }
+	  command = { type = morale which = d_09 value = 5 }
+    }
+  }
+  # ASW Practice 1947
+  application =
+  { id        = 8520
+    name      = TECH_APP_ND_52_NAME
+    desc      = TECH_APP_ND_52_DESC
+    position  = { x = 334 y = 187 }
+    year      = 1947
+    # Depth Charges
+    component = { id = 8521 name = TECH_CMP_ND_52_1_NAME type = seamanship difficulty = 6 }
+    # Warheads And Penetration
+    component = { id = 8522 name = TECH_CMP_ND_52_2_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8523 name = TECH_CMP_ND_52_3_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8524 name = TECH_CMP_ND_52_4_NAME type = rt_user_9 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8525 name = TECH_CMP_ND_52_5_NAME type = training difficulty = 6 }
+    required  = { 8510 8210 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 6 }
+      command = { type = max_organization which = light_cruiser value = 6 }
+      command = { type = morale which = destroyer value = 6 }
+      command = { type = morale which = light_cruiser value = 6 }
+      command = { type = max_organization which = escort_carrier value = 6 }
+      command = { type = morale which = escort_carrier value = 6 }
+	  command = { type = max_organization which = d_09 value = 6 }
+	  command = { type = morale which = d_09 value = 6 }
+    }
+  }
+  # ASW Practice 1950
+  application =
+  { id        = 8530
+    name      = TECH_APP_ND_53_NAME
+    desc      = TECH_APP_ND_53_DESC
+    position  = { x = 334 y = 204 }
+    year      = 1950
+    # Depth Charges
+    component = { id = 8531 name = TECH_CMP_ND_53_1_NAME type = seamanship difficulty = 7 }
+    # Warheads And Penetration
+    component = { id = 8532 name = TECH_CMP_ND_53_2_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8533 name = TECH_CMP_ND_53_3_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8534 name = TECH_CMP_ND_53_4_NAME type = rt_user_9 difficulty = 7 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8535 name = TECH_CMP_ND_53_5_NAME type = training difficulty = 7 }
+    required  = { 8520 8220 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 7 }
+      command = { type = max_organization which = light_cruiser value = 7 }
+      command = { type = morale which = destroyer value = 7 }
+      command = { type = morale which = light_cruiser value = 7 }
+      command = { type = max_organization which = escort_carrier value = 7 }
+      command = { type = morale which = escort_carrier value = 7 }
+	  command = { type = max_organization which = d_09 value = 7 }
+	  command = { type = morale which = d_09 value = 7 }
+    }
+  }
+  # ASW Practice 1954
+  application =
+  { id        = 8540
+    name      = TECH_APP_ND_54_NAME
+    desc      = TECH_APP_ND_54_DESC
+    position  = { x = 334 y = 221 }
+    year      = 1954
+    # Depth Charges
+    component = { id = 8541 name = TECH_CMP_ND_54_1_NAME type = seamanship difficulty = 8 }
+    # Warheads And Penetration
+    component = { id = 8542 name = TECH_CMP_ND_54_2_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8543 name = TECH_CMP_ND_54_3_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Well Trained Sub-Hunt Crews
+    component = { id = 8544 name = TECH_CMP_ND_54_4_NAME type = rt_user_9 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8545 name = TECH_CMP_ND_54_5_NAME type = training difficulty = 8 }
+    required  = { 8530 8230 }
+    effects =
+    { command = { type = max_organization which = destroyer value = 8 }
+      command = { type = max_organization which = light_cruiser value = 8 }
+      command = { type = morale which = destroyer value = 8 }
+      command = { type = morale which = light_cruiser value = 8 }
+      command = { type = max_organization which = escort_carrier value = 8 }
+      command = { type = morale which = escort_carrier value = 8 }
+	  command = { type = max_organization which = d_09 value = 8 }
+	  command = { type = morale which = d_09 value = 8 }
+    }
+  }
+  # Submarine Practice 1937
+  application =
+  { id        = 8550
+    name      = TECH_APP_ND_55_NAME
+    desc      = TECH_APP_ND_55_DESC
+    position  = { x = 448 y = 136 }
+    year      = 1937
+    # Torpedo Technology
+    component = { id = 8551 name = TECH_CMP_ND_55_1_NAME type = seamanship difficulty = 3 }
+    # Warheads And Penetration
+    component = { id = 8552 name = TECH_CMP_ND_55_2_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8553 name = TECH_CMP_ND_55_3_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8554 name = TECH_CMP_ND_55_4_NAME type = rt_user_10 difficulty = 3 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8555 name = TECH_CMP_ND_55_5_NAME type = training difficulty = 3 }
+    required  = { 8240 }
+    effects =
+    { command = { type = max_organization which = submarine value = 3 }
+      command = { type = morale which = submarine value = 3 }
+      command = { type = max_organization which = nuclear_submarine value = 3 }
+      command = { type = morale which = nuclear_submarine value = 3 }
+	  command = { type = max_organization which = d_08 value = 3 }
+      command = { type = morale which = d_08 value = 3 }
+    }
+  }
+  # Submarine Practice 1941
+  application =
+  { id        = 8560
+    name      = TECH_APP_ND_56_NAME
+    desc      = TECH_APP_ND_56_DESC
+    position  = { x = 448 y = 153 }
+    year      = 1941
+    # Torpedo Technology
+    component = { id = 8561 name = TECH_CMP_ND_56_1_NAME type = seamanship difficulty = 4 }
+    # Warheads And Penetration
+    component = { id = 8562 name = TECH_CMP_ND_56_2_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8563 name = TECH_CMP_ND_56_3_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8564 name = TECH_CMP_ND_56_4_NAME type = rt_user_10 difficulty = 4 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8565 name = TECH_CMP_ND_56_5_NAME type = training difficulty = 4 }
+    required  = { 8550 8250 }
+    effects =
+    { command = { type = max_organization which = submarine value = 4 }
+      command = { type = morale which = submarine value = 4 }
+      command = { type = max_organization which = nuclear_submarine value = 4 }
+      command = { type = morale which = nuclear_submarine value = 4 }
+	  command = { type = max_organization which = d_08 value = 4 }
+      command = { type = morale which = d_08 value = 4 }
+    }
+  }
+  # Submarine Practice 1943
+  application =
+  { id        = 8570
+    name      = TECH_APP_ND_57_NAME
+    desc      = TECH_APP_ND_57_DESC
+    position  = { x = 448 y = 170 }
+    year      = 1943
+    # Torpedo Technology
+    component = { id = 8571 name = TECH_CMP_ND_57_1_NAME type = seamanship difficulty = 5 }
+    # Warheads And Penetration
+    component = { id = 8572 name = TECH_CMP_ND_57_2_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8573 name = TECH_CMP_ND_57_3_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8574 name = TECH_CMP_ND_57_4_NAME type = rt_user_10 difficulty = 5 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8575 name = TECH_CMP_ND_57_5_NAME type = training difficulty = 5 }
+    required  = { 8560 8260 }
+    effects =
+    { command = { type = max_organization which = submarine value = 5 }
+      command = { type = morale which = submarine value = 5 }
+      command = { type = max_organization which = nuclear_submarine value = 5 }
+      command = { type = morale which = nuclear_submarine value = 5 }
+	  command = { type = max_organization which = d_08 value = 5 }
+      command = { type = morale which = d_08 value = 5 }
+    }
+  }
+  # Submarine Practice 1946
+  application =
+  { id        = 8580
+    name      = TECH_APP_ND_58_NAME
+    desc      = TECH_APP_ND_58_DESC
+    position  = { x = 448 y = 187 }
+    year      = 1946
+    # Torpedo Technology
+    component = { id = 8581 name = TECH_CMP_ND_58_1_NAME type = seamanship difficulty = 6 }
+    # Warheads And Penetration
+    component = { id = 8582 name = TECH_CMP_ND_58_2_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8583 name = TECH_CMP_ND_58_3_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8584 name = TECH_CMP_ND_58_4_NAME type = rt_user_10 difficulty = 6 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8585 name = TECH_CMP_ND_58_5_NAME type = training difficulty = 6 }
+    required  = { 8570 8270 }
+    effects =
+    { command = { type = max_organization which = submarine value = 6 }
+      command = { type = morale which = submarine value = 6 }
+      command = { type = max_organization which = nuclear_submarine value = 6 }
+      command = { type = morale which = nuclear_submarine value = 6 }
+	  command = { type = max_organization which = d_08 value = 6 }
+      command = { type = morale which = d_08 value = 6 }
+    }
+  }
+  # Submarine Practice 1949
+  application =
+  { id        = 8590
+    name      = TECH_APP_ND_59_NAME
+    desc      = TECH_APP_ND_59_DESC
+    position  = { x = 448 y = 204 }
+    year      = 1949
+    # Torpedo Technology
+    component = { id = 8591 name = TECH_CMP_ND_59_1_NAME type = seamanship difficulty = 7 }
+    # Warheads And Penetration
+    component = { id = 8592 name = TECH_CMP_ND_59_2_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8593 name = TECH_CMP_ND_59_3_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8594 name = TECH_CMP_ND_59_4_NAME type = rt_user_10 difficulty = 7 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8595 name = TECH_CMP_ND_59_5_NAME type = training difficulty = 7 }
+    required  = { 8580 8280 }
+    effects =
+    { command = { type = max_organization which = submarine value = 7 }
+      command = { type = morale which = submarine value = 7 }
+      command = { type = max_organization which = nuclear_submarine value = 7 }
+      command = { type = morale which = nuclear_submarine value = 7 }
+	  command = { type = max_organization which = d_08 value = 7 }
+      command = { type = morale which = d_08 value = 7 }
+    }
+  }
+  # Submarine Practice 1953
+  application =
+  { id        = 8600
+    name      = TECH_APP_ND_60_NAME
+    desc      = TECH_APP_ND_60_DESC
+    position  = { x = 448 y = 221 }
+    year      = 1953
+    # Torpedo Technology
+    component = { id = 8601 name = TECH_CMP_ND_60_1_NAME type = seamanship difficulty = 8 }
+    # Warheads And Penetration
+    component = { id = 8602 name = TECH_CMP_ND_60_2_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Aiming Devices
+    component = { id = 8603 name = TECH_CMP_ND_60_3_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Well Trained Submariners
+    component = { id = 8604 name = TECH_CMP_ND_60_4_NAME type = rt_user_10 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8605 name = TECH_CMP_ND_60_5_NAME type = training difficulty = 8 }
+    required  = { 8590 8290 }
+    effects =
+    { command = { type = max_organization which = submarine value = 8 }
+      command = { type = morale which = submarine value = 8 }
+      command = { type = max_organization which = nuclear_submarine value = 8 }
+      command = { type = morale which = nuclear_submarine value = 8 }
+	  command = { type = max_organization which = d_08 value = 8 }
+      command = { type = morale which = d_08 value = 8 }
+    }
+  }
+  # Submarine Manouvre 1937
+  application =
+  { id        = 8610
+    name      = TECH_APP_ND_61_NAME
+    desc      = TECH_APP_ND_61_DESC
+    position  = { x = 1 y = 252 }
+    year      = 1937
+    # Patrol Patterns
+    component = { id = 8611 name = TECH_CMP_ND_61_1_NAME type = small_taskforce_tactics difficulty = 9 } #3
+    # Fastdiving Manouvres
+    component = { id = 8612 name = TECH_CMP_ND_61_2_NAME type = rt_user_13 difficulty = 9 double_time = yes } #3
+    # Evasion Manouvres
+    component = { id = 8613 name = TECH_CMP_ND_61_3_NAME type = rt_user_13 difficulty = 9 double_time = yes } #3
+    # Attack Manouvres
+    component = { id = 8614 name = TECH_CMP_ND_61_4_NAME type = rt_user_13 difficulty = 9 double_time = yes } #3
+    # Wolfpack Coordination
+    component = { id = 8615 name = TECH_CMP_ND_61_5_NAME type = training difficulty = 9 } #3
+    required  = { }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.3 }
+      command = { type = min_positioning which = submarine value = 0.1 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.3 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.1 }
+	  command = { type = max_positioning which = d_08 value = 0.3 }
+      command = { type = min_positioning which = d_08 value = 0.1 }
+    }
+  }
+  # Submarine Manouvre 1939
+  application =
+  { id        = 8620
+    name      = TECH_APP_ND_62_NAME
+    desc      = TECH_APP_ND_62_DESC
+    position  = { x = 112 y = 252 }
+    year      = 1939
+    # Patrol Patterns
+    component = { id = 8621 name = TECH_CMP_ND_62_1_NAME type = small_taskforce_tactics difficulty = 4 }
+    # Fastdiving Manouvres
+    component = { id = 8622 name = TECH_CMP_ND_62_2_NAME type = rt_user_13 difficulty = 4 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8623 name = TECH_CMP_ND_62_3_NAME type = rt_user_13 difficulty = 4 } #double_time = yes }
+    # Attack Manouvres
+    component = { id = 8624 name = TECH_CMP_ND_62_4_NAME type = rt_user_13 difficulty = 4 } #double_time = yes }
+    # Wolfpack Coordination
+    component = { id = 8625 name = TECH_CMP_ND_62_5_NAME type = training difficulty = 4 }
+    required  = { 8610 }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.04 }
+      command = { type = min_positioning which = submarine value = 0.02 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.04 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.02 }
+	  command = { type = max_positioning which = d_08 value = 0.04 }
+      command = { type = min_positioning which = d_08 value = 0.02 }
+    }
+  }
+  # Submarine Manouvre 1941
+  application =
+  { id        = 8630
+    name      = TECH_APP_ND_63_NAME
+    desc      = TECH_APP_ND_63_DESC
+    position  = { x = 223 y = 252 }
+    year      = 1941
+    # Patrol Patterns
+    component = { id = 8631 name = TECH_CMP_ND_63_1_NAME type = small_taskforce_tactics difficulty = 5 }
+    # Fastdiving Manouvres
+    component = { id = 8632 name = TECH_CMP_ND_63_2_NAME type = rt_user_13 difficulty = 5 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8633 name = TECH_CMP_ND_63_3_NAME type = rt_user_13 difficulty = 5 } #double_time = yes }
+    # Attack Manouvres
+    component = { id = 8634 name = TECH_CMP_ND_63_4_NAME type = rt_user_13 difficulty = 5 } #double_time = yes }
+    # Wolfpack Coordination
+    component = { id = 8635 name = TECH_CMP_ND_63_5_NAME type = training difficulty = 5 }
+    required  = { 8620 }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.05 }
+      command = { type = min_positioning which = submarine value = 0.03 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.05 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.03 }
+	  command = { type = max_positioning which = d_08 value = 0.05 }
+      command = { type = min_positioning which = d_08 value = 0.03 }
+    }
+  }
+  # Submarine Manouvre 1943
+  application =
+  { id        = 8640
+    name      = TECH_APP_ND_64_NAME
+    desc      = TECH_APP_ND_64_DESC
+    position  = { x = 334 y = 252 }
+    year      = 1943
+    # Patrol Patterns
+    component = { id = 8641 name = TECH_CMP_ND_64_1_NAME type = small_taskforce_tactics difficulty = 6 }
+    # Fastdiving Manouvres
+    component = { id = 8642 name = TECH_CMP_ND_64_2_NAME type = rt_user_13 difficulty = 6 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8643 name = TECH_CMP_ND_64_3_NAME type = rt_user_13 difficulty = 6 } #double_time = yes }
+    # Attack Manouvres
+    component = { id = 8644 name = TECH_CMP_ND_64_4_NAME type = rt_user_13 difficulty = 6 } #double_time = yes }
+    # Wolfpack Coordination
+    component = { id = 8645 name = TECH_CMP_ND_64_5_NAME type = training difficulty = 6 }
+    required  = { 8630 }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.06 }
+      command = { type = min_positioning which = submarine value = 0.04 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.06 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.04 }
+	  command = { type = max_positioning which = d_08 value = 0.06 }
+      command = { type = min_positioning which = d_08 value = 0.04 }
+    }
+  }
+  # Submarine Manouvre 1947
+  application =
+  { id        = 8650
+    name      = TECH_APP_ND_65_NAME
+    desc      = TECH_APP_ND_65_DESC
+    position  = { x = 445 y = 252 }
+    year      = 1947
+    # Patrol Patterns
+    component = { id = 8651 name = TECH_CMP_ND_65_1_NAME type = small_taskforce_tactics difficulty = 7 }
+    # Fastdiving Manouvres
+    component = { id = 8652 name = TECH_CMP_ND_65_2_NAME type = rt_user_13 difficulty = 7 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8653 name = TECH_CMP_ND_65_3_NAME type = rt_user_13 difficulty = 7 } #double_time = yes }
+    # Attack Manouvres
+    component = { id = 8654 name = TECH_CMP_ND_65_4_NAME type = rt_user_13 difficulty = 7 } #double_time = yes }
+    # Wolfpack Coordination
+    component = { id = 8655 name = TECH_CMP_ND_65_5_NAME type = training difficulty = 7 }
+    required  = { 8640 }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.07 }
+      command = { type = min_positioning which = submarine value = 0.05 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.07 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.05 }
+	  command = { type = max_positioning which = d_08 value = 0.07 }
+      command = { type = min_positioning which = d_08 value = 0.05 }
+    }
+  }
+  # Submarine Manouvre 1953
+  application =
+  { id        = 81050
+    name      = TECH_APP_ND_105_NAME
+    desc      = TECH_APP_ND_105_DESC
+    position  = { x = 554 y = 252 }
+	picture = "8650"
+    year      = 1953
+    # Patrol Patterns
+    component = { id = 81051 name = TECH_CMP_ND_105_1_NAME type = small_taskforce_tactics difficulty = 8 }
+    # Fastdiving Manouvres
+    component = { id = 81052 name = TECH_CMP_ND_105_2_NAME type = rt_user_13 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 81053 name = TECH_CMP_ND_105_3_NAME type = rt_user_13 difficulty = 8 } #double_time = yes }
+    # Attack Manouvres
+    component = { id = 81054 name = TECH_CMP_ND_105_4_NAME type = rt_user_13 difficulty = 8 } #double_time = yes }
+    # Wolfpack Coordination
+    component = { id = 81055 name = TECH_CMP_ND_105_5_NAME type = training difficulty = 8 }
+    required  = { 8650 }
+    effects =
+    { command = { type = max_positioning which = submarine value = 0.08 }
+      command = { type = min_positioning which = submarine value = 0.06 }
+      command = { type = max_positioning which = nuclear_submarine value = 0.08 }
+      command = { type = min_positioning which = nuclear_submarine value = 0.06 }
+	  command = { type = max_positioning which = d_08 value = 0.08 }
+      command = { type = min_positioning which = d_08 value = 0.06 }
+    }
+  }
+  # Capital ships Manouvres 1936
+  application =
+  { id        = 8660
+    name      = TECH_APP_ND_66_NAME
+    desc      = TECH_APP_ND_66_DESC
+    position  = { x = 1 y = 285 }
+    year      = 1936
+    # Offensive Positioning
+    component = { id = 8661 name = TECH_CMP_ND_66_1_NAME type = large_taskforce_tactics difficulty = 9 } #3
+    # Competent Steering Crews
+    component = { id = 8662 name = TECH_CMP_ND_66_2_NAME type = rt_user_14 difficulty = 9 double_time = yes } #3
+    # Attack & Evasion Manouvres
+    component = { id = 8663 name = TECH_CMP_ND_66_3_NAME type = rt_user_14 difficulty = 9 double_time = yes } #3
+    # defensive Positioning
+    component = { id = 8664 name = TECH_CMP_ND_66_4_NAME type = rt_user_14 difficulty = 9 double_time = yes } #3
+    # Synchronous Task Force Manouvres
+    component = { id = 8665 name = TECH_CMP_ND_66_5_NAME type = training difficulty = 9 } #3
+    required  = { }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.3 }
+      command = { type = min_positioning which = battleship value = 0.1 }
+      command = { type = max_positioning which = battlecruiser value = 0.3 }
+      command = { type = min_positioning which = battlecruiser value = 0.1 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.35 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.15 }
+    }
+  }
+  # Capital ships Manouvres 1939
+  application =
+  { id        = 8670
+    name      = TECH_APP_ND_67_NAME
+    desc      = TECH_APP_ND_67_DESC
+    position  = { x = 112 y = 285 }
+    year      = 1939
+    # Offensive Positioning
+    component = { id = 8671 name = TECH_CMP_ND_67_1_NAME type = large_taskforce_tactics difficulty = 4 }
+    # Competent Steering Crews
+    component = { id = 8672 name = TECH_CMP_ND_67_2_NAME type = rt_user_14 difficulty = 4 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8673 name = TECH_CMP_ND_67_3_NAME type = rt_user_14 difficulty = 4 } #double_time = yes }
+    # defensive Positioning
+    component = { id = 8674 name = TECH_CMP_ND_67_4_NAME type = rt_user_14 difficulty = 4 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8675 name = TECH_CMP_ND_67_5_NAME type = training difficulty = 4 }
+    required  = { 8660 }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.04 }
+      command = { type = min_positioning which = battleship value = 0.02 }
+      command = { type = max_positioning which = battlecruiser value = 0.04 }
+      command = { type = min_positioning which = battlecruiser value = 0.02 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.05 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.03 }
+    }
+  }
+  # Capital ships Manouvres 1941
+  application =
+  { id        = 8680
+    name      = TECH_APP_ND_68_NAME
+    desc      = TECH_APP_ND_68_DESC
+    position  = { x = 223 y = 285 }
+    year      = 1941
+    # Offensive Positioning
+    component = { id = 8681 name = TECH_CMP_ND_68_1_NAME type = large_taskforce_tactics difficulty = 5 }
+    # Competent Steering Crews
+    component = { id = 8682 name = TECH_CMP_ND_68_2_NAME type = rt_user_14 difficulty = 5 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8683 name = TECH_CMP_ND_68_3_NAME type = rt_user_14 difficulty = 5 } #double_time = yes }
+    # defensive Positioning
+    component = { id = 8684 name = TECH_CMP_ND_68_4_NAME type = rt_user_14 difficulty = 5 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8685 name = TECH_CMP_ND_68_5_NAME type = training difficulty = 5 }
+    required  = { 8670 }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.05 }
+      command = { type = min_positioning which = battleship value = 0.03 }
+      command = { type = max_positioning which = battlecruiser value = 0.05 }
+      command = { type = min_positioning which = battlecruiser value = 0.03 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.06 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.04 }
+    }
+  }
+  # Capital ships Manouvres 1943
+  application =
+  { id        = 8690
+    name      = TECH_APP_ND_69_NAME
+    desc      = TECH_APP_ND_69_DESC
+    position  = { x = 334 y = 285 }
+    year      = 1943
+    # Offensive Positioning
+    component = { id = 8691 name = TECH_CMP_ND_69_1_NAME type = large_taskforce_tactics difficulty = 6 }
+    # Competent Steering Crews
+    component = { id = 8692 name = TECH_CMP_ND_69_2_NAME type = rt_user_14 difficulty = 6 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8693 name = TECH_CMP_ND_69_3_NAME type = rt_user_14 difficulty = 6 } #double_time = yes }
+    # defensive Positioning
+    component = { id = 8694 name = TECH_CMP_ND_69_4_NAME type = rt_user_14 difficulty = 6 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8695 name = TECH_CMP_ND_69_5_NAME type = training difficulty = 6 }
+    required  = { 8680 }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.06 }
+      command = { type = min_positioning which = battleship value = 0.04 }
+      command = { type = max_positioning which = battlecruiser value = 0.06 }
+      command = { type = min_positioning which = battlecruiser value = 0.04 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.07 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.05 }
+    }
+  }
+  # Capital ships Manouvres 1947
+  application =
+  { id        = 8700
+    name      = TECH_APP_ND_70_NAME
+    desc      = TECH_APP_ND_70_DESC
+    position  = { x = 445 y = 285 }
+    year      = 1947
+    # Offensive Positioning
+    component = { id = 8701 name = TECH_CMP_ND_70_1_NAME type = large_taskforce_tactics difficulty = 7 }
+    # Competent Steering Crews
+    component = { id = 8702 name = TECH_CMP_ND_70_2_NAME type = rt_user_14 difficulty = 7 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8703 name = TECH_CMP_ND_70_3_NAME type = rt_user_14 difficulty = 7 } #double_time = yes }
+    # defensive Positioning
+    component = { id = 8704 name = TECH_CMP_ND_70_4_NAME type = rt_user_14 difficulty = 7 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8705 name = TECH_CMP_ND_70_5_NAME type = training difficulty = 7 }
+    required  = { 8690 }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.07 }
+      command = { type = min_positioning which = battleship value = 0.05 }
+      command = { type = max_positioning which = battlecruiser value = 0.07 }
+      command = { type = min_positioning which = battlecruiser value = 0.05 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.08 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.06 }
+    }
+  }
+  # Capital ships Manouvres 1953
+  application =
+  { id        = 81000
+    name      = TECH_APP_ND_100_NAME
+    desc      = TECH_APP_ND_100_DESC
+    position  = { x = 554 y = 285 }
+	picture = "8700"
+    year      = 1953
+    # Offensive Positioning
+    component = { id = 81001 name = TECH_CMP_ND_100_1_NAME type = large_taskforce_tactics difficulty = 8 }
+    # Competent Steering Crews
+    component = { id = 81002 name = TECH_CMP_ND_100_2_NAME type = rt_user_14 difficulty = 8 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 81003 name = TECH_CMP_ND_100_3_NAME type = rt_user_14 difficulty = 8 } #double_time = yes }
+    # defensive Positioning
+    component = { id = 81004 name = TECH_CMP_ND_100_4_NAME type = rt_user_14 difficulty = 8 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 81005 name = TECH_CMP_ND_100_5_NAME type = training difficulty = 8 }
+    required  = { 8700 }
+    effects =
+    { command = { type = max_positioning which = battleship value = 0.08 }
+      command = { type = min_positioning which = battleship value = 0.06 }
+      command = { type = max_positioning which = battlecruiser value = 0.08 }
+      command = { type = min_positioning which = battlecruiser value = 0.06 }
+      command = { type = max_positioning which = heavy_cruiser value = 0.09 }
+      command = { type = min_positioning which = heavy_cruiser value = 0.07 }
+    }
+  }
+  # Carrier Manouvres 1937
+  application =
+  { id        = 8710
+    name      = TECH_APP_ND_71_NAME
+    desc      = TECH_APP_ND_71_DESC
+    position  = { x = 1 y = 317 }
+    year      = 1937
+    # Carrier Task Force Tactics
+    component = { id = 8711 name = TECH_CMP_ND_71_1_NAME type = rt_user_8 difficulty = 10 } #3
+    # Competent Steering Crews
+    component = { id = 8712 name = TECH_CMP_ND_71_2_NAME type = rt_user_15 difficulty = 10 double_time = yes } #3
+    # Evasion Manouvres
+    component = { id = 8713 name = TECH_CMP_ND_71_3_NAME type = rt_user_15 difficulty = 10 double_time = yes } #3
+    # CAG Take-Off and Landing Manouvres
+    component = { id = 8714 name = TECH_CMP_ND_71_4_NAME type = rt_user_15 difficulty = 10 double_time = yes } #3
+    # Offensive Positioning
+    component = { id = 8715 name = TECH_CMP_ND_71_5_NAME type = rt_user_8 difficulty = 10 } #3
+    required  = { }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.2 }
+      #command = { type = min_positioning which = carrier value = 0.0 }
+      command = { type = max_positioning which = escort_carrier value = 0.2 }
+      #command = { type = min_positioning which = escort_carrier value = 0.0 }
+      command = { type = max_positioning which = light_carrier value = 0.2 }
+      #command = { type = min_positioning which = light_carrier value = 0.0 }
+    }
+  }
+  # Carrier Manouvres 1939
+  application =
+  { id        = 8720
+    name      = TECH_APP_ND_72_NAME
+    desc      = TECH_APP_ND_72_DESC
+    position  = { x = 112 y = 317 }
+    year      = 1939
+    # Carrier Task Force Tactics
+    component = { id = 8721 name = TECH_CMP_ND_72_1_NAME type = rt_user_8 difficulty = 8 }
+    # Competent Steering Crews                                  
+    component = { id = 8722 name = TECH_CMP_ND_72_2_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres                                         
+    component = { id = 8723 name = TECH_CMP_ND_72_3_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # CAG Take-Off and Landing Manouvres                        
+    component = { id = 8724 name = TECH_CMP_ND_72_4_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning                                     
+    component = { id = 8725 name = TECH_CMP_ND_72_5_NAME type = rt_user_8 difficulty = 8 }
+    required  = { 8710 }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.08 }
+      command = { type = min_positioning which = carrier value = 0.06 }
+      command = { type = max_positioning which = escort_carrier value = 0.08 }
+      command = { type = min_positioning which = escort_carrier value = 0.06 }
+      command = { type = max_positioning which = light_carrier value = 0.08 }
+      command = { type = min_positioning which = light_carrier value = 0.06 }
+    }
+  }
+  # Carrier Manouvres 1941
+  application =
+  { id        = 8730
+    name      = TECH_APP_ND_73_NAME
+    desc      = TECH_APP_ND_73_DESC
+    position  = { x = 223 y = 317 }
+    year      = 1941
+    # Carrier Task Force Tactics
+    component = { id = 8731 name = TECH_CMP_ND_73_1_NAME type = rt_user_8 difficulty = 8 }
+    # Competent Steering Crews                                  
+    component = { id = 8732 name = TECH_CMP_ND_73_2_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres                                         
+    component = { id = 8733 name = TECH_CMP_ND_73_3_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # CAG Take-Off and Landing Manouvres                        
+    component = { id = 8734 name = TECH_CMP_ND_73_4_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning                                     
+    component = { id = 8735 name = TECH_CMP_ND_73_5_NAME type = rt_user_8 difficulty = 8 }
+    required  = { 8720 }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.08 }
+      command = { type = min_positioning which = carrier value = 0.06 }
+      command = { type = max_positioning which = escort_carrier value = 0.08 }
+      command = { type = min_positioning which = escort_carrier value = 0.06 }
+      command = { type = max_positioning which = light_carrier value = 0.08 }
+      command = { type = min_positioning which = light_carrier value = 0.06 }
+    }
+  }
+  # Carrier Manouvres 1943
+  application =
+  { id        = 8740
+    name      = TECH_APP_ND_74_NAME
+    desc      = TECH_APP_ND_74_DESC
+    position  = { x = 334 y = 317 }
+    year      = 1943
+    # Carrier Task Force Tactics
+    component = { id = 8741 name = TECH_CMP_ND_74_1_NAME type = rt_user_8 difficulty = 8 }
+    # Competent Steering Crews                                  
+    component = { id = 8742 name = TECH_CMP_ND_74_2_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres                                         
+    component = { id = 8743 name = TECH_CMP_ND_74_3_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # CAG Take-Off and Landing Manouvres                        
+    component = { id = 8744 name = TECH_CMP_ND_74_4_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning                                     
+    component = { id = 8745 name = TECH_CMP_ND_74_5_NAME type = rt_user_8 difficulty = 8 }
+    required  = { 8730 }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.08 }
+      command = { type = min_positioning which = carrier value = 0.06 }
+      command = { type = max_positioning which = escort_carrier value = 0.08 }
+      command = { type = min_positioning which = escort_carrier value = 0.06 }
+      command = { type = max_positioning which = light_carrier value = 0.08 }
+      command = { type = min_positioning which = light_carrier value = 0.06 }
+    }
+  }
+  # Carrier Manouvres 1947
+  application =
+  { id        = 8750
+    name      = TECH_APP_ND_75_NAME
+    desc      = TECH_APP_ND_75_DESC
+    position  = { x = 445 y = 317 }
+    year      = 1947
+    # Carrier Task Force Tactics
+    component = { id = 8751 name = TECH_CMP_ND_75_1_NAME type = rt_user_8 difficulty = 8 }
+    # Competent Steering Crews                                  
+    component = { id = 8752 name = TECH_CMP_ND_75_2_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres                                         
+    component = { id = 8753 name = TECH_CMP_ND_75_3_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # CAG Take-Off and Landing Manouvres                        
+    component = { id = 8754 name = TECH_CMP_ND_75_4_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning                                     
+    component = { id = 8755 name = TECH_CMP_ND_75_5_NAME type = rt_user_8 difficulty = 8 }
+    required  = { 8740 }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.08 }
+      command = { type = min_positioning which = carrier value = 0.06 }
+      command = { type = max_positioning which = escort_carrier value = 0.08 }
+      command = { type = min_positioning which = escort_carrier value = 0.06 }
+      command = { type = max_positioning which = light_carrier value = 0.08 }
+      command = { type = min_positioning which = light_carrier value = 0.06 }
+    }
+  }
+  # Carrier Manouvres 1953
+  application =
+  { id        = 8950
+    name      = TECH_APP_ND_95_NAME
+    desc      = TECH_APP_ND_95_DESC
+    position  = { x = 554 y = 317 }
+	picture = "8750"
+    year      = 1953
+    # Carrier Task Force Tactics
+    component = { id = 8951 name = TECH_CMP_ND_95_1_NAME type = rt_user_8 difficulty = 8 }
+    # Competent Steering Crews
+    component = { id = 8952 name = TECH_CMP_ND_95_2_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8953 name = TECH_CMP_ND_95_3_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # CAG Take-Off and Landing Manouvres
+    component = { id = 8954 name = TECH_CMP_ND_95_4_NAME type = rt_user_15 difficulty = 8 } #double_time = yes }
+    # Offensive Positioning
+    component = { id = 8955 name = TECH_CMP_ND_95_5_NAME type = rt_user_8 difficulty = 8 }
+    required  = { 8750 }
+    effects =
+    { command = { type = max_positioning which = carrier value = 0.08 }
+      command = { type = min_positioning which = carrier value = 0.06 }
+      command = { type = max_positioning which = escort_carrier value = 0.08 }
+      command = { type = min_positioning which = escort_carrier value = 0.06 }
+      command = { type = max_positioning which = light_carrier value = 0.08 }
+      command = { type = min_positioning which = light_carrier value = 0.06 }
+    }
+  }
+  # Escort Manouvres 1936
+  application =
+  { id        = 8760
+    name      = TECH_APP_ND_76_NAME
+    desc      = TECH_APP_ND_76_DESC
+    position  = { x = 1 y = 349 }
+    year      = 1936
+    # Small Taskforce Escort Tactics
+    component = { id = 8761 name = TECH_CMP_ND_76_1_NAME type = large_taskforce_tactics difficulty = 9 } #3
+    # Large Taskforce Escort Tactics
+    component = { id = 8762 name = TECH_CMP_ND_76_2_NAME type = rt_user_16 difficulty = 9 double_time = yes } #3
+    # Competent Steering Crews
+    component = { id = 8763 name = TECH_CMP_ND_76_3_NAME type = rt_user_16 difficulty = 9 double_time = yes } #3
+    # Attack & Evasion Manouvres
+    component = { id = 8764 name = TECH_CMP_ND_76_4_NAME type = rt_user_16 difficulty = 9 double_time = yes } #3
+    # Synchronous Task Force Manouvres
+    component = { id = 8765 name = TECH_CMP_ND_76_5_NAME type = training difficulty = 9 } #3
+    required  = { }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.3 }
+      command = { type = min_positioning which = destroyer value = 0.1 }
+	  command = { type = max_positioning which = d_09 value = 0.3 }
+      command = { type = min_positioning which = d_09 value = 0.1 }
+      command = { type = max_positioning which = light_cruiser value = 0.3 }
+      command = { type = min_positioning which = light_cruiser value = 0.1 }
+    }
+  }
+  # Escort Manouvres 1939
+  application =
+  { id        = 8770
+    name      = TECH_APP_ND_77_NAME
+    desc      = TECH_APP_ND_77_DESC
+    position  = { x = 112 y = 349 }
+    year      = 1939
+    # Small Taskforce Escort Tactics
+    component = { id = 8771 name = TECH_CMP_ND_77_1_NAME type = large_taskforce_tactics difficulty = 4 }
+    # Large Taskforce Escort Tactics
+    component = { id = 8772 name = TECH_CMP_ND_77_2_NAME type = rt_user_16 difficulty = 4 } #double_time = yes }
+    # Competent Steering Crews
+    component = { id = 8773 name = TECH_CMP_ND_77_3_NAME type = rt_user_16 difficulty = 4 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8774 name = TECH_CMP_ND_77_4_NAME type = rt_user_16 difficulty = 4 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8775 name = TECH_CMP_ND_77_5_NAME type = training difficulty = 4 }
+    required  = { 8760 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.05 }
+      command = { type = min_positioning which = destroyer value = 0.03 }
+	  command = { type = max_positioning which = d_09 value = 0.05 }
+      command = { type = min_positioning which = d_09 value = 0.03 }
+      command = { type = max_positioning which = light_cruiser value = 0.05 }
+      command = { type = min_positioning which = light_cruiser value = 0.03 }
+    }
+  }
+  # Escort Manouvres 1941
+  application =
+  { id        = 8780
+    name      = TECH_APP_ND_78_NAME
+    desc      = TECH_APP_ND_78_DESC
+    position  = { x = 223 y = 349 }
+    year      = 1941
+    # Small Taskforce Escort Tactics
+    component = { id = 8781 name = TECH_CMP_ND_78_1_NAME type = large_taskforce_tactics difficulty = 5 }
+    # Large Taskforce Escort Tactics
+    component = { id = 8782 name = TECH_CMP_ND_78_2_NAME type = rt_user_16 difficulty = 5 } #double_time = yes }
+    # Competent Steering Crews
+    component = { id = 8783 name = TECH_CMP_ND_78_3_NAME type = rt_user_16 difficulty = 5 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8784 name = TECH_CMP_ND_78_4_NAME type = rt_user_16 difficulty = 5 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8785 name = TECH_CMP_ND_78_5_NAME type = training difficulty = 5 }
+    required  = { 8770 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.07 }
+      command = { type = min_positioning which = destroyer value = 0.05 }
+	  command = { type = max_positioning which = d_09 value = 0.07 }
+      command = { type = min_positioning which = d_09 value = 0.05 }
+      command = { type = max_positioning which = light_cruiser value = 0.07 }
+      command = { type = min_positioning which = light_cruiser value = 0.05 }
+    }
+  }
+  # Escort Manouvres 1943
+  application =
+  { id        = 8790
+    name      = TECH_APP_ND_79_NAME
+    desc      = TECH_APP_ND_79_DESC
+    position  = { x = 334 y = 349 }
+    year      = 1943
+    # Small Taskforce Escort Tactics
+    component = { id = 8791 name = TECH_CMP_ND_79_1_NAME type = large_taskforce_tactics difficulty = 6 }
+    # Large Taskforce Escort Tactics
+    component = { id = 8792 name = TECH_CMP_ND_79_2_NAME type = rt_user_16 difficulty = 6 } #double_time = yes }
+    # Competent Steering Crews
+    component = { id = 8793 name = TECH_CMP_ND_79_3_NAME type = rt_user_16 difficulty = 6 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8794 name = TECH_CMP_ND_79_4_NAME type = rt_user_16 difficulty = 6 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8795 name = TECH_CMP_ND_79_5_NAME type = training difficulty = 6 }
+    required  = { 8780 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.09 }
+      command = { type = min_positioning which = destroyer value = 0.07 }
+	  command = { type = max_positioning which = d_09 value = 0.09 }
+      command = { type = min_positioning which = d_09 value = 0.07 }
+      command = { type = max_positioning which = light_cruiser value = 0.09 }
+      command = { type = min_positioning which = light_cruiser value = 0.07 }
+    }
+  }
+  # Escort Manouvres 1947
+  application =
+  { id        = 8800
+    name      = TECH_APP_ND_80_NAME
+    desc      = TECH_APP_ND_80_DESC
+    position  = { x = 445 y = 349 }
+    year      = 1947
+    # Small Taskforce Escort Tactics
+    component = { id = 8801 name = TECH_CMP_ND_80_1_NAME type = large_taskforce_tactics difficulty = 7 }
+    # Large Taskforce Escort Tactics
+    component = { id = 8802 name = TECH_CMP_ND_80_2_NAME type = rt_user_16 difficulty = 7 } #double_time = yes }
+    # Competent Steering Crews
+    component = { id = 8803 name = TECH_CMP_ND_80_3_NAME type = rt_user_16 difficulty = 7 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8804 name = TECH_CMP_ND_80_4_NAME type = rt_user_16 difficulty = 7 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8805 name = TECH_CMP_ND_80_5_NAME type = training difficulty = 7 }
+    required  = { 8790 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.11 }
+      command = { type = min_positioning which = destroyer value = 0.09 }
+	  command = { type = max_positioning which = d_09 value = 0.11 }
+      command = { type = min_positioning which = d_09 value = 0.09 }
+      command = { type = max_positioning which = light_cruiser value = 0.11 }
+      command = { type = min_positioning which = light_cruiser value = 0.09 }
+    }
+  }
+  # Escort Manouvres 1953
+  application =
+  { id        = 8900
+    name      = TECH_APP_ND_90_NAME
+    desc      = TECH_APP_ND_90_DESC
+    position  = { x = 554 y = 349 }
+	picture = "8800"
+    year      = 1953
+    # Small Taskforce Escort Tactics
+    component = { id = 8901 name = TECH_CMP_ND_90_1_NAME type = large_taskforce_tactics difficulty = 8 }
+    # Large Taskforce Escort Tactics
+    component = { id = 8902 name = TECH_CMP_ND_90_2_NAME type = rt_user_16 difficulty = 8 } #double_time = yes }
+    # Competent Steering Crews
+    component = { id = 8903 name = TECH_CMP_ND_90_3_NAME type = rt_user_16 difficulty = 8 } #double_time = yes }
+    # Attack & Evasion Manouvres
+    component = { id = 8904 name = TECH_CMP_ND_90_4_NAME type = rt_user_16 difficulty = 8 } #double_time = yes }
+    # Synchronous Task Force Manouvres
+    component = { id = 8905 name = TECH_CMP_ND_90_5_NAME type = training difficulty = 8 }
+    required  = { 8800 }
+    effects =
+    { command = { type = max_positioning which = destroyer value = 0.13 }
+      command = { type = min_positioning which = destroyer value = 0.11 }
+	  command = { type = max_positioning which = d_09 value = 0.13 }
+      command = { type = min_positioning which = d_09 value = 0.11 }
+      command = { type = max_positioning which = light_cruiser value = 0.13 }
+      command = { type = min_positioning which = light_cruiser value = 0.11 }
+    }
+  }
+  # Amphibious Manouvres 1937
+  application =
+  { id        = 8810
+    name      = TECH_APP_ND_81_NAME
+    desc      = TECH_APP_ND_81_DESC
+    position  = { x = 1 y = 381 }
+    year      = 1937
+    # Amphibious Assault Tactics
+    component = { id = 8811 name = TECH_CMP_ND_81_1_NAME type = large_taskforce_tactics difficulty = 9 } #5
+    # Competent Steering Crews
+    component = { id = 8812 name = TECH_CMP_ND_81_2_NAME type = rt_user_12 difficulty = 9 double_time = yes } #5
+    # Evasion Manouvres
+    component = { id = 8813 name = TECH_CMP_ND_81_3_NAME type = rt_user_12 difficulty = 9 double_time = yes } #5
+    # Assault Manouvres
+    component = { id = 8814 name = TECH_CMP_ND_81_4_NAME type = rt_user_12 difficulty = 9 double_time = yes } #5
+    # Amphibious Assault Training
+    component = { id = 8815 name = TECH_CMP_ND_81_5_NAME type = training difficulty = 9 } #5
+    required  = { }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.3 }
+      command = { type = min_positioning which = transport value = 0.1 }
+      command = { type = max_amphib_mod value = 4 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.03 }
+    }
+  }
+  # Amphibious Manouvres 1940
+  application =
+  { id        = 8820
+    name      = TECH_APP_ND_82_NAME
+    desc      = TECH_APP_ND_82_DESC
+    position  = { x = 112 y = 381 }
+    year      = 1940
+    # Amphibious Assault Tactics
+    component = { id = 8821 name = TECH_CMP_ND_82_1_NAME type = large_taskforce_tactics difficulty = 6 }
+    # Competent Steering Crews
+    component = { id = 8822 name = TECH_CMP_ND_82_2_NAME type = rt_user_12 difficulty = 6 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8823 name = TECH_CMP_ND_82_3_NAME type = rt_user_12 difficulty = 6 } #double_time = yes }
+    # Assault Manouvres
+    component = { id = 8824 name = TECH_CMP_ND_82_4_NAME type = rt_user_12 difficulty = 6 } #double_time = yes }
+    # Amphibious Assault Training
+    component = { id = 8825 name = TECH_CMP_ND_82_5_NAME type = training difficulty = 6 }
+    required  = { 8810 }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.05 }
+      command = { type = min_positioning which = transport value = 0.03 }
+      command = { type = max_amphib_mod value = 5 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.035 }
+    }
+  }
+  # Amphibious Manouvres 1942
+  application =
+  { id        = 8830
+    name      = TECH_APP_ND_83_NAME
+    desc      = TECH_APP_ND_83_DESC
+    position  = { x = 223 y = 381 }
+    year      = 1942
+    # Amphibious Assault Tactics
+    component = { id = 8831 name = TECH_CMP_ND_83_1_NAME type = large_taskforce_tactics difficulty = 7 }
+    # Competent Steering Crews
+    component = { id = 8832 name = TECH_CMP_ND_83_2_NAME type = rt_user_12 difficulty = 7 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8833 name = TECH_CMP_ND_83_3_NAME type = rt_user_12 difficulty = 7 } #double_time = yes }
+    # Assault Manouvres
+    component = { id = 8834 name = TECH_CMP_ND_83_4_NAME type = rt_user_12 difficulty = 7 } #double_time = yes }
+    # Amphibious Assault Training
+    component = { id = 8835 name = TECH_CMP_ND_83_5_NAME type = training difficulty = 7 }
+    required  = { 8820 }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.07 }
+      command = { type = min_positioning which = transport value = 0.05 }
+      command = { type = max_amphib_mod value = 6 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.04 }
+    }
+  }
+  # Amphibious Manouvres 1944
+  application =
+  { id        = 8840
+    name      = TECH_APP_ND_84_NAME
+    desc      = TECH_APP_ND_84_DESC
+    position  = { x = 334 y = 381 }
+    year      = 1944
+    # Amphibious Assault Tactics
+    component = { id = 8841 name = TECH_CMP_ND_84_1_NAME type = large_taskforce_tactics difficulty = 8 }
+    # Competent Steering Crews
+    component = { id = 8842 name = TECH_CMP_ND_84_2_NAME type = rt_user_12 difficulty = 8 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8843 name = TECH_CMP_ND_84_3_NAME type = rt_user_12 difficulty = 8 } #double_time = yes }
+    # Assault Manouvres
+    component = { id = 8844 name = TECH_CMP_ND_84_4_NAME type = rt_user_12 difficulty = 8 } #double_time = yes }
+    # Amphibious Assault Training
+    component = { id = 8845 name = TECH_CMP_ND_84_5_NAME type = training difficulty = 8 }
+    required  = { 8830 }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.09 }
+      command = { type = min_positioning which = transport value = 0.07 }
+      command = { type = max_amphib_mod value = 7 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.045 }
+    }
+  }
+  # Amphibious Manouvres 1948
+  application =
+  { id        = 8850
+    name      = TECH_APP_ND_85_NAME
+    desc      = TECH_APP_ND_85_DESC
+    position  = { x = 445 y = 381 }
+    year      = 1948
+    # Amphibious Assault Tactics
+    component = { id = 8851 name = TECH_CMP_ND_85_1_NAME type = large_taskforce_tactics difficulty = 9 }
+    # Competent Steering Crews
+    component = { id = 8852 name = TECH_CMP_ND_85_2_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8853 name = TECH_CMP_ND_85_3_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Assault Manouvres
+    component = { id = 8854 name = TECH_CMP_ND_85_4_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Amphibious Assault Training
+    component = { id = 8855 name = TECH_CMP_ND_85_5_NAME type = training difficulty = 9 }
+    required  = { 8840 }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.11 }
+      command = { type = min_positioning which = transport value = 0.09 }
+      command = { type = max_amphib_mod value = 8 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.05 }
+    }
+  }
+  
+  # Amphibious Manouvres 1953
+  application =
+  { id        = 8860
+    name      = TECH_APP_ND_86_NAME
+    desc      = TECH_APP_ND_86_DESC
+    position  = { x = 556 y = 381 }
+	picture = "8850"
+    year      = 1953
+    # Amphibious Assault Tactics
+    component = { id = 8861 name = TECH_CMP_ND_86_1_NAME type = large_taskforce_tactics difficulty = 9 }
+    # Competent Steering Crews
+    component = { id = 8862 name = TECH_CMP_ND_86_2_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Evasion Manouvres
+    component = { id = 8863 name = TECH_CMP_ND_86_3_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Assault Manouvres
+    component = { id = 8864 name = TECH_CMP_ND_86_4_NAME type = rt_user_12 difficulty = 9 } #double_time = yes }
+    # Amphibious Assault Training
+    component = { id = 8865 name = TECH_CMP_ND_86_5_NAME type = training difficulty = 9 }
+    required  = { 8850 }
+    effects =
+    { command = { type = max_positioning which = transport value = 0.11 }
+      command = { type = min_positioning which = transport value = 0.09 }
+      command = { type = max_amphib_mod value = 9 }
+      command = { type = task_efficiency which = AMPHIBIOUS_ASSAULT value = 0.05 }
+    }
+  }
+ ######################################################################### 
+ 
+  # Fuel Oil Logistics # Naval Logistic 1939
+  application =
+  { id        = 82500
+    name      = TECH_APP_ND_250_NAME
+
+    position  = { x = 1 y = 413 }
+	picture   = "DH82500"
+    year      = 1939
+    component = { id = 82501 name = TECH_CMP_ND_250_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82502 name = TECH_CMP_ND_250_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82503 name = TECH_CMP_ND_250_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82504 name = TECH_CMP_ND_250_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82505 name = TECH_CMP_ND_250_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 1310 }
+    effects =
+    { 
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+  # Early Underway Replenishment # Naval Logistic 1941
+  application =
+  { id        = 82510
+    name      = TECH_APP_ND_251_NAME
+
+    position  = { x = 112 y = 413 }
+	picture   = "DH82510"
+    year      = 1941
+    component = { id = 82511 name = TECH_CMP_ND_251_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82512 name = TECH_CMP_ND_251_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82513 name = TECH_CMP_ND_251_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82514 name = TECH_CMP_ND_251_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82515 name = TECH_CMP_ND_251_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 82500 }
+    effects =
+    {
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+  # Basic Underway Replenishment # Naval Logistic 1943
+  application =
+  { id        = 82520
+    name      = TECH_APP_ND_252_NAME
+
+    position  = { x = 223 y = 413 }
+	picture   = "8270"
+    year      = 1943
+    component = { id = 82521 name = TECH_CMP_ND_252_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82522 name = TECH_CMP_ND_252_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82523 name = TECH_CMP_ND_252_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82524 name = TECH_CMP_ND_252_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82525 name = TECH_CMP_ND_252_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 82510 }
+    effects =
+    {
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+  # Modern Underway Replenishment # Naval Logistic 1945
+  application =
+  { id        = 82530
+    name      = TECH_APP_ND_253_NAME
+
+    position  = { x = 334 y = 413 }
+	picture   = "8230"
+    year      = 1945
+    component = { id = 82531 name = TECH_CMP_ND_253_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82532 name = TECH_CMP_ND_253_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82533 name = TECH_CMP_ND_253_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82534 name = TECH_CMP_ND_253_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82535 name = TECH_CMP_ND_253_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 82520 }
+    effects =
+    { 
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+  # Modern Underway Replenishment # Naval Logistic 1948
+  application =
+  { id        = 82540
+    name      = TECH_APP_ND_254_NAME
+
+    position  = { x = 445 y = 413 }
+	picture   = "8230"
+    year      = 1948
+    component = { id = 82541 name = TECH_CMP_ND_254_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82542 name = TECH_CMP_ND_254_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82543 name = TECH_CMP_ND_254_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82544 name = TECH_CMP_ND_254_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82545 name = TECH_CMP_ND_254_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 82530 }
+    effects =
+    { 
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+  # Modern Underway Replenishment # Naval Logistic 1954
+  application =
+  { id        = 82550
+    name      = TECH_APP_ND_255_NAME
+
+    position  = { x = 556 y = 413 }
+	picture   = "8230"
+    year      = 1954
+    component = { id = 82551 name = TECH_CMP_ND_255_1_NAME type = management 		    difficulty = 6 }
+    component = { id = 82552 name = TECH_CMP_ND_255_2_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 82553 name = TECH_CMP_ND_255_3_NAME type = naval_engineering     difficulty = 6 }
+    component = { id = 82554 name = TECH_CMP_ND_255_4_NAME type = technical_efficiency  difficulty = 6 }
+    component = { id = 82555 name = TECH_CMP_ND_255_5_NAME type = naval_training        difficulty = 8 }
+    required  = { 82540 }
+    effects =
+    { 
+		command = { type = range which = battlecruiser value = 400 }
+		command = { type = range which = battleship value = 400 }
+		command = { type = range which = carrier value = 320 }
+		command = { type = range which = destroyer value = 190 }
+		command = { type = range which = d_09 value = 200 }
+		command = { type = range which = escort_carrier value = 300 }
+		command = { type = range which = heavy_cruiser value = 400 }
+		command = { type = range which = light_carrier value = 320 }
+		command = { type = range which = light_cruiser value = 240 }
+		command = { type = range which = nuclear_submarine value = 55 }
+		command = { type = range which = submarine value = 100 }
+		command = { type = range which = d_08 value = 350 }
+		command = { type = range which = transport value = 160 }
+    }
+  }
+}
+
+

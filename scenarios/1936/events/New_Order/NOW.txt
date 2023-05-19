@@ -1,0 +1,4079 @@
+#########################################################################
+# New Order West events
+# Event range 33xx000 - 33xx999
+#########################################################################
+
+########################################
+# An European New Order - trigger event
+########################################
+event = { 
+	id = 3336000
+	random = no
+	country = GER
+	
+	trigger = {
+		war = { country = GER country = ENG }
+		OR = {
+				NOT = { war = { country = GER country = SOV } } #british exile government still hopes for salvation
+				AND = {
+						NOT = { vp = { country = ENG value = 25 } } #ENG close to annexation in spite of GER-SOV war still going on
+						war = { country = GER country = SOV }
+						}
+				}
+		OR = {
+				NOT = { war = { country = GER country = USA } } #british exile government still hopes for salvation
+				AND = {
+						NOT = { vp = { country = ENG value = 25 } } #ENG close to annexation in spite of GER-USA war still going on
+						war = { country = GER country = USA }
+						}
+				}
+		control = { province = 29 data = GER } # London
+		NOT = {
+			control = { province = 791 data = ENG } # Port Said
+			control = { province = 900 data = ENG } # Suez
+			control = { province = 789 data = ENG } # Alexandria
+			control = { province = 12 data = ENG } # Edinburgh
+			control = { province = 17 data = ENG } # Manchester
+			control = { province = 24 data = ENG } # Birmingham
+			control = { province = 26 data = ENG } # Dover
+			control = { province = 36 data = ENG } # Belfast
+		}
+		OR = {
+				AND = {
+						AI = ENG
+						NOT = { AI = GER }
+						OR = { 
+								NOT = { control = { province = 1459 data = -2 } } #Delhi not in enemy hands
+								NOT = { alliance = { country = ENG country = CAN } }
+								NOT = { vp = { country = ENG value = 10 } } #ENG very close to annexation, backup trigger
+								}
+						}
+				AND = {
+						AI = GER
+						AI = ENG
+						}
+				AND = {
+						AI = GER
+						NOT = { AI = ENG }
+						}
+				AND = {
+						NOT = { AI = GER }
+						NOT = { AI = ENG }
+						}
+				}
+		OR = {
+				NOT = { exists = EGY }
+				alliance = { country = GER country = EGY }
+				alliance = { country = EGY country = GER }
+				}
+		OR = {
+			AND = { # Vichy exists
+				exists = VIC
+				NOT = { war = { country = GER country = VIC } }
+			}
+			AND = { # Vichy doesn't exist but Paris is German-held
+				NOT = { exists = VIC }
+				control = { province = 55 data = GER } # Paris
+			}
+			AND = { # France is a German puppet
+				NOT = { exists = VIC }
+				puppet = { country = FRA country = GER }
+			}
+		}
+	}
+
+	name = EVT_3336000_NAME #"An European New Order"
+	desc = EVT_3336000_DESC 
+	style = 2
+	picture = "ger_event_new_order_west_1"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336000A #"A New Order", dissolution of Great Britain
+#		ai_chance = 70
+		ai_chance = 100
+		command = { type = setflag which = new_order_west }
+		command = { trigger = { OR = { alliance = { country = ENG country = USA } NOT = { alliance = { country = ENG country = CAN } } } } type = trigger which = 3338000 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = USA } } alliance = { country = ENG country = CAN } } type = trigger which = 3338100 }
+		#### remove german colonial claims so that they don't mess up the event chain
+		command = { trigger = { event = 3131046 } type = removeclaim which = 882 } # Walvis Bay
+		command = { trigger = { event = 3131046 } type = removeclaim which = 885 } # Odangwa
+		command = { trigger = { event = 3131046 } type = removeclaim which = 886 } # Grootfontein
+		command = { trigger = { event = 3131046 } type = removeclaim which = 883 } # Lüderitz
+		command = { trigger = { event = 3131046 } type = removeclaim which = 884 } # Windhoek
+		command = { trigger = { event = 3131046 } type = removeclaim which = 849 } # Lindi
+		command = { trigger = { event = 3131046 } type = removeclaim which = 848 } # Tabora
+		command = { trigger = { event = 3131046 } type = removeclaim which = 851 } # Tabora
+		command = { trigger = { event = 3131046 } type = removeclaim which = 846 } # Kigali
+		command = { trigger = { event = 3131046 } type = removeclaim which = 847 } # Kigali
+		command = { trigger = { event = 3131046 } type = removeclaim which = 850 } # Dar es Salaam
+		command = { trigger = { event = 3131046 } type = removeclaim which = 852 } # Zanzibar
+		command = { trigger = { event = 3131046 } type = removeclaim which = 933 }	# Buea
+		command = { trigger = { event = 3131046 } type = removeclaim which = 936 }	# Yola
+		command = { trigger = { event = 3131046 } type = removeclaim which = 919 }	# Bouar
+		command = { trigger = { event = 3131046 } type = removeclaim which = 955 }	# Ho
+		command = { trigger = { event = 3131046 } type = removeclaim which = 908 }	# Ouesso
+		command = { trigger = { event = 3131046 } type = removeclaim which = 948 }	# Kara
+		command = { trigger = { event = 3131046 } type = removeclaim which = 925 }	# Maroua
+		command = { trigger = { event = 3131046 } type = removeclaim which = 928 }	# Ngaoundere
+		command = { trigger = { event = 3131046 } type = removeclaim which = 924 }
+		command = { trigger = { event = 3131046 } type = removeclaim which = 911 }	# Douala
+		command = { trigger = { event = 3131046 } type = removeclaim which = 909 }	# Yaounde
+		command = { trigger = { event = 3131046 } type = removeclaim which = 910 }	# Yaounde
+		command = { trigger = { event = 3131046 } type = removeclaim which = 950 }	# Lomé
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1605 }	# Wewak
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1602 }	# Lae
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1610 } # Bismarck Range
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1726 }	# New Britain
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1727 }	# New Britain
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1724 }	# Admirality Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1725 }	# New Ireland
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1587 }	# North Solomon Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1682 } # Nauru
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1677 }	# Marshall Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1676 }	# Marshall Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1669 }	# Carolines
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1671 }	# Carolines
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1668 }	# Carolines
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1667 }	# Carolines
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1665 }	# Ponape
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1674 }	# Bikini
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1675 }	# Eniwetok
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1666 }	# Kosrae
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1670 }	# Palau
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1681 }	# Wotje
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1684 }	# Mariane Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1685 }	# Mariane Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1686 }	# Mariane Islands
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1603 }	# Mount Hagen
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1234 }	# Buna
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1731 }	# Apia
+		command = { trigger = { event = 3131046 } type = removeclaim which = 1328 }	# Qingdao
+	}
+	action_b = {
+#		name = ACTIONNAME3336000B ###nt propose easy conditions for peace (secession of colonies etc.)
+#		ai_chance = 30
+#		command = { type = setflag which = new_order_west_easy }
+#	}
+#	action_c = {
+		name = ACTIONNAME3336000C #"Who cares about treaties and allies?" ###nt
+		ai_chance = 0
+		command = { type = dissent value = 5 } 
+	}
+}
+
+########################################
+# Final victory event chain
+########################################
+
+# The Crossroad Conference
+
+event = {
+	id = 3336036
+	random = no
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west				
+				alliance_leader = { value = 1 } 
+				NOT = { war = { country = USA country = GER } }
+				NOT = { war = { country = ENG country = GER } }
+				OR = {
+						# main allied nations in Africa and America
+						AND = {
+								NOT = { war = { country = CAN country = GER } }
+								NOT = { war = { country = SAF country = GER } }
+								}
+						# main allied nations in Asia and Oceania
+						AND = {
+								NOT = { war = { country = AST country = GER } }			
+								NOT = { war = { country = U02 country = GER } }
+								}
+						}
+				}
+	
+	name = EVT_3336036_NAME
+	desc = EVT_3336036_DESC
+	style = 2
+	picture = "event_new_order_west_crossroad"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3336036A # There is no point in continuing the war...
+		command = { type = setflag which = now_crossroad }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3336036B # Let them come!
+		command = { }
+	}
+}
+
+# Victory event for leader of Allies
+
+event = {
+	id = 3336037
+	random = no
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				flag = now_crossroad
+				alliance_leader = { value = 1 } 
+				NOT = { war = { country = USA country = GER } }
+				NOT = { war = { country = ENG country = GER } }
+				NOT = { war = { country = CAN country = GER } }
+				NOT = { war = { country = AST country = GER } }
+				NOT = { war = { country = SAF country = GER } }
+				NOT = { war = { country = NZL country = GER } }
+				NOT = { war = { country = U02 country = GER } }
+				NOT = { war = { country = BUR country = GER } }
+				}
+	
+	name = EVT_3336034_NAME #"Hitler's Final Speech"
+	desc = EVT_3336034_DESC
+	style = 2
+	picture = "ger_event_new_order_west_victory"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336037A #Let's hope for mercy...
+		command = { type = peace which = GER value = 0 } #all the remaining Allies make peace
+		command = { type = peace which = JAP value = 0 } #all the remaining Allies make peace
+		
+		# Gibraltar to GER or U01, no entry in any other peace event
+		command = { trigger = { owned = { province = 348 data = -3 } alliance = { country = GER country = U01 } } type = secedeprovince which = U01 value = 348 when = 2 }
+		command = { trigger = { owned = { province = 348 data = -3 } NOT = { alliance = { country = GER country = U01 } } } type = secedeprovince which = GER value = 348 when = 2 }
+	}
+}
+
+# Victory event for GER
+
+event = {
+	id = 3336034 #old ID
+	random = no
+	country = GER
+	
+	trigger = {
+				event = 3336000
+				event = 3336037
+				flag = new_order_west
+				flag = now_crossroad
+				NOT = { war = { country = USA country = GER } }
+				NOT = { war = { country = ENG country = GER } }
+				NOT = { war = { country = CAN country = GER } }
+				NOT = { war = { country = AST country = GER } }
+				NOT = { war = { country = SAF country = GER } }
+				NOT = { war = { country = NZL country = GER } }
+				NOT = { war = { country = U02 country = GER } }
+				NOT = { war = { country = BUR country = GER } }
+				}
+	
+	name = EVT_3336034_NAME #"Hitler's Final Speech"
+	desc = EVT_3336034_DESC
+	style = 2
+	picture = "ger_event_new_order_west_victory"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336034A #"Sieg!"
+		command = { type = money value = 1000 }
+		command = { type = dissent value = -20 }
+	}
+}
+
+###################################################################
+###################################################################
+# Establishment of New Order West - dissolution of Great Britain
+# -> GER establishes puppet states in Britain and Ireland
+# -> USA or CAN (if USA are still neutral) annex ENG (-> full army takeover) and redistribute provinces
+# -> Axis has to conquer territory in order to trigger events for annexation and/or separate peace
+###################################################################
+###################################################################
+
+##########################################
+# Dissolution of the British Empire
+# ENG allied with USA: USA takes control
+# add command into AI files to release ENG if reconquered
+##########################################
+event = { 
+	id = 3338000
+	random = no
+	country = USA
+
+	name = EVT_3338000_NAME ###nt; NOW, USA takes control
+	desc = EVT_3338000_DESC 
+	style = 2
+	picture = "ger_event_new_order_west_2"
+	
+	action_a = {
+		name = ACTIONNAME3338000A ###nt; United we fight
+		command = { type = inherit which = ENG value = 1 }
+		command = { type = alliance_leader which = USA }
+
+		#Newfoundland to CAN
+		command = { trigger = { area = { area = "New Foundland" data = 2 value = 1 } alliance = { country = USA country = CAN } } type = secedearea which = CAN value = "New Foundland" when = 1 }
+		command = { type = addcore which = 2136 where = CAN }
+		command = { type = addcore which = 2137 where = CAN }
+		command = { type = addcore which = 2138 where = CAN }
+
+		#East African possessions to SAF	
+		command = { trigger = { region = { region = "Sudan" data = 2 value = 1 } alliance = { country = USA country = SAF } } type = secederegion which = SAF value = "Sudan" when = 1 }
+		command = { trigger = { region = { region = "Horn of Africa" data = 2 value = 1 } alliance = { country = USA country = SAF } } type = secederegion which = SAF value = "Horn of Africa" when = 1 }
+		command = { trigger = { region = { region = "East Africa" data = 2 value = 1 } alliance = { country = USA country = SAF } } type = secederegion which = SAF value = "East Africa" when = 1 }
+		command = { trigger = { region = { region = "South Africa" data = 2 value = 1 } alliance = { country = USA country = SAF } } type = secederegion which = SAF value = "South Africa" when = 1 }
+
+		#West African possessions to Free France
+		command = { trigger = { region = { region = "West Africa" data = 2 value = 1 } alliance = { country = USA country = U14 } } type = secederegion which = U14 value = "West Africa" when = 1 }
+
+		#Palestine + Transjordan + Suez Channel Area to Free France
+		command = { trigger = { area = { area = "Palestine" data = 2 value = 1 } alliance = { country = USA country = U14 } } type = secedearea which = U14 value = "Palestine" when = 1 }
+		command = { trigger = { area = { area = "Transjordan" data = 2 value = 1 } alliance = { country = USA country = U14 } } type = secedearea which = U14 value = "Transjordan" when = 1 }
+		command = { trigger = { area = { area = "Suez Channel Area" data = 2 value = 1 } alliance = { country = USA country = U14 } } type = secedearea which = U14 value = "Suez Channel Area" when = 1 }
+
+		#Kuwait to Iraq
+		command = { trigger = { owned = { province = 1041 } alliance = { country = USA country = IRQ } } type = secedeprovince which = IRQ value = 1041 when = 1 }
+		
+		#UAE + Yemen to Oman
+		command = { trigger = { area = { area = "Persian Gulf Coast" data = 2 value = 1 } alliance = { country = USA country = OMN } } type = secedearea which = OMN value = "Persian Gulf Coast" when = 1 }
+		command = { trigger = { area = { area = "Yemenite Mountains" data = 2 value = 1 } alliance = { country = USA country = OMN } } type = secedearea which = OMN value = "Yemenite Mountains" when = 1 }
+						
+		# Ceylon, Bombay and Andaman Islands to Raj
+		command = { trigger = { area = { area = "Ceylon" data = 2 value = 1 } alliance = { country = USA country = U02 } } type = secedearea which = U02 value = "Ceylon" when = 1 }
+		command = { trigger = { owned = { province = 1517 } alliance = { country = USA country = U02 } } type = secedeprovince which = U02 value = 1517 when = 1 }
+		command = { trigger = { owned = { province = 1421 } alliance = { country = USA country = U02 } } type = secedeprovince which = U02 value = 1421 when = 1 }
+	}
+}
+##########################################
+# Dissolution of the British Empire
+# ENG not allied with USA: CAN takes control
+# add command into AI files to release ENG if reconquered
+##########################################
+event = { 
+	id = 3338100
+	random = no
+	country = CAN
+
+	name = EVT_3338100_NAME ###nt; NOW, CAN takes control
+	desc = EVT_3338000_DESC ###nt; United we fight
+	style = 2
+	picture = "ger_event_new_order_west_2"
+	
+	action_a = {
+		name = ACTIONNAME3338000A
+		command = { type = inherit which = ENG value = 1 }
+		command = { type = alliance_leader which = CAN }
+
+		#secede to neutral USA
+#		#Gibraltar + Malta + Cyprus + Suez
+#		command = { trigger = { owned = { province = 348 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 348 when = 1 }
+#		command = { trigger = { owned = { province = 429 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 429 when = 1 }
+#		command = { trigger = { owned = { province = 387 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 387 when = 1 }
+#		command = { trigger = { owned = { province = 388 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 388 when = 1 }
+#		command = { trigger = { owned = { province = 900 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 900 when = 1 }
+		#Hong Kong
+		command = { trigger = { owned = { province = 1371 } NOT = { war = { country = CAN country = USA } } } type = secedeprovince which = USA value = 1371 when = 1 }
+		#Malaya + Borneo
+		command = { trigger = { area = { area = "Malacka" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secedearea which = USA value = "Malacka" when = 1 }
+		command = { trigger = { area = { area = "North Borneo" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secedearea which = USA value = "North Borneo" when = 1 }
+		#Falkland Islands + Belize + Guyana
+		command = { trigger = { owned = { province = 2045 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 2045 when = 1 }
+		command = { trigger = { owned = { province = 2086 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 2086 when = 1 }
+		command = { trigger = { owned = { province = 1998 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 1998 when = 1 }
+		command = { trigger = { owned = { province = 1997 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 1997 when = 1 }
+		#Atlantic Ocean Islands
+		command = { trigger = { region = { region = "Caribbean" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secederegion which = USA value = "Caribbean" when = 1 }
+		command = { trigger = { owned = { province = 896 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 896 when = 1 }
+		command = { trigger = { owned = { province = 993 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 993 when = 1 }
+		#Indian Ocean Islands
+		command = { trigger = { owned = { province = 840 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 840 when = 1 }
+		command = { trigger = { owned = { province = 997 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 997 when = 1 }
+		command = { trigger = { owned = { province = 998 } NOT = { war = { country = USA country = CAN } } } type = secedeprovince which = USA value = 998 when = 1 }
+		command = { trigger = { area = { area = "Diego Garcia Island" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secedearea which = USA value = "Diego Garcia Island" when = 1 }
+		#Pacific Ocean Islands
+		command = { trigger = { region = { region = "North Solomon Islands" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secederegion which = USA value = "North Solomon Islands" when = 1 }
+		command = { trigger = { region = { region = "Asian Pacific" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secederegion which = USA value = "Asian Pacific" when = 1 }
+		command = { trigger = { region = { region = "American Pacific" data = 2 value = 1 } NOT = { war = { country = CAN country = USA } } } type = secederegion which = USA value = "American Pacific" when = 1 }
+		
+		#East African possessions to SAF	
+		command = { trigger = { region = { region = "Sudan" data = 2 value = 1 } alliance = { country = CAN country = SAF } } type = secederegion which = SAF value = "Sudan" when = 1 }
+		command = { trigger = { region = { region = "Horn of Africa" data = 2 value = 1 } alliance = { country = CAN country = SAF } } type = secederegion which = SAF value = "Horn of Africa" when = 1 }
+		command = { trigger = { region = { region = "East Africa" data = 2 value = 1 } alliance = { country = CAN country = SAF } } type = secederegion which = SAF value = "East Africa" when = 1 }
+		command = { trigger = { region = { region = "South Africa" data = 2 value = 1 } alliance = { country = CAN country = SAF } } type = secederegion which = SAF value = "South Africa" when = 1 }
+
+		#West African possessions to Free France
+		command = { trigger = { region = { region = "West Africa" data = 2 value = 1 } alliance = { country = CAN country = U14 } } type = secederegion which = U14 value = "West Africa" when = 1 }
+
+		#Palestine + Transjordan +  Suez Channel Area to Free France
+		command = { trigger = { area = { area = "Palestine" data = 2 value = 1 } alliance = { country = CAN country = U14 } } type = secedearea which = U14 value = "Palestine" when = 1 }
+		command = { trigger = { area = { area = "Transjordan" data = 2 value = 1 } alliance = { country = CAN country = U14 } } type = secedearea which = U14 value = "Transjordan" when = 1 }
+		command = { trigger = { area = { area = "Suez Channel Area" data = 2 value = 1 } alliance = { country = CAN country = U14 } } type = secedearea which = U14 value = "Suez Channel Area" when = 1 }
+
+		#Kuwait to Iraq
+		command = { trigger = { owned = { province = 1041 } alliance = { country = CAN country = IRQ } } type = secedeprovince which = IRQ value = 1041 when = 1 }
+		
+		#UAE + Yemen to Oman
+		command = { trigger = { area = { area = "Persian Gulf Coast" data = 2 value = 1 } alliance = { country = CAN country = OMN } } type = secedearea which = OMN value = "Persian Gulf Coast" when = 1 }
+		command = { trigger = { area = { area = "Yemenite Mountains" data = 2 value = 1 } alliance = { country = CAN country = OMN } } type = secedearea which = OMN value = "Yemenite Mountains" when = 1 }
+						
+		# Ceylon, Bombay and Andaman Islands to Raj
+		command = { trigger = { area = { area = "Ceylon" data = 2 value = 1 } alliance = { country = CAN country = U02 } } type = secedearea which = U02 value = "Ceylon" when = 1 }
+		command = { trigger = { owned = { province = 1517 } alliance = { country = CAN country = U02 } } type = secedeprovince which = U02 value = 1517 when = 1 }
+		command = { trigger = { owned = { province = 1421 } alliance = { country = CAN country = U02 } } type = secedeprovince which = U02 value = 1421 when = 1 }
+		
+		#add cores in Newfoundland
+		command = { type = addcore which = 2136 }
+		command = { type = addcore which = 2137 }
+		command = { type = addcore which = 2138 }
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# Release of german puppets on GB island
+##########################################
+event = { 
+	id = 3336001
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				control = { province = 25 } # U73 national provinces
+				control = { province = 26 }
+				control = { province = 27 }
+				control = { province = 28 }
+				control = { province = 29 }
+				control = { province = 13 }
+				control = { province = 14 }
+				control = { province = 15 }
+				control = { province = 16 }
+				control = { province = 17 }
+				control = { province = 18 }
+				control = { province = 19 }
+				control = { province = 20 }
+				control = { province = 21 }
+				control = { province = 22 }
+				control = { province = 23 }
+				control = { province = 24 }
+				NOT = { exists = U73 }
+				}
+
+	name = EVT_3336001_NAME ###nt; NOW, England
+	desc = EVT_3336001_DESC ###nt; UK desintegration
+	style = 2
+	picture = "ger_event_new_order_west_england"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336001A
+		command = { type = independence which = U73 value = 1 } #England
+		command = { type = make_puppet which = U73 }
+		command = { trigger = { NOT = { alliance = { country = GER country = U73 } } } type = alliance which = U73 }
+	}
+}
+
+event = { 
+	id = 3336002
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				control = { province = 4  } ###SCO national provinces
+				control = { province = 5  }
+				control = { province = 9  }
+				control = { province = 6  }
+				control = { province = 7  }
+				control = { province = 8  }
+				control = { province = 10 }
+				control = { province = 11 }
+				control = { province = 12 }
+				NOT = { exists = SCO }
+				}
+
+	name = EVT_3336002_NAME ###nt; NOW, Scotland
+	desc = EVT_3336001_DESC ###nt; UK desintegration
+	style = 2
+	picture = "ger_event_new_order_west_scotland"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336002A
+		command = { type = independence which = SCO value = 1 } #Scotland
+		command = { type = make_puppet which = SCO }
+		command = { trigger = { NOT = { alliance = { country = GER country = SCO } } } type = alliance which = SCO }
+	}
+}
+################################
+# Dissolution of the British Empire
+# A European New Order - Ireland
+################################
+event = { 
+	id = 3336003
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				control = { province = 36 data = -3 }
+				control = { province = 35 data = -3 }
+				NOT = { war = { country = GER country = IRE } }
+				NOT = { alliance = { country = GER country = IRE } }
+				}
+
+	name = EVT_3336003_NAME ###nt; NOW, Propose deal to Ireland
+	desc = EVT_3336001_DESC ###nt; UK desintegration
+	style = 2
+	picture = "ger_event_new_order_west_ireland"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336003A #propose the deal
+		ai_chance = 99
+		command = { type = setflag which = new_order_west_ireland }
+	}
+	
+	action_b = {
+		name = ACTIONNAME3336003B #no way
+		ai_chance = 1
+		command = { }
+	}
+}
+
+event = { 
+	id = 3399023
+	random = no
+	country = IRE
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west_ireland
+				}
+
+	name = EVT_3399023_NAME #"Ireland in the Axis?"
+	desc = EVT_3399023_DESC #"Having defeated the British, the Germans are offering the return of the Ulster to Ireland, but we would have to join the Axis."
+	style = 2
+	picture = "ger_event_new_order_west_ireland"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"Certainly"
+		ai_chance = 90
+		command = { type = dissent value = -5 } 
+		command = { type = alliance which = GER }
+		command = { type = relation which = GER value = 100 }
+		command = { type = domestic which = political_left value = -5 }
+		command = { type = domestic which = democratic value = -5 }
+		command = { type = addcore which = 36 } # Belfast
+		command = { type = addcore which = 35 } # Londonderry
+		command = { type = secedeprovince which = IRE value = 36 when = 2 } # occupy Belfast
+		command = { type = secedeprovince which = IRE value = 35 when = 2 } # occupy Londonderry		
+	}
+	action_b = {
+		name = ACTION_NAME_DECLINE #"No thanks"
+		ai_chance = 10
+		command = { type = dissent value = 10 } 
+	}
+}
+
+event = { 
+	id = 3399024
+	random = no
+	country = IRE
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west			
+				NOT = { event = 3336003 }
+				NOT = { flag = new_order_west_ireland }
+				alliance = { country = GER country = IRE }
+				}
+
+	name = EVT_3399024_NAME ###nt Ireland occupies Ulster
+	desc = EVT_3336001_DESC ###nt; UK desintegration
+	style = 2
+	picture = "ger_event_new_order_west_ireland2"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_GREAT
+		command = { type = dissent value = -5 } 
+		command = { type = addcore which = 36 } # Belfast
+		command = { type = addcore which = 35 } # Londonderry
+		command = { type = secedeprovince which = IRE value = 36 when = 2 } # occupy Belfast
+		command = { type = secedeprovince which = IRE value = 35 when = 2 } # occupy Londonderry		
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# Italian zone of interest
+##########################################
+
+# Egypt
+
+event = { 
+	id = 3336004
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								region = {	region =	"Egypt"				country = -3 data = 1 value = 100 } #EGY national provinces 
+								area = {	area =		"Suez Channel Area"	country = -3 data = 1 value = 100 }
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = {
+										OR = {
+												region = {	region =	"Egypt"				country = ITA data = 2 value = 100 } #EGY national provinces; data = 2 means "owned"
+												area = {	area =		"Suez Channel Area"	country = ITA data = 2 value = 100 }
+												}
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = {
+										OR = {
+												region = {	region =	"Egypt"				country = RSI data = 2 value = 100 } #EGY national provinces; data = 2 means "owned"
+												area = {	area =		"Suez Channel Area"	country = RSI data = 2 value = 100 }
+												}
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = {
+										OR = {
+												region = {	region =	"Egypt"				country = -1 data = 2 value = 100 } #EGY national provinces; data = 2 means "owned"
+												area = {	area =		"Suez Channel Area"	country = -1 data = 2 value = 100 }
+												}
+										}
+									}
+						}
+				NOT = { exists = EGY }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336004A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Egypt"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Suez Channel Area"	when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Egypt"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Suez Channel Area"	when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Egypt"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Suez Channel Area"	when = 2 }
+	}
+}
+
+# Sudan
+
+event = { 
+	id = 3336005
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region =	"Sudan"				country = -3 data = 1 value = 100 } #SUD national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { region = {	region =	"Sudan"				country = ITA data = 2 value = 100 } } #SUD national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { region = {	region =	"Sudan"				country = RSI data = 2 value = 100 } } #SUD national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { region = {	region =	"Sudan"				country = -1 data = 2 value = 100 } } #SUD national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = SUD }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa2"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336005A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Sudan"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Sudan"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Sudan"				when = 2 }
+	}
+}
+
+# Kenya
+
+event = { 
+	id = 3336006
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Kenya"				country = -3 data = 1 value = 100 }
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Kenya"				country = ITA data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Kenya"				country = RSI data = 2 value = 100 } } #data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Kenya"				country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						}
+				NOT = { exists = EAF }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa3"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336006A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Kenya"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Kenya"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Kenya"				when = 2 }
+	}
+}
+
+# Ethiopia if annexed
+
+event = { 
+	id = 3336007
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region =	"Ethiopia"				country = -3 data = 1 value = 100 } #ETH national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { region = {	region =	"Ethiopia"				country = ITA data = 2 value = 100 } } #ETH national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { region = {	region =	"Ethiopia"				country = RSI data = 2 value = 100 } } #ETH national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { region = {	region =	"Ethiopia"				country = -1 data = 2 value = 100 } } #ETH national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = ETH }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336007A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Ethiopia"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Ethiopia"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Ethiopia"				when = 2 }
+	}
+}
+
+# Libya if annexed
+
+event = { 
+	id = 3336008
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region =	"Libya"				country = -3 data = 1 value = 100 } #LBY national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { region = {	region =	"Libya"				country = ITA data = 2 value = 100 } } #LBY national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { region = {	region =	"Libya"				country = RSI data = 2 value = 100 } } #LBY national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { region = {	region =	"Libya"				country = -1 data = 2 value = 100 } } #LBY national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = LBY }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336008A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Libya"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Libya"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Libya"				when = 2 }
+	}
+}
+
+# Somalia if annexed
+
+event = { 
+	id = 3336009
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Somalia"				country = -3 data = 1 value = 100 } #SOM national provinces 
+								control = { province = 832 data = -3 }
+								control = { province = 834 data = -3 }
+								control = { province = 835 data = -3 }
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { area = {	area =	"Somalia"				country = ITA data = 2 value = 100 } } #SOM national provinces; data = 2 means "owned"
+										NOT = { owned = { province = 832 data = ITA } }
+										NOT = { owned = { province = 834 data = ITA } }
+										NOT = { owned = { province = 835 data = ITA } }
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { area = {	area =	"Somalia"				country = RSI data = 2 value = 100 } } #SOM national provinces; data = 2 means "owned"
+										NOT = { owned = { province = 832 data = RSI } }
+										NOT = { owned = { province = 834 data = RSI } }
+										NOT = { owned = { province = 835 data = RSI } }
+										}
+								}
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { area = {	area =	"Somalia"				country = -1 data = 2 value = 100 } } #SOM national provinces; data = 2 means "owned"
+										NOT = { owned = { province = 832 data = -1 } }
+										NOT = { owned = { province = 834 data = -1 } }
+										NOT = { owned = { province = 835 data = -1 } }
+										}
+								}
+						}
+				NOT = { exists = SOM }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336009A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Somalia"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 832 when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 834 when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 835 when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Somalia"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 832 when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 834 when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 835 when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Somalia"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 832 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 834 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 835 when = 2 }
+	}
+}
+
+# british isles in the mediterranean, Malta, Cyprus, Crete if inherited from Greece
+
+event = { 
+	id = 3336010
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 429 data = -3 } #Malta
+								control = { province = 388 data = -3 } #Cyprus
+								control = { province = 387 data = -3 }
+								control = { province = 382 data = -3 } #Crete
+								control = { province = 380 data = -3 }
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { owned = { province = 429 data = ITA } } #Malta
+										NOT = { owned = { province = 388 data = ITA } } #Cyprus
+										NOT = { owned = { province = 387 data = ITA } }
+										NOT = { owned = { province = 382 data = ITA } } #Crete
+										NOT = { owned = { province = 380 data = ITA } }
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { owned = { province = 429 data = RSI } } #Malta
+										NOT = { owned = { province = 388 data = RSI } } #Cyprus
+										NOT = { owned = { province = 387 data = RSI } }
+										NOT = { owned = { province = 382 data = RSI } } #Crete
+										NOT = { owned = { province = 380 data = RSI } }
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { owned = { province = 429 data = -1 } } #Malta
+										NOT = { owned = { province = 388 data = -1 } } #Cyprus
+										NOT = { owned = { province = 387 data = -1 } }
+										NOT = { owned = { province = 382 data = -1 } } #Crete
+										NOT = { owned = { province = 380 data = -1 } }
+										}
+								}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_malta"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336010A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 429 when = 2 } #Malta
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 388 when = 2 } #Cyprus
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 387 when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 382 when = 2 } #Crete
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 380 when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 429 when = 2 } #Malta
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 388 when = 2 } #Cyprus
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 387 when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 382 when = 2 } #Crete
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 380 when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 429 when = 2 } #Malta
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 388 when = 2 } #Cyprus
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 387 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 382 when = 2 } #Crete
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 380 when = 2 }
+	}
+}
+
+# if parts of Italy have been annexed
+
+event = { 
+	id = 3336011
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				event = 3336010 # Malta is part of Italy region => event would trigger if Malta hasn't already been occupied, so better trigger Malta event before
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region =	"Italy"				country = -3 data = 1 value = 100 } #ITA national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { region = {	region =	"Italy"				country = ITA data = 2 value = 100 } } #ITA national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { region = {	region =	"Italy"				country = RSI data = 2 value = 100 } } #ITA national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { region = {	region =	"Italy"				country = -1 data = 2 value = 100 } } #ITA national provinces; data = 2 means "owned"
+								}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14 #longer offset so that this event triggers long time after all above
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336011A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Italy"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Italy"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Italy"				when = 2 }
+		command = { trigger = { NOT = { exists = ITA exists = RSI } } type = setflag which = NOW_Italy_release }
+		command = { trigger = { flag = NOW_Italy_release } type = independence which = RSI } #will just get mainland italy provinces
+		command = { trigger = { flag = NOW_Italy_release } type = make_puppet which = RSI } 
+	}
+}
+
+# Albania if annexed
+
+event = { 
+	id = 3336012
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Albania"				country = -3 data = 1 value = 100 } #ALB national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Albania"				country = ITA data = 2 value = 100 } } #ALB national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Albania"				country = RSI data = 2 value = 100 } } #ALB national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Albania"				country = -1 data = 2 value = 100 } } #ALB national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = ALB }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336012A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Albania"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Albania"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Albania"				when = 2 }
+	}
+}
+
+# Montenegro if annexed
+
+event = { 
+	id = 3336013
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				OR = {
+						event = 3436010
+						event = 3445000
+						event = 3441000
+						event = 3467000
+						event = 3419000
+						event = 3437000
+						}
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 332 data = -3 } #MTN national provinces
+								control = { province = 335 data = -3 }
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { owned = { province = 332 data = ITA } }
+										NOT = { owned = { province = 335 data = ITA } }
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { owned = { province = 332 data = RSI } }
+										NOT = { owned = { province = 335 data = RSI } }
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { owned = { province = 332 data = -1 } }
+										NOT = { owned = { province = 335 data = -1 } }
+										}
+								}
+						}
+				NOT = { exists = MTN }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336013A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 332 when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 335 when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 332 when = 2 }
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 335 when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 332 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 335 when = 2 }
+	}
+}
+
+# Italian possessions in Yugoslavia if annexed
+
+event = { 
+	id = 3336014
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				OR = {
+						event = 3436010
+						event = 3445000
+						event = 3441000
+						event = 3467000
+						event = 3419000
+						event = 3437000
+						}
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 349 data = -3 } # Ljubljana
+								control = { province = 350 data = -3 } # Split
+								control = { province = 343 data = -3 } # Dubrovnik
+								control = { province = 332 data = -3 } # Cetinje
+								control = { province = 335 data = -3 } # Prijepolje
+								control = { province = 329 data = -3 } # Pristina
+								control = { province = 334 data = -3 } # Tetovo
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { owned = { province = 349 data = ITA }} # Ljubljana
+										NOT = { owned = { province = 350 data = ITA }} # Split
+										NOT = { owned = { province = 343 data = ITA }} # Dubrovnik
+										NOT = { owned = { province = 332 data = ITA }} # Cetinje
+										NOT = { owned = { province = 335 data = ITA }} # Prijepolje
+										NOT = { owned = { province = 329 data = ITA }} # Pristina
+										NOT = { owned = { province = 334 data = ITA }} # Tetovo
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { owned = { province = 349 data = RSI }} # Ljubljana
+										NOT = { owned = { province = 350 data = RSI }} # Split
+										NOT = { owned = { province = 343 data = RSI }} # Dubrovnik
+										NOT = { owned = { province = 332 data = RSI }} # Cetinje
+										NOT = { owned = { province = 335 data = RSI }} # Prijepolje
+										NOT = { owned = { province = 329 data = RSI }} # Pristina
+										NOT = { owned = { province = 334 data = RSI }} # Tetovo
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { owned = { province = 349 data = -1 }} # Ljubljana
+										NOT = { owned = { province = 350 data = -1 }} # Split
+										NOT = { owned = { province = 343 data = -1 }} # Dubrovnik
+										NOT = { owned = { province = 332 data = -1 }} # Cetinje
+										NOT = { owned = { province = 335 data = -1 }} # Prijepolje
+										NOT = { owned = { province = 329 data = -1 }} # Pristina
+										NOT = { owned = { province = 334 data = -1 }} # Tetovo
+										}
+								}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336014A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 349 when = 2 } # Ljubljana
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 350 when = 2 } # Split
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 343 when = 2 } # Dubrovnik
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 332 when = 2 } # Cetinje
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 335 when = 2 } # Prijepolje
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 329 when = 2 } # Pristina
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 334 when = 2 } # Tetovo
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 349 when = 2 } # Ljubljana
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 350 when = 2 } # Split
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 343 when = 2 } # Dubrovnik
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 332 when = 2 } # Cetinje
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 335 when = 2 } # Prijepolje
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 329 when = 2 } # Pristina
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 334 when = 2 } # Tetovo
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 349 when = 2 } # Ljubljana
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 350 when = 2 } # Split
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 343 when = 2 } # Dubrovnik
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 332 when = 2 } # Cetinje
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 335 when = 2 } # Prijepolje
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 329 when = 2 } # Pristina
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 334 when = 2 } # Tetovo
+	}
+}
+
+# Italian possessions in France if annexed
+
+event = { 
+	id = 3336015
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				event = 3136227
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 87 data = -3 } # Nice
+								control = { province = 90 data = -3 } # Grenoble
+								control = { province = 91 data = -3 } # Chambery
+								control = { province = 86 data = -3 } # Toulon
+								control = { province = 93 data = -3 } # Avignon
+								control = { province = 92 data = -3 } # Valence
+								control = { province = 94 data = -3 } # Corsica
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { owned = { province = 87 data = ITA }} # Nice
+										NOT = { owned = { province = 90 data = ITA }} # Grenoble
+										NOT = { owned = { province = 91 data = ITA }} # Chambery
+										NOT = { owned = { province = 86 data = ITA }} # Toulon
+										NOT = { owned = { province = 93 data = ITA }} # Avignon
+										NOT = { owned = { province = 92 data = ITA }} # Valence
+										NOT = { owned = { province = 94 data = ITA }} # Corsica
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { owned = { province = 87 data = RSI }} # Nice
+										NOT = { owned = { province = 90 data = RSI }} # Grenoble
+										NOT = { owned = { province = 91 data = RSI }} # Chambery
+										NOT = { owned = { province = 86 data = RSI }} # Toulon
+										NOT = { owned = { province = 93 data = RSI }} # Avignon
+										NOT = { owned = { province = 92 data = RSI }} # Valence
+										NOT = { owned = { province = 94 data = RSI }} # Corsica
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { owned = { province = 87 data = -1 }} # Nice
+										NOT = { owned = { province = 90 data = -1 }} # Grenoble
+										NOT = { owned = { province = 91 data = -1 }} # Chambery
+										NOT = { owned = { province = 86 data = -1 }} # Toulon
+										NOT = { owned = { province = 93 data = -1 }} # Avignon
+										NOT = { owned = { province = 92 data = -1 }} # Valence
+										NOT = { owned = { province = 94 data = -1 }} # Corsica
+										}
+								}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336015A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 87 when = 2 } # Nice
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 90 when = 2 } # Grenoble
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 91 when = 2 } # Chambery
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 86 when = 2 } # Toulon
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 93 when = 2 } # Avignon
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 92 when = 2 } # Valence
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 94 when = 2 } # Corsica
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 87 when = 2 } # Nice
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 90 when = 2 } # Grenoble
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 91 when = 2 } # Chambery
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 86 when = 2 } # Toulon
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 93 when = 2 } # Avignon
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 92 when = 2 } # Valence
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedeprovince which = RSI value = 94 when = 2 } # Corsica
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 87 when = 2 } # Nice
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 90 when = 2 } # Grenoble
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 91 when = 2 } # Chambery
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 86 when = 2 } # Toulon
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 93 when = 2 } # Avignon
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 92 when = 2 } # Valence
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 94 when = 2 } # Corsica
+	}
+}
+
+# Italian possessions in Greece if annexed
+
+event = { 
+	id = 3336016
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				OR = {
+						event = 3436010
+						event = 6396
+						event = 6397
+						event = 6398
+						event = 6399
+						event = 3119009
+						}
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 366 data = -3 } # Kozani
+								control = { province = 367 data = -3 } # Ioannina
+								control = { province = 369 data = -3 } # Metsovo
+								control = { province = 371 data = -3 } # Kerkyra
+								control = { province = 376 data = -3 } # Agrinion
+								control = { province = 368 data = -3 } # Larissa
+								control = { province = 377 data = -3 } # Athens
+								control = { province = 375 data = -3 } # Levadhia
+								control = { province = 372 data = -3 } # Patra
+								control = { province = 373 data = -3 } # Corinth
+								control = { province = 374 data = -3 } # Chalcis
+								control = { province = 383 data = -3 } # Mytilene
+								control = { province = 381 data = -3 } # Ermoupoli
+								control = { province = 378 data = -3 } # Kalymno
+								control = { province = 379 data = -3 } # Rodos
+								control = { province = 382 data = -3 } # Irakleio
+								control = { province = 380 data = -3 } # Sitia
+								control = { province = 365 data = -3 } # Thessaloniki
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								OR = {
+										NOT = { owned = { province = 366 data = ITA }} # Kozani
+										NOT = { owned = { province = 367 data = ITA }} # Ioannina
+										NOT = { owned = { province = 369 data = ITA }} # Metsovo
+										NOT = { owned = { province = 371 data = ITA }} # Kerkyra
+										NOT = { owned = { province = 376 data = ITA }} # Agrinion
+										NOT = { owned = { province = 368 data = ITA }} # Larissa
+										NOT = { owned = { province = 377 data = ITA }} # Athens
+										NOT = { owned = { province = 375 data = ITA }} # Levadhia
+										NOT = { owned = { province = 372 data = ITA }} # Patra
+										NOT = { owned = { province = 373 data = ITA }} # Corinth
+										NOT = { owned = { province = 374 data = ITA }} # Chalcis
+										NOT = { owned = { province = 383 data = ITA }} # Mytilene
+										NOT = { owned = { province = 381 data = ITA }} # Ermoupoli
+										NOT = { owned = { province = 378 data = ITA }} # Kalymno
+										NOT = { owned = { province = 379 data = ITA }} # Rodos
+										NOT = { owned = { province = 382 data = ITA }} # Irakleio
+										NOT = { owned = { province = 380 data = ITA }} # Sitia
+										NOT = { owned = { province = 365 data = ITA }} # Thessaloniki
+										}
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								OR = {
+										NOT = { owned = { province = 366 data = RSI }} # Kozani
+										NOT = { owned = { province = 367 data = RSI }} # Ioannina
+										NOT = { owned = { province = 369 data = RSI }} # Metsovo
+										NOT = { owned = { province = 371 data = RSI }} # Kerkyra
+										NOT = { owned = { province = 376 data = RSI }} # Agrinion
+										NOT = { owned = { province = 368 data = RSI }} # Larissa
+										NOT = { owned = { province = 377 data = RSI }} # Athens
+										NOT = { owned = { province = 375 data = RSI }} # Levadhia
+										NOT = { owned = { province = 372 data = RSI }} # Patra
+										NOT = { owned = { province = 373 data = RSI }} # Corinth
+										NOT = { owned = { province = 374 data = RSI }} # Chalcis
+										NOT = { owned = { province = 383 data = RSI }} # Mytilene
+										NOT = { owned = { province = 381 data = RSI }} # Ermoupoli
+										NOT = { owned = { province = 378 data = RSI }} # Kalymno
+										NOT = { owned = { province = 379 data = RSI }} # Rodos
+										NOT = { owned = { province = 382 data = RSI }} # Irakleio
+										NOT = { owned = { province = 380 data = RSI }} # Sitia
+										NOT = { owned = { province = 365 data = RSI }} # Thessaloniki
+										}
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								OR = {
+										NOT = { owned = { province = 366 data = -1 }} # Kozani
+										NOT = { owned = { province = 367 data = -1 }} # Ioannina
+										NOT = { owned = { province = 369 data = -1 }} # Metsovo
+										NOT = { owned = { province = 371 data = -1 }} # Kerkyra
+										NOT = { owned = { province = 376 data = -1 }} # Agrinion
+										NOT = { owned = { province = 368 data = -1 }} # Larissa
+										NOT = { owned = { province = 377 data = -1 }} # Athens
+										NOT = { owned = { province = 375 data = -1 }} # Levadhia
+										NOT = { owned = { province = 372 data = -1 }} # Patra
+										NOT = { owned = { province = 373 data = -1 }} # Corinth
+										NOT = { owned = { province = 374 data = -1 }} # Chalcis
+										NOT = { owned = { province = 383 data = -1 }} # Mytilene
+										NOT = { owned = { province = 381 data = -1 }} # Ermoupoli
+										NOT = { owned = { province = 378 data = -1 }} # Kalymno
+										NOT = { owned = { province = 379 data = -1 }} # Rodos
+										NOT = { owned = { province = 382 data = -1 }} # Irakleio
+										NOT = { owned = { province = 380 data = -1 }} # Sitia
+										NOT = { owned = { province = 365 data = -1 }} # Thessaloniki
+										}
+								}
+						}
+					NOT = { exists = GRE }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_italy1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336016A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 366 when = 2 } # Kozani
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 367 when = 2 } # Ioannina
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 369 when = 2 } # Metsovo
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 371 when = 2 } # Kerkyra
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 376 when = 2 } # Agrinion
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 368 when = 2 } # Larissa
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 377 when = 2 } # Athens
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 375 when = 2 } # Levadhia
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 372 when = 2 } # Patra
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 373 when = 2 } # Corinth
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 374 when = 2 } # Chalcis
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 383 when = 2 } # Mytilene
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 381 when = 2 } # Ermoupoli
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 378 when = 2 } # Kalymno
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 379 when = 2 } # Rodos
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 382 when = 2 } # Irakleio
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 380 when = 2 } # Sitia
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 365 when = 2 } # Thessaloniki
+		#####
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 366 when = 2 } # Kozani
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 367 when = 2 } # Ioannina
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 369 when = 2 } # Metsovo
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 371 when = 2 } # Kerkyra
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 376 when = 2 } # Agrinion
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 368 when = 2 } # Larissa
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 377 when = 2 } # Athens
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 375 when = 2 } # Levadhia
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 372 when = 2 } # Patra
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 373 when = 2 } # Corinth
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 374 when = 2 } # Chalcis
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 383 when = 2 } # Mytilene
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 381 when = 2 } # Ermoupoli
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 378 when = 2 } # Kalymno
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 379 when = 2 } # Rodos
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 382 when = 2 } # Irakleio
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 380 when = 2 } # Sitia
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 365 when = 2 } # Thessaloniki
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 366 when = 2 } # Kozani
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 367 when = 2 } # Ioannina
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 369 when = 2 } # Metsovo
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 371 when = 2 } # Kerkyra
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 376 when = 2 } # Agrinion
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 368 when = 2 } # Larissa
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 377 when = 2 } # Athens
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 375 when = 2 } # Levadhia
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 372 when = 2 } # Patra
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 373 when = 2 } # Corinth
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 374 when = 2 } # Chalcis
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 383 when = 2 } # Mytilene
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 381 when = 2 } # Ermoupoli
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 378 when = 2 } # Kalymno
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 379 when = 2 } # Rodos
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 382 when = 2 } # Irakleio
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 380 when = 2 } # Sitia
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 365 when = 2 } # Thessaloniki
+	}
+}
+
+# Palestine
+
+event = { 
+	id = 3336029
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Palestine"				country = -3 data = 1 value = 100 } #PAL national provinces 
+						}				
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Palestine"				country = ITA data = 2 value = 100 } } #PAL national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Palestine"				country = RSI data = 2 value = 100 } } #PAL national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Palestine"				country = -1 data = 2 value = 100 } } #PAL national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = PAL }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa4"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336029A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Palestine"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Palestine"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Palestine"				when = 2 }
+	}
+}
+
+# Transjordan
+
+event = { 
+	id = 3336030
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Transjordan"				country = -3 data = 1 value = 100 } #JOR national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Transjordan"				country = ITA data = 2 value = 100 } } #JOR national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Transjordan"				country = RSI data = 2 value = 100 } } #JOR national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Transjordan"				country = -1 data = 2 value = 100 } } #JOR national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = JOR }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa5"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336030A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Transjordan"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Transjordan"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Transjordan"				when = 2 }
+	}
+}
+
+# Syria + Lebanon
+
+event = { 
+	id = 3336031
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Lebanon_Syria"				country = -3 data = 1 value = 100 } #SYR national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Lebanon_Syria"				country = ITA data = 2 value = 100 } } #SYR national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Lebanon_Syria"				country = RSI data = 2 value = 100 } } #SYR national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Lebanon_Syria"				country = -1 data = 2 value = 100 } } #SYR national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = SYR }
+				NOT = { exists = LEB }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336031A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Lebanon_Syria"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Lebanon_Syria"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Lebanon_Syria"				when = 2 }
+	}
+}
+
+# Iraq
+
+event = { 
+	id = 3336032
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Iraq"				country = -3 data = 1 value = 100 } #IRQ national provinces 
+								control = { province = 1041 data = -3 } # Kuwait
+								}
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { area = {	area =	"Iraq"				country = ITA data = 2 value = 100 } } #IRQ national provinces; data = 2 means "owned"
+								NOT = { owned = { province = 1041 data = ITA }} # Kuwait
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { area = {	area =	"Iraq"				country = RSI data = 2 value = 100 } } #IRQ national provinces; data = 2 means "owned"
+								NOT = { owned = { province = 1041 data = RSI }} # Kuwait
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { area = {	area =	"Iraq"				country = -1 data = 2 value = 100 } } #IRQ national provinces; data = 2 means "owned"
+								NOT = { owned = { province = 1041 data = GER }} # Kuwait
+								}
+						}
+				NOT = { exists = IRQ }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa2"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336032A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedearea	which = ITA value = "Iraq"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = ITA value = 1041 when = 2 } # Kuwait
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secedearea	which = RSI value = "Iraq"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secedeprovince which = RSI value = 1041 when = 2 } # Kuwait
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedearea	which = GER value = "Iraq"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secedeprovince which = GER value = 1041 when = 2 } # Kuwait
+	}
+}
+
+# Persia
+
+event = { 
+	id = 3336033
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region =	"Persia"				country = -3 data = 1 value = 100 } #PER national provinces 
+						}
+				OR = {
+						AND = {
+								alliance = { country = GER country = ITA }
+								NOT = { region = {	region =	"Persia"				country = ITA data = 2 value = 100 } } #PER national provinces; data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = RSI }
+								NOT = { region = {	region =	"Persia"				country = RSI data = 2 value = 100 } } #PER national provinces; data = 2 means "owned"
+								}								
+						AND = {
+								NOT = {
+										OR = {
+												alliance = { country = GER country = ITA }
+												alliance = { country = GER country = RSI }
+												}
+										}
+								NOT = { region = {	region =	"Persia"				country = -1 data = 2 value = 100 } } #PER national provinces; data = 2 means "owned"
+								}
+						}
+				NOT = { exists = PER }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa3"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336033A
+		command = { trigger = { alliance = { country = GER country = ITA }} type = secederegion	which = ITA value = "Persia"				when = 2 }
+		#####
+		command = { trigger = { alliance = { country = GER country = RSI }} type = secederegion	which = RSI value = "Persia"				when = 2 }
+		####
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI }}}} type = secederegion	which = GER value = "Persia"				when = 2 }
+	}
+}
+
+
+##########################################
+# Dissolution of the British Empire
+# German zone of interest
+##########################################
+
+# British East Africa
+
+event = { 
+	id = 3336017
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Uganda"				country = -3 data = 1 value = 100 }
+								area = {	area =	"Tanganyika"			country = -3 data = 1 value = 100 }
+								}
+						}
+				OR = {
+						NOT = { area = {	area =	"Uganda"				country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+						NOT = { area = {	area =	"Tanganyika"			country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+						}
+				NOT = { exists = EAF }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa4"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336017A
+		command = { type = secedearea	which = GER value = "Uganda"				when = 2 }
+		command = { type = secedearea	which = GER value = "Tanganyika"			when = 2 }
+	}
+}
+
+# Rhodesia + Bechuanaland
+
+event = { 
+	id = 3336018
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"North Rhodesia"	country = -3 data = 1 value = 100 }
+								area = {	area =	"South Rhodesia"	country = -3 data = 1 value = 100 }
+								area = {	area =	"Bechuanaland"		country = -3 data = 1 value = 100 }
+								}
+						}
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = SAF } }
+								NOT = { area = {	area =	"North Rhodesia"			country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"South Rhodesia"			country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"Bechuanaland"				country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = SAF }
+								NOT = { area = {	area =	"North Rhodesia"			country = GER data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"South Rhodesia"			country = SAF data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"Bechuanaland"				country = SAF data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						}
+				NOT = { exists = RHO }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, Rhodesia and Bechuanaland
+	desc = EVT_3336004_DESC ###nt; Rhodesia and Bechuanaland occupied
+	style = 2
+	picture = "ger_event_new_order_west_africa5"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336018A
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = secedearea	which = GER value = "North Rhodesia"			when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = secedearea	which = GER value = "South Rhodesia"			when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = secedearea	which = GER value = "Bechuanaland"				when = 2 }
+		####
+		command = { trigger = { alliance = { country = GER country = SAF } } type = secedearea	which = GER value = "North Rhodesia"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = SAF } } type = secedearea	which = SAF value = "South Rhodesia"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = SAF } } type = secedearea	which = SAF value = "Bechuanaland"				when = 2 }
+	}
+}
+
+# South Africa (if partly occupied) + Swaziland + Lesotho
+
+event = { 
+	id = 3336019
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Transvaal_Natal"	country = -3 data = 1 value = 100 }
+								area = {	area =	"Cape"				country = -3 data = 1 value = 100 }
+								}
+						}
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = SAF } }
+								NOT = { area = {	area =	"Transvaal_Natal"	country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"Cape"				country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = SAF }
+								NOT = { area = {	area =	"Transvaal_Natal"	country = SAF data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"Cape"				country = SAF data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa1"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336019A
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = secedearea	which = GER value = "Transvaal_Natal"		when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = secedearea	which = GER value = "Cape"					when = 2 }
+		####
+		command = { trigger = { alliance = { country = GER country = SAF } } type = secedearea	which = SAF value = "Transvaal_Natal"		when = 2 }
+		command = { trigger = { alliance = { country = GER country = SAF } } type = secedearea	which = SAF value = "Cape"					when = 2 }
+	}
+}
+
+# Nigeria
+
+event = { 
+	id = 3336020
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"South Nigeria" 	country = -3 data = 1 value = 100 }
+								area = {	area =	"North Nigeria"		country = -3 data = 1 value = 100 }
+								}
+						}
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = VIC } }
+								NOT = { area = {	area =	"South Nigeria"		country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"North Nigeria"		country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = VIC }
+								NOT = { area = {	area =	"South Nigeria"		country = VIC data = 2 value = 100 } } #data = 2 means "owned"
+								NOT = { area = {	area =	"North Nigeria"		country = VIC data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						}
+				NOT = { exists = NIG }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336020A
+		command = { trigger = { NOT = { alliance = { country = GER country = VIC } } } type = secedearea	which = GER value = "South Nigeria"		when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = VIC } } } type = secedearea	which = GER value = "North Nigeria"		when = 2 }
+		####
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "South Nigeria"		when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "North Nigeria"		when = 2 }
+	}
+}
+
+# Gold Coast
+
+event = { 
+	id = 3336021
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						area = {	area =	"Gold Coast" 	country = -3 data = 1 value = 100 }
+						}
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = VIC } }
+								NOT = { area = {	area =	"Gold Coast"		country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						AND = {
+								alliance = { country = GER country = VIC }
+								NOT = { area = {	area =	"Gold Coast"		country = VIC data = 2 value = 100 } } #data = 2 means "owned"
+								}
+						}
+				NOT = { exists = GLD }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336021A
+		command = { trigger = { NOT = { alliance = { country = GER country = VIC } } } type = secedearea	which = GER value = "Gold Coast"		when = 2 }
+		####
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Gold Coast"		when = 2 }
+	}
+}
+
+# Sierra Leone + Gambia
+
+event = { 
+	id = 3336022
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 964 data = -3 }
+								control = { province = 979 data = -3 }
+								}
+						}
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = VIC } }
+								NOT = { owned = { province = 964 data = GER } }
+								NOT = { owned = { province = 979 data = GER } }
+								}
+						AND = {
+								alliance = { country = GER country = VIC }
+								NOT = { owned = { province = 964 data = VIC } }
+								NOT = { owned = { province = 979 data = VIC } }
+								}
+						}
+				NOT = { exists = SIE }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336022A
+		command = { trigger = { NOT = { alliance = { country = GER country = VIC } } } type = secedeprovince which = GER value = 964 when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = VIC } } } type = secedeprovince which = GER value = 979 when = 2 }
+		####
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 964 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 979 when = 2 }
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# German zone of interest
+# Belgian Kongo
+##########################################
+
+event = { 
+	id = 3336023
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Shaba"					country = -3 data = 1 value = 100 }
+								area = {	area =	"Kongolese Jungle"		country = -3 data = 1 value = 100 }
+								control = { province = 894 data = -3 } # Matadi
+								}
+						}
+				OR = {
+						NOT = { area = {	area =	"Shaba"				country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+						NOT = { area = {	area =	"Kongolese Jungle"	country = -1 data = 2 value = 100 } } #data = 2 means "owned"
+						NOT = { owned = { province = 894 data = -1 }}
+						}
+				NOT = { exists = CON }
+				NOT = {
+						alliance = { country = GER country = BEL }
+						area = {	area =	"Shaba"						country = BEL data = 1 value = 100 }
+						area = {	area =	"Kongolese Jungle"			country = BEL data = 1 value = 100 }
+						control = { province = 894 data = BEL } # Matadi
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336023A
+		command = { trigger = { alliance = { country = GER country = BEL } } type = secedearea	which = BEL value = "Shaba"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = BEL } } type = secedearea	which = BEL value = "Kongolese Jungle"	when = 2 }
+		command = { trigger = { alliance = { country = GER country = BEL } } type = secedeprovince which = BEL value = 894 when = 2 }
+		###
+		command = { trigger = { NOT = { alliance = { country = GER country = BEL } } } type = secedearea	which = GER value = "Shaba"				when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = BEL } } } type = secedearea	which = GER value = "Kongolese Jungle"	when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = BEL } } } type = secedeprovince which = GER value = 894 when = 2 }
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# German zone of interest
+# Portuguese Africa
+##########################################
+
+event = { 
+	id = 3336024
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								area = {	area =	"Niassa"					country = -3 data = 1 value = 100 }
+								area = {	area =	"Mocambique"				country = -3 data = 1 value = 100 }
+								area = {	area =	"Angolan Plains"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Angolan Coast"				country = -3 data = 1 value = 100 }
+								control = { province = 963 data = -3 } # Bissau
+								control = { province = 992 data = -3 } # Cap Verde
+								control = { province = 995 data = -3 } # Azores
+								control = { province = 994 data = -3 } # Madeira
+								control = { province = 912 data = -3 } # Sao Tome
+								}
+						}
+				OR = {
+						NOT = { area = {	area =	"Niassa"					country = -1 data = 2 value = 100 } }
+						NOT = { area = {	area =	"Mocambique"				country = -1 data = 2 value = 100 } }
+						NOT = { area = {	area =	"Angolan Plains"			country = -1 data = 2 value = 100 } }
+						NOT = { area = {	area =	"Angolan Coast"				country = -1 data = 2 value = 100 } }
+						NOT = { owned = { province = 963 data = -1 } } # Bissau
+						NOT = { owned = { province = 992 data = -1 } } # Cap Verde
+						NOT = { owned = { province = 995 data = -1 } } # Azores
+						NOT = { owned = { province = 994 data = -1 } } # Madeira
+						NOT = { owned = { province = 912 data = -1 } } # Sao Tome
+						}
+				NOT = { exists = ANG }
+				NOT = { exists = MOZ }
+				NOT = {
+						alliance = { country = GER country = POR }
+						area = {	area =	"Niassa"					country = POR data = 2 value = 100 }
+						area = {	area =	"Mocambique"				country = POR data = 2 value = 100 }
+						area = {	area =	"Angolan Plains"			country = POR data = 2 value = 100 }
+						area = {	area =	"Angolan Coast"				country = POR data = 2 value = 100 }
+						owned = { province = 963 data = POR } # Bissau
+						owned = { province = 992 data = POR } # Cap Verde
+						owned = { province = 995 data = POR } # Azores
+						owned = { province = 994 data = POR } # Madeira
+						owned = { province = 912 data = POR } # Sao Tome
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336024A
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedearea	which = POR value = "Niassa"					when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedearea	which = POR value = "Mocambique"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedearea	which = POR value = "Angolan Plains"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedearea	which = POR value = "Angolan Coast"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedeprovince which = POR value = 963 when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedeprovince which = POR value = 992 when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedeprovince which = POR value = 995 when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedeprovince which = POR value = 994 when = 2 }
+		command = { trigger = { alliance = { country = GER country = POR } } type = secedeprovince which = POR value = 912 when = 2 }
+		###
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedearea	which = GER value = "Niassa"					when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedearea	which = GER value = "Mocambique"				when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedearea	which = GER value = "Angolan Plains"			when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedearea	which = GER value = "Angolan Coast"				when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedeprovince which = GER value = 963 when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedeprovince which = GER value = 992 when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedeprovince which = GER value = 995 when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedeprovince which = GER value = 994 when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = POR } } } type = secedeprovince which = GER value = 912 when = 2 }
+		}
+}
+
+##########################################
+# Dissolution of the British Empire
+# German zone of interest
+# French Africa
+##########################################
+
+event = { 
+	id = 3336025
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								region = {	region =	"Algeria"			country = -3 data = 1 value = 100 }
+								region = {	region =	"Tunisia"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Morocco"				country = -3 data = 1 value = 100 }
+								area = {	area =	"West Atlas"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Central Africa Desert"	country = -3 data = 1 value = 100 }
+								area = {	area =	"Niger"					country = -3 data = 1 value = 100 }
+								area = {	area =	"Slave Coast"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Malian Desert"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Malian Valleys"		country = -3 data = 1 value = 100 }
+								area = {	area =	"Volta"					country = -3 data = 1 value = 100 }
+								area = {	area =	"Ivory Coast"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Mauretania"			country = -3 data = 1 value = 100 }
+								area = {	area =	"Cameroonian Jungle"	country = -3 data = 1 value = 100 }
+								area = {	area =	"Central Africa Plains"	country = -3 data = 1 value = 100 }
+								control = { province = 978 data = -3 } # Dakar
+								control = { province = 980 data = -3 } # Ziguinchar
+								control = { province = 966 data = -3 } # Conakry
+								control = { province = 965 data = -3 } # Labe
+								control = { province = 967 data = -3 } # Kankan
+								control = { province = 970 data = -3 } # San Pedro
+								control = { province = 968 data = -3 } # Korhogo
+								}
+						}
+				NOT = { exists = ALG }
+				NOT = { exists = MOR }
+				NOT = { exists = TUN }
+				NOT = { exists = MAL } #expand list				
+				OR = {
+						AND = {
+								NOT = { alliance = { country = GER country = VIC } }
+								NOT = { alliance = { country = GER country = FRA } }
+								NOT = {
+										region = {	region =	"Algeria"			country = -1 data = 2 value = 100 }
+										region = {	region =	"Tunisia"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Morocco"				country = -1 data = 2 value = 100 }
+										area = {	area =	"West Atlas"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Central Africa Desert"	country = -1 data = 2 value = 100 }
+										area = {	area =	"Niger"					country = -1 data = 2 value = 100 }
+										area = {	area =	"Slave Coast"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Malian Desert"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Malian Valleys"		country = -1 data = 2 value = 100 }
+										area = {	area =	"Volta"					country = -1 data = 2 value = 100 }
+										area = {	area =	"Ivory Coast"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Mauretania"			country = -1 data = 2 value = 100 }
+										area = {	area =	"Cameroonian Jungle"	country = -1 data = 2 value = 100 }
+										area = {	area =	"Central Africa Plains"	country = -1 data = 2 value = 100 }
+										owned = { province = 978 data = -1 } # Dakar
+										owned = { province = 980 data = -1 } # Ziguinchar
+										owned = { province = 966 data = -1 } # Conakry
+										owned = { province = 965 data = -1 } # Labe
+										owned = { province = 967 data = -1 } # Kankan
+										owned = { province = 970 data = -1 } # San Pedro
+										owned = { province = 968 data = -1 } # Korhogo
+										}
+								}
+							AND = {
+									alliance = { country = GER country = VIC }
+									NOT = {
+											region = {	region =	"Algeria"			country = VIC data = 2 value = 100 }
+											region = {	region =	"Tunisia"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Morocco"				country = VIC data = 2 value = 100 }
+											area = {	area =	"West Atlas"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Central Africa Desert"	country = VIC data = 2 value = 100 }
+											area = {	area =	"Niger"					country = VIC data = 2 value = 100 }
+											area = {	area =	"Slave Coast"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Malian Desert"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Malian Valleys"		country = VIC data = 2 value = 100 }
+											area = {	area =	"Volta"					country = VIC data = 2 value = 100 }
+											area = {	area =	"Ivory Coast"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Mauretania"			country = VIC data = 2 value = 100 }
+											area = {	area =	"Cameroonian Jungle"	country = VIC data = 2 value = 100 }
+											area = {	area =	"Central Africa Plains"	country = VIC data = 2 value = 100 }
+											control = { province = 978 data = VIC } # Dakar
+											control = { province = 980 data = VIC } # Ziguinchar
+											control = { province = 966 data = VIC } # Conakry
+											control = { province = 965 data = VIC } # Labe
+											control = { province = 967 data = VIC } # Kankan
+											control = { province = 970 data = VIC } # San Pedro
+											control = { province = 968 data = VIC } # Korhogo
+											}
+									}
+							AND = {
+									alliance = { country = GER country = FRA }
+									NOT = {
+											region = {	region =	"Algeria"			country = FRA data = 2 value = 100 }
+											region = {	region =	"Tunisia"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Morocco"				country = FRA data = 2 value = 100 }
+											area = {	area =	"West Atlas"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Central Africa Desert"	country = FRA data = 2 value = 100 }
+											area = {	area =	"Niger"					country = FRA data = 2 value = 100 }
+											area = {	area =	"Slave Coast"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Malian Desert"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Malian Valleys"		country = FRA data = 2 value = 100 }
+											area = {	area =	"Volta"					country = FRA data = 2 value = 100 }
+											area = {	area =	"Ivory Coast"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Mauretania"			country = FRA data = 2 value = 100 }
+											area = {	area =	"Cameroonian Jungle"	country = FRA data = 2 value = 100 }
+											area = {	area =	"Central Africa Plains"	country = FRA data = 2 value = 100 }
+											control = { province = 978 data = FRA } # Dakar
+											control = { province = 980 data = FRA } # Ziguinchar
+											control = { province = 966 data = FRA } # Conakry
+											control = { province = 965 data = FRA } # Labe
+											control = { province = 967 data = FRA } # Kankan
+											control = { province = 970 data = FRA } # San Pedro
+											control = { province = 968 data = FRA } # Korhogo
+											}
+									}
+						}
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_africa3"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336025A
+		command = { trigger = { alliance = { country = GER country = U01 } } type = secedearea	which = U01 value = "Morocco"				when = 2 }
+		command = { trigger = { alliance = { country = GER country = U01 } } type = secedearea	which = U01 value = "West Atlas"			when = 2 }
+		###
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secederegion	which = FRA value = "Algeria"			when = 2 }
+		###
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = FRA } } } } type = secedearea	which = FRA value = "Morocco"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = FRA } } } } type = secedearea	which = FRA value = "West Atlas"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Central Africa Desert"	when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Niger"					when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Slave Coast"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Malian Desert"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Malian Valleys"		when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Volta"					when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Ivory Coast"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = FRA value = "Mauretania"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = GER value = "Cameroonian Jungle"	when = 2 } # GER keeps central Africa
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedearea	which = GER value = "Central Africa Plains"	when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 978 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 980 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 966 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 965 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 967 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 970 when = 2 }
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 968 when = 2 }
+		###
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secederegion	which = VIC value = "Algeria"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = VIC } } } } type = secedearea	which = VIC value = "Morocco"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = VIC } } } } type = secedearea	which = VIC value = "West Atlas"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Central Africa Desert"	when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Niger"					when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Slave Coast"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Malian Desert"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Malian Valleys"		when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Volta"					when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Ivory Coast"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = VIC value = "Mauretania"			when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = GER value = "Cameroonian Jungle"	when = 2 } # GER keeps central Africa
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedearea	which = GER value = "Central Africa Plains"	when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 978 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 980 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 966 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 965 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 967 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 970 when = 2 }
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 968 when = 2 }
+		###
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secederegion	which = GER value = "Algeria"			when = 2 }		
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Morocco"				when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = U01 } alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "West Atlas"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Central Africa Desert"	when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Niger"					when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Slave Coast"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Malian Desert"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Malian Valleys"		when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Volta"					when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Ivory Coast"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Mauretania"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Cameroonian Jungle"	when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedearea	which = GER value = "Central Africa Plains"	when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 978 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 980 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 966 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 965 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 967 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 970 when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secedeprovince which = GER value = 968 when = 2 }	
+		###
+		command = { trigger = { alliance = { country = GER country = ITA } } type = secederegion	which = ITA value = "Tunisia"			when = 2 }
+		command = { trigger = { NOT = { alliance = { country = GER country = ITA } } alliance = { country = GER country = RSI } } type = secederegion	which = RSI value = "Tunisia"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI } } } alliance = { country = GER country = VIC } } type = secederegion	which = VIC value = "Tunisia"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI } alliance = { country = GER country = VIC } } alliance = { country = GER country = FRA } } } type = secederegion	which = FRA value = "Tunisia"			when = 2 }
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = ITA } alliance = { country = GER country = RSI } alliance = { country = GER country = VIC } alliance = { country = GER country = FRA } } } } type = secederegion	which = GER value = "Tunisia"			when = 2 }
+		}
+}
+
+##########################################
+# Dissolution of the British Empire
+# German zone of interest
+# Liberia
+##########################################
+
+event = { 
+	id = 3336026
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						control = { province = 969 data = -3 }
+						}
+				OR = {
+						AND = {
+								NOT = { OR = { alliance = { country = GER country = FRA } alliance = { country = GER country = VIC } } }
+								NOT = { owned = { province = 969 data = GER } }
+								}
+						AND = {
+								alliance = { country = GER country = VIC }
+								NOT = { owned = { province = 969 data = VIC } }
+								}			
+						AND = {
+								alliance = { country = GER country = FRA }
+								NOT = { owned = { province = 969 data = FRA } }
+								}
+						}
+				NOT = { exists = LIB }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_oasis"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336026A
+		command = { trigger = { alliance = { country = GER country = FRA } } type = secedeprovince which = FRA value = 969 when = 2 }
+		####		
+		command = { trigger = { alliance = { country = GER country = VIC } } type = secedeprovince which = VIC value = 969 when = 2 }
+		####		
+		command = { trigger = { NOT = { OR = { alliance = { country = GER country = FRA } alliance = { country = GER country = VIC } } } } type = secedeprovince which = GER value = 969 when = 2 }
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# Asia
+# India
+##########################################
+
+event = { 
+	id = 3336027
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						region = {	region = "India" country = -3 data = 1 value = 90 } #90 per cent because of some islands and portuguese colony Panjim
+						}
+				NOT = { region = { region = "India" country = -3 data = 2 value = 90 } }
+				NOT = { exists = IND }
+				NOT = { exists = PAK }
+				NOT = { exists = BUR }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_india2"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { NOT = { OR = { ispuppet = JAP war = { country = GER country = JAP } } } }
+		name = ACTIONNAME3336027A #give control to Japan
+		ai_chance = 50
+		command = { type = secederegion which = JAP value = "India" when = 2 }
+		command = { trigger = { NOT = { atwar = POR } } type = secedeprovince which = POR value = 1513 when = 2 } #Panjim back to neutral POR
+	}
+	action = {
+		trigger = { NOT = { OR = { ispuppet = JAP war = { country = GER country = JAP } } } }
+		name = ACTIONNAME3336027B #create puppets
+		ai_chance = 50
+		command = { type = secederegion which = GER value = "India" when = 2 }
+		command = { trigger = { NOT = { atwar = POR } } type = secedeprovince which = POR value = 1513 when = 2 } #Panjim back to neutral POR
+		command = { type = 	independence which = PAK value = 1 when = 0 }
+		command = { type = make_puppet which = PAK }
+		command = { type = alliance which = PAK }
+		command = { type = 	independence which = IND value = 1 when = 0 }
+		command = { type = make_puppet which = IND }
+		command = { type = alliance which = IND }
+		command = { type = 	independence which = BUR value = 1 when = 0 }
+		command = { type = make_puppet which = BUR }
+		command = { type = alliance which = BUR }
+	}
+	action = {
+		trigger = { OR = { ispuppet = JAP war = { country = GER country = JAP } } }
+		name = ACTIONNAME3336027B #create puppets
+		command = { type = secederegion which = GER value = "India" when = 2 }
+		command = { trigger = { NOT = { atwar = POR } } type = secedeprovince which = POR value = 1513 when = 2 } #Panjim back to neutral POR
+		command = { type = 	independence which = PAK value = 1 when = 0 }
+		command = { type = make_puppet which = PAK }
+		command = { type = alliance which = PAK }
+		command = { type = 	independence which = IND value = 1 when = 0 }
+		command = { type = make_puppet which = IND }
+		command = { type = alliance which = IND }
+		command = { type = 	independence which = BUR value = 1 when = 0 }
+		command = { type = make_puppet which = BUR }
+		command = { type = alliance which = BUR }
+	}
+}
+
+##########################################
+# Dissolution of the British Empire
+# Asia
+# Malaysia
+##########################################
+
+event = { 
+	id = 3336028
+	random = no
+	country = GER
+
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						event = 3336034 # final victory
+						AND = {
+								control = { province = 1624 data = -3 }
+								control = { province = 1625 data = -3 }
+								control = { province = 1626 data = -3 }
+								area = {	area = "Malacka" country = -3 data = 1 value = 100 }
+								}
+						}
+				NOT = { region = { region = "India" country = -3 data = 2 value = 100 } }
+				NOT = { owned = { province = 1624 } }
+				NOT = { owned = { province = 1625 } }
+				NOT = { owned = { province = 1626 } }
+				NOT = { exists = MLY }
+				}
+
+	name = EVT_3336004_NAME ###nt; NOW, dissolution of the British Empire, standard text for any dissolution event
+	desc = EVT_3336004_DESC ###nt; standard text for any dissolution event
+	style = 2
+	picture = "ger_event_new_order_west_india"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { NOT = { OR = { ispuppet = JAP war = { country = GER country = JAP } } } }
+		name = ACTIONNAME3336027A #give control to Japan
+		ai_chance = 50
+		command = { type = secedearea which = JAP value = "Malacka" when = 2 }		
+		command = { type = secedeprovince which = JAP value = 1624 when = 2 }
+		command = { type = secedeprovince which = JAP value = 1625 when = 2 }
+		command = { type = secedeprovince which = JAP value = 1626 when = 2 }
+	}
+	action = {
+		trigger = { NOT = { OR = { ispuppet = JAP war = { country = GER country = JAP } } } }
+		name = ACTIONNAME3336028B #create a puppet
+		ai_chance = 50
+		command = { type = secedearea which = GER value = "Malacka" when = 2 }		
+		command = { type = secedeprovince which = GER value = 1624 when = 2 }
+		command = { type = secedeprovince which = GER value = 1625 when = 2 }
+		command = { type = secedeprovince which = GER value = 1626 when = 2 }
+		command = { type = 	independence which = MLY value = 1 when = 0 }
+		command = { type = make_puppet which = MLY }
+		command = { type = alliance which = MLY }
+	}
+	action = {
+		trigger = { OR = { ispuppet = JAP war = { country = GER country = JAP } } }
+		name = ACTIONNAME3336028B #create a puppet
+		command = { type = secedearea which = GER value = "Malacka" when = 2 }		
+		command = { type = secedeprovince which = GER value = 1624 when = 2 }
+		command = { type = secedeprovince which = GER value = 1625 when = 2 }
+		command = { type = secedeprovince which = GER value = 1626 when = 2 }
+		command = { type = 	independence which = MLY value = 1 when = 0 }
+		command = { type = make_puppet which = MLY }
+		command = { type = alliance which = MLY }
+	}
+}
+
+########################################
+# An European New Order
+# Commonwealth states sue for peace
+########################################
+
+# Canada
+
+event = { 
+	id = 3336500
+	random = no
+	country = CAN
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						lost_national = { value = 20 }
+						nuked = { country = GER country = CAN data = 4 }   # True if GER has used at least 4 nukes against CAN
+						flag = now_crossroad
+						}
+				NOT = { exists = ENG }
+				war = { country = CAN country = GER }
+				}
+
+	name = EVT_3336500_NAME #nt; Canada under pressure
+	desc = EVT_3336500_DESC #nt; Peace with Germany?
+	style = 2
+	picture = "ger_event_new_order_west_canada"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { NOT = { alliance = { country = CAN country = USA }}}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 90
+		command = { type = trigger which = 3336501 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { NOT = { alliance = { country = CAN country = USA }}}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 10
+		command = { type = dissent value = -3 }
+	}
+	###
+	action = {
+		trigger = { alliance = { country = CAN country = USA }}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 60
+		command = { type = trigger which = 3336501 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { alliance = { country = CAN country = USA }}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 40
+		command = { type = dissent value = -3 }
+	}
+}
+
+event = { 
+	id = 3336501
+	random = no
+	country = GER
+
+	name = EVT_3336501_NAME #nt; Canada sues for peace
+	desc = EVT_3336501_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_canada"
+	
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = {
+					OR = {
+							region = { region = "Eastern Canada"	country = -3 data = 1 value = 1 }
+							region = { region = "Canada"			country = -3 data = 1 value = 1 }
+							region = { region = "Western Canada"	country = -3 data = 1 value = 1 }
+							region = { region = "Northern Canada"	country = -3 data = 1 value = 1 }
+							}
+					}
+		ai_chance = 50
+		command = { type = coup_nation which = CAN }
+		command = { trigger = { war = { country = GER country = CAN } } type = peace which = CAN value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = CAN } } } type = alliance which = CAN }
+		command = { trigger = { NOT = { puppet = { country = CAN country = GER } } } type = make_puppet which = CAN }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs Canada? Just take St. John's as a naval base and make peace
+		ai_chance = 50
+		command = { type = trigger which = 3336502 }
+	}
+}
+
+event = { 
+	id = 3336502
+	random = no
+	country = CAN
+
+	name = EVT_3336502_NAME #nt; GER accepts
+	desc = EVT_3336502_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_canada"
+	
+	action_b	= {
+		name = ACTIONNAME3336502A ###nt; accept
+		command = { trigger = { war = { country = GER country = CAN } } type = peace which = GER value = 1 } #pull out of alliance
+		command = { trigger = { owned = { province = 2137 data = CAN } } type = secedeprovince which = GER value = 2137 when = 2 }
+		command = { trigger = { owned = { province = 2137 data = GER } } type = construct which = naval_base where = 2137 value = 1 }
+		command = { trigger = { owned = { province = 2137 data = GER } } type = construct which = air_base where = 2137 value = 1 }
+	}
+}
+
+# Australia
+
+event = { 
+	id = 3336503
+	random = no
+	country = AST
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						lost_national = { value = 70 } # possible Japanese offensive
+						nuked = { country = GER country = AST data = 4 }   # True if GER has used at least 4 nukes against AST
+						flag = now_crossroad
+						}
+				NOT = { exists = ENG }
+				war = { country = AST country = GER }
+				}
+
+	name = EVT_3336503_NAME #nt; Australia under pressure
+	desc = EVT_3336500_DESC #nt; Peace with the Axis?
+	style = 2
+	picture = "ger_event_new_order_west_australia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { NOT = { alliance = { country = AST country = USA }}}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 90
+		command = { type = trigger which = 3336504 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { NOT = { alliance = { country = AST country = USA }}}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 10
+		command = { type = dissent value = -3 }
+	}
+	###
+	action = {
+		trigger = { alliance = { country = AST country = USA }}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 60
+		command = { type = trigger which = 3336504 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { alliance = { country = AST country = USA }}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 40
+		command = { type = dissent value = -3 }
+	}
+}
+
+event = { 
+	id = 3336504
+	random = no
+	country = GER
+
+	name = EVT_3336504_NAME #nt; Australia sues for peace
+	desc = EVT_3336501_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_australia"
+	
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = { NOT = { war = { country = AST country = JAP } } region = { region = "Australia"	country = -3 data = 1 value = 1 } }
+		ai_chance = 10
+		command = { type = coup_nation which = AST }
+		command = { trigger = { war = { country = GER country = AST } } type = peace which = AST value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = AST } } } type = alliance which = AST }
+		command = { trigger = { NOT = { puppet = { country = AST country = GER } } } type = make_puppet which = AST }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs Australia? Just make peace
+		trigger = { NOT = { war = { country = AST country = JAP } } }
+		ai_chance = 90
+		command = { type = trigger which = 3336505 }
+	}
+	###
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = { war = { country = AST country = JAP } region = { region = "Australia"	country = -3 data = 1 value = 1 } }
+		ai_chance = 5
+		command = { type = relation which = JAP value = -50 } #GER takes JAP's prey	
+		command = { type = coup_nation which = AST }
+		command = { trigger = { war = { country = GER country = AST } } type = peace which = AST value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = AST } } } type = alliance which = AST }
+		command = { trigger = { NOT = { puppet = { country = AST country = GER } } } type = make_puppet which = AST }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs Australia? Just make peace
+		trigger = { war = { country = AST country = JAP } }
+		ai_chance = 30
+		command = { type = trigger which = 3336505 }
+		##
+	}
+	action	= {
+		name = ACTIONNAME3336504C ###nt; Japan will deal with it
+		trigger = { war = { country = AST country = JAP } }
+		ai_chance = 65
+		command = { type = addclaim which = 1697 where = JAP }
+		command = { type = addclaim which = 1696 where = JAP }
+		command = { type = addclaim which = 1716 where = JAP }
+		command = { type = addclaim which = 1698 where = JAP }
+		command = { type = addclaim which = 1695 where = JAP }
+		command = { type = addclaim which = 1688 where = JAP }
+		command = { type = addclaim which = 1692 where = JAP }
+		command = { type = addclaim which = 1690 where = JAP }
+		command = { type = addclaim which = 1694 where = JAP }
+		command = { type = addclaim which = 1691 where = JAP }
+		command = { type = addclaim which = 1712 where = JAP }
+		command = { type = addclaim which = 1693 where = JAP }
+		command = { type = addclaim which = 1711 where = JAP }
+		command = { type = addclaim which = 1715 where = JAP }
+		command = { type = addclaim which = 1717 where = JAP }
+		command = { type = addclaim which = 1702 where = JAP }
+		command = { type = addclaim which = 1704 where = JAP }
+		command = { type = addclaim which = 1703 where = JAP }
+		command = { type = addclaim which = 1705 where = JAP }
+		command = { type = addclaim which = 1707 where = JAP }
+		command = { type = addclaim which = 1710 where = JAP }
+		command = { type = addclaim which = 1708 where = JAP }
+		command = { type = addclaim which = 1706 where = JAP }
+		command = { type = addclaim which = 1709 where = JAP }
+		command = { type = addclaim which = 1713 where = JAP }
+		command = { type = addclaim which = 1701 where = JAP }
+		command = { type = addclaim which = 1699 where = JAP }
+		command = { type = addclaim which = 1714 where = JAP }
+		command = { type = addclaim which = 1689 where = JAP }
+		command = { type = addclaim which = 1700 where = JAP }
+		command = { type = addclaim which = 1724 where = JAP }
+		command = { type = addclaim which = 1725 where = JAP }
+		command = { type = addclaim which = 1726 where = JAP }
+		command = { type = addclaim which = 1727 where = JAP }
+		command = { type = addclaim which = 1605 where = JAP }
+		command = { type = addclaim which = 1587 where = JAP }
+		command = { type = addclaim which = 1602 where = JAP }
+		command = { type = addclaim which = 1234 where = JAP }
+		command = { type = addclaim which = 1603 where = JAP }
+		command = { type = addclaim which = 1604 where = JAP }
+		command = { type = addclaim which = 1606 where = JAP }
+		command = { type = addclaim which = 1607 where = JAP }
+		command = { type = addclaim which = 1610 where = JAP }
+		command = { type = addclaim which = 1608 where = JAP }
+		command = { type = addclaim which = 1609 where = JAP }
+	}
+}
+
+event = { 
+	id = 3336505
+	random = no
+	country = AST
+
+	name = EVT_3336502_NAME #nt; GER accepts
+	desc = EVT_3336502_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_australia"
+	
+	action_b	= {
+		name = ACTIONNAME3336502A ###nt; accept
+		command = { type = peace which = GER value = 1 } #pull out of alliance
+		# Pacific Islands to JAP or GER
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "American Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "American Pacific" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Asian Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Asian Pacific" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "New Guinea" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "New Guinea" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Bismarck Archipelago" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Bismarck Archipelago" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "North Solomon Islands" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "North Solomon Islands" when = 1 }
+	}
+}
+
+# New Zealand
+
+event = { 
+	id = 3336506
+	random = no
+	country = NZL
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						lost_national = { value = 70 } # possible Japanese offensive
+						nuked = { country = GER country = NZL data = 1 }   # True if GER has used at least 1 nuke against NZL
+						flag = now_crossroad
+						}
+				NOT = { exists = ENG }
+				war = { country = NZL country = GER }
+				}
+
+	name = EVT_3336506_NAME #nt; New Zealand under pressure
+	desc = EVT_3336500_DESC #nt; Peace with the Axis?
+	style = 2
+	picture = "ger_event_new_order_west_newzealand"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { NOT = { alliance = { country = NZL country = USA }}}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 90
+		command = { type = trigger which = 3336507 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { NOT = { alliance = { country = NZL country = USA }}}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 10
+		command = { type = dissent value = -3 }
+	}
+	###
+	action = {
+		trigger = { alliance = { country = NZL country = USA }}
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 60
+		command = { type = trigger which = 3336507 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action	= {
+		trigger = { alliance = { country = NZL country = USA }}
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 40
+		command = { type = dissent value = -3 }
+	}
+}
+
+event = { 
+	id = 3336507
+	random = no
+	country = GER
+
+	name = EVT_3336507_NAME #nt; New Zealand sues for peace
+	desc = EVT_3336501_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_newzealand"
+	
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = { NOT = { war = { country = NZL country = JAP } } area = { area = "New Zealand"	country = -3 data = 1 value = 1 } }
+		ai_chance = 10
+		command = { type = coup_nation which = NZL }
+		command = { trigger = { war = { country = GER country = NZL } } type = peace which = NZL value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = NZL } } } type = alliance which = NZL }
+		command = { trigger = { NOT = { puppet = { country = NZL country = GER } } } type = make_puppet which = NZL }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs New Zealand? Just make peace
+		trigger = { NOT = { war = { country = NZL country = JAP } } }
+		ai_chance = 90
+		command = { type = trigger which = 3336508 }
+	}
+	###
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = { war = { country = NZL country = JAP } area = { area = "New Zealand"	country = -3 data = 1 value = 1 } }
+		ai_chance = 5
+		command = { type = relation which = JAP value = -50 } #GER takes JAP's prey	
+		command = { type = coup_nation which = NZL }
+		command = { trigger = { war = { country = GER country = NZL } } type = peace which = NZL value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = NZL } } } type = alliance which = NZL }
+		command = { trigger = { NOT = { puppet = { country = NZL country = GER } } } type = make_puppet which = NZL }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs New Zealand? Just make peace
+		trigger = { war = { country = NZL country = JAP } }
+		ai_chance = 30
+		command = { type = trigger which = 3336508 }
+	}
+	action	= {
+		name = ACTIONNAME3336504C ###nt; Japan will deal with it
+		trigger = { war = { country = NZL country = JAP } }
+		ai_chance = 65	
+		command = { type = addclaim which = 1720 where = JAP }
+		command = { type = addclaim which = 1718 where = JAP }
+		command = { type = addclaim which = 1719 where = JAP }
+		command = { type = addclaim which = 1721 where = JAP }
+		command = { type = addclaim which = 1722 where = JAP }
+		command = { type = addclaim which = 1723 where = JAP }
+		command = { type = addclaim which = 1732 where = JAP }
+		command = { type = addclaim which = 1731 where = JAP }
+		command = { type = addclaim which = 1741 where = JAP }
+		command = { type = addclaim which = 1742 where = JAP }
+		command = { type = addclaim which = 1748 where = JAP }
+	}
+}
+
+event = { 
+	id = 3336508
+	random = no
+	country = NZL
+
+	name = EVT_3336502_NAME #nt; GER accepts
+	desc = EVT_3336502_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_newzealand"
+	
+	action_b	= {
+		name = ACTIONNAME3336502A ###nt; accept
+		command = { type = peace which = GER value = 1 } #pull out of alliance
+		command = { trigger = { OR = { war = { country = NZL country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "American Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = NZL country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "American Pacific" when = 1 }
+		command = { trigger = { OR = { war = { country = NZL country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Asian Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = NZL country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Asian Pacific" when = 1 }
+	}
+}
+
+# South Africa
+
+event = { 
+	id = 3336509
+	random = no
+	country = SAF
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						lost_national = { value = 10 }
+						nuked = { country = GER country = SAF data = 1 }   # True if GER has used at least 1 nuke against SAF
+						flag = now_crossroad
+						}
+				NOT = { exists = ENG }
+				war = { country = SAF country = GER }
+				}
+
+	name = EVT_3336509_NAME #nt; South Africa under pressure
+	desc = EVT_3336500_DESC #nt; Peace with Germany?
+	style = 2
+	picture = "ger_event_new_order_west_southafrica"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 95
+		command = { type = trigger which = 3336510 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 5
+		command = { type = dissent value = -3 }
+	}
+}
+
+event = { 
+	id = 3336510
+	random = no
+	country = GER
+
+	name = EVT_3336510_NAME #nt; South Africa sues for peace
+	desc = EVT_3336501_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_southafrica"
+	
+	action = {
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		trigger = { area = { area = "Transvaal_Natal"	country = -3 data = 1 value = 1 } area = { area = "Cape"	country = -3 data = 1 value = 1 } }
+		ai_chance = 85
+		command = { type = coup_nation which = SAF }
+		command = { trigger = { war = { country = GER country = SAF } } type = peace which = SAF value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = SAF } } } type = alliance which = SAF }
+		command = { trigger = { NOT = { puppet = { country = SAF country = GER } } } type = make_puppet which = SAF }
+	}
+	action	= {
+		name = ACTIONNAME3336501B ###nt; Who needs South Africa? Just take back Namibia and make peace
+		ai_chance = 15
+		command = { type = trigger which = 3336511 }
+	}
+}
+
+event = { 
+	id = 3336511
+	random = no
+	country = SAF
+
+	name = EVT_3336502_NAME #nt; GER accepts
+	desc = EVT_3336502_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_southafrica"
+	
+	action_b	= {
+		name = ACTIONNAME3336502A ###nt; accept
+		command = { type = peace which = GER value = 1 } #pull out of alliance
+		command = { trigger = { area = { area =	"Nambia"	country = SAF data = 2 value = 100 } } type = secedearea which = GER value = "Nambia" when = 1 }
+	}
+}
+
+# USA
+
+event = { 
+	id = 3336512
+	random = no
+	country = USA
+	
+	trigger = {
+				event = 3336000
+				flag = new_order_west
+				OR = {
+						lost_national = { value = 60 }
+						nuked = { country = GER country = USA data = 10 }   # True if GER has used at least 10 nukes against USA
+						}
+				NOT = { exists = ENG }
+				war = { country = USA country = GER }
+				}
+
+	name = EVT_3336512_NAME #nt; United States under pressure
+	desc = EVT_3336500_DESC #nt; Peace with Germany?
+	style = 2
+	picture = "ger_event_new_order_west_usa2"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336500A #nt; We have no choice, let's end this
+		ai_chance = 95
+		command = { type = trigger which = 3336513 } #GER decides
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		name = ACTIONNAME3336500B ###nt; We will never surrender!
+		ai_chance = 5
+		command = { type = dissent value = -3 }
+	}
+}
+
+event = { 
+	id = 3336513
+	random = no
+	country = GER
+
+	name = EVT_3336513_NAME #nt; The USA sue for peace
+	desc = EVT_3336501_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_usa2"
+	
+	action = {
+		trigger = {
+					OR = {
+							region = { region = "Northeast US"		country = -3 data = 1 value = 1 }
+							region = { region = "Northwest US"		country = -3 data = 1 value = 1 }
+							region = { region = "Midwest US"		country = -3 data = 1 value = 1 }
+							region = { region = "Southcentral US"	country = -3 data = 1 value = 1 }
+							region = { region = "Southeast US"		country = -3 data = 1 value = 1 }
+							region = { region = "Southwest US"		country = -3 data = 1 value = 1 }
+							}
+					}
+		name = ACTIONNAME3336028B #nt; Install a puppet regime
+		ai_chance = 85
+		command = { type = coup_nation which = USA }
+		command = { trigger = { war = { country = GER country = USA } } type = peace which = USA value = 1 } #pull out of alliance
+		command = { trigger = { NOT = { alliance = { country = GER country = USA } } } type = alliance which = USA }
+		command = { trigger = { NOT = { puppet = { country = USA country = GER } } } type = make_puppet which = USA }
+	}
+	action	= {
+		trigger = {
+					OR = {
+							region = { region = "Northeast US"		country = -3 data = 1 value = 1 }
+							region = { region = "Northwest US"		country = -3 data = 1 value = 1 }
+							region = { region = "Midwest US"		country = -3 data = 1 value = 1 }
+							region = { region = "Southcentral US"	country = -3 data = 1 value = 1 }
+							region = { region = "Southeast US"		country = -3 data = 1 value = 1 }
+							region = { region = "Southwest US"		country = -3 data = 1 value = 1 }
+							}
+					}
+		name = ACTIONNAME3336501B ###nt; Who needs America? Just take their colonies and make peace
+		ai_chance = 15
+		command = { type = trigger which = 3336514 }
+	}
+	###
+	action	= {
+		trigger = {
+					NOT = {
+							OR = {
+									region = { region = "Northeast US"		country = -3 data = 1 value = 1 }
+									region = { region = "Northwest US"		country = -3 data = 1 value = 1 }
+									region = { region = "Midwest US"		country = -3 data = 1 value = 1 }
+									region = { region = "Southcentral US"	country = -3 data = 1 value = 1 }
+									region = { region = "Southeast US"		country = -3 data = 1 value = 1 }
+									region = { region = "Southwest US"		country = -3 data = 1 value = 1 }
+									}
+							}
+					}
+		name = ACTIONNAME3336501B ###nt; Who needs America? Just take their colonies and make peace
+		command = { type = trigger which = 3336514 }
+	}
+}
+
+event = { 
+	id = 3336514
+	random = no
+	country = USA
+
+	name = EVT_3336502_NAME #nt; GER accepts
+	desc = EVT_3336502_DESC #nt; 
+	style = 2
+	picture = "ger_event_new_order_west_usa"
+	
+	action_b	= {
+		name = ACTIONNAME3336502A ###nt; accept
+		# Pacific Islands to JAP or GER
+		command = { trigger = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "American Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "American Pacific" when = 1 }
+		command = { trigger = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Asian Pacific" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Asian Pacific" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "New Guinea" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "New Guinea" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Bismarck Archipelago" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Bismarck Archipelago" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "North Solomon Islands" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "North Solomon Islands" when = 1 }		
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Diego Garcia Island" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Diego Garcia Island" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Madagascar" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Madagascar" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Horn of Africa" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Horn of Africa" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Indochine" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Indochine" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Indonesia" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Indonesia" when = 1 }
+		command = { trigger = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Philippines" when = 1 }
+		command = { trigger = { NOT = { OR = { war = { country = AST country = JAP } alliance = { country = GER country = JAP } } } }	type = secederegion which = GER value = "Philippines" when = 1 }
+		# Atlantic Islands to GER
+		command = { type = secederegion which = GER value = "Caribbean" when = 1 }
+		command = { type = secederegion which = GER value = "Greenland" when = 1 }
+		command = { type = secederegion which = GER value = "Iceland" when = 1 }
+		command = { type = secedearea which = GER value = "The Falklands" when = 1 }
+		command = { type = secederegion which = GER value = "Portugal" when = 1 } #some islands...
+		command = { type = secederegion which = GER value = "West Africa" when = 1 }
+		command = { type = secederegion which = GER value = "Central Africa" when = 1 }
+		command = { type = secederegion which = GER value = "Middle East" when = 1 }
+		#japanese occupied regions in Asia if annexed
+		command = { trigger = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Korea" 	when = 1 }
+		command = { trigger = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "China" 	when = 1 }
+		command = { trigger = { OR = { war = { country = USA country = JAP } alliance = { country = GER country = JAP } } } 			type = secederegion which = JAP value = "Indochine" when = 1 }
+		
+		command = { trigger = { war = { country = GER country = USA } } type = peace which = USA value = 1 } #pull out of alliance
+	}
+}
+
+####################################################
+####################################################
+# New Order West
+# western and northern Europe
+####################################################
+####################################################
+
+####################################################
+# RK Norwegen
+# event for gaining national provinces
+####################################################
+
+event = { 
+	id = 3236232
+	random = no 
+	country = GER
+
+	trigger = { 
+				flag = new_order_west
+				NOT = { exists = U45 } #RK Norway
+				NOT = { exists = NOR }
+				NOT = { alliance = { country = GER country = NOR } }
+				# provinces needed for release
+				region = { region = "Norway"				country = -1 }
+				}
+
+	name = EVT_3236226_NAME
+	desc = EVT_3236226_DESC
+	style = 2
+	picture = "ger_event_rknorwegen"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236232A
+		command = { type = independence which = U45 value = 1 }
+		command = { type = make_puppet which = U45 }
+	}
+}
+
+event = { 
+	id = 3236226 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U45
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236226_NAME
+	desc = EVT_3236226_DESC
+	style = 2
+	picture = "ger_event_rknorwegen"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }	
+		command = { trigger = { control = { province = 491 data = -3 } NOT = { control = { province = 491 data = -1 } } NOT = { owned = { province = 491 data = -3 } } } type = secedeprovince which = -3 value = 491 when = 2 }
+		command = { trigger = { control = { province = 495 data = -3 } NOT = { control = { province = 495 data = -1 } } NOT = { owned = { province = 495 data = -3 } } } type = secedeprovince which = -3 value = 495 when = 2 }
+		command = { trigger = { control = { province = 484 data = -3 } NOT = { control = { province = 484 data = -1 } } NOT = { owned = { province = 484 data = -3 } } } type = secedeprovince which = -3 value = 484 when = 2 }
+		command = { trigger = { control = { province = 485 data = -3 } NOT = { control = { province = 485 data = -1 } } NOT = { owned = { province = 485 data = -3 } } } type = secedeprovince which = -3 value = 485 when = 2 }
+		command = { trigger = { control = { province = 486 data = -3 } NOT = { control = { province = 486 data = -1 } } NOT = { owned = { province = 486 data = -3 } } } type = secedeprovince which = -3 value = 486 when = 2 }
+		command = { trigger = { control = { province = 487 data = -3 } NOT = { control = { province = 487 data = -1 } } NOT = { owned = { province = 487 data = -3 } } } type = secedeprovince which = -3 value = 487 when = 2 }
+		command = { trigger = { control = { province = 488 data = -3 } NOT = { control = { province = 488 data = -1 } } NOT = { owned = { province = 488 data = -3 } } } type = secedeprovince which = -3 value = 488 when = 2 }
+		command = { trigger = { control = { province = 489 data = -3 } NOT = { control = { province = 489 data = -1 } } NOT = { owned = { province = 489 data = -3 } } } type = secedeprovince which = -3 value = 489 when = 2 }
+		command = { trigger = { control = { province = 490 data = -3 } NOT = { control = { province = 490 data = -1 } } NOT = { owned = { province = 490 data = -3 } } } type = secedeprovince which = -3 value = 490 when = 2 }
+		command = { trigger = { control = { province = 492 data = -3 } NOT = { control = { province = 492 data = -1 } } NOT = { owned = { province = 492 data = -3 } } } type = secedeprovince which = -3 value = 492 when = 2 }
+		command = { trigger = { control = { province = 493 data = -3 } NOT = { control = { province = 493 data = -1 } } NOT = { owned = { province = 493 data = -3 } } } type = secedeprovince which = -3 value = 493 when = 2 }
+		command = { trigger = { control = { province = 494 data = -3 } NOT = { control = { province = 494 data = -1 } } NOT = { owned = { province = 494 data = -3 } } } type = secedeprovince which = -3 value = 494 when = 2 }
+		command = { trigger = { control = { province = 496 data = -3 } NOT = { control = { province = 496 data = -1 } } NOT = { owned = { province = 496 data = -3 } } } type = secedeprovince which = -3 value = 496 when = 2 }
+		command = { trigger = { control = { province = 497 data = -3 } NOT = { control = { province = 497 data = -1 } } NOT = { owned = { province = 497 data = -3 } } } type = secedeprovince which = -3 value = 497 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236227
+	random = no 
+	country = U45
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 491 }
+						owned = { province = 495 }
+						owned = { province = 484 }
+						owned = { province = 485 }
+						owned = { province = 486 }
+						owned = { province = 487 }
+						owned = { province = 488 }
+						owned = { province = 489 }
+						owned = { province = 490 }
+						owned = { province = 492 }
+						owned = { province = 493 }
+						owned = { province = 494 }
+						owned = { province = 496 }
+						owned = { province = 497 }
+						}
+				event = { id = 3236226 days = 1800 }   #RK Norwegen established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_rknorwegen"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH		
+		command = { trigger = { owned = { province = 491 } } type = addcore which = 491 }
+		command = { trigger = { owned = { province = 495 } } type = addcore which = 495 }
+		command = { trigger = { owned = { province = 484 } } type = addcore which = 484 }
+		command = { trigger = { owned = { province = 485 } } type = addcore which = 485 }
+		command = { trigger = { owned = { province = 486 } } type = addcore which = 486 }
+		command = { trigger = { owned = { province = 487 } } type = addcore which = 487 }
+		command = { trigger = { owned = { province = 488 } } type = addcore which = 488 }
+		command = { trigger = { owned = { province = 489 } } type = addcore which = 489 }
+		command = { trigger = { owned = { province = 490 } } type = addcore which = 490 }
+		command = { trigger = { owned = { province = 492 } } type = addcore which = 492 }
+		command = { trigger = { owned = { province = 493 } } type = addcore which = 493 }
+		command = { trigger = { owned = { province = 494 } } type = addcore which = 494 }
+		command = { trigger = { owned = { province = 496 } } type = addcore which = 496 }
+		command = { trigger = { owned = { province = 497 } } type = addcore which = 497 }
+	}
+}
+
+####################################################
+# RK Niederlande
+# event for gaining national provinces
+####################################################
+
+event = { 
+	id = 3236233
+	random = no 
+	country = GER
+
+	trigger = { 
+				flag = new_order_west
+				NOT = { exists = U46 } #RK Netherlands
+				NOT = { alliance = { country = GER country = HOL } }
+				# provinces needed for release
+				area = { area = "Netherlands"				country = -1 }
+				}
+
+	name = EVT_3236228_NAME
+	desc = EVT_3236228_DESC
+	style = 2
+	picture = "ger_event_rkniederlande"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236233A
+		command = { type = independence which = U46 value = 1 }
+		command = { type = make_puppet which = U46 }
+	}
+}
+
+event = { 
+	id = 3236228 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U46
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236228_NAME
+	desc = EVT_3236228_DESC
+	style = 2
+	picture = "ger_event_rkniederlande"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }	
+		command = { trigger = { control = { province = 118 data = -3 } NOT = { control = { province = 118 data = -1 } } NOT = { owned = { province = 118 data = -3 } } } type = secedeprovince which = -3 value = 118 when = 2 }
+		command = { trigger = { control = { province = 119 data = -3 } NOT = { control = { province = 119 data = -1 } } NOT = { owned = { province = 119 data = -3 } } } type = secedeprovince which = -3 value = 119 when = 2 }
+		command = { trigger = { control = { province = 120 data = -3 } NOT = { control = { province = 120 data = -1 } } NOT = { owned = { province = 120 data = -3 } } } type = secedeprovince which = -3 value = 120 when = 2 }
+		command = { trigger = { control = { province = 121 data = -3 } NOT = { control = { province = 121 data = -1 } } NOT = { owned = { province = 121 data = -3 } } } type = secedeprovince which = -3 value = 121 when = 2 }
+		command = { trigger = { control = { province = 123 data = -3 } NOT = { control = { province = 123 data = -1 } } NOT = { owned = { province = 123 data = -3 } } } type = secedeprovince which = -3 value = 123 when = 2 }
+		command = { trigger = { control = { province = 124 data = -3 } NOT = { control = { province = 124 data = -1 } } NOT = { owned = { province = 124 data = -3 } } } type = secedeprovince which = -3 value = 124 when = 2 }
+		command = { trigger = { control = { province = 125 data = -3 } NOT = { control = { province = 125 data = -1 } } NOT = { owned = { province = 125 data = -3 } } } type = secedeprovince which = -3 value = 125 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236229
+	random = no 
+	country = U46
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 118 }
+						owned = { province = 119 }
+						owned = { province = 120 }
+						owned = { province = 121 }
+						owned = { province = 123 }
+						owned = { province = 124 }
+						owned = { province = 125 }
+						}
+				event = { id = 3236228 days = 1080 }   #RK Niederlande established 3 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_rkniederlande"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH		
+		command = { trigger = { owned = { province = 118 } } type = addcore which = 118 }
+		command = { trigger = { owned = { province = 119 } } type = addcore which = 119 }
+		command = { trigger = { owned = { province = 120 } } type = addcore which = 120 }
+		command = { trigger = { owned = { province = 121 } } type = addcore which = 121 }
+		command = { trigger = { owned = { province = 123 } } type = addcore which = 123 }
+		command = { trigger = { owned = { province = 124 } } type = addcore which = 124 }
+		command = { trigger = { owned = { province = 125 } } type = addcore which = 125 }
+	}
+}
+
+####################################################
+# RK Belgien-Nordfrankreich
+# event for gaining national provinces
+####################################################
+
+event = { 
+	id = 3236234
+	random = no 
+	country = GER
+
+	trigger = { 
+				flag = new_order_west
+				NOT = { exists = U47 } #RK Belgien-Nordfrankreich
+				NOT = { alliance = { country = GER country = BEL } }
+				# provinces needed for release
+				area = { area = "Wallonia"				country = -1 }
+				area = { area = "Flanders"				country = -1 }
+				area = { area = "Pas de Calais"			country = -1 }
+				}
+
+	name = EVT_3236230_NAME
+	desc = EVT_3236230_DESC
+	style = 2
+	picture = "ger_event_rkbelgien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236234A
+		command = { type = independence which = U47 value = 1 }
+		command = { type = make_puppet which = U47 }
+	}
+}
+
+event = { 
+	id = 3236230 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U47
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236230_NAME
+	desc = EVT_3236230_DESC
+	style = 2
+	picture = "ger_event_rkbelgien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 112 data = -3 } NOT = { control = { province = 112 data = -1 } } NOT = { owned = { province = 112 data = -3 } } } type = secedeprovince which = -3 value = 112 when = 2 }
+		command = { trigger = { control = { province = 113 data = -3 } NOT = { control = { province = 113 data = -1 } } NOT = { owned = { province = 113 data = -3 } } } type = secedeprovince which = -3 value = 113 when = 2 }
+		command = { trigger = { control = { province = 114 data = -3 } NOT = { control = { province = 114 data = -1 } } NOT = { owned = { province = 114 data = -3 } } } type = secedeprovince which = -3 value = 114 when = 2 }
+		command = { trigger = { control = { province = 115 data = -3 } NOT = { control = { province = 115 data = -1 } } NOT = { owned = { province = 115 data = -3 } } } type = secedeprovince which = -3 value = 115 when = 2 }
+		command = { trigger = { control = { province = 108 data = -3 } NOT = { control = { province = 108 data = -1 } } NOT = { owned = { province = 108 data = -3 } } } type = secedeprovince which = -3 value = 108 when = 2 }
+		command = { trigger = { control = { province = 111 data = -3 } NOT = { control = { province = 111 data = -1 } } NOT = { owned = { province = 111 data = -3 } } } type = secedeprovince which = -3 value = 111 when = 2 }
+		command = { trigger = { control = { province = 117 data = -3 } NOT = { control = { province = 117 data = -1 } } NOT = { owned = { province = 117 data = -3 } } } type = secedeprovince which = -3 value = 117 when = 2 }
+		command = { trigger = { control = { province = 51  data = -3 } NOT = { control = { province = 51  data = -1 } } NOT = { owned = { province = 51  data = -3 } } } type = secedeprovince which = -3 value = 51  when = 2 }
+		command = { trigger = { control = { province = 52  data = -3 } NOT = { control = { province = 52  data = -1 } } NOT = { owned = { province = 52  data = -3 } } } type = secedeprovince which = -3 value = 52  when = 2 }
+		command = { trigger = { control = { province = 49  data = -3 } NOT = { control = { province = 49  data = -1 } } NOT = { owned = { province = 49  data = -3 } } } type = secedeprovince which = -3 value = 49  when = 2 }
+		command = { trigger = { control = { province = 50  data = -3 } NOT = { control = { province = 50  data = -1 } } NOT = { owned = { province = 50  data = -3 } } } type = secedeprovince which = -3 value = 50  when = 2 }
+	}
+}
+
+event = { 
+	id = 3236231
+	random = no 
+	country = U47
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 112 }
+						owned = { province = 113 }
+						owned = { province = 114 }
+						owned = { province = 115 }
+						owned = { province = 108 }
+						owned = { province = 111 }
+						owned = { province = 117 } 
+						owned = { province = 51  }
+						owned = { province = 52  }
+						owned = { province = 49  }
+						owned = { province = 50  }
+						}
+				event = { id = 3236230 days = 1800 }   #RK Belgien-Nordfrankreich established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_rkbelgien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH	
+		command = { trigger = { owned = { province = 112 } } type = addcore which = 112 }
+		command = { trigger = { owned = { province = 113 } } type = addcore which = 113 }
+		command = { trigger = { owned = { province = 114 } } type = addcore which = 114 }
+		command = { trigger = { owned = { province = 115 } } type = addcore which = 115 }
+		command = { trigger = { owned = { province = 108 } } type = addcore which = 108 }
+		command = { trigger = { owned = { province = 111 } } type = addcore which = 111 }
+		command = { trigger = { owned = { province = 117 } } type = addcore which = 117 } 
+		command = { trigger = { owned = { province = 51  } } type = addcore which = 51  }
+		command = { trigger = { owned = { province = 52  } } type = addcore which = 52  }
+		command = { trigger = { owned = { province = 49  } } type = addcore which = 49  }
+		command = { trigger = { owned = { province = 50  } } type = addcore which = 50  }
+	}
+}
+
+##########################################
+# French New Order
+##########################################
+event = { 
+	id = 3336035
+	random = no
+	country = GER
+	
+	trigger = {
+		flag = new_order_west
+		OR = {
+				region = { region = "France" country = -3 }
+				AND = { # Axis managed to stop Operation Torch before VIC is annexed
+						exists = VIC
+						NOT = { war = { country = GER country = VIC } }
+						event = 3131014
+						}
+				}
+		NOT = { exists = FRA }
+		NOT = { war = { country = GER country = VIC } }
+	}
+
+	name = EVT_3336035_NAME #"The Paris Protocol"
+	desc = EVT_3336035_DESC
+	style = 2
+	picture = "ger_event_new_order_west_france"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3336034A #"A New Order for France"
+		command = { trigger = { NOT = { exists = VIC } } type = independence which = VIC value = 1 }
+		command = { type = make_puppet which = VIC }
+		command = { type = secedeprovince which = VIC value = 67 } # Mont-de-Marsan
+		command = { type = secedeprovince which = VIC value = 68 } # Bordeaux
+		command = { type = secedeprovince which = VIC value = 69 } # La Rochelle
+		command = { type = secedeprovince which = VIC value = 70 } # Angouleme
+		command = { type = secedeprovince which = VIC value = 61 } # Tours
+		command = { type = secedeprovince which = VIC value = 57 } # Nantes
+		command = { type = secedeprovince which = VIC value = 62 } # Poitiers
+		command = { type = secedeprovince which = VIC value = 65 } # Bourges
+		command = { type = secedeprovince which = VIC value = 63 } # Auxerre
+		command = { type = secedeprovince which = VIC value = 97 } # Belfort
+		command = { type = secedeprovince which = VIC value = 64 } # Le Creusot
+		command = { type = secedeprovince which = VIC value = 58 } # Le Mans
+		command = { type = secedeprovince which = VIC value = 37 } # Brest
+		command = { type = secedeprovince which = VIC value = 38 } # Rennes
+		command = { type = secedeprovince which = VIC value = 41 } # Saint Brieuc
+		command = { type = secedeprovince which = VIC value = 39 } # Lorient
+		command = { type = secedeprovince which = VIC value = 55 } # Paris
+		command = { type = secedeprovince which = VIC value = 40 } # Saint Nazaire
+		command = { type = secedeprovince which = VIC value = 59 } # Angers
+		command = { type = secedeprovince which = VIC value = 42 } # Avranches
+		command = { type = secedeprovince which = VIC value = 43 } # Cherbourg
+		command = { type = secedeprovince which = VIC value = 44 } # Caen
+		command = { type = secedeprovince which = VIC value = 46 } # Bayeux
+		command = { type = secedeprovince which = VIC value = 47 } # Falaise
+		command = { type = secedeprovince which = VIC value = 48 } # Evreux
+		command = { type = secedeprovince which = VIC value = 45 } # Le Havre
+		command = { type = secedeprovince which = VIC value = 56 } # Chateau Thierry
+		command = { type = secedeprovince which = VIC value = 66 } # Orleans
+		command = { type = secedeprovince which = VIC value = 60 } # Chartres
+		command = { type = secedeprovince which = VIC value = 54 } # Troyes
+		command = { type = secedeprovince which = VIC value = 95 } # Chaumont
+		command = { type = secedeprovince which = VIC value = 106 }	# Nancy
+		command = { type = secedeprovince which = VIC value = 99 } # Reims
+		command = { type = secedeprovince which = VIC value = 100 } # Verdun
+		command = { type = secedeprovince which = VIC value = 102 } # Sedan
+#		command = { type = secedeprovince which = VIC value = 50 } # Amiens
+		command = { type = secedeprovince which = VIC value = 53 } # Dieppe
+		command = { type = secedeprovince which = VIC value = 101 } # Laon
+		command = { type = secedeprovince which = VIC value = 103 } # Hirson
+#		command = { type = secedeprovince which = VIC value = 52 } # Lille
+#		command = { type = secedeprovince which = VIC value = 49 } # Calais
+#		command = { type = secedeprovince which = VIC value = 51 } # Dunkerque
+		command = { type = secedeprovince which = VIC value = 98 } # Pontarlier
+		command = { type = relation which = VIC value = 100 }
+		command = { type = trigger which = 3399009 } # VIC
+	}
+}
+event = { 
+	id = 3399009
+	random = no
+	country = VIC
+
+	# triggered by GER 3336016, 3336028
+
+	name = EVT_3336000_NAME #"An European New Order"
+	desc = EVT_3336035_DESC
+	style = 2
+	picture = "ger_event_new_order_west_france"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = alliance which = GER }
+		command = { type = addcore which = 67 } # Mont-de-Marsan
+		command = { type = addcore which = 68 } # Bordeaux
+		command = { type = addcore which = 69 } # La Rochelle
+		command = { type = addcore which = 70 } # Angouleme
+		command = { type = addcore which = 61 } # Tours
+		command = { type = addcore which = 57 } # Nantes
+		command = { type = addcore which = 62 } # Poitiers
+		command = { type = addcore which = 65 } # Bourges
+		command = { type = addcore which = 63 } # Auxerre
+		command = { type = addcore which = 97 } # Belfort
+		command = { type = addcore which = 64 } # Le Creusot
+		command = { type = addcore which = 58 } # Le Mans
+		command = { type = addcore which = 37 } # Brest
+		command = { type = addcore which = 38 } # Rennes
+		command = { type = addcore which = 41 } # Saint Brieuc
+		command = { type = addcore which = 39 } # Lorient
+		command = { type = addcore which = 55 } # Paris
+		command = { type = addcore which = 40 } # Saint Nazaire
+		command = { type = addcore which = 59 } # Angers
+		command = { type = addcore which = 42 } # Avranches
+		command = { type = addcore which = 43 } # Cherbourg
+		command = { type = addcore which = 44 } # Caen
+		command = { type = addcore which = 46 } # Bayeux
+		command = { type = addcore which = 47 } # Falaise
+		command = { type = addcore which = 48 } # Evreux
+		command = { type = addcore which = 45 } # Le Havre
+		command = { type = addcore which = 56 } # Chateau Thierry
+		command = { type = addcore which = 66 } # Orleans
+		command = { type = addcore which = 60 } # Chartres
+		command = { type = addcore which = 54 } # Troyes
+		command = { type = addcore which = 95 } # Chaumont
+		command = { type = addcore which = 106 } # Nancy
+		command = { type = addcore which = 99 } # Reims
+		command = { type = addcore which = 100 } # Verdun
+		command = { type = addcore which = 102 } # Sedan
+#		command = { type = addcore which = 50 } # Amiens
+		command = { type = addcore which = 53 } # Dieppe
+		command = { type = addcore which = 101 } # Laon
+		command = { type = addcore which = 103 } # Hirson
+#		command = { type = addcore which = 52 } # Lille
+#		command = { type = addcore which = 49 } # Calais
+#		command = { type = addcore which = 51 } # Dunkerque
+		command = { type = addcore which = 98 } # Pontarlier
+		command = { type = dissent value = -10 } 
+		command = { type = capital which = 55 } # Capital returns to Paris
+	}
+}
+event = { 
+	id = 3399010
+	random = no
+	country = U14
+
+	trigger = {
+		flag = new_order_west
+		war = { country = GER country = U14 }
+		alliance = { country = GER country = VIC }
+		NOT = { war = { country = GER country = USA } }
+	}
+
+	name = EVT_3399010_NAME #"Free France Peace Offer"
+	desc = EVT_3399010_DESC
+	style = 2
+	picture = "ger_event_new_order_west_france"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 45
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = {
+		name = EVT_2789_ACTA #"Merde"
+		ai_chance = 100
+		command = { type = trigger which = 3399011 } # VIC
+	}
+	action_b = {
+		name = ACTIONNAME2800B #"Never! Vive La France!"
+		ai_chance = 0
+		command = { type = dissent value = 10 }
+	}
+}
+event = { 
+	id = 3399011
+	random = no
+	country = VIC
+
+	# triggered by U14 3399010
+
+	name = EVT_3399011_NAME #"Free France Surrender"
+	desc = EVT_3399010_DESC
+	style = 2
+	picture = "ger_event_new_order_west_france"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = dissent value = -5 } 
+		command = { trigger = { NOT = { participant = { country = U14 value = 2 } } } type = inherit which = U14 }
+		command = { trigger = { NOT = { participant = { country = U14 value = 2 } } } type = inherit which = LEB }
+		command = { trigger = { NOT = { participant = { country = U14 value = 2 } } } type = inherit which = SYR }
+	}
+}

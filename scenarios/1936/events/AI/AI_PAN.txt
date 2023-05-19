@@ -1,0 +1,213 @@
+# checked DH
+####################################
+# Panama AI events 33600 - 33699 by Lothos
+####################################
+################
+# Minister of Security Section 33600 - 33609
+#############################################
+event = { # Carlos Mendoza takes power
+	id = 33600
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95059 # Carlos Mendoza
+		NOT = { InCabinet = 95059 }
+		OR = {
+			manpower = 20
+			AND = {
+				NOT = { manpower = 20 }
+				NOT = { minister = 95058 } # Raoul Arias Amador
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 95059 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Raoul Arias Amador takes power
+	id = 33601
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { manpower = 20 }
+		minister = 95058 # Raoul Arias Amador
+		NOT = { InCabinet = 95058 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 95058 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33610 - 33619
+#############################################
+event = { # Bolivar Villarino takes power
+	id = 33610
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95068 # Bolivar Villarino
+		NOT = { InCabinet = 95068 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 95068 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33620 - 33629
+#############################################
+event = { # Victor Pareja takes power
+	id = 33620
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95064 # Victor Pareja
+		NOT = { InCabinet = 95064 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 95064 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33630 - 33639
+#############################################
+event = { # Bolivar Villarino takes power
+	id = 33630
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95008 # Bolivar Villarino
+		NOT = { InCabinet = 95008 }
+		OR = {
+			atwar = no
+			NOT = { minister = 95074 } # Enrico Fabrego Páz
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 95008 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Enrico Fabrego Páz takes power
+	id = 33631
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95074 # Enrico Fabrego Páz
+		NOT = { InCabinet = 95074 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 95008 } # Bolivar Villarino
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 95074 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33640 - 33649
+#############################################
+event = { # José Pezet takes power
+	id = 33640
+	random = no 
+	country = PAN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 95053 # José Pezet
+		NOT = { InCabinet = 95053 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = PANArmamentPezet }
+		command = { type = armamentminister which = 95053 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+#############################################
+# Regular AI Events 33660 - 33699
+#############################################

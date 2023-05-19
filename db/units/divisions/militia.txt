@@ -1,0 +1,245 @@
+#	militia				
+allowed_brigades =  artillery					
+allowed_brigades =  anti_tank					
+allowed_brigades =  anti_air					
+allowed_brigades =  rocket_artillery					
+#allowed_brigades =  sp_artillery					
+#allowed_brigades =  sp_rct_artillery					
+#allowed_brigades =  tank_destroyer					
+allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+#allowed_brigades =  sp_anti_air	
+allowed_brigades =  b_01				
+					
+upgrade = { type = infantry upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }					
+upgrade = { type = d_02 upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }					
+					
+# Great War Militia Division (1918) - 0					
+model = {					
+	cost =				1.84
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				4
+	toughness =				4
+	softness =				100
+	suppression =				2
+	airdefence =				3
+	softattack =				3
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.1
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 6000      horses = 150                              }
+}					
+# Early Militia Division (1936) - 1					
+model = {					
+	cost =				2.2
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				5
+	toughness =				6
+	softness =				100
+	suppression =				2
+	airdefence =				5
+	softattack =				5
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.12
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 6000 equipment = 9 artillery = 3    horses = 300                              }
+}					
+# Basic Militia Division (1939) - 2					
+model = {					
+	cost =				2.41
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				6
+	toughness =				7
+	softness =				100
+	suppression =				2
+	airdefence =				5
+	softattack =				5
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.13
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 6000 equipment = 9 artillery = 3  anti_air = 3  horses = 300                              }
+}					
+# Improved Militia Division (1942) - 3					
+model = {					
+	cost =				2.63
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				7
+	toughness =				8
+	softness =				100
+	suppression =				2
+	airdefence =				6
+	softattack =				6
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.15
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 6000 equipment = 12 artillery = 6  anti_air = 3  horses = 450                              }
+}					
+# Advanced Militia Division (1944) - 4					
+model = {					
+	cost =				2.79
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				8
+	toughness =				9
+	softness =				100
+	suppression =				2
+	airdefence =				7
+	softattack =				7
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.16
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 6000 equipment = 12 artillery = 6  anti_air = 3  horses = 450 trucks = 25                             }
+}					
+# Semimodern Militia Division (1947) - 5					
+model = {					
+	cost =				3.05
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				10
+	toughness =				11
+	softness =				100
+	suppression =				2
+	airdefence =				9
+	softattack =				9
+	hardattack =				0
+	airattack =				0
+	transportweight =				2.5
+	supplyconsumption =				0.17
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 6000 equipment = 15 artillery = 9  anti_air = 3  horses = 300 trucks = 75                             }
+}					
+# Modern Militia Division (1951) - 6					
+model = {					
+	cost =				3.29
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				12
+	toughness =				12
+	softness =				100
+	suppression =				2
+	airdefence =				10
+	softattack =				10
+	hardattack =				1
+	airattack =				1
+	transportweight =				2.5
+	supplyconsumption =				0.18
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 6000 equipment = 15 artillery = 9  anti_air = 6 anti_tank = 3 horses = 300 trucks = 75                             }
+}					
+# Elite Militia Division (1955) - 7					
+model = {					
+	cost =				3.57
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				14
+	toughness =				14
+	softness =				100
+	suppression =				2
+	airdefence =				12
+	softattack =				12
+	hardattack =				1
+	airattack =				1
+	transportweight =				2.5
+	supplyconsumption =				0.2
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 6000 equipment = 18 artillery = 12 heavy_artillery = 3 anti_air = 6 anti_tank = 3 horses = 150 trucks = 100                             }
+}					
+# Elite Militia, Division (1960) - 8					
+model = {					
+	cost =				3.94
+	buildtime =			 	50
+	manpower =				6
+	maxspeed =				9
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				16
+	toughness =				18
+	softness =				100
+	suppression =				2
+	airdefence =				14
+	softattack =				14
+	hardattack =				1
+	airattack =				1
+	transportweight =				2.5
+	supplyconsumption =				0.22
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 6000 equipment = 18 artillery = 12 heavy_artillery = 3 anti_air = 6 anti_tank = 3 horses = 150 trucks = 100                             }
+}					

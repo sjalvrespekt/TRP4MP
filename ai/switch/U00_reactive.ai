@@ -1,0 +1,25 @@
+exp_force_ratio = 0.100 
+no_exp_forces_to = { GER ROM HUN SLO BUL ITA VIC YUG FIN CRO JAP }
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+front = { 
+	recklessness 		= 2 # 0-3
+	distrib_vs_ai 		= reactive
+	distrib_vs_human 	= reactive
+
+	enemy_reinf_days	= 3
+	reserve_prop		= 0.1
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.0
+	min_attack_odds		= 0.95
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.85
+	support_defense_prop	= 0.14
+
+   	enemy_handicap = { } 
+   	passivity = { } 
+} 

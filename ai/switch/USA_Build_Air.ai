@@ -1,0 +1,54 @@
+# checked DH
+# USA Air Prio Build by Lothos
+
+###################################
+# Construction and Tech Research
+###################################
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 		= 450 
+	max_batch_war 			= 450 
+	max_batch_home_front 	= 450
+
+	#### Divisions etc...
+	infantry 		= 7
+	d_02			= 0
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 3
+	mechanized 		= 3
+	light_armor 	= 0
+	armor 			= 5
+	paratrooper 	= 0
+	marine 			= 5
+	bergsjaeger 	= 0
+	garrison		= 0
+    hq	 			= 1
+
+#				24 %
+	interceptor 	= 20
+	multi_role 		= 0
+	d_01			= 10
+	cas 			= 0
+	strategic_bomber = 15
+	tactical_bomber = 20
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				65 %
+	battleship		= 0
+	carrier 		= 2
+	light_carrier	= 2
+	escort_carrier	= 1
+	destroyer 		= 3
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 		= 0
+	nuclear_submarine = 0
+	d_09 = 3
+	d_08 = 0
+	transports 		= 0
+#				11 %
+}

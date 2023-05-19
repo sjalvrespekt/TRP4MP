@@ -1,0 +1,157 @@
+# Ardennes BSC - German AI file
+
+        switch = no 
+        flags = { } 
+        max_front_ratio = 200.000 
+        max_front_ratios = { } 
+        max_garrison_prop = 0.000 
+        min_garrison_prop = 0.000 
+        neutrality = 0.000 
+        war = 100 
+        ferocity = yes
+        reinforcement = 0.100 
+        upgrading = 0.100 
+        desperation = 0.300 
+        strat_redeploy_threshold = 30 
+        max_redeploying = 0.000 
+        target = { 
+		109 = 100 #Luxembourg
+		126 = 90  #Aachen
+		118 = 80  #Eindhoven
+		115 = 70  #Antwerp
+		107 = 60  #Strasburg
+		55 = 50  #Paris
+            } 
+        exp_force_ratio = 0.000 
+        exp_force_ratios = { } 
+        admiral = { target = { } core = { } ignore = { } } 
+        trade = { } 
+        tech_sharing = { } 
+        invasion = { 
+            base = 1.000 
+            random = 1.000 
+            coastal = 1.000 
+            beach = 1.000 
+            distance = 1.000 
+            max_distance = 99999.000 
+            pocket = 1.000 
+            island = 1.000 
+            enemy = 1.000 
+            adjacentenemy = 1.000 
+            air_base = 0.100 
+            naval_base = 0.100 
+            air_support = 0.100 
+            ignore = no 
+            invasion = yes 
+            help_allies = yes 
+            redirect = nearest 
+            } 
+        air_marshal = { 
+            icxdayscostfactor = 10.000 
+            manpowercostfactor = 100.000 
+            destructionriskthreashold = 0.200 
+            airsuperioritydesirability = 5.000 
+            airsuperioritylosstolerance = 0.800 
+            groundattacklosstolerance = 1.000 
+            groundattackdesirability = 1.000 
+            interdictionlosstolerance = 2.000 
+            inderdictiondesirability = 20.000 
+            logisticalstrikelosstolerance = 0.000 
+            logisticalstrikeefficency = 0.000 
+            logisticalstrikedesirability = 0.000 
+            runwaycrateringlosstolerance = 0.000 
+            runwaycrateringefficency = 0.000 
+            runwaycrateringdesirability = 0.000 
+            strategicstriketolerance = 0.000 
+            strategicstrikeefficency = 0.000 
+            strategicstrikedesirability = 0.000 
+            installationstriketolerance = 0.000 
+            installationstrikeefficency = 0.000 
+            installationstrikedesirability = 0.000 
+            navalstriketolerance = 0.000 
+            navalstrikedesirability = 0.000 
+            portstriketolerance = 0.000 
+            portstrikedesirability = 0.000 
+            taskforcetype = { name = "Air Superiority" desiredratio = 0.400 rangeweight = 10.000 airkillpowerweight = 2000.000 hardkillpowerweight = 0.000 softkillpowerweight = 0.000 navalkillpowerweight = 0.000 strategickillpowerweight = 0.000 transportcapacityweight = -1000000.000 airvulnurabilityweight = -1.000 surfacevulnurabilityweight = 0.000 idle = yes reorganize = yes air_superiority = yes } 
+            taskforcetype = { name = "Soft Bombing" desiredratio = 0.200 rangeweight = 10.000 airkillpowerweight = 0.000 hardkillpowerweight = 0.000 softkillpowerweight = 2000.000 navalkillpowerweight = 0.000 strategickillpowerweight = 0.000 transportcapacityweight = -1000000.000 airvulnurabilityweight = 0.000 surfacevulnurabilityweight = -1.000 idle = yes reorganize = yes interdiction = yes ground_attack = yes } 
+            taskforcetype = { name = "Hard Bombing" desiredratio = 0.100 rangeweight = 10.000 airkillpowerweight = 0.000 hardkillpowerweight = 2000.000 softkillpowerweight = 0.000 navalkillpowerweight = 0.000 strategickillpowerweight = 0.000 transportcapacityweight = -1000000.000 airvulnurabilityweight = 0.000 surfacevulnurabilityweight = -1.000 idle = yes reorganize = yes interdiction = yes ground_attack = yes } 
+            taskforcetype = { name = "Strategic Bombing" desiredratio = 0.100 rangeweight = 10.000 airkillpowerweight = 0.000 hardkillpowerweight = 0.000 softkillpowerweight = 0.000 navalkillpowerweight = 0.000 strategickillpowerweight = 2000.000 transportcapacityweight = -1000000.000 airvulnurabilityweight = -0.500 surfacevulnurabilityweight = -0.500 idle = yes reorganize = yes logistical_strike = yes runway_cratering = yes strategic_bombardment = yes installation_strike = yes } 
+            taskforcetype = { name = "Naval Bombing" desiredratio = 0.100 rangeweight = 10.000 airkillpowerweight = 0.000 hardkillpowerweight = 0.000 softkillpowerweight = 0.000 navalkillpowerweight = 2000.000 strategickillpowerweight = 0.000 transportcapacityweight = -1000000.000 airvulnurabilityweight = 0.000 surfacevulnurabilityweight = -1.000 idle = yes reorganize = yes naval_strike = yes port_strike = yes convoy_air_raiding = yes } 
+            taskforcetype = { name = "Airlift" desiredratio = 0.100 rangeweight = 10.000 airkillpowerweight = 0.000 hardkillpowerweight = -2000.000 softkillpowerweight = -2000.000 navalkillpowerweight = 0.000 strategickillpowerweight = -2000.000 transportcapacityweight = 1000000.000 airvulnurabilityweight = -1.000 surfacevulnurabilityweight = 0.000 idle = yes reorganize = yes airborne_assault = yes air_supply = yes } 
+            } 
+        garrison = { 
+            defend_overseas_beaches = no
+            key_point_prio_mult = 0.000 
+            revolt_risk_mult = 0.000 
+            beach = 0 
+            reserves = 0 
+            capital = 0 
+            human_border = 0 
+            war_target = 0 
+            opposing_alliance = 0 
+            claim_threat = 0 
+            unstable_border = 0 
+            war_zone_odds = 0.000 
+            home_multiplier = 0.000 
+            overseas_multiplier = 0.000 
+            home_peace_cap = 0 
+            country_priorities = { } 
+            province_priorities = { 132 = 0 134 = 0 127 = 0 131 = 0 145 = 0 144 = 0 51 = 0 } 
+            area_multiplier = { } 
+            ignore = { } 
+            } 
+        front = { 
+            strength = 1.000 
+            organisation = 1.000 
+            dig_in = 1.000 
+            soft_attack = 1.000 
+            hard_attack = 1.000 
+            ground_defense = 1.000 
+            support_defense_prop = 0.000 
+            river = 0.600 
+            frozen_attack = 1.000 
+            snow_attack = 0.900 
+            blizzard_attack = 0.600 
+            storm_attack = 0.600 
+            muddy_attack = 0.750 
+            largefort = 1.000 
+            smallfort = 1.000 
+            occupied = 1.000 
+            owned = 1.000 
+            jungle_attack = 1.000 
+            mountain_attack = 1.000 
+            swamp_attack = 1.000 
+            forest_attack = 1.000 
+            hill_attack = 1.000 
+            urban_attack = 1.000 
+            recklessness = 2 
+            enemy_reinf_days = 1 
+            reserve_prop = 0.000 
+            panic_ratio_vs_ai = 12.000 
+            panic_ratio_vs_human = 12.000 
+            base_attack_odds = 12.000 
+            min_attack_odds = 6.000 
+            max_attack_odds = 200.000 
+            reinforce_odds = 0.000 
+            withdraw_odds = 3.000 
+            distrib_vs_ai = offensive
+            distrib_vs_human = offensive
+            enemy_handicap = { } 
+            passivity = { } 
+            province_priorities = {
+			107 = 0.600 105 = 0.600 96 = 0.600
+		} 
+		}
+		leader_ratio = {
+		land_field_marshal =0.051
+		land_general =0.101
+		land_lt_general =0.201
+		
+		sea_grand_admiral =0.05
+		sea_admiral =0.067
+		sea_vice_admiral =0.1
+		
+		air_marshal = 0.1
+		air_general = 0.16
+		air_lt_General = 0.267
+		}

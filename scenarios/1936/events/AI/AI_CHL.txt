@@ -1,0 +1,239 @@
+####################################
+# Chile AI events 35300 - 35399 by Lothos
+#
+# Converted to DH by Dendro 2011-May-30
+#
+####################################
+################
+# Minister of Security Section 35300 - 35309
+#############################################
+event = { # Abraham Ortega Aguayo takes power
+	id = 35300
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44097 # Abraham Ortega Aguayo
+		NOT = { InCabinet = 44097 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 44095 } # Antonio Huneeus
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 44097 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Antonio Huneeus takes power
+	id = 35301
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44095 # Antonio Huneeus
+		NOT = { InCabinet = 44095 }
+		OR = {
+			NOT = { manpower = 200 }
+			NOT = { minister = 44097 } # Abraham Ortega Aguayo
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 44095 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 35310 - 35319
+#############################################
+event = { # Ernesto M. Orlando takes power
+	id = 35310
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44121 # Ernesto M. Orlando
+		NOT = { InCabinet = 44121 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 44121 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 35320 - 35329
+#############################################
+event = { # Carlos Fuentes Rabe takes power
+	id = 35320
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44112 # Carlos Fuentes Rabe
+		NOT = { InCabinet = 44112 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 44112 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 35330 - 35339
+#############################################
+event = { # Carlos Fuentes Rabe takes power
+	id = 35330
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44132 # Carlos Fuentes Rabe
+		NOT = { InCabinet = 44132 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 44132 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 35340 - 35349
+#############################################
+event = { # Cristobál Saénz Cerda takes power
+	id = 35340
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44077 # Cristobál Saénz Cerda
+		NOT = { InCabinet = 44077 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 44077 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Juan Rios Morales takes power
+	id = 35341
+	random = no 
+	country = CHL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 44069 # Juan Rios Morales
+		NOT = { InCabinet = 44069 }
+		NOT = { minister = 44077 } # Cristobál Saénz Cerda
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 44069 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35360 - 35399
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 35360
+	random = no 
+	country = CHL
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = USA
+			atwar = ARG
+			atwar = BRA
+			NOT = { ai = ARG }
+			NOT = { ai = BRA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}

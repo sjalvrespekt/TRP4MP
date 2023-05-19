@@ -1,0 +1,77 @@
+# checked DH
+###########################################################################
+# 6700000 - 6799999
+###########################################################################
+#############################################
+# Was 952090 Civil War! (PRK)
+#############################################
+event = {
+	id = 6700000 
+	random = no
+	country = PRK
+
+	#Triggered by 6600004
+
+	name = EVT_6700000_NAME
+	desc = EVT_6700000_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME6700000A
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = interceptor }
+		command = { type = trigger which = 222081 }
+		command = { type = trigger which = 5400015 }
+		command = { type = dissent value = -100 }
+	}
+}
+#############################################
+# Was 952091 Soviet forces in Korea (PRK)
+#############################################
+event = {
+	id = 6700001
+	random = no
+	country = PRK
+	persistent = yes
+
+	#Triggered by 222081 & 222082
+
+	name = EVT_6700001_NAME
+	desc = EVT_6700001_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME6700001A
+		command = { type = supplies value = 300 }
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = armor } 
+		command = { type = add_division value = interceptor } 
+	}
+}
+#############################################
+# Was 952092 Chinese veterans in Korea (PRK)
+#############################################
+event = {
+	id = 6700002
+	random = no
+	country = PRK
+
+	#Triggered by 5400015
+
+	name = EVT_6700002_NAME
+	desc = EVT_6700002_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME6700002A
+		command = { type = supplies value = 30000 }
+		command = { type = manpowerpool value = 10 }
+	}
+}
+
+

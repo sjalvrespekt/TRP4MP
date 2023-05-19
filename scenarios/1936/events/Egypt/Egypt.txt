@@ -1,0 +1,97 @@
+# checked DH
+###########################################################################
+# 3189000 - 3189999	Egypt events
+###########################################################################
+
+#########################################################################
+# Anglo-Egyptian Treaty of Defense Activated (was 552002, 8500002)
+#########################################################################
+event = {  
+	id = 3189002
+	random = no
+	country = EGY
+
+	trigger = {
+		exists = ENG
+            OR = {
+			war = { country = EGY country = GER }
+			war = { country = EGY country = TUR }
+			war = { country = EGY country = ITA }
+			war = { country = EGY country = GRE }
+		}
+		NOT = {
+			OR = {
+				alliance = { country = GER country = EGY } 
+				alliance = { country = SOV country = EGY } 
+				war = { country = EGY country = ENG }
+			}
+		}
+	}     
+
+	name = EVT_3189002_NAME # Activation of the 1936 Anglo-Egyptian defense treaty
+ 	desc = EVT_3189002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = { 
+		name = ACTIONNAME3189002A # Request that Britain send aid
+		ai_chance = 90
+		command = { type = alliance which = ENG } 
+		command = { type = dissent value = -20 }
+	}
+	action_b = { 
+		name = ACTIONNAME3189002B # Do not request aid; we need no help
+		ai_chance = 10
+		command = {  }
+	}
+}
+###############################################
+# In Memoriam, HRH King Fu`ad (was 552015,8500003 by OHgamer)
+###############################################
+event = { 
+	id = 3189003
+	random = no
+	country = EGY
+
+	name = EVT_3189003_NAME # The death of King Fu'ad (1917-1936)
+	desc = EVT_3189003_DESC 
+	style = 0 
+
+	date = { day = 0 month = february year = 1936 } 
+	offset = 15
+	deathdate = { day = 0 month = august year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3189003A # The nation grieves its loss
+		command = { type = dissent value = -15 }
+		command = { type = headofstate which = 512012 } #King Faruq
+	}
+}
+
+###############################################
+# Egyptian Armament Program
+###############################################
+event = { 
+	id = 3189004
+	random = no
+	country = EGY
+
+	name = EVT_3189004_NAME 
+	desc = EVT_3189004_DESC 
+	style = 0 
+
+	date = { day = 18 month = november year = 1938 } 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME3189004A # 
+		command = { trigger = { ai = no } type = money value = -50 }
+		command = { type = dissent value = -1  }
+		command = { type = supplies value = 500 }
+		command = { type = construct which = ic where = 787 value = 1   }
+	}
+}

@@ -1,0 +1,1418 @@
+# Naval AI, Kane, July 2 2011
+# converted to DH, Kane, June 4 2011
+# German 1936 AI File by Lothos adapted to TRP 
+
+switch = no # [yes/no]
+flags = { 
+			NavalTreaty1935 = yes
+		}
+max_front_ratio = 1.2 
+max_garrison_prop = 0.30
+min_garrison_prop = 0.20
+neutrality = 90.000 
+war = 0
+upgrading = 0.00	#0.15 verzögert auf 39
+reinforcement = 0.00	#0.25 verzögert auf 39
+desperation = 1.0
+strat_redeploy_threshold = 50
+max_redeploying = 0.15
+exp_force_ratio = 0.0
+exp_force_ratios = { } 
+no_exp_forces_to = { JAP SIA MAN VIC }
+use_offensive_supply = yes
+
+###################################
+# Diplomacy
+###################################
+combat = { }
+
+demand_claims = {
+	POL
+	AUS
+	CZE
+}
+befriend = {
+	SLO = 50
+	U01 = 20
+	ITA = 150 
+	SWE = 30
+	FIN = 30
+	JAP = 30
+	POR = 10
+	TUR = 30
+	DEN = 40
+	HUN = 60
+	ROM = 50
+	BUL = 50
+	NOR = 20
+}
+protect = {
+	ROM = 80
+	BUL = 80 
+	SWE = 80
+	SCH = 80
+	AUS = 300
+	POL = 80
+	SLO = 80
+	NOR = 80
+	ITA = 80
+	TUR = 80
+}
+target = { 
+	#Austria
+	189 = 80 # Innsbruck
+	192 = 80 # Salzburg
+	191 = 80 # Klagenfurt
+	187 = 80 # Linz
+	186 = 80 # Freistadt
+	194 = 80 # Hollabrunn
+	195 = 80 # Vienna
+	188 = 80 # Eisenstadt
+	193 = 80 # St. Poelten
+	190 = 80 # Graz
+
+	#Czech
+	200 = 60 # Liberec
+	205 = 60 # Karlovy Vary
+	204 = 60 # Prachatice
+	197 = 60 # Znojmo
+
+	#Poland
+	181 = 50 # Danzig
+
+	#Baltic States
+	261 = 50 # Klaipeda
+} 
+trade = {
+	cancel_deal_threshold = 2
+
+	energy 		= -1
+	rare_materials 	= -1
+	metal 		= -1
+	oil 		= -1
+	supplies 	= -1
+	money 		= -1
+
+	favored = {
+		SWE = 150
+		FIN = 100
+		ROM = 150
+		ITA = 150
+		HUN = 120
+		YUG = 100
+		U01 = 80
+		BUL = 100
+		JAP = 50
+		CHI = 50
+		SLO = 80
+                CRO = 150
+	}
+	embargo = { }
+}
+tech_sharing = {
+	favored = {
+		ROM = 120
+		SLO = 80
+		BUL = 100
+		HUN = 100
+		U01 = 120
+		YUG = 50
+		ITA = 150
+		SWE = 50
+		FIN = 120
+		JAP = 150
+		TUR = 100
+                CRO = 150
+	}
+	embargo = {
+		ENG FRA AST CAN NZL
+	}
+	not = { }
+	prioritized = {
+		# Agriculture
+		5020 = 100
+		5030 = 100
+		5040 = 100
+
+		# Inf support
+		1310 = 100
+		1320 = 100
+		1330 = 100
+		1340 = 100
+		1350 = 100
+		1360 = 100
+
+		# Production
+		5050 = 100
+		5060 = 100
+		5070 = 100
+		5080 = 100
+		5090 = 100
+		5100 = 100
+		5110 = 100
+		5120 = 100
+		5130 = 100
+		5150 = 100
+		5180 = 100
+
+		# Motorized
+		1230 = 100
+		1240 = 100
+		1250 = 100
+
+		# CAS
+		4170 = 100
+		4280 = 100
+		4180 = 100
+
+		# Medium tanks
+		2630 = 100
+		2640 = 100
+		2650 = 100
+		2660 = 100
+		2670 = 100
+		2680 = 100
+		2690 = 100
+
+		# Light tanks
+		2550 = 100
+		2560 = 100
+		2570 = 100
+		2580 = 100
+		2590 = 100
+		2600 = 100
+		2610 = 100
+		2620 = 100
+
+		
+
+		# Submarines
+		3700 = 100
+		3710 = 100
+		3720 = 100
+		3730 = 100
+		3740 = 100
+		3750 = 100
+		3760 = 100
+
+		# Mechanized
+		11750 = 100
+		1260 = 100
+		1270 = 100
+		1280 = 100
+		1290 = 100
+	}
+}
+###################################
+# Spying
+###################################
+spyprefs =
+{
+	percentage_on_spies 		= 0.9
+	percentage_foreign_mission 	= 0.8
+
+	# Used for Intell efficiency and for setting minimum chance to succeed for the AI to do that particular type of mission
+	spyprefsdata = 
+	{
+		NumberOfSpies = 12
+		min_number_of_spies = 3
+		steal_blueprint = 10
+		minister_assassination = 5
+		smear_campaign 	= 10
+		coup = 3
+		sabotage_industry = 10
+		nuclear_sabotage = 5
+		found_partisans	= 10
+		massmedia = 10
+		disrupt_techteam = 10
+		country = GER
+	}
+	spyprefsdata = {
+		country_priorities	= 10
+		steal_blueprint 	= 6
+		minister_assassination 		= 1
+		smear_campaign 		= 5
+		coup 				= 1
+		sabotage_industry 	= 6
+		nuclear_sabotage 	= 0
+		found_partisans		= 3
+		massmedia 			= 1
+		disrupt_techteam 	= 6
+		country 			= SOV
+	}
+	spyprefsdata = {
+		country_priorities	= 8
+		steal_blueprint 	= 10
+		minister_assassination          = 1
+		smear_campaign 		= 4
+		coup 				= 1
+		sabotage_industry 	= 5
+		nuclear_sabotage	= 0
+		found_partisans 	= 0
+		massmedia 			= 0
+		disrupt_techteam 	= 5
+		country 			= ENG
+	}
+	spyprefsdata = {
+		country_priorities	= 5
+		steal_blueprint 	= 10
+		minister_assassination          = 1
+		smear_campaign 		= 4
+		coup 				= 1
+		sabotage_industry 	= 5
+		nuclear_sabotage 	= 0
+		found_partisans 	= 0
+		massmedia 			= 0
+		disrupt_techteam	= 5
+		country 			= USA
+	}
+	spyprefsdata = {
+		country_priorities	= 5
+		steal_blueprint 	= 10
+		minister_assassination          = 1
+		smear_campaign 		= 4
+		coup 				= 1
+		sabotage_industry 	= 5
+		nuclear_sabotage 	= 0
+		found_partisans 	= 0
+		massmedia 			= 0
+		disrupt_techteam	= 5
+		country 			= FRA
+	}
+	spyprefsdata = {
+		country_priorities	= 2
+		steal_blueprint 	= 1
+		minister_assassination 		= 1
+		smear_campaign 		= 4
+		coup 				= 1
+		sabotage_industry 	= 5
+		nuclear_sabotage 	= 0
+		found_partisans 	= 0
+		massmedia 			= 1
+		disrupt_techteam	= 5
+		country 			= YUG
+	}
+	spyprefsdata = {
+		country_priorities	= 2
+		steal_blueprint 	= 1
+		minister_assassination 		= 1
+		smear_campaign 		= 4
+		coup 				= 1
+		sabotage_industry 	= 5
+		nuclear_sabotage 	= 0
+		found_partisans 	= 0
+		massmedia 			= 1
+		disrupt_techteam	= 5
+		country 			= SPR
+	}
+}
+###################################
+# Construction and Tech Research
+###################################
+construction = { 
+	max_factor = 1.00 #0.15
+
+	AA_batteries = no #yes
+	max_AA_level = 8
+	AA_provs = { 
+		152 	# Kiel
+		153	# Rostock
+		154 	# Hamburg
+		146 	# Hannover
+		147 	# Wilhelmshafen
+		141 	# Munster
+		137	# Kassel
+		140 	# Schweinfurt
+		144 	# Dortmund
+		145	# Essen
+		142	# Dusseldorf
+		126	# Aachen
+		131	# Cologne
+		127	# Saarbrucken
+		128	# Trier
+		130	# Mainz
+		109	# Luxembourg
+		138	# Frankfurt
+		139	# Darmstadt
+		134	# Suttgart
+		136	# Karlsruhe
+		177	# Nuremberg
+		179	# Munich
+		173	# Dresden
+		170	# Leipzig
+		163	# Berlin
+		169	# Magdeburg
+		195	# Vienna
+	}
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = {
+	} 
+
+	radar_station = no #yes
+	max_radar = 1
+	radar_provs = {
+		145 # Essen
+		142 # Dusseldorf
+		137 # Kassel
+		147 # Wilhemshafen
+		163 # Berlin
+		134 # Stutgart
+		152 # Kiel
+	} 
+
+	air_base = no #atwar
+	max_air_base = 3
+	air_base_provs = {
+		145 # Essen
+	} 
+
+	naval_base = no #yes 
+	max_naval_base = 5
+	naval_base_provs = { 
+		153 # Rostock
+	} 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { }
+	fort_provs	= {
+		127	# Saarbrucken
+		130	# Mainz
+		132	# Freiburg
+	}
+
+	ic_at_war = no
+	force_ic_until = 1938
+	ic_end_year = 1938
+	IC_provs = {
+		127	# Saarbrucken
+		179	# Munich
+		163	# Berlin
+		131	# Cologne
+		134	# Suttgart
+		146 	# Hannover
+		173	# Dresden
+		170	# Leipzig
+		171	# Erfurt
+		164	# Oppeln
+		167	# Breslau
+		168	# Gleiwitz
+	} 
+	
+	rocket_test = no
+	rocket_test_prov = 162   # Stralsund, Peenemünde
+	max_rocket = 0
+}
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 720 
+	max_batch_war 		= 360 
+	max_batch_home_front 	= 360
+
+	#### Divisions etc...
+	infantry 	= 40
+	d_02		= 4 # will transmute into garrison as long as d_02 has not been activated by territorial losses
+	militia 	= 0
+	cavalry 	= 0
+	motorized 	= 4
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 6
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 2
+	garrison	= 5
+    	hq 		= 3
+
+#				64 %
+	interceptor 	= 5
+	multi_role 	= 4
+	d_01		= 1
+	cas 		= 4
+	strategic_bomber = 0
+	tactical_bomber = 4
+	naval_bomber 	= 2
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				20 %
+	battleship 	= 0
+	carrier 	= 0
+	escort_carrier	= 0
+	destroyer 	= 0
+	light_cruiser 	= 2
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 5
+	nuclear_submarine = 5
+	d_09 = 1
+	d_08 = 0
+	transports 	= 3
+#				16 %
+
+###################################################################################################################################
+# Brigade building scheme for high tech & high IC countries
+# note: numbers don't have to add up to 100%; building probability is path-dependent, i.e. the engine checks this list top-down
+# probabilities and complementary probabilities multiply along this path; brigades not buildable are left aside
+#
+# desired brigade coverage: 100%
+###################################################################################################################################
+#artillery				=	44 # 44% eff. (n.ar.)
+#sp_artillery			=	31 # 31% eff. (mot.) & 31% eff. (ar.)
+#rocket_artillery		=	0 # western countries mustn't build rocket artillery at all; too late in game for AI
+#sp_rct_artillery		=	0 # western countries mustn't build rocket artillery at all; too late in game for AI
+#anti_tank				=	27 # 15% eff. (n.ar.)
+#tank_destroyer			=	29 # 20% eff. (mot.) & 20% eff. (ar.)
+#light_armor_brigade		=	7 # 3% eff. (n.ar.) & 1.5% eff. (mot.)
+#heavy_armor				=	51 # 25% eff. (ar.)
+#super_heavy_armor		=	41 # 10% eff. (ar.)
+#armored_car				=	8 # 3% eff. (n.ar.) & 4% eff. (mot.)
+#anti_air				=	57 # 20% eff. (n.ar.)
+#police					=	20 # 3% eff. (n.ar.) & 8% eff. (mot.)
+#engineer				=	100 # all the rest
+#sp_anti_air				=	0 # there are better brigades for AI built spearhead units
+#b_01					=	0
+						# n.ar.: 88% + engineer => 100%
+						# mot.: 64.5% + engineer => 100%
+						# ar.: 86% + engineer => 100%
+
+artillery				=	30
+sp_artillery			=	5
+rocket_artillery		=	0
+sp_rct_artillery		=	0
+anti_tank				=	10
+tank_destroyer			=	10
+light_armor_brigade		=	5
+heavy_armor				=	5
+super_heavy_armor		=	0
+armored_car				=	5
+anti_air				=	5
+police					=	5
+engineer				=	15
+sp_anti_air				=	0
+b_01					=	5
+
+	cag = 100.000 
+	 light_cag = 100.000 
+	 escort = 100.000
+
+    naval_asw			= 2
+    naval_anti_air_s	= 12
+    naval_radar_s		= 9
+    naval_fire_controll_s = 9
+    naval_improved_hull_s = 9
+    naval_torpedoes_s	= 12
+    naval_anti_air_l	= 9
+    naval_radar_l		= 9
+    naval_fire_controll_l = 9
+    naval_improved_hull_l = 9
+    naval_torpedoes_l	= 11
+}
+
+technology = { 
+	endgoal 	= { 
+		# Logistics
+		1670
+		#Repair techs
+		1680
+		# Infantry
+		11600
+		# Motorized
+		11690
+		# Mechanized
+		11710
+		# Mountain Division
+		11670
+		# Battle Tanks
+		11500
+		# Infantry Tanks
+		11570
+		# Static AA
+		11080
+		# AA brigade
+		11440
+		# Artillery brigade
+		11300
+		# Anti Tank brigade
+		11390
+		# Rocket Artillery brigade
+		11320
+		# SP Artillery brigade
+		11370
+		# Tank Destroyer brigade
+		11420
+		# Destroyers
+		15230
+		# CL
+		15240
+		# Submarines
+		3740
+		# TP
+		15260
+		# Naval ASW brigade
+		3950
+		# Interceptors
+		42009
+		# Multi-Role
+		4200
+		# Long-Range Fighters
+		4260
+		# CAS
+		4280
+		# Tactical B.
+		4470
+		# Naval B.
+		4480
+		# TP planes
+		4510
+		# Construction Techs
+		5100
+		# Manufacturing Tools +  Assembly Line Experimentation + Small Arms Assembly Line
+		5180
+		# Aircraft Assembly Line
+		5140
+		# Small Ships Assembly Line
+		5150
+		# Vehicle Assembly Line
+		5160
+		# Rocket Assembly Line
+		5170
+		# Agriculture
+		13010
+		# Oil Processing
+		13050
+		# Synthetic Oil
+		13080
+		# Computing
+		5340
+		# Encryption
+		5640
+		# Decryption
+		5400
+		# Rocketry + Turbojet
+		5570 5590
+		# Mobility Focus, GER
+		6390
+		# Armored Divisions
+		11590
+		# Hospital System
+		14040
+		# Turbojet Interceptors
+		7320
+		# Turbojet Multi-Role Fighters
+		7520
+		# Turboject Tac. + Nav. Bombers
+		7330
+		# Computers
+		16000
+		# Modern submarines
+		3780
+		# Rockets
+		7100 7110 7120 7130
+		# Helicopters (Hospital)
+		7240
+		# Air-to-Surface Missile (air doctrines)
+		7260
+		# Ground-to-Air Missile (static AA)
+		7270
+		# Surface-to-Air Missile (naval AA)
+		7280
+		# ASW guided missiles
+		7290
+		# Submarines
+		81050 8290 8600
+		# Installation Bombing
+		9570 9870 9970
+		# Ground Attack
+		9270
+		# Air Warfare
+		9110 9190
+		# StuG
+		12000
+					} 
+	preference 	= {
+		# Logistics
+		1310 1320 1330 1620 1630 1670
+		#Repair techs
+		1340 1350 1360 1650 1660 1680
+		# Infantry
+		1010 1020 1030 1040 1050 1060 10000 10010 11600
+		# Motorized
+		10110 1230 1240 1250 10080 10090 11680 11690
+		# Battle Tanks
+		2630 2640 2650 2660 2670 2680 2690 2730 2740 2750 2770 2780 2790 11470 11480 11490 11500
+		# Artillery brigade
+		2290 2300 2310 2320 2330 2340 2350 2360 11290 11300
+		# Anti Tank brigade
+		2400 2410 2420 2430 2440 11070 11380 11390
+		# SP Artillery brigade
+		11720 2220 2230 2240 2250 11030 11040 11350 11360 11370
+		# Submarines
+		3700 15080 3760 3710 3720 3730 3740
+		# Interceptors + Single Engine Design
+		4010 4020 4050 4060 4090 4100 4140 4150 4190 42009 4230 4270
+		# Multi-Role
+		4030 4070 4110 4160 4200 
+		# Long-Range Fighters
+		4320 4360 4130 4180 4220 42209 4260
+		# CAS
+		4040 4080 4120 4170 4210 4250 4280
+		# Tactical B. + Twin Engine Design
+		4290 4300 4330 4340 4380 4390 4420 4430 4460 4470 4500
+		# Construction Techs
+		5080 5090 5100
+		# Manufacturing Tools +  Assembly Line Experimentation + Small Arms Assembly Line
+		5050 5060 5070 5110 5120 5130 5180
+		# Aircraft Assembly Line
+		5140
+		# Vehicle Assembly Line
+		5160
+		# Agriculture
+		5010 5020 5030 5040 13000 13010
+		# Oil Processing
+		5190 5200 5210 5220 5230 5240 13020 13030 13040 13050
+		# Synthetic Oil
+		13070 13080
+		# Computing
+		5310 5320 5330 5340
+		# Encryption
+		5350 5370 5390 13060 5640
+		# Decryption
+		5360 5380 5400
+		# Radar
+		5410 5420 5430 5440 5450 5460 5250 5260 5270 
+		# Rocketry + Turbojet
+		5550 5560 5570 5580 5590
+		# Mobility Focus, GER
+		6300 6310 6320 6330 6340 6350 6360 6370 6380 6390
+		# Armored Divisions
+		2010 2020 2030 2040 2050 2060 2070 2080 2090 2760 11580 11590
+		# Hospital System
+		14000 14010 14020 14030 14040
+		# Computers
+		7140 7150 7160 16000
+		# Modern submarines
+		7560 3750 3770 3780
+		# Rockets
+		7100 7110 7120 7130
+		# Submarines
+		8610 8620 8630 8640 8650 81050
+		8240 8250 8260 8270 8280 8290
+		8550 8560 8570 8580 8590 8600
+		# Ground Attack
+		9200 9210 9220 9230 9240 9250 9260 9270
+		# Air Warfare
+		9040 9050 9060 9070 9080 9090 9100 9110
+		9120 9130 9140 9150 9160 9170 9180 9190
+		# Basic Air Missions
+		9010 9020 9030
+		# StuG
+		12000
+					} 
+	ignore 	= {
+		###### Infantry
+		
+		# Marines
+		1150 1160 1170 1180 10060 10070 11640 11650
+		
+		
+		###### Armor + artillery
+		
+		# SPAA brigade
+		11100 11110 11120 11130 11140 11150 11450 11460		
+		# SP Rocket Artillery brigade
+		2260 2270 2280 11050 11060 11330 11340
+		
+		
+		###### Naval		
+		
+		# BC
+		3370 3400 3450 3460 3550 3570		
+		# BB
+		3380 3410 3420 3470 3500 3530 15120		
+		# CVE
+		3210 3240 3270 15020 3300 3340 15070		
+		# CVL
+		15060		
+		# CV + Carrier design after Graf Zeppelin
+		3250 3260 15000 15010 3280 3290 3320 3330 15030 15040
+		
+		
+		###### Aircraft
+				
+		# Strat. B.
+		4520 4530 4540 4560 4630 4640				
+		
+		
+		###### Industry
+		
+		# Capital Ships Assembly Line
+		5280
+		
+		
+		###### Secret Weapons
+		
+		# Turbojet Strat. Bombers
+		7080 7340		
+		# Heavy Battleships
+		7530 7540		
+		# WW1 Monitor
+		7550		
+		# Nuclear BB
+		7200		
+		# Nuclear BC
+		7250		
+		# Nuclear CA
+		7210		
+		# Nuclear CV
+		7220	
+		# Nuclear SS
+		7230
+		# CV Port Strike
+		7570
+		
+		
+		###### Naval doctrines
+		
+		# Carriers
+		8010 8020 8030 8040 8050 8060
+		8300 8310 8320 8330 8340 8350
+		8710 8720 8730 8740 8750 8950		
+		# Amphibious Man.
+		8810 8820 8830 8840 8850 8860		
+		# Naval Logistics
+		82500 82510 82520 82530 82540 82550
+		
+		
+		###### Air doctrines
+		
+		# Naval Bombing
+		9700 9710 9720 9730 9740 9750 9760 9770
+		9300 9310 9320 9330 9340 9350 9360 9370		
+		# Strategic Bombing
+		9400 9410 9420 9430 9440 9450 9460 9470
+	}
+ 
+	armor 		= 6 
+	infantry 	= 6
+	industry 	= 6
+	aircraft 	= 5
+	naval 		= 2
+	land_doctrines 	= 7
+	secret_weapons 	= 2
+	air_doctrines 	= 3
+	naval_doctrines = 1
+}  
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+leader_ratio = {
+ land_field_marshal =0.051
+ land_general =0.101
+ land_lt_general =0.201
+
+ sea_grand_admiral =0.05
+ sea_admiral =0.067
+ sea_vice_admiral =0.1
+
+ air_marshal = 0.1
+ air_general = 0.16
+ air_lt_General = 0.267
+}
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier 	= 1.0
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.3
+
+	# PRIORITIES:
+	beach			= 0	# Beach level 2
+	capital			= 40	# Our capital
+	human_border	= 10	# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		FIN = -1
+		ITA = -1
+		SCH = -1
+		AUS = -1
+		CZE = 75
+		POL = 100
+		YUG = 25
+		HOL = 5
+		BEL = 25
+		DEN = 25
+		SOV = 25
+		FRA = 80
+		}
+	ignore = {
+		#Rhine
+		131 #Cologne
+		127 #Saarburken
+		126 #Aachen
+	}
+	province_priorities = {
+		#Rhine border
+		138 = 30 #Frankfurt
+		137 = 30  #Kassel
+		144 = 30  #Dortmund
+		145 = 30  #Essen
+	}
+	area_multiplier = {
+		183 = 3.5 # Elbing
+		185 = 3.5 # Allenstein, new province in East Prussia
+		184 = 3.5 # Königsberg in order to get a decent build-up before Fall Weiss.
+		182 = 3.5 # Tilsit, new province in East-Prussia
+	}
+}
+front = { 
+	recklessness 		= 2 # 0-3
+	distrib_vs_ai 		= even
+	distrib_vs_human 	= even
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.07
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+	support_defense_prop	= 0.14
+
+	enemy_handicap = {
+		FRA = 300
+		BEL = 300
+		HOL = 300
+		LUX = 300
+	} 
+	passivity = {
+		FRA = 100
+		BEL = 100
+		HOL = 100
+		LUX = 100
+	}
+} 
+###################################
+# Air bombardment and defense
+###################################
+# Air AI File For Ground Bombings as priority
+# bomber is now obsolete and NOT USED AT ALL replace and use Air Marshal instead
+
+air_marshal = {
+	min_mission_strength_org	= 0.8
+	icxdayscostfactor 		= 10.0		# How to value true industrial cost when calculating expect causalties
+	manpowercostfactor		= 100.0		# How to value manpower cost when calculating expect causalties
+	destructionriskthreashold 	= 0.2		# when to fear a divisiopn might be destroyed
+
+	# desirability is a multiplier used when calcualting the mission desirability
+	airsuperioritydesirability 		= 30.0
+	groundattackdesirability 		= 5.0
+	inderdictiondesirability 		= 20.0
+	logisticalstrikedesirability 	= 2.0
+	runwaycrateringdesirability 	= 0.0
+	strategicstrikedesirability 	= 1.0
+	installationstrikedesirability 	= 1.0
+	navalstrikedesirability 		= 5.0
+	portstrikedesirability 			= 3.0
+	convoyraiddesirability			= 3.0
+
+	# tolerance is the required kill:loss ration expected to do 
+	#    mission, 2.0 accept twice the losses of your enemy, 0.5 accept half
+	airsuperioritylosstolerance 	= 1.0
+	groundattacklosstolerance 	= 1.0
+	interdictionlosstolerance 	= 2.0
+	logisticalstrikelosstolerance 	= 0.5
+	runwaycrateringlosstolerance 	= 1.5
+	strategicstriketolerance 	= 4.5
+	installationstriketolerance 	= 1.5
+	navalstriketolerance 		= 1.0
+	portstriketolerance 		= 1.0
+	convoyraidtolerance		= 1.0
+
+	# efficency is a tweakable param to adjust according to how 
+	#    much actual damage comes from doing this mission (not to be confused with desirability)
+	logisticalstrikeefficency 	= 0.01
+	runwaycrateringefficency 	= 0.01
+	strategicstrikeefficency 	= 0.01
+	installationstrikeefficency = 0.01
+
+	taskforcetype =
+	{ 
+		name = "Air Superiority" 
+		desiredratio = 0.350 
+		rangeweight = 1.000 
+		airkillpowerweight = 2000.000 
+		hardkillpowerweight = 0.000 
+		softkillpowerweight = 0.000 
+		navalkillpowerweight = 0.000 
+		strategickillpowerweight = -1000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = -1.000 
+		surfacevulnurabilityweight = 0.000 
+		idle = yes 
+		reorganize = yes
+		air_superiority = yes
+	}
+	taskforcetype =
+	{ 
+		name = "Air Sup. and Ground" 
+		desiredratio = 0.150 
+		rangeweight = 1.000 
+		airkillpowerweight = 2000.000 
+		hardkillpowerweight = 500.000 
+		softkillpowerweight = 500.000 
+		navalkillpowerweight = 500.000 
+		strategickillpowerweight = -1000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = -1.000 
+		surfacevulnurabilityweight = 0.000 
+		idle = yes 
+		reorganize = yes
+		air_superiority = yes
+		interdiction = yes 
+		ground_attack = yes
+		convoy_air_raiding = yes
+	}
+	taskforcetype = 
+	{ 
+		name = "Soft Bombing" 
+		desiredratio = 0.150 
+		rangeweight = 10.000 
+		airkillpowerweight = 0.000 
+		hardkillpowerweight = 0.000 
+		softkillpowerweight = 2000.000 
+		navalkillpowerweight = 0.000 
+		strategickillpowerweight = -1000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = 0.000 
+		surfacevulnurabilityweight = -1.000 
+		idle = yes 
+		reorganize = yes 
+		interdiction = yes 
+		ground_attack = yes
+	} 
+	taskforcetype = 
+	{ 
+		name = "Hard Bombing" 
+		desiredratio = 0.150 
+		rangeweight = 1.000 
+		airkillpowerweight = 0.000 
+		hardkillpowerweight = 2000.000 
+		softkillpowerweight = 0.000 
+		navalkillpowerweight = 0.000 
+		strategickillpowerweight = -1000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = 0.000 
+		surfacevulnurabilityweight = -1.000 
+		idle = yes 
+		reorganize = yes 
+		interdiction = yes 
+		ground_attack = yes
+	} 
+	taskforcetype = 
+	{ 
+		name = "Strategic Bombing" 
+		desiredratio = 0.050 
+		rangeweight = 30.000 
+		airkillpowerweight = 0.000 
+		hardkillpowerweight = 0.000 
+		softkillpowerweight = 0.000 
+		navalkillpowerweight = 0.000 
+		strategickillpowerweight = 2000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = -0.500 
+		surfacevulnurabilityweight = -0.500 
+		idle = yes 
+		reorganize = yes 
+		logistical_strike = yes 
+		runway_cratering = yes 
+		strategic_bombardment = yes 
+		installation_strike = yes
+	}
+	taskforcetype = 
+	{ 
+		name = "Naval Bombing" 
+		desiredratio = 0.100 
+		rangeweight = 10.000 
+		airkillpowerweight = 0.000 
+		hardkillpowerweight = 0.000 
+		softkillpowerweight = 0.000 
+		navalkillpowerweight = 2000.000 
+		strategickillpowerweight = -1000.000 
+		transportcapacityweight = -1000000.000 
+		airvulnurabilityweight = 0.000 
+		surfacevulnurabilityweight = -1.000 
+		idle = yes 
+		reorganize = yes 
+		naval_strike = yes 
+		port_strike = yes 
+		convoy_air_raiding = yes
+	}
+	taskforcetype =
+	{
+		name = "Airlift" 
+		desiredratio = 0.050 
+		rangeweight = 10.000 
+		airkillpowerweight = 0.000 
+		hardkillpowerweight = -2000.000 
+		softkillpowerweight = -2000.000 
+		navalkillpowerweight = 0.000 
+		strategickillpowerweight = -2000.000 
+		transportcapacityweight = 1000000.000 
+		airvulnurabilityweight = -1.000 
+		surfacevulnurabilityweight = 0.000 
+		idle = yes 
+		reorganize = yes 
+		airborne_assault = yes 
+		air_supply = yes
+	} 
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+ 	base		= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random		= 8.0	#How big a random range.  (1.0 = 1%)
+	coastal		= 0.1	#increase to avoid coastal forts more.
+	beach		= 0.1	#higher, avoid worst beaches.
+	distance	= 0.1	#higher = avoid long distance.
+	max_distance    = 25.0  #About the distance from Rostock to Narvik
+	pocket		= 20.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island		= 0.1	#prioritise taking pure islands.
+	enemy		= 2.0	#higher = much more vary of troops in province.
+	adjacentenemy 	= 2.0	#higher = much more vary of troops nearby
+	air_base	= 1.5 
+  	naval_base 	= 0.1 
+  	air_support 	= 3.0 
+  	redirect 	= priority
+	ignore		= no
+	help_allies 	= no
+      
+	target = { 
+		#Norway
+		483 = 4000 # Oslo
+		485 = 4000 # Kristiansand
+		487 = 4000 # Stavanger
+		488 = 1000 # Bergen
+		495 = 4000 # Narvik
+		491 = 3000 # Alesund
+		490 = 3000 # Andalsnes
+		493 = 3750 # Trondheim
+		494 = 3000 # Bodo
+
+		#Sweden
+		2153 = 4000 # Goterborg
+		2152 = 4000 # Malmo
+		2155 = 3000 # Kalmar
+		2159 = 3750 # Stockholm
+		2158 = 3750 # Uppsala
+		2162 = 3750 # Gavle
+		2165 = 3000 # 2165
+		2166 = 4000 # Lulea
+
+		#Finland
+		525 = 2000 # Helsinki
+		524 = 2000 # Turku
+		521 = 2000 # Vaasa
+		520 = 2000 # Oulu
+		512 = 2000 # Pori
+	} 
+} 
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 90    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 70 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+	min_core_attack_fleets  = 0	# Minimum amount of attack fleets to defend CORE provinces (default 0)
+	num_attack_fleets	= 3 	# ENG/USA default 3, JAP default 2 everyone else is 1
+
+
+	ignore = {
+		#Murmansk/Archangel
+		"Barents Sea"
+		"Arctic Ocean"
+		
+		#Norway Coast (Denmark Coast)
+		"Norwegian Sea"
+		"East North Sea"
+		
+		#North Sea, East Coast of England
+		"Central Northsea"
+		"West Northsea"
+		"Southeast Northsea"
+		
+		#England/France border Sea Areas
+		"English Channel"
+		"Bay of Biscay"
+		"Cape Finisterre"
+		
+		#Spanish Coase (Atlantic Side)
+		"Portugese Coast"
+		"Cap St Vincent"
+		
+		#Iceland
+		"Faroes Gap"
+		"Denmark Strait"
+		
+		#Ireland/West Coast of England
+		"Irish Sea"
+		"The Hebreides"
+		"Irish West Coast"
+		
+		#Greenland
+		"Greenland Coast"
+		"Northern Sea of Labrador" 
+		"Southern Sea of Labrador"
+		
+		#Canada East Coast
+		"Hudson Bay"
+		"Grand Banks"
+		"Canadian Maritimes"
+		
+		#Western Mediterranean
+		"Costa del Sol"
+		"Gulf of Lyon"
+		"Algerian Coast"
+		
+		#Central Mediterranean
+		"Tyrrhenian Sea"
+		"Adriatic Sea"
+		
+		#Eastern Mediterranean
+		"Black Sea"
+		"Aegean Sea"
+		"Egyptian Coast"
+		
+		#North Atlantic
+		"North Atlantic"
+		"Western Approaches"
+		"The Seamounts"
+		"Azores"
+		
+		#Central Atlantic
+		"Central Atlantic"
+		"Central Mid-Atlantic Ridge"
+		"Bermuda Triangle"
+		"Guiana Basin"
+		"South-Central Mid-Atlantic Ridge"
+		"Cap Verde"
+		
+		#South Atlantic
+		"Pernambuco Plain"
+		"Ascension Fracture Zone"
+		"Argentine Plain"
+		"Angola Plain"
+		
+		#Caribbean Sea and Guilf of Mexico
+		"West Gulf of Mexico"
+		"East Gulf of Mexico" 
+		"Florida Strait"
+		"Yucatan Strait"
+		"Windward Islands"
+		"Central Carribean"
+		
+		#Brazil and Argentina Coast
+		"Coast of Guyana"
+		"Coast of Recife" 
+		"Coast of Uruguay"
+		"Coast of Brazil"
+		"Coast of Argentina"
+		
+		# West Africa
+		"Coast of Africa"
+		"Coast of Bissao" 
+		
+		#Equitorial Africa
+		"Gulf of Guinea"
+		"Coast of Angola-Namibia"
+		
+		#South Africa
+		"Coast of South Africa"
+		"Atlantic-Indian Ridge"
+		
+		#East Africa
+		"Red Sea"
+		"Horn of Africa"
+		
+		#Madagascar Coast
+		"South Mozambique Channel"
+		"North Mozambique Channel" 
+		"Northeast Coast of Madagascar"
+		"Southeast Coast of Madagascar" 
+		
+		#North Indian Ocean (Persian Gulf)
+		"Persian Gulf"
+		"North Arabian Sea"
+		"South Arabian Sea" 
+		"Coast of Ceylon"
+		
+		#Central/South Indian Ocean
+		"Mascarene Plateau"
+		"Mid-Indian Ridge" 
+		"Ninetyeast Ridge" 
+		"Southeast Indian Ocean"
+		"Southwest Indian Ocean" 
+		
+		#Bay of Bengal & West Indonesia
+		"East Bay of Bengal"
+		"West Bay of Bengal"
+		"Malacca Strait"
+		"Java Ridge"
+		"Java Trench"
+		
+		#Indo-China, Borneo, Phillipenes
+		"Gulf of Siam"
+		"Coast of Indochina"
+		"Spratly Sea"
+		"Coast of Brunei"
+		"Flores Sea"
+		"Sulu Sea"
+		"Celebes Sea"
+		"Luzon Strait"
+		
+		#China Coast
+		"Taiwan Strait"
+		"Yellow Sea"
+		
+		#Japanese Coast
+		"Sea of Japan"
+		"Ryukyus"
+		"Coast of Japan"
+		"South Sea of Okhotsk"
+		"West Sea of Okhotsk" 
+		"East Sea of Okhotsk" 
+		
+		#Mariana Basin, Phillipenes
+		"Philipine Trench"
+		"Central Philippine Sea"
+		"Mariana Trench"
+		"East Mariana Basin"
+		"Mid-Pacific Mountains"
+		"North Bismarck Sea"
+		
+		#New Guinea, East/North Australia and New Zealan
+		"Coast of New Guinea"
+		"Molucca Sea"
+		"Banda Sea"
+		"Arafura Sea"
+		"South Bismarck Sea"
+		"Solomon Sea"
+		"West Coral Sea"
+		"East Coral Sea" 
+		"North Tasman Sea"
+		"South Tasman Sea" 
+		"East Cost of New Zealand"
+		
+		# South and West Australia
+		"Timor Sea"
+		"West Coast of Australia"
+		"East Great Australian Bight"
+		"West Great Australian Bight" 
+		
+		#North Pacific
+		"Coast of Kamchatka"
+		"East Bering Sea"
+		"West Bering Sea" 
+		"Aleutians"
+		"Northwest Pacific Basin"
+		"North Northeast Pacific Basin"
+		
+		#Central Pacific
+		"Hawaiian Rise"
+		"North East Pacific Ocean"
+		"Marshalls Sea"
+		"South East Pacific Ocean"
+		"Marianas"
+		"Western Solomons"
+		"Eastern Solomons"
+		"US Maritimes"
+		"Carolines"
+		
+		#South Pacific
+		"Gilberts"
+		"Line Islands"
+		"Fiji Basin"
+		"Southwest Pacific Basin"
+		
+		# South American West Coast
+		"Southeast Pacific Basin"
+		"West Coast of Chile"
+		"West Coast of Peru"
+		"South Southeast Pacific Ocean"
+		"North Southeast Pacific Ocean"
+		
+		# USA West Coast
+		"Gulf of Alaska"
+		"West Coast of the United States"
+		
+		#West Coast of Mexico
+		"West Coast of Mexico"
+		"West Coast of Central America"
+	}
+	#Which provinces to use as bases..
+	base = {
+		147 # Wilhelmshaven
+		148 # Bremen
+		151 # Lübeck
+		154 # Hamburg
+		152	# Kiel
+		153	# Rostock
+		162 # Stralsund
+		158 # Stettin
+		183	# Elbing
+		184	# Königsberg
+		182	# Tilsit
+		181	# Danzig
+		217	# Aalborg
+		495	# Narvik
+		483 # Oslo
+		#125 # Rotterdam
+		#115 # Antwerpen
+		#114 # Bruges
+		#43	# Cherbourg
+		37	# Brest
+		68	# Bordeaux
+	}
+	target = { 
+		#2691 = 200
+		2694 = 200
+		2688 = 100
+		2695 = 150
+		290 = 150
+		
+		# Baltic Sea
+		2718 = 50
+		2719 = 50
+		2720 = 50
+		2721 = 50
+		2722 = 50
+		2723 = 50
+		2724 = 50
+		2725 = 50
+		2726 = 50
+		2727 = 50
+		2728 = 50
+		} 
+	core = { 
+		2692
+		2693
+		2696
+		2718
+		2719
+		} 
+}

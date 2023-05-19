@@ -1,0 +1,329 @@
+# USA is planning D-Day so lets help
+# Converted to DH Map by Dendro 2011-May-23
+
+exp_force_ratio = 0.90
+exp_force_ratios = {
+	USA = 1.0
+} 
+no_exp_forces_to = { }
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 0.0
+	overseas_multiplier  = 0.0
+	home_peace_cap 		= 0
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.0
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 10	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 10	
+
+	opposing_alliance	= 0		# For neutrals, all alliances are "opposing"
+	claim_threat		= 0		# If we are neutral, countries with claims on us get this
+	unstable_border		= 0		# Bordering countries at war with someone else get this
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion		= yes
+ 	base			= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random			= 10.0	#How big a random range.  (1.0 = 1%)
+	coastal			= 0.1	#increase to avoid coastal forts more.
+	beach			= 0.1	#higher, avoid worst beaches.
+	distance		= 0.1	#higher = avoid long distance.
+	max_distance  	= 150.0  #About the distance from Washington to Morocco
+	max_staging_distance = 25	# How far should the staging area be from the target invasion point
+	pocket			= 0.1	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island			= 0.1	#prioritise taking pure islands.
+	enemy			= 0.1	#higher = much more vary of troops in province.
+	adjacentenemy 	= 0.0	#higher = much more vary of troops nearby
+	air_base		= 0.0 
+    naval_base 		= 0.0 
+    air_support 	= 0.0 
+    redirect 		= priority
+	ignore			= no
+	help_allies 	= yes
+      
+	staging_province = {
+		27  # Portsmouth
+		23  # Plymouth
+	}
+	target = {
+		#England
+		26 = 6000 # Dover
+		25 = 6000 # Norwich
+		27 = 6000 # Portsmouth
+		23 = 6000 # Plymouth
+		36 = 6000 # Belfast
+		20 = 6000 # Exeter
+		19 = 6000 # Bristol
+		17 = 6000 # manchester
+		16 = 6000 # Lincoln
+		15 = 6000 # Hull
+		14 = 6000 # carisle
+		13 = 6000 # Sunderland
+		12 = 6000 # Edinburgh
+		11 = 6000 # Glasgow
+		10 = 6000 # Dumfries
+
+		# Atlantic Wall
+		217 = 700 	# Arlborg
+		220  = 700 	# Arhus
+		216  = -1 	# abenra
+		152  = -1   	# Kiel
+		124  = -1 	# groningen
+		
+		122  = 1750 # Amsterdam
+		123  = 1750 # Middleburg
+		125  = 1750 # Rotterdam
+		114  = 1750 # bruges
+				
+		49  = 2900 # Calais
+		53  = 2900 # Dieppe
+		51  = 2900 # Dunkerque
+		38  = 2950 # Rennes
+		41  = 2950 # St. Brieuc
+		44  = 3000 # Caen
+		45  = 3000 # Le Havre
+		46  = 3000 # Bayeux
+		
+		37  = 2900 # Brest
+		39  = 2900 # Lorient
+		
+		40  = -1 	# St Nazaire
+		57  = -1 	# Nantes
+		68 = 2800 	# Bordeaux
+		67 = 2800 	# Mont-de-Marsan
+		80 = -1
+		79 = -1
+		82 = 2000	# Montpellier
+		89 = 2000	# Marseilles
+		86 = 2000	# Toulon
+	}
+} 
+admiral = { 
+	target = { 
+		2648 = 200
+		2650 = 200
+		} 
+	core = {
+		2649
+		2651
+		2335
+		2334
+		2324
+		2326
+		2325
+		2327
+		2313
+		2329
+		2333
+		2332
+		2331
+		2653
+		2652
+		2288
+		2658
+		2660
+		2656
+		2657
+		2659
+		2284
+		2285
+		2706
+		2707
+		2711
+		2675
+		2717
+		2713
+		2715
+		2710
+		2704
+		2702
+		2701
+		2709
+		2700
+		2699
+	} 
+	ignore = {
+		#Baltic Area
+		"Northern Baltic"
+		"Southern Baltic" 
+		"Bothnian Bay"
+		
+		#Murmansk/Archangel
+		"Barents Sea"
+		"Arctic Ocean"
+		
+		#Norway Coast (Denmark Coast)
+		"Norwegian Sea"
+		"East North Sea"
+		"Kattegat"
+		
+		#North Sea, East Coast of England
+		"Central Northsea"
+		"West Northsea"
+		"Southeast Northsea"
+		
+		#Western Mediterranean
+		"Costa del Sol"
+		"Gulf of Lyon"
+		"Algerian Coast"
+		
+		#Central Mediterranean
+		"Tyrrhenian Sea"
+		"Adriatic Sea"
+		
+		#Eastern Mediterranean
+		"Black Sea"
+		"Aegean Sea"
+		"Egyptian Coast"
+		
+		#Brazil and Argentina Coast
+		"Coast of Guyana"
+		"Coast of Recife" 
+		"Coast of Uruguay"
+		"Coast of Brazil"
+		"Coast of Argentina"
+		
+		# West Africa
+		"Coast of Africa"
+		"Coast of Bissao" 
+		
+		#Equitorial Africa
+		"Gulf of Guinea"
+		"Coast of Angola-Namibia"
+		
+		#South Africa
+		"Coast of South Africa"
+		"Atlantic-Indian Ridge"
+		
+		#East Africa
+		"Red Sea"
+		"Horn of Africa"
+		
+		#Madagascar Coast
+		"South Mozambique Channel"
+		"North Mozambique Channel" 
+		"Northeast Coast of Madagascar"
+		"Southeast Coast of Madagascar" 
+		
+		#North Indian Ocean (Persian Gulf)
+		"Persian Gulf"
+		"North Arabian Sea"
+		"South Arabian Sea" 
+		"Coast of Ceylon"
+		
+		#Central/South Indian Ocean
+		"Mascarene Plateau"
+		"Mid-Indian Ridge" 
+		"Ninetyeast Ridge" 
+		"Southeast Indian Ocean"
+		"Southwest Indian Ocean" 
+		
+		#Bay of Bengal & West Indonesia
+		"East Bay of Bengal"
+		"West Bay of Bengal"
+		"Malacca Strait"
+		"Java Ridge"
+		"Java Trench"
+		
+		#Indo-China, Borneo, Phillipenes
+		"Gulf of Siam"
+		"Coast of Indochina"
+		"Spratly Sea"
+		"Coast of Brunei"
+		"Flores Sea"
+		"Sulu Sea"
+		"Celebes Sea"
+		"Luzon Strait"
+		
+		#China Coast
+		"Taiwan Strait"
+		"Yellow Sea"
+		
+		#Japanese Coast
+		"Sea of Japan"
+		"Ryukyus"
+		"Coast of Japan"
+		"South Sea of Okhotsk"
+		"West Sea of Okhotsk" 
+		"East Sea of Okhotsk" 
+		
+		#Mariana Basin, Phillipenes
+		"Philipine Trench"
+		"Central Philippine Sea"
+		"Mariana Trench"
+		"East Mariana Basin"
+		"Mid-Pacific Mountains"
+		"North Bismarck Sea"
+		
+		#New Guinea, East/North Australia and New Zealan
+		"Coast of New Guinea"
+		"Molucca Sea"
+		"Banda Sea"
+		"Arafura Sea"
+		"South Bismarck Sea"
+		"Solomon Sea"
+		"West Coral Sea"
+		"East Coral Sea" 
+		"North Tasman Sea"
+		"South Tasman Sea" 
+		"East Cost of New Zealand"
+		
+		# South and West Australia
+		"Timor Sea"
+		"West Coast of Australia"
+		"East Great Australian Bight"
+		"West Great Australian Bight" 
+		
+		#North Pacific
+		"Coast of Kamchatka"
+		"East Bering Sea"
+		"West Bering Sea" 
+		"Aleutians"
+		"Northwest Pacific Basin"
+		"North Northeast Pacific Basin"
+		
+		#Central Pacific
+		"Hawaiian Rise"
+		"North East Pacific Ocean"
+		"Marshalls Sea"
+		"South East Pacific Ocean"
+		"Marianas"
+		"Western Solomons"
+		"Eastern Solomons"
+		"US Maritimes"
+		"Carolines"
+		
+		#South Pacific
+		"Gilberts"
+		"Line Islands"
+		"Fiji Basin"
+		"Southwest Pacific Basin"
+		
+		# South American West Coast
+		"Southeast Pacific Basin"
+		"West Coast of Chile"
+		"West Coast of Peru"
+		"South Southeast Pacific Ocean"
+		"North Southeast Pacific Ocean"
+		
+		# USA West Coast
+		"Gulf of Alaska"
+		"West Coast of the United States"
+		
+		#West Coast of Mexico
+		"West Coast of Mexico"
+		"West Coast of Central America"
+	}
+}

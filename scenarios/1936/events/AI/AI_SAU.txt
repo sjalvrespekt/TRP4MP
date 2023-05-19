@@ -1,0 +1,160 @@
+####################################
+# Saudi Arabia AI events 34900 - 34999 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+####################################
+################
+# Minister of Security Section 34900 - 34909
+#############################################
+event = { # Hubert Scott-Paine takes power
+	id = 34900
+	random = no 
+	country = SAU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 63041 # Hubert Scott-Paine
+		NOT = { InCabinet = 63041 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 63041 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 34910 - 34919
+#############################################
+event = { # T.R.S. Smythe-Cooper takes power
+	id = 34910
+	random = no 
+	country = SAU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 63053 # T.R.S. Smythe-Cooper
+		NOT = { InCabinet = 63053 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 20 }
+			AND = {
+				atwar = yes
+				NOT = { minister = 63051 } # William Campbell-Rice
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 63053 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # William Campbell-Rice takes power
+	id = 34911
+	random = no 
+	country = SAU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 20
+		minister = 63051 # William Campbell-Rice
+		NOT = { InCabinet = 63051 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 63051 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 34920 - 34929
+#############################################
+################
+# Chief of the Army Section 34930 - 34939
+#############################################
+event = { # T.R.S. Smythe-Cooper takes power
+	id = 34930
+	random = no 
+	country = SAU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 63057 # T.R.S. Smythe-Cooper
+		NOT = { InCabinet = 63057 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 63057 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 34940 - 34949
+#############################################
+event = { # G.G. Aime-Murray takes power
+	id = 34940
+	random = no 
+	country = SAU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 63035 # G.G. Aime-Murray
+		NOT = { InCabinet = 63035 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 63035 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34960 - 34999
+#############################################

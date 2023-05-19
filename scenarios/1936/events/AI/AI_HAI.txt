@@ -1,0 +1,173 @@
+# checked DH
+####################################
+# Haiti AI events 33800 - 33899 by Lothos
+####################################
+################
+# Minister of Security Section 33800 - 33809
+#############################################
+event = { # Auguste Bonamy takes power
+	id = 33800
+	random = no 
+	country = HAI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 78069 # Auguste Bonamy
+		NOT = { InCabinet =  78069 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 78069 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33810 - 33819
+#############################################
+event = { # Paul Magloire takes power
+	id = 33810
+	random = no 
+	country = HAI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 78094 # Paul Magloire
+		NOT = { InCabinet =  78094 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 78094 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33820 - 33829
+#############################################
+event = { # Luis Dabtes Bellegarde takes power
+	id = 33820
+	random = no 
+	country = HAI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 78080 # Luis Dabtes Bellegarde
+		NOT = { InCabinet =  78080 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 78080 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33830 - 33839
+#############################################
+event = { # Andre Dumont takes power
+	id = 33830
+	random = no 
+	country = HAI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 78100 # Andre Dumont
+		NOT = { InCabinet =  78100 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 78100 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33840 - 33849
+#############################################
+event = { # Jean Francois Duvalier takes power
+	id = 33840
+	random = no 
+	country = HAI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 78060 # Jean Francois Duvalier
+		NOT = { InCabinet = 78060 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 78060 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+#############################################
+# Regular AI Events 33860 - 33899
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33860
+	random = no 
+	country = HAI
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

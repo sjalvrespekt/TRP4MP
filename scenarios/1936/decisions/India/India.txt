@@ -1,0 +1,119 @@
+#########################################################################
+# Native Indian leaders for the British army in India?
+#########################################################################
+event = { 
+	id = 3131603
+	random = no 
+	country = U02
+
+	decision = {
+				atwar = yes
+	}
+
+	decision_trigger = { 
+						army = { size = 65 type = 0 when = 0 where = 1 which = 1 country = U02 } #67 english leaders available
+						}
+	
+	trigger = {
+				atwar = yes
+				army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = U02 } #67 english leaders available
+	}
+
+	name = EVT_3131603_NAME
+	desc = EVT_3131603_DESC
+	style = 2
+	picture = "u02_event_natives"
+	decision_picture = "u02_decision_natives"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131603A #
+		command = { trigger = { AI = no } type = dissent value = 5 }
+		command = { type = wakeleader which = 585163 }
+		command = { type = wakeleader which = 585001 }
+		command = { type = wakeleader which = 585006 }
+		command = { type = wakeleader which = 585019 }
+		command = { type = wakeleader which = 585026 }
+		command = { type = wakeleader which = 585038 }
+		command = { type = wakeleader which = 585054 }
+		command = { type = wakeleader which = 585067 }
+		command = { type = wakeleader which = 585073 }
+		command = { type = wakeleader which = 585077 }
+		command = { type = wakeleader which = 585078 }
+		command = { type = wakeleader which = 585080 }
+		command = { type = wakeleader which = 585091 }
+		command = { type = wakeleader which = 585095 }
+		command = { type = wakeleader which = 585099 }
+		command = { type = wakeleader which = 585009 }
+		command = { type = wakeleader which = 585010 }
+		command = { type = wakeleader which = 585178 }
+		command = { type = wakeleader which = 585179 }
+		command = { type = wakeleader which = 585180 }
+		command = { type = wakeleader which = 585181 }
+		command = { type = wakeleader which = 585182 }
+		command = { type = wakeleader which = 585183 }
+		command = { type = wakeleader which = 585184 }
+		command = { type = wakeleader which = 585185 }
+		command = { type = wakeleader which = 585186 }
+		command = { type = wakeleader which = 585187 }
+		command = { type = wakeleader which = 585188 }
+		command = { type = wakeleader which = 585189 }
+		command = { type = wakeleader which = 585190 }
+		command = { type = wakeleader which = 585191 }
+		command = { type = wakeleader which = 585192 }
+		command = { type = wakeleader which = 585193 }
+		command = { type = wakeleader which = 585194 }
+		command = { type = wakeleader which = 585195 }
+		command = { type = wakeleader which = 585196 }
+		command = { type = wakeleader which = 585197 }
+		command = { type = wakeleader which = 585198 }
+		command = { type = wakeleader which = 585199 }
+		command = { type = wakeleader which = 585200 }
+		command = { type = wakeleader which = 585201 }
+		command = { type = wakeleader which = 585202 }
+		command = { type = wakeleader which = 585203 }
+		command = { type = wakeleader which = 585204 }
+		command = { type = wakeleader which = 585205 }
+		command = { type = wakeleader which = 585206 }
+		command = { type = wakeleader which = 585207 }
+		command = { type = wakeleader which = 585208 }
+		command = { type = wakeleader which = 585209 }
+		command = { type = wakeleader which = 585113 }
+		command = { type = wakeleader which = 585210 }
+		command = { type = wakeleader which = 585115 }
+		command = { type = wakeleader which = 585116 }
+		command = { type = wakeleader which = 585117 }
+		command = { type = wakeleader which = 585118 }
+		command = { type = wakeleader which = 585120 }
+		command = { type = wakeleader which = 585122 }
+		command = { type = wakeleader which = 585124 }
+		command = { type = wakeleader which = 585127 }
+		command = { type = wakeleader which = 585128 }
+		command = { type = wakeleader which = 585131 }
+		command = { type = wakeleader which = 585138 }
+		command = { type = wakeleader which = 585142 }
+		command = { type = wakeleader which = 585145 }
+		command = { type = wakeleader which = 585211 }
+		command = { type = wakeleader which = 585212 }
+		command = { type = wakeleader which = 585146 }
+		command = { type = wakeleader which = 585147 }
+		command = { type = wakeleader which = 585148 }
+		command = { type = wakeleader which = 585149 }
+		command = { type = wakeleader which = 585150 }
+		command = { type = wakeleader which = 585154 }
+		command = { type = wakeleader which = 585155 }
+		command = { type = wakeleader which = 585157 }
+		command = { type = wakeleader which = 585158 }
+		command = { type = wakeleader which = 585160 }
+		command = { type = wakeleader which = 585164 }
+		command = { type = wakeleader which = 585168 }
+		command = { type = wakeleader which = 585170 }
+		command = { type = wakeleader which = 585171 }
+		command = { type = wakeleader which = 585172 }
+		command = { type = wakeleader which = 585173 }
+		command = { type = wakeleader which = 585174 }
+	}
+}

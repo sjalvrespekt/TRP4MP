@@ -1,0 +1,557 @@
+# Last Update 21-MAR-2007
+#########################
+
+#########################################################################
+# Reaction to german re-occupation of the Rhineland
+#########################################################################
+event = { 
+	id = 3120000
+	random = no
+	country = CAN
+	
+	# Triggered by GER 3136001,3136002,3136003 : german re-occupation of the Rhineland
+	
+	name = EVT_3131120_NAME
+	desc = EVT_3115000_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+#########################################################################
+# Reaction to Anschluss
+#########################################################################
+event = { 
+	id = 3120001
+	random = no
+	country = CAN
+	
+	# Triggered by GER 3136006
+	
+	name = EVT_3135034_NAME
+	desc = EVT_2100_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+#########################################################################
+# Treaty of Munich
+#########################################################################
+event = { 
+	id = 3120002
+	random = no
+	country = CAN
+	
+	# Triggered by GER
+	
+	name = EVT_3131122_NAME
+	desc = EVT_2030_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+	}
+}
+
+#########################################################################
+# The End of Czechoslovakia
+#########################################################################
+event = { 
+	id = 3120003
+	random = no
+	country = CAN
+	
+	# Triggered by GER
+	
+	name = EVT_3131123_NAME
+	desc = EVT_2040_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+        command = { type = trigger which = 93120003 }
+                
+	}
+}
+
+######################################################################### 
+# Bases For Destroyers USA accepted
+######################################################################### 
+event = { 
+	id = 3120004
+	random = no
+	country = CAN
+	
+	# triggered by USA 3182033
+
+	name = EVT_3131021_NAME
+	desc = EVT_3131020_DESC
+	style = 2
+	picture = "dd_transfer"
+
+	action = {
+		trigger = { OR = { AI = NO escortpool = 5 } }
+		name = ACTIONNAME3131021A
+		command = { type = activate_division which = 30053 value = 511 where = 2132 when = 0 }
+		command = { type = activate_division which = 30053 value = 512 where = 2132 when = 0 }
+		command = { type = activate_division which = 30053 value = 513 where = 2132 when = 0 }
+		command = { type = activate_division which = 30053 value = 514 where = 2132 when = 0 }
+		command = { type = activate_division which = 30053 value = 515 where = 2132 when = 0 }
+		command = { type = activate_division which = 30053 value = 516 where = 2132 when = 0 }
+	}
+	
+	action = {
+	trigger = { OR = { AI = NO NOT = { escortpool = 5 } } }
+		name = ACTIONNAME3131021B
+		command = { type = escort_pool which = CAN value = 6 }
+	}
+
+}
+
+#################
+# Manpower: WAR #
+#################
+event = { 
+	id = 402000
+	random = no
+	country = CAN
+
+	trigger = { atwar = yes }
+
+	name = EVT_402000_NAME # The outbreak of war
+	desc = EVT_402000_DESC
+	style = 2
+	picture = "can_manpower"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+			name = ACTIONNAME402000A # Mobilize the military, we are at war
+			command = { type = manpowerpool value = 150 }
+	}
+}
+#########################
+# Manpower: Paris Falls #
+#########################
+event = { 
+	id = 402001
+	random = no
+	country = CAN
+
+	trigger = {
+		atwar = yes
+		control = { province = 55 data = -2 } #Paris
+	}
+
+	name = EVT_402001_NAME # The fall of Paris
+	desc = EVT_402001_DESC
+	style = 2
+	picture = "can_manpower"
+
+	date = { day = 0 month = january year = 1937 } 
+	offset = 2
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+			name = ACTIONNAME402001A # Sign the volunteers up; we need the help
+			command = { type = manpowerpool value = 80 }
+	}
+}
+##########################
+# Manpower: Conscription #
+##########################
+event = { 
+	id = 402002
+	random = no
+	country = CAN
+
+	trigger = {
+		random = 30
+		atwar = yes
+		headofgovernment = 45002 # Mackenzie King
+	}
+
+	name = EVT_402002_NAME # The National Resources Mobilization Act
+	desc = EVT_402002_DESC
+	style = 2
+	picture = "can_manpower"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 100 # event fires 1 year after war is declared
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = {
+			name = ACTIONNAME402002A # Enact the National Resources Mobilization Act
+			command = { type = manpowerpool value = 100 }
+			command = { type = dissent value = 5 }
+	}
+	action_b = {
+			name = ACTIONNAME402002B # Block the National Resources Mobilization Act
+			command = { type = dissent value = -5 }
+	}
+}
+
+###############################
+# Political: War Measures Act #
+###############################
+event = { 
+	id = 402005
+	random = no
+	country = CAN
+
+	trigger = {
+		atwar = yes
+		headofgovernment = 45002 # Mackenzie King
+	}
+
+	name = EVT_402005_NAME # The War Measures Act
+	desc = EVT_402005_DESC
+	style = 2
+	picture = "can_war_measures_act"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 350
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = {
+			name = ACTIONNAME402005A # Enact the War Measures Act
+			command = { type = dissent value = 5 }
+	}
+	action_b = {
+			name = ACTIONNAME402005B # Block the War Measures Act
+			command = { type = research_sabotaged }
+	}
+}
+#####################################
+# Political: McNaughton vs. Ralston #
+#####################################
+event = { 
+	id = 402006
+	random = no
+	country = CAN
+
+	trigger = {
+		atwar = yes
+		minister = 45057 # James Ralston
+		random = 50
+	}
+
+	name = EVT_402006_NAME # The conflict between McNaughton and Ralston
+	desc = EVT_402006_DESC
+	style = 2
+	picture = "can_mcnaughton_vs_ralston"
+
+	date = { day = 0 month = january year = 1943 } 
+	offset = 60 # event fires 4 years after war is declared
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = {
+			name = ACTIONNAME402006A # We support Ralston, force McNaughton to resign
+			command = { type = sleepleader which = 52044 } # McNaughton
+	}
+	action_b = {
+			name = ACTIONNAME402006B # We support McNaughton, force Ralston to resign
+			command = { type = sleepminister which = 45057 } # James Ralston
+			command = { type = dissent value = 5 }
+	}
+}
+############################
+# Political: Igor Gouzenko #
+############################
+event = { 
+	id = 402007
+	random = no
+	country = CAN
+
+	trigger = { random = 50 }
+
+	name = EVT_402007_NAME # The defection of Igor Gouzenko
+	desc = EVT_402007_DESC
+	style = 2
+	picture = "can_igor_gouzenko"
+
+	date = { day = 0 month = january year = 1945 } 
+	offset = 50
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = {
+			name = ACTIONNAME402007A # Make good use of what we have learned from Gouzenko
+			command = { type = dissent value = -1 }
+	}
+}
+##################################
+# ask permission to send volunteers to Finland (by Ghost_dk)
+##################################
+event = {
+	id = 402009
+	random = no
+	country = CAN
+
+	trigger = {
+		random = 20
+		atwar = no
+		event = 1002086
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			alliance = { country = CAN country = SOV }
+			war = { country = FIN country = CAN }
+		}
+	}
+
+	name = EVT_402009_NAME # Canadian volunteers to Finland
+	desc = EVT_402009_DESC
+	style = 2
+	
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME402009A # Ask permission of the Federal government to send volunteers
+		command = { type = trigger which = 3131076 }
+	}
+}
+####################################
+# Answer request to send volunteers (by Ghost_dk)
+####################################
+event = { 
+	id = 402010
+	random = no
+	country = CAN
+
+	# triggered by ENG 3131076 
+
+	name = EVT_402010_NAME # Canadian volunteers to Finland
+	desc = EVT_402010_DESC
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME402010A # Give permission for Canadian volunteers to Finland
+		command = { type = manpowerpool value = -10 }
+		command = { type = trigger which = 1002106 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+####################
+#UK consults Canada
+####################
+event = {
+	id = 402011
+	random = no
+	country = CAN
+
+	#triggered by 3131091
+	
+	name = EVT_402011_NAME # Britain consults Canada about the abdication of Edward VIII
+ 	desc = EVT_402011_DESC
+	style = 2
+	picture = "can_king_and_baldwin"
+
+	action_a = {
+		name = ACTIONNAME402011A # We will meet our obligations under the law.
+		command = { type = dissent value = -2 }
+	}
+}
+######################
+#Edward Abdicates-CAN
+######################
+event = {
+	id = 402012
+	random = no
+	country = CAN
+
+	#triggered bu 3131092
+
+	name = EVT_402012_NAME # The abdication of Edward VIII
+ 	desc = EVT_402012_DESC
+	style = 2
+	picture = "edward_abdication"
+
+	action_a = {
+		name = ACTIONNAME402012A # All hail King George VI
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 2 }
+	}
+}
+########################
+#Simpson as consort-CAN
+########################
+event = {
+	id = 402013
+	random = no
+	country = CAN
+
+	#triggered by 3131092
+
+	name = EVT_402013_NAME # The Commonwealth accepts Wallis Simpson as consort to Edward VIII
+ 	desc = EVT_402013_DESC
+	style = 2
+	picture = "edward_marry"
+
+	action_a = {
+		name = ACTIONNAME402013A # Accept the comprimise with good grace
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#######################
+#Simpson as Queen -CAN
+#######################
+event = {
+	id = 402014
+	random = no
+	country = CAN
+
+	#triggered by 3131092
+
+	name = EVT_402014_NAME # The Commonwealth accepts Wallis Simpson as Queen
+ 	desc = EVT_402014_DESC
+	style = 2
+	picture = "edward_marry"
+
+	action_a = {
+		name = ACTIONNAME402014A # The issue is out of our hands
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = money value = -2 }
+	}
+}
+#########################################################################
+# Canadian-American Joint Board of Defense
+#########################################################################
+event = {
+	id = 402018
+	random = no
+	country = CAN
+
+	# triggered by USA 3182031
+
+	name = EVT_402018_NAME # Canadian-American Joint Board of Defense
+	desc = EVT_3182031_DESC
+	style = 2
+	picture = "usa_joint_board_of_defense"
+
+	action_a = {
+		name = ACTIONNAME402018A # Ok
+		#command = { type = access which = USA }
+	}
+}
+
+############################
+# Newfoundland and Labrador
+############################
+event = { 
+	id = 402019
+	random = no
+	country = CAN
+
+	# triggered by ENG 3131996
+
+	name = EVT_402019_NAME
+	desc = EVT_402019_DESC
+	style = 2
+
+	action_a = {
+			name = ACTIONNAME402019A
+			command = { type = addcore which = 2135 }
+			command = { type = addcore which = 2136 }
+			command = { type = addcore which = 2137 }
+			command = { type = addcore which = 2138 }
+			command = { type = dissent value = -2 }
+	}
+}
+
+#########################################################################
+# Trans-Canada Air Lines
+#########################################################################
+
+event = { 
+	id = 402020
+	random = no
+	country = CAN
+	
+	trigger = {
+		atwar    = no
+		alliance = { country = CAN country = ENG }
+	}
+
+	name = EVT_402020_NAME
+	desc = EVT_402020_DESC
+	style = 2
+	picture = "can_trans_canada_air_lines"
+
+	date = { day = 10 month = april year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+	  ai_chance = 99
+		name = ACTIONNAME4402020A # An airline for canada!
+		command = { type = dissent value = -1  }
+		command = { type = money   value = -50 }
+		command = { type = tc_mod value = 1 when = 0 }
+	}
+	
+	action_b = {
+	  ai_chance = 1
+		name = ACTIONNAME4402020B # We dont need it!
+		command = { type = money value = 10 }
+	}
+}	
+
+#########################################################################
+# Employment and Social Insurance Act
+#########################################################################
+
+event = { 
+	id = 402021
+	random = no
+	country = CAN
+	
+	trigger = {
+		atwar    = yes
+		alliance = { country = CAN country = ENG }
+	}
+
+	name = EVT_402021_NAME
+	desc = EVT_402021_DESC
+	style = 2
+	picture = "can_employment_social_act"
+
+	date = { day = 1 month = march year = 1940 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+	  ai_chance = 99
+		name = ACTIONNAME4402021A # 
+		command = { type = dissent value = -1   }
+		command = { type = money   value = -150 }
+		command = { type = industrial_modifier which = total value = 2 }
+	}
+	
+	action_b = {
+	  ai_chance = 1
+		name = ACTIONNAME4402021B # 
+		command = { type = money   value = -50 }
+		command = { type = dissent value = 3   }
+	}
+}	

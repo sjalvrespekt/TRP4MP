@@ -1,0 +1,108 @@
+####################################
+# Shanxi AI events 36000 - 36099 by Lothos
+####################################
+################
+# Minister of Security Section 36000 - 36009
+#############################################
+################
+# Chief of Staff Section 36010 - 36019
+#############################################
+################
+# Head of Intelligence Section 36020 - 36029
+#############################################
+################
+# Chief of the Army Section 36030 - 36039
+#############################################
+################
+# Armament Minister Section 36040 - 36049
+#############################################
+
+# Converted to DH by Dendro 2011-May-29
+
+
+
+
+
+#############################################
+# Regular AI Events 36060 - 36099
+#############################################
+# Behavior Flags
+#	UPGPeace			= Upgrading of existing units flag
+################
+# Concetrate on upgrading while at peace
+#############################################
+event = {
+	id = 36060
+	random = no
+	country = CSX
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		NOT = { local_flag = UPGPeace }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_Peace.ai" }
+		command = { type = local_setflag which = UPGPeace }
+	}
+}
+event = {
+	id = 36061
+	random = no
+	country = CSX
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = UPGPeace
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_War.ai" }
+		command = { type = local_clrflag which = UPGPeace }
+	}
+}
+################
+# Shanxi changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 36062
+	random = no 
+	country = CSX
+	
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CSX }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CSX_EXP_Change.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}

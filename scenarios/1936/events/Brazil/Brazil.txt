@@ -1,0 +1,45 @@
+# checked DH
+###########################################################################
+#	4100000 - 4199999
+###########################################################################
+#######################################
+# Was 1052033 (BRA)send coffee to Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 4100000
+	random = no
+	country = BRA
+
+	trigger = {
+		event = 3183024
+		event = 222041
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			alliance = { country = SOV country = BRA }
+		}
+	}
+
+	name = EVT_4100000_NAME # Coffee for Finland
+	desc = EVT_4100000_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME4100000A # Send coffee
+		command = { type = supplies value = -20 }
+		command = { type = money value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 1002083 }
+	}
+	action_b = { 
+		name = ACTIONNAME4100000B # Stop shipment
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 1002083 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

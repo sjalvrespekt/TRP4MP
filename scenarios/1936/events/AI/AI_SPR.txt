@@ -1,0 +1,427 @@
+# checked DH
+####################################
+# Spanish Republic AI events 32500 - 32599 by Lothos
+####################################
+################
+# Minister of Security Section 32500 - 32509
+#############################################
+event = { # Melchor Rodríguez de Galdeano takes power
+	id = 32500
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11170 # José Martínez de Velasco
+		NOT = { InCabinet = 11170 }
+		OR = {
+			manpower = 200
+			NOT = { minister = 11183 } # Amós Salvador Carreras
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 11170 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Amós Salvador Carreras takes power
+	id = 32501
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11183 # Amós Salvador Carreras
+		NOT = { InCabinet = 11183 }
+		OR = {
+			NOT = { manpower = 200 }
+			NOT = { minister = 11170 } # José Martínez de Velasco
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 11183 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32510 - 32519
+#############################################
+event = { # Sebastián Pozas Perea power
+	id = 32510
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11251 # Sebastián Pozas Perea
+		NOT = { InCabinet = 11251 }
+		atwar = yes
+		OR = {
+			manpower = 200
+			AND = {
+				NOT = { manpower = 200 }
+				NOT = { minister = 11234 } # Frank Ryan
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 11251 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Frank Ryan takes power
+	id = 32511
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11234 # Frank Ryan
+		NOT = { InCabinet = 11234 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 200 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 11234 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32520 - 32529
+#############################################
+event = { # Rafael Videlia Rubio takes power
+	id = 32520
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11200 # Rafael Videlia Rubio
+		NOT = { InCabinet = 11200 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 11200 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Manuel Torres Campaña takes power
+	id = 32521
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11215 # Manuel Torres Campaña
+		NOT = { InCabinet = 11215 }
+		NOT = { minister = 11200 } # Rafael Videlia Rubio
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 11215 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 32530 - 32539
+#############################################
+event = { # Juan Hernández Sarabia takes power
+	id = 32530
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 11276 # Juan Hernández Sarabia
+		NOT = { InCabinet = 11276 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 11276 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Vicente Guarner Vivancos takes power
+	id = 32531
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 11272 # Vicente Guarner Vivancos
+		NOT = { InCabinet = 11272 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 11272 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32540 - 32549
+#############################################
+event = { # Juan López Sánchez takes power
+	id = 32540
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11119 # Juan López Sánchez
+		NOT = { InCabinet = 11119 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 11119 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Belamino Tomás Álvarez takes power
+	id = 32541
+	random = no 
+	country = SPR
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 11127 # Belamino Tomás Álvarez
+		NOT = { InCabinet = 11127 }
+		NOT = { minister = 11119 } # Juan López Sánchez
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 11127 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+################
+# Spanish Civil War AI
+#############################################
+event = {
+	id = 32560
+	random = no 
+	country = SPR
+	
+	trigger = {
+		ai = yes
+		war = { country = SPR country = U01 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		command = { type = ai which = "switch/SPR_CivilWar.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# End of Spanish Civil War AI
+#############################################
+event = {
+	id = 32561
+	random = no 
+	country = SPR
+	
+	trigger = {
+		ai = yes
+		event = 32560
+		OR = {
+			NOT = { exists = U01 }
+			NOT = { war = { country = SPR country = U01 } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_EndCivilWar.ai" }
+		command = { type = sleepevent which = 32460 }
+	}
+}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 32562
+	random = no 
+	country = SPR
+	
+	persistent = yes
+	
+	trigger = {
+		event = 32561 # end of civil war ai switch
+		NOT = { local_flag = SP_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_low_mp.ai" }
+		command = { type = local_setflag which = SP_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 32563
+	random = no
+	country = SPR
+	
+	persistent = yes
+	
+	trigger = {
+		event = 32561 # end of civil war ai switch
+		local_flag = SP_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/SP_normal_mp.ai" }
+		command = { type = local_clrflag which = SP_low_mp }
+	}
+}
+################
+# Clear out militia from Spanish Civil War
+#############################################
+#event = {
+#	id = 32562
+#	random = no 
+#	country = SPR
+
+#	trigger = {
+#		ai = yes
+#		event = 32561
+#		atwar = no
+#		militia = { country = SPR value = 1 }
+#	}
+
+#	name = "AI_EVENT"
+#	style = 0	
+	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+
+#	action_a = {
+#		command = { type = delete_unit which = militia value = -1 }
+#	}
+#}

@@ -1,0 +1,86 @@
+# converted to DH, Kane, June 15 2011
+# Italy loads homeland defense AI File by Lothos
+
+exp_force_ratio = 0.15
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 	= 1.5
+	overseas_multiplier = 0.1
+	home_peace_cap 		= 40
+	war_zone_odds 		= 1.0
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.1
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 20	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	province_priorities = {
+		400	= 10 # Venice
+		396 = 10 # Genoa
+		425 = 10 # Reggio
+		398 = 50 #Turin
+		422 = 50 # Taranto
+		434 = 30 # Cagliari
+		379 = 30 # Rhodes
+	
+		# North Africa
+		752 = 1 # Az Zawiyah
+		750 = 1 # Tripoli
+		761 = 1 # Benghazi
+		765 = 1 # Tobruk
+
+	}
+	area_multiplier = { }
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+ 	base		= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random		= 8.0	#How big a random range.  (1.0 = 1%)
+	coastal		= 0.1	#increase to avoid coastal forts more.
+	beach		= 0.1	#higher, avoid worst beaches.
+	distance	= 0.1	#higher = avoid long distance.
+	max_distance    = 60.0  #About the distance from Rostock to Narvik
+	max_staging_distance 	= 25	# How far should the staging area be from the target
+	pocket		= 20.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island		= 0.1	#prioritise taking pure islands.
+	enemy		= 2.0	#higher = much more vary of troops in province.
+	adjacentenemy 	= 2.0	#higher = much more vary of troops nearby
+	air_base	= 1.5 
+      	naval_base 	= 0.1 
+      	air_support 	= 3.0 
+      	redirect 	= priority
+	ignore		= no
+      
+	staging_province = {
+		523 # Taranto
+	}
+	target = { 
+		# Med Island Yugoslavia and Greece
+		359 = 400  	# Tirana
+		434 = 400	# Sardinia
+		429 = 1  	# Malta
+		388 = 1		# Nikosia
+		382 = 1  	# Irakleio
+		343 = 200  	# Dubrovnik
+		372 = 1		# Patras
+		371 = 1 	# Kerkyra
+
+		# Libya
+		765 = 1		# Tobruk
+		761 = 1		# Bengazi
+		750 = 1		# Tripolis
+	} 
+}

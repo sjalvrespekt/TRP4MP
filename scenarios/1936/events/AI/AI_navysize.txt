@@ -1,0 +1,466 @@
+################
+# Attack fleet number adjusted to fit fleet size
+##################################################
+################
+# Navysize 25 => 1 attack fleet
+##################################################
+event = {
+	id = 552300
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 25 when = 0 which = 1 }
+		NOT = { navy = { size = 50 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_25.ai" }
+	}
+}
+################
+# Navysize 50 => 2 attack fleets
+##################################################
+event = {
+	id = 552301
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 50 when = 0 which = 1 }
+		NOT = { navy = { size = 75 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_50 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_setflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_50.ai" }
+	}
+}
+################
+# Navysize 75 => 3 attack fleets
+##################################################
+event = {
+	id = 552302
+	random = no 
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				OR = {
+						AND = {
+								navy = { size = 75 when = 0 which = 1 }
+								NOT = { navy = { size = 100 when = 0 which = 1 } }
+								NOT = { local_flag = navysize_75 }
+								}
+						AND = { 
+								navy = { size = 25 when = 0 which = 1 }
+								random = 25 # randomly reset entries made by ai switch events for any nation with at least some notable navy
+								}
+					}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { trigger = { NOT = { local_flag = navysize_75 } } type = local_setflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_75.ai" }
+	}
+}
+################
+# Navysize 100 => 4 attack fleets
+##################################################
+event = {
+	id = 552303
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 100 when = 0 which = 1 }
+		NOT = { navy = { size = 125 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_100 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_setflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_100.ai" }
+	}
+}
+################
+# Navysize 125 => 5 attack fleets
+##################################################
+event = {
+	id = 552304
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 125 when = 0 which = 1 }
+		NOT = { navy = { size = 150 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_125 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_setflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_125.ai" }
+	}
+}
+################
+# Navysize 150 => 6 attack fleets
+##################################################
+event = {
+	id = 552305
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 150 when = 0 which = 1 }
+		NOT = { navy = { size = 175 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_150 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_setflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_150.ai" }
+	}
+}
+################
+# Navysize 175 => 7 attack fleets
+##################################################
+event = {
+	id = 552306
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 175 when = 0 which = 1 }
+		NOT = { navy = { size = 200 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_175 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_setflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_175.ai" }
+	}
+}
+################
+# Navysize 200 => 8 attack fleets
+##################################################
+event = {
+	id = 552307
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 200 when = 0 which = 1 }
+		NOT = { navy = { size = 225 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_200 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_setflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_200.ai" }
+	}
+}
+################
+# Navysize 225 => 9 attack fleets
+##################################################
+event = {
+	id = 552308
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 225 when = 0 which = 1 }
+		NOT = { navy = { size = 250 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_225 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_setflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_225.ai" }
+	}
+}
+################
+# Navysize 250 => 10 attack fleets
+##################################################
+event = {
+	id = 552309
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 250 when = 0 which = 1 }
+		NOT = { navy = { size = 275 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_250 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_setflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_250.ai" }
+	}
+}
+################
+# Navysize 275 => 11 attack fleets
+##################################################
+event = {
+	id = 552310
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 275 when = 0 which = 1 }
+		NOT = { navy = { size = 300 when = 0 which = 1 } }
+		NOT = { local_flag = navysize_275 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_setflag which = navysize_275 }
+		command = { type = local_clrflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_275.ai" }
+	}
+}
+################
+# Navysize 300+ => 12 attack fleets
+##################################################
+event = {
+	id = 552311
+	random = no 
+	persistent = yes
+	
+	trigger = {
+		navy = { size = 300 when = 0 which = 1 }
+		NOT = { local_flag = navysize_300 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = navysize_25 }
+		command = { type = local_clrflag which = navysize_50 }
+		command = { type = local_clrflag which = navysize_75 }
+		command = { type = local_clrflag which = navysize_100 }
+		command = { type = local_clrflag which = navysize_125 }
+		command = { type = local_clrflag which = navysize_150 }
+		command = { type = local_clrflag which = navysize_175 }
+		command = { type = local_clrflag which = navysize_200 }
+		command = { type = local_clrflag which = navysize_225 }
+		command = { type = local_clrflag which = navysize_250 }
+		command = { type = local_clrflag which = navysize_275 }
+		command = { type = local_setflag which = navysize_300 }
+		command = { type = ai which = "switch/navysize_300.ai" }
+	}
+}

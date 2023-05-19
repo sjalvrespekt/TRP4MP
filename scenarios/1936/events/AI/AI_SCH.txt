@@ -1,0 +1,263 @@
+####################################
+# Swiss AI events 35000 - 35099 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+####################################
+################
+# Minister of Security Section 35000 - 35009
+#############################################
+event = { # Hugo Gschwind takes power
+	id = 35000
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17091 # Hugo Gschwind
+		NOT = { InCabinet = 17091 }
+		OR = {
+			manpower = 20
+			NOT = { minister = 17087 } # Gustave Adoor
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 17091 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Gustave Adoor takes power
+	id = 35001
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17087 # Gustave Adoor
+		NOT = { InCabinet = 17087 }
+		OR = {
+			NOT = { manpower = 20 }
+			NOT = { minister = 17091 } # Hugo Gschwind
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 17087 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 35010 - 35019
+#############################################
+event = { # Henri Guisan takes power
+	id = 35010
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17101 # Henri Guisan
+		NOT = { InCabinet = 17101 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 17101 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 35020 - 35029
+#############################################
+event = { # Roger Masson takes power
+	id = 35020
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17006 # Roger Masson
+		NOT = { InCabinet = 17006 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 17006 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 35030 - 35039
+#############################################
+event = { # Jakob Labhart
+	id = 35030
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17125 # Jakob Labhart
+		NOT = { InCabinet = 17125 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 17008 } # Johann August Sutter
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = april year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 17125 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Jakob Huber
+	id = 35031
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 17126 # Jakob Huber
+		NOT = { InCabinet = 17126 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 17126 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 35040 - 35049
+#############################################
+event = { # Henri Guisan takes power
+	id = 35040
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17127 # Henri Guisan
+		NOT = { InCabinet = 17127 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 17127 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Chief of Air Force Section 35050 - 35059
+#############################################
+event = { # Hans Bandi takes power
+	id = 35050
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17128 # Hans Bandi
+		NOT = { InCabinet = 17128 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = october year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 17128 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+event = { # Fritz Rihner takes power
+	id = 35051
+	random = no 
+	country = SCH
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 17108 # Fritz Rihner
+		NOT = { InCabinet = 17108 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 17108 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+#############################################
+# Regular AI Events 35060 - 35099
+#############################################

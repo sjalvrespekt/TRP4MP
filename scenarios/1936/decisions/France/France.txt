@@ -1,0 +1,125 @@
+#########################
+# Sikorski's Army
+#########################
+event = { 
+	id = 31360001
+	random = no
+	country = FRA
+
+	decision = { 
+				ai = no 
+                atwar = yes
+				}
+	decision_trigger = { 
+						manpower = 35
+						energy = 6720
+						metal = 3360
+						rare_materials = 1680
+						supplies = 1000
+						OR = {
+				        event = 6100006 #(ROM) Polish Refugees 
+                        event = 3141013 #(HUN) Polish Refugees 
+						}
+			        	atwar = yes
+			        	war = { country = GER country = FRA }
+                        war = { country = GER country = ENG }
+                        alliance = { country = FRA country = ENG }
+                        #NOT = { alliance = { country = POL country = GER }}
+                        NOT = { alliance = { country = FRA country = GER }}
+                        NOT = { alliance = { country = ENG country = GER }}
+		        		exists = ENG
+		        		control = { province = 55 } # Paris
+						}
+
+	trigger = { 
+				OR = {
+				        event = 6100006 #(ROM) Polish Refugees 
+                        event = 3141013 #(HUN) Polish Refugees 
+					}
+                atwar = yes
+                war = { country = GER country = FRA }
+                war = { country = GER country = ENG }
+                alliance = { country = FRA country = ENG }
+                #NOT = { alliance = { country = POL country = GER }}
+                NOT = { alliance = { country = FRA country = GER }}
+                NOT = { alliance = { country = ENG country = GER }}
+				exists = ENG
+				control = { province = 55 } # Paris
+				}
+
+	name = "EVT_31360001_NAME"
+	desc = "EVT_31360001_DESC"
+	style = 2
+	picture = "pol_army_in_uk"
+	decision_picture = "decision_pl_in_fra"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = "ACTIONNAME31360001A"  
+                ai_chance = 100
+                command = { type = wakeleader which = 24231 } #Sikorski
+                command = { type = wakeleader which = 24232 } #Duch
+                command = { type = wakeleader which = 24233 } #Prugar-Ketling;
+                command = { type = wakeleader which = 24234 } #Sosabowski
+                command = { type = wakeleader which = 24235 } #Dreszer
+                command = { type = add_corps which = "L'armée polonais" value = land when = 24231 where = 55 } #Paris 
+		        command = { type = activate_division which = 13500 value = 1502 when = 0 }
+                command = { type = activate_division which = 13500 value = 1504 when = 0 }
+                command = { type = activate_division which = 13500 value = 1505 when = 0 }
+                command = { type = activate_division which = 13500 value = 1506 when = 0 }
+		        command = { type = energypool value = -6720 }
+		        command = { type = metalpool value = -3360 }
+		        command = { type = rarematerialspool value = -1680 }
+                command = { type = supplies value = -1000 }
+		        command = { type = manpowerpool value = -35 }
+	}
+#	action_b = { 
+#		name = "ACTIONNAME31360001B"  
+#		command = { } 
+#	}
+}
+
+########################################################
+# The navy's last stand
+########################################################
+event = { 
+	id = 3135998
+	random = no
+	country = FRA
+	
+	decision = {
+				ai = no
+				atwar = yes
+				NOT = { battleship = { country = FRA value = 2 } }				
+	}
+	decision_trigger = {
+						supplies = 500
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				NOT = { battleship = { country = FRA value = 2 } }	
+				random = 2
+	}
+       
+	name = EVT_3146074_NAME #same as japanese decision
+	desc = EVT_3146074_DESC #same as japanese decision
+	style = 2
+	decision_picture = "fra_decision_last_stand"
+	picture = "fra_event_last_stand"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 17 month = march year = 1937 } #ships sold for scrap on march 17, 1937
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { trigger = { ai = no } type = supplies value = -500 }
+		command = { type = activate_division which = 13500 value = 540 when = 0 where = 37 }
+		command = { type = activate_division which = 13500 value = 541 when = 0 where = 37 }
+	}
+}

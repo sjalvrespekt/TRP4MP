@@ -1,0 +1,305 @@
+# converted to DH, Kane, July 23 2011
+#####################################################################################################
+# 3163000 - 3163999	Peru events
+#####################################################################################################
+
+##########################################################
+# Reinforce the Army
+# by CCM von Hausser
+##########################################################
+event = {
+	id = 3163000
+	random = no
+	country = PRU
+
+	trigger = { atwar = GER }
+
+	name = EVT_3163000_NAME
+	desc = EVT_3163000_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 75
+		name = ACTIONNAME3163000A
+		command = { type = manpowerpool value = 20 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 25
+		name = ACTIONNAME3163000B
+		command = { }
+	}
+}
+
+##########################################################
+# Was 1052000 The Washington negotiations
+##########################################################
+event = {
+	id = 4900000
+	random = no
+	country = PRU
+
+	trigger = {
+		NOT = { alliance = { country = PRU country = ECU } } 
+#		NOT = { owned = { province = 300 data = -1 } }
+	}
+
+	name = EVT_4900000_NAME
+ 	desc = EVT_4900000_DESC
+	style = 0
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 360
+	deathdate = { day = 0 month = june year = 1938 }
+
+	action_a = { name = ACTIONNAME4900000A
+		 command = { type = dissent value = -3 }
+		 command = { type = trigger which = 4800000 }
+	}
+	action_b = { name = ACTIONNAME4900000B
+		 command = { type = dissent value = 5 }
+		 command = { type = removecore which = 2008 }
+		 command = { type = trigger which = 4800001 }
+		 command = { type = sleepevent which = 4900001 }
+		 command = { type = sleepevent which = 4900002 }
+		 command = { type = sleepevent which = 3124000 }
+		 command = { type = sleepevent which = 4800002 }
+	}
+}
+##########################################################
+## Was 1052003 The war (ECU not in alliances)
+##########################################################
+event = {
+	id = 4900001
+	random = no
+	country = PRU
+
+	trigger = { 
+		random = 10
+		war = { country = ENG country = GER }
+		NOT = { war = { country = PRU country = ECU } }
+		NOT = { owned = { province = 2008 data = -1 } } 
+		NOT = { event = 4900002 }
+		NOT = { 
+			OR = { 
+				alliance = { country = ECU country = ENG }
+				alliance = { country = ECU country = GER }
+				alliance = { country = ECU country = SOV }
+			}
+		}
+	} 
+
+	name = EVT_4900001_NAME
+ 	desc = EVT_4900001_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1939 }
+	offset = 60
+	deathdate = { day = 0 month = june year = 1943 }
+
+	action_a = { name = ACTIONNAME4900001A
+		 command = { type = war which = ECU }
+		 command = { type = dissent value = -5 }
+		 command = { type = money value = -1 }
+	}
+	action_b = { name = ACTIONNAME4900001B
+		 command = { type = dissent value = 2 }
+		 command = { type = money value = 1 }
+	}
+	action_c = { name = ACTIONNAME4900001C
+		 command = { type = dissent value = 6 }
+		 command = { type = removecore which = 2008 }
+		 command = { type = construct which = infrastructure where = -1 value = 1 }
+	}
+}
+##########################################################
+## Was 1052004 The war (ECU is in alliances)
+##########################################################
+event = {
+	id = 4900002
+	random = no
+	country = PRU
+
+	trigger = { 
+		random = 10
+		war = { country = ENG country = GER }
+		NOT = { war = { country = PRU country = ECU } }
+		NOT = { owned = { province = 2008 data = -1 } } 
+		NOT = { event = 4900001 }
+		OR = { 
+			alliance = { country = ECU country = ENG }
+			alliance = { country = ECU country = GER }
+			alliance = { country = ECU country = SOV }
+		}
+	} 
+
+	name = EVT_4900002_NAME
+ 	desc = EVT_4900002_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1939 }
+	offset = 60
+	deathdate = { day = 0 month = june year = 1943 }
+
+	action_a = { name = ACTIONNAME4900002A
+		 command = { type = dissent value = 1 }
+		 command = { type = money value = 2 }
+	}
+#	action_b = { name = ACTIONNAME4900002B
+#		 command = { type = war which = ECU }
+#		 command = { type = dissent value = -5 }
+#		 command = { type = money value = -2 }
+#	}
+	action_b = { name = ACTIONNAME4900002C
+		 command = { type = dissent value = 3 }
+		 command = { type = removecore which = 2008 }
+		 command = { type = construct which = infrastructure where = -1 value = 1 }
+	}
+}
+##########################################################
+## Was 1052009 The war (ECU is in alliances)
+##########################################################
+event = {
+	id = 4900003
+	random = no
+	country = PRU
+
+	#Triggered by 4800003
+
+	name = EVT_4900003_NAME
+ 	desc = EVT_4900003_DESC
+	style = 0
+
+	action_a = { name = ACTIONNAME4900003A
+		 command = { type = peace which = ENG value = 1 }
+		 command = { type = peace which = SOV value = 1 }
+		 command = { type = dissent value = -10 }
+	}
+}
+##########################################################
+## Was 1052014 1939 uprisings
+##########################################################
+event = {
+	id = 4900004
+	random = no
+	country = PRU
+
+	trigger = { dissent = 5 }
+
+	name = EVT_4900004_NAME
+ 	desc = EVT_4900004_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 35
+	deathdate = { day = 0 month = march year = 1939 }
+
+	action_a = { name = ACTIONNAME4900004A
+		 command = { type = dissent value = 5 }
+		 command = { type = sleepleader which = 260019 }
+	}
+}
+
+##########################################################
+# Was 1052021 (PRU) - Aviation modernization (by mfigueras)  
+##########################################################
+event = {
+	id = 4900006
+	random = no
+	country = PRU
+
+	name = EVT_4900006_NAME
+	desc = EVT_4900006_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = june year = 1936 }
+
+	action_a = { name = ACTIONNAME4900006A
+		 command = { type = supplies value = -50 }
+		 command = { type = metalpool value = -200 }
+		 command = { type = add_division value = interceptor }
+	}
+	action_b = { name = ACTIONNAME4900006B
+		 command = { type = construct which = infrastructure where = -1 value = 10 }
+		 command = { type = construct which = ic where = -1 value = 1 }
+		 command = { type = metalpool value = -200 }
+		 command = { type = energypool value = -200 }
+		 command = { type = oilpool value = -100 }
+	}
+	action_c = { name = ACTIONNAME4900006C
+		command = { }
+	}
+}
+##########################################################
+## Was 1052022 (PRU) - Ministery of Aeronautics (by mfigueras) 
+##########################################################
+event = {
+	id = 4900007
+	random = no
+	country = PRU
+
+	trigger = { random = 60 }
+
+	name = EVT_4900007_NAME
+	desc = EVT_4900007_DESC
+	style = 0
+
+	date = { day = 0 month = november year = 1941 }
+	offset = 30
+	deathdate = { day = 0 month = june year = 1942 }
+
+	action_a = { name = ACTIONNAME4900007A
+		command = { type = supplies value = -50 }
+		command = { type = manpowerpool value = -10 }
+	}
+	action_b = { name = ACTIONNAME4900007B
+		 command = { type = construct which = ic where = -1 value = 1 }
+	}
+}
+#########################################
+# Was 1052027 (PRU)Protest agains soviet attack on Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 4900008
+	random = no
+	country = PRU
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			alliance = { country = PRU country = SOV }
+			war = { country = PRU country = FIN }
+		}
+	}
+
+	name = EVT_4900008_NAME
+	desc = EVT_4900008_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 2 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME4900008A
+		command = { type = trigger which = 222054 }
+		command = { type = money value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4900008B
+		command = { type = sleepevent which = 222051 }
+		command = { type = money value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

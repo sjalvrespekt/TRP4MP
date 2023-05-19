@@ -1,0 +1,2506 @@
+# converted to DH, Kane, July 15 2011
+# Last Update 29-MAR-2008
+#########################
+
+#########################################################################
+# 3135000 - 3135999	France events
+# Last used : 3135048
+#########################################################################
+
+#########################################################################
+# Reaction to german re-occupation of the Rhineland
+#########################################################################
+event = { 
+	id = 3135000
+	random = no
+	country = FRA
+	
+	# Triggered by GER 3136001,3136002,3136003 : german re-occupation of the Rhineland
+	
+	name = EVT_3135000_NAME
+	desc = EVT_3135000_DESC
+	style = 2
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3135000A
+		ai_chance = 100
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = construct which = land_fort where = 104 value = 1 } # Metz
+		command = { type = construct which = land_fort where = 107 value = 1 } # Strasbourg
+		command = { type = construct which = land_fort where = 105 value = 1 } # Colmar
+	}
+	action_b = {
+		name = ACTIONNAME3135000B
+		ai_chance = 0
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = construct which = land_fort where = 96 value = 1 } # Longwy
+		command = { type = construct which = land_fort where = 102 value = 1 } # Sedan
+		command = { type = construct which = land_fort where = 103 value = 1 } # Hirson
+		command = { type = construct which = land_fort where = 52 value = 1 } # Lille 
+		command = { type = construct which = land_fort where = 51 value = 1 } # Dunkerque
+		command = { type = trigger which = 3155001 } # HOL reaction
+		command = { type = trigger which = 3115001 } # BEL reaction
+	}
+}
+#########################################################################
+# 1936 Elections
+#########################################################################
+event = { 
+	id = 3135025
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+	}
+	
+	name = EVT_3135025_NAME
+	desc = EVT_3135025_DESC
+	style = 2
+	picture = "1936_elections"
+	
+	date = { day = 3 month = june year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3135025A
+		command = { type = headofgovernment which = 2033 } # Léon Blum
+		command = { type = armamentminister which = 2004 } # Vincent Auriol
+		command = { type = ministerofintelligence which = 2123 } # Roger Salengro
+	}
+}
+#########################################################################
+# French Labor Strike of 1936
+#########################################################################
+event = {
+	id = 3135026
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		event = 3135025
+	}
+	
+	name = EVT_3135026_NAME
+	desc = EVT_3135026_DESC
+	style = 2
+	picture = "major_worker_strike"
+	
+	date = { day = 7 month = june year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = june year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3135026A
+		ai_chance = 5
+		command = { type = dissent value = 3 }
+		command = { type = money value = 100 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = manpowerpool value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3135026B
+		ai_chance = 95
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = dissent value = -2 }
+		command = { type = money value = -2000 }
+	}
+}
+#########################################################################
+# French Political Polarization
+#########################################################################
+event = { 
+	id = 3135012 # 9001
+	country = FRA
+	random = no
+	
+	trigger = {
+		atwar = no
+		random = 50
+	}
+ 
+	name = EVT_3135012_NAME 
+	desc = EVT_3135012_DESC
+	style = 2
+	picture = "fra_pol_polarization"
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3135012A
+		command = { type = dissent value = 3 }
+	}
+}
+#########################################################################
+#  Spanish Civil War - Intervention
+#########################################################################
+event = { 
+	id = 3135027 # 2801
+	random = no
+	country = FRA
+	
+	# Triggered by U01 3173000
+	trigger = { event = 3173000 }
+	
+	name = EVT_2801_NAME
+	desc = EVT_2801_DESC
+	style = 2
+	picture = "SCW_French_Intervention"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3135027A
+		ai_chance = 99
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = SPR value = -20 }
+		command = { type = relation which = U01 value = 5 }
+		command = { type = relation which = SOV value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3135027B
+		ai_chance = 1
+		command = { type = dissent value = 2 }
+		command = { type = setflag which = SCW_aid_FRA }
+		command = { type = relation which = SPR value = 20 }
+		command = { type = relation which = U01 value = -5 }
+		command = { type = relation which = SOV value = 5 }
+		command = { type = supplies value = -500 }
+		command = { type = oilpool value = -1000 }
+		command = { type = metalpool value = -2500 }
+		command = { type = energypool value = -5000 }		
+		command = { type = belligerence which = FRA value = 1 }
+		command = { type = trigger which = 3174007 } # SPR
+		command = { type = trigger which = 3182076 } # USA		
+	}
+}
+#event = { 
+#	id = 3135028 # 2802
+#	random = no
+#	country = FRA
+#	
+#	trigger = {
+#		flag = SCW_aid_FRA
+#		war = { country = U01 country = SPR }
+#		manpower = 5
+#		oil = 5000
+#		supplies = 5000
+#		metal = 5000
+#		energy = 5000
+#	}
+#	
+#	name = EVT_3135028_NAME
+#	desc = EVT_2801_DESC
+#	style = 0
+#	picture = "SCW_French_Intervention"
+#	
+#	date = { day = 0 month = august year = 1936 }
+#	offset = 30
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3135028A
+#		command = { type = manpowerpool value = -5 }
+#		command = { type = oilpool value = -5000 }
+#		command = { type = supplies value = -5000 }
+#		command = { type = metalpool value = -5000 }
+#		command = { type = energypool value = -5000 }
+#		command = { type = belligerence which = FRA value = 1 }
+#		command = { type = trigger which = 3174007 } # SPR
+#		command = { type = trigger which = 3182076 } # USA
+#	}
+#}
+#########################################################################
+# Republican Spanish Recruitment Offices in France
+#########################################################################
+event = {
+	id = 3135030
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3135030_NAME
+	desc = EVT_3135030_DESC
+	style = 2
+	picture = "reinforcements"
+	
+	date = { day = 0 month = september year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = september year = 1936 }
+	
+	action_a = {
+		name = EVT_3135030_ACTA # Close the Offices
+		ai_chance = 10
+		command = { type = dissent value = 2 }
+		command = { type = relation which = GER value = 30 }
+		command = { type = relation which = ITA value = 30 }
+		command = { type = relation which = SOV value = -30 }
+		command = { type = relation which = SPR value = -30 }
+		command = { type = sleepevent which = 3174011 } # 4 Brigades are halted
+		command = { type = sleepevent which = 3174012 }
+		command = { type = sleepevent which = 3174014 }
+	}
+	action_b = {
+		name = EVT_3135030_ACTB # Leave the Offices open
+		ai_chance = 90
+		command = { type = relation which = GER value = -30 }
+		command = { type = relation which = ITA value = -30 }
+		command = { type = relation which = SOV value = 30 }
+		command = { type = relation which = SPR value = 30 }
+	}
+}
+#########################################################################
+# The Fall of Blum Government
+#########################################################################
+event = { 
+	id = 3135029
+	random = no
+	country = FRA
+	
+	trigger = {
+		NOT = { flag = SCW_aid_FRA }
+		event = 3135027
+		headofgovernment = 2033 # Léon Blum
+	}
+	
+	name = EVT_3135029_NAME
+	desc = EVT_3135029_DESC
+	style = 2
+	picture = "blum_end"
+	
+	date = { day = 23 month = june year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1937 }
+	
+	action_a = {
+		name = ACTIONNAME3135029A
+		command = { type = headofgovernment which = 2036 } # Camille Chautemps
+	}
+}
+#########################################################################
+# La Cagoule
+#########################################################################
+event = {
+	id = 3135031
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		OR = {
+			headofgovernment = 2033
+			headofgovernment = 2036
+		}
+	}
+	
+	name = EVT_3135031_NAME
+	desc = EVT_3135031_DESC
+	style = 2
+	picture = "la_cagoule"
+	
+	date = { day = 22 month = september year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1937 }
+	
+	action_a = {
+		name = ACTIONNAME3135031A
+		command = { type = dissent value = 2 }
+	}
+}
+#########################################################################
+# Reaction to Anschluss
+#########################################################################
+event = { 
+	id = 3135034
+	random = no
+	country = FRA
+	
+	# Triggered by GER 3136006
+	
+	name = EVT_3135034_NAME
+	desc = EVT_2100_DESC
+	style = 2
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 150 }
+	}
+}
+#########################################################################
+# Fall of Chautemps Government
+#########################################################################
+event = {
+	id = 3135032
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		headofgovernment = 2036
+	}
+	
+	name = EVT_3135032_NAME
+	desc = EVT_3135032_DESC
+	style = 2
+	picture = "chautemps"
+	
+	date = { day = 12 month = march year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1938 }
+	
+	action_a = {
+		name = ACTIONNAME3135032A
+		command = { type = headofgovernment which = 2033 } # Léon Blum
+	}
+}
+#########################################################################
+# Daladier Cabinet
+#########################################################################
+event = {
+	id = 3135033
+	random = no
+	country = FRA
+	
+	trigger = {
+		atwar = no
+		headofgovernment = 2033
+	}
+	
+	name = EVT_3135033_NAME
+	desc = EVT_3135033_DESC
+	style = 2
+	picture = "daladier_cabinet"
+	
+	date = { day = 9 month = april year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = april year = 1938 }
+	
+	action_a = {
+		name = ACTIONNAME3135033A
+		command = { type = headofgovernment which = 2037 } # Edouard Daladier
+	}
+}
+#########################################################################
+# Treaty of Munich
+#########################################################################
+event = { 
+	id = 3135035
+	random = no
+	country = FRA
+	
+	# Triggered by GER
+	
+	name = EVT_3131122_NAME
+	desc = EVT_2030_DESC
+	style = 2
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 200 }
+	}
+}
+#########################################################################
+# The End of Czechoslovakia
+#########################################################################
+event = { 
+	id = 3135036
+	random = no
+	country = FRA
+	
+	# Triggered by GER
+	
+	name = EVT_3131123_NAME
+	desc = EVT_2040_DESC
+	style = 2
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 300 }
+	}
+}
+#########################################################################
+# Break of Versailles Treaty
+#########################################################################
+event = { 
+	id = 3135037
+	random = no
+	country = FRA
+	
+        # Triggered by GER
+	
+	name = EVT_3131124_NAME
+	desc = EVT_3131124_DESC
+	style = 2
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+                command = { type = manpowerpool value = 100 }
+	}
+}
+#########################################################################
+# Plane Crash (Idea by Kane)
+#########################################################################
+event = {
+	id = 3135038
+	random = no
+	country = FRA
+	
+	# triggered by BEL 3115008
+	
+	name = EVT_3115008_NAME
+	desc = EVT_3115008_DESC
+	style = 2
+	picture = "plane_crash"
+	
+	action_a = {
+		name = ACTIONNAME3135037A
+		ai_chance = 50
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME3135037B
+		ai_chance = 50
+		command = { type = alliance which = BEL }
+	}
+}
+#########################################################################
+# The Vichy Regime (was 2800)
+#########################################################################
+event = {
+	id = 3135001
+	random = no
+	country = FRA
+	
+	save_date = yes
+	
+	# Triggered by GER 3136033
+	
+	name = EVT_3135001_NAME
+	desc = EVT_3135001_DESC
+	style = 2
+	picture = "VIC"
+
+	action_a = {
+		name = ACTIONNAME3135001A
+#		ai_chance = 100
+		command = { type = leave_alliance }
+		command = { type = leave_alliance }
+		command = { type = leave_alliance }
+		command = { type = leave_alliance }
+
+		command = { type = demobilize which = land when = 1 where = 1 value = 0 } # disbands all land units but 10; does NOT return MP to the pool
+		command = { type = demobilize which = air when = 1 where = 0 value = 0 } # disbands all air units but 5 and returns MP to the pool
+		#command = { type = demobilize which = naval when = 1 where = 0 value = 30 } # disbands all naval units but 30 and returns MP to the pool
+		
+		command = { type = construct which = naval_base where = 1768 value = 1 } # Martinique
+		command = { type = construct which = air_base where = 1768 value = 1 } # Martinique
+		
+		command = { type = wartime_ic_mod value = -10 } # compensates for event 3135016 (first wave mobilization)
+		
+		command = { type = trigger which = 3135020 } # FRA
+	}
+#	action_b = {
+#		name = ACTIONNAME3135001B
+#		ai_chance = 0
+#		command = { type = relation which = ENG value = 15 }
+#		command = { type = relation which = USA value = 5 }
+#		command = { type = relation which = SOV value = 10 }
+#		#command = { type = ground_def_eff value = 0.95 }
+#	}
+}
+event = { # Fixed by Lothos
+	id = 3135020
+	random = no
+	country = FRA
+	
+	# triggered by FRA 3135001
+
+	name = EVT_3135001_NAME
+	desc = EVT_3135001_DESC
+	style = 2
+	picture = "VIC"
+	
+	action_a = {
+		name = ACTIONNAME3135020A
+		command = { type = peace which = GER value = 1 }
+		command = { type = peace which = ITA value = 1 }
+		command = { type = peace which = U01 value = 1 }
+		command = { type = peace which = HUN value = 1 }
+		command = { type = peace which = ROM value = 1 }
+		command = { type = peace which = U18 value = 1 }
+		command = { type = peace which = DEN value = 1 }
+		command = { type = peace which = YUG value = 1 }
+		command = { type = peace which = BUL value = 1 }
+		command = { type = peace which = GRE value = 1 }
+		command = { type = peace which = FIN value = 1 }
+		command = { type = secedeprovince which = GER value = 104 when = 2 } #Metz
+		command = { type = secedeprovince which = GER value = 107 when = 2 } #Strassbourg
+		command = { type = secedeprovince which = GER value = 105 when = 2 } #Colmar
+		command = { type = secedeprovince which = GER value = 96 when = 2 } #Longwy
+		command = { type = secedeprovince which = GER value = 95 when = 2 } #Chaumont
+		command = { type = secedeprovince which = GER value = 106 when = 2 } #Nancy
+		command = { type = secedeprovince which = GER value = 97 when = 2 } #Belfort
+		command = { type = secedeprovince which = GER value = 64 when = 2 } #Le Creusot
+		command = { type = secedeprovince which = GER value = 54 when = 2 } #Troyes
+		command = { type = secedeprovince which = GER value = 99 when = 2 } #Reims
+		command = { type = secedeprovince which = GER value = 100 when = 2 } #Verdun
+		command = { type = secedeprovince which = GER value = 102 when = 2 } #Sedan
+		command = { type = secedeprovince which = GER value = 101 when = 2 } #Laon
+		command = { type = secedeprovince which = GER value = 103 when = 2 } #Hirson
+		command = { type = secedeprovince which = GER value = 51 when = 2 } #Dunkirchen
+		command = { type = secedeprovince which = GER value = 52 when = 2 } #Lille
+		command = { type = secedeprovince which = GER value = 49 when = 2 } #Calais
+		command = { type = secedeprovince which = GER value = 53 when = 2 } #Dieppe
+		command = { type = secedeprovince which = GER value = 50 when = 2 } #Amiens
+		command = { type = secedeprovince which = GER value = 55 when = 2 } #Paris
+		command = { type = secedeprovince which = GER value = 56 when = 2 } #Chateau Thierry
+		command = { type = secedeprovince which = GER value = 60 when = 2 } #Chartres
+		command = { type = secedeprovince which = GER value = 66 when = 2 } #Orleans
+		command = { type = secedeprovince which = GER value = 42 when = 2 } #Avranches
+		command = { type = secedeprovince which = GER value = 43 when = 2 } #Cherbourg
+		command = { type = secedeprovince which = GER value = 44 when = 2 } #Caen
+		command = { type = secedeprovince which = GER value = 46 when = 2 } #Bayeux
+		command = { type = secedeprovince which = GER value = 47 when = 2 } #Falaise
+		command = { type = secedeprovince which = GER value = 48 when = 2 } #Evreux
+		command = { type = secedeprovince which = GER value = 45 when = 2 } #Le Havre
+		command = { type = secedeprovince which = GER value = 37 when = 2 } #Brest
+		command = { type = secedeprovince which = GER value = 38 when = 2 } #Rennes
+		command = { type = secedeprovince which = GER value = 41 when = 2 } #Saint Brieuc
+		command = { type = secedeprovince which = GER value = 39 when = 2 } #Lorient
+		command = { type = secedeprovince which = GER value = 40 when = 2 } #St. Nazaire
+		command = { type = secedeprovince which = GER value = 59 when = 2 } #Angers
+		command = { type = secedeprovince which = GER value = 58 when = 2 } #Le Mans
+		command = { type = secedeprovince which = GER value = 57 when = 2 } #Nantes
+		command = { type = secedeprovince which = GER value = 62 when = 2 } #Poitiers
+		command = { type = secedeprovince which = GER value = 61 when = 2 } #Tours
+		command = { type = secedeprovince which = GER value = 65 when = 2 } #Bourges
+		command = { type = secedeprovince which = GER value = 63 when = 2 } #Auxerre
+		command = { type = secedeprovince which = GER value = 69 when = 2 } #La Rochelle
+		command = { type = secedeprovince which = GER value = 70 when = 2 } #Angouleme
+		command = { type = secedeprovince which = GER value = 68 when = 2 } #Bordeaux
+		command = { type = secedeprovince which = GER value = 67 when = 2 } #Mont-de-Marsan
+		command = { type = secedeprovince which = GER value = 98 when = 2 } #Pontarlier
+		
+		command = { type = transport_pool which = GER value = 50 } #captured merchant ships
+		
+		command = { type = trigger which = 3135021 } # FRA
+	}
+}
+event = { # Fixed by Lothos
+	id = 3135021
+	random = no
+	country = FRA
+	
+	# triggered by FRA 3135001
+
+	name = EVT_3135001_NAME
+	desc = EVT_3135001_DESC
+	style = 2
+	picture = "VIC"
+	
+	action_a = {
+		name = ACTIONNAME3135020A
+		# command = { type = independence which = VIC value = 1 }
+		command = { type = independence which = U14 value = 1 }
+		command = { type = trigger which = 3135023 } # FRA
+	}
+}
+event = { # Fixed by DerStudti
+	id = 3135023
+	random = no
+	country = FRA
+	
+	# triggered by FRA 3135020
+
+	name = EVT_3135001_NAME
+	desc = EVT_3135001_DESC
+	style = 2
+	picture = "VIC"
+	
+	action_a = {
+		name = ACTIONNAME3135023A
+		command = { type = country which = VIC }
+		command = { type = trigger which = 3136074 } # GER
+#		command = { type = alliance which = VIC }
+#		command = { type = dissent value = -5 }
+#		command = { type = secedeprovince which = VIC value = 85 }
+#		command = { type = secedeprovince which = VIC value = 89 }
+#		command = { type = secedeprovince which = VIC value = 93 }
+#		command = { type = secedeprovince which = VIC value = 741 }
+#		command = { type = secedeprovince which = VIC value = 742 }
+#		command = { type = secedeprovince which = VIC value = 744 }
+#		command = { type = secedeprovince which = VIC value = 740 }
+#		command = { type = secedeprovince which = VIC value = 746 }
+#		command = { type = secedeprovince which = VIC value = 745 }
+#		command = { type = secedeprovince which = VIC value = 747 }
+#		command = { type = secedeprovince which = VIC value = 748 }
+#		command = { type = secedeprovince which = VIC value = 749 }
+#		command = { type = secedeprovince which = VIC value = 735 }
+#		command = { type = secedeprovince which = VIC value = 734 }
+#		command = { type = secedeprovince which = VIC value = 743 }
+#		command = { type = secedeprovince which = VIC value = 731 }
+#		command = { type = secedeprovince which = VIC value = 736 }
+#		command = { type = secedeprovince which = VIC value = 732 }
+#		command = { type = secedeprovince which = VIC value = 730 }
+#		command = { type = secedeprovince which = VIC value = 727 }
+#		command = { type = secedeprovince which = VIC value = 733 }
+#		command = { type = secedeprovince which = VIC value = 729 }
+#		command = { type = secedeprovince which = VIC value = 728 }
+#		command = { type = secedeprovince which = VIC value = 724 }
+#		command = { type = secedeprovince which = VIC value = 721 }
+#		command = { type = secedeprovince which = VIC value = 722 }
+#		command = { type = secedeprovince which = VIC value = 723 }
+#		command = { type = secedeprovince which = VIC value = 717 }
+#		command = { type = secedeprovince which = VIC value = 718 }
+#		command = { type = secedeprovince which = VIC value = 720 }
+#		command = { type = secedeprovince which = VIC value = 719 }
+#		command = { type = secedeprovince which = VIC value = 725 }
+#		command = { type = secedeprovince which = VIC value = 726 }
+#		command = { type = secedeprovince which = VIC value = 739 }
+#		command = { type = secedeprovince which = VIC value = 737 }
+#		command = { type = secedeprovince which = VIC value = 738 }
+#		command = { type = secedeprovince which = VIC value = 946 }
+#		command = { type = secedeprovince which = VIC value = 922 }
+#		command = { type = secedeprovince which = VIC value = 833 }
+#		command = { type = secedeprovince which = VIC value = 981 }
+#		command = { type = secedeprovince which = VIC value = 982 }
+#		command = { type = secedeprovince which = VIC value = 986 }
+#		command = { type = secedeprovince which = VIC value = 978 }
+#		command = { type = secedeprovince which = VIC value = 983 }
+#		command = { type = secedeprovince which = VIC value = 977 }
+#		command = { type = secedeprovince which = VIC value = 980 }
+#		command = { type = secedeprovince which = VIC value = 975 }
+#		command = { type = secedeprovince which = VIC value = 965 }
+#		command = { type = secedeprovince which = VIC value = 972 }
+#		command = { type = secedeprovince which = VIC value = 971 }
+#		command = { type = secedeprovince which = VIC value = 976 }
+#		command = { type = secedeprovince which = VIC value = 966 }
+#		command = { type = secedeprovince which = VIC value = 985 }
+#		command = { type = secedeprovince which = VIC value = 984 }
+#		command = { type = secedeprovince which = VIC value = 974 }
+#		command = { type = secedeprovince which = VIC value = 967 }
+#		command = { type = secedeprovince which = VIC value = 968 }
+#		command = { type = secedeprovince which = VIC value = 958 }
+#		command = { type = secedeprovince which = VIC value = 973 }
+#		command = { type = secedeprovince which = VIC value = 962 }
+#		command = { type = secedeprovince which = VIC value = 970 }
+#		command = { type = secedeprovince which = VIC value = 960 }
+#		command = { type = secedeprovince which = VIC value = 961 }
+#		command = { type = secedeprovince which = VIC value = 957 }
+#		command = { type = secedeprovince which = VIC value = 942 }
+#		command = { type = secedeprovince which = VIC value = 945 }
+#		command = { type = secedeprovince which = VIC value = 957 }
+#		command = { type = secedeprovince which = VIC value = 944 }
+#		command = { type = secedeprovince which = VIC value = 950 }
+#		command = { type = secedeprovince which = VIC value = 948 }
+#		command = { type = secedeprovince which = VIC value = 949 }
+#		command = { type = secedeprovince which = VIC value = 951 }
+#		command = { type = secedeprovince which = VIC value = 943 }
+#		command = { type = secedeprovince which = VIC value = 947 }
+#		command = { type = secedeprovince which = VIC value = 920 }
+#		command = { type = secedeprovince which = VIC value = 921 }
+#		command = { type = secedeprovince which = VIC value = 925 }
+#		command = { type = secedeprovince which = VIC value = 924 }
+#		command = { type = secedeprovince which = VIC value = 928 }
+#		command = { type = secedeprovince which = VIC value = 911 }
+#		command = { type = secedeprovince which = VIC value = 915 }
+#		command = { type = secedeprovince which = VIC value = 917 }
+#		command = { type = secedeprovince which = VIC value = 918 }
+#		command = { type = secedeprovince which = VIC value = 927 }
+#		command = { type = secedeprovince which = VIC value = 923 }
+#		command = { type = secedeprovince which = VIC value = 919 }
+#		command = { type = secedeprovince which = VIC value = 926 }
+#		command = { type = secedeprovince which = VIC value = 909 }
+#		command = { type = secedeprovince which = VIC value = 910 }
+#		command = { type = secedeprovince which = VIC value = 908 }
+#		command = { type = secedeprovince which = VIC value = 907 }
+#		command = { type = secedeprovince which = VIC value = 914 }
+#		command = { type = secedeprovince which = VIC value = 1016 }
+#		command = { type = secedeprovince which = VIC value = 1020 }
+#		command = { type = secedeprovince which = VIC value = 1019 }
+#		command = { type = secedeprovince which = VIC value = 1018 }
+#		command = { type = secedeprovince which = VIC value = 1014 }
+#		command = { type = secedeprovince which = VIC value = 1015 }
+#		command = { type = secedeprovince which = VIC value = 1021 }
+#		command = { type = secedeprovince which = VIC value = 1017 }
+#		command = { type = secedeprovince which = VIC value = 1003 }
+#		command = { type = secedeprovince which = VIC value = 996 }
+#		command = { type = secedeprovince which = VIC value = 1001 }
+#		command = { type = secedeprovince which = VIC value = 1002 }
+#		command = { type = secedeprovince which = VIC value = 1392 }
+#		command = { type = secedeprovince which = VIC value = 1393 }
+#		command = { type = secedeprovince which = VIC value = 1404 }
+#		command = { type = secedeprovince which = VIC value = 1391 }
+#		command = { type = secedeprovince which = VIC value = 1405 }
+#		command = { type = secedeprovince which = VIC value = 1395 }
+#		command = { type = secedeprovince which = VIC value = 1396 }
+#		command = { type = secedeprovince which = VIC value = 1394 }
+#		command = { type = secedeprovince which = VIC value = 1397 }
+#		command = { type = secedeprovince which = VIC value = 1398 }
+#		command = { type = secedeprovince which = VIC value = 1399 }
+#		command = { type = secedeprovince which = VIC value = 1403 }
+#		command = { type = secedeprovince which = VIC value = 1400 }
+#		command = { type = secedeprovince which = VIC value = 1401 }
+#		command = { type = secedeprovince which = VIC value = 1402 }
+#		command = { type = trigger which = 3135099 } # VIC
+	}
+}
+
+event = { # Fixed by DerStudti
+	id = 3135099
+	random = no
+	country = VIC
+	
+	# triggered by FRA 3135023
+
+	name = EVT_3135099_NAME
+	desc = EVT_3135099_DESC
+	style = 2
+	picture = "VIC"
+	
+	action_a = {
+		name = ACTIONNAME3135023A
+
+		command = { type = inherit which = FRA }
+		command = { type = trigger which = 3136074 } # GER
+}
+}
+
+##########################################################################
+# Franco-Syrian Treaty
+# by Luxor
+##########################################################################
+event = {
+	id = 3135002
+	random = no
+	country = FRA
+	
+	trigger = { NOT = { exists = SYR } }
+	
+	name = EVT_3135002_NAME
+	desc = EVT_3135002_DESC
+	style = 2
+	picture = "franco_syrian"
+	
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3135002A
+		command = { type = trigger which = 3135003 }
+	}
+	action_b = {
+		name = ACTIONNAME3135002B
+		command = { type = dissent value = 2 }
+	}
+}
+event = {
+	id = 3135003
+	random = no
+	country = FRA
+	
+	# Triggered by GER 3135002
+	
+	name = EVT_3135003_NAME
+	desc = EVT_3135003_DESC
+	style = 2
+	picture = "franco_syrian"
+	
+	action_a = {
+		name = ACTIONNAME3135003A
+		command = { type = dissent value = -2 }
+	}
+}
+##########################################################################
+# Franco-Lebanese Treaty
+# by Luxor
+##########################################################################
+event = {
+	id = 3135004
+	random = no
+	country = FRA
+	
+	trigger = { NOT = { exists = LEB } }
+	
+	name = EVT_3135004_NAME
+	desc = EVT_3135004_DESC
+	style = 2
+	picture = "franco_lebanese"
+	
+	date = { day = 12 month = november year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1937 }
+	
+	action_a = {
+		name = ACTIONNAME3135004A
+		command = { type = trigger which = 3135005 }
+	}
+	action_b = {
+		name = ACTIONNAME3135004B
+		command = { type = dissent value = 2 }
+	}
+}
+event = {
+	id = 3135005
+	random = no
+	country = FRA
+	
+	# Triggered by GER 3135004
+	
+	name = EVT_3135005_NAME
+	desc = EVT_3135005_DESC
+	style = 2
+	picture = "franco_lebanese"
+	
+	action_a = {
+		name = ACTIONNAME3135005A
+		command = { type = dissent value = -2 }
+	}
+}
+###########################################################################
+# Maginot Line event
+# By Luxor
+###########################################################################
+event = {
+	id = 3135006
+	random = no
+	country = FRA
+	
+	trigger = {
+		event = 3136033 # Vichy event
+		NOT = { exists = VIC } # FRA refused to surrender
+		war = { country = FRA country = GER }
+		OR = {
+			control = { province = 104 data = FRA } # Metz
+			control = { province = 107 data = FRA } # Strasbourg
+			control = { province = 105 data = FRA } # Colmar
+			control = { province = 96 data = FRA } # Longwy
+		}
+		control = { province = 132 data = GER } # Surrounding provinces
+		control = { province = 136 data = GER }
+		control = { province = 130 data = GER }
+		control = { province = 127 data = GER }
+		control = { province = 128 data = GER }
+		control = { province = 109 data = GER }
+		control = { province = 111 data = GER }
+		control = { province = 102 data = GER }
+		control = { province = 100 data = GER }
+		control = { province = 106 data = GER }
+		control = { province = 97 data = GER }
+	}
+	
+	name = EVT_3135006_NAME
+	desc = EVT_3135006_DESC
+	style = 2
+	picture = "ligne_de_maginot"
+	
+	date = { day = 0 month = January year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = December year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3135006A
+		command = { type = construct which = land_fort where = 96 value = -10 }
+		command = { type = construct which = land_fort where = 104 value = -10 }
+		command = { type = construct which = land_fort where = 107 value = -10 }
+		command = { type = construct which = land_fort where = 105 value = -10 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 3135007 # 6400003
+	random = no
+	country = FRA 
+
+	# triggered by 3182091
+
+	name = EVT_3135007_NAME
+	desc = EVT_3135007_DESC
+	style = 2
+	picture = "potsdam_conference"
+
+	action_a = { 
+		name = ACTIONNAME3135007A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = { 
+	id = 3135008 # 6400004
+	random = no
+	country = FRA
+
+	# triggered by 3182093
+
+	name = EVT_3135008_NAME
+	desc = EVT_3135008_DESC
+	style = 2
+	picture = "potsdam_conference"
+
+	action_a = { 
+		name = ACTIONNAME3135008A
+		command = { type = alliance which = ENG }
+		command = { type = trigger which = 3135009 }
+	}
+#	action_b = {
+#		name = ACTIONNAME3135008B
+#		command = { type = trigger which = 3135009 }
+#	}
+}
+#####################################################################
+# France is back - by Luxor
+#####################################################################
+event = { 
+	id = 3135009 # 6400005
+	random = no
+	country = FRA
+
+	# Triggered by FRA 3135008
+
+	name = EVT_3135009_NAME
+	desc = EVT_3135009_DESC
+	style = 2
+	picture = "fra_is_back"
+
+	action_a = { 
+		name = ACTIONNAME3135009A
+		#command = { type = country which = FRA }
+		command = { type = trigger which = 3190001 }
+	}
+
+}
+#####################################################################
+# France merges with Free France - by Luxor
+#####################################################################
+event = { 
+	id = 3135010 # 6400006
+	random = no
+	country = FRA
+
+	# Triggered by U14 3190001
+
+	name = EVT_3135010_NAME
+	desc = EVT_3135010_DESC
+	style = 2
+	picture = "fra_fff"
+
+	action_a = { 
+		name = ACTIONNAME3135010A
+		command = { type = inherit which = U14 }
+		#command = { type = alliance which = ENG }
+	}
+
+}
+###################################################################
+# West Germany independence by Luxor
+###################################################################
+event = {
+	id = 3135011
+	random = no
+	country = FRA
+	
+	# Triggered by USA 3182094
+
+	name = EVT_3135011_NAME
+	desc = EVT_3135011_DESC
+	style = 2
+	picture = "brd"
+	
+	action_a = {
+		name = ACTIONNAME3135011A
+		command = { type = secedeprovince which = DFR value = 132 } # Freiburg
+		command = { type = secedeprovince which = DFR value = 135 } # Tubingen
+		command = { type = secedeprovince which = DFR value = 133 } # Konstanz
+		command = { type = secedeprovince which = DFR value = 129 } # Koblenz
+		command = { type = secedeprovince which = DFR value = 128 } # Trier
+		command = { type = secedeprovince which = DFR value = 130 } # Mainz
+		command = { type = secedeprovince which = DFR value = 143 } # Neuwied
+	}
+}
+
+######################################################################### 
+# Effects of Blitzkrieg France
+######################################################################### 
+event = { 
+	id = 3135013 # 9150
+	random = no
+	country = FRA
+	
+	trigger = {
+                AI = GER
+		war = { country = FRA country = GER }
+		NOT = { exists = VIC }
+		OR = { 
+			control = { province = 50 data = GER } # Amiens
+			control = { province = 99 data = GER } # Reims
+			control = { province = 100 data = GER } # Verdun
+			control = { province = 102 data = GER } # Sedan
+			control = { province = 56 data = GER } # Chateau Thierry
+			control = { province = 45 data = GER } # Le Havre
+                        control = { province = 96 data = GER } # Longwy
+                        control = { province = 52 data = GER } # Lille
+			control = { province = 51 data = GER } # Dunkerque
+                        control = { province = 101 data = GER } # Laon
+                        control = { province = 103 data = GER } # Hirson
+                        control = { province = 104 data = GER } # Metz
+                        control = { province = 107 data = GER } # Strasbourg
+                        control = { province = 105 data = GER } # Colmar
+		}
+	}
+
+	name = EVT_3135013_NAME
+ 	desc = EVT_3135013_DESC
+	style = 2
+	picture = "french_moral"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3135013A
+		command = { type = dissent value = 20 }
+		command = { type = ground_def_eff value = -0.1 when = 1 }
+	}
+}
+######################################################################### 
+# Effects of Blitzkrieg France
+######################################################################### 
+event = { 
+	id = 3135041
+	random = no
+	country = FRA
+	
+	trigger = {
+                NOT = { AI = GER }
+		war = { country = FRA country = GER }
+		NOT = { exists = VIC }
+                lost_national = { country = FRA value = 10 }
+	}
+
+	name = EVT_3135013_NAME
+ 	desc = EVT_3135013_DESC
+	style = 2
+	picture = "french_moral"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3135013A
+		command = { type = dissent value = 5 }
+		#command = { type = ground_def_eff value = 0.8 }
+	}
+}
+######################################################################### 
+# German Aggression in Western Europe
+# French outrage over attacks on Neutrals 
+######################################################################### 
+event = { 
+	id = 3135014 # 9502
+	random = no
+	country = FRA
+	
+	# triggered by ENG 3131118
+
+	name = EVT_3135014_NAME
+	desc = EVT_3135014_DESC
+	style = 2
+	picture = "german_aggression"
+
+	action_a = {
+		name = ACTIONNAME3135014A
+		command = { type = dissent value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3135014B
+		command = { type = money value = -5 }
+		command = { type = dissent value = 5 }
+	}
+}
+#########################################################################
+# Partial Mobilization
+# by CCM von Hausser
+#########################################################################
+event = {	
+	id = 3135015
+	random = no
+	country = FRA
+	
+	trigger = { event = 2200 } # Treaty of Munich
+	
+	name = EVT_3135015_NAME
+	desc = EVT_3135015_DESC 
+	style = 2
+	picture = "fra_mob"
+	
+	date = { day = 0 month = september year = 1938 }
+	offset = 7
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3135015A
+		command = { trigger = { NOT = { OR = { local_flag = france_partial_mechanization local_flag = france_full_mechanization } } } type = manpowerpool value = 595 }
+		command = { trigger = { local_flag = france_partial_mechanization } type = manpowerpool value = 527 }
+		command = { trigger = { local_flag = france_full_mechanization } type = manpowerpool value = 408 }
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3135015B
+		command = { }
+	}
+}
+#########################################################################
+# 1st Reservists call
+# by CCM von Hausser
+#########################################################################
+event = {	
+	id = 3135016
+	random = no
+	country = FRA
+	
+	trigger = { 
+				OR = {
+						war = { country = GER country = FRA }
+						AND = {
+								NOT = { exists = CZE }
+								NOT = { AI = GER }
+								AI = FRA
+								}
+						}
+				}
+	
+	name = EVT_3135016_NAME
+	desc = EVT_3135016_DESC 
+	style = 2
+	picture = "fra_mob2"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3135016A
+		command = { trigger = { NOT = { OR = { local_flag = france_partial_mechanization local_flag = france_full_mechanization } } } type = manpowerpool value = 523 }
+		command = { trigger = { local_flag = france_partial_mechanization } type = manpowerpool value = 455 }
+		command = { trigger = { local_flag = france_full_mechanization } type = manpowerpool value = 336 }
+		command = { type = wartime_ic_mod value = 10 } # compensates for deleted factory gifts in event 15050
+		command = { type = dissent value = 2 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3135016B
+		command = { }
+	}
+}
+#########################################################################
+# 2nd Reservists call
+# by CCM von Hausser
+#########################################################################
+event = {	
+	id = 3135017
+	random = no
+	country = FRA
+	
+	trigger = { 
+		control = { province = 55 data = FRA } # Paris
+		OR = {
+			NOT = { exists = POL }
+			puppet = { country = POL country = GER }
+			control = { province = 232 data = GER } # Warsaw
+			AND = {
+					war = { country = GER country = FRA }
+					NOT = { AI = GER }
+					AI = FRA
+					}
+		}
+	}
+	
+	name = EVT_3135017_NAME
+	desc = EVT_3135017_DESC 
+	style = 2
+	picture = "fra_mob3"
+	
+	date = { day = 0 month = december year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3135017A
+		command = { trigger = { NOT = { OR = { local_flag = france_partial_mechanization local_flag = france_full_mechanization } } } type = manpowerpool value = 543 }
+		command = { trigger = { local_flag = france_partial_mechanization } type = manpowerpool value = 475 }
+		command = { trigger = { local_flag = france_full_mechanization } type = manpowerpool value = 356 }
+		command = { type = dissent value = 2 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3135017B
+		command = { }
+	}
+}
+#########################################################################
+# Total Mobilization
+# by CCM von Hausser & Luxor
+#########################################################################
+event = {	
+	id = 3135018
+	random = no
+	country = FRA
+	
+	trigger = { 
+		war = { country = GER country = FRA }
+		NOT = { exists = VIC }
+		OR = {
+				lost_national = { country = FRA value = 10 }
+				AND = {
+								lost_national = { country = FRA value = 1 }
+								NOT = { AI = GER }
+								AI = FRA
+								}
+				}
+	}
+	
+	name = EVT_3135018_NAME
+	desc = EVT_3135018_DESC 
+	style = 2
+	picture = "fra_mob4"
+	
+	date = { day = 7 month = december year = 1936 }
+	offset = 15
+	deathdate = { day = 7 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3135018A
+		command = { type = manpowerpool value = 780 }
+		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3135018B
+		command = { }
+	}
+}
+#########################################################################
+# Total War
+# by CCM von Hausser & Luxor
+#########################################################################
+event = {	
+	id = 3135019
+	random = no
+	country = FRA
+	
+	trigger = { 
+		event = 3135018
+		control = { province = 55 data = -2 } # Paris has Fallen
+		lost_national = { country = FRA value = 40 }
+		war = { country = GER country = FRA }
+		NOT = { exists = VIC }
+	}
+	
+	name = EVT_3135019_NAME
+	desc = EVT_3135019_DESC 
+	style = 2
+	picture = "fra_mob4"
+	
+	date = { day = 7 month = december year = 1936 }
+	offset = 15
+	deathdate = { day = 7 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAME3135019A
+		command = { type = manpowerpool value = 520 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAME3135019B
+		command = { }
+	}
+}
+#########################################################################
+# Paris Open City
+#########################################################################
+event = { 
+	id = 3135024
+	random = no
+	country = FRA
+	
+	trigger = {
+		war = { country = GER country = FRA }
+		OR = {
+			control = { province = 45 data = GER }
+			control = { province = 53 data = GER }
+			control = { province = 56 data = GER }
+			control = { province = 54 data = GER }
+			control = { province = 60 data = GER }
+			control = { province = 48 data = GER }
+		}
+		random = 50
+	}
+	
+	name = EVT_3135024_NAME
+	desc = EVT_3135024_DESC
+	style = 2
+	picture = "paris_open"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3135024A
+#		ai_chance = 98
+		ai_chance = 100
+		command = { type = capital which = 68 } #Bordeaux
+		#urban defense lowered to one third
+		command = { type = urban_defense which = infantry value = -63 }		# base value 95		=> 32
+		command = { type = urban_defense which = cavalry value = -60 }		# base value 90		=> 30
+		command = { type = urban_defense which = motorized value = -63 }	# base value 95		=> 32
+		command = { type = urban_defense which = mechanized value = -47 }	# base value 70		=> 23
+		command = { type = urban_defense which = light_armor value = -47 }	# base value 70		=> 23
+		command = { type = urban_defense which = armor value = -43 }		# base value 65		=> 22
+		command = { type = urban_defense which = paratrooper value = -73 }	# base value 110	=> 37
+		command = { type = urban_defense which = marine value = -67 }		# base value 100	=> 33
+		command = { type = urban_defense which = bergsjaeger value = -67 }	# base value 100	=> 33
+		command = { type = urban_defense which = garrison value = -67 }		# base value 100	=> 33
+		command = { type = urban_defense which = hq value = -63 }			# base value 95		=> 32
+		command = { type = urban_defense which = militia value = -67 }		# base value 100	=> 33
+		command = { type = urban_defense which = d_02 value = -63 }			# base value 95		=> 32
+		command = { type = urban_defense which = d_03 value = -77 }			# base value 115	=> 38
+		command = { type = urban_defense which = d_04 value = -63 }			# base value 95		=> 32
+		command = { type = urban_defense which = d_05 value = -70 }			# base value 105	=> 35
+		command = { type = urban_defense which = d_06 value = -50 }			# base value 75		=> 25
+		command = { type = urban_defense which = d_07 value = -70 }			# base value 105	=> 35
+		command = { type = dissent value = 3 }
+		command = { trigger = { event = 3135013 } type = ground_def_eff value = 0.1 when = 1 }
+	}
+#	action_b = {
+#		name = ACTIONNAME3135024B
+#		ai_chance = 1
+#		command = { type = secedeprovince which = GER value = 55 }
+#	}
+#	action_c = {
+	action_b = {
+		name = ACTIONNAME3135024C
+#		ai_chance = 1
+		ai_chance = 0
+		command = { type = dissent value = 50 }
+		command = { trigger = { event = 3135013 } type = ground_def_eff value = 0.1 when = 1 }
+	}
+}
+
+
+
+
+event = { 
+	id = 5500006
+	random = no
+	country = FRA
+	
+	trigger = {
+		event = 3182054
+		NOT = { event = 3146003 } # japanese surrender
+		alliance = { country = FRA country = USA }
+		control = { province = 1586 data = FRA }
+		control = { province = 1585 data = FRA }
+		control = { province = 1584 data = FRA }
+		control = { province = 1581 data = FRA }
+		control = { province = 1582 data = FRA }
+		control = { province = 1583 data = FRA }
+	}
+	
+	name = EVT_5500006_NAME
+	desc = EVT_5500006_DESC
+	style = 2
+	picture = "paris_open"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = january year = 1950 }
+
+	action_a = {
+		name = ACTIONNAME5500006A 
+		command = { type = secedeprovince which = USA value = 1586 }
+		command = { type = secedeprovince which = USA value = 1585 }
+		command = { type = secedeprovince which = USA value = 1584 }
+		command = { type = secedeprovince which = USA value = 1581 }
+		command = { type = secedeprovince which = USA value = 1582 }
+		command = { type = secedeprovince which = USA value = 1583 }
+	}
+}
+#########################################################################
+#  15050 - French political crisis over fortification effort
+#########################################################################
+event = {
+	id = 15050
+	random = no
+	country = FRA
+	trigger = {
+		ai = no
+		OR = {	# more than 2 land forts built anywhere between Paris and belgian border => player may build just small forts without consequences
+				# first line of defense
+				building = { province = 51  type = land_fort value = 3 } # Dunkirk
+				building = { province = 52  type = land_fort value = 3 } # Lille
+				building = { province = 103 type = land_fort value = 3 } # Hirson
+				building = { province = 102 type = land_fort value = 3 } # Sedan
+				# second line of defense
+				building = { province = 49  type = land_fort value = 3 } # Calais
+				building = { province = 50  type = land_fort value = 3 } # Amiens
+				building = { province = 101 type = land_fort value = 3 } # Laon
+				building = { province = 103 type = land_fort value = 3 } # Hirson
+				# third line of defense
+				building = { province = 53  type = land_fort value = 3 } # Dieppe
+				building = { province = 56  type = land_fort value = 3 } # Chateau Thierry
+				building = { province = 99  type = land_fort value = 3 } # Reims 
+				}
+		random = 70 # players may gamble
+		exists = FRA #France
+		exists = LUX #Luxembourg
+		exists = HOL #Holland
+		exists = BEL #Belgium
+		NOT = {
+			OR = {
+				war = { country = GER country = FRA }
+				war = { country = GER country = LUX }
+				war = { country = GER country = HOL }
+				war = { country = GER country = BEL }
+				alliance = { country = GER country = FRA }
+				alliance = { country = GER country = LUX }
+				alliance = { country = GER country = HOL }
+				alliance = { country = GER country = BEL }
+				puppet = { country = FRA country = GER }
+				puppet = { country = LUX country = GER }
+				puppet = { country = HOL country = GER }
+				puppet = { country = BEL country = GER }
+			}
+		}
+	}
+
+	name = EVT_15050_NAME
+	desc = EVT_15050_DESC
+	style = 0
+
+	date = { day = 21 month = august year = 1939 } 
+	offset = 3
+	deathdate = { day = 28 month = august year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME15050A
+		ai_chance = 99
+		
+		# TRP allows for up to roughly 4 fortress builds per province until autumn 39 => these shall be reduced to a maximum of 2 by this event
+		
+		# step 1: reduce fortresses of at least size 4 by one level & compensate by supplies
+		
+		# first line of defense
+		command = { trigger = { building = { province = 51  type = land_fort value = 4 } } type = supplies value = 500 } # Dunkirk
+		command = { trigger = { building = { province = 52  type = land_fort value = 4 } } type = supplies value = 500 } # Lille
+		command = { trigger = { building = { province = 103 type = land_fort value = 4 } } type = supplies value = 500 } # Hirson
+		command = { trigger = { building = { province = 102 type = land_fort value = 4 } } type = supplies value = 500 } # Sedan
+		# second line of defense
+		command = { trigger = { building = { province = 49  type = land_fort value = 4 } } type = supplies value = 500 } # Calais
+		command = { trigger = { building = { province = 50  type = land_fort value = 4 } } type = supplies value = 500 } # Amiens
+		command = { trigger = { building = { province = 101 type = land_fort value = 4 } } type = supplies value = 500 } # Laon
+		command = { trigger = { building = { province = 103 type = land_fort value = 4 } } type = supplies value = 500 } # Hirson
+		#third line of defense
+		command = { trigger = { building = { province = 53  type = land_fort value = 4 } } type = supplies value = 500 } # Dieppe
+		command = { trigger = { building = { province = 56  type = land_fort value = 4 } } type = supplies value = 500 } # Chateau Thierry
+		command = { trigger = { building = { province = 99  type = land_fort value = 4 } } type = supplies value = 500 } # Reims		
+		
+		# first line of defense
+		command = { trigger = { building = { province = 51  type = land_fort value = 4 } } type = construct which = land_fort where = 51  value = -1 } # Dunkirk
+		command = { trigger = { building = { province = 52  type = land_fort value = 4 } } type = construct which = land_fort where = 52  value = -1 } # Lille
+		command = { trigger = { building = { province = 103 type = land_fort value = 4 } } type = construct which = land_fort where = 103 value = -1 } # Hirson
+		command = { trigger = { building = { province = 102 type = land_fort value = 4 } } type = construct which = land_fort where = 102 value = -1 } # Sedan
+		# second line of defense
+		command = { trigger = { building = { province = 49  type = land_fort value = 4 } } type = construct which = land_fort where = 49  value = -1 } # Calais
+		command = { trigger = { building = { province = 50  type = land_fort value = 4 } } type = construct which = land_fort where = 50  value = -1 } # Amiens
+		command = { trigger = { building = { province = 101 type = land_fort value = 4 } } type = construct which = land_fort where = 101 value = -1 } # Laon
+		command = { trigger = { building = { province = 103 type = land_fort value = 4 } } type = construct which = land_fort where = 103 value = -1 } # Hirson
+		#third line of defense
+		command = { trigger = { building = { province = 53  type = land_fort value = 4 } } type = construct which = land_fort where = 53  value = -1 } # Dieppe
+		command = { trigger = { building = { province = 56  type = land_fort value = 4 } } type = construct which = land_fort where = 56  value = -1 } # Chateau Thierry
+		command = { trigger = { building = { province = 99  type = land_fort value = 4 } } type = construct which = land_fort where = 99  value = -1 } # Reims 
+		
+		
+		# step 2: reduce fortresses of at least size 3 by one level & compensate by events
+
+		# first line of defense
+		command = { trigger = { building = { province = 51  type = land_fort value = 3 } } type = supplies value = 500 } # Dunkirk
+		command = { trigger = { building = { province = 52  type = land_fort value = 3 } } type = supplies value = 500 } # Lille
+		command = { trigger = { building = { province = 103 type = land_fort value = 3 } } type = supplies value = 500 } # Hirson
+		command = { trigger = { building = { province = 102 type = land_fort value = 3 } } type = supplies value = 500 } # Sedan
+		# second line of defense
+		command = { trigger = { building = { province = 49  type = land_fort value = 3 } } type = supplies value = 500 } # Calais
+		command = { trigger = { building = { province = 50  type = land_fort value = 3 } } type = supplies value = 500 } # Amiens
+		command = { trigger = { building = { province = 101 type = land_fort value = 3 } } type = supplies value = 500 } # Laon
+		command = { trigger = { building = { province = 103 type = land_fort value = 3 } } type = supplies value = 500 } # Hirson
+		#third line of defense
+		command = { trigger = { building = { province = 53  type = land_fort value = 3 } } type = supplies value = 500 } # Dieppe
+		command = { trigger = { building = { province = 56  type = land_fort value = 3 } } type = supplies value = 500 } # Chateau Thierry
+		command = { trigger = { building = { province = 99  type = land_fort value = 3 } } type = supplies value = 500 } # Reims 		
+		
+		# first line of defense
+		command = { trigger = { building = { province = 51  type = land_fort value = 3 } } type = construct which = land_fort where = 51  value = -1 } # Dunkirk
+		command = { trigger = { building = { province = 52  type = land_fort value = 3 } } type = construct which = land_fort where = 52  value = -1 } # Lille
+		command = { trigger = { building = { province = 103 type = land_fort value = 3 } } type = construct which = land_fort where = 103 value = -1 } # Hirson
+		command = { trigger = { building = { province = 102 type = land_fort value = 3 } } type = construct which = land_fort where = 102 value = -1 } # Sedan
+		# second line of defense
+		command = { trigger = { building = { province = 49  type = land_fort value = 3 } } type = construct which = land_fort where = 49  value = -1 } # Calais
+		command = { trigger = { building = { province = 50  type = land_fort value = 3 } } type = construct which = land_fort where = 50  value = -1 } # Amiens
+		command = { trigger = { building = { province = 101 type = land_fort value = 3 } } type = construct which = land_fort where = 101 value = -1 } # Laon
+		command = { trigger = { building = { province = 103 type = land_fort value = 3 } } type = construct which = land_fort where = 103 value = -1 } # Hirson
+		#third line of defense
+		command = { trigger = { building = { province = 53  type = land_fort value = 3 } } type = construct which = land_fort where = 53  value = -1 } # Dieppe
+		command = { trigger = { building = { province = 56  type = land_fort value = 3 } } type = construct which = land_fort where = 56  value = -1 } # Chateau Thierry
+		command = { trigger = { building = { province = 99  type = land_fort value = 3 } } type = construct which = land_fort where = 99  value = -1 } # Reims 
+	}
+	action_b = {
+		name = ACTIONNAME15050B
+		ai_chance = 1
+		command = { type = dissent value = 15 }
+		command = { type = trigger which = 15051 } # LUX
+		command = { type = trigger which = 15052 } # HOL
+		command = { type = trigger which = 15053 } # BEL
+	}
+}
+####################################################################
+# HoI - CORE FRANCE
+####################################################################
+#########################################################################
+#  432000 - Polish Refugees ROM (by Generalisimo)
+#########################################################################
+event = {
+	id = 432000
+	random = no
+	country = FRA
+
+	# triggered by ROM 6100006 A
+
+	name = EVT_432000_NAME
+	desc = EVT_432000_DESC
+	style = 2
+	picture = "polish_army_in_fra"
+
+	action_a = {
+		name = ACTIONNAME432000A
+		command = { type = manpowerpool value = 5 }
+		command = { type = supplies value = 250 }
+	}
+}
+######################################################################### 
+#  432001 - Polish Refugees HUN (by Generalisimo)  
+#########################################################################
+event = {
+	id = 432001
+	random = no
+	country = FRA
+
+	# triggered by HUN 3141013 A
+
+	name = EVT_432000_NAME
+	desc = EVT_432000_DESC
+	style = 2
+    picture = "polish_army_in_fra"
+	
+	action_a = {
+		name = ACTIONNAME432000A
+	      command = { type = manpowerpool value = 2 }
+		  command = { type = supplies value = 250 }         
+	}
+}
+###########################################################
+# FRA- Arrival Of Republican Refugees
+# by nachinus
+###########################################################
+event = {
+	id = 432003
+	random = no
+	country = FRA
+
+	trigger = {
+		OR = {
+			control = { province = 67 data = FRA }
+			control = { province = 83 data = FRA }
+			control = { province = 80 data = FRA }
+		}
+		NOT = {
+			alliance = { country = FRA country = GER }
+			alliance = { country = FRA country = U01 }
+			alliance = { country = FRA country = ITA }
+			exists = VIC
+			exists = SPR
+		}
+	}
+
+	name = EVT_432003_NAME
+	desc = EVT_432003_DESC
+	style = 2
+	picture = "fra_mob4"
+
+	date = { day = 18 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME432003A
+		command = { type = supplies value = -10 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME432003B
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 5 }
+		command = { type = manpowerpool value = 30 }
+		command = { type = supplies value = -30 }
+	}
+	action_c = {
+		name = ACTIONNAME432003C
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 3 }
+		command = { type = money value = -1 }
+	}
+}
+###########################################################
+# Military credit from France to Poland
+# by Copper Nicus
+###########################################################
+event = { 
+	id = 432029
+	random = no
+	country = FRA
+
+	trigger = {
+		event = 3131031 # France Guarantees Independence to Poland
+		alliance = { country = POL country = FRA }
+		#atwar = no
+		random = 10
+	}
+	
+	name = EVT_432029_NAME
+	desc = EVT_432029_DESC
+	style = 2
+	picture = "pol_credit2"
+
+	date = { day = 0 month = march year = 1939 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME432029A
+		command = { type = supplies value = -50 }
+		command = { type = trigger which = 7400003 } # POL waits for shipment
+	}
+	action_b = {
+		name = ACTIONNAME432029B
+		command = { type = trigger which = 7400004 } # POL reacts
+	}
+}
+
+
+#########################################
+# French students demonstrate in sympathy with Finland (by Ghost_DK)
+######################################### 
+event = { 
+	id = 432041
+	random = no
+	country = FRA
+
+	trigger = {
+		random = 70
+		war = { country = FIN country = SOV }
+		event = 3183024
+		NOT = {
+			event = 2628
+			war = { country = FRA country = FIN }
+			alliance = { country = FRA country = SOV }
+		}
+	}
+
+	name = EVT_432041_NAME
+	desc = EVT_432041_DESC
+	style = 2
+	picture = "fra_finlande"
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 15
+	deathdate =  { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME432041A
+		command = { type = dissent value = 1 }
+	}
+}
+##################################
+# Finland requests aid (by Ghost_DK)
+##################################
+event = {
+	id = 432042
+	random = no
+	country = FRA
+
+	# triggerered by FIN 1002060
+
+	name = EVT_432042_NAME
+	desc = EVT_432042_DESC
+	Style = 2
+	picture = "finish_help3"
+
+	action_a = {
+		name = ACTIONNAME432042A
+		command = { type = money value = -3 }
+		command = { type = trigger which = 1002061 }
+	}
+	action_b = {
+		name = ACTIONNAME432042B
+		command = { type = supplies value = -200 }
+		command = { type = trigger which = 1002063 }
+	}
+}
+
+############################################
+# 1937 Literature
+############################################
+event = {
+	id = 432046
+	random = no
+	country = FRA
+
+	trigger = {
+		exists = SWE 
+		exists = FRA
+		NOT = {
+			war = { country = SWE country = FRA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_432046_NAME
+	desc = EVT_432046_DESC
+	style = 2
+	picture = "literatur_1937"
+
+	date = { day = 14 month = december year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME432046A
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# 1947 Literature
+############################################
+event = {
+	id = 432047
+	random = no
+	country = FRA
+
+	trigger = {
+		exists = SWE 
+		exists = FRA
+		NOT = {
+			war = { country = SWE country = FRA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_432047_NAME
+	desc = EVT_432047_DESC
+	style = 2
+	picture = "literatur_1947"
+
+	date = { day = 14 month = december year = 1946 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME432047A
+		command = { type = dissent value = -1 }
+	}
+}
+#########################################################################
+# End of Guarantee to Poland
+#########################################################################
+event = { 
+	id = 3135039
+	random = no
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		event = 2027 # Danzig or War
+		war = { country = POL country = GER }
+		war = { country = FRA country = GER }
+	}
+	
+	name = AI_EVENT
+	style = 2
+	picture = "guarantee_POL_end"
+	
+	date = { day = 29 month = august year = 1939 }
+   	offset = 1
+   	deathdate = { day = 29 month = september year = 1939 }
+   
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = end_guarantee which = FRA where = POL }
+	}
+}
+#########################################################################
+# GDE bonus
+#########################################################################
+event = { 
+	id = 3135040 # to make life harder for a GER human player ;-)
+	random = no
+	country = FRA
+	
+	trigger = {
+		ai = yes
+		NOT = { ai = GER }
+                war = { country = FRA country = GER }
+	}
+	
+	name = AI_EVENT
+	style = 2
+	
+	date = { day = 0 month = january year = 1936 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1936 }
+   
+	action_a = {
+		name = "ACTION_NAME_OK"
+		#command = { type = ground_def_eff value = 0.9 } # INC value is 0.5
+	}
+}
+
+#########################################################################
+# Hatay state chain from DH, adapted to TRP
+#########################################################################
+
+event = {
+	id = 3135042
+	random = no
+	country = FRA
+	
+	trigger = {
+		NOT = { exists = U39 }
+		control = { province = 1054 data = FRA } 
+	}
+
+	name = EVT_3135042_NAME #2002060
+	desc = EVT_3135042_DESC #2002060
+	style = 2
+  	picture = "Peace_conference"
+
+	date = { day = 7 month = september year = 1938 }
+	offset = 1 
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = removecore which = 1054 where = TUR }
+		command = { type = secedeprovince which = TUR value = 1054 }
+		command = { type = trigger which = 3135043 }
+	}
+}
+
+event = {
+	id = 3135043
+	random = no
+	country = TUR
+	persistent = no
+	
+	name = EVT_3135042_NAME #2002060
+	desc = EVT_3135042_DESC #2002060
+	style = 2
+  	picture = "Peace_conference"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = independence which = U39 value = 1 when = 1 }
+		command = { type = trigger which = 3135046 }
+	}
+}
+
+event = {
+	id = 3135046
+	random = no
+	country = TUR
+	persistent = no
+	
+	name = EVT_3135042_NAME #2002060
+	desc = EVT_3135042_DESC #2002060
+	style = 2
+  	picture = "Peace_conference"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = make_puppet which = U39 }
+		command = { type = addcore which = 1054 }
+		command = { type = guarantee which = FRA where = U39 }
+		command = { type = guarantee which = TUR where = U39 }
+	}
+}
+
+event = {
+	id = 3135044
+	random = no
+	country = TUR
+	persistent = no
+
+	date = { day = 29 month = june year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+
+	name = EVT_3135044_NAME #2002061
+	desc = EVT_3135044_DESC #2002061
+	style = 2
+  	picture = "ProtestAlexanderetta"
+
+
+	trigger = {
+		exists = U39
+	}
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = U39 value = 1 }
+		command = { type = trigger which = 3135045 }
+	}
+}
+
+event = {
+	id = 3135045
+	random = no
+	country = FRA
+	persistent = no
+
+
+	name = EVT_3135044_NAME
+	desc = EVT_3135044_DESC
+	style = 2
+  	picture = "ProtestAlexanderetta"
+
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = {  }
+	}
+}
+
+#########################################################################
+# Sitzkrieg / Phoney War / Drôle de Guerre
+# 
+# FRA vs GER balancing event chain
+#
+# FRA human vs. GER human: FRA gets -30 morale; restored if 1% national provinces lost
+# FRA human vs. GER AI: FRA gets -30 morale & -0.1 GDE; restored if 1% national provinces lost (additional effects may be needed)
+# FRA AI vs. GER AI: FRA gets -15 morale & -0.05 GDE; restored if 1% national provinces lost
+# FRA AI vs. GER human: no french penalty
+#
+# alternative conditions for restoring: (Belgium surrenders) [not active so far]; early german attack; GER defeated; backup time trigger 1941
+#
+#########################################################################
+
+event = { 
+	id = 3135047
+	random = no
+	country = FRA
+	
+	trigger = {
+		war = { country = GER country = FRA }
+	}
+	
+	name = EVT_3135047_NAME
+	desc = EVT_3135047_DESC
+	style = 2
+	picture = "sitzkrieg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { NOT = { ai = FRA } NOT = { ai = GER } } type = morale which = land value = -35 } 
+		command = { trigger = { NOT = { ai = FRA } NOT = { ai = GER } } type = local_setflag which = balancing_frah_gerh }
+		
+		command = { trigger = { NOT = { ai = FRA } ai = GER } type = morale which = land value = -35 } 
+		command = { trigger = { NOT = { ai = FRA } ai = GER } type = ground_def_eff value = -0.1 when = 1 }
+		command = { trigger = { NOT = { ai = FRA } ai = GER } type = local_setflag which = balancing_frah_gerai }
+		
+		command = { trigger = { ai = FRA ai = GER } type = morale which = land value = -17.5 } 
+		command = { trigger = { ai = FRA ai = GER } type = ground_def_eff value = -0.05 when = 1 }
+		command = { trigger = { ai = FRA ai = GER } type = local_setflag which = balancing_fraai_gerai }
+		
+		#command = { trigger = { ai = FRA NOT = { ai = GER } } type = local_setflag which = balancing_fraai_gerh } #not yet needed
+	}
+}
+
+event = { 
+	id = 3135048
+	random = no
+	country = FRA
+	
+	trigger = {
+		event = 3135047
+		OR = {
+				local_flag = balancing_frah_gerh
+				local_flag = balancing_frah_gerai
+				local_flag = balancing_fraai_gerai
+				#local_flag = balancing_fraai_gerh #not yet needed
+				}
+		OR = {
+				NOT = { exists = GER }
+				AND = {
+						local_flag = balancing_fraai_gerai
+						ai = yes
+						lost_national = { country = FRA value = 1 }
+						}
+				AND = {
+						OR = {
+								local_flag = balancing_frah_gerh
+								local_flag = balancing_frah_gerai
+								}
+						ai = no
+						lost_national = { country = FRA value = 1 }
+						}
+				AND = {
+						year = 1941
+						month = march
+						}
+				AND = {
+						year = 1939 # countermeasure against early german attack in 1939
+						NOT = { year = 1940 }
+						war = { country = GER country = FRA }
+						OR = {
+								war = { country = GER country = BEL }
+								war = { country = GER country = SCH }
+								war = { country = GER country = LUX }
+								}
+						}
+#				event = 3115003 # Belgium surrenders
+				}
+	}
+	
+	name = EVT_3135048_NAME
+	desc = EVT_3135048_DESC
+	style = 2
+	picture = "sitzkrieg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { OR = { local_flag = balancing_frah_gerh local_flag = balancing_frah_gerai }} type = morale which = land value = 35 }
+		command = { trigger = { local_flag = balancing_frah_gerai } type = ground_def_eff value = 0.1 when = 1 }		
+		command = { trigger = { local_flag = balancing_fraai_gerai } type = morale which = land value = 17.5 }
+		command = { trigger = { local_flag = balancing_fraai_gerai } type = ground_def_eff value = 0.05 when = 1 }
+	}
+}
+
+#########################################################################
+# Franco-Soviet pact ratification
+#########################################################################
+event = {
+	id = 3135049
+	random = no
+	country = FRA
+	
+	trigger = { NOT = { war = { country = FRA country = SOV } } }
+	
+	name = EVT_3136000_NAME # Franco-Soviet pact
+	desc = EVT_3135049_DESC
+	style = 2
+	picture = "franco_sov_pact"
+	
+	date = { day = 26 month = february year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = march year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3135049A # ratify pact as planned
+		ai_chance = 99
+		command = { type = relation which = GER value = -25 }
+		command = { type = trigger which = 3136000 } # GER
+		command = { type = guarantee which = FRA where = SOV }
+		command = { type = guarantee which = SOV where = FRA }
+	}
+	
+	action_b = {
+		name = ACTIONNAME3135049B # offer old battleship Volia on top
+		ai_chance = 1
+		command = { type = relation which = GER	value = -50 }
+		command = { type = relation which = ENG	value = -15 }
+		command = { trigger = { NOT = { AI = FRA }} type = dissent value = 2 }
+		command = { type = trigger which = 3136000 } # GER
+		command = { type = trigger which = 3183087 } # SOV
+		command = { type = guarantee which = FRA where = SOV }
+		command = { type = guarantee which = SOV where = FRA }
+	}
+}
+
+#########################################################################
+# French Manpower Crisis
+#########################################################################
+event = {
+	id = 3135050
+	random = no
+	country = FRA
+	
+	trigger = { atwar = no }
+	
+	name = EVT_3135050_NAME
+	desc = EVT_3135050_DESC
+	style = 2
+	picture = "fra_event_manpower"
+	
+	date = { day = 9 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3135050A # full mechanization
+		ai_chance = 40
+		command = { type = local_setflag which = france_full_mechanization }
+		command = { type = industrial_modifier which = total value = -20 }
+		command = { type = sleepevent which = 3135052 }
+	}
+	action_b = {
+		name = ACTIONNAME3135050B # partial mechanization
+		ai_chance = 40
+		command = { type = local_setflag which = france_partial_mechanization }
+		command = { type = industrial_modifier which = total value = -5 }
+		command = { type = sleepevent which = 3135051 }
+	}
+	action_c = {
+		name = ACTIONNAME3135050C # no need
+		ai_chance = 20
+		command = { type = sleepevent which = 3135051 }
+		command = { type = sleepevent which = 3135052 }
+	}
+}
+
+event = {
+	id = 3135051
+	random = no
+	country = FRA
+	
+	trigger = { local_flag = france_full_mechanization }
+	
+	name = EVT_3135051_NAME
+	desc = EVT_3135051_DESC
+	style = 2
+	picture = "fra_event_mechanization"
+	
+	date = { day = 0 month = october year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_GOOD
+		command = { type = activate_division which = 13500 value = 1520 when = 0 }
+		command = { type = activate_division which = 13500 value = 1521 when = 0 }
+		command = { type = activate_division which = 13500 value = 1522 when = 0 }
+		command = { type = activate_division which = 13500 value = 1523 when = 0 }
+		command = { type = activate_division which = 13500 value = 1524 when = 0 }
+		command = { type = activate_division which = 13500 value = 1525 when = 0 }
+		command = { type = activate_division which = 13500 value = 1526 when = 0 }
+		command = { type = activate_division which = 13500 value = 1527 when = 0 }
+		command = { type = activate_division which = 13500 value = 1528 when = 0 }
+		command = { type = activate_division which = 13500 value = 1529 when = 0 }
+		command = { type = activate_division which = 13500 value = 1530 when = 0 }
+		command = { type = industrial_modifier which = total value = 20 }
+	}
+}
+
+event = {
+	id = 3135052
+	random = no
+	country = FRA
+	
+	trigger = { local_flag = france_partial_mechanization }
+	
+	name = EVT_3135051_NAME
+	desc = EVT_3135051_DESC
+	style = 2
+	picture = "fra_event_mechanization"
+	
+	date = { day = 0 month = october year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_GOOD
+		command = { type = activate_division which = 13500 value = 1510 when = 0 }
+		command = { type = activate_division which = 13500 value = 1511 when = 0 }
+		command = { type = activate_division which = 13500 value = 1512 when = 0 }
+		command = { type = activate_division which = 13500 value = 1513 when = 0 }
+		command = { type = industrial_modifier which = total value = 5 }
+	}
+}
+
+#########################################################################
+# Saarland
+#########################################################################
+event = { 
+
+	id = 3135999
+	random = no
+	country = FRA
+	
+	trigger = {	control = { province = 127 data = FRA }
+			exists = DFR
+	}
+	
+	name = EVT_3135999_NAME
+	desc = EVT_3135999_DESC
+	style = 2
+	
+	date = { day = 0 month = january year = 1957 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1964 }
+   
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = secedeprovince which = DFR value = 127 } # Saarbrücken
+	}
+}
+
+#########################################################################
+# Banque de France
+#########################################################################
+event = { 
+
+	id = 3135600
+	random = no
+	country = FRA
+	
+	trigger = {	
+	      headofgovernment = 2033 #Leon Blum
+		  atwar = no
+	}
+	
+	name = EVT_3135600_NAME
+	desc = EVT_3135600_DESC
+	style = 2
+	picture = "fra_event_banque_de_france"	
+	
+	date = { day = 23 month = july year = 1936 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1940 }
+   
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = industrial_modifier which = total value = 1 }
+		command = { type = money               value = 250   }
+		command = { type = dissent             value = -1    }
+	}
+}
+
+#########################################################################
+# Nationalization of French Munitions Industry and Aircraft factories
+#########################################################################
+
+event = { 
+
+	id = 3135601
+	random = no
+	country = FRA
+	
+	trigger = {	
+	      headofgovernment = 2033 #Leon Blum
+		  NOT = { atwar = yes }
+	}
+	
+	name = EVT_3135601_NAME
+	desc = EVT_3135601_DESC
+	style = 2
+	picture = "fra_event_nationalization"	
+	
+	date = { day = 16 month = july year = 1936 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1940 }
+   
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = industrial_modifier which = supplies value = 2 }
+                command = { type = waketeam which = 1456 } 
+	}
+}
+
+#########################################################################
+# Devaluation of the French Franc
+#########################################################################
+event = { 
+
+	id = 3135602
+	random = no
+	country = FRA
+	
+	trigger = {	
+	      headofgovernment = 2033 #Leon Blum
+		  atwar = no
+	}
+	
+	name = EVT_3135602_NAME
+	desc = EVT_3135602_DESC
+	style = 2
+	picture = "fra_event_devaluation"	
+	
+	date = { day = 1 month = october year = 1936 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1940 }
+   
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = industrial_modifier which = total value = 1 }
+		command = { type = money               value = 250   }
+		command = { type = dissent             value = -1    }
+	}
+}
+
+#########################################################################
+# Nationalist Uprising in French Morocco
+#########################################################################
+event = { 
+
+	id = 3135603
+	random = no
+	country = FRA
+	
+	name = EVT_3135603_NAME
+	desc = EVT_3135603_DESC
+	style = 2
+	picture = "fra_event_fre_marocco_uprising"	
+	
+	date = { day = 1 month = october year = 1937 }
+   	offset = 1
+   	deathdate = { day = 29 month = january year = 1938 }
+   
+	action_a = {
+		name = ACTIONNAME3135603A
+		command = { type = dissent value = 1 }
+		command = { type = revolt which = 723 }
+	}
+}
+
+#########################################################################
+# French Official Visit to Corsica and Tunisia
+#########################################################################
+event = { 
+
+	id = 3135604
+	random = no
+	country = FRA
+	
+	name = EVT_3135604_NAME
+	desc = EVT_3135604_DESC
+	style = 2
+	picture = "fra_event_visit_the_colony"	
+	
+	date = { day = 13 month = january year = 1939 }
+   	offset = 1
+   	deathdate = { day = 29 month = may year = 1939 }
+   
+	action_a = {
+		name = ACTIONNAME3135604A
+		command = { type = dissent value = -1 }
+	}
+}
+
+#########################################################################
+# Czech army in france
+#########################################################################
+event = { 
+
+	id = 3135605
+	random = no
+	country = FRA
+	
+	trigger = {
+	    atwar = yes
+	    NOT = { exists = CZE }
+	OR = {
+    	control = { province = 51  data = -2 }
+    	control = { province = 52  data = -2 }
+	    control = { province = 103 data = -2 }
+    	control = { province = 102 data = -2 }
+    	control = { province = 96  data = -2 }
+    	control = { province = 104 data = -2 }
+    	control = { province = 107 data = -2 }
+    	control = { province = 105 data = -2 }
+		###
+    	control = { province = 91  data = -2 }
+    	control = { province = 90  data = -2 }
+    	control = { province = 87  data = -2 }
+	  }
+	}
+	
+	name = EVT_3135605_NAME
+	desc = EVT_3135605_DESC
+	style = 2
+	picture = "fra_event_czech_army_in_france"	
+	
+	date = { day = 0 month = january year = 1939 }
+   	offset = 1
+   	deathdate = { day = 29 month = may year = 1945 }
+   
+	action_a = {
+		name = ACTIONNAME3135605A
+		ai_chance = 99
+		command = { type = activate_division which = 13500 value = 1508 when = 0 }
+		command = { type = supplies value = -500 }
+		command = { type = dissent  value = -1 }
+	}
+	
+	action_a = {
+		name = ACTIONNAME3135605B
+		ai_chance = 1
+		command = { type = supplies value = 500 }
+		command = { type = dissent  value = 1 }
+	}	
+}

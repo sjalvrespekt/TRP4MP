@@ -1,0 +1,2190 @@
+# IC x Days x 4 x %STR = Supplies required
+#########################################################################
+# 3136400 - 3136499	German SS divisions events 
+#########################################################################
+#########################################################################
+# 1st SS Panzer Division 'Leibstandarte SS Adolf Hitler'
+#########################################################################
+event = {  
+	id = 3136401
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}	
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136401_DESC
+	style = 2
+	picture = "SS-1"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 0 month = may year = 1941 } # division sized in may 1941, 1942 PzGrenDiv, 1943 PzDiv.
+	offset = 1
+	deathdate = { day = 2 month = july year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136401A
+		
+		command = { type = activate_division which = 14500 value = 201 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 2nd SS Panzer Division 'Das Reich'
+#########################################################################
+event = {  
+	id = 3136402
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+ 	desc = EVT_3136402_DESC
+	style = 2
+	picture = "SS-2"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 10 month = october year = 1939 } #formed as SS-Verfügungs-Div, 1941 InfDiv (mot) "das Reich", 1942 PzGrenDiv, after Kursk 43 PzDiv
+	offset = 1
+	deathdate = { day = 11 month = october year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136402A
+		
+		command = { type = activate_division which = 14500 value = 202 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 3rd SS Panzer Division 'Totenkopf'
+#########################################################################
+event = {  
+	id = 3136403
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136403_DESC
+	style = 2
+	picture = "SS-3"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 10 month = october year = 1939 } #formed as SS-Totenkopf-Div, Nov 42 PzGrenDiv, Oct 43 PzDiv
+	offset = 1
+	deathdate = { day = 11 month = october year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136403A
+		
+		command = { type = activate_division which = 14500 value = 203 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 4th SS-Polizei-Panzergrenadier-Division
+#########################################################################
+event = {  
+	id = 3136404
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 9
+		government = fascist
+			}
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 9
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136404_DESC
+	style = 2
+	picture = "SS-4"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 0 month = october year = 1939 } #formed as Polizei-Division, May 43 renamed SS-PzGrenDiv
+	offset = 1
+	deathdate = { day = 2 month = january year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136404A
+		
+		command = { type = activate_division which = 14500 value = 204 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -9 }
+	}
+}
+#########################################################################
+# 5th SS Panzer Division ´Wiking´ 
+#########################################################################
+event = { 
+	id = 3136405
+	country = GER
+	random = no
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		#control = { province = 294 data = -3 } # Kopenhagen	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}	
+	
+	trigger = { 
+		#control = { province = 294 data = -3 } # Kopenhagen		
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+ 
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136405_DESC
+	style = 2
+	picture = "SS-5"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 0 month = december year = 1940 } #formed as SS-Division (mot.) "Germania", 1941 renamed Wiking, Nov 42 PzGrenDiv, Oct 43 PzDiv
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136405A
+		
+		command = { type = activate_division which = 14500 value = 205 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 6.SS-Geb.Div. 'Nord'
+#########################################################################
+event = {  
+	id = 3136406
+	random = no
+	country = GER
+
+	decision = { 
+				ai = no
+				flag = GER_NO_aid_FIN
+	}
+	decision_trigger = { 	
+		#control = { province = 483 data = -3 } # Oslo	
+		atwar = GER
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 15
+		government = fascist
+			}		
+
+	trigger = {
+		flag = GER_NO_aid_FIN
+		#control = { province = 483 data = -3 } # Oslo			
+		atwar = GER
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 15
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136406_DESC
+	style = 2
+	picture = "SS-6"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 0 month = february year = 1941 } #formed from SS-units in norway to defend the soviet-german boarder.
+	offset = 1
+	deathdate = { day = 2 month = february year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136406A
+		
+		command = { type = activate_division which = 14500 value = 206 where = 483 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -15 }
+	}
+}
+#####################################################################
+# 7.SS-Freiwilligen Gebirgs Division 'Prinz Eugen'
+#####################################################################
+event = {
+	id = 3136407
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+				#control = { province = 338 data = -3 } # Beograd
+				#control = { province = 352 data = -3 } # Zagreb
+				atwar = GER
+				energy = 5720
+				metal = 2360
+				rare_materials = 880
+				manpower = 17
+				government = fascist
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 338 data = -3 } # Beograd
+		#control = { province = 352 data = -3 } # Zagreb
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 17
+		government = fascist
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136407_DESC
+	style = 2
+	picture = "SS-7"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = august year = 1941 } #formed as SS-Div in Yugoslavia formed from voluntary "Volkssdeutsche", 1942 renamed GebDiv.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136407A
+		
+		command = { type = activate_division which = 14500 value = 207 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 8.SS-Kav.Div. 'Florian Geyer'
+#########################################################################
+event = {  
+	id = 3136408
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 
+#		event = 3136404
+#		OR = {
+#				event = 3136406	# Geb. Div. 'Nord'
+#				event = 3136205 # GER sends Geb. Div. 'Nord' to Finland
+#				}
+		atwar = GER
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 18
+		government = fascist
+			}
+
+	trigger = {
+#		event = 3136404
+#		OR = {
+#				event = 3136406	# Geb. Div. 'Nord'
+#				event = 3136205 # GER sends Geb. Div. 'Nord' to Finland
+#				}
+		atwar = GER
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 18
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136408_DESC
+	style = 2
+	picture = "SS-8"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 0 month = march year = 1942 } #formed as SS-Totenkopf-Reiterstandarte-Regiment 1939. Reformed into SS-Reiter-Brigade in August 1941, March 1942 SS-KavDiv. 
+	offset = 1
+	deathdate = { day = 2 month = october year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136408A
+		
+		command = { type = activate_division which = 14500 value = 208 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+#########################################################################
+# 9th SS Panzer Division 'Hohenstaufen'
+#########################################################################
+event = {  
+	id = 3136409
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}		
+
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136409_DESC
+	style = 2
+	picture = "SS-9"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 7 month = january year = 1943 } #Formed Feb 42 as PzGren, Oct 43 PzDiv.
+	offset = 1
+	deathdate = { day = 16 month = february year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136409A
+		
+		command = { type = activate_division which = 14500 value = 209 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#########################################################################
+# 10th SS Panzer Division 'Frundsberg'
+#########################################################################
+event = {  
+	id = 3136410
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}		
+
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136410_DESC
+	style = 2
+	picture = "SS-10"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 9 month = february year = 1943 } #Formed Feb 42 as PzGren, Oct 43 PzDiv.
+	offset = 1
+	deathdate = { day = 16 month = february year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136410A
+		
+		command = { type = activate_division which = 14500 value = 210 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#####################################################################
+# 11.SS Freiwilligen Panzergrenadier Division 'Nordland'
+#####################################################################
+event = {
+	id = 3136411
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 294 data = -3 } # Kobenhavn
+		#control = { province = 483 data = -3 } # Oslo
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 294 data = -3 } # Kobenhavn
+		#control = { province = 483 data = -3 } # Oslo
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136411_DESC
+	style = 2
+	picture = "SS-11"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 21 month = march year = 1943 } #Formed as PzGrenDiv in early 43.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136411A
+		
+		command = { type = activate_division which = 14500 value = 211 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#########################################################################
+# 12.SS-Panz.Div. 'Hitlerjugend'
+#########################################################################
+event = {  
+	id = 3136412
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+		government = fascist
+			}		
+
+	trigger = { 
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 17
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136412_DESC
+	style = 2
+	picture = "SS-12"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 19 month = february year = 1943 } #Formed 13.Feb 43 as Hitlerjugend-Div (PzGrenDiv) and renamed in PzDiv in Oct 43.
+	offset = 1
+	deathdate = { day = 25 month = june year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136412A
+		
+		command = { type = activate_division which = 14500 value = 212 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+#####################################################################
+# 13.Waffen Gebirgs Division der SS 'Handschar'
+#####################################################################
+event = {
+	id = 3136413
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+						#control = { province = 352 data = -3 } # Zagreb
+						atwar = GER
+						energy = 5720
+						metal = 2360
+						rare_materials = 880
+						government = fascist
+#						manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 352 data = -3 } # Zagreb
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		government = fascist
+#		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136413_DESC
+	style = 2
+	picture = "SS-13"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 29 month = april year = 1943 } #Formed 1943 as a "muslim division" to help in anti partisan duties in former Yugoslavia.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136413A
+		
+		command = { type = activate_division which = 14500 value = 213 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+#		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 } #volunteers
+	}
+}
+#####################################################################
+# 14.Waffen Grenadier Division der SS 'Galicia' 
+#####################################################################
+event = {
+	id = 3136414
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+				atwar = GER
+				#control = { province = 617 data = -3 } # Kiev
+				#control = { province = 626 data = -3 } # Odessa
+				#control = { province = 607 data = -3 } # Chernigov
+				government = fascist
+				energy = 1440
+				metal = 720
+				rare_materials = 360
+				manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 617 data = -3 } # Kiev
+		#control = { province = 626 data = -3 } # Odessa
+		#control = { province = 607 data = -3 } # Chernigov
+		government = fascist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136414_DESC
+	style = 2
+	picture = "SS-14"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 27 month = april year = 1943 } #Formed 28 April 1943 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136414A
+		
+		command = { type = activate_division which = 14500 value = 214 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 15.Waffen Grenadier Division der SS 'Lettland' 
+#####################################################################
+event = {
+	id = 3136415
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 264 data = -3 } # Riga
+		government = fascist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 264 data = -3 } # Riga
+		government = fascist
+		energy = 2880
+		metal = 1440
+		rare_materials = 720
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136415_DESC
+	style = 2
+	picture = "SS-15"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 17 month = february year = 1943 } #Formed in Feb 43 as Lettische SS-Freiwilligen-Division from the Lettische SS-Freiwilligen-Brigade
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136415A
+		
+		command = { type = activate_division which = 14500 value = 215 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#########################################################################
+# 16.SS-Pz.Gren.Div. 'Reichsführer SS'
+#########################################################################
+event = {  
+	id = 3136416
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 3
+		government = fascist
+			}	
+
+	trigger = {
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 3
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136416_DESC
+	style = 2
+	picture = "SS-16"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 13 month = february year = 1943 } #Formed Feb 1943 as Sturmbrigade Reichsführer SS, reformed Nov 43 as PzGrenDiv
+	offset = 1
+	deathdate = { day = 2 month = may year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136416A
+		
+		command = { type = activate_division which = 14500 value = 216 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#########################################################################
+# 17th SS panzer Grenadier Division 'Götz von Berlichingen'
+#########################################################################
+event = {  
+	id = 3136417
+	random = no
+	country = GER
+
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 4
+		government = fascist
+			}		
+
+	trigger = {
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		manpower = 4
+		government = fascist
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136417_DESC
+	style = 2
+	picture = "SS-17"
+	decision_picture = "decision_german_elite"
+
+	date = { day = 14 month = october year = 1943 } #Formed October 1943 from scratch.
+	offset = 1
+	deathdate = { day = 4 month = October year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME3136417A
+		
+		command = { type = activate_division which = 14500 value = 217 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -4 }
+	}
+}
+#####################################################################
+# 18.SS Freiwilligen Panzergrenadier Division 'Horst Wessel'
+#####################################################################
+event = {
+	id = 3136418
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 
+		#control = { province = 284 data = -3 } # Budapest	
+		atwar = GER
+		manpower = 3
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		manpower = 3
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136418_DESC
+	style = 2
+	picture = "SS-18"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = april year = 1941 } #Formed in April 41 as 1. SS Infantry Brigade (mot), reformed in Jan 44 into PzGrenDiv
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136418A
+		
+		command = { type = activate_division which = 14500 value = 218 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 19.Waffen Grenadier Division der SS 'Lettland' 
+#####################################################################
+event = {
+	id = 3136419
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 264 data = -3 } # Riga
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 264 data = -3 } # Riga
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136419_DESC
+	style = 2
+	picture = "SS-19"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 16 month = may year = 1941 } #Formed 15 May 1941 as 2. SS Infantry Brigade (mot), reformed Jan 44 into latvian division. 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136419A
+		
+		command = { type = activate_division which = 14500 value = 219 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 20.Waffen Grenadier Division der SS 'Estland'
+#####################################################################
+event = {
+	id = 3136420
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 270 data = -3 } # Tallin
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 270 data = -3 } # Tallin
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136420_DESC
+	style = 2
+	picture = "SS-20"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 23 month = may year = 1943 } #Formed in May 43 as Estonian SS Volunteer Brigade, renamed Jan 44 into WaffenGrenDiv
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136420A
+		
+		command = { type = activate_division which = 14500 value = 220 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 21.Waffen Gebirgs Division der SS 'Skanderbeg'
+#####################################################################
+event = {
+	id = 3136421
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 359 data = -3 } # Tirana
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 359 data = -3 } # Tirana
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136421_DESC
+	style = 2
+	picture = "SS-21"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = february year = 1944 } #Formed in February 1944 to defend the Kosvo
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136421A
+		
+		command = { type = activate_division which = 14500 value = 221 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 22.SS Freiwilligen Kavallerie Division 'Maria Theresa'
+#####################################################################
+event = {
+	id = 3136422
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 5760
+		metal = 2360
+		rare_materials = 880
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		government = fascist
+		manpower = 3
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136422_DESC
+	style = 2
+	picture = "SS-22"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 29 month = april year = 1944 } #Formed 29 April 1944 from elements of 8. SS-KavDiv
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136422A
+		
+		command = { type = activate_division which = 14500 value = 222 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 23.SS Freiwilligen Panzergrenadier Division 'Nederland'
+#####################################################################
+event = {
+	id = 3136423
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136423_DESC
+	style = 2
+	picture = "SS-23"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 9 month = september year = 1943 } #Formed in 1941 as SS-Freiwilligen-Legion Niederlande, reformed in April 1943 into the SS Volunteer Panzer Grenadier Brigade Nederland, renamed 10 February 45 to PzGrenDiv. Sep 43 strongest manpower with ~9,400 soldiers.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136423A
+		
+		command = { type = activate_division which = 14500 value = 223 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+
+#####################################################################
+# 24.Waffen Gebirgs Division der SS 'Karstjager'
+#####################################################################
+event = {
+	id = 3136424
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 419 data = -3 } # Rome
+		#control = { province = 338 data = -3 } # Beograd
+		#control = { province = 352 data = -3 } # Zagreb
+		manpower = 3
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 419 data = -3 } # Rome
+		#control = { province = 338 data = -3 } # Beograd
+		#control = { province = 352 data = -3 } # Zagreb
+		manpower = 3
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136424_DESC
+	style = 2
+	picture = "SS-24"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 19 month = july year = 1944 } #18 July 1944 Himmler orded to enforce the SS-Freiwilligen-Karstwehr Battalion into a division with 6.600 soldiers.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136424A
+		command = { type = activate_division which = 14500 value = 224 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 25.Waffen Grenadier Division der SS 'Hunyadi'
+#####################################################################
+event = {
+	id = 3136425
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136425_DESC
+	style = 2
+	picture = "SS-25"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 1 month = november year = 1944 } #Formed in November 1944 to liberate hungary. 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136425A
+		
+		command = { type = activate_division which = 14500 value = 225 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 26.Waffen Grenadier Division der SS 'Hungaria'
+#####################################################################
+event = {
+	id = 3136426
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136426_DESC
+	style = 2
+	picture = "SS-26"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 29 month = november year = 1944 } #Formed in November 1944 to liberate hungary. 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136426A
+		
+		command = { type = activate_division which = 14500 value = 226 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 27.SS Freiwilligen Grenadier Division 'Langemarck'
+#####################################################################
+event = {
+	id = 3136427
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 116 data = -3 } # Bruxelles
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}	
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 116 data = -3 } # Bruxelles
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136427_DESC
+	style = 2
+	picture = "SS-27"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 1 month = june year = 1943 } #Formed in 1941 as SS Volunteer Legion Flandern, reformed 31 May 1943 into SS Volunteer Sturmbrigade Langemarck and renamend September 1944 into division.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136427A
+		
+		command = { type = activate_division which = 14500 value = 227 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+
+#####################################################################
+# 28.SS Freiwilligen Panzergrenadier Division 'Wallonien'
+#####################################################################
+event = {
+	id = 3136428
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 116 data = -3 } # Bruxelles
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 116 data = -3 } # Bruxelles
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136428_DESC
+	style = 2
+	picture = "SS-28"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 18 month = june year = 1943 } #Formed late 1940 as Légion Wallonie, transfered in June 1943 to SS and renamed SS Volunteer Sturmbrigade Wallonien, renamed October 1944 into division with 8.000 soldiers.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136428A
+		
+		command = { type = activate_division which = 14500 value = 228 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 29.Waffen Grenadier Division der SS (russ. nr.1)
+#####################################################################
+event = {
+	id = 3136429
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		supplies = 1000
+		government = fascist
+	}	
+	
+	trigger = {
+		atwar = GER
+		supplies = 1000
+		government = fascist
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136429_DESC
+	style = 2
+	picture = "SS-29"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 26 month = august year = 1944 } #Formed as Sturmbrigade R.O.N.A. in late 1941, in June 1944 to the SS as Waffen-Sturm-Brigade RONA and transfered into Division at August 1944.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136429A
+		command = { trigger = { ai = no } type = supplies value = -1000 }
+		command = { type = manpowerpool value = 3 }
+	}
+}
+#####################################################################
+# 30.Waffen Grenadier Division der SS 'Weissruthenische'
+#####################################################################
+event = {
+	id = 3136430
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 4
+	}		
+	
+	trigger = {
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 4
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136430_DESC
+	style = 2
+	picture = "SS-30"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 16 month = january year = 1945 } #Formed July 44 as Schutzmannschaft-Brigade Siegling, reformed 31 July 1944 into a division with 11.600 soldiers. Disolved because of mutiny, "non-Russian personnel of the division were organized into the 1st White Ruthenian SS Grenadier Brigade", brigade was renamed division in april 45.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136430A
+		command = { type = activate_division which = 14500 value = 255 when = 0 }		
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -4 }
+	}
+}
+#####################################################################
+# 31.SS Freiwilligen Grenadier Division 'Batschka'
+#####################################################################
+event = {
+	id = 3136431
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 208 data = -3 } # Bratislava
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 2
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 208 data = -3 } # Bratislava
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 2
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136431_DESC
+	style = 2
+	picture = "SS-31"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = september year = 1944 } #Formed in September 1944 from scratch
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136431A
+		
+		command = { type = activate_division which = 14500 value = 231 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -2 }
+	}
+}
+#####################################################################
+#  32.SS-Freiwilligen-Grenadier-Division "30.Januar"
+#####################################################################
+event = {
+	id = 3136432
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136432_DESC
+	style = 2
+	picture = "SS-32"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = January year = 1945 } #Formed January 1945 from ss schools and destroyed units
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136432A
+		
+		command = { type = activate_division which = 14500 value = 232 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 33.Waffen Grenadier Division der SS 'Charlemagne'
+#####################################################################
+event = {
+	id = 3136433
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 55 data = -3 } # Paris
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 55 data = -3 } # Paris
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136433_DESC
+	style = 2
+	picture = "SS-33"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 9 month = september year = 1944 } #Formed in 1941 as Légion des Volontaires Français contre le Bolchévisme, reformed Sep 44 into Französische Brigade der SS, February 1945 reformed as division.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136433A
+		
+		command = { type = activate_division which = 14500 value = 233 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+# 34.SS Grenadier Division 'Landstorm Nederland'
+#####################################################################
+event = {
+	id = 3136434
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 122 data = -3 } # Amsterdam
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136434_DESC
+	style = 2
+	picture = "SS-34"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 15 month = november year = 1944 } #Formed 12 march 43 as SS-Grenadier Regiment 1 Landwacht Niederlande, reformed Nov 44 as SS Volunteer Grenadier Brigade Landstorm Nederland, 10 February 1945 renamed into division.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136434A
+		
+		command = { type = activate_division which = 14500 value = 234 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -3 }
+	}
+}
+#####################################################################
+#  35.SS und Polizei-Gr.Div.
+#####################################################################
+event = {
+	id = 3136435
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 5
+			}		
+	
+	trigger = {
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 5
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136435_DESC
+	style = 2
+	picture = "SS-35"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 1 month = march year = 1945 } #Formed March 1, 1945 from SS police units.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136435A
+		
+		command = { type = activate_division which = 14500 value = 235 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -5 }
+	}
+}
+#####################################################################
+#  36.Waffen-Gr.Div. der SS
+#####################################################################
+event = {
+	id = 3136436
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 6
+			}		
+	
+	trigger = {
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 6
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136436_DESC
+	style = 2
+	picture = "SS-36"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 19 month = february year = 1945 } #Formed as Dirlewanger Brigade, February 1945 brigade was reformed as division.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136436A
+		
+		command = { type = activate_division which = 14500 value = 236 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -6 }
+	}
+}
+#####################################################################
+# 37.SS Freiwilligen Kavallerie Division 'Lutzow'
+#####################################################################
+event = {
+	id = 3136437
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 3
+			}		
+	
+	trigger = {
+		atwar = GER
+		#control = { province = 284 data = -3 } # Budapest
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 3
+	}
+
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136437_DESC
+	style = 2
+	picture = "SS-37"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = february year = 1945 } #Formed February 1945 from remaining parts of the 8. SS and 22. SS. KavDiv.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136437A
+		
+		command = { type = activate_division which = 14500 value = 237 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -6 }
+	}
+}
+#####################################################################
+#  38.SS-Gr.Div. 'Nibelungen'
+#####################################################################
+event = {
+	id = 3136438
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER	
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 1
+			}		
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 1
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136438_DESC
+	style = 2
+	picture = "SS-38"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = march year = 1945 } #Formed March 45 as SS-Division Junkerschule from Junkerschulen recruits. 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136438A
+		
+		command = { type = activate_division which = 14500 value = 238 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -1 }
+	}
+}
+
+
+#####################################################################
+# 23. Waffen-Geb. Div. der SS 'Kama'
+#####################################################################
+event = {
+	id = 3136441
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+				atwar = GER
+				supplies = 1000
+				government = fascist
+			}	
+	
+	trigger = {
+		atwar = GER
+		supplies = 1000
+		government = fascist
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136441_DESC
+	style = 2
+	picture = "SS-41"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 23 month = june year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136441A
+		command = { type = manpowerpool value = 3 }
+		command = { trigger = { ai = no } type = supplies value = -1000 }
+	}
+}
+
+#####################################################################
+#  29. Waffen-Gr.Div. der SS (ital nr.1)
+#####################################################################
+event = {
+	id = 3136442
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 5
+			}		
+	
+	trigger = {
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 5
+	}
+	
+	name = EVT_3136401_NAME # New SS Division
+	desc = EVT_3136442_DESC
+	style = 2
+	picture = "SS-42"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 8 month = december year = 1944 } #Formed Nov 43 as Waffen-Grenadier-Brigade der SS (italienische Nr. 1), unit growed up to 15.ooo soldiers in dec 44. Titel of division - unknown.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136442A
+		
+		command = { type = activate_division which = 14500 value = 573 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -5 }
+	}
+}
+
+#####################################################################
+#  Panzer-Grenadier-Division 'Großdeutschland'
+#####################################################################
+event = {
+	id = 3136439
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 17
+			}		
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 17
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_31364011_DESC
+	style = 2
+	picture = "SS-GD"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 13 month = march year = 1942 } #Formed 12. March 1942 from Regiment (mot.) GD, 42' InfDiv GD, March 43' named PzGrenDiv but organised as PzDiv. Name was given for propaganda.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136439A
+		
+		command = { type = activate_division which = 14500 value = 249 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+
+
+#####################################################################
+#  Panzer-Lehr-Division
+#####################################################################
+
+event = {
+	id = 3136440
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 17
+			}		
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 17
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_31364012_DESC
+	style = 2
+	picture = "SS-L"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 10 month = january year = 1944 } #Formed 10. Januar 1944 from tank school units and DAK veterans of the 15. and 21. PzDiv. Full mechanized.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136440A
+		
+		command = { type = activate_division which = 14500 value = 250 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -17 }
+	}
+}
+
+
+#####################################################################
+#  Division Brandenburg
+#####################################################################
+
+event = {
+	id = 3136445
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		government = fascist
+		manpower = 10
+			}		
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 10
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_3136445_DESC
+	style = 2
+	picture = "SS-Branden"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 0 month = april year = 1943 } #Formed April 43 as "fire fighter division" from the commando formation.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME31364450A
+		
+		command = { type = activate_division which = 14500 value = 251 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool value = -6720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool value = -3360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -1680 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -10 }
+	}
+}
+
+#####################################################################
+#  SA PzKorps Feldherrnhalle with the PzDiv FHH 1 and PzDiv FHH 2
+#####################################################################
+
+event = {
+	id = 3136446
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 18
+			}		
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 13440
+		metal = 6720
+		rare_materials = 3360
+		government = fascist
+		manpower = 18
+	}
+	
+	name = EVT_3136446_NAME
+	desc = EVT_3136446_DESC
+	style = 2
+	picture = "SS-SA"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 28 month = november year = 1944 } #Reformed Nov 44 after the destruction of the Feldhernhallen units around Budapest. New corps was organised from SA and remaining parts of sPzAbtl FHH, PzGrenDiv FFH and 13. PzDiv.
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136446A
+		
+		command = { type = add_corps which = "SA-PzKorps 'Feldherrnhalle'" value = land where = 174 }
+		command = { type = activate_division which = 14500 value = 253                  where = 174 }
+		command = { type = activate_division which = 14500 value = 254                  where = 174 }
+		
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } } type = energypool        value = -13440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } } type = metalpool         value = -6720  }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -3360  }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } } type = manpowerpool value = -18 }
+	}
+}
+
+#####################################################################
+# 78. Sturm-Division
+#####################################################################
+event = {
+	id = 3136447
+	random = no
+	country = GER
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = GER
+		government = fascist
+		energy = 1440
+		metal = 720
+		rare_materials = 360
+		supplies = 1500
+		oil = 500
+		manpower = 15
+			}	
+	
+	trigger = {
+		atwar = GER
+		government = fascist
+		energy = 2880
+		metal = 1440´
+		rare_materials = 720
+		supplies = 1500
+		oil = 500
+		manpower = 15
+	}
+	
+	name = EVT_3136447_NAME #
+	desc = EVT_3136447_DESC
+	style = 2
+	picture = "SS-78"
+	decision_picture = "decision_german_elite"
+	
+	date = { day = 1 month = january year = 1943 } #
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136447A
+		
+		command = { type = activate_division which = 14500 value = 433 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } }        type = energypool value = -1440 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } }         type = metalpool value = -720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes supplies = 1500 } } }       type = supplies value = -1500 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes oil = 500 } } }             type = oilpool  value = -500  }		
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 20 } } }         type = manpowerpool value = -15 }
+	}
+}

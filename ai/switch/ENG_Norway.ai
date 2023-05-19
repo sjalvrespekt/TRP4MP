@@ -1,0 +1,155 @@
+# England invasion of Norway File by Lothos
+# Converted to DH by Dendro 2011-July-06
+
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion		= yes
+ 	base			= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random			= 10.0	#How big a random range.  (1.0 = 1%)
+	coastal			= 0.1	#increase to avoid coastal forts more.
+	beach			= 0.1	#higher, avoid worst beaches.
+	distance		= 10.1	#higher = avoid long distance.
+	max_distance  	= 100.0  #About the distance from Washington to Morocco
+	max_staging_distance = 50	# How far should the staging area be from the target invasion point
+	pocket			= 0.1	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island			= 0.1	#prioritise taking pure islands.
+	enemy			= 0.1	#higher = much more vary of troops in province.
+	adjacentenemy 	= 0.1	#higher = much more vary of troops nearby
+	air_base		= 1.5 
+    naval_base 		= 0.1 
+    air_support 	= 1.0 
+    redirect 		= priority
+	ignore			= no
+	help_allies 	= no
+
+
+	staging_province = {
+		18  # Sheffield
+	}
+	target = { 
+		#Norway
+		483 = 3750 # Oslo
+		485 = 3750 # Kristiansan
+		495 = 4000 # Narvik
+		491 = 4000 # Alesund
+		493 = 4000 # Trondheim
+		487 = 4000 # Stavanger
+		488 = 4000 # Bergen
+		490 = 4000 # Andalsnes
+		494 = 4000 # Bodo
+
+
+		#Spain/Portugal DH
+		441 = 3000 # Coruna
+		449 = 3000 # Vigo
+		444 = 3000 # Oviedo
+		445 = 3000 # Santander
+		443 = 3000 # Bilbao
+		476 = 3000 # Lissabon
+		477 = 3000 # Setubal
+		472 = 3000 # Huelva
+		474 = 3000 # Seville
+		473 = 3000 # Cadiz
+		463 = 2750 # Murcia
+		462 = 2750 # Alicante
+		464 = 2750 # Valencia
+		436 = 2750 # Tarragona
+		440 = 2750 # Barcelona
+		437 = 2750 # Gerona
+
+		# Moroco DH
+		718 = -1 # Casablanca
+		717 = -1 # Rabat
+
+		# Algiers DH
+		728 = -1 # Oran
+		727 = -1 # Algiers
+
+		# Tunisia DH
+		748 = -1 # Bizerte
+		747 = -1 # Tunis
+		735 = -1 # Bona
+		745 = -1 # Sousse
+
+		# Libya DH
+		752 = 3500 # Az Zuwayah
+		750 = 3500 # Tripoli
+		761 = 5500 # Benghazi
+		765 = 5500 # Tobruk
+		771 = 3500 # Bardia
+
+		# Egypt DH
+		789 = 3000 # Alexandria
+		900 = 3000 # Suez
+
+		# Middle East touching the Med DH
+		1004 = 2500 # el Arish
+		1008 = 2450 # Tel Aviv
+		1021 = 2000 # Aleppo
+
+		# Baltic States (in case of un-holy alliance) DH
+		531 = -1 # Viipuri
+		530 = -1 # Terijoki
+		553 = -1 # Leningrad
+		550 = -1 # Kingisepp
+		274 = -1 # Narva
+		270 = -1 # Tallinn
+		271 = -1 # Parnu
+		275 = -1 # Kuressaare
+		264 = -1 # Riga
+		265 = -1 # Valmiera
+		269 = -1 # Jelgava
+		268 = -1 # Liepaia
+		259 = -1 # Siauliai
+		261 = -1 # Klaipeda
+
+		# German DH
+		184 = -1 # Königsberg
+		183 = -1 # Elbing
+		182 = -1 # Tilsit
+		181 = -1 # Danzig
+		226 = -1 # Gdynia
+		155 = -1 # Stolp
+		158 = -1 # Stettin
+		162 = -1 # Stralsund
+		153 = -1 # Rostock
+		151 = -1 # Lubeck
+		152 = -1 # Kiel
+		150 = -1 # Flensburg
+	
+		# Atlantic Wall DH
+		220 = -1 # Arhus		
+		218 = -1 # Frederikshavn
+		217 = -1 # Aalborg
+		216 = -1 # Abenra
+		124 = -1 # Groningen
+		122 = -1 # Amsterdam
+		125 = -1 # Rotterdam		
+		123 = -1 # Middleburg
+		114 = -1 # Bruges
+		51  = -1 # Dunquerque		
+		49  = -1 # Calais
+		53  = -1 # Dieppe
+		45  = -1 # Le Havre
+		44  = -1 # Caen
+		46  = -1 # Bayeux
+		38  = -1 # Rennes
+		41  = -1 # St. Brieux
+		37  = -1 # Brest
+		39  = -1 # Lorient
+		40  = -1 # St. Nazaire
+		57  = -1 # Nantes		
+		68  = -1 # Bordeaux
+		67  = -1 # Mont-de-Marsan
+		
+		# Southern France DH
+		79 = -1 # Beziers
+		80 = -1 # Perpignan
+		82 = -1 # Montpellier
+		86 = -1 # Toulon
+		87 = -1 # Nizza
+		89 = -1 # Marseille	
+	}
+}

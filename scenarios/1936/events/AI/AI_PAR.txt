@@ -1,0 +1,55 @@
+####################################
+# Paraguay AI events 34000 - 34099 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+####################################
+################
+# Minister of Security Section 34000 - 34009
+#############################################
+################
+# Chief of Staff Section 34010 - 34019
+#############################################
+################
+# Head of Intelligence Section 34020 - 34029
+#############################################
+################
+# Chief of the Army Section 34030 - 34039
+#############################################
+################
+# Armament Minister Section 34040 - 34049
+#############################################
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34060 - 34099
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 34060
+	random = no 
+	country = PAR
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 2
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

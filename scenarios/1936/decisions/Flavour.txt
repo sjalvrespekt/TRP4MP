@@ -1,0 +1,55 @@
+########################################################################
+# Sleep News of World events
+########################################################################
+event = {
+        id = 3999999
+        random = no
+		persistent = yes
+        
+	decision = { ai = no NOT = { local_flag = sleep_flavour } }
+	decision_trigger = { NOT = { local_flag = sleep_flavour } }
+	trigger = { ai = no }
+
+	name = EVT_3999999_NAME #"Sleep News of World events" 
+	desc = EVT_3999999_DESC
+	style = 2
+	decision_picture = "decision_history_off"
+	picture = "TRP_history"
+	
+	date = { hour = 0 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3999999A
+		command = { type = local_setflag which = sleep_flavour } 
+        }
+}
+
+########################################################################
+# Activate News of World events
+########################################################################
+event = {
+        id = 3999998
+        random = no
+		persistent = yes
+ 
+	decision = { ai = no local_flag = sleep_flavour }
+	decision_trigger = { local_flag = sleep_flavour }
+	trigger = { ai = no }
+
+	name = EVT_3999998_NAME #"Activate News of World events" 
+	desc = EVT_3999998_DESC
+	style = 2
+	decision_picture = "decision_history_on"
+	picture = "TRP_history"
+	
+	date = { hour = 0 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3999998B
+		command = { type = local_clrflag which = sleep_flavour }
+        }
+}

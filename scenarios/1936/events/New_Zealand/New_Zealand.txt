@@ -1,0 +1,92 @@
+# checked DH
+# Last Update 12-NOV-2006
+#########################
+
+###########################################################################
+#	3200000 - 3299999
+###########################################################################
+
+#########################
+# Was 372018 UK Consults New Zealand 
+#########################
+event = {
+	id = 3200001
+	random = no
+	country = NZL
+
+	#triggered by 3131091-Abdication crisis
+
+	name = EVT_3400010_NAME
+ 	desc = EVT_3400010_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3400010A 
+		command = { type = dissent value = -2 }
+	}
+}
+#####################
+# Was 372023 Edward abdicates-NZL
+#####################
+event = {
+	id = 3200002
+	random = no
+	country = NZL
+
+	#triggered bu 3131092
+
+	name = EVT_3400011_NAME
+ 	desc = EVT_3400011_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3400011A
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+#######################
+# Was 372024 Simpson as consort-NZL
+#######################
+event = {
+	id = 3200003
+	random = no
+	country = NZL
+
+	#triggered by 3131092
+
+	name = EVT_3400012_NAME
+ 	desc = EVT_3400012_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3400012A
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+######################
+# Was 372025 Simpson as Queen-NZL
+######################
+event = {
+	id = 3200004
+	random = no
+	country = NZL
+
+	#triggered by 3131092
+
+	name = EVT_3400013_NAME
+ 	desc = EVT_3400013_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3400013A
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = money value = -2 }
+	}
+}
+
+#########################################################################

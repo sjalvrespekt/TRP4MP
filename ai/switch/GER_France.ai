@@ -1,0 +1,135 @@
+# German Low Countries Invasion AI File by Lothos
+# converted to DH, Kane, June 4 2011
+max_front_ratio = 1.2
+max_garrison_prop = 0.05
+min_garrison_prop = 0.02
+max_front_ratios = {
+	BEL = 15.0
+	HOL = 12.0
+	LUX = 15.0
+	FRA = 0.5
+	SOV = 0.1
+	SCH = 0.0
+	YUG = 0.0
+	HUN = 0.0
+	LIT = 0.0
+	ITA = 0.0
+}
+
+target = {
+	109 = 50 #Luxemburg
+	122 = 100 #Amsterdam
+	116 = 150 #Brussels
+	55 = 150 # Paris
+	# Sichelschnitt
+	50 = 100 #Amiens 
+	112 = 100 #Mons
+}
+
+###################################
+# Diplomacy
+###################################
+combat = {
+	HOL = 130
+	BEL = 150
+	LUX = 100
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	
+	home_multiplier 	= 0.4
+	overseas_multiplier = 1.0
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.05
+
+	# PRIORITIES:
+	beach			= 20	# Beach level 2
+	capital			= 0		# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 50		# The next country targeted for attack by this AI #0
+	reserves 		= 10		# bonus for provinces just behind a frontline. #0
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		SWE = -1
+		FIN = -1
+		ITA = -1
+		SCH = -1
+		AUS = -1
+		HUN = -1
+		CZE = 75
+		POL = 75
+		YUG = 5
+		HOL = 100
+		BEL = 130
+		FRA = 80
+		DEN = 5
+		SOV = -1
+		LUX = 50
+	}
+	province_priorities = {	}
+	area_multiplier = {
+		130 = 0.05 # Mainz
+		132 = 0.05 # Freiburg
+		127 = 0.05  # Saarbrucken
+		109 = 0.1   # Luxembourg
+		111 = 0.5   # Arlon
+	}
+}
+front = { 
+	recklessness 		= 2 # 0-3
+	distrib_vs_ai 		= reactive
+	distrib_vs_human 	= reactive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+    enemy_handicap = { } 
+    passivity = { } 
+
+	province_priorities = {
+		#Maginot Line
+		130 = 0.50 # Mainz #new
+		132 = 0.05 # Freiburg #new
+		127 = 0.05  # Saarbrucken #new
+		109 = 0.05   # Luxembourg
+		111 = 0.5   # Arlon
+		
+		# Main Attack
+		126 = 10.0  # Aachen
+		131 = 10.0  # Cologne
+		116 = 10.0  # Brussels
+		108 = 10.0  # Liege
+		#65 = 10.0  # Namur
+		#69 = 10.0  # Bastogne
+		112 = 10.0  # Mons
+		114 = 10.0  # Ghent
+		#44 = 10.0  # Liege
+		101 = 10.0  # Valenciennes
+		103 = 10.0  # Hirson
+		50 = 10.0  # Amiens
+		56 = 10.0  # Compiegne
+		115 = 10.0  # Antwerp
+		
+		# North Attack
+		119 = 10.0 # Eindov
+		125 = 9.0 # Rotter
+	}
+}

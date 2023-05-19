@@ -1,0 +1,3999 @@
+# Last Update 02-JUL-2007
+#########################
+# checked DH map IDs by DerStudti
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3110991 
+	random = no
+	country = AFG
+	
+	trigger = { under_attack = AFG }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_afg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 4 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3110992
+	random = no
+	country = AFG
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = AFG value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_afg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 6 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3111991 
+	random = no
+	country = ALB
+	
+	trigger = { under_attack = ALB }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_alb"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3112991 
+	random = no
+	country = ARG
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_arg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3112992 
+	random = no
+	country = ARG
+	
+	trigger = { under_attack = ARG }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_arg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3112993
+	random = no
+	country = ARG
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = ARG value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc  
+	style = 2
+	picture = "mob_arg"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 300 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - Commonwealth at war
+#################################################################
+event = {	
+	id = 3113991 
+	random = no
+	country = AST
+	
+	trigger = { atwar = AST }
+	
+	name = EVT_MOBCWAR_NAME 
+	desc = EVT_MOBCWAR_DESC  
+	style = 2
+	picture = "ast_manpower"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBCWARA # Call the reservists
+		command = { type = manpowerpool value = 130 } 
+		command = { type = dissent value = 7 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBCWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3113992 
+	random = no
+	country = AST
+	
+	trigger = { under_attack = AST }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "ast_manpower"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# Event Series Manpower controls # Was 372006 and 3400003 Australia Full Mobilasation
+# Mod by CCM von Hausser
+#########################################################################
+event = { 
+	id = 3113993
+	random = no
+	country = AST
+
+	trigger = { war = { country = AST country = JAP }
+		 OR = { 
+#			atwar = yes
+			lost_national = { country = AST value = 10 }
+		    }
+		}
+		    
+	name = EVT_3113993_NAME
+	desc = EVT_3113993_DESC
+	style = 2
+	picture = "ast_manpower"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAME3113993A # Conscript and mobilize; our freedom is threatened
+		command = { type = manpowerpool value = 200 }
+#		command = { type = dissent value = -10 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAME3113993B # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack						
+#################################################################
+event = {	
+	id = 3114991 
+	random = no
+	country = AUS
+	
+	trigger = { under_attack = AUS }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_aus"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3114992
+	random = no
+	country = AUS
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = AUS value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc  
+	style = 2
+	picture = "mob_aus"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 75 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3115991 
+	random = no
+	country = BEL
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC  
+	style = 2
+	picture = "mob_bel"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3115992 
+	random = no
+	country = BEL
+	
+	trigger = { under_attack = BEL }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_bel"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3115993
+	random = no
+	country = BEL
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = BEL value = 10 }
+		NOT = { event = 3115003 }
+	}
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc  
+	style = 2
+	picture = "mob_bel"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 75 }	
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3116991 
+	random = no
+	country = BHU
+	
+	trigger = { under_attack = BHU }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_bhu"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3117991 
+	random = no
+	country = BOL
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC  
+	style = 2
+	picture = "mob_bol"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3117992 
+	random = no
+	country = BOL
+	
+	trigger = { under_attack = BOL }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_bol"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 40 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3117993
+	random = no
+	country = BOL
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = BOL value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc  
+	style = 2
+	picture = "mob_bol"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 60 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3118991 
+	random = no
+	country = BRA
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC  
+	style = 2
+	picture = "mob_bra"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3118992 
+	random = no
+	country = BRA
+	
+	trigger = { under_attack = BRA }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC  
+	style = 2
+	picture = "mob_bra"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3118993
+	random = no
+	country = BRA
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = BRA value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc  
+	style = 2
+	picture = "mob_bra"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 250 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+##############################################################
+# Bulgaria call first reservist class
+##############################################################
+event = {
+	id = 3119901
+	random = no
+	country = BUL
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3119901_NAME
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_bul"
+
+	date = { day = 6 month = september year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Bulgaria call first reservist class
+		command = { type = manpowerpool value = 50 }
+		command = { type = dissent value = 5 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Bulgaria call second reservist class
+##############################################################
+event = {
+	id = 3119902
+	random = no
+	country = BUL
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3119902_NAME
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_bul"
+
+	date = { day = 6 month = september year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Bulgaria call second reservist class
+		command = { type = manpowerpool value = 60 }
+		command = { type = dissent value = 6 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Bulgaria call third reservist class
+##############################################################
+event = {
+	id = 3119903
+	random = no
+	country = BUL
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3119903_NAME
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_bul"
+
+	date = { day = 6 month = september year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Bulgaria call third reservist class
+		command = { type = manpowerpool value = 80 }
+		command = { type = dissent value = 8 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Bulgaria call fourth reservist class
+##############################################################
+event = {
+	id = 3119904
+	random = no
+	country = BUL
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3119904_NAME
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_bul"
+
+	date = { day = 6 month = september year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Bulgaria call fourth reservist class
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+################################################################
+# Reservists call - Commonwealth at war
+#################################################################
+event = {	
+	id = 3120991
+	random = no
+	country = CAN
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBCWAR_NAME 
+	desc = EVT_MOBCWAR_DESC 
+	style = 2
+	picture = "mob_can"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBCWARA # Call the reservists
+		command = { type = manpowerpool value = 200 }	
+		command = { type = dissent value = 15 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBCWARB # We don't need them
+		command = { }
+	}
+}
+
+################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3120992
+	random = no
+	country = CAN
+	
+	trigger = { OR = {	year = 1943 
+						event = 3131014 }
+				under_attack = CAN }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_can"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 250 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3120993
+	random = no
+	country = CAN
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CAN value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_can"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 350 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3121991 
+	random = no
+	country = CHI
+	
+	trigger = { under_attack = CHI }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_chi"
+	
+	date = { day = 0 month = june year = 1937 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 1000 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3122992
+	random = no
+	country = CHI
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CHI value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_chi"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 2000 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence (special case China)
+#################################################################
+event = {	
+	id = 3122993
+	random = no
+	country = CHI
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CHI value = 40 }
+		  }
+	
+	name = EVT_3122993_NAME
+	desc = EVT_3122993_DESC
+	style = 2
+	picture = "mob_chi"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAME3122993A # Call every men to defend the Country
+		command = { type = manpowerpool value = 4000 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 4512991 
+	random = no
+	country = CHL
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC  
+	style = 2
+	picture = "mob_chl"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 4512992 
+	random = no
+	country = CHL
+	
+	trigger = { under_attack = CHL }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_chl"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 4512993
+	random = no
+	country = CHL
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CHL value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_chl"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 100 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3124901 
+	random = no
+	country = COL
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC  
+	style = 2
+	picture = "mob_col"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+		command = { type = dissent value = 8 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3124902 
+	random = no
+	country = COL
+	
+	trigger = { under_attack = COL }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_col"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 120 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3124903
+	random = no
+	country = COL
+	
+	trigger = {
+		under_attack = COL
+		lost_national = { country = COL value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_col"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 150 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3125991 
+	random = no
+	country = COS
+	
+	trigger = { under_attack = COS }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_cos"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 3 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3126991 
+	random = no
+	country = CUB
+	
+	trigger = { under_attack = CUB }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_cub"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3127991 
+	random = no
+	country = CZE
+	
+	trigger = { under_attack = CZE }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_cze"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3127992
+	random = no
+	country = CZE
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CZE value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_cze"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 200 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reinforce the Army				
+#################################################################
+event = {	
+	id = 3127993		#jeannen: doppelt?
+	random = no
+	country = CZE
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = CZE value = 10 }
+		  }
+	
+	name = EVT_3127993_NAME 
+	desc = EVT_3127993_DESC 
+	style = 2
+	picture = "mob_cze"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1937 }
+	
+	action_a = {
+		ai_chance = 99					
+		name = ACTIONNAME3127993A # Reinforce the army
+		command = { type = manpowerpool value = 200 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3127993B # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Czech reaction on Anschluss
+#################################################################
+event = {	
+	id = 3127994
+	random = no
+	country = CZE
+	
+	trigger = { NOT = { exists = AUS } }
+	
+	name = EVT_3127994_NAME 
+	desc = EVT_3127994_DESC 
+	style = 2
+	picture = "mob_cze"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAME3127994A # Call every men!
+		command = { type = manpowerpool value = 200 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAME3127994B # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3129991 
+	random = no
+	country = DOM
+		
+	trigger = { under_attack = DOM }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_dom"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 3 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# A deadly menace - national call for mainland defence
+#########################################################################
+event = { 
+	id = 3129992
+	random = no
+	country = DOM
+
+	trigger = { 
+			atwar = yes
+			lost_national = { country = DOM value = 10 }
+		    }
+		    
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_dom"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 7 }
+#		command = { type = dissent value = 3 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3130991 
+	random = no
+	country = ECU
+		
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_ecu"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3130992 
+	random = no
+	country = ECU
+		
+	trigger = { under_attack = ECU }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_ecu"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+#########################################################################
+# A deadly menace - national call for mainland defence
+#########################################################################
+event = { 
+	id = 3130993
+	random = no
+	country = ECU
+
+	trigger = { 
+			atwar = yes
+			lost_national = { country = ECU value = 10 }
+		    }
+		    
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_ecu"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 50 }
+#		command = { type = dissent value = 3 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3132991 
+	random = no
+	country = EST
+		
+	trigger = { under_attack = EST }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_est"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# A deadly menace - national call for mainland defence
+#########################################################################
+event = { 
+	id = 3132992
+	random = no
+	country = EST
+
+	trigger = { 
+			atwar = yes
+			lost_national = { country = EST value = 10 }
+		    }
+		    
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_est"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 40 }
+#		command = { type = dissent value = 3 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# Volunteers for the new War
+#########################################################################
+event = { 
+	id = 3134991
+	random = no
+	country = FIN
+	
+	trigger = { 
+		war = { country = FIN country = SOV }
+		war = { country = GER country = SOV }
+		NOT = {	event = 2628 }
+		  }	
+		  
+	name = EVT_3134991_NAME 
+	desc = EVT_3134991_DESC 
+	style = 2
+	picture = "mob_fin"
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAME3134991A # Volunteers for the new war
+		command = { type = manpowerpool value = 76 }
+	
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAME3134991B # We will win even without them!
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3137100 
+	random = no
+	country = GRE
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_gre"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 60 }
+		command = { type = dissent value = 6 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3137101 
+	random = no
+	country = GRE
+	
+	trigger = { under_attack = GRE }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_gre"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3137102
+	random = no
+	country = GRE
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = GRE value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_gre"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 140 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3138991 
+	random = no
+	country = GUA
+		
+	trigger = { under_attack = GUA }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_gua"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3139991 
+	random = no
+	country = HAI
+		
+	trigger = { under_attack = HAI }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_hai"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3155991 
+	random = no
+	country = HOL
+	
+	trigger = { 
+		under_attack = HOL
+		NOT = { event = 3155002 }
+	}
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_hol"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 125 }
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3140991 
+	random = no
+	country = HON
+		
+	trigger = { under_attack = HON }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_hon"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+##############################################################
+# Hungary call first reservist class
+##############################################################
+event = {
+	id = 3141100
+	random = no
+	country = HUN
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3141100_NAME 
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_hun"
+
+	date = { day = 6 month = september year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Hungary call first reservist class
+		command = { type = manpowerpool value = 170 }
+		command = { type = dissent value = 5 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Hungary call second reservist class
+##############################################################
+event = {
+	id = 3141101
+	random = no
+	country = HUN
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3141101_NAME 
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_hun"
+
+	date = { day = 6 month = september year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Hungary call second reservist class
+		command = { type = manpowerpool value = 80 }
+		command = { type = dissent value = 6 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Hungary call third reservist class
+##############################################################
+event = {
+	id = 3141102
+	random = no
+	country = HUN
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3141102_NAME 
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_hun"
+
+	date = { day = 6 month = september year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Hungary call third reservist class
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 8 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+##############################################################
+# Hungary call fourth reservist class
+##############################################################
+event = {
+	id = 3141103
+	random = no
+	country = HUN
+	
+	trigger = { atwar = yes }
+	   	
+	name = EVT_3141103_NAME 
+	desc = EVT_MOBRESW_DESC 
+	style = 2
+	picture = "mob_hun"
+
+	date = { day = 6 month = september year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAMEMOBRESWA # Hungary call fourth reservist class
+		command = { type = manpowerpool value = 130 }
+		command = { type = dissent value = 10 }
+	}
+
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBRESWB # We can do without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3800900 
+	random = no
+	country = IRQ
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_irq"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 } #was 50; added 50 because of starting value 1936 reduced from 48 to 0
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3800901 
+	random = no
+	country = IRQ
+	
+	trigger = { under_attack = IRQ }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_irq"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3800902
+	random = no
+	country = IRQ
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = IRQ value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_irq"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 100 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3147991 
+	random = no
+	country = LAT
+		
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_lat"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 20 }
+		command = { type = dissent value = 2 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3147992 
+	random = no
+	country = LAT
+		
+	trigger = { under_attack = LAT }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_lat"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# A deadly menace - national call for mainland defence
+#########################################################################
+event = { 
+	id = 3147993
+	random = no
+	country = LAT
+
+	trigger = { 
+			atwar = yes
+			lost_national = { country = LAT value = 10 }
+		    }
+		    
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_lat"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 40 }
+#		command = { type = dissent value = 3 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3148991 
+	random = no
+	country = LIB
+		
+	trigger = { under_attack = LIB }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_lib"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3149991 
+	random = no
+	country = LIT
+		
+	trigger = { under_attack = LIT }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_lit"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 40 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#########################################################################
+# A deadly menace - national call for mainland defence
+#########################################################################
+event = { 
+	id = 3149992
+	random = no
+	country = LIT
+
+	trigger = { 
+			atwar = yes
+			lost_national = { country = LIT value = 10 }
+		    }
+		    
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_lit"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 } 
+	
+	action_a = {
+		ai_chance = 97	
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 50 }
+#		command = { type = dissent value = 3 }
+	} 
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 602030 
+	random = no
+	country = MEX
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_mex"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 602031 
+	random = no
+	country = MEX
+	
+	trigger = { under_attack = MEX }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_mex"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 602032
+	random = no
+	country = MEX
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = MEX value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_mex"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 300 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3157991 
+	random = no
+	country = NIC
+		
+	trigger = { under_attack = NIC }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_nic"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3158991 
+	random = no
+	country = NOR
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_nor"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3158992
+	random = no
+	country = NOR
+	
+	trigger = { under_attack = NOR }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_nor"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 40 }
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3158993
+	random = no
+	country = NOR
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = NOR value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_nor"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 50 }	
+#		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+###############################
+# Was 372003 New Zealand Manpower Events #
+###############################
+event = { 
+	id = 3200000
+	random = no
+	country = NZL
+
+	trigger = {
+		atwar = yes
+	}
+
+	name = EVT_3200000_NAME
+	desc = EVT_3200000_DESC
+	style = 2
+	picture = "mob_nzl"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME3200000A
+		command = { type = manpowerpool value = 65 }
+	}
+}
+
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3156992
+	random = no
+	country = NZL
+	
+	trigger = { under_attack = NZL }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_nzl"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 30 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3156993
+	random = no
+	country = NZL
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = NZL value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_nzl"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 40 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3160991 
+	random = no
+	country = PAN
+		
+	trigger = { under_attack = PAN }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_pan"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 3 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3161991 
+	random = no
+	country = PAR
+		
+	trigger = { under_attack = PAR}
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_par"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3163991 
+	random = no
+	country = PER
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_persien"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 190 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3163992 
+	random = no
+	country = PER
+		
+	trigger = { under_attack = PER }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_persien"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 200 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3163993
+	random = no
+	country = PER
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = PER value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_persien"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 500 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3182900 
+	random = no
+	country = PHI
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_phi"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3182901 
+	random = no
+	country = PHI
+	
+	trigger = { under_attack = PHI }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_phi"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 200 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3182902
+	random = no
+	country = PHI
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = PHI value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_phi"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 300 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3166991 
+	random = no
+	country = POR
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_por"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3166992 
+	random = no
+	country = POR
+	
+	trigger = { under_attack = POR }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_por"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3166993
+	random = no
+	country = POR
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = POR value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_por"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 200 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3163100 
+	random = no
+	country = PRU
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_per"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 50 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3163101 
+	random = no
+	country = PRU
+	
+	trigger = { under_attack = PRU }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_per"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3163102
+	random = no
+	country = PRU
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = PRU value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_per"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 100 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Allied with the Reich						
+#################################################################
+event = {	
+	id = 3167900 
+	random = no
+	country = ROM
+	
+	trigger = { alliance = { country = GER country = ROM } }
+	
+	name = EVT_3167900_NAME
+	desc = EVT_3167900_DESC 
+	style = 2
+	picture = "mob_rom"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3167900A # Call the reservist
+		command = { type = manpowerpool value = 180 }
+		command = { type = dissent value = 6 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3167900B # We don't need them
+		command = { }
+	}
+}
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3167901 
+	random = no
+	country = ROM
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_rom"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+		command = { type = dissent value = 8 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3167902 
+	random = no
+	country = ROM
+	
+	trigger = { under_attack = ROM }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_rom"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3167903
+	random = no
+	country = ROM
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = ROM value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_rom"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 300 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################
+# Was 372000 South African Manpower Events
+#################################
+event = { 
+	id = 3300900
+	random = no
+	country = SAF
+
+	trigger = { atwar = yes }
+
+	name = EVT_3300000_NAME
+	desc = EVT_3300000_DESC
+	style = 2
+	picture = "mob_saf"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = {
+		name = ACTIONNAME3300000A
+		command = { type = manpowerpool value = 75 }
+		command = { type = dissent value = 6 }
+	}
+	action_b = {
+		name = ACTIONNAME3300000B
+		command = { type = dissent value = -3 }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3300901 
+	random = no
+	country = SAF
+	
+	trigger = { under_attack = SAF }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_saf"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 60 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3300902
+	random = no
+	country = SAF
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = SAF value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_saf"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 80 }	
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+######################################################################### 
+# Was 652001 - The Swiss 1938 Emergency
+# Mod by CCM von Hausser
+#########################################################################
+event = {
+	id = 3177901										# was 6800001
+	random = no
+	country = SCH
+
+	#triggered by either the Austrian Anschluss or Alliance
+
+	trigger = {
+		OR = {
+			event = 3136006
+			# event = 2002
+		}
+	}
+	
+	name = EVT_3177901_NAME 
+	desc = EVT_3177901_DESC 
+	style = 2
+	picture = "mob_sch"
+
+	action_a = {
+		name = ACTIONNAME3177901A # We are threatened by Germany and must prepare for the worst
+		command = { type = manpowerpool  value = 40 }
+		command = { type = dissent value = 2 }
+		command = { type = construct which = land_fort where = 533 value = 1 }
+		command = { type = construct which = land_fort where = 372 value = 1 }
+		command = { type = construct which = land_fort where = 532 value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3177901B # It is unlikely the Germans will violate our neutrality
+		command = { }
+	}
+}
+
+######################################################################### 
+# The Swiss 1939 War Emergency
+#########################################################################
+event = {
+	id = 3177902
+	random = no
+	country = SCH
+
+	trigger = {
+		OR = {
+			atwar = GER
+		}
+	}
+	
+	name = EVT_3177902_NAME 
+	desc = EVT_3177902_DESC 
+	style = 2
+	picture = "mob_sch"
+
+	action_a = {
+		name = ACTIONNAME3177902A # We are threatened by Germany and must prepare for the worst
+		command = { type = manpowerpool  value = 60 }
+		command = { type = construct which = land_fort where = 533 value = 1 }
+		command = { type = construct which = land_fort where = 372 value = 1 }
+		command = { type = construct which = land_fort where = 532 value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3177902B # It is unlikely the Germans will violate our neutrality
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+#event = {	
+#	id = 3177903 # replacement: 6800015, switzerland.txt
+#	random = no
+#	country = SCH
+#	
+#	trigger = {
+#		atwar = yes
+#		lost_national = { country = SCH value = 10 }
+#		  }
+#	
+#	name = EVT_MOBDMEN_NAME 
+#	desc = EVT_MOBDMEN_DEsc 
+#	style = 2
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 15
+#	deathdate = { day = 0 month = december year = 1999 }
+#	
+#	action_a = {
+#		ai_chance = 97					
+#		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+#		command = { type = manpowerpool value = 100 }	
+#		command = { type = dissent value = 3 }
+#	}
+#	action_b = {
+#		ai_chance = 3
+#		name = ACTIONNAMEMOBDMENB # We don't need them
+#		command = { }
+#	}
+#}
+#
+#########################################################################
+# Sweden reinforces its army
+#########################################################################
+event = { 
+	id = 3176901		#jeannen: in new_text.csv gibt es noch 3176001 - Versehen?
+	random = no
+	country = SWE
+		
+	name = EVT_3176901_NAME		# Storico
+	desc = EVT_3176901_DESC 
+	style = 2
+	picture = "mob_swe"
+	
+	date = { day = 0 month = september year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3176901A # Renforce the Army
+		command = { type = manpowerpool value = 60 }
+		command = { type = dissent value = 3 }
+#		command = { type = sleepevent which = 3176902 }
+	}
+	
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3176901B # We don't need them!
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3176902 
+	random = no
+	country = SWE
+		
+	trigger = { under_attack = SWE }
+	
+	name = EVT_MOBUATT_NAME 			# Non Storico
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_swe"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 80 }
+#		command = { type = dissent value = 3 }
+		command = { type = sleepevent which = 3176901 }		
+		
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3176903
+	random = no
+	country = SWE
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = SWE value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_swe"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 100 }
+#		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3179991 
+	random = no
+	country = TIB
+	
+	trigger = { under_attack = TIB }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_tib"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 3 }
+
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3179992
+	random = no
+	country = TIB
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = TIB value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_tib"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 7 }	
+
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3181991 
+	random = no
+	country = URU
+	
+	trigger = { under_attack = URU }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_uru"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 3 }
+
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3182991 
+	random = no
+	country = MON
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_mon"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+		command = { type = dissent value = 15 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3183991 
+	random = no
+	country = TAN
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_mon"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 10 } #only 65k inhabitants in total!
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3184991 
+	random = no
+	country = VEN
+	
+	trigger = { atwar = yes }
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_ven"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 40 }
+		command = { type = dissent value = 4 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3184992 
+	random = no
+	country = VEN
+	
+	trigger = { under_attack = VEN }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_ven"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 70 }
+
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3184993
+	random = no
+	country = VEN
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = VEN value = 10 }
+		  }
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_ven"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 100 }	
+
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3185991 
+	random = no
+	country = YEM
+	
+	trigger = { under_attack = YEM }
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_yem"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 5 }
+
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 3184994 
+	random = no
+	
+	trigger =	{ 
+				OR =	{
+						AND =	{
+								country = SPR
+								atwar = yes
+								NOT = { exists = U01 }
+								}
+						AND =	{
+								country = U01
+								atwar = yes
+								NOT = { exists = SPR }
+								}
+						}
+				}
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_spa"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+		command = { type = dissent value = 15 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# Reservists call - country under attack
+#################################################################
+event = {	
+	id = 3184995 
+	random = no
+	
+	trigger =	{ 
+				OR =	{
+						AND =	{
+								country = SPR
+								under_attack = SPR
+								NOT = { exists = U01 }
+								}
+						AND =	{
+								country = U01
+								under_attack = U01
+								NOT = { exists = SPR }
+								}
+						}
+				}
+	
+	name = EVT_MOBUATT_NAME 
+	desc = EVT_MOBUATT_DESC 
+	style = 2
+	picture = "mob_spa"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAMEMOBUATTA # Call the reservists
+		command = { type = manpowerpool value = 150 }
+
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAMEMOBUATTB # We don't need them
+		command = { }
+	}
+}
+
+#################################################################
+# A deadly menace - national call for mainland defence
+#################################################################
+event = {	
+	id = 3184996
+	random = no
+	
+	trigger =	{ 
+				OR =	{
+						AND =	{
+								country = SPR
+								atwar = yes
+								lost_national = { country = SPR value = 10 }
+								NOT = { exists = U01 }
+								}
+						AND =	{
+								country = U01
+								atwar = yes
+								lost_national = { country = U01 value = 10 }
+								NOT = { exists = SPR }
+								}
+						}
+				}
+	
+	name = EVT_MOBDMEN_NAME 
+	desc = EVT_MOBDMEN_DEsc 
+	style = 2
+	picture = "mob_spa"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 97					
+		name = ACTIONNAMEMOBDMENA # Call every men to defend the country
+		command = { type = manpowerpool value = 200 }	
+
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAMEMOBDMENB # We don't need them
+		command = { }
+	}
+}

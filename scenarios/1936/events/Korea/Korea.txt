@@ -1,0 +1,185 @@
+# converted to DH, Kane, July 23 2011
+# Last Update 18-JAN-2006
+###########################################################################
+# 6600000 - 6699999
+###########################################################################
+#############################################
+# Was 952084 Liberation! (KOR)
+#############################################
+event = { 
+	id = 6600000 
+	random = no
+	country = KOR
+
+	trigger = { exists = KOR }
+	
+	name = EVT_6600000_NAME
+	desc = EVT_6600000_DESC
+	style = 0
+
+        date = { day = 15 month =january year = 1936 }
+        offset = 30
+	deathdate = { day = 25 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6600000A 
+		command = { type = headofstate which = 578001 }
+		command = { type = headofgovernment which = 578002 }
+		command = { type = foreignminister which = 578003 }
+		command = { type = armamentminister which = 578004 }
+		command = { type = ministerofsecurity which = 578005 }
+		command = { type = ministerofintelligence which = 578006 }
+		command = { type = chiefofstaff which = 578007 }
+		command = { type = chiefofarmy which = 578008 }
+		command = { type = chiefofnavy which = 578009 }
+		command = { type = chiefofair which = 578010 }
+		command = { type = dissent value = 10 }
+		command = { type = trigger which = 6600001 }
+	}
+}
+#############################################
+# Was 952085 Rebuilding a shattered nation (KOR)
+#############################################
+event = { 
+	id = 6600001
+	random = no
+	country = KOR
+	
+	# triggered by 6600000 
+
+	name = EVT_6600001_NAME
+	desc = EVT_6600001_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME6600001A 
+		command = { type = construct which = ic where = 1224 value = 1 }
+		command = { type = construct which = ic where = 1226 value = 1 } 
+		command = { type = construct which = ic where = 1225 value = 1 } 
+		command = { type = construct which = ic where = 1227 value = 1 }
+		command = { type = construct which = ic where = 1223 value = 1 }
+		command = { type = construct which = ic where = 1221 value = 1 } 
+		command = { type = construct which = ic where = 1228 value = 1 }
+		command = { type = construct which = ic where = 1233 value = 1 }  
+		command = { type = construct which = ic where = 1230 value = 1 } 
+		command = { type = construct which = ic where = 1232 value = 1 } 
+		command = { type = construct which = ic where = 1231 value = 1 } 
+		command = { type = supplies value = 50 }
+		command = { type = dissent value = 10 }
+	}
+}
+#############################################
+# Was 952086 Military government in Korea (KOR)
+#############################################
+event = { 
+	id = 6600002
+	random = no
+	country = KOR
+	
+	trigger = {
+		ispuppet = KOR
+		OR = {
+			event = 222077
+			event = 3182096
+		}
+	}
+
+	name = EVT_6600002_NAME
+	desc = EVT_6600002_DESC
+	style = 0
+
+        date = { day = 10 month = december year = 1941 }
+        offset = 5
+	deathdate = { day = 25 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6600002A 
+		command = { type = construct which = ic where = 1230 value = 5 } 
+		command = { type = construct which = ic where = 1232 value = 2 }  
+		command = { type = construct which = ic where = 1231 value = 2 } 
+		command = { type = construct which = ic where = 1233 value = 2 } 
+		command = { type = construct which = ic where = 1228 value = 1 } 
+		command = { type = dissent value = 20 }
+	}
+}
+#############################################
+# Was 952087 The Moscow Conference (KOR)
+#############################################
+event = { 
+	id = 6600003
+	random = no
+	country = KOR
+	
+	trigger = {
+		flag = soviet_trust
+		flag = usa_trust
+		flag = uk_trust
+	}
+
+	name = EVT_6600003_NAME
+	desc = EVT_6600003_DESC
+	style = 0
+
+        date = { day = 10 month = december year = 1941 }
+        offset = 5
+	deathdate = { day = 25 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6600003A  
+		command = { type = dissent value = 15 } 
+	}
+}
+#############################################
+# Was 952088 Civil War! (KOR)
+#############################################
+event = { 
+	id = 6600004
+	random = no
+	country = KOR
+	
+	trigger = { event = 6600003 }
+
+	name = EVT_6600004_NAME
+	desc = EVT_6600004_DESC
+	style = 0
+
+        date = { day = 10 month = december year = 1941 }
+        offset = 5
+	deathdate = { day = 25 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6600004A  
+		command = { type = independence which = PRK } 
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = infantry when = 0 }
+		command = { type = add_division value = infantry when = 0 } 
+		command = { type = add_division value = infantry when = 0 }  
+		command = { type = add_division value = interceptor }
+		command = { type = trigger which = 6700000 }
+		command = { type = trigger which = 3182099 }
+		command = { type = trigger which = 3131099 }
+		command = { type = dissent value = -100 }
+	}
+}
+#############################################
+# Was 952089 Civil War! (KOR)
+#############################################
+event = {
+	id = 6600005
+	random = no
+	country = KOR
+	persistent = yes
+
+	name = EVT_6600005_NAME
+	desc = EVT_6600005_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME6600005A
+		command = { type = supplies value = 200 }
+		command = { type = add_division value = infantry when = 2 } 
+		command = { type = add_division value = infantry when = 2 } 
+	}
+}

@@ -1,0 +1,459 @@
+# Last Update 27-FEB-2006
+#########################
+
+# converted to DH map by DerStudti
+##################################################
+# Hitler's death
+##################################################
+event = {
+	id = 147100
+	random = no
+	country = GER
+	
+	trigger = {
+		random = 5
+ 		#headofgovernment = 2
+		headofstate = 1
+		event = 3331000 # ENG is a puppet
+	}
+
+	name = EVT_147100_NAME #"Hitler's death"
+	desc = EVT_147100_DESC #"After a heartstroke, Adolf Hitler dies suddenly, leaving behind an astonished Germany and a burning world. Soon, the fight for power starts and it threatens to tear the German Reich apart."
+	style = 0
+	
+	date = { day = 0 month = january year = 1946 }
+	offset = 360
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME147100A #"Install Himmler as the new Führer"
+		ai_chance = 40
+		command = { type = headofgovernment which = 42 } # Martin Bormann
+		command = { type = headofstate which = 212 } # Heinrich Himmler
+		command = { type = sleepminister which = 1 } # Adolf Hitler is dead
+		command = { type = sleepminister which = 41 } # Adolf Hitler is dead
+		command = { type = sleepminister which = 177 } # Adolf Hitler is dead
+		command = { type = dissent value = 10 }
+	}
+	action_b = {
+		name = ACTIONNAME147100B #"Install Göring as the new Führer"
+		ai_chance = 40
+		command = { type = headofgovernment which = 213 } # Hermann Göring
+		command = { type = headofstate which = 211 } # Hermann Göring
+		command = { type = sleepminister which = 1 } # Adolf Hitler is dead
+		command = { type = sleepminister which = 41 } # Adolf Hitler is dead
+		command = { type = sleepminister which = 177 } # Adolf Hitler is dead
+		command = { type = dissent value = 10 }
+	}
+	action_c = {
+		name = ACTIONNAME147100C # The military takes over
+		ai_chance = 20
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = domestic which = democratic value = 3 }
+		command = { type = headofstate which = 34 } # Beck
+		command = { type = headofgovernment which = 48 } # Goerdeler
+		command = { type = sleepminister which = 1 } # AH
+		command = { type = sleepminister which = 41 } # AH
+		command = { type = sleepminister which = 177 } # AH
+		command = { type = sleepminister which = 108 } # Himmler
+		command = { type = sleepminister which = 212 } # Himmler
+		command = { type = sleepminister which = 211 } # Göring
+		command = { type = sleepminister which = 213 } # Göring #chief of air force still missing => tbd
+		command = { type = dissent value = 20 }
+	}
+}
+##################################################
+# USA supports British Democratic Movement
+##################################################
+event = {
+	id = 147101
+	random = no
+	country = USA
+	
+	trigger = { 
+				event = 3331000
+				OR = {
+						AI = USA
+						AND = {
+								NOT = { AI = USA }
+								manpower = 50
+								energy = 1000
+								oil = 1000
+								rare_materials = 1000
+								metal = 1000
+								supplies = 5000
+								}
+						}
+				}
+
+	name = EVT_147101_NAME #"Support British insurgency"
+	desc = EVT_147101_DESC #"After fall of Great Britain and The Conference of London, a British dissident movement is formed, the British Democratic Movement. Its HQ is based in New York."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME147101A #"Support British dissidents"
+		command = { trigger = { NOT = { AI = USA } } type = manpowerpool value = -50 }
+		command = { trigger = { NOT = { AI = USA } } type = energypool value = -1000 }
+		command = { trigger = { NOT = { AI = USA } } type = oilpool value = -1000 }
+		command = { trigger = { NOT = { AI = USA } } type = rarematerialspool value = -1000 }
+		command = { trigger = { NOT = { AI = USA } } type = metalpool value = -1000 }
+		command = { trigger = { NOT = { AI = USA } } type = supplies value = -5000 }
+		command = { trigger = { NOT = { AI = USA } } type = dissent value = -1 }
+		command = { type = sleepevent which = 6409 } # IND independence event
+		command = { type = sleepevent which = 6410 } # BUR independence event
+		command = { type = sleepevent which = 6413 } # MLY independence event
+	}
+}
+##################################################
+# British civil War events
+##################################################
+event = {
+	id = 3131111 # 147102
+	random = no
+	country = ENG
+	trigger = {
+		NOT = { alliance = { country = USA country = U02 } }
+		alliance = { country = ENG country = GER }
+		event = 3331000 # 3331000 					# ENG made a puppet by GER
+		NOT = { event = 3131113 }
+		NOT = { exists = IND }
+		event = 147101					# USA gave support to British dissidents
+		control = { province = 1459 data = -3 } 	# Delhi must be friendly controlled
+		control = { province = 1517 data = -3 } 	# Bombay must be friendly controlled
+		control = { province = 1447 data = -3 } 	# Calcutta must be friendly controlled
+	}
+
+	name = EVT_3131111_NAME #"British Civil War"
+	desc = EVT_3131111_DESC #"Some turmoil is rising in British Empire. The underground British Democratic Movement sets up a new free government in English India with USA support. A civil war has started!"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 90
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = trigger which = 3131113 }
+	}
+}
+event = {
+	id = 3131112 # 147103
+	random = no
+	country = ENG
+	trigger = {
+		alliance = { country = ENG country = GER }
+		event = 3331000 # ENG New Order
+		NOT = { exists = IND }
+		OR = {
+			war = { country = USA country = GER } # GER must be at war with at least one Ally country
+			war = { country = CAN country = GER }
+			war = { country = NZL country = GER }
+			war = { country = SAF country = GER }
+			war = { country = HOL country = GER }
+			war = { country = AST country = GER }
+			war = { country = BEL country = GER }
+		}
+		# ENG must have lost all three key Indian Provinces
+		control = { province = 1459 data = -2 }	# Delhi enemy controlled
+		control = { province = 1517 data = -2 }	# Bombay enemy controlled
+		control = { province = 1447 data = -2 }	# Calcutta enemy controlled
+		NOT = { event = 3131113 } # Civil war has not yet started
+	}
+
+	name = EVT_3131111_NAME #"British Civil War"
+	desc = EVT_3131112_DESC #"The Allies have conquered Delhi, Bombay and Calcutta. The Free British Commonwealth is created in Indian Ocean area."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = trigger which = 3131113 }
+	}
+}
+event = {
+	id = 3131113 # 147150
+	random = no
+	country = ENG
+
+	# triggered by ENG 3131111 or 3131112
+
+	name = EVT_3131113_NAME #"The British Empire burns"
+	desc = EVT_3131113_DESC #"The Indian Ocean dominions are revolting and the Free British Commonwealth declares its independence and pledges loyalty to the imprisoned King. Turmoils are rising in all Empire."
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3131113A #"Concede authonomies"
+		command = { type = independence which = U15 value = 0 when = 1 } # Free British Commonwealth independence
+		command = { type = dissent value = 5 }
+		#command = { type = end_mastery which = OMN } # Lose Oman as a puppet
+		#command = { type = end_mastery which = YEM } # Lose Yemen as a puppet
+		#command = { type = trigger which = 147114 }  # Oman event	
+		#command = { type = trigger which = 147115 }  # Yemen event
+		command = { type = trigger which = 3131114 } # FBC event
+	}
+	action_b = {
+		name = ACTIONNAME3131113B #"Suppress local insurgents"
+		command = { type = independence which = U15 value = 0 when = 1 } # Free British Commonwealth independence
+		command = { type = war which = U15 }
+		#command = { type = end_mastery which = OMN } # Lose Oman as a puppet
+		#command = { type = end_mastery which = YEM } # Lose Yemen as a puppet
+		command = { type = dissent value = 20 }
+	}
+}
+event = { # FBC event
+	id = 3131114 # 147104
+	random = no
+	country = U15
+
+	# Triggered by ENG 3131113
+
+	name = EVT_3131114_NAME #"Free British Commonwealth independence"
+	desc = EVT_3131114_DESC #"The British Democratic Movement managed to uprise in India and established a new government with a sole purpose : free the King from the Tower of London and liberate British Isles from the Nazis."
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { type = alliance which = USA }
+		command = { type = inherit which = U02 value = 1 }
+		command = { type = capital which = 1459 }
+		command = { type = set_domestic which = democratic value = 9 }
+	}
+}
+
+###################################################################################
+# Liberation of UK
+###################################################################################
+event = { 
+	id = 3131115 # 6446
+	random = no
+	country = ENG
+	
+	trigger = {
+		event = 3336001 # New Order West must be triggered
+		alliance = { country = ENG country = GER }			
+		NOT = {
+			control = { province = 5 data = ENG } # Scapa Flow, British Isles
+			control = { province = 9 data = ENG } # Lerwick
+			control = { province = 4 data = ENG } # Stornoway
+			control = { province = 6 data = ENG } # Inverness
+			control = { province = 7 data = ENG } # Aberdeen
+			control = { province = 8 data = ENG } # Fort William
+			control = { province = 10 data = ENG } # Dumfries
+			control = { province = 11 data = ENG } # Glasgow
+			control = { province = 12 data = ENG } # Edinburgh
+			control = { province = 13 data = ENG } # Sunderland
+			control = { province = 14 data = ENG } # Carlisle
+			control = { province = 18 data = ENG } # Sheffield
+			control = { province = 15 data = ENG } # Hull
+			control = { province = 16 data = ENG } # Lincoln
+			control = { province = 17 data = ENG } # Manchester
+			control = { province = 22 data = ENG } # Cardiff
+			control = { province = 21 data = ENG } # Caernarfon
+			control = { province = 24 data = ENG } # Birmingham
+			control = { province = 25 data = ENG } # Norwich
+			control = { province = 28 data = ENG } # Oxford
+			control = { province = 29 data = ENG } # London
+			control = { province = 26 data = ENG } # Dover
+			control = { province = 27 data = ENG } # Portsmouth
+			control = { province = 19 data = ENG } # Bristol
+			control = { province = 23 data = ENG } # Plymouth
+			control = { province = 20 data = ENG } # Exeter
+		}
+	}
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_3131115_NAME #"The Liberation of Britain"
+	desc = EVT_3131115_DESC #"With the forces of the vile Mosely regime soundly defeated, democracy has finally returned to Great Britain.  While exhausted by the toll of the war on the British people, the United Kingdom is ready and willing to take the fight to the Germans.  The time for Allied revenge is at hand."
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME3131115A #"Rule Brittania!" 
+		command = { type = peace which = USA value = 1 }
+		command = { type = peace which = FRA value = 1 }
+		command = { type = peace which = U14 value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = dissent value = -100 }
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = set_domestic  which = democratic value = 9 }
+		command = { type = headofstate which = 1032 } # George VI
+		command = { type = headofgovernment which = 1058 } # Lord Halifax
+		command = { type = war which = GER }
+		command = { type = alliance which = USA }
+		command = { type = alliance which = CAN }
+		command = { type = alliance which = AST }
+		command = { type = alliance which = NZL }
+	}
+}
+##################################################
+# Free British Commonwealth and England reunite
+##################################################
+event = { 
+	id = 3131116 # 147112
+	random = no
+	country = U15
+	
+	trigger = {
+		event = 3131115 #Britain is liberated
+		NOT = { exists = IND }
+	}
+
+	name = EVT_3131116_NAME #"The King of England is free"
+	desc = EVT_3131116_DESC #"After the liberation of the King and of Britain, the Free British Commonwealth is ready to unite with England and to form the Empire once again. In recognition of its efforts, India and Burma are created as members of the New Commonwealth"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131116A #"Let's get the Empire back"
+		command = { type = independence which = BUR value = 1 }
+		command = { type = country which = IND } #FBC becomes India
+		command = { type = trigger which = 3131117 } #IND a puppet
+	}
+}
+event = {
+	id = 3131117 # 147113
+	random = no
+	country = ENG
+
+	# triggered by U15 3131116
+
+	name = EVT_3131117_NAME #"India a puppet?"
+	desc = EVT_3131117_DESC #"It's time to decide if India will be a member of the New Commonwealth"
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3131117A #"Make India a puppet"
+		command = { type = make_puppet which = IND }
+	}
+	action_b = {
+		name = ACTIONNAME3131117B #"No, let India go for itself"
+		command = { type = dissent value = 5 }
+	}
+}
+##################################################
+# Saudi Arabia extends sphere of interests
+##################################################
+event = {
+	id = 147114
+	random = no
+	country = OMN
+
+	# triggered by ENG 3131113
+
+	name = EVT_147114_NAME #"Oman comes under Saudi Arabia influence"
+	desc = EVT_147114_DESC #"After the start of British civil war, Saudi Arabia is looking at our country with a renewed interest."
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME2800A #"We have no choice"
+		command = { type = leave_alliance }
+		command = { type = end_access which = ENG }
+	}
+}
+event = {
+	id = 147115
+	random = no
+	country = YEM
+
+	# triggered by ENG 3131113
+
+	name = EVT_147115_NAME #"Yemen comes under Saudi Arabia influence"
+	desc = EVT_147114_DESC #"After the start of British civil war, Saudi Arabia is looking at our country with a renewed interest."
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME2800A #"We have no choice"
+		command = { type = leave_alliance }
+		command = { type = end_access which = ENG }
+	}
+}
+event = { 
+	id = 147116
+	random = no
+	country = SAU
+
+	trigger = { event = 3131113 }
+
+	name = EVT_147116_NAME #"Expand influence over Arabic peninsula"
+	desc = EVT_147116_DESC #"After the revolts in British dominions, we have an opportunity to expand our sphere of interests to the whole Arabic Peninsula."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME147116A #"Make Yemen and Oman a puppet"
+		command = { type = addcore which = 1820 }
+		command = { type = addcore which = 1504 }
+		command = { type = make_puppet which = OMN }
+		command = { type = coup_nation which = OMN }
+		command = { type = make_puppet which = YEM }
+		command = { type = coup_nation which = YEM }
+	}
+	action_b = {
+		name = ACTIONNAME147116B #"No, leave them alone"
+		command = { type = dissent value = 10 }
+	}
+}
+#event = {
+#	id = 147117
+#	random = no
+#	persistent = yes
+#
+#	trigger = {
+#		ai = yes
+#		NOT = { local_flag = German_allied }
+#		NOT = { ai = GER }
+#	}
+#
+#	name = AI_EVENT
+#
+#	date = { day = 0 month = february year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = "ACTION_NAME_OK"
+#		command = { type = ai which = "switch/NO_EXP_GER.ai" }
+#		command = { type = local_setflag which = German_allied }
+#	}
+#}
+#event = {
+#	id = 147118
+#	random = no
+#	country = GER
+#
+#	trigger = {
+#		ai = no
+#	}
+#
+#	name = "Exp Forces"
+#	desc = "Do you want to turn off exp forces from your allies?"
+#	style = 0
+#
+#	date = { day = 5 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = january year = 1936 }
+#
+#	action_a = {
+#		name = "Yes"
+#		command = { }
+#	}
+#	action_b = {
+#		Name = "No"
+#		command = { type = sleepevent which = 147117 }
+#}

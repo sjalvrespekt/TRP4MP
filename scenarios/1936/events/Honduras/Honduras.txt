@@ -1,0 +1,205 @@
+# checked DH
+###########################################################################
+#	9000000 - 9099999
+###########################################################################
+##########################################################################
+# Was 602029 - (HON) Constitution ammended (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9000000
+	random = no 
+	country = HON
+
+	trigger = { NOT = { ispuppet = HON } }
+
+	name = EVT_9000000_NAME
+	desc = EVT_9000000_DESC
+	style = 0 
+
+	date = { day = 16 month = april year = 1936 } 
+
+	action_a = { 
+		name = ACTIONNAME9000000A
+		command = { type = dissent value = 5 }
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = setflag  which = Amend_Constitution }
+	} 
+	action_b = { 
+		name = ACTIONNAME9000000B 
+		command = { type = dissent value = -2 }
+		command = { type = money value = 2 } 
+		command = { type = domestic which = democratic value = 1 }
+	} 
+}
+##########################################################################
+# Was 602030 - (HON) Uprising against the government (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9000001
+	random = no 
+	country = HON
+
+	trigger = {
+		NOT = {	ispuppet = HON }
+		random = 25
+		flag = Amend_Constitution
+	}
+
+	name = EVT_9000001_NAME
+	desc = EVT_9000001_DESC
+	style = 0 
+
+	date = { day = 0 month = january year = 1937 } 
+	offset = 3
+	deathdate = { day = 29 month = february year = 1937 }
+
+	action_a = { 
+		name = ACTIONNAME9000001A 
+		command = { }
+		command = { type = setflag  which = General_Umana_crushed }
+	} 
+	action_b = { 
+		name = ACTIONNAME9000001B 
+		command = { }
+	} 
+}
+##########################################################################
+# Was 602031 - (HON) Honduras express their solidarity (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9000002
+	random = no 
+	country = HON
+
+	trigger = {
+		war = { country = USA country = JAP } 
+		flag = General_Umana_crushed
+		NOT = {
+			OR = {
+				ispuppet = HON
+				alliance = { country = HON country = ENG } 
+				alliance = { country = HON country = USA } 
+				alliance = { country = HON country = GER } 
+				alliance = { country = HON country = SOV } 
+				atwar = HON
+			}
+		}
+	}
+
+	name = EVT_9000002_NAME 
+	desc = EVT_9000002_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME9000002A 
+		command = { type = alliance which = USA }
+		command = { type = access which = USA }
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 10 }
+	} 
+	action_b = { 
+		name = ACTIONNAME9000002B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}
+##########################################################################
+# Was 602032 - (HON) Honduras express their solidarity II (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9000003
+	random = no 
+	country = HON
+
+	trigger = {
+		event = 9000002
+		war = { country = USA country = JAP } 
+		war = { country = HON country = JAP } 
+		NOT = {
+			OR = {
+				ispuppet = HON
+				alliance = { country = HON country = ENG } 
+				alliance = { country = HON country = USA } 
+				alliance = { country = HON country = GER } 
+				alliance = { country = HON country = SOV } 
+				atwar = HON
+			}
+		}
+	}
+
+	name = EVT_9000003_NAME 
+	desc = EVT_9000003_DESC
+	style = 0 
+
+	date = { day = 12 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME9000003A 
+		command = { type = war which = GER }
+		command = { type = war which = ITA }
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 10 }
+	} 
+	action_b = { 
+		name = ACTIONNAME9000003B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}
+##########################################################################
+# Was 602033 - (HON) Honduras joins the allies (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9000004
+	random = no 
+	country = HON
+
+	trigger = {
+		event = 9000002
+		exists = ENG
+		war = { country = USA country = JAP } 
+		war = { country = HON country = JAP } 	
+		war = { country = HON country = GER } 
+		war = { country = HON country = ITA } 
+		alliance = { country = USA country = ENG } 
+		NOT = {
+			OR = {
+				ispuppet = HON
+				alliance = { country = HON country = ENG } 
+				alliance = { country = HON country = USA } 
+				alliance = { country = HON country = GER } 
+				alliance = { country = HON country = SOV } 
+			}
+		}
+	}
+
+	name = EVT_9000004_NAME 
+	desc = EVT_9000004_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME9000004A 
+		command = { type = alliance which = ENG }
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 5 }
+	} 
+	action_b = { 
+		name = ACTIONNAME9000004B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}

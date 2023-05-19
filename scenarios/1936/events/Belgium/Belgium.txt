@@ -1,0 +1,648 @@
+# converted to DH, Kane, July 12 2011
+# Last Update 27-APR-2007
+#########################
+#########################################################################
+# 3115000 - 3115999	Belgium events
+# Last used : 3115007
+#########################################################################
+
+#########################################################################
+# Reaction to german re-occupation of the Rhineland
+#########################################################################
+event = { 
+	id = 3115000
+	random = no
+	country = BEL
+	
+	# Triggered by GER 3136001,3136002,3136003 : german re-occupation of the Rhineland
+	
+	name = EVT_3115000_NAME # Belgium reacts to the German reoccupation of the Rhineland
+	desc = EVT_3115000_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Secure and fortify our border with Germany
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 10 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = construct which = land_fort where = 110 value = 1 } # Eupen
+		command = { type = construct which = land_fort where = 108 value = 1 } # Liège
+	}
+	action_b = {
+		name = ACTIONNAME3115000B # Publicly state our deploration of German behaviour
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 10 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#########################################################################
+# Reaction to french decision to extend Maginot line
+#########################################################################
+event = { 
+	id = 3115001
+	random = no
+	country = BEL
+	
+	# Triggered by FRA 3135000 : French decision to extend Maginot line
+	
+	name = EVT_3115001_NAME # Belgium reacts to French extension of the Maginot line
+	desc = EVT_3115001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3115001A # Align more closely to the German political axis
+		command = { type = domestic which = political_left value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME3115001B # Align more closely to the Communist ideology
+		command = { type = domestic which = political_left value = 1 }
+	}
+}
+#########################################################################
+#  Was 852000 - Belgium Neutrality (by Generalisimo)
+#########################################################################
+event = { #5800001
+	id = 3115002
+	random = no
+	country = BEL
+
+	trigger = {
+				OR = { # Reoccupation of the Rhineland
+						event = 3136001 
+						event = 3136002
+						event = 3136003
+						}
+				NOT = {
+						OR = {
+								atwar = GER
+								atwar = BEL
+								atwar = ENG
+								atwar = FRA
+								atwar = HOL
+								atwar = LUX
+							}
+						}
+				}
+
+	name = EVT_3115002_NAME # Belgium declares its neutrality
+	desc = EVT_3115002_DESC
+	style = 0
+
+	date = { day = 0 month = october year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3115002A # Remain strictly neutral; leave the Allies
+                ai_chance = 100
+		command = { type = dissent value = -3 } 
+		command = { type = domestic which = interventionism value = -5 }
+		command = { type = leave_alliance } 
+	}
+
+	action_b = {
+		name = ACTIONNAME3115002B # Remain in the Allies
+                ai_chance = 0
+		command = { type = dissent value = 25 } 
+	}
+}
+#########################################################################
+# Reaction to Anschluss
+#########################################################################
+event = { 
+	id = 3115004
+	random = no
+	country = BEL
+	
+	# Triggered by GER 3136006
+	
+	name = EVT_3135034_NAME
+	desc = EVT_2100_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME5800008A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 10 }
+	}
+}
+#########################################################################
+# Treaty of Munich
+#########################################################################
+event = { 
+	id = 3115005
+	random = no
+	country = BEL
+	
+	# Triggered by GER
+	
+	name = EVT_3131122_NAME
+	desc = EVT_2030_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 10 }
+	}
+}
+#########################################################################
+# The End of Czechoslovakia
+#########################################################################
+event = { 
+	id = 3115006
+	random = no
+	country = BEL
+	
+	# Triggered by GER
+	
+	name = EVT_3131123_NAME
+	desc = EVT_2040_DESC
+	style = 0
+	picture = "factory"
+	
+	action_a = {
+		name = ACTIONNAME3115000A # Ok
+		command = { type = peacetime_ic_mod value = 10 }
+		command = { type = manpowerpool value = 10 }
+	}
+}
+#########################################################################
+# Belgium surrenders (by Luxor)
+#########################################################################
+event = {
+	id = 3115003
+	random = no
+	country = BEL
+
+	trigger = {
+		war = { country = BEL country = GER }
+		lost_national = { country = BEL value = 50 }
+		OR = {
+				control = { province = 114 data = -2 }
+				control = { province = 115 data = -2 }
+				control = { province = 117 data = -2 }
+				control = { province = 116 data = -2 }
+				control = { province = 112 data = -2 }
+				control = { province = 113 data = -2 }
+				control = { province = 108 data = -2 }
+				control = { province = 110 data = -2 }
+				control = { province = 111 data = -2 }
+			}
+	}
+
+	name = EVT_3115003_NAME # Belgium surrenders
+	desc = EVT_3115003_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3115003A # Capitulate
+		command = { type = dissent value = 10 }
+		command = { type = secedeprovince which = GER value = 114 when = 2 }
+		command = { type = secedeprovince which = GER value = 115 when = 2 }
+		command = { type = secedeprovince which = GER value = 117 when = 2 }
+		command = { type = secedeprovince which = GER value = 116 when = 2 }
+		command = { type = secedeprovince which = GER value = 112 when = 2 }
+		command = { type = secedeprovince which = GER value = 113 when = 2 }
+		command = { type = secedeprovince which = GER value = 108 when = 2 }
+		command = { type = secedeprovince which = GER value = 110 when = 2 }
+		command = { type = secedeprovince which = GER value = 111 when = 2 }
+		#command = { type = peace which = GER value = 1 } # Separate peace
+		#command = { type = leave_alliance }
+		command = { trigger = { event = 3115008 local_flag = planecrash_ic } type = peacetime_ic_mod value = -20 }
+		command = { type = trigger which = 3136072 } # GER
+		### BEL government in exile ###
+		command = { type = headofstate            which = 15176 } #  Hubert Pierlot
+		command = { type = headofgovernment       which = 15037 } #  Hubert Pierlot
+		command = { type = foreignminister        which = 15044 } #  Paul-Henri Spaak 
+		command = { type = armamentminister       which = 15059 } #  Camille Gutt
+		command = { type = ministerofsecurity     which = 15167 } #  Albert de Vleeschauwer
+		command = { type = ministerofintelligence which = 15096 } #  Jules Pire
+		command = { type = chiefofstaff           which = 15106 } #  Victor van Strydonck de Burkel 
+		command = { type = chiefofarmy            which = 15008 } #  Victor van Strydonck de Burkel
+		command = { type = chiefofnavy            which = 15009 } #  G. Timmermans
+		command = { type = chiefofair             which = 15116 } #  Jules Iserentant
+	}
+}
+event = {
+	id = 3115007
+	random = no
+	country = BEL
+
+	# triggered by GER 3136072
+
+	name = EVT_3115003_NAME # Belgium surrenders
+	desc = EVT_3115003_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3115003A # Capitulate
+#		command = { type = leave_alliance }
+		command = { type = sleepevent which = 3015000 }
+	}
+}
+#########################################################################
+# Plane Crash (Idea by Kane)
+#########################################################################
+event = {
+	id = 3115008
+	random = no
+	country = BEL
+	
+	trigger = {
+		random = 50
+		war = { country = GER country = FRA }
+		war = { country = GER country = ENG }
+		NOT = { war = { country = GER country = BEL } }
+		control = { province = 51 data = BEL } # Bruxells
+		NOT = { alliance = { country = GER country = BEL } }
+		NOT = { ispuppet = BEL }
+	}
+	
+	name = EVT_3115008_NAME
+	desc = EVT_3115008_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 29 month = may year = 1940 }
+	
+	action_a = {
+		name = ACTIONNAME3115008A
+		ai_chance = 1
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME3115008B
+		ai_chance = 95
+		command = { type = peacetime_ic_mod value = 20 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = local_setflag which = planecrash_ic }
+	}
+	action_c = {
+		name = ACTIONNAME3115008C
+		ai_chance = 4
+		command = { type = trigger which = 3135038 } # FRA
+	}
+}
+
+#########################################################################
+# 3015000 - 3015999	Belgium other events
+#########################################################################
+
+#########################################################################
+#  Benelux violation
+#########################################################################
+event = { 
+	id = 3015000
+	random = no
+	country = BEL
+
+	trigger = { 	
+		NOT = { event = 3115003 } #Belgium surrenders
+		ai = yes
+		war = { country = ENG country = GER }
+		OR = {
+			war = { country = HOL country = GER }
+			war = { country = GER country = LUX }
+			war = { country = GER country = BEL }
+		}
+		NOT = {	alliance = { country = ENG country = BEL }}
+		NOT = {	war = { country = ENG country = BEL }}
+	}
+
+	name = EVT_3015000_NAME # Benelux violation
+	desc = EVT_3015000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3015000A # Ok
+		command = { type = alliance which = ENG }
+		command = { type = trigger which = 3131056 } # ENG
+	}
+}
+
+
+
+###################################################################
+# Was 852007 - (BEL) Demand of ex-german colonies (by SykoNurse)
+###################################################################
+event = {
+	id = 5800005
+	random = no
+	country = BEL
+
+	# triggered by GER 3136126
+
+	name = EVT_5800005_NAME # Germany demands the return of her former colonies
+	desc = EVT_5800005_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME5800005A # We do not have much choice
+		command = { } 
+	}
+}
+###################################################################
+# Was 852008 - (BEL) Return of Kigali (by SykoNurse)
+# modified by Luxor
+###################################################################
+
+event = { 
+	id = 5800006
+	random = no
+	country = BEL
+
+	trigger = {
+		ispuppet = ENG
+		ispuppet = BEL 
+		NOT = { exists = FRA }
+		event = 5800005 # GER demanded BEL land
+	}
+
+	name = EVT_5800006_NAME # The fall of Belgium
+	desc = EVT_5800006_DESC
+	style = 0
+
+	date = { day = 29 month = january year = 1939 } 
+	offset = 10 # not automatically
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME5800006A # We do not have much choice
+		# Belgian Congo
+		command = { type = secedeprovince which = GER value = 846 }
+		command = { type = secedeprovince which = GER value = 847 }
+		command = { type = secedeprovince which = GER value = 904 }
+		command = { type = secedeprovince which = GER value = 903 }
+		command = { type = secedeprovince which = GER value = 905 }
+		command = { type = secedeprovince which = GER value = 898 }
+		command = { type = secedeprovince which = GER value = 897 }
+		command = { type = secedeprovince which = GER value = 906 }
+		command = { type = secedeprovince which = GER value = 899 }
+		command = { type = secedeprovince which = GER value = 901 }
+		command = { type = secedeprovince which = GER value = 894 }
+		command = { type = secedeprovince which = GER value = 902 }
+	}
+}
+############################################
+# Was 852013 1938 Medicine
+############################################
+event = {
+	id = 5800007
+	random = no
+	country = BEL
+
+	trigger = {
+		exists = SWE 
+		exists = BEL
+		NOT = {
+			war = { country = SWE country = BEL }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_5800007_NAME # 1938 Nobel Prize in Medicine
+	desc = EVT_5800007_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME5800007A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 5800008
+	random = no
+	country = BEL 
+
+	# triggered by 3182091
+
+	name = EVT_5800008_NAME # The Potsdam Conference
+	desc = EVT_5800008_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME5800008A # Ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+
+event = { 
+	id = 5800009
+	random = no
+	country = BEL
+
+	# triggered by 3182093
+
+
+	name = EVT_5800009_NAME # Form NATO
+	desc = EVT_5800009_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 100
+		name = ACTIONNAME5800009A # Ok
+		command = { type = alliance which = ENG }
+		command = { type = capital which = 116 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME5800009B # We do not care
+		command = { }
+	}
+}
+#########################################################################
+#  Benelux Outrage - Belgium
+#########################################################################
+event = { 
+	id = 15053
+	random = no
+	country = BEL
+
+	 # French Forts 15050
+
+	name = EVT_15053_NAME # The Benelux nations are outraged at the lack of French political commitment
+	desc = EVT_15053_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME15053A # Promote right-wing elements in the government
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME15053B # Have right-wing elements seize power; seek ties with Germany
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3136150 } # GER
+		#some units switching sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+	action_c = {
+		name = ACTIONNAME15053C # Have right-wing elements seize power; declare alliance with Germany
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		#command = { type = alliance which = GER }
+		command = { type = leave_alliance } 
+		command = { type = trigger which = 3136153 } # GER
+		#a lot of units switching sides...
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+		command = { type = switch_allegiance which = -1 where = FRA }
+	}
+}
+
+#########################################################################
+# Free belgian army in England
+#########################################################################
+event = { 
+	id = 15054
+	random = no
+	country = BEL
+	
+	trigger = {
+	    event = 3115003
+		war = { country = BEL country = GER }
+		war = { country = ENG country = GER }
+		NOT = { exists = FRA }
+		NOT = { control = { province = 51 data = -3 }}
+		alliance = { country = BEL country = ENG }
+		random = 10
+	}
+
+	name = EVT_15054_NAME #
+	desc = EVT_15054_DESC
+	style = 2
+	picture = "bel_event_liberation_brigade"
+
+	date = { day = 0 month = march year = 1942 }
+	offset = 30
+	deathdate = { day = 1 month = march year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME15054A 	
+		command = { type = add_corps which = "Free Belgian Army" value = land when = 68021 where = 26 } #BEL army in ENG
+		command = { type = activate_division which = 11500 value = 50 where = 26 }
+	}
+}
+
+#########################################################################
+# The belgian army is lost - Gerrit
+#########################################################################
+event = { 
+	id = 15055
+	random = no
+	country = BEL
+	
+	trigger = {
+	    event = 3115003
+	    OR = {
+	        event = 3136033 # VIC
+			event = 3131621 # Operation Dynamo
+             }
+	}
+	
+	name = EVT_15055_NAME #
+	desc = EVT_15055_DESC
+	style = 2
+	picture = "bel_event_belgian_army_surrenders"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 1 month = march year = 1960 }
+	
+	action_a = {
+		name = ACTIONNAME15055A 	
+		command = { type = demobilize which = land when = 1 where = 0 value = 0 } # disbands all land units but 5 and returns MP to the pool
+		command = { type = demobilize which = air when = 1 where = 0 value = 0 } # disbands all air units but 5 and returns MP to the pool
+		command = { type = demobilize which = naval when = 1 where = 0 value = 10 } # disbands all naval units but 10 and returns MP to the pool
+		command = { type = add_corps which = "Garnison de Banana" value = land where = 894 }
+		command = { type = add_division value = garrison when = 1 where = police }
+		command = { type = add_corps which = "Force Publique" value = land where = 894 }
+		command = { type = add_division which = "1ère Brigade" value = militia when = 2 }
+		command = { type = add_division which = "2ème Brigade" value = militia when = 2 }
+		command = { type = add_division which = "3ème Brigade" value = militia when = 2 }
+		command = { type = construct which = ic where = 894 value = 1 }
+		}
+}
+
+#########################################################################
+# The liberation of belgium
+#########################################################################
+
+event = { 
+	id = 15056
+	random = no
+	country = BEL
+	
+	trigger = {
+	    event = 3136033 #Vichy france
+		event = 15054   #Brigade Piron
+		control = { province = 114 data = -3 }
+		control = { province = 116 data = -3 }
+		control = { province = 112 data = -3 }
+		control = { province = 49  data = -3 }
+		control = { province = 50  data = -3 }
+		control = { province = 51  data = -3 }
+		control = { province = 52  data = -3 }
+		war      = { country = BEL country = GER }
+		war      = { country = ENG country = GER }
+		alliance = { country = BEL country = ENG }
+	}
+	
+	name = EVT_15056_NAME #
+	desc = EVT_15056_DESC
+	style = 2
+	picture = "bel_event_secret_army"
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 1
+	deathdate = { day = 1 month = march year = 1960 }
+	
+	action_a = {
+		name = ACTIONNAME15056A
+        ai_chance = 70		
+		command = { type = activate_division which = 11500 value = 540 when = 0 }
+		command = { type = activate_division which = 11500 value = 541 when = 0 }
+		command = { type = activate_division which = 11500 value = 542 when = 0 }
+		command = { type = activate_division which = 11500 value = 543 when = 0 }
+		command = { type = manpowerpool value = -40 }
+		command = { type = dissent value = 3 } 
+	}
+	action_b = {
+		name = ACTIONNAME15056B
+        ai_chance = 30		
+		command = { type = dissent      value = -2 } 
+		command = { type = money        value = 50 }
+		command = { type = manpowerpool value = 20 }
+	}	
+}
+
+#########################################################################
+
+
+
+

@@ -1,0 +1,435 @@
+####################################
+# Sinkiang AI events 35900 - 35999 by Lothos
+####################################
+################
+# Minister of Security Section 35900 - 35909
+#############################################
+################
+# Chief of Staff Section 35910 - 35919
+#############################################
+################
+# Head of Intelligence Section 35920 - 35929
+#############################################
+################
+# Chief of the Army Section 35930 - 35939
+#############################################
+################
+# Armament Minister Section 35940 - 35949
+#############################################
+##
+## converted to DH by Dendro 2011-may-25
+#
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35960 - 35999
+#############################################
+# Behavior Flags
+#	CHCExpForces		= Send out exp forces
+#	UPGPeace			= Upgrading of existing units flag
+
+# Invasion Flags
+#	CHCAttackJAP		= Flag turned on means they are free to attack at will
+################
+# Leave United Front and Give military access to China
+#############################################
+event = {
+	id = 35960
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		war = { country = CHC country = JAP }
+		alliance = { country = CHI country = CHC }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Feeder_Retrack.ai" }
+		command = { type = ai which = "switch/Ferocity_Yes.ai" }
+		command = { type = ai which = "switch/CHC_atwar_JAP.ai" }
+		#command = { type = leave_alliance }
+		#command = { type = access which = CHI }
+		command = { type = local_clrflag which = CHCExpForces }
+	}
+}
+################
+# Send out EXP Forces
+#############################################
+event = {
+	id = 35961
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { war = { country = CHC country = JAP } }
+		NOT = { local_flag = CHCExpForces }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_EXP_Feeder_7.ai" }
+		command = { type = ai which = "switch/Ferocity_No.ai" }
+		command = { type = local_setflag which = CHCExpForces }
+	}
+}
+event = {
+	id = 35962
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		local_flag = CHCExpForces
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Feeder_Retrack.ai" }
+		command = { type = ai which = "switch/Ferocity_No.ai" }
+		command = { type = local_clrflag which = CHCExpForces }
+	}
+}
+################
+# Concetrate on upgrading while at peace
+#############################################
+event = {
+	id = 35963
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		NOT = { local_flag = UPGPeace }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_Peace.ai" }
+		command = { type = local_setflag which = UPGPeace }
+	}
+}
+event = {
+	id = 35964
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = UPGPeace
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_War.ai" }
+		command = { type = local_clrflag which = UPGPeace }
+	}
+}
+################
+# Attack Japan controls
+#	CHCAttackJAP		= Flag turned on means they are free to attack at will
+#############################################
+event = {
+	id = 35965
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = CHCAttackJAP }
+		war = { country = JAP country = CHC }
+		OR = {
+			war = { country = JAP country = SOV }
+			lost_national = { country = CHI value = 40 }
+			lost_national = { country = CHC value = 1 }
+		}
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/CHC_Attack_JAP.ai" }
+		command = { type = local_setflag which = CHCAttackJAP }
+	}
+}
+event = {
+	id = 35966
+	random = no
+	country = CHC
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		local_flag = CHCAttackJAP
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = SOV } }
+		NOT = { lost_national = { country = CHI value = 40 } }
+		NOT = { lost_national = { country = CHC value = 1 } }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/CHC_Defend_JAP.ai" }
+		command = { type = local_clrflag which = CHCAttackJAP }
+	}
+}
+################
+# Load Initial Passitivity
+#############################################
+event = {
+	id = 35967
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		war = { country = JAP country = CHC }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/CHC_Defend_JAP.ai" }
+	}
+}
+
+################
+# CHC randomly inherits/coups neighboring warlords if Japan decides not to attack
+#############################################
+
+#Shanxi
+event = {
+	id = 35968
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = CSX } }
+		random = 5
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = CSX value = 1 }
+	}
+}
+
+#Xibei San Ma
+event = {
+	id = 35969
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = CXB } }
+		random = 10
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = CXB value = 1 }
+	}
+}
+
+#Yunnan
+event = {
+	id = 35970
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		event = 35969 # land connection to Yunnan
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = CYN } }
+		random = 5
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = CYN value = 1 }
+	}
+}
+
+#Sinkiang
+event = {
+	id = 35971
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		event = 35969 # land connection to Sinkiang
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = SIK } }
+		random = 5
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = SIK value = 1 }
+	}
+}
+
+#Tibet
+event = {
+	id = 35972
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		event = 35969 # land connection to Tibet
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = TIB } }
+		random = 5
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = TIB value = 1 }
+	}
+}
+
+#Guangxi
+event = {
+	id = 35973
+	random = no
+	country = CHC
+
+	trigger = {
+		ai = yes
+		event = 522010 # JAP decided not to attack CHI in Marco Polo event
+		event = 35969 # land connection to Guangxi
+		event = 35970 # land connection to Guangxi
+		NOT = { war = { country = JAP country = CHC } }
+		NOT = { war = { country = JAP country = CGX } }
+		random = 5
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type =	inherit which = CGX value = 1 }
+	}
+}

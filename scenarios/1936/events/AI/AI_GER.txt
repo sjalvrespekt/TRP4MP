@@ -1,0 +1,3943 @@
+####################################
+# Germany 20000 - 20999 by Lothos
+####################################
+# converted to DH, Kane, June 5 2011
+# War type flags
+#	GERStandardWar			= Standard War AI when AI gets confused
+#	GERReloadInvasion		= Standard Front AI no longer needed continue with plan
+
+# Who he is invading flags
+#	GERInvadePoland 		= Preparing to invade Poland
+#	GERInvadeNorway 		= Preparing to invade Norway
+#	GERLowCountriesPrepare	= Prepare to invade Belgium, Holland and Luxemburg
+#	GERInvadeRussia			= Prepare to invade Russia
+#	GERInvadeSpain			= Prepare to invade Spain
+#	GERInvadeEngland		= Prepare to invade England
+#	GERInvadeYugoslavia		= Prepare to invade Yugoslavia
+#	InvYugoslavia			= Global flag to tell minors to prepare
+
+# Building Style Flags
+#	GERBuildStandard		= Standard Build when strategy is unknown
+#	GERBuildNavy			= Build Navy when preparing to attack the UK and USA
+#	GERBuildLand			= Build heavy on the land troops with no sea
+#	GERBuildMix				= Build mix of land and subs
+
+# Behavior Flags
+#	GERStandardFront		= Load standard front AI to save supplies etc....
+#	GERSubPatrol			= Sub Patrol AI loaded
+#	GERSubPatrol1			= East Atlantic Sub Patern
+#	GERSubPatrol2			= Central Atlantic and East Coast Patern
+#	GERSubPatrol3			= Carabean and Central Atlantic Patern
+
+# Air AI Flags
+#	GERAirAINaval			= Germany has there Air vs Naval AI loaded
+#	GERAirAIStrategic		= Germany has their Strategic bombing AI loaded
+#	GERAirAIGround			= Germany has their ground support AI loaded
+
+# Garrisoning Flags
+#	GERBalticGarrison		= Garrison the Baltic normally
+#	GERBalticGarrisonRussia	= Garrison the Baltic based on war with Russia
+
+################
+# Norway Invasion AI
+#############################################
+event = {
+	id = 20000
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERInvadeNorway }
+		NOT = {	lost_national = { country = GER value = 2 } }
+		OR = {
+			war = { country = NOR country = GER }
+			war = { country = SWE country = GER }
+			war = { country = FIN country = GER }
+		}
+		NOT = {
+			AND = { # LOW COUNTRIES
+				war = { country = GER country = HOL }
+				NOT = { control = { province = 122 data = GER } } # Amsterdam
+			}
+			AND = {
+				war = { country = GER country = BEL }
+				NOT = { control = { province = 116 data = GER } } # Brussels
+			}
+			AND = {
+				war = { country = GER country = FRA }
+				control = { province = 55 data = -2 } # Paris held by enemy forces
+				OR = {
+					war = { country = GER country = HOL }
+					war = { country = GER country = BEL }
+				}
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				NOT = { land_percentage = { country = SOV value = 0.8 } }
+				NOT = { lost_national = { country = SOV value = 10 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeNorway }
+		command = { type = local_clrflag which = GERSubPatrol }
+		command = { type = ai which = "switch/GER_Norway.ai" }
+	}
+}
+################
+# End of Norway Invasion AI
+#############################################
+event = {
+	id = 20001
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GERInvadeNorway
+		OR = {
+			lost_national = { country = GER value = 2 }
+			NOT = {
+				war = { country = NOR country = GER }
+				war = { country = SWE country = GER }
+				war = { country = FIN country = GER }
+			}
+			AND = { # LOW COUNTRIES
+				war = { country = GER country = HOL }
+				NOT = { control = { province = 122 data = GER } } # Amsterdamm
+			}
+			AND = {
+				war = { country = GER country = BEL }
+				NOT = { control = { province = 116 data = GER } } # Brussels
+			}
+			AND = {
+				war = { country = GER country = FRA }
+				control = { province = 55 data = -2 } # Paris held by enemy forces
+				OR = {
+					war = { country = GER country = HOL }
+					war = { country = GER country = BEL }
+				}
+			}
+			AND = {
+				war = { country = GER country = SOV }
+				NOT = { land_percentage = { country = SOV value = 0.8 } }
+				NOT = { lost_national = { country = SOV value = 10 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERInvadeNorway }
+		command = { type = ai which = "switch/GER_Norway_END.ai" }
+	}
+}
+################
+# Poland Invasion AI
+#############################################
+event = {
+	id = 20002
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { ispuppet = GER }
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERReloadInvasion }
+		
+		OR = {
+			AND = {
+				OR = {
+					atwar = yes
+					AND = {
+						OR = {
+							year = 1940
+							AND = {
+								year = 1939
+								month = 8 # September
+							}
+						}
+					}
+				}
+				local_flag = GERInvadePoland
+				month = 4 # May
+				NOT = { month = 9 } # October
+				AND = {
+					day = 0
+					NOT = { day = 2 }
+				}
+			}
+			event = 2027 #Danzig or War
+			event = 20012 # German standard War AI
+			AND = {	
+				war = { country = POL country = GER }
+				event = 2027 #Danzig or War
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Poland.ai" }
+		command = { type = war which = POL }
+		command = { type = local_clrflag which = GERInvadePoland }
+		command = { type = local_clrflag which = GERStandardFront }
+		command = { type = sleepevent which = 20023 } # Prepare for invasion of Poland event
+	}
+}
+################
+# Germany mass on low countries border
+#############################################
+event = {
+	id = 20003
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				day = 2
+				NOT = { day = 3 }
+			}
+		}
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERLowCountriesPrepare }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERLowCountriesPrepare
+			}
+		}
+		war = { country = FRA country = GER }
+		NOT = { war = { country = POL country = GER } }
+		NOT = { war = { country = SOV country = GER } }
+		NOT = { war = { country = BEL country = GER } }
+		NOT = { war = { country = AUS country = GER } }
+		NOT = { war = { country = CZE country = GER } }
+		NOT = { war = { country = HUN country = GER } }
+		AND = {
+			exists = SCH
+			NOT = { war = { country = SCH country = GER } }
+		}
+		AND = {
+			OR = {
+				NOT = { exists = AUS }
+				NOT = { war = { country = AUS country = GER } }
+			}
+			OR = {
+				NOT = { exists = CZE }
+				NOT = { war = { country = CZE country = GER } }
+			}
+			NOT = { war = { country = YUG country = GER } }
+		}
+		AND = {
+			OR = {
+				NOT = { exists = AUS }
+				NOT = { war = { country = AUS country = GER } }
+			}
+			NOT = { war = { country = ITA country = GER } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Poland_After.ai" }
+		command = { type = local_setflag which = GERLowCountriesPrepare }
+		command = { type = local_clrflag which = GERBalticGarrison }
+		command = { type = local_clrflag which = GERBalticGarrisonRussia }
+		command = { type = local_clrflag which = GERReloadInvasion }
+	}
+}
+################
+# German Invasion AI Low Countries German Invasion if early war
+########################################
+event = {
+	id = 20004
+	random = no
+	country = GER
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERReloadInvasion }
+		NOT = { local_flag = GERStandardWar }
+		local_flag = GERLowCountriesPrepare
+		government = fascist
+		
+		OR = {
+			war = { country = BEL country = GER }
+			AND = {
+				OR = {
+					alliance = { country = U01 country = GER }
+					alliance = { country = SPR country = GER }
+					AND = {
+						month = 4 # May
+						NOT = { month = 8 } # September
+					}
+				}
+				OR = {
+					AND = {
+						day = 0
+						NOT = { day = 2 }
+					}
+				}
+
+				OR = {
+					AND = {
+						war = { country = FRA country = GER }
+						NOT = {	war = { country = SOV country = GER } }
+						NOT = {	war = { country = POL country = GER } }
+						NOT = { event = 20002 }
+					}
+					AND = {
+						event = 20002
+						war = { country = FRA country = GER }
+						NOT = {	war = { country = SOV country = GER } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = sleepevent which = 20003 }
+		command = { trigger = { NOT = { alliance = { country = GER country = BEL } } } type = war which = BEL }
+		command = { trigger = { NOT = { alliance = { country = GER country = HOL } } } type = war which = HOL }
+		command = { trigger = { NOT = { alliance = { country = GER country = LUX } } } type = war which = LUX }
+		command = { type = ai which = "switch/GER_France.ai" }
+		command = { type = local_clrflag which = GERLowCountriesPrepare }
+		command = { type = local_clrflag which = GERStandardFront }
+	}
+}
+################
+# Load Germany Standard Front AI
+#############################################
+event = {
+	id = 20005
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERStandardFront }
+		OR = {
+			AND = {
+				local_flag = GERInvadePoland
+				NOT = { war = { country = GER country = POL } }
+			}
+			AND = {
+				local_flag = GERInvadeYugoslavia
+				NOT = { war = { country = GER country = YUG } }
+			}
+			AND = {
+				local_flag = GERInvadeRussia
+				NOT = { war = { country = GER country = YUG } }
+			}
+			AND = {
+				OR = {
+					local_flag = GERInvadeSpain
+					local_flag = GERInvadeEngland
+				}
+				NOT = { war = { country = GER country = SPR } }
+				NOT = { war = { country = GER country = U01 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Standard_Front.ai" }
+		command = { type = local_setflag which = GERStandardFront }
+	}
+}
+################
+# Balkan Campaign
+#############################################
+event = {
+	id = 20006
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = YUG
+		NOT = { ispuppet = GER }
+		day = 2
+		NOT = { day = 3 }
+		
+		#year = 1941 # added to prevent early campaign in 1940 just after Vichy
+		
+		NOT = { war = { country = YUG country = GER } }
+		NOT = { alliance = { country = YUG country = GER } }
+		NOT = { alliance = { country = YUG country = SOV } }
+		NOT = { puppet = { country = YUG country = GER } }
+		NOT = { local_flag = GERInvadePoland }
+		NOT = { local_flag = GERInvadeEngland }
+		NOT = { local_flag = GERInvadeSpain }
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadeYugoslavia }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadeYugoslavia
+			}
+		}
+		#Austria Provinces if not he must invade Austria
+		control = { province = 189 data = GER }
+		control = { province = 191 data = GER }
+		control = { province = 190 data = GER }
+		OR = {
+			local_flag = GERInvadeRussia
+			AND = {
+				alliance = { country = GER country = ITA }
+				NOT = {	lost_national = { country = GER value = 2 } }
+				control = { province = 55 data = -3 } # Paris held by allied forces
+				NOT = { war = { country = GER country = SOV } }
+				NOT = { war = { country = GER country = U01 } }
+				NOT = { war = { country = GER country = SPR } }
+				OR = {
+					war = { country = ITA country = GRE }
+					war = { country = ITA country = YUG }
+					war = { country = ITA country = ALB }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baklans.ai" }
+		command = { type = local_setflag which = GERInvadeYugoslavia }
+		command = { type = setflag which = InvYugoslavia }
+		command = { type = local_clrflag which = GERInvadeRussia }
+		command = { type = local_clrflag which = GERReloadInvasion }
+	}
+}
+################
+# Germany invades Russia
+#############################################
+event = {
+	id = 20007
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		
+### flags ###
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERReloadInvasion }
+		local_flag = GERInvadeRussia
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERInvadePoland }
+		NOT = { local_flag = GERInvadeYugoslavia }
+		
+### diplomacy ###
+		NOT = { ispuppet = GER }
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 55 data = -3 } # Paris held by allied forces
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = GER country = U01 } }
+		NOT = { war = { country = GER country = SPR } }
+		NOT = { war = { country = GER country = YUG } }
+		OR = {
+			alliance = { country = GER country = POL }
+			alliance = { country = SOV country = POL }
+			NOT = { exists = POL }
+		}
+		OR = {
+			NOT = { war = { country = GER country = GRE } }
+			AND = {
+				war = { country = GER country = GRE }			
+				NOT = { control = { province = 377 data = GRE } } # Athens
+				NOT = { control = { province = 371 data = GRE } }
+				NOT = { control = { province = 373 data = GRE } }
+				NOT = { control = { province = 372 data = GRE } }
+				NOT = { control = { province = 376 data = GRE } }
+				NOT = { control = { province = 368 data = GRE } }
+				NOT = { control = { province = 367 data = GRE } }
+				NOT = { control = { province = 369 data = GRE } }
+				NOT = { control = { province = 366 data = GRE } }
+				NOT = { control = { province = 365 data = GRE } }
+				NOT = { control = { province = 364 data = GRE } }
+				NOT = { control = { province = 363 data = GRE } }
+				NOT = { control = { province = 370 data = GRE } }
+			}
+		}
+
+### military size ###
+		OR = {
+			land_percentage = { country = SOV value = 0.6 }
+			AND = {
+				land_percentage = { country = SOV value = 0.5 }
+				alliance = { country = GER country = ROM }
+				alliance = { country = GER country = HUN }
+			}
+		}
+
+### coherent front line ###
+		AND = {
+			OR = {
+				AND = {
+					owned = { province = 236 data = GER } # Nowy Sacz
+					control = { province = 236 data = GER } 
+					garrison = { country = GER province = 236  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 236 data = GER } }
+					NOT = { control = { province = 236 data = GER } }
+				}
+			}		
+			OR = {
+				AND = {
+					owned = { province = 237 data = GER } # Tarnow
+					control = { province = 237 data = GER } 
+					garrison = { country = GER province = 237  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 237 data = GER } }
+					NOT = { control = { province = 237 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 243 data = GER } # Lublin
+					control = { province = 243 data = GER } 
+					garrison = { country = GER province = 243  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 243 data = GER } }
+					NOT = { control = { province = 243 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 246 data = GER } # Chelm
+					control = { province = 246 data = GER } 
+					garrison = { country = GER province = 246  type = land size = 9 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 246 data = GER } }
+					NOT = { control = { province = 246 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 228 data = GER } # Siedlce
+					control = { province = 228 data = GER } 
+					garrison = { country = GER province = 228  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 228 data = GER } }
+					NOT = { control = { province = 228 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 229 data = GER } # Ostroleka
+					control = { province = 229 data = GER } 
+					garrison = { country = GER province = 229  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 229 data = GER } }
+					NOT = { control = { province = 229 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 230 data = GER } # Plock
+					control = { province = 230 data = GER } 
+					garrison = { country = GER province = 230  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 230 data = GER } }
+					NOT = { control = { province = 230 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 185 data = GER } # Allenstein
+					control = { province = 185 data = GER } 
+					garrison = { country = GER province = 185  type = land size = 9 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 185 data = GER } }
+					NOT = { control = { province = 185 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 252 data = GER } # Suwalki
+					control = { province = 252 data = GER } 
+					garrison = { country = GER province = 252  type = land size = 9 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 252 data = GER } }
+					NOT = { control = { province = 252 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 182 data = GER } # Tilsit
+					control = { province = 182 data = GER } 
+					garrison = { country = GER province = 182  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 182 data = GER } }
+					NOT = { control = { province = 182 data = GER } }
+				}
+			}
+			OR = {
+				AND = {
+					owned = { province = 261 data = GER } # Klaipeda
+					control = { province = 261 data = GER } 
+					garrison = { country = GER province = 261  type = land size = 6 area = no }
+				}
+				AND = {
+					NOT = { owned = { province = 261 data = GER } }
+					NOT = { control = { province = 261 data = GER } }
+				}
+			}
+		}
+
+### date ###
+		
+#		OR = {
+#			month = 6
+#			AND = {
+#				day = 21
+#				NOT = { day = 22 }
+#			}
+#		}
+		OR = {
+			AND = {
+				month = 3 # April
+				NOT = {	month = 4 } # May
+				random = 5
+			}
+			AND = {
+				month = 4 # May
+				NOT = {	month = 5 } # June
+				random = 25
+			}
+			AND = {
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 90
+			}
+			AND = {
+				month = 6 # July
+				NOT = {	month = 7 } # August
+				random = 80
+			}
+			AND = {
+				month = 7 # August
+				NOT = {	month = 8 } # September
+				random = 20
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { #Russian Campaign
+		command = { type = war which = SOV }
+		command = { type = sleepevent which = 20013 }
+		command = { type = sleepevent which = 20010 }
+		command = { type = ai which = "switch/GER_Russia.ai" }
+		command = { type = local_clrflag which = GERInvadeRussia }
+		command = { type = local_clrflag which = GERStandardFront }
+	}
+}
+################
+# Germany builds paratroopers and transport plane 
+#############################################
+event = {
+	id = 20008
+	random = no
+	country = GER
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4290 #4250
+		NOT = { lost_national = { country = GER value = 2 } }
+		NOT = { transport_plane = { country = GER value = 2 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = transport_plane }
+	}
+}
+event = {
+	id = 20009
+	random = no
+	country = GER
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 1070 # Airborne
+		NOT = { lost_national = { country = GER value = 2 } }
+		OR = {
+			AND = {
+				transport_plane = { country = GER value = 1 }
+				NOT = { transport_plane = { country = GER value = 1 } }
+				NOT = { paratrooper = { country = GER value = 1 } }
+			}
+			AND = {
+				transport_plane = { country = GER value = 2 }
+				NOT = { paratrooper = { country = GER value = 2 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = paratrooper }
+	}
+}
+################
+# German vs. Russian war setup
+#############################################
+event = {
+	id = 20010
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		war = { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { #Russian Campaign
+		command = { type = ai which = "switch/GER_Russia.ai" }
+		command = { type = sleepevent which = 20007 }
+	}
+}
+################
+# Balkan Campaign Part 2  
+#############################################
+event = {
+	id = 20011
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERReloadInvasion }
+		
+		local_flag = GERInvadeYugoslavia
+		OR = {
+			NOT = { control = { province = 190 data = GER } } 
+			NOT = { control = { province = 191 data = GER } }
+			NOT = { control = { province = 189 data = GER } }
+			AND = {
+				control = { province = 190 data = GER }
+				control = { province = 191 data = GER }
+				control = { province = 189 data = GER }
+				garrison = { country = GER province = 190  type = land size = 4 area = no }
+				garrison = { country = GER province = 191  type = land size = 4 area = no }
+				garrison = { country = GER province = 189  type = land size = 4 area = no }
+			}
+		}
+		OR = {
+			NOT = { exists = YUG }
+			war = { country = GER country = YUG }
+			AND = {
+				atwar = YUG
+				NOT = { alliance = { country = YUG country = SOV } }
+			}
+			AND = {
+				exists = YUG
+				control = { province = 55 data = -3 } # Paris held by allied forces
+				NOT = { war = { country = GER country = SOV } }
+				NOT = { war = { country = GER country = CZE } }
+				NOT = { war = { country = GER country = POL } }
+				OR = {
+					AND = {
+						day = 0
+						NOT = { day = 2 }
+					}
+					AND = {
+						garrison = { country = GER province = 190  type = land size = 7 area = no }
+						garrison = { country = GER province = 191  type = land size = 7 area = no }
+						garrison = { country = GER province = 189  type = land size = 7 area = no }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Yugoslavia.ai" }
+		command = { type = war which = YUG }
+		command = { type = clrflag which = InvYugoslavia }
+		command = { type = local_clrflag which = GERInvadeYugoslavia }
+		command = { type = local_clrflag which = GERStandardFront }
+		command = { type = sleepevent which = 20006 }
+		command = { trigger = { exists = ALB NOT = { ispuppet = ALB } NOT = { war = { country = GER country = ALB } } } type = war which = ALB } # correct italian AI failing to invade Albania and making peace
+	}
+}
+################
+# German changes production values atwar
+#############################################
+event = {
+	id = 20012
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = SOV country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_atwar.ai" }
+	}
+}
+################
+# Germany masses on Russian border setup
+#############################################
+event = {
+	id = 20013
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { ispuppet = GER }
+		#day = 22
+		#NOT = { day = 23 }
+		event = 20014 # Decide Strategy
+		
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadeRussia }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadeRussia
+			}
+		}
+		#NOT = { local_flag = GERInvadeYugoslavia }
+		NOT = { local_flag = GERInvadePoland }
+		NOT = { local_flag = GERInvadeSpain }
+		NOT = { local_flag = GERInvadeEngland }
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = GER country = U01 } }
+		NOT = { war = { country = GER country = SPR } }
+		NOT = { war = { country = GER country = POL } }
+		NOT = { war = { country = GER country = AUS } }
+		NOT = { war = { country = GER country = CZE } }
+		NOT = { war = { country = GER country = HUN } }
+		NOT = { war = { country = GER country = ROM } }
+		NOT = { war = { country = GER country = BUL } }
+		NOT = { war = { country = GER country = YUG } }
+		control = { province = 55 data = -3 } # Paris held by allied forces
+		OR = {
+				NOT = { exists = YUG }
+				alliance = { country = GER country = YUG }
+				ispuppet = YUG
+				}
+		OR = {
+			NOT = { war = { country = GER country = GRE } }
+			AND = {
+				war = { country = GER country = GRE }		
+				NOT = { control = { province = 377 data = GRE } } # Athens
+				#NOT = { control = { province = 393 data = GRE } }
+				#NOT = { control = { province = 395 data = GRE } }
+				#NOT = { control = { province = 394 data = GRE } }
+				NOT = { control = { province = 376 data = GRE } } # Agrinion
+				NOT = { control = { province = 368 data = GRE } } # Larissa
+				NOT = { control = { province = 367 data = GRE } } # Ioannina
+				NOT = { control = { province = 366 data = GRE } } # Kozani
+				NOT = { control = { province = 365 data = GRE } } # Thessaloniki
+				NOT = { control = { province = 364 data = GRE } } # Kavala
+			}
+		}
+		OR = {
+			flag = GC1939 # 1939 Grand Campaign
+			event = 2013  # Molotov Pact Historical
+			event = 2015  # Molotov Pact Alliance
+			event = 2016  # Molotov Pact Limited
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Russia_Buildup.ai" }
+		command = { type = local_setflag which = GERInvadeRussia }
+		command = { type = local_clrflag which = GERReloadInvasion }
+	}
+}
+################
+# German decides strategy after Paris falls
+#############################################
+event = {
+	id = 20014
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { ispuppet = GER }
+		NOT = {	lost_national = { country = GER value = 2 } }
+		control = { province = 55 data = -3 } # Paris held by allied forces
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = GER country = U01 } }
+		NOT = { war = { country = GER country = SPR } }
+		#NOT = { war = { country = GER country = YUG } }
+		NOT = { war = { country = GER country = POL } }
+		OR = {
+			lost_national = { country = FRA value = 90 }
+			exists = VIC
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { #Russian Campaign
+		ai_chance = 95
+		command = { type = local_setflag which = GERInvadeRussia }
+		command = { type = ai which = "switch/GER_Russia_Buildup.ai" }
+	}
+	action_b = { #Launch Sea Lion
+		ai_chance = 5
+		command = { type = local_setflag which = GERInvadeSpain }
+	}
+}
+################
+# Reset garrison AI after Vichy annexation
+#   so southern France gets garrisoned.
+#############################################
+event = {
+	id = 20015
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 3136041
+			event = 3136057
+			event = 3136137
+		}
+		NOT = { local_flag = GERInvadePoland }
+		NOT = { local_flag = GERInvadeNorway }
+		NOT = { local_flag = GERLowCountriesPrepare }
+		NOT = { local_flag = GERInvadeRussia }
+		NOT = { local_flag = GERInvadeSpain }
+		NOT = { local_flag = GERInvadeEngland }
+		NOT = { local_flag = GERInvadeYugoslavia }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/GER_Vichy.ai" }
+	}
+}
+################
+# German Change Front to defensive when war with USA and SOV
+#############################################
+event = {
+	id = 20016
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		random = 30
+		war = { country = GER country = USA }
+		war = { country = GER country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_War_SOV_USA.ai" }
+	}
+}
+################
+# Germany will no longer garrison beaches in the Baltic when Denmark is taken out
+#############################################
+event = {
+	id = 20017
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		control = { province = 152 data = GER } # Kiel
+		NOT = { local_flag = GERBalticGarrison }
+		NOT = { local_flag = GERBalticGarrisonRussia }
+		#NOT = { local_flag = GERLowCountriesPrepare }
+		OR = {
+			AND = {
+				alliance = { country = DEN country = GER }
+				control = { province = 294 data = DEN } # Copenhagen
+			}
+			control = { province = 294 data = GER } # Copenhagen
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERBalticGarrison }
+		command = { type = local_clrflag which = GERBalticGarrisonRussia }
+		command = { type = ai which = "switch/GER_Baltic.ai" }
+	}
+}
+################
+# Germany re-garrisons the Baltic
+#############################################
+event = {
+	id = 20018
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GERBalticGarrison
+		OR = {
+			NOT = { control = { province = 152 data = GER } } # Kiel
+			AND = {
+				alliance = { country = DEN country = GER }
+				NOT = { control = { province = 294 data = DEN } } # Copenhagen
+			}
+			AND = {
+				NOT = { exists = DEN }
+				NOT = { control = { province = 294 data = GER } } # Copenhagen
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baltic2.ai" }
+		command = { type = local_clrflag which = GERBalticGarrison }
+	}
+}
+################
+# Germany will no longer garrison beaches in the Baltic when Denmark is taken out and atwar with Russia
+#############################################
+event = {
+	id = 20019
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERBalticGarrison }
+		war = { country = SOV country = GER }
+		control = { province = 152 data = GER } # Kiel
+		OR = {
+			alliance = { country = DEN country = GER }
+			control = { province = 294 data = GER } # Copenhagen
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 12
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Baltic_Russia.ai" }
+		command = { type = local_setflag which = GERBalticGarrison }		
+		command = { type = local_setflag which = GERBalticGarrisonRussia }
+	}
+}
+################
+# Germany goes after England when Russian is gone
+#############################################
+event = {
+	id = 20020
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 20007
+			event = 20010
+		}
+		NOT = { war = { country = GER country = SOV } }
+		control = { province = 55 data = -3 } # Paris held by allied forces
+		war = { country = GER country = ENG }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeSpain }
+	}
+}
+################
+# Germany goes on the defensive against Russia
+#############################################
+event = {
+	id = 20021
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GER_SOV_Winter }
+		war = { country = GER country = SOV }
+		
+		#########################################################
+		# possible reasons for switching to defensive tactics
+		#########################################################
+		
+			OR = {
+			
+				#########################################################
+				# Paris lost => possible invasion in the west
+				#########################################################
+				control = { province = 55 data = -2 } # -2 = enemy
+				
+				#########################################################
+				# GER homeland in danger
+				#########################################################
+				lost_national = { country = GER value = 2 } 
+				
+				#########################################################
+				# SOV has become too dangerous
+				#########################################################
+				NOT = { land_percentage = { country = SOV value = 0.5 } } # GER has less than 50% of SOV's army 
+				AND = {
+						event = { id = 3183077 days = 540  } # Barbarossa started at least 1.5 years ago => time for offensive actions against a weakened SOV
+						technology = { country = SOV value = 6660 } # 1942 land doctrine
+						NOT = { land_percentage = { country = SOV value = 0.9 } } # GER has less than 90% of SOV's army size
+						}
+				AND = {
+						event = { id = 3183077 days = 540  } # Barbarossa started at least 1.5 years ago => time for offensive actions against a weakened SOV
+						NOT = { technology = { country = SOV value = 6660 } } # 1942 land doctrine
+						NOT = { land_percentage = { country = SOV value = 0.7 } } # GER has less than 70% of SOV's army size
+						}
+				
+				#########################################################
+				# it's winter => october, november, december, january, february, march
+				#########################################################
+				month = 9 # October
+				AND = {
+						month = 0 # January
+						NOT = { month = 3 } # April
+						}
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Winter.ai" }
+		command = { type = local_setflag which = GER_SOV_Winter }
+	}
+}
+################
+# Germany goes back on the offensive
+#############################################
+event = {
+	id = 20022
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GER_SOV_Winter
+		war = { country = GER country = SOV }
+		
+		#########################################################
+		# possible reasons for staying with defensive tactics
+		#########################################################
+		
+		NOT = { 
+				OR = {
+	
+					#########################################################
+					# Paris lost => possible invasion in the west
+					#########################################################
+					control = { province = 55 data = -2 } # -2 = enemy
+					
+					#########################################################
+					# GER homeland is in danger
+					#########################################################
+					lost_national = { country = GER value = 2 }
+			
+					#########################################################
+					# SOV is still too dangerous
+					#########################################################
+			
+					NOT = {	land_percentage = { country = SOV value = 0.5 } } # GER has less than 50% of SOV's army 
+					AND = {
+							event = { id = 3183077 days = 540  } # Barbarossa started at least 1.5 years ago => time for offensive actions against a weakened SOV
+							technology = { country = SOV value = 6660 } # 1942 land doctrine
+							NOT = { land_percentage = { country = SOV value = 0.90 } } # GER has less than 90% of SOV's army size
+							}
+					AND = {
+							event = { id = 3183077 days = 540  } # Barbarossa started at least 1.5 years ago => time for offensive actions against a weakened SOV
+							NOT = { technology = { country = SOV value = 6660 } } # 1942 land doctrine
+							NOT = { land_percentage = { country = SOV value = 0.7 } } # GER has less than 70% of SOV's army size
+							}
+	
+					}
+				}
+		#########################################################
+		# possible reasons for switching to offensive tactics
+		#########################################################
+			
+			#########################################################
+			# it's summer => april, may, june, july, august, september
+			#########################################################
+			
+			month = 3 # April
+			NOT = { month = 9 } # October
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Russia_Second_Year.ai" }
+		command = { type = local_clrflag which = GER_SOV_Winter }
+	}
+}
+################
+# Germany prepares for war with Poland
+#############################################
+event = {
+	id = 20023
+	random = no 
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		exists = POL
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadePoland }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadePoland
+			}
+		}
+		NOT = { alliance = { country = POL country = GER } }
+		NOT = { alliance = { country = POL country = SOV } }
+		NOT = { puppet = { country = POL country = GER } }
+		NOT = { war = { country = POL country = GER } }
+		NOT = { war = { country = AUS country = GER } }
+		NOT = { war = { country = CZE country = GER } }
+		NOT = { war = { country = SOV country = GER } }		
+		OR = {
+			AND = {
+				local_flag = GERInvadeRussia
+				OR = {
+					AND = {
+						day = 2
+						NOT = { day = 3 }
+					}
+				}
+			}
+			event = 2040 # Annexation of CZE
+			event = 2005 # CZE Refuses claim
+			event = 2004 # CZE joins Axis
+			AND = {
+				event = 2030 # Treaty of Munich
+				NOT = { event = 2200  } # CZE response to Treaty of Munich
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadePoland }
+		command = { type = local_clrflag which = GERReloadInvasion }
+		command = { type = ai which = "switch/GER_Fall_CZE.ai" }
+	}
+}
+################
+# Germany declares war on Denmark cause allies are in the Baltic
+#############################################
+event = {
+	id = 20024
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		NOT = { ispuppet = GER }
+		random = 25
+		exists = DEN
+		NOT = { war = { country = DEN country = GER } }
+		control = { province = 152 data = GER } # Kiel
+		NOT = {	lost_national = { country = GER value = 1 } }
+		OR = {
+			AND = {
+				war = { country = FRA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = FRA province = 2696  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2718  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2719  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2720  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2721  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2722  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2723  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2724  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2725  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2726  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2727  type = naval size = 10 area = no }
+					garrison = { country = FRA province = 2728  type = naval size = 10 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = ENG province = 2696  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2718  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2719  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2720  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2721  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2722  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2723  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2724  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2725  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2726  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2727  type = naval size = 10 area = no }
+					garrison = { country = ENG province = 2728  type = naval size = 10 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = war which = DEN }
+	}
+}
+
+################
+# German Sub Patrols AI
+#############################################
+event = {
+	id = 20025
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		day = 0
+		NOT = { day = 2 }
+		NOT = { local_flag = GERInvadeNorway }
+		OR = {
+			NOT = { local_flag = GERInvadeEngland }
+			AND = {
+					local_flag = GERInvadeEngland
+					OR = {
+						war = { country = GER country = SOV }
+						war = { country = GER country = USA }
+					}
+			}
+		}
+		OR = {
+			NOT = { local_flag = GERSubPatrol }
+			AND = {
+				month = 0
+				NOT = { month = 1 }
+			}
+			AND = {
+				month = 2
+				NOT = { month = 3 }
+			}
+			AND = {
+				month = 4
+				NOT = { month = 5 }
+			}
+			AND = {
+				month = 6
+				NOT = { month = 7 }
+			}
+			AND = {
+				month = 8
+				NOT = { month = 9 }
+			}
+			AND = {
+				month = 10
+				NOT = { month = 11 }
+			}
+		}
+		OR = {
+			war = { country = ENG country = GER }
+			war = { country = FRA country = GER }
+			war = { country = USA country = GER }
+		}
+		OR = {
+			event = 20004
+			control = { province = 55 data = -3 } # Paris held by allied forces
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {  # Sub Patrol North Atlantic
+		ai_chance = 35
+		command = { type = ai which = "switch/GER_Sub_Patrol1.ai" }
+		command = { type = local_setflag which = GERSubPatrol }
+		command = { type = local_setflag which = GERSubPatrol1 }
+		command = { type = local_clrflag which = GERSubPatrol2 }
+		command = { type = local_clrflag which = GERSubPatrol3 }
+	}
+	action_b = {  # Sub Patrol Central Atlantic
+		ai_chance = 35
+		command = { type = ai which = "switch/GER_Sub_Patrol2.ai" }
+		command = { type = local_setflag which = GERSubPatrol }
+		command = { type = local_setflag which = GERSubPatrol2 }
+		command = { type = local_clrflag which = GERSubPatrol1 }
+		command = { type = local_clrflag which = GERSubPatrol3 }
+	}
+	action_c = {  # Sub Patrol South Atlantic
+		ai_chance = 30
+		command = { type = ai which = "switch/GER_Sub_Patrol3.ai" }
+		command = { type = local_setflag which = GERSubPatrol }
+		command = { type = local_setflag which = GERSubPatrol3 }
+		command = { type = local_clrflag which = GERSubPatrol2 }
+		command = { type = local_clrflag which = GERSubPatrol1 }
+		
+	}
+}
+################
+# German Air AI Naval portion
+#############################################
+event = {
+	id = 20026
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = GERAirAINaval }
+			AND = {
+				day = 0
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false if not the land air AI has priority
+		NOT = {
+			lost_national = { country = GER value = 2 }
+			war = { country = GER country = POL } # Eastern Europe
+			war = { country = GER country = CZE }
+			war = { country = GER country = HUN }
+			war = { country = GER country = ROM }
+			war = { country = GER country = YUG }
+			war = { country = GER country = GRE }
+			war = { country = GER country = LIT }
+			war = { country = GER country = LAT }
+			war = { country = GER country = EST }
+			war = { country = GER country = BUL }
+			war = { country = GER country = SOV }
+			war = { country = GER country = AUS } # Central Europe
+			war = { country = GER country = ITA }
+			AND = { 								# LOW COUNTRIES
+				war = { country = GER country = HOL }
+				NOT = { control = { province = 122 data = GER } } # Amsterdamm
+			}
+			AND = {
+				war = { country = GER country = BEL }
+				NOT = { control = { province = 116 data = GER } } # Brussels
+			}
+			war = { country = GER country = LUX }
+			war = { country = GER country = SPR } # Western Europe
+			war = { country = GER country = U01 }
+			war = { country = GER country = POR }
+			war = { country = GER country = VIC }
+			AND = {
+				war = { country = GER country = FRA }
+				control = { province = 55 data = -2 } # Paris held by enemy forces
+				OR = {
+					war = { country = GER country = HOL }
+					war = { country = GER country = BEL }
+				}
+			}
+		}
+		# These statements have to be true for it to load naval AI
+		OR = {
+			local_flag = GERInvadeEngland
+			AND = {
+				war = { country = FRA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = FRA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 290   type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = ENG province = 2693  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2694  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2695  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 290   type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2696  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2718  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2719  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2720  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2721  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2722  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2723  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2724  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2725  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2726  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2727  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2728  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = USA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = USA province = 290   type = naval size = 2 area = no }
+					garrison = { country = USA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERAirAINaval }
+		command = { type = local_clrflag which = GERAirAIStrategic }
+		command = { type = local_clrflag which = GERAirAIGround }
+		command = { type = ai which = "switch/GER_Air_Naval.ai" }
+	}
+}
+################
+# German Air AI Ground portion
+#############################################
+event = {
+	id = 20027
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = GERAirAIGround }
+			AND = {
+				day = 0
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false if not the land air AI has priority
+		OR = {
+			lost_national = { country = GER value = 2 }
+			war = { country = GER country = POL } # Eastern Europe
+			war = { country = GER country = CZE }
+			war = { country = GER country = HUN }
+			war = { country = GER country = ROM }
+			war = { country = GER country = YUG }
+			war = { country = GER country = GRE }
+			war = { country = GER country = LIT }
+			war = { country = GER country = LAT }
+			war = { country = GER country = EST }
+			war = { country = GER country = BUL }
+			war = { country = GER country = SOV }
+			war = { country = GER country = AUS } # Central Europe
+			war = { country = GER country = ITA }
+			AND = { 								# LOW COUNTRIES
+				war = { country = GER country = HOL }
+				NOT = { control = { province = 122 data = GER } } # Amsterdamm
+			}
+			AND = {
+				war = { country = GER country = BEL }
+				NOT = { control = { province = 116 data = GER } } # Brussels
+			}
+			war = { country = GER country = LUX }
+			war = { country = GER country = SPR } # Western Europe
+			war = { country = GER country = U01 }
+			war = { country = GER country = POR }
+			war = { country = GER country = VIC }
+			AND = {
+				war = { country = GER country = FRA }
+				control = { province = 55 data = -2 } # Paris held by enemy forces
+				OR = {
+					war = { country = GER country = HOL }
+					war = { country = GER country = BEL }
+				}
+			}
+		}
+		# These statements have to be true for it to load naval AI
+		NOT = {
+			AND = {
+				war = { country = FRA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = FRA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 290   type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = ENG province = 2693  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2694  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2695  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 290   type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2696  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2718  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2719  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2720  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2721  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2722  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2723  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2724  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2725  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2726  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2727  type = naval size = 4 area = no }
+					garrison = { country = ENG province = 2728  type = naval size = 4 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = USA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = USA province = 290   type = naval size = 2 area = no }
+					garrison = { country = USA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERAirAINaval }
+		command = { type = local_clrflag which = GERAirAIStrategic }
+		command = { type = local_setflag which = GERAirAIGround }
+		command = { type = ai which = "switch/GER_Air_Ground.ai" }
+	}
+}
+################
+# German Air AI Strategic portion
+#############################################
+event = {
+	id = 20028
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+			NOT = { local_flag = GERAirAIStrategic }
+			AND = {
+				day = 0
+				NOT = { day = 2 }
+			}
+		}
+		# These statements must be false if not the land air AI has priority
+		NOT = {
+			lost_national = { country = GER value = 2 }
+			war = { country = GER country = POL } # Eastern Europe
+			war = { country = GER country = CZE }
+			war = { country = GER country = HUN }
+			war = { country = GER country = ROM }
+			war = { country = GER country = YUG }
+			war = { country = GER country = GRE }
+			war = { country = GER country = LIT }
+			war = { country = GER country = LAT }
+			war = { country = GER country = EST }
+			war = { country = GER country = BUL }
+			war = { country = GER country = SOV }
+			war = { country = GER country = AUS } # Central Europe
+			war = { country = GER country = ITA }
+			AND = { 								# LOW COUNTRIES
+				war = { country = GER country = HOL }
+				NOT = { control = { province = 122 data = GER } } # Amsterdamm
+			}
+			AND = {
+				war = { country = GER country = BEL }
+				NOT = { control = { province = 116 data = GER } } # Brussels
+			}
+			war = { country = GER country = LUX }
+			war = { country = GER country = SPR } # Western Europe
+			war = { country = GER country = U01 }
+			war = { country = GER country = POR }
+			war = { country = GER country = VIC }
+			AND = {
+				war = { country = GER country = FRA }
+				control = { province = 55 data = -2 } # Paris held by enemy forces
+				OR = {
+					war = { country = GER country = HOL }
+					war = { country = GER country = BEL }
+				}
+			}
+		}
+		# These statements have to be true for it to load naval AI
+		NOT = {
+			local_flag = GERInvadeEngland
+			AND = {
+				war = { country = FRA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = FRA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 290   type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = FRA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = ENG country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = ENG province = 2693  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2694  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2695  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 290   type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2696  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2718  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2719  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2720  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2721  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2722  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2723  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2724  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2725  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2726  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2727  type = naval size = 2 area = no }
+					garrison = { country = ENG province = 2728  type = naval size = 2 area = no }
+				}
+			}
+			AND = {
+				war = { country = USA country = GER }
+				OR = {
+					# Baltic
+					garrison = { country = USA province = 2693  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2694  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2695  type = naval size = 2 area = no }
+					garrison = { country = USA province = 290   type = naval size = 2 area = no }
+					garrison = { country = USA province = 2696  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2718  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2719  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2720  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2721  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2722  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2723  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2724  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2725  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2726  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2727  type = naval size = 2 area = no }
+					garrison = { country = USA province = 2728  type = naval size = 2 area = no }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERAirAINaval }
+		command = { type = local_setflag which = GERAirAIStrategic }
+		command = { type = local_clrflag which = GERAirAIGround }
+		command = { type = ai which = "switch/GER_Air_Strategic.ai" }
+	}
+}
+################
+# Germany sends Italy help
+#############################################
+event = {
+	id = 20029
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = GERDefendItaly }
+		NOT = { lost_national = { country = GER value = 1 } }
+		alliance = { country = ITA country = GER }
+		# Italian mainland about to be lost
+		OR = {
+				NOT = { control = { province = 396 data = ITA }}
+				NOT = { control = { province = 410 data = ITA }}
+				NOT = { control = { province = 413 data = ITA }}
+				NOT = { control = { province = 419 data = ITA }}
+				NOT = { control = { province = 416 data = ITA }}
+				NOT = { control = { province = 418 data = ITA }}
+				NOT = { control = { province = 421 data = ITA }}
+				NOT = { control = { province = 427 data = ITA }}
+				NOT = { control = { province = 428 data = ITA }}
+				NOT = { control = { province = 425 data = ITA }}
+				NOT = { control = { province = 431 data = ITA }}
+				NOT = { control = { province = 430 data = ITA }}
+				NOT = { control = { province = 433 data = ITA }}
+				NOT = { control = { province = 432 data = ITA }}
+				NOT = { control = { province = 422 data = ITA }}
+				NOT = { control = { province = 426 data = ITA }}
+				NOT = { control = { province = 420 data = ITA }}
+				NOT = { control = { province = 415 data = ITA }}
+				NOT = { control = { province = 412 data = ITA }}
+				NOT = { control = { province = 411 data = ITA }}
+				NOT = { control = { province = 400 data = ITA }}
+				NOT = { control = { province = 405 data = ITA }}
+				NOT = { control = { province = 404 data = ITA }}
+				NOT = { army = { size = 20 where = 1 which = 1 country = ITA } } # italian army not big enough to defend homeland beaches
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERDefendItaly }
+		command = { type = ai which = "switch/GER_ITA_Defense.ai" }
+	}
+}
+################
+# Germany pulls its help from Italy help
+#############################################
+event = {
+	id = 20030
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GERDefendItaly
+		OR = {
+			lost_national = { country = GER value = 2 }
+			# Italian mainland completely back under ITA control
+				AND = {
+					control = { province = 396 data = ITA }
+					control = { province = 410 data = ITA }
+					control = { province = 413 data = ITA }
+					control = { province = 419 data = ITA }
+					control = { province = 416 data = ITA }
+					control = { province = 418 data = ITA }
+					control = { province = 421 data = ITA }
+					control = { province = 427 data = ITA }
+					control = { province = 428 data = ITA }
+					control = { province = 425 data = ITA }
+					control = { province = 431 data = ITA }
+					control = { province = 430 data = ITA }
+					control = { province = 433 data = ITA }
+					control = { province = 432 data = ITA }
+					control = { province = 422 data = ITA }
+					control = { province = 426 data = ITA }
+					control = { province = 420 data = ITA }
+					control = { province = 415 data = ITA }
+					control = { province = 412 data = ITA }
+					control = { province = 411 data = ITA }
+					control = { province = 400 data = ITA }
+					control = { province = 405 data = ITA }
+					control = { province = 404 data = ITA }
+					}
+			army = { size = 20 where = 1 which = 1 country = ITA } # italian army big enough to defend mainland beaches
+			NOT = { alliance = { country = ITA country = GER } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERDefendItaly }
+		command = { type = ai which = "switch/GER_ITA_Recall_Defense.ai" }
+	}
+}
+################
+# Germany cancels Sea Lion and goes after Russia
+#############################################
+event = {
+	id = 20031
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = SOV
+		local_flag = GERInvadeEngland
+		control = { province = 55 data = -3 } # Paris held by allied forces
+		NOT = { event = 2024 } # Bitter Peace
+		NOT = { lost_national = { country = GER value = 2 } }
+		NOT = { war = { country = SPR country = GER } }
+		NOT = { war = { country = U01 country = GER } }
+		NOT = { war = { country = YUG country = GER } }
+		NOT = { war = { country = USA country = GER } }
+		NOT = { war = { country = POL country = GER } }
+		NOT = { war = { country = HUN country = GER } }
+		NOT = { war = { country = ITA country = GER } }
+		NOT = { war = { country = ROM country = GER } }
+		OR = {
+			NOT = { transport = { country = GER value = 4 } } # >= 4 transport
+			AND = {
+				NOT = { control = { province = 4 data = ENG } }
+				NOT = { control = { province = 5 data = ENG } }
+				NOT = { control = { province = 6 data = ENG } }
+				NOT = { control = { province = 7 data = ENG } }
+				NOT = { control = { province = 8 data = ENG } }
+				NOT = { control = { province = 9 data = ENG } }
+				NOT = { control = { province = 10 data = ENG } }
+				NOT = { control = { province = 11 data = ENG } }
+				NOT = { control = { province = 12 data = ENG } }
+				NOT = { control = { province = 13 data = ENG } }
+				NOT = { control = { province = 14 data = ENG } }
+				NOT = { control = { province = 15 data = ENG } }
+				NOT = { control = { province = 16 data = ENG } }
+				NOT = { control = { province = 17 data = ENG } }
+				NOT = { control = { province = 18 data = ENG } }
+				NOT = { control = { province = 19 data = ENG } }
+				NOT = { control = { province = 20 data = ENG } }
+				NOT = { control = { province = 21 data = ENG } }
+				NOT = { control = { province = 22 data = ENG } }
+				NOT = { control = { province = 23 data = ENG } }				
+				NOT = { control = { province = 24 data = ENG } }
+				NOT = { control = { province = 25 data = ENG } }
+				NOT = { control = { province = 26 data = ENG } }
+				NOT = { control = { province = 27 data = ENG } }
+				NOT = { control = { province = 28 data = ENG } }
+				NOT = { control = { province = 29 data = ENG } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeRussia }
+		command = { type = ai which = "switch/GER_Russia_Buildup.ai" }
+		command = { type = local_clrflag which = GERInvadeSpain }
+		command = { type = local_clrflag which = GERInvadeEngland }		
+	}
+}
+################
+# Spanish invasion setup and Sea Lion
+#############################################
+event = {
+	id = 20032
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadeEngland }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadeEngland
+			}
+		}
+
+		local_flag = GERInvadeSpain
+		OR = {
+			AND = {
+				NOT = { exists = SPR }
+				exists = U01
+			}
+			AND = {
+				NOT = { exists = SPR }
+				NOT = { exists = U01 }
+			}
+			AND = {
+				war = { country = SPR country = U01 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeEngland }
+		command = { type = local_clrflag which = GERInvadeSpain }
+		command = { type = local_clrflag which = GERReloadInvasion }
+		command = { type = ai which = "switch/GER_Sealion.ai" }
+	}
+}
+event = {
+	id = 20033
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = SPR
+
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadeEngland }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadeEngland
+			}
+		}
+
+		local_flag = GERInvadeSpain
+		day = 2
+		NOT = { day = 3 }
+		exists = VIC
+		NOT = { war = { country = SPR country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeSpain }
+		command = { type = local_setflag which = GERInvadeEngland }
+		command = { type = local_clrflag which = GERReloadInvasion }
+		command = { type = ai which = "switch/GER_SPR_Buildup_VIC.ai" }
+	}
+}
+event = {
+	id = 20034
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = SPR
+		NOT = { local_flag = GERStandardWar }
+		OR = {
+			NOT = { local_flag = GERInvadeEngland }
+			AND = {
+				local_flag = GERReloadInvasion
+				local_flag = GERInvadeEngland
+			}
+		}
+		local_flag = GERInvadeSpain
+		day = 2
+		NOT = { day = 3 }
+		NOT = { exists = VIC }
+		NOT = { war = { country = SPR country = GER } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERInvadeSpain }
+		command = { type = local_setflag which = GERInvadeEngland }
+		command = { type = local_clrflag which = GERReloadInvasion }
+		command = { type = ai which = "switch/GER_SPR_Buildup.ai" }
+	}
+}
+event = {
+	id = 20035
+	random = no 
+	country = GER
+	
+	trigger = {
+		ai = yes
+		exists = SPR
+		NOT = { local_flag = GERStandardWar }
+		NOT = { local_flag = GERReloadInvasion }
+		local_flag = GERInvadeEngland
+		local_flag = GERInvadeSpain
+		day = 0
+		NOT = { day = 2 }
+		OR = {
+			war = { country = SPR country = GER }
+			AND = {
+				month = 3 # March
+				NOT = {	month = 4 } # April
+				random = 10
+			}
+			AND = {
+				month = 3 # April
+				NOT = {	month = 4 } # May
+				random = 20
+			}
+			AND = {
+				month = 4 # May
+				NOT = {	month = 5 } # June
+				random = 40
+			}
+			AND = {
+				month = 5 # June
+				NOT = {	month = 6 } # July
+				random = 80
+			}
+			AND = {
+				month = 6 # July
+				NOT = {	month = 9 } # October
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERInvadeEngland }
+		command = { type = ai which = "switch/GER_SPR.ai" }
+		command = { type = sleepevent which = 20033 }
+		command = { type = sleepevent which = 20034 }
+		command = { type = war which = SPR }
+	}
+}
+
+
+################
+# German Military Building AI
+#############################################
+# Building Style Flags
+#	GERBuildStandard		= Standard Build when strategy is unknown
+#	GERBuildNavy			= Build Navy when preparing to attack the UK and USA
+#	GERBuildLand			= Build heavy on the land troops with no sea
+#	GERBuildMix				= Build mix of land and subs
+################
+# German Standard Building AI
+#############################################
+event = { 
+	id = 20036
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				atwar = no
+				year = 1940
+			}
+			AND = {
+				atwar = yes
+				NOT = { local_flag = GERInvadeRussia }
+				NOT = { war = { country = GER country = SOV } }
+				NOT = { local_flag = GERInvadeSpain }
+				NOT = { local_flag = GERInvadeEngland }
+				NOT = { war = { country = GER country = SPR } }
+				NOT = { war = { country = GER country = U01 } }
+				NOT = { local_flag = GERInvadeYugoslavia }
+				NOT = { war = { country = GER country = YUG } }
+				land_percentage = { country = SOV value = 0.8 }
+				land_percentage = { country = USA value = 1.2 }
+				land_percentage = { country = ENG value = 1.2 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = GERBuildStandard }
+		command = { type = local_clrflag which = GERBuildMix }
+		command = { type = local_clrflag which = GERBuildLand }
+		command = { type = local_clrflag which = GERBuildNavy }
+		command = { type = ai which = "switch/GER_Build_Standard.ai" }
+	}
+}
+################
+# German Mix Building AI
+#############################################
+event = { 
+	id = 20037
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+				AND = {
+						year = 1940 # don't disturb army buildup in the beginning
+						manpower = 75
+						NOT = { manpower = 225 } # switch to medium mp consuming build if there's at least some mp left
+						}
+				AND = {
+						land_percentage = { country = SOV value = 0.8 }
+						land_percentage = { country = USA value = 1.2 }
+						land_percentage = { country = ENG value = 1.2 }
+						OR = {
+								local_flag = GERInvadeRussia
+								local_flag = GERInvadeYugoslavia
+								war = { country = GER country = SOV }
+								war = { country = GER country = YUG }
+							}
+						}
+		}
+		NOT = { local_flag = GERBuildMix } #new
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERBuildStandard }
+		command = { type = local_setflag which = GERBuildMix }
+		command = { type = local_clrflag which = GERBuildLand }
+		command = { type = local_clrflag which = GERBuildNavy }
+		command = { type = ai which = "switch/GER_Build_Mix.ai" }
+	}
+}
+################
+# German Land Building AI
+#############################################
+event = { 
+	id = 20038
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 250 # only switch to expensive buildup if there's enough mp left
+		NOT = { local_flag = GERBuildLand }
+		OR = {
+			AND = {
+				local_flag = GERInvadeSpain
+				local_flag = GERInvadeEngland
+				OR = {
+					land_percentage = { country = SOV value = 0.6 }
+					land_percentage = { country = USA value = 1.0 }
+					land_percentage = { country = ENG value = 1.0 }
+				}
+			}
+			AND = {
+				NOT = { local_flag = GERInvadeSpain }
+				NOT = { local_flag = GERInvadeEngland }
+				OR = {
+					NOT = { land_percentage = { country = SOV value = 0.8 } }
+					NOT = { land_percentage = { country = USA value = 1.2 } }
+					NOT = { land_percentage = { country = ENG value = 1.2 } }
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERBuildStandard }
+		command = { type = local_clrflag which = GERBuildMix }
+		command = { type = local_setflag which = GERBuildLand }
+		command = { type = local_clrflag which = GERBuildNavy }
+		command = { type = ai which = "switch/GER_Build_Land.ai" }
+	}
+}
+################
+# German Navy Building AI
+#############################################
+event = { 
+	id = 20039
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		OR = {
+				AND = { year = 1940 # don't disturb army buildup in the beginning
+						NOT = { manpower = 50 } # build navy if there's nearly no mp left
+						}
+				AND = {
+						land_percentage = { country = SOV value = 0.6 }
+						land_percentage = { country = USA value = 1.0 }
+						land_percentage = { country = ENG value = 1.0 }
+						NOT = { local_flag = GERBuildNavy }
+						OR = {
+							local_flag = GERInvadeSpain
+							local_flag = GERInvadeEngland
+						}
+				}
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERBuildStandard }
+		command = { type = local_clrflag which = GERBuildMix }
+		command = { type = local_clrflag which = GERBuildLand }
+		command = { type = local_setflag which = GERBuildNavy }
+		command = { type = ai which = "switch/GER_Build_Navy.ai" }
+	}
+}
+################
+# Germany builds submarines
+#############################################
+event = {
+	id = 20040
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+		OR = {
+			AND = {
+				atwar = no
+				NOT = { submarine = { country = GER value = 40 } }
+			}
+			AND = {
+				atwar = yes
+				NOT = { submarine = { country = GER value = 80 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = submarine }
+	}
+}
+################
+# Germany builds Fortifications
+#############################################
+#event = {
+#	id = 20041
+#	random = no
+#	country = GER
+#
+#	trigger = {
+#		ai = yes
+#		technology = 5100
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1939 }
+#
+#	action_a = {
+#		command = { type = ai which = "switch/GER_Build_Fort.ai" }
+#	}
+#}
+################
+# Germany builds transports
+#############################################
+event = {
+	id = 20042
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { transport = { country = GER value = 3 } }
+		NOT = { lost_national = { country = GER value = 2 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = transport }
+	}
+}
+################
+# German AI Slider manipulation
+#
+#	Free Market
+#############################################
+event = { # Free Market
+	id = 20043
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = 1}
+		government = democratic
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = 1 }
+	}
+}
+event = { # Free Market
+	id = 20044
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = -1}
+		OR = {
+			government = fascist
+			government = communist
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = -1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 20045
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = 1}
+		AND = {
+			NOT = { domestic = { type = professional_army value = 9 } }
+			OR = {
+				technology = 6310 # Spearhead Doctrine
+				AND = {
+#					technology = 6300 # Human Wave Doctrine
+					OR = {
+						ideology = nazi
+						ideology = fascist
+						ideology = leninist
+						ideology = stalinist
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+event = { # Standing Army
+	id = 20046
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = -1}
+		AND = {
+			domestic = { type = professional_army value = 0 }
+			OR = {
+				technology = 6020 # Superior Firepower Doctrine
+				technology = 6030 # Grand Battleplan Doctrine
+				AND = {
+					technology = 6300 # Human Wave Doctrine
+					NOT = {
+						ideology = nazi
+						ideology = fascist
+						ideology = leninist
+						ideology = stalinist
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = -1 }
+	}
+}
+################
+#	Open Society
+#############################################
+event = { # Open Society
+	id = 20047
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = freedom value = -1}
+		AND = {
+			domestic = { type = freedom value = 0 }
+			OR = {
+				government = fascist
+				government = communist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = -1 }
+	}
+}
+event = { # Open Society
+	id = 20048
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = freedom value = 1}
+		AND = {
+			NOT = { domestic = { type = freedom value = 9 } }
+			government = democratic
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = 1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 20049
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = 1}
+		AND = {
+			NOT = { domestic = { type = defense_lobby value = 9 } }
+			OR = {
+				ideology = nazi
+				ideology = fascist
+				ideology = leninist
+				ideology = stalinist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+event = { # Hawk Lobby
+	id = 20050
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = -1}
+		AND = {
+			domestic = { type = defense_lobby value = 0 }
+			NOT = {
+				ideology = nazi
+				ideology = fascist
+				ideology = leninist
+				ideology = stalinist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = -1 }
+	}
+}
+################
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 20051
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = interventionism value = 1}
+		OR = {
+			atwar = yes
+			AND = {
+				NOT = { domestic = { type = interventionism value = 9 } }
+				OR = {
+					ideology = nazi
+					ideology = fascist
+					ideology = leninist
+					ideology = stalinist
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+# Germany Standard War AI only loaded when something odd happens
+#   in the middle of planning an attack.
+#############################################
+event = {
+	id = 20052
+	random = no 
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = GERStandardWar }
+		lost_national = { country = GER value = 1 }
+		OR = {
+			local_flag = GERLowCountriesPrepare
+			local_flag = GERInvadeRussia
+			local_flag = GERInvadeSpain
+			local_flag = GERInvadeEngland
+			local_flag = GERInvadeYugoslavia
+			local_flag = GERInvadePoland
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = local_setflag which = GERStandardWar }
+		command = { type = ai which = "switch/GER_Standard.ai" }
+	}
+}
+################
+# Turn off Standard WAR AI
+#############################################
+event = {
+	id = 20053
+	random = no 
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = GERStandardWar
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = local_clrflag which = GERStandardWar }
+		command = { type = local_setflag which = GERReloadInvasion }
+	}
+}
+################
+# German loads researching of nukes and special techs AI
+#############################################
+event = {
+	id = 20054
+	random = no 
+	country = GER
+
+	trigger = {
+		ai = yes
+		year = 1941
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_Nuke_Research.ai" }
+	}
+}
+################
+# Germany builds V1 Bomb
+#############################################
+event = {
+	id = 20055
+	random = no
+	country = GER
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7100
+		NOT = { technology = 7110 } # V2 Rocket
+		NOT = { lost_national = { country = GER value = 1 } }
+		NOT = { flying_bomb = { country = GER value = 2 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_bomb }
+	}
+}
+################
+# Germany builds Rockets
+#############################################
+event = {
+	id = 20056
+	random = no
+	country = GER
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7110
+		NOT = { lost_national = { country = GER value = 1 } }
+		NOT = { flying_rocket = { country = GER value = 5 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_rocket }
+		command = { type = sleepevent which = 20055 }
+	}
+}
+
+################
+# Germany builds strategic bombers 
+#############################################
+event = {
+	id = 20057
+	random = no
+	country = GER
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 4520
+		NOT = { lost_national = { country = GER value = 2 } }
+
+		NOT = { 
+			war = { country = GER country = USA } 
+			war = { country = GER country = ENG }
+		}
+		OR = {
+			AND = {
+				year = 1937
+				NOT = { strategic_bomber = { country = GER value = 0 } }
+			}
+			AND = {
+				year = 1938
+				NOT = { strategic_bomber = { country = GER value = 1 } }
+			}
+			AND = {
+				year = 1939
+				NOT = { strategic_bomber = { country = GER value = 2 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = strategic_bomber }
+	}
+}
+################
+# Germany builds Heavy cruiser
+#############################################
+event = {
+	id = 20060
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 0 month = august year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = heavy_cruiser value = naval_improved_hull_s }
+	}
+}
+################
+# Germany builds Heavy cruiser
+#############################################
+event = {
+	id = 20061
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 0 month = november year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = heavy_cruiser value = naval_torpedoes_s }
+	}
+}
+################
+# Germany builds Heavy cruiser
+#############################################
+event = {
+	id = 20062
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 0 month = february year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = heavy_cruiser value = naval_improved_hull_s }
+	}
+}
+################
+# Germany builds battleship
+#############################################
+event = {
+	id = 20063
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 14 month = april year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = battleship value = naval_improved_hull_l }
+	}
+}
+################
+# Germany builds battleship
+#############################################
+event = {
+	id = 20064
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 6 month = october year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = battleship value = naval_improved_hull_l }
+	}
+}
+################
+# Germany builds Heavy Cruiser
+#############################################
+event = {
+	id = 20065
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 0 month = august year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = heavy_cruiser }
+	}
+}
+################
+# Germany builds Heavy Cruiser
+#############################################
+event = {
+	id = 20066
+	random = no
+	country = GER
+	style = 0	
+
+	trigger = {
+		ai = yes
+		NOT = { lost_national = { country = GER value = 1 } }
+	}
+
+	date = { day = 0 month = november year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = heavy_cruiser  }
+	}
+}
+
+################
+# Germany buildup 1
+#############################################
+event = {
+id = 20067
+random = no
+country = GER
+style = 0 
+
+trigger = {
+ai = yes
+atwar = no
+not = { event = 20068 }
+}
+
+date = { day = 29 month = december year = 1937 }
+offset = 1
+deathdate = { day = 29 month = december year = 1938 }
+
+name = "AI_EVENT"
+
+action_a = {
+command = { type = ai which = "switch/GER_buildup1.ai" }
+}
+}
+################
+# Germany buildup 2
+#############################################
+event = {
+id = 20068
+random = no
+country = GER
+style = 0 
+
+trigger = {
+ai = yes
+atwar = no
+event = 20067
+}
+
+date = { day = 29 month = july year = 1938 }
+offset = 1
+deathdate = { day = 29 month = december year = 1938 }
+
+name = "AI_EVENT"
+
+action_a = {
+command = { type = ai which = "switch/GER_buildup2.ai" }
+}
+}
+
+################
+# Capital relocation if Berlin gets encircled
+#############################################
+event = {
+id = 20069
+random = no
+country = GER
+style = 0 
+
+trigger = {
+ai = yes
+atwar = yes
+control = { province = 163 data = GER } # Berlin
+NOT = { control = { province = 156 data = GER } } # Neuruppin
+NOT = { control = { province = 157 data = GER } } # Potsdam
+NOT = { control = { province = 160 data = GER } } # Frankfurt/Oder
+OR = {
+		control = { province = 131 data = GER } # Cologne
+		control = { province = 179 data = GER } # Munich
+		}
+}
+
+date = { day = 0 month = january year = 1936 }
+offset = 7
+deathdate = { day = 29 month = december year = 1999 }
+
+name = "AI_EVENT"
+
+action_a = {
+command = { trigger = { control = { province = 131 data = GER } } type = capital which = 131 } # Cologne
+command = { trigger = { NOT = { control = { province = 131 data = GER } } control = { province = 179 data = GER } } type = capital which = 179 } # Munich
+}
+}
+
+################
+# Capital relocation back to Berlin
+#############################################
+event = {
+id = 20070
+random = no
+country = GER
+style = 0 
+
+trigger = {
+ai = yes
+NOT = { capital = { province = 163 data = GER } }
+control = { province = 163 data = GER } # Berlin
+control = { province = 156 data = GER } # Neuruppin
+control = { province = 157 data = GER } # Potsdam
+control = { province = 160 data = GER } # Frankfurt/Oder
+control = { province = 149 data = GER } # Luneburg
+control = { province = 153 data = GER } # Rostock
+control = { province = 162 data = GER } # Stralsund
+control = { province = 158 data = GER } # Stettin
+control = { province = 159 data = GER } # Meseritz
+control = { province = 172 data = GER } # Cottbus
+control = { province = 170 data = GER } # Leipzig
+control = { province = 169 data = GER } # Magdeburg
+}
+
+date = { day = 0 month = january year = 1936 }
+offset = 1
+deathdate = { day = 29 month = december year = 1999 }
+
+name = "AI_EVENT"
+
+action_a = {
+command = { type = capital which = 163 } # Berlin
+}
+}
+
+################
+# GER loads post-Barbarossa research AI
+#############################################
+event = {
+	id = 20071
+	random = no 
+	country = GER
+
+	trigger = {
+				event = 31393046 # Barbarossa GER
+				ai = yes
+				atwar = yes
+				NOT = { war = { country = GER country = SOV } }
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1942 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/GER_research_post-Barbarossa.ai" }
+	}
+}
+
+
+####################################
+# Germany 20500 - 20599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 20500 - 20509
+#############################################
+event = { # Franz Gürtner takes power
+	id = 20500
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 223 # Franz Gürtner
+		NOT = { InCabinet = 223 }
+		OR = {
+			control = { province = 55 data = -2 } # Paris held by enemy forces
+			AND = {
+				control = { province = 55 data = -3 } # Paris held by allied forces
+				NOT = { minister = 108 } # Heinrich Himmler
+			}
+		}
+		OR = {
+			manpower = 200
+			AND = {
+				NOT = { manpower = 200 }
+				NOT = { minister = 227 } # Hans Frank
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 223 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Heinrich Himmler takes power
+	id = 20501
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 108 # Heinrich Himmler
+		NOT = { InCabinet = 108 }
+		manpower = 200
+		control = { province = 55 data = -3 } # Paris held by allied forces
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 108 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Hans Frank takes power
+	id = 20502
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 227 # Hans Frank
+		NOT = { InCabinet = 227 }
+		NOT = { manpower = 200 }
+		control = { province = 55 data = -3 } # Paris held by allied forces
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 227 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 20510 - 20519 
+#############################################
+event = { # Hitler takes power
+	id = 20510
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 177 # Hitler
+		NOT = { InCabinet = 177 }
+		OR = {
+			AND = {
+				atwar = yes
+				#manpower = 200
+			}
+			AND = {
+				NOT = { minister = 7 } # Ludwig Beck
+				NOT = { minister = 162 } # Erwin von Witzleben
+				NOT = { minister = 156 } # Alfred Jodl
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1942 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 177 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+#event = { # Erwin von Witzleben takes power
+#	id = 20511
+#	random = no 
+#	country = GER
+#	persistent = yes
+#	
+#	trigger = {
+#		ai = yes
+#		minister = 162 # Erwin von Witzleben
+#		NOT = { InCabinet = 162 }
+#		control = { province = 55 data = -2 } # Paris held by enemy forces
+#    	control = { province = 232 data = -2 } # Warsaw
+#	    OR = {
+#		atwar = yes
+				#NOT = { manpower = 200 }
+				#AND = {
+				#NOT = { minister = 7 } # Ludwig Beck
+				#NOT = { minister = 160 } # Erich Hoepner
+#			NOT = { minister = 156 } # Alfred Jodl
+#              }
+#			}
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1941 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = chiefofstaff which = 162 }
+#		command = { type = dissent value = -1 }
+#	}
+#}
+event = { # Alfred Jodl and Wilhelm Keitel takes power
+	id = 20512
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 156 # Alfred Jodl
+		NOT = { InCabinet = 156 }
+		OR = {
+				#AND = {
+			atwar = yes
+				#manpower = 200
+				#}
+			AND = {
+				NOT = { minister = 168 } # Adolf Heusinger
+				#NOT = { minister = 160 } # Erich Hoepner
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy  which = 156 }
+		command = { type = chiefofstaff which = 176 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 20520 - 20529 
+#############################################
+event = { # Hans Oster takes power
+	id = 20520
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 146 # Hans Oster
+		NOT = { InCabinet = 146 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 146 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 20530 - 20539
+#############################################
+event = { # Zeitzler takes power
+	id = 20530
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 163 # Zeitzler
+		NOT = { InCabinet = 163 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1943 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 163 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+event = { # Guderian takes power
+	id = 20531
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 270 # Guderian
+		NOT = { InCabinet = 270 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1944 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 270 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 20540 - 20549
+#############################################
+event = { # Hjalmar Schacht takes power
+	id = 20540
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77 # Hjalmar Schacht
+		NOT = { InCabinet = 77 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 77 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Albert Speer takes power
+	id = 20541
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 86 # Albert Speer
+		NOT = { InCabinet = 86 }
+		NOT = { minister = 77 } # Hjalmar Schacht
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 86 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Johann Schwerin von Krosigk takes power
+	id = 20542
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 85 # Johann Schwerin von Krosigk
+		NOT = { InCabinet = 85 }
+		NOT = { minister = 86 } # Albert Speer
+		NOT = { minister = 77 } # Hjalmar Schacht
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 85 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 20550 - 20559
+# Air AI Flags
+#	GERAirAINaval			= Germany has there Air vs Naval AI loaded
+#	GERAirAIStrategic		= Germany has their Strategic bombing AI loaded
+#	GERAirAIGround			= Germany has their ground support AI loaded
+#############################################
+event = { # Hermann Göring takes power
+	id = 20550
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GERAirAIGround
+		minister = 10 # Hermann Göring
+		NOT = { InCabinet = 10 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 10 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Karl Koller takes power
+	id = 20551
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = GERAirAIGround
+		NOT = { minister = 10 }# Hermann Göring
+		minister = 205 # Karl Koller
+		NOT = { InCabinet = 205 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 205 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Carl Friedrich von Siemens takes power
+	id = 20552
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			local_flag = GERAirAINaval
+			local_flag = GERAirAIStrategic			
+		}
+		minister = 208 # Carl Friedrich von Siemens
+		NOT = { InCabinet = 208 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 208 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Ulrich Grauert takes power
+	id = 20553
+	random = no 
+	country = GER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			local_flag = GERAirAINaval
+			local_flag = GERAirAIStrategic			
+		}
+		minister = 236 # Ulrich Grauert
+		NOT = { InCabinet = 236 }
+		NOT = { minister = 208 } # Carl Friedrich von Siemens
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 236 }
+		command = { type = dissent value = -1 }
+	}
+}

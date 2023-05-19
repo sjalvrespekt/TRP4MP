@@ -1,0 +1,74 @@
+# converted to DH, Kane, July 12 2011
+###########################################################################
+#  	7800000 - 7899999
+###########################################################################
+#####################################################
+# Was 1102003 BUR - The Independence of Burma by nachinus
+##################################################
+event = { 
+	id = 7800000
+	random = no
+	country = BUR
+
+	# Triggered by ENG 3131110
+
+	name = EVT_7800000_NAME # The Independence of Burma
+	desc = EVT_7800000_DESC # tbd
+	style = 0
+
+        date = { day = 0 month = april year = 1937 }
+        offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME7800000A # Burma will be a free nation
+		command = { type = money value = 2 }
+		command = { type = domestic which = democratic value = 1 } 
+		command = { type = add_division value = infantry when = 0 }
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = add_division value = infantry when = 0 }
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = construct which = ic where = 1420 value = 2 } #Akayb
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = construct which = ic where = 1419 value = 2 } #Bassein
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = construct which = ic where = 1415 value = 1 } #Rangoon
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = province_manpower which = 1415 value = 7 } #Rangoon
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = province_manpower which = 1410 value = 2 } #Mandalay
+		command = { trigger = { AI = ENG OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = province_manpower which = 1420 value = 3 } #Akyab
+		command = { type = province_keypoints which = 1420 value = 1 } # Akayb 
+#		command = { type = dissent value = 5 }
+#		command = { type = peacetime_ic_mod value = -50 }
+#		command = { type = manpowerpool value = 160 }
+	}
+}
+
+#################################################################
+# Reservists call - country at war
+#################################################################
+event = {	
+	id = 7800001
+	random = no
+	country = BUR
+	
+	trigger =	{ 
+					atwar = BUR
+				}
+	
+	name = EVT_MOBWAR_NAME 
+	desc = EVT_MOBWAR_DESC 
+	style = 2
+	picture = "mob_bhu"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAMEMOBWARA # Call the reservists
+		command = { type = manpowerpool value = 160 }
+		command = { type = dissent value = 4 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAMEMOBWARB # We don't need them
+		command = { }
+	}
+}

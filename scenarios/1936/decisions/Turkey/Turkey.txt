@@ -1,0 +1,40 @@
+########################################################
+# The navy's last stand
+########################################################
+event = { 
+	id = 3180011
+	random = no
+	country = TUR
+	
+	decision = {
+				ai = no
+				atwar = yes
+				NOT = { battlecruiser = { country = TUR value = 1 } }				
+	}
+	decision_trigger = {
+						supplies = 250
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				NOT = { battlecruiser = { country = TUR value = 1 } }
+				random = 2
+	}
+       
+	name = EVT_3146074_NAME #same as japanese decision
+	desc = EVT_3146074_DESC #same as japanese decision
+	style = 2
+	decision_picture = "tur_decision_last_stand"
+	picture = "tur_event_last_stand"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 17 month = march year = 1999 }
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { trigger = { ai = no } type = supplies value = -250 }
+		command = { type = activate_division which = 11700 value = 21 when = 0 where = 1076 }
+	}
+}

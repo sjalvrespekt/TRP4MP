@@ -1,0 +1,381 @@
+# German operation Barbarosa Invasion AI File by Lothos
+# converted to DH, Kane, June 4 2011
+
+max_front_ratio = 1.01
+max_front_ratios = { 
+	SOV = 4.0
+}
+no_exp_forces_to = { JAP SIA MAN VIC FIN U00 }
+
+max_garrison_prop = 0.25 #0.50
+min_garrison_prop = 0.15 #0.40
+
+###################################
+# Diplomacy
+###################################
+combat = {
+	SOV = 300
+}
+
+target = { #section completely new
+		262 = 50 # Kaunas
+		266 = 50 # Daugavpils
+		274 = 50 # Narva
+		550 = 40 # Kingisepp
+		270 = 40 # Tallinn
+		257 = 50 # Glebokie
+		598 = 50 # Rechytsa
+		589 = 50 # Smolensk
+		588 = 50 # Bryansk
+		572 = 100 # Moscow
+		617 = 100 # Kiev
+		551 = 40 # Krasnogardesk
+		626 = 100 # Odessa
+		622 = 50 # Nikolayev
+		623 = 50 # Melitopol
+		640 = 40 # Kerch
+		641 = 30 # Sevastopol
+		644 = 120 # Rostov
+		613 = 50 # Cherkasy
+		636 = 40 # Kharkov
+		604 = 40 # Kursk
+		607 = 30 # Chernigov => surrounding Kiev
+		608 = 30 # Nezhin => surrounding Kiev
+		535 = 30 # Murmansk
+		542 = 30 # Arkhangelsk
+		674 = 30 # Zelenodolsk
+		681 = 30 # Kostroma
+		663 = 60 # Stalingrad
+		713 = 30 # Baku
+		1133 = 30 # Orsk
+		553 = 100 # Leningrad
+}
+
+befriend = {
+	ROM = 50
+	BUL = 40 
+	HUN = 80 
+	YUG = 50
+	SLO = 50
+	U01 = 20
+	ITA = 80 
+	SWE = 10
+	FIN = 80
+	JAP = 20
+	POR = 10
+	TUR = 30
+	DEN = 50
+}
+###################################
+# Construction and Tech Research
+###################################
+construction = { 
+	max_factor = 0.05
+
+	AA_batteries = yes
+	max_AA_level = 3
+	AA_provs = { 
+		152 	# Kiel
+		153	# Rostock
+		154 	# Hamburg
+		146 	# Hannover
+		147 	# Wilhelmshafen
+		141 	# Munster
+		137	# Kassel
+		140 	# Schweinfurt
+		144 	# Dortmund
+		145	# Essen
+		142	# Dusseldorf
+		126	# Aachen
+		131	# Cologne
+		127	# Saarbrucken
+		128	# Trier
+		130	# Mainz
+		109	# Luxembourg
+		138	# Frankfurt
+		139	# Darmstadt
+		134	# Suttgart
+		136	# Karlsruhe
+		177	# Nuremberg
+		179	# Munich
+		173	# Dresden
+		170	# Leipzig
+		163	# Berlin
+		169	# Magdeburg
+		195	# Vienna
+	}
+
+	coastal_fort = no
+	max_coastal_level = 1
+	coastal_fort_provs = {
+		# Atlantic Wall
+		217	# Arburg
+		220	# Arhus
+		152	# Kiel
+		150	# Flensburg
+		122	# Amsterdam
+		125	# Rotterdam
+		114	# Bruges
+		51	# Dunkerque
+		49	# Calais
+		53	# Dieppe
+		44	# Caen
+		46	# Bayeux
+		37	# Brest
+		39	# Lorient
+		68	# Bordeaux
+	} 
+
+	radar_station = atwar
+	max_radar = 1
+	radar_provs = {
+		145	# Essen
+		142	# Duesseldorf
+		137	# Kassel
+		147	# Wilhelmshaven
+		152	# Kiel
+		153	# Rostock
+		163	# Berlin
+		134	# Suttgart
+		116	# Brussels
+		122	# Amsterdam
+		52	# Lille
+		55	# Paris
+	} 
+
+	air_base = no
+	max_air_base = 4
+	air_base_provs = { } 
+
+	naval_base = no
+	max_naval_base = 5
+	naval_base_provs = { 
+		153	# Rostock
+	}
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = no
+	force_ic_until = 1935
+	ic_end_year = 1938
+	IC_provs = {
+		127	# Saarbrucken
+		179	# Munich
+		163	# Berlin
+		131	# Cologne
+		134	# Suttgart
+		146 	# Hannover
+		173	# Dresden
+		170	# Leipzig
+		171	# Erfurt
+		164	# Oppeln
+		167	# Breslau
+		168	# Gleiwitz
+
+	}
+
+	max_rocket = 1
+	rocket_test = yes
+	rocket_test_prov = 162	# Stralsund, Peenemünde
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier = 1.0
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.05
+
+	# PRIORITIES:
+	beach			= 20	# Beach level 2
+	capital			= 10	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 30	# bonus for provinces just behind a frontline.
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		VIC = -1
+		SWE = -1
+		FIN = -1
+		ITA = -1
+		SCH = -1
+		AUS = -1
+		HUN = -1
+		CZE = 25
+		POL = 50
+		YUG = 10
+		SOV = 75
+	}
+	province_priorities = {
+		55 = 60 # Paris
+		52 = 60 # Lille
+		116 = 60 # Brussels
+		145 = 30 # Essen
+		96 = 30 # Metz
+		43 = 30 # Cherbourg
+		42 = 30 # Avranches
+		69 = 30 # La Rochele
+		147 = 30 # Wilhelmshafen
+		148 = 30 # Bremen
+		124 = 30 # Groningen
+#		338 = 60 # Belgrade
+#		352 = 40 # Zagreb
+#		355 = 40 # Sarajevo
+#		313 = 60 # Sulina
+#		309 = 60 # Braila
+#		377 = 60 # Athens
+
+		#Norway
+		483 = 70 # Oslo
+		485 = 60 # Kristiansan
+		495 = 70 # Narvik
+		491 = 60 # Alesund
+		493 = 60 # Trondheim
+		
+#		# Southern France
+#		80 = 30 #Perpignan
+#		79 = 30 #Beziers
+#		89 = 30 #Marseille
+#		86 = 30 #Toulon
+#		87 = 30 #Nice
+	}
+	area_multiplier = {
+		#Norway
+		483 = 1.0 # Oslo
+		485 = 1.0 # Kristiansan
+		495 = 1.0 # Narvik
+		491 = 1.0 # Alesund
+		493 = 1.0 # Trondheim
+	}
+}
+front = { 
+	recklessness 		= 2 # 0-3 #1
+	distrib_vs_ai 		= offensive #reactive
+	distrib_vs_human 	= reactive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+    enemy_handicap = { } 
+    passivity = { } 
+	
+	province_priorities = {	
+		# Russian Marsh
+		248 = 0.3 #Pinsk
+		249 = 0.3 #Samy
+		597 = 0.3 #Luban
+		595 = 0.3 #Mozyr
+		
+		# Marsh Border
+		#245 = 0.5 #Lutsk
+		#247 = 0.5 #Brzesc-Litewski
+		#251 = 0.5 #Nowogrodek
+		#240 = 0.5 #Tarnopol
+	
+		# Northern Drive
+		269 = 5.0 #Jelgava
+		264 = 5.0 #Riga
+		265 = 5.0 #Valmiera
+		266 = 5.0 #Daugavpils
+		270 = 5.0 #Tallinn
+		
+		# Southern Drive
+		613 = 10.0 #Cherkasy
+		242 = 10.0 #Lvov
+		238 = 10.0 #Stanislawow
+		619 = 10.0 #Mogilev Podolski
+		618 = 10.0 #Kamenets Podolski
+		620 = 10.0 #Balta
+		621 = 10.0 #Tiraspol
+		625 = 10.0 #Ochakov
+				
+		# Center Drive
+		609 = 10.0 #Korosten
+		589 = 10.0 #Smolensk
+		256 = 10.0 #Molodeczno
+		599 = 10.0 #Minsk
+		591 = 10.0 #Orsha
+		592 = 10.0 #Borisov
+	}
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion = no
+	help_allies = no
+} 
+
+admiral = { 
+	min_org		= 95	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 90    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 70 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+	min_core_attack_fleets  = 1	# Minimum amount of attack fleets to defend CORE provinces (default 0)
+	num_attack_fleets	= 2 	# ENG/USA default 3, JAP default 2 everyone else is 1
+
+	#Which provinces to use as bases..
+	base = {
+		147 # Wilhelmshaven
+		148 # Bremen
+		151 # Lübeck
+		154 # Hamburg
+		152	# Kiel
+		153	# Rostock
+		162 # Stralsund
+		158 # Stettin
+		183	# Elbing
+		184	# Königsberg
+		182	# Tilsit
+		181	# Danzig
+		217	# Aalborg
+		495	# Narvik
+		483 # Oslo
+		#125 # Rotterdam
+		#115 # Antwerpen
+		#114 # Bruges
+		#43	# Cherbourg
+		37	# Brest
+		68	# Bordeaux
+	}
+	target = { 
+		#2691 = 200
+		2694 = 200
+		2688 = 100
+		2695 = 150
+		290 = 150
+		2720 = 100
+		2721 = 100
+		2724 = 50
+		2723 = 100
+		2725 = 50
+		2726 = 20
+		2727 = 20
+		2728 = 20
+		} 
+	core = { 
+		2692
+		2693
+		2696
+		2718
+		2719
+		} 
+}

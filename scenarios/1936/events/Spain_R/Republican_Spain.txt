@@ -1,0 +1,1770 @@
+# converted DH, Kane, July 10 2011
+#########################
+
+#################################################################################################
+# 3174000 - 3174999 Republican Spain Events
+# by Luxor last used 3174022 
+#################################################################################################
+
+#########################################################################
+# 1936 Elections
+#########################################################################
+event = {
+	id = 3174000
+	random = no
+	country = SPR
+
+	trigger = {
+		OR = {
+			government = democratic
+			government = communist
+		}
+	}
+
+	name = EVT_3174000_NAME
+	desc = EVT_3174000_DESC
+	style = 0
+
+	date = { day = 15 month = february year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = february year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3174000A
+		command = { type = dissent value = 4 }
+		command = { type = set_domestic which = political_left value = 8 }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = headofstate which = 11041 } # Diego Martínez Barrio
+		command = { type = headofgovernment which = 11064 } # Manuel Azaña Díaz
+ 		command = { type = foreignminister which = 11096 } # Augusto Barcia Trelles
+ 		command = { type = armamentminister which = 11138 } # Manuel Azaña Díaz
+ 		command = { type = ministerofsecurity which = 11183 } # Amós Salvador Carreras
+		command = { type = chiefofstaff which = 11258 }  # Manuel Estrada Manchón
+		command = { type = chiefofarmy which = 11288 }  # Carlos Masquelet Lacaci
+		command = { type = chiefofnavy which = 11309 }  # José Giral Pereira
+	}
+}
+#########################################################################
+# President Alcalá-Zamora deposed
+#########################################################################
+event = {
+	id = 3174001
+	random = no
+	country = SPR
+
+	trigger = { headofstate = 11041 } # Diego Martínez Barrio
+
+	name = EVT_3174001_NAME
+	desc = EVT_3174001_DESC
+	style = 0
+
+	date = { day = 9 month = may year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = dissent value = 2 }
+		command = { type = headofstate which = 11033 } # Manuel Azaña Díaz
+		command = { type = headofgovernment which = 11345 } #Trelles 
+		command = { type = foreignminister which = 11096 } #Trelles
+	}
+}
+#########################################################################
+# Trelles cabinet replaced
+#########################################################################
+event = {
+	id = 3174029
+	random = no
+	country = SPR
+
+	trigger = { headofgovernment = 11345 } # Diego Martínez Barrio
+
+	name = EVT_3174029_NAME
+	desc = EVT_3174029_DESC
+	style = 0
+
+	date = { day = 13 month = may year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1936 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = headofgovernment which = 11066 } #Santiago Casares Quiroga
+		command = { type = armamentminister which = 11137 } #Santiago Casares Quiroga
+		command = { type = ministerofsecurity which = 11182 } #Santiago Casares Quiroga
+		command = { type = foreignminister which = 11096 } #Augusto Barcía Trelles
+		command = { type = set_domestic which = democratic value = 7 }
+		command = { type = dissent value = -3 }
+	}
+}
+#########################################################################
+# Political Assassinations in Madrid
+#########################################################################
+event = {
+	id = 3174002
+	random = no
+	country = SPR
+
+	trigger = {
+		NOT = { government = fascist }
+	}
+
+	name = EVT_3174002_NAME
+	desc = EVT_3174002_DESC
+	style = 0
+
+	date = { day = 11 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = july year = 1936 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = dissent value = 6 }
+		command = { type = sleepminister which = 11156 } # José Calvo-Sotelo
+	}
+}
+#########################################################################
+# Spanish Civil War
+#########################################################################
+event = { 
+	id = 3174003
+	random = no
+	country = SPR
+
+	trigger = {
+		NOT = { exists = U01 }
+		atwar = no
+		NOT = { government = fascist }
+#		OR = {
+#			government = democratic
+#			government = communist
+#		}
+	}
+
+	name = EVT_3174003_NAME
+	desc = EVT_3174003_DESC
+	style = 0
+	picture = "SCW"
+
+	date = { day = 13 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = july year = 1999 }
+
+	action_a = {
+#		ai_chance = 100
+		name = ACTIONNAME3174003A
+		command = { type = setflag which = NatDecision }
+	}
+#	action_b = {
+#		ai_chance = 0
+#		name = ACTIONNAME3174003B
+#		command = { type = dissent value = 2 }
+#		command = { type = unlock_division which = 27600 value = 6 } #army
+#		command = { type = unlock_division which = 27600 value = 8 }
+#		command = { type = unlock_division which = 27600 value = 10 }
+#		command = { type = unlock_division which = 27600 value = 38 }
+#		command = { type = unlock_division which = 27600 value = 40 }
+#		command = { type = unlock_division which = 27600 value = 42 }
+#		command = { type = unlock_division which = 27600 value = 44 }
+#		command = { type = unlock_division which = 27600 value = 46 }
+#		command = { type = unlock_division which = 27600 value = 48 }
+#		command = { type = unlock_division which = 27600 value = 50 }
+#		command = { type = unlock_division which = 27600 value = 52 }
+#		command = { type = unlock_division which = 27600 value = 54 }	
+#		command = { type = unlock_division which = 27600 value = 12 } 
+#		command = { type = unlock_division which = 27600 value = 14 }
+#		command = { type = unlock_division which = 27600 value = 16 }
+#		command = { type = unlock_division which = 27600 value = 18 }
+#		command = { type = unlock_division which = 27600 value = 20 }
+#		command = { type = unlock_division which = 27600 value = 22 }
+#		command = { type = unlock_division which = 27600 value = 24 }
+#		command = { type = unlock_division which = 27600 value = 26 }
+#		command = { type = unlock_division which = 27600 value = 28 }
+#		command = { type = unlock_division which = 27600 value = 30 }
+#		command = { type = unlock_division which = 27600 value = 32 }
+#		command = { type = unlock_division which = 27600 value = 34 }
+#		command = { type = unlock_division which = 27600 value = 36 }
+#		command = { type = unlock_division which = 27600 value = 56 }
+#		command = { type = unlock_division which = 27600 value = 58 }
+#		command = { type = unlock_division which = 27600 value = 60 }
+#		command = { type = unlock_division which = 27600 value = 62 }
+#		command = { type = unlock_division which = 27600 value = 64 }
+#		command = { type = unlock_division which = 27600 value = 66 } 
+#		command = { type = unlock_division which = 27600 value = 68 } 
+#		command = { type = unlock_division which = 27600 value = 70 }
+#		command = { type = unlock_division which = 27600 value = 72 }
+#		command = { type = country which = U01 }
+#		command = { type = set_domestic which = democratic value = 2 }
+#		command = { type = set_domestic which = political_left value = 2 }
+#		command = { type = headofstate which = 10279 } # José Sanjurjo Sacanell
+#		command = { type = headofgovernment which = 10281 } # José Sanjurjo Sacanell
+#		command = { type = foreignminister which = 10003 }
+#		command = { type = armamentminister which = 10004 }
+#		command = { type = ministerofsecurity which = 10005 }
+#		command = { type = ministerofintelligence which = 10006 }
+#		command = { type = chiefofstaff which = 10007 }
+#		command = { type = chiefofarmy which = 10276 } # Francisco Franco Bahamonde
+#		command = { type = chiefofnavy which = 10009 }
+#		command = { type = chiefofair which = 10010 }
+#		command = { type = manpowerpool value = 200 }
+#		command = { trigger = { ai = yes NOT = { participant = { value = 1 } } NOT = { participant = { value = 2 } } NOT = { participant = { value = 3 } } } type = ai which = "switch/isolationist.ai" }	
+#	}
+}
+############################################# 
+# Nationalists back down?
+############################################# 
+event = { 
+	id = 3174020 
+    random = no  
+    country = SPR 
+	
+	persistent = yes
+  
+    trigger = { 
+         flag = NatDecision
+         random = 90 
+         NOT = { exists = U01 } 
+    } 
+  
+	name = EVT_3174003_NAME
+	desc = EVT_3174003_DESC
+	style = 0
+     
+     date = { day = 0 month = january year = 1936 } 
+     offset = 4
+     deathdate = { day = 29 month = december year = 1937 } 
+  
+     action_a = { 
+        name = ACTIONNAME2903A #war
+        command = { type = clrflag which = NatDecision }
+		#command = { type = demobilize which = land when = 1 where = 0 value = 0 } # disbands all land units and returns MP to the pool
+		command = { type = removeclaim which = 916 }
+		command = { type = removeclaim which = 989 }
+		command = { type = removeclaim which = 987 }
+		command = { type = removeclaim which = 988 }
+		command = { type = removecore which = 990 }
+		command = { type = removecore which = 991 }
+		command = { type = removeclaim which = 716 }
+		command = { type = removeclaim which = 715 }
+		command = { type = removecore which = 473 }
+		command = { type = removecore which = 475 }
+		command = { type = removecore which = 474 }
+		command = { type = removecore which = 441 }
+		command = { type = removecore which = 449 }
+		command = { type = removecore which = 451 }
+		command = { type = removecore which = 453 }
+		command = { type = removecore which = 442 }
+		command = { type = removecore which = 456 }
+		command = { type = removecore which = 438 }
+		command = { type = removecore which = 448 }
+		command = { type = removecore which = 452 }
+		command = { type = removecore which = 447 }
+		command = { type = removecore which = 450 }
+        command = { type = independence which = U01 value = 0 } #units change allegiance
+        command = { type = war which = U01 }
+        command = { type = setflag which = SCW }  
+        command = { type = dissent value = 15 }  
+        command = { type = set_domestic which = democratic value = 7 }  
+        command = { type = set_domestic which = political_left value = 9 }  
+		
+		command = { type = headofstate which = 11033 } #Azaña
+		command = { type = headofgovernment which = 11069 } #Barrio
+		command = { type = foreignminister which = 11096 } #Barcia Trelles
+		command = { type = armamentminister which = 11144 } #Giner de los Rios
+		command = { type = ministerofsecurity which = 11346 } #Trelles
+		command = { type = ministerofintelligence which = 11217 } #Balboa
+		command = { type = chiefofstaff which = 11007 } #Miaja
+		command = { type = chiefofarmy which = 11291 } #Miaja
+		command = { type = chiefofnavy which = 11309 } #Giral
+		command = { type = chiefofair which = 11321 } #Hidalgo de Cisneros
+	
+        command = { type = relation which = ENG value = 10 }  
+        command = { type = relation which = FRA value = 10 }  
+        command = { type = relation which = SOV value = 5 }  
+        command = { type = relation which = USA value = 5 }  
+		command = { type = relation which = GER value = -15 }  
+        command = { type = relation which = ITA value = -15 }  
+        command = { type = relation which = POR value = -10 }  
+		command = { type = sleepevent which = 3174020 }
+        command = { type = sleepevent which = 3174021 } 
+		command = { type = manpowerpool value = 200 }
+      }
+}
+# event = { 
+#      id = 3174021
+#      random = no  
+#      country = SPR 
+#	  
+#	  persistent = yes
+#  
+#      trigger = { 
+#           flag = NatDecision 
+#           random = 1
+#           NOT = { exists = U01 } 
+#      } 
+#  
+#	name = EVT_3174003_NAME
+#	desc = EVT_3174003_DESC
+#	style = 0
+#       
+#      date = { day = 0 month = january year = 1936 } 
+#      offset = 4
+#      deathdate = { day = 29 month = december year = 1937 } 
+#  
+#      action_a = { 
+#            name = ACTIONNAME3174021A # "The Nationalists back down"
+#            command = { type = clrflag which = NatDecision }
+#            command = { type = dissent value = 1 }  
+#            command = { type = sleepevent which = 3174020 } 
+#			command = { type = manpowerpool value = 200 }
+#			command = { type = unlock_division which = 27600 value = 6 } #army
+#			command = { type = unlock_division which = 27600 value = 8 }
+#			command = { type = unlock_division which = 27600 value = 10 }
+#			command = { type = unlock_division which = 27600 value = 38 }
+#			command = { type = unlock_division which = 27600 value = 40 }
+#			command = { type = unlock_division which = 27600 value = 42 }
+#			command = { type = unlock_division which = 27600 value = 44 }
+#			command = { type = unlock_division which = 27600 value = 46 }
+#			command = { type = unlock_division which = 27600 value = 48 }
+#			command = { type = unlock_division which = 27600 value = 50 }
+#			command = { type = unlock_division which = 27600 value = 52 }
+#			command = { type = unlock_division which = 27600 value = 54 }	
+#			command = { type = unlock_division which = 27600 value = 12 } 
+#			command = { type = unlock_division which = 27600 value = 14 }
+#			command = { type = unlock_division which = 27600 value = 16 }
+#			command = { type = unlock_division which = 27600 value = 18 }
+#			command = { type = unlock_division which = 27600 value = 20 }
+#			command = { type = unlock_division which = 27600 value = 22 }
+#			command = { type = unlock_division which = 27600 value = 24 }
+#			command = { type = unlock_division which = 27600 value = 26 }
+#			command = { type = unlock_division which = 27600 value = 28 }
+#			command = { type = unlock_division which = 27600 value = 30 }
+#			command = { type = unlock_division which = 27600 value = 32 }
+#			command = { type = unlock_division which = 27600 value = 34 }
+#			command = { type = unlock_division which = 27600 value = 36 }
+#			command = { type = unlock_division which = 27600 value = 56 }
+#			command = { type = unlock_division which = 27600 value = 58 }
+#			command = { type = unlock_division which = 27600 value = 60 }
+#			command = { type = unlock_division which = 27600 value = 62 }
+#			command = { type = unlock_division which = 27600 value = 64 }
+#			command = { type = unlock_division which = 27600 value = 66 } 
+#			command = { type = unlock_division which = 27600 value = 68 } 
+#			command = { type = unlock_division which = 27600 value = 70 }
+#			command = { type = unlock_division which = 27600 value = 72 }	
+#			command = { type = sleepevent which = 3174020 }
+#			command = { type = sleepevent which = 3174021 } 			
+#      } 
+# }
+ 
+#########################################################################
+#  Barrio cabinet replaced
+#########################################################################
+event = {
+	id = 3174030
+	random = no
+	country = SPR
+
+	name = EVT_3174030_NAME
+	desc = EVT_3174030_DESC
+	style = 0
+
+	trigger = {
+		headofgovernment = 11345 #Barrio
+		event = 3174020 #civil war
+	}
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = july year = 1936 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = headofgovernment which = 11067 } #Giral Pereira
+		command = { type = chiefofnavy which = 11309 } #Giral Pereira
+		command = { type = foreignminister which = 11096 } #Trelles
+		command = { type = set_domestic which = democratic value = 7 }
+		command = { type = relation which = USA value = 5 }
+		command = { type = relation which = ENG value = 5 }
+		command = { type = relation which = FRA value = 5 }
+		command = { type = relation which = MEX value = 5 }
+		command = { type = relation which = GER value = 5 }
+		command = { type = dissent value = 1 } 
+	}
+}
+
+#########################################################################
+#  Giral Pereira cabinet replaced
+#########################################################################
+event = {
+	id = 3174031
+	random = no
+	country = SPR
+
+	name = EVT_3174031_NAME
+	desc = EVT_3174031_DESC
+	style = 0
+
+	trigger = {
+		headofgovernment = 11067 #Pereira
+		event = 3174030
+	}
+
+	date = { day = 4 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1936 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = headofgovernment which = 11062 } #Francisco Largo Caballero
+		command = { type = armamentminister which = 11131 } #Francisco Largo Caballero
+		command = { type = ministerofsecurity which = 11174 } #Juan García Oliver
+		command = { type = chiefofnavy which = 11307 } #Indalecio Prieto Tuero
+		command = { type = chiefofair which = 11331 } #Indalecio Prieto Tuero
+		command = { type = set_domestic which = democratic value = 7 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = dissent value = -2 }
+	}
+}
+
+#########################################################################
+#  march 4 coup U01
+#########################################################################
+event = {
+	id = 3174032
+	random = no
+	country = U01
+
+	name = EVT_3174032_NAME
+	desc = EVT_3174032_DESC
+	style = 0
+
+	trigger = {
+				event = 3174020 #civil war started
+				war = { country = U01 country = SPR } #civil war still going on
+				lost_VP = { country = SPR value = 75 } #SPR losing
+#				OR = {
+#					ideology = { type = social_liberal country = SPR }
+#					ideology = { type = social_democrat country = SPR }
+#					ideology = { type = left_wing_radical country = SPR }
+#					ideology = { type = leninist country = SPR }
+#					ideology = { type = stalinist country = SPR }
+#					}
+				NOT = { event = 3174005 } #end of SCW for SPR
+				NOT = {	event = 3173002 } #end of SCW for U01
+				NOT = {	ispuppet = U01 }
+				NOT = {	ispuppet = SPR }
+	}
+
+	date = { day = 3 month = march year = 1936 } #historic date: march 4 1939
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3174032A
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = belligerence which = SPA value = 5 }
+	}	
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3174032B
+		command = { type = dissent value = 4 } 
+		command = { type = domestic which = democratic value = 1 } 
+		command = { type = domestic which = freedom value = 1 } 
+		command = { type = domestic which = defense_lobby value = -2 } 
+		command = { type = event which = 3174033 where = SPR when = 2 }
+	}
+}
+
+#########################################################################
+#  march 4 coup SPR
+#########################################################################
+event = {
+	id = 3174033
+	random = no
+	country = SPR 
+
+	name = EVT_3174033_NAME
+	desc = EVT_3174032_DESC
+	style = 0
+
+	action_a = {
+		ai_chance = 10
+		name = ACTIONNAME2201A # accept the inevitable
+		command = { type = damage_division which = -1 where = 50 } #communists revolt
+		command = { type = damage_division which = -1 where = 25 }
+		command = { type = disorg_division which = -1 where = 70 }
+		command = { type = disorg_division which = -1 where = 50 }
+		command = { type = disorg_division which = -1 where = 50 }
+		command = { type = disorg_division which = -1 where = 20 }
+		command = { type = manpowerpool value = -50 }
+		command = { type = trigger which = 3174034 where = U01 }
+	}
+	action_b = {
+		ai_chance = 90
+		name = ACTIONNAME3500A # 'never!'
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = belligerence which = SPR value = 5 }
+	}
+}
+
+
+#########################################################################
+#  march 4 coup successful
+#########################################################################
+event = {
+	id = 3174034
+	random = no
+	country = U01
+
+	name = EVT_3174034_NAME
+	desc = EVT_3174034_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3500B # very well
+		command = { type = inherit which = SPR }
+		command = { type = set_domestic which = democratic value = 5 }
+		command = { type = set_domestic which = freedom value = 3 }
+		command = { type = set_domestic which = political_left value = 3 }
+	}
+}
+
+##############################################
+# Start of the civil war
+##############################################
+event = { 
+	id = 3174004 
+	random = no
+	country = SPR
+	
+	# triggered by U01 3173000
+
+	name = EVT_3174003_NAME
+	desc = EVT_3174003_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME3174004A
+		
+		command = { type = task_efficiency which = attack value = -0.5 }
+		
+#		command = { type = add_division value = tactical_bomber } # French Potez 540 & requisitioned planes
+#		command = { type = add_division value = interceptor } # French Devoitine 37x & requisitioned planes
+#		command = { type = add_division which = "Milicias CNT" value = militia when = 0 }
+#		command = { type = add_division which = "Milicias POUM" value = militia when = 0 }
+
+		command = { type = unlock_division which = 27600 value = 6 } #army
+		command = { type = unlock_division which = 27600 value = 8 }
+		command = { type = unlock_division which = 27600 value = 10 }
+		command = { type = unlock_division which = 27600 value = 38 }
+		command = { type = unlock_division which = 27600 value = 40 }
+		command = { type = unlock_division which = 27600 value = 42 }
+		command = { type = unlock_division which = 27600 value = 44 }
+		command = { type = unlock_division which = 27600 value = 46 }
+		command = { type = unlock_division which = 27600 value = 48 }
+		command = { type = unlock_division which = 27600 value = 50 }
+		command = { type = unlock_division which = 27600 value = 52 }
+		command = { type = unlock_division which = 27600 value = 54 }	
+		
+#		command = { type = unlock_division which = 27600 value = 201 } #airforce
+#		command = { type = unlock_division which = 27600 value = 205 }
+
+		command = { type = switch_allegiance which = -2	where = U01 } #random corps/fleets (not single units!) because discrete entries cause CTD		
+		command = { type = switch_allegiance which = -2	where = U01 }
+		command = { type = switch_allegiance which = -2	where = U01 }
+
+#		command = { type = switch_allegiance which = 27600 value = 100	where = U01 }		
+#		command = { type = switch_allegiance which = 27600 value = 101	where = U01 }
+#		command = { type = switch_allegiance which = 27600 value = 102	where = U01 }
+#		command = { type = switch_allegiance which = 27600 value = 103	where = U01 }
+#		command = { type = switch_allegiance which = 27600 value = 104	where = U01 }
+#		command = { type = switch_allegiance which = 27600 value = 105	where = U01 }
+		
+#		command = { type = unlock_division which = 27600 value = 107 } #navy
+#		command = { type = unlock_division which = 27600 value = 109 }
+#		command = { type = unlock_division which = 27600 value = 110 }
+#		command = { type = unlock_division which = 27600 value = 111 }
+#		command = { type = unlock_division which = 27600 value = 113 }
+#		command = { type = unlock_division which = 27600 value = 114 }
+#		command = { type = unlock_division which = 27600 value = 115 }
+#		command = { type = unlock_division which = 27600 value = 116 }
+#		command = { type = unlock_division which = 27600 value = 117 }
+#		command = { type = unlock_division which = 27600 value = 118 }
+#		command = { type = unlock_division which = 27600 value = 119 }
+#		command = { type = unlock_division which = 27600 value = 120 }
+#		command = { type = unlock_division which = 27600 value = 121 }
+#		command = { type = unlock_division which = 27600 value = 122 }
+#		command = { type = unlock_division which = 27600 value = 123 }
+#		command = { type = unlock_division which = 27600 value = 124 }
+#		command = { type = unlock_division which = 27600 value = 125 }
+#		command = { type = unlock_division which = 27600 value = 126 }
+#		command = { type = unlock_division which = 27600 value = 127 }
+#		command = { type = unlock_division which = 27600 value = 129 }
+#		command = { type = unlock_division which = 27600 value = 130 }
+#		command = { type = unlock_division which = 27600 value = 131 }
+#		command = { type = unlock_division which = 27600 value = 132 }
+#		command = { type = unlock_division which = 27600 value = 133 }
+#		command = { type = unlock_division which = 27600 value = 134 }
+#		command = { type = unlock_division which = 27600 value = 136 }
+#		command = { type = unlock_division which = 27600 value = 137 }
+#		command = { type = unlock_division which = 27600 value = 138 }
+#		command = { type = unlock_division which = 27600 value = 139 }
+#		command = { type = unlock_division which = 27600 value = 140 }
+#		command = { type = unlock_division which = 27600 value = 141 }
+
+		# First took all the points
+		command = { type = province_keypoints which = 441 value = -1 } # La Coruna
+		command = { type = province_keypoints which = 451 value = -1 } # Burgos
+		command = { type = province_keypoints which = 443 value = -2 } # Bilbao
+		command = { type = province_keypoints which = 440 value = -2 } # Barcelona
+		command = { type = province_keypoints which = 436 value = -1 } # Tarragona
+		command = { type = province_keypoints which = 464 value = -2 } # Valencia
+		command = { type = province_keypoints which = 463 value = -1 } # Murcia
+		command = { type = province_keypoints which = 448 value = -1 } # Valladolid
+		command = { type = province_keypoints which = 460 value = -3 } # Madrid
+		command = { type = province_keypoints which = 455 value = -1 } # Guadalajara
+		command = { type = province_keypoints which = 472 value = -1 } # Huelva
+		command = { type = province_keypoints which = 474 value = -2 } # Seville
+		command = { type = province_keypoints which = 471 value = -1 } # Malaga
+		# Now add 1 to every city
+		command = { type = province_keypoints which = 441 value = 1 }
+		command = { type = province_keypoints which = 449 value = 1 }
+		command = { type = province_keypoints which = 444 value = 1 }
+		command = { type = province_keypoints which = 445 value = 1 }
+		command = { type = province_keypoints which = 443 value = 1 }
+		command = { type = province_keypoints which = 446 value = 1 }
+		command = { type = province_keypoints which = 442 value = 1 }
+		command = { type = province_keypoints which = 456 value = 1 }
+		command = { type = province_keypoints which = 438 value = 1 }
+		command = { type = province_keypoints which = 439 value = 1 }
+		command = { type = province_keypoints which = 440 value = 1 }
+		command = { type = province_keypoints which = 437 value = 1 }
+		command = { type = province_keypoints which = 436 value = 1 }
+		command = { type = province_keypoints which = 451 value = 1 }
+		command = { type = province_keypoints which = 448 value = 1 }
+		command = { type = province_keypoints which = 447 value = 1 }
+		command = { type = province_keypoints which = 450 value = 1 }
+		command = { type = province_keypoints which = 452 value = 1 }
+		command = { type = province_keypoints which = 460 value = 1 }
+		command = { type = province_keypoints which = 454 value = 1 }
+		command = { type = province_keypoints which = 455 value = 1 }
+		command = { type = province_keypoints which = 457 value = 1 }
+		command = { type = province_keypoints which = 458 value = 1 }
+		command = { type = province_keypoints which = 462 value = 1 }
+		command = { type = province_keypoints which = 463 value = 1 }
+		command = { type = province_keypoints which = 464 value = 1 }
+		command = { type = province_keypoints which = 459 value = 1 }
+		command = { type = province_keypoints which = 461 value = 1 }
+		command = { type = province_keypoints which = 465 value = 1 }
+		command = { type = province_keypoints which = 468 value = 1 }
+		command = { type = province_keypoints which = 466 value = 1 }
+		command = { type = province_keypoints which = 470 value = 1 }
+		command = { type = province_keypoints which = 469 value = 1 }
+		command = { type = province_keypoints which = 474 value = 1 }
+		command = { type = province_keypoints which = 472 value = 1 }
+		command = { type = province_keypoints which = 467 value = 1 }
+		command = { type = province_keypoints which = 453 value = 1 }
+		command = { type = province_keypoints which = 472 value = 1 }
+		command = { type = province_keypoints which = 474 value = 1 }
+		command = { type = province_keypoints which = 471 value = 1 }
+		command = { type = province_keypoints which = 473 value = 1 }
+		command = { type = addclaim which = 916 }
+		command = { type = addclaim which = 989 }
+		command = { type = addclaim which = 987 }
+		command = { type = addclaim which = 988 }
+		command = { type = addcore which = 990 }
+		command = { type = addcore which = 991 }
+		command = { type = addclaim which = 716 }
+		command = { type = addclaim which = 715 }
+		command = { type = addcore which = 473 }
+		command = { type = addcore which = 475 }
+		command = { type = addcore which = 474 }
+		command = { type = addcore which = 441 }
+		command = { type = addcore which = 449 }
+		command = { type = addcore which = 451 }
+		command = { type = addcore which = 453 }
+		command = { type = addcore which = 442 }
+		command = { type = addcore which = 456 }
+		command = { type = addcore which = 438 }
+		command = { type = addcore which = 448 }
+		command = { type = addcore which = 452 }
+		command = { type = addcore which = 447 }
+		command = { type = addcore which = 450 }
+		command = { trigger = { ai = yes } type = build_division which = militia when = 2 cost = -1.0 where = 21 }
+		command = { trigger = { ai = yes } type = build_division which = militia when = 2 cost = -1.0 where = 21 }
+		command = { trigger = { ai = yes } type = build_division which = militia when = 2 cost = -1.0 where = 21 }
+		
+		command = { type = trigger which = 2700073 } # Militia activation
+		command = { type = trigger which = 3173001 } # U01
+		
+	} 
+}
+##############################################
+# End of the civil war
+##############################################
+event = { 
+	id = 3174005
+	random = no
+	country = SPR
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = U01 }
+	} 
+
+	name = EVT_3174005_NAME
+	desc = EVT_3174005_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 } 
+
+	action_a = { 
+		name = ACTIONNAME3174005A 
+		
+		command = { type = task_efficiency which = attack value = 0.5 }
+		
+		# Remove all the 1
+		command = { type = province_keypoints which = 441 value = -1 }
+		command = { type = province_keypoints which = 449 value = -1 }
+		command = { type = province_keypoints which = 444 value = -1 }
+		command = { type = province_keypoints which = 445 value = -1 }
+		command = { type = province_keypoints which = 443 value = -1 }
+		command = { type = province_keypoints which = 446 value = -1 }
+		command = { type = province_keypoints which = 442 value = -1 }
+		command = { type = province_keypoints which = 456 value = -1 }
+		command = { type = province_keypoints which = 438 value = -1 }
+		command = { type = province_keypoints which = 439 value = -1 }
+		command = { type = province_keypoints which = 440 value = -1 }
+		command = { type = province_keypoints which = 437 value = -1 }
+		command = { type = province_keypoints which = 436 value = -1 }
+		command = { type = province_keypoints which = 451 value = -1 }
+		command = { type = province_keypoints which = 448 value = -1 }
+		command = { type = province_keypoints which = 447 value = -1 }
+		command = { type = province_keypoints which = 450 value = -1 }
+		command = { type = province_keypoints which = 452 value = -1 }
+		command = { type = province_keypoints which = 460 value = -1 }
+		command = { type = province_keypoints which = 454 value = -1 }
+		command = { type = province_keypoints which = 455 value = -1 }
+		command = { type = province_keypoints which = 457 value = -1 }
+		command = { type = province_keypoints which = 458 value = -1 }
+		command = { type = province_keypoints which = 462 value = -1 }
+		command = { type = province_keypoints which = 463 value = -1 }
+		command = { type = province_keypoints which = 464 value = -1 }
+		command = { type = province_keypoints which = 459 value = -1 }
+		command = { type = province_keypoints which = 461 value = -1 }
+		command = { type = province_keypoints which = 465 value = -1 }
+		command = { type = province_keypoints which = 468 value = -1 }
+		command = { type = province_keypoints which = 466 value = -1 }
+		command = { type = province_keypoints which = 470 value = -1 }
+		command = { type = province_keypoints which = 469 value = -1 }
+		command = { type = province_keypoints which = 474 value = -1 }
+		command = { type = province_keypoints which = 467 value = -1 }
+		command = { type = province_keypoints which = 472 value = -1 }
+		command = { type = province_keypoints which = 453 value = -1 }
+		command = { type = province_keypoints which = 472 value = -1 }
+		command = { type = province_keypoints which = 474 value = -1 }
+		command = { type = province_keypoints which = 471 value = -1 }
+		command = { type = province_keypoints which = 473 value = -1 }
+		# Return the VPs
+		command = { type = province_keypoints which = 441 value = 1 } # La Coruna
+		command = { type = province_keypoints which = 451 value = 1 } # Burgos
+		command = { type = province_keypoints which = 443 value = 2 } # Bilbao
+		command = { type = province_keypoints which = 440 value = 2 } # Barcelona
+		command = { type = province_keypoints which = 436 value = 1 } # Tarragona
+		command = { type = province_keypoints which = 464 value = 2 } # Valencia
+		command = { type = province_keypoints which = 463 value = 1 } # Murcia
+		command = { type = province_keypoints which = 448 value = 1 } # Leon
+		command = { type = province_keypoints which = 460 value = 3 } # Madrid
+		command = { type = province_keypoints which = 455 value = 1 } # Guadalajara
+		command = { type = province_keypoints which = 472 value = 1 } # Huelva
+		command = { type = province_keypoints which = 474 value = 2 } # Seville
+		command = { type = province_keypoints which = 471 value = 1 } # Malaga
+		#command = { type = ground_def_eff value = 0.85 }	
+		command = { trigger = { ai = yes } type = ai which = "SPR_1936.ai" }
+		command = { trigger = { ai = yes NOT = { participant = { value = 1 } } NOT = { participant = { value = 2 } } NOT = { participant = { value = 3 } } } type = ai which = "switch/isolationist.ai" }
+	} 
+}
+#########################################################################
+#  Spanish Civil War - Soviet Intervention
+#########################################################################
+event = { 
+	id = 3174006
+	random = no
+	country = SPR
+	
+	# Triggered by SOV 3183050
+	
+	name = EVT_3174006_NAME
+	desc = EVT_3174006_DESC
+	style = 0
+	picture = "SCW_Soviet Intervention"
+	
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = money value = -500 }
+		command = { type = oilpool value = 1000 }
+		command = { type = supplies value = 1000 }
+		command = { type = metalpool value = 1000 }
+		command = { type = energypool value = 5000 }
+		command = { type = activate_division which = 27600 value = 11910 when = 0 }
+		command = { trigger = { control = { province = 440 data = -1 } } type = add_corps which = "" value = air where = 440 } #Madrid
+		command = { type = activate_division which = 27600 value = 11911 when = 0 }
+		command = { type = activate_division which = 27600 value = 11912 when = 0 }
+		command = { type = activate_division which = 27600 value = 11913 when = 0 }
+		command = { trigger = { control = { province = 460 data = -1 } } type = add_corps which = "" value = air where = 460 } #Barcelona
+		command = { type = activate_division which = 27600 value = 11914 when = 0 }
+	}
+}
+#########################################################################
+#  Spanish Civil War - French Intervention
+#########################################################################
+event = { 
+	id = 3174007
+	random = no
+	country = SPR
+	
+	# Triggered by FRA 3135028
+	
+	name = EVT_3174007_NAME
+	desc = EVT_3174006_DESC
+	style = 0
+	picture = "SCW_French Intervention"
+
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = oilpool value = 1000 }
+		command = { type = supplies value = 500 }
+		command = { type = metalpool value = 2500 }
+		command = { type = energypool value = 5000 }
+#		command = { type = manpowerpool value = 5 }
+	}
+}
+#########################################################################
+# Spanish Civil War - UK Intervention
+#########################################################################
+event = { 
+	id = 3174008
+	random = no
+	country = SPR
+	
+	# Triggered by UK 3131119
+	
+	name = EVT_3174008_NAME
+	desc = EVT_3174006_DESC
+	style = 0
+	picture = "spanish_civil_war_uk"
+	
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = oilpool value = 1000 }
+		command = { type = supplies value = 500 }
+		command = { type = metalpool value = 2500 }
+		command = { type = energypool value = 5000 }
+#		command = { type = manpowerpool value = 5 }
+	}
+}
+#########################################################################
+# International Brigades
+#########################################################################
+event = {
+	id = 3174009
+	random = no
+	country = SPR
+	
+	trigger = {
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3174009_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date = { day = 21 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = october year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3174009A
+		command = { type = activate_division which = 27600 value = 11900 when = 0 }
+	}
+}
+event = {
+	id = 3174010
+	random = no
+	country = SPR
+	
+	trigger = {
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3174009_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date = { day = 4 month = november year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = november year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3174010A
+		command = { type = activate_division which = 27600 value = 11901 when = 0 }
+	}
+}
+event = {
+	id = 3174011
+	random = no
+	country = SPR
+	
+	trigger = {
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3174009_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date = { day = 11 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3174011A
+		command = { type = activate_division which = 27600 value = 11902 when = 0 }
+	}
+}
+event = {
+	id = 3174012
+	random = no
+	country = SPR
+	
+	trigger = {
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3174009_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date = { day = 0 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+	
+	action_a = {
+		name = ACTIONNAME3174012A
+		command = { type = activate_division which = 27600 value = 11903 when = 0 }
+	}
+}
+#event = {
+#	id = 3174013
+#	random = no
+#	country = SPR
+#	
+#	trigger = {
+#		flag = SCW
+#		war = { country = SPR country = U01 }
+#	}
+#	
+#	name = EVT_3174009_NAME
+#	desc = EVT_3174009_DESC
+#	style = 0
+#
+#	date = { day = 29 month = january year = 1937 }
+#	offset = 1
+#	deathdate = { day = 29 month = january year = 1937 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3174013A
+#		command = { type = add_division which = "15.International Brigade" value = infantry when = 0 }
+#	}
+#}
+event = {
+	id = 3174014
+	random = no
+	country = SPR
+	
+	trigger = {
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = EVT_3174009_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date = { day = 12 month = july year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = july year = 1937 }
+	
+	action_a = {
+		name = ACTIONNAME3174014A
+		command = { type = activate_division which = 27600 value = 11904 when = 0 }
+		command = { type = activate_division which = 27600 value = 11905 when = 0 }
+	}
+}
+#event = {
+#	id = 3174014
+#	random = no
+#	country = SPR
+#	
+#	trigger = {
+#		flag = SCW
+#		war = { country = SPR country = U01 }
+#	}
+#	
+#	name = EVT_3174009_NAME
+#	desc = EVT_3174009_DESC
+#	style = 0
+#
+#	date = { day = 12 month = february year = 1937 }
+#	offset = 1
+#	deathdate = { day = 29 month = february year = 1937 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3174014A
+#		command = { type = add_division which = "86.International Brigade" value = infantry when = 0 }
+#		command = { type = add_division which = "129.International Brigade" value = infantry when = 0 }
+#	}
+#}
+# event = {
+#	id = 3174015
+#	random = no
+#	country = SPR
+#	
+#	trigger = {
+#		flag = SCW
+#		war = { country = SPR country = U01 }
+#	}
+#	
+#	name = EVT_3174009_NAME
+#	desc = EVT_3174009_DESC
+#	style = 0
+#
+#	date = { day = 26 month = may year = 1937 }
+#	offset = 1
+#	deathdate = { day = 29 month = may year = 1937 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3174015A
+#		command = { type = add_division which = "150.International Brigade" value = infantry when = 0 }
+#	}
+#}
+event = {
+	id = 3174022
+	random = no
+	country = SPR
+	
+	trigger = {
+                AI = yes
+                AI = U01
+                lost_national = { country = SPR value = 50 }
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+	
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 10 month = march year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = august year = 1939 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+		        command = { type = delete_unit which = -1 }
+                        command = { type = delete_unit which = -1 }
+        
+	}
+}
+#########################################################################
+# New Government
+#########################################################################
+#event = {
+#	id = 3174016
+#	random = no
+#	country = SPR
+#	
+#	trigger = {
+#		flag = SCW
+#		war = { country = SPR country = U01 }
+#	}
+#	
+#	name = EVT_3174016_NAME
+#	desc = EVT_3174016_DESC
+#	style = 0
+#
+#	date = { day = 3 month = september year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = september year = 1936 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3174001A
+#
+#		command = { type = headofgovernment which = 11062 } # Francisco Largo Caballero
+#	}
+#}
+#########################################################################
+# Communist Coup - Anarchist movement crushed
+#########################################################################
+event = { 
+	id = 3174017
+	random = no
+	country = SPR
+
+	trigger = {
+		NOT = { government = communist }
+		flag = SCW
+		war = { country = SPR country = U01 }
+	}
+
+	name = EVT_3174017_NAME
+	desc = EVT_3174017_DESC
+	style = 0
+	picture = "SPR_Communist_Coup"
+	
+	date = { day = 16 month = may year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+		command = { type = set_domestic which = democratic value = 5 } 
+		command = { type = set_domestic which = political_left value = 8 }
+		command = { type = headofstate which = 11046 }
+		command = { type = headofgovernment which = 11060 }
+		command = { type = foreignminister which = 11092 }
+		command = { type = armamentminister which = 11134 }
+		command = { type = ministerofsecurity which = 11176 }
+		command = { type = ministerofintelligence which = 11217 }
+		command = { type = chiefofstaff which = 11247 }
+		command = { type = chiefofarmy which = 11277 }
+		command = { type = chiefofnavy which = 11305 }
+		command = { type = chiefofair which = 11010 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = relation which = SOV value = 20 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = relation which = GER value = -20 }
+		command = { type = relation which = ITA value = -20 }
+		command = { type = relation which = USA value = -5 }
+		command = { type = relation which = POR value = -15 }
+		command = { type = dissent value = 10 }
+	}
+}
+#########################################################################
+# German soldiers return home
+#########################################################################
+event = {
+	id = 3174018
+	random = no
+	country = SPR
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = U01 }
+		event = 3136161 # GER Condor Legion
+	}
+
+	name = EVT_3174018_NAME
+	desc = EVT_3174018_DESC
+	style = 0
+
+	date =  { day = 0 month = august year = 1936 }
+	offset = 30
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+    	command = { type = remove_division which = "I./KG 'Legión Cóndor'" value = SPR }
+   		command = { type = remove_division which = "II./KG 'Legión Cóndor'" value = SPR }
+        command = { type = remove_division which = "I./JG 'Legión Cóndor'" value = SPR }
+   		command = { type = remove_division which = "II./JG 'Legión Cóndor'" value = SPR }		
+		command = { type = trigger which = 3136164 } # GER
+		command = { type = sleepleader which = 3492 }
+      command = { type = sleepleader which = 3493 }
+      command = { type = sleepleader which = 3494 }
+	  command = { type = sleepleader which = 3466 }
+      command = { type = trigger which = 802069 } # POR
+	}
+}
+#########################################################################
+# Italian soldiers return home
+#########################################################################
+event = {
+	id = 3174019
+	random = no
+	country = SPR
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = U01 }
+		event = 3145036 # ITA volunteers
+	}
+
+	name = EVT_3174019_NAME
+	desc = EVT_3174018_DESC
+	style = 0
+
+	date =  { day = 0 month = august year = 1936 }
+	offset = 30
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+      		command = { type = remove_division which = "Bombardieri 'Aviazione Legionaria'" value = SPR }
+      		command = { type = remove_division which = "Caccia 'Aviazione Legionaria'" value = SPR }
+     		command = { type = remove_division which = "Littorio" value = SPR }
+      		command = { type = remove_division which = "Dio lo Vuole" value = SPR }
+      		command = { type = remove_division which = "Fiamme Nere" value = SPR }
+      		command = { type = remove_division which = "Penne Nere" value = SPR }
+			command = { type = sleepleader which = 3455 }
+			command = { type = sleepleader which = 3427 }
+			command = { type = sleepleader which = 3413 }
+	}
+}
+
+#########################################################################
+# Soviet soldiers return home
+#########################################################################
+event = {
+	id = 3174023
+	random = no
+	country = SPR
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = U01 }
+		event = 3174006 # SOV volunteers
+	}
+
+	name = EVT_3174023_NAME
+	desc = EVT_3174006_DESC
+	style = 0
+
+	date =  { day = 0 month = august year = 1936 }
+	offset = 30
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+	  	#command = { type = remove_division which = 27600 value = 11910 } #		command = { type = remove_division which = "Soviética Brigada acorazado" value = SPR } 
+		command = { type = remove_division which = 27600 value = 11911 } #	  	command = { type = remove_division which = "Soviética Grupo n.1 de Caza FARE 'Lenin'" value = SPR }
+		command = { type = remove_division which = 27600 value = 11912 } #	  	command = { type = remove_division which = "Soviética Grupo n.2 de Caza FARE 'Revolución octubre'" value = SPR }
+		command = { type = remove_division which = 27600 value = 11913 } #	  	command = { type = remove_division which = "Soviética Grupo n.3 de Caza FARE 'Comuna Paris'" value = SPR }
+		command = { type = remove_division which = 27600 value = 11914 } #	  	command = { type = remove_division which = "Soviética Grupo n.12 de Bombardeo FARE" value = SPR }
+		command = { type = trigger which = 31830780 } #SOV
+	}
+}
+
+#########################################################################
+# International brigades return home
+#########################################################################
+event = {
+	id = 3174024
+	random = no
+	country = SPR
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = U01 }
+	}
+
+	name = EVT_3174024_NAME
+	desc = EVT_3174009_DESC
+	style = 0
+
+	date =  { day = 0 month = august year = 1936 }
+	offset = 30
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3174001A
+      	command = { type = remove_division which = 27600 value = 11900 } #		command = { type = remove_division which = "XI. Brigada 'Thälmann'" value = SPR }
+	 	command = { type = remove_division which = 27600 value = 11901 } #		command = { type = remove_division which = "XII. Brigada 'Garibaldi'" value = SPR }
+	 	command = { type = remove_division which = 27600 value = 11902 } #		command = { type = remove_division which = "XIII. Brigada 'Dombrowski'" value = SPR }
+	 	command = { type = remove_division which = 27600 value = 11903 } #		command = { type = remove_division which = "XIV. Brigada 'Marseillaise'" value = SPR }
+	 	command = { type = remove_division which = 27600 value = 11904 } #		command = { type = remove_division which = "I./XV. Brigada 'Lincoln'" value = SPR }
+	 	command = { type = remove_division which = 27600 value = 11905 } #		command = { type = remove_division which = "II./XV. Brigada 'Washington'" value = SPR }
+		
+		command = { trigger = { AI = yes } type = demobilize which = militia when = 0 where = 0 value = 0 } # disband all other militia units and return manpower to the pool
+	}
+}
+
+#############################################################################
+# Allies take control over spanish colonies if Germany attacks after Vichy
+#############################################################################
+event = {
+	id = 3174025
+	random = no
+	tag = { SPR U01 }
+
+	trigger = {
+				ai = yes
+				event = 3136033 # Vichy
+				war = { country = ENG country = GER }
+				OR = {
+						AND = { 
+								country = SPR
+								war = { country = SPR country = GER }
+								}
+						AND = { 
+								country = U01
+								war = { country = U01 country = GER }
+								}
+						}
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 0
+
+	date =  { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = removeclaim which = 715 }
+		command = { type = removeclaim which = 716 }
+		command = { type = removeclaim which = 987 }
+		command = { type = removeclaim which = 988 }
+		command = { type = removeclaim which = 989 }
+		command = { type = removeclaim which = 913 }
+		command = { type = removeclaim which = 916 }
+		command = { type = removeclaim which = 991 }
+		command = { type = removeclaim which = 990 }
+		
+		command = { type = removecore which = 715 }
+		command = { type = removecore which = 716 }
+		command = { type = removecore which = 987 }
+		command = { type = removecore which = 988 }
+		command = { type = removecore which = 989 }
+		command = { type = removecore which = 913 }
+		command = { type = removecore which = 916 }
+		command = { type = removecore which = 991 }
+		command = { type = removecore which = 990 }
+		
+		command = { type = secedeprovince which = ENG value = 715 }
+		command = { type = secedeprovince which = ENG value = 716 }
+		command = { type = secedeprovince which = ENG value = 987 }
+		command = { type = secedeprovince which = ENG value = 988 }
+		command = { type = secedeprovince which = ENG value = 989 }
+		command = { type = secedeprovince which = ENG value = 913 }
+		command = { type = secedeprovince which = ENG value = 916 }
+		command = { type = secedeprovince which = ENG value = 991 }
+		command = { type = secedeprovince which = ENG value = 990 }
+	}
+}
+
+###########################################################
+# Support in SCW
+###########################################################
+
+event = {
+	id = 3174026
+	random = no
+	country = SPR
+
+		trigger = {
+					random = 60
+					war = { country = U01 country = SPR }
+					control = { province = 440 data = SPR }
+					}		
+
+	date = { day = 25 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 3 month = june year = 1939 }
+
+	name = EVT_3174026_NAME # Anarchists
+	desc = EVT_3174026_DESC
+	style = 1
+  	picture = "scw"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = add_division which = "Columna Durruti" value = d_02 when = 0 }
+
+		command = { type = add_corps which = "Milicias CNT" value = land where = 440 }
+		command = { type = add_division which = "1a CNT Revolucionarios" value = militia when = 1 }
+		command = { type = add_division which = "2a CNT Revolucionarios" value = militia when = 1 }
+
+		command = { type = dissent value = 3 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = freedom value = 1 }
+		command = { type = domestic which = free_market value = -1 }
+
+		#command = { type = manpowerpool value = 14 }
+		command = { type = supplies value = -200 }
+
+	}
+}
+
+event = {
+	id = 3174027
+	random = no
+	country = SPR
+
+
+		trigger = {
+					random = 40
+					war = { country = U01 country = SPR }
+					control = { province = 443 data = SPR }
+					}		
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = june year = 1939 }
+
+	name = EVT_3174027_NAME
+	desc = EVT_3174027_DESC
+	style = 1
+  	picture = "scw"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = add_corps which = "Euzko Gudarostea I" value = land where = 443 } # bilbao
+		command = { type = activate_division which = 27600 value = 11915 where = 443 when = 0 } 
+		command = { type = activate_division which = 27600 value = 11916 where = 443 when = 0 }  
+		command = { type = add_corps which = "Euzko Gudarostea II" value = land where = 443 } # bilbao
+		command = { type = activate_division which = 27600 value = 11917 where = 443 when = 0 }  
+		#command = { type = manpowerpool value = 10 }
+		command = { type = supplies value = 500 where = 443 }
+
+	}
+}
+
+#######################################################################
+# emergency unlock event if SPR is at war before the SCW has started
+#######################################################################
+
+event = {
+	id = 3174028
+	random = no
+	country = SPR
+
+
+		trigger = {
+					atwar = yes
+					NOT = { war = { country = U01 country = SPR } }
+					}		
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	name = EVT_MOBWAR_NAME
+	desc = EVT_MOBWAR_DESC 
+	style = 1
+  	picture = "scw"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = unlock_division which = 27600 value = 6 }
+		command = { type = unlock_division which = 27600 value = 8 }
+		command = { type = unlock_division which = 27600 value = 10 }
+		command = { type = unlock_division which = 27600 value = 38 }
+		command = { type = unlock_division which = 27600 value = 40 }
+		command = { type = unlock_division which = 27600 value = 42 }
+		command = { type = unlock_division which = 27600 value = 44 }
+		command = { type = unlock_division which = 27600 value = 46 }
+		command = { type = unlock_division which = 27600 value = 48 }
+		command = { type = unlock_division which = 27600 value = 50 }
+		command = { type = unlock_division which = 27600 value = 52 }
+		command = { type = unlock_division which = 27600 value = 54 }	
+		
+		command = { type = unlock_division which = 27600 value = 12 }
+		command = { type = unlock_division which = 27600 value = 14 }
+		command = { type = unlock_division which = 27600 value = 16 }
+		command = { type = unlock_division which = 27600 value = 18 }
+		command = { type = unlock_division which = 27600 value = 20 }
+		command = { type = unlock_division which = 27600 value = 22 }
+		command = { type = unlock_division which = 27600 value = 24 }
+		command = { type = unlock_division which = 27600 value = 26 }
+		command = { type = unlock_division which = 27600 value = 28 }
+		command = { type = unlock_division which = 27600 value = 30 }
+		command = { type = unlock_division which = 27600 value = 32 }
+		command = { type = unlock_division which = 27600 value = 34 }
+		command = { type = unlock_division which = 27600 value = 36 }
+		command = { type = unlock_division which = 27600 value = 56 }
+		command = { type = unlock_division which = 27600 value = 58 }
+		command = { type = unlock_division which = 27600 value = 60 }
+		command = { type = unlock_division which = 27600 value = 62 }
+		command = { type = unlock_division which = 27600 value = 64 }
+		command = { type = unlock_division which = 27600 value = 66 }
+		command = { type = unlock_division which = 27600 value = 68 }
+		command = { type = unlock_division which = 27600 value = 70 }
+		command = { type = unlock_division which = 27600 value = 72 }
+	}
+}
+
+#########################################################################
+# Non-intervention committee
+#########################################################################
+event = {
+	id = 3174037
+	random = no
+	country = SPR
+
+	name = EVT_31733023_NAME
+	desc = EVT_31733023_DESC
+	style = 2
+	picture = "spa_event_non-intervention"
+
+	trigger = {
+			war = { country = U01 country = SPR } 
+			NOT = {
+					OR = {
+							atwar = GER
+							atwar = ENG
+							atwar = FRA
+							atwar = SOV
+							}
+					}
+		}
+				
+
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1939 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = convoy_def_eff value = 0.5 }
+	}
+}
+
+event = {
+	id = 3174038
+	random = no
+	country = SPR
+
+	name = EVT_31733024_NAME
+	desc = EVT_31733024_DESC
+	style = 2
+	picture = "spa_event_non-intervention"
+
+	trigger = {
+			event = 3174037
+			OR = {
+					NOT = { war = { country = U01 country = SPR } }
+					atwar = GER
+					atwar = ENG
+					atwar = FRA
+					atwar = SOV
+					}
+		}
+				
+
+	date = { day = 8 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = august year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = convoy_def_eff value = -0.5 }
+	}
+}
+
+
+#########################################################################
+# Spanish armor reform
+# Rep spain planed to form 2 armored divisions in 1938 but there was no
+# time to organise this divisions. They were planed and organised but
+# were never up to full strength. Just one division was send to the front
+# line to stop nat spa armies.
+# 3174039 is nat spa event with armored division
+#########################################################################
+event = {
+	id = 3174040
+	random = no
+	country = SPR
+
+	trigger = { 
+	        random = 20
+	        event  = 3174023
+	}	
+	
+	name = EVT_3174040_NAME # spanish armor
+	desc = EVT_3174040_DESC
+	style = 2
+	picture = "spa_rep_event_armor_division"
+	
+	date = { day = 1 month = march year = 1940 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1999 }	
+
+	action_a = {
+		name = ACTIONNAME3174040A # Sure
+		ai_chance = 100
+		command = { type = activate_division which = 27600 value = 11920 when = 0 }
+		command = { type = activate_division which = 27600 value = 11921 when = 0 }
+		command = { type = remove_division which = 27600 value = 11922 }
+		command = { type = remove_division which = 27600 value = 11923 }
+	}
+	action_b = {
+		name = ACTIONNAME3174040B # Nope
+		ai_chance = 0
+		command = { type = money value = 50 }
+	}
+}
+
+##################################################################################
+# Soviet tank shipments to Spain
+##################################################################################
+event = {
+	id = 3174045
+	random = no
+	country = SPR
+
+	trigger = { 
+	        event  = 3174006
+            division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+			war = { country = SPR country = U01 }
+	}	
+	
+	name = EVT_3174045_NAME # soviet tank shipment
+	desc = EVT_3174045_DESC
+	style = 2
+	picture = "spa_rep_event_soviet_tanks"
+	
+	date = { day = 24 month = november year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1945 }	
+
+	action_a = {
+		name = ACTIONNAME3174045A # We need more tanks
+		ai_chance = 100
+		command = { type = damage_division which = 27600 value = 11910 where = -5 }
+		command = { type = money value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3174045B # We dont need soviet help
+		ai_chance = 0
+		command = { type = sleepevent which = 3174046 }
+	}
+}
+
+event = {
+	id = 3174046
+	random = no
+	country = SPR
+
+	trigger = { 
+	        event  = 3174045
+            division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+			war = { country = SPR country = U01 }
+	}	
+	
+	name = EVT_3174045_NAME # soviet tank shipment
+	desc = EVT_3174045_DESC
+	style = 2
+	picture = "spa_rep_event_soviet_tanks"
+	
+	date = { day = 5 month = march year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1945 }	
+
+	action_a = {
+		name = ACTIONNAME3174045A # We need more tanks
+		ai_chance = 100
+		command = { type = damage_division which = 27600 value = 11910 where = -10 }
+		command = { type = money value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3174045B # We dont need soviet help
+		ai_chance = 0
+		command = { type = sleepevent which = 3174047 }
+	}
+}
+
+event = {
+	id = 3174047
+	random = no
+	country = SPR
+
+	trigger = { 
+	        event  = 3174046
+            division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+			war = { country = SPR country = U01 }
+	}	
+	
+	name = EVT_3174045_NAME # soviet tank shipment
+	desc = EVT_3174045_DESC
+	style = 2
+	picture = "spa_rep_event_soviet_tanks"
+	
+	date = { day = 6 month = may year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1945 }	
+
+	action_a = {
+		name = ACTIONNAME3174045A # We need more tanks
+		ai_chance = 100
+		command = { type = damage_division which = 27600 value = 11910 where = -5 }
+		command = { type = money value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3174045B # We dont need soviet help
+		ai_chance = 0
+		command = { type = sleepevent which = 3174048 }
+	}
+}
+
+event = {
+	id = 3174048
+	random = no
+	country = SPR
+
+	trigger = { 
+	        event  = 3174047
+            division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+			war = { country = SPR country = U01 }
+	}	
+	
+	name = EVT_3174045_NAME # soviet tank shipment
+	desc = EVT_3174045_DESC
+	style = 2
+	picture = "spa_rep_event_soviet_tanks"
+	
+	date = { day = 9 month = august year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1945 }	
+
+	action_a = {
+		name = ACTIONNAME3174045A # We need more tanks
+		ai_chance = 100
+		command = { type = damage_division which = 27600 value = 11910 where = -5 }
+		command = { type = money value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3174045B # We dont need soviet help
+		ai_chance = 0
+		command = { type = sleepevent which = 3174049 } #decision
+	}
+}
+
+# 3174049 is a decision in Rep_SPA decisions folder
+

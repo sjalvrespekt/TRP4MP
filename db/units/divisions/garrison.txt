@@ -1,0 +1,244 @@
+#	garrison				
+#allowed_brigades =  artillery					
+#allowed_brigades =  anti_tank					
+allowed_brigades =  anti_air					
+#allowed_brigades =  rocket_artillery					
+##allowed_brigades =  sp_artillery					
+##allowed_brigades =  sp_rct_artillery					
+##allowed_brigades =  tank_destroyer					
+##allowed_brigades =  light_armor_brigade					
+##allowed_brigades =  heavy_armor					
+##allowed_brigades =  super_heavy_armor					
+#allowed_brigades =  armored_car					
+##allowed_brigades =  engineer					
+allowed_brigades =  police					
+##allowed_brigades =  sp_anti_air
+#allowed_brigades =  b_01					
+					
+upgrade = { type = infantry upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }					
+					
+# Great War Garrison Division (1918) - 0					
+model = {					
+	cost =				2.87
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				10
+	toughness =				10
+	softness =				100
+	suppression =				8
+	airdefence =				7
+	softattack =				8
+	hardattack =				0
+	airattack =				0
+	transportweight =				10
+	supplyconsumption =				0.26
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 10000 equipment = 315 artillery = 27 heavy_artillery = 36 anti_air = 5 anti_tank = 3 horses = 350                              }
+}					
+# Early Garrison Division (1936) - 1					
+model = {					
+	cost =				3.41
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				14
+	toughness =				15
+	softness =				100
+	suppression =				8
+	airdefence =				10
+	softattack =				12
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.3
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 285 artillery = 45 heavy_artillery = 18 anti_air = 5 anti_tank = 6 horses = 300                              }
+}					
+# Basic Garrison Division (1939) - 2					
+model = {					
+	cost =				3.73
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				17
+	toughness =				18
+	softness =				100
+	suppression =				8
+	airdefence =				12
+	softattack =				14
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.33
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 262 artillery = 54 heavy_artillery = 9 anti_air = 9 anti_tank = 56 horses = 300 trucks = 10                             }
+}					
+# Improved Garrison Division (1942) - 3					
+model = {					
+	cost =				4.08
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				20
+	toughness =				21
+	softness =				100
+	suppression =				8
+	airdefence =				14
+	softattack =				17
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.36
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 162 artillery = 46 heavy_artillery = 9 anti_air = 9 anti_tank = 56 horses = 250 trucks = 25                             }
+}					
+# Advanced Garrison Division (1944) - 4					
+model = {					
+	cost =				4.33
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				22
+	toughness =				24
+	softness =				100
+	suppression =				8
+	airdefence =				16
+	softattack =				19
+	hardattack =				2
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.38
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 10000 equipment = 188 artillery = 46 heavy_artillery = 9 anti_air = 14 anti_tank = 56 horses = 250 trucks = 25                             }
+}					
+# Semimodern Garrison Division (1947) - 5					
+model = {					
+	cost =				4.73
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				26
+	toughness =				28
+	softness =				100
+	suppression =				8
+	airdefence =				19
+	softattack =				23
+	hardattack =				2
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.42
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 195 artillery = 46 heavy_artillery = 18 anti_air = 14 anti_tank = 54 horses = 200 trucks = 50                             }
+}					
+# Modern Garrison Division (1951) - 6					
+model = {					
+	cost =				5.12
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				31
+	toughness =				33
+	softness =				100
+	suppression =				8
+	airdefence =				22
+	softattack =				27
+	hardattack =				3
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.46
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 206 artillery = 46 heavy_artillery = 18 anti_air = 18 anti_tank = 45 horses = 150 trucks = 75                             }
+}					
+# Elite Garrison Division (1955) - 7					
+model = {					
+	cost =				5.54
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				36
+	toughness =				39
+	softness =				100
+	suppression =				8
+	airdefence =				26
+	softattack =				31
+	hardattack =				4
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				0.49
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 230 artillery = 54 heavy_artillery = 18 anti_air = 18 anti_tank = 27  trucks = 125                             }
+}					
+# Elite Garrison Division (1960) - 8					
+model = {					
+	cost =				6.12
+	buildtime =			 	80
+	manpower =				10
+	maxspeed =				1
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				44
+	toughness =				47
+	softness =				100
+	suppression =				8
+	airdefence =				32
+	softattack =				38
+	hardattack =				5
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				0.54
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 230 artillery = 54 heavy_artillery = 18 anti_air = 18 anti_tank = 23  trucks = 125              helicopter = 3               }
+}					

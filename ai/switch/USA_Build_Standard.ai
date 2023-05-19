@@ -1,0 +1,54 @@
+# checked DH
+# USA Standard Build
+
+###################################
+# Construction and Tech Research
+###################################
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 360 
+	max_batch_home_front 	= 360
+
+	#### Divisions etc...
+	infantry 		= 6
+	d_02			= 0
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 5
+	mechanized 		= 5
+	light_armor 	= 0
+	armor 			= 5
+	paratrooper 	= 0
+	marine 			= 5
+	bergsjaeger 	= 0
+	garrison		= 3
+    hq 				= 0
+
+#				29 %
+	interceptor 		= 6
+	multi_role 		= 0
+	d_01			= 3
+	cas 			= 0
+	strategic_bomber = 5
+	tactical_bomber = 6
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				20 %
+	battleship 	= 2
+	carrier 	= 8
+	light_carrier	= 2
+	escort_carrier	= 1
+	destroyer 	= 10
+	light_cruiser 	= 9
+	heavy_cruiser 	= 2
+	battlecruiser 	= 0
+	submarine 	= 4
+	nuclear_submarine = 0
+	d_09 = 5
+	d_08 = 0
+	transports 		= 8
+#				51 %
+}

@@ -1,0 +1,255 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+model = { # Multi-Role Fighter 1930 - 0
+	cost 						= 4.88 #7.32
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 300
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 3
+	surfacedefence				= 6
+	airdefence					= 9 #3
+	airattack					= 12 #4
+	strategicattack				= 0
+	softattack					= 4
+	hardattack					= 1
+	navalattack					= 2
+	range						= 350
+	supplyconsumption 			= 1.22
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Multi-Role Fighter 1937 - 1
+	cost 						= 6.42 #9.62
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 450
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	surfacedefence				= 8
+	airdefence					= 11 #4
+	airattack					= 14 #6
+	strategicattack				= 1
+	softattack					= 4
+	hardattack					= 1
+	navalattack					= 3
+	range						= 400
+	supplyconsumption 			= 1.61
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Multi-Role Fighter 1940 - 2
+	cost 						= 7.22 #10.83
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 500
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 8
+	surfacedefence				= 10
+	airdefence					= 13 #7
+	airattack					= 17 #9
+	strategicattack				= 1
+	softattack					= 5
+	hardattack					= 1
+	navalattack					= 4
+	range						= 500
+	supplyconsumption 			= 1.81
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Multi-Role Fighter 1942 - 3
+	cost 						= 7.81 #11.71
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 650
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 9
+	surfacedefence				= 16
+	airdefence					= 14 #10
+	airattack					= 19 #13
+	strategicattack				= 2
+	softattack					= 6
+	hardattack					= 1
+	navalattack					= 5
+	range						= 600
+	supplyconsumption 			= 1.95
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+
+model = { # Multi-Role Fighter 1944 - 4 - last piston engine
+	cost 						= 8.44 #12.67
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 650
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 9
+	surfacedefence				= 16
+	airdefence					= 16 #14
+	airattack					= 22 #19
+	strategicattack				= 2
+	softattack					= 6
+	hardattack					= 2
+	navalattack					= 6
+	range						= 725
+	supplyconsumption 			= 2.11
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+
+model = { # Turbojet Multi-Role Fighter 1945 - 5
+	cost 						= 8.78 #13.17
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 800
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 10
+	surfacedefence				= 18
+	airdefence					= 18 #17
+	airattack					= 24 #23
+	strategicattack				= 2
+	softattack					= 7
+	hardattack					= 2
+	navalattack					= 8
+	range						= 800
+	supplyconsumption 			= 2.2
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.25
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Multi-Role Fighter 1947 - 6
+	cost 						= 9.5 #14.25
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 850
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 10
+	surfacedefence				= 18
+	airdefence					= 20 #22
+	airattack					= 27 #29
+	strategicattack				= 3
+	softattack					= 8
+	hardattack					= 2
+	navalattack					= 9
+	range						= 1000
+	supplyconsumption 			= 2.38
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Multi-Role 1950 - 7
+	cost 						= 10.69 #16.03
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1000
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 8
+	surfacedefence				= 16
+	airdefence					= 23 #27
+	airattack					= 30 #36
+	strategicattack				= 3
+	softattack					= 9
+	hardattack					= 2
+	navalattack					= 12
+	range						= 1500
+	supplyconsumption 			= 2.67
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Multi-Role 1954 - 8
+	cost 						= 12.5 #18.75
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1200
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 9
+	surfacedefence				= 18
+	airdefence					= 27 #34
+	airattack					= 36 #45
+	strategicattack				= 3
+	softattack					= 10
+	hardattack					= 3
+	navalattack					= 13
+	range						= 1800
+	supplyconsumption 			= 3.13
+	fuelconsumption				= 3.25
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Multi-Role 1959 - 9
+	cost 						= 15.21 #22.81
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1400
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 10
+	surfacedefence				= 20
+	airdefence					= 31 #39
+	airattack					= 41 #52
+	strategicattack				= 4
+	softattack					= 12
+	hardattack					= 4
+	navalattack					= 14
+	range						= 2000
+	supplyconsumption 			= 3.8
+	fuelconsumption				= 3.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}

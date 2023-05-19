@@ -1,0 +1,244 @@
+#	infantry				
+allowed_brigades =  artillery					
+allowed_brigades =  anti_tank					
+allowed_brigades =  anti_air					
+allowed_brigades =  rocket_artillery					
+#allowed_brigades =  sp_artillery					
+#allowed_brigades =  sp_rct_artillery					
+#allowed_brigades =  tank_destroyer					
+allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+#allowed_brigades =  sp_anti_air	
+allowed_brigades =  b_01				
+					
+upgrade = { type = motorized upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }					
+					
+# Great War Infantry Division (1918) - 0					
+model = {					
+	cost =				3.91
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				14
+	toughness =				15
+	softness =				100
+	suppression =				2
+	airdefence =				12
+	softattack =				12
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.56
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 17000 equipment = 420 artillery = 36 heavy_artillery = 48 anti_air = 6 anti_tank = 4 horses = 6870 trucks = 79  armored_car = 3                           }
+}					
+# Early Infantry Division (1936) - 1					
+model = {					
+	cost =				4.66
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				20
+	toughness =				21
+	softness =				100
+	suppression =				2
+	airdefence =				17
+	softattack =				17
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.67
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 380 artillery = 60 heavy_artillery = 24 anti_air = 6 anti_tank = 8 horses = 5110 trucks = 200  armored_car = 3                           }
+}					
+# Basic Infantry Division (1939) - 2					
+model = {					
+	cost =				5.09
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				23
+	toughness =				25
+	softness =				100
+	suppression =				2
+	airdefence =				20
+	softattack =				20
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.74
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 17000 equipment = 350 artillery = 72 heavy_artillery = 12 anti_air = 12 anti_tank = 75 horses = 4840 trucks = 1536  armored_car = 3                           }
+}					
+# Improved Infantry Division (1942) - 3					
+model = {					
+	cost =				5.56
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				28
+	toughness =				30
+	softness =				100
+	suppression =				2
+	airdefence =				24
+	softattack =				24
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.8
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 17000 equipment = 215 artillery = 62 heavy_artillery = 12 anti_air = 12 anti_tank = 75 horses = 4840 trucks = 1399 halftracks = 3 armored_car = 9              balloon = 6             }
+}					
+# Advanced Infantry Division (1944) - 4					
+model = {					
+	cost =				5.9
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				31
+	toughness =				33
+	softness =				100
+	suppression =				2
+	airdefence =				27
+	softattack =				27
+	hardattack =				2
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				0.85
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 17000 equipment = 250 artillery = 62 heavy_artillery = 12 anti_air = 18 anti_tank = 75 horses = 6033 trucks = 1335 halftracks = 9 armored_car = 13     sp_artillery = 9         balloon = 10             }
+}					
+# Semimodern Infantry Division (1947) - 5					
+model = {					
+	cost =				6.45
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				37
+	toughness =				40
+	softness =				100
+	suppression =				2
+	airdefence =				33
+	softattack =				33
+	hardattack =				3
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				0.93
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 17000 equipment = 260 artillery = 62 heavy_artillery = 24 anti_air = 18 anti_tank = 72 horses = 1090 trucks = 1520 halftracks = 18 armored_car = 24     sp_artillery = 18         balloon = 12             }
+}					
+# Modern Infantry Division (1951) - 6					
+model = {					
+	cost =				6.98
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				44
+	toughness =				47
+	softness =				100
+	suppression =				2
+	airdefence =				38
+	softattack =				38
+	hardattack =				4
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				1.01
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 275 artillery = 62 heavy_artillery = 24 anti_air = 24 anti_tank = 60 horses = 830 trucks = 1722 halftracks = 36 armored_car = 36     sp_artillery = 18         balloon = 12             }
+}					
+# Elite Infantry Division (1955) - 7					
+model = {					
+	cost =				7.56
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				51
+	toughness =				55
+	softness =				100
+	suppression =				2
+	airdefence =				45
+	softattack =				45
+	hardattack =				5
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				1.09
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 305 artillery = 72 heavy_artillery = 24 anti_air = 24 anti_tank = 36  trucks = 1899 halftracks = 72 armored_car = 12     sp_artillery = 36         balloon = 10             }
+}					
+# Elite Infantry Division (1960) - 8					
+model = {					
+	cost =				8.34
+	buildtime =			 	130
+	manpower =				17
+	maxspeed =				8
+	defaultorganisation =				30
+	morale =				20
+	defensiveness =				62
+	toughness =				66
+	softness =				100
+	suppression =				2
+	airdefence =				54
+	softattack =				54
+	hardattack =				8
+	airattack =				3
+	transportweight =				10
+	supplyconsumption =				1.2
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 305 artillery = 72 heavy_artillery = 24 anti_air = 24 anti_tank = 30  trucks = 2000 halftracks = 108 armored_car = 3     sp_artillery = 36       helicopter = 6  balloon = 6             }
+}					

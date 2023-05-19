@@ -1,0 +1,291 @@
+# checked DH
+####################################
+# Venezuela AI events 35100 - 35199 by Lothos
+####################################
+################
+# Minister of Security Section 35100 - 35109
+#############################################
+event = { # Santiago Key Ayala takes power
+	id = 35100
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38005 # Santiago Key Ayala
+		NOT = { InCabinet = 38005 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 38005 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Antonio Jose Villegas takes power
+	id = 35101
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38047 # Antonio Jose Villegas
+		NOT = { InCabinet = 38047 }
+		NOT = { minister = 38005 } # Santiago Key Ayala
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 38047 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 35110 - 35119
+#############################################
+event = { # Carlos Garcia Mendoza takes power
+	id = 35110
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38064 # Carlos Garcia Mendoza
+		NOT = { InCabinet = 38064 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 20 }
+			AND = {
+				atwar = yes
+				NOT = { minister = 38007 } # Isaias Medina Angarita
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 38064 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Isaias Medina Angarita
+	id = 35111
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 20
+		minister = 38007 # Isaias Medina Angarita
+		NOT = { InCabinet = 38007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 38007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 35120 - 35129
+#############################################
+event = { # Diogenes Escalante takes power
+	id = 35120
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38056 # Diogenes Escalante
+		NOT = { InCabinet = 38056 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 38056 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Pedro Alcántara Laya takes power
+	id = 35121
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38058 # Pedro Alcántara Laya
+		NOT = { InCabinet = 38058 }
+		NOT = { minister = 38056 } # Diogenes Escalante
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 38058 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 35130 - 35139
+#############################################
+event = { # Tomas Contreras Villalobos takes power
+	id = 35130
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38068 # Tomas Contreras Villalobos
+		NOT = { InCabinet = 38068 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 38068 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 35140 - 35149
+#############################################
+event = { # Don Pedro Grases takes power
+	id = 35140
+	random = no 
+	country = VEN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 38039 # Don Pedro Grases
+		NOT = { InCabinet = 38039 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 38039 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 35160 - 35199
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 35160
+	random = no 
+	country = VEN
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			NOT = { ai = ARG }
+			NOT = { ai = BRA }
+			NOT = { ai = MEX }
+			NOT = { ai = COL }
+			lost_national = { country = USA value = 2 }
+			lost_national = { country = BRA value = 2 }
+			lost_national = { country = COL value = 2 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 35161
+	random = no 
+	country = VEN
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

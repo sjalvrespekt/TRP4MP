@@ -1,0 +1,38 @@
+# checked DH
+###########################################################################
+#	8800000 - 8899999
+###########################################################################
+#########################################################################
+# Was 602001 Dominica-Haiti Crisis (by Burris)
+#########################################################################
+event = { 
+	id = 8800000 
+	random = no
+	country = DOM
+
+	trigger = {
+		NOT = { war = { country = DOM country = HAI }}
+		flag = DOM_HAI
+	}
+
+	name = EVT_8800000_NAME # The Dominican Republic-Haiti Crisis
+	desc = EVT_8800000_DESC
+	style = 0
+	
+	date = { day = 11 month = november year = 1937 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME8800000A # Declare war
+		ai_chance = 60
+		command = { type = war which = HAI }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME8800000B # Back down
+		ai_chance = 40
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = USA value = 10 }
+	}
+}

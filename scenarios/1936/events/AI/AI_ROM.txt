@@ -1,0 +1,559 @@
+# converted to DH, Kane, June 10 2011
+####################################
+# Romania AI events 32100 - 32199 by Lothos
+####################################
+################
+# Minister of Security Section 32100 - 32109
+#############################################
+event = { # Cesare Vaida-Voievod takes power
+	id = 32100
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 22100 # Cesare Vaida-Voievod
+		NOT = { InCabinet = 22100 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 22100 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32110 - 32119
+#############################################
+event = { # Constantin Pantazitakes power
+	id = 32110
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 22126 # Constantin Pantazi
+		NOT = { InCabinet = 22126 }
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 22 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 22126 }
+		command = { type = dissent value = -1 }
+	}
+}
+#event = { # Florea Tenescu takes power
+#	id = 32111
+#	random = no 
+#	country = ROM
+#	persistent = yes
+#	
+#	trigger = {
+#		ai = yes
+#		minister = 22124 # Florea Tenescu
+#		NOT = { InCabinet = 22124 }
+#		atwar = yes
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = chiefofstaff which = 22124 }
+#		command = { type = dissent value = -1 }
+#	}
+#}
+################
+# Head of Intelligence Section 32120 - 32129
+#############################################
+################
+# Chief of the Army Section 32130 - 32131
+#############################################
+event = { # Ilie Steflea takes power
+	id = 32130
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 22139 # Ilie Steflea
+		NOT = { InCabinet = 22139 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 22136 } # Gheorghe Mihail
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 19 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 22139 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Gheorghe Mihail takes power
+	id = 32131
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 22136 # Gheorghe Mihail
+		NOT = { InCabinet = 22136 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 22 month = august year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 22136 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32140 - 32149
+#############################################
+event = { # Gheorghe Potopeanu takes power
+	id = 32140
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 22093 # Gheorghe Potopeanu
+		NOT = { InCabinet = 22093 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 22093 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 32050 - 32059
+#############################################
+event = { # Paul Teodorescu takes power 
+	id = 32150
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 22159 # Paul Teodorescu
+		NOT = { InCabinet = 22159 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		command = { type = chiefofair which = 22159 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+#############################################
+# Regular AI Events 32160 - 32199
+# Invasion Flags
+#	ROMInvadeYUG	= Invade Yugoslavia
+#############################################
+################
+# Romania exp forces to Germany
+#############################################
+#event = {
+#	id = 32160
+#	random = no 
+#	country = ROM
+#	
+#	trigger = {
+#		ai = yes
+#		alliance = { country = GER country = ROM }
+#		war = { country = GER country = YUG }
+#		war = { country = ROM country = YUG }
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = ai which = "switch/EXP_Rus_ROM.ai" }
+#		command = { type = ai which = "Air_Ground.ai" }
+#	}
+#}
+################
+# Romania sends more exp forces to Germany
+#############################################
+event = {
+	id = 32161
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = ROM }
+		war = { country = GER country = SOV }
+		war = { country = ROM country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_80.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = sleepevent which = 32160 }
+	}
+}
+################
+# Romania lowers neutrality to join Axis
+#############################################
+event = {
+	id = 32162
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			
+			AND = {	# Romania enters Axis earlier if FRA or ENG are human against an AI GER
+					AI = GER
+					OR = {
+							NOT = { AI = FRA }
+							NOT = { AI = ENG }
+							}
+							
+					OR = {
+							war = { country = GER country = HOL }
+							war = { country = GER country = BEL }
+							war = { country = GER country = LUX }
+							alliance = { country = GER country = HOL }
+							alliance = { country = GER country = BEL }
+							alliance = { country = GER country = LUX }
+							}
+							
+					OR = {
+							AND = {
+									war = { country = GER country = HOL }
+									lost_national = { country = HOL value = 1 }
+									}
+									
+							AND = {
+									war = { country = GER country = BEL }
+									lost_national = { country = BEL value = 1 }
+									}
+									
+							NOT = { exists = LUX }
+							AND = {
+									war = { country = GER country = LUX }
+									lost_national = { country = LUX value = 1 }
+									}
+									
+							NOT = { exists = FRA }
+							AND = {
+									NOT = { AI = FRA }
+									war = { country = GER country = FRA }
+									lost_national = { country = FRA value = 1 }
+									}
+									
+							AND = {
+									NOT = { AI = ENG }
+									war = { country = GER country = ENG }
+									lost_national = { country = ENG value = 1 }
+									}
+							}
+					}			
+			
+			war = { country = GER country = HUN }
+			war = { country = GER country = SOV }
+			event = 2700 # Claim Bessarabia
+			event = 2702 # Vienna Diktat Denied by Germany
+			AND = {
+				owned = { province = 304 data = SOV } # Chisinau
+				owned = { province = 306 data = SOV } # Ismail
+				owned = { province = 305 data = SOV } # Cahul
+				owned = { province = 303 data = SOV } # Balti
+				owned = { province = 302 data = SOV } # Hotin
+				owned = { province = 297 data = SOV } # Iasi
+				owned = { province = 300 data = SOV } # Cernauti
+				owned = { province = 298 data = SOV } # Galati
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { trigger = { NOT = { AI = GER } NOT = { alliance = { country = GER country = ROM } } } type = trigger which = 32168 } # info event GER
+	}
+}
+
+#######################################################################################################
+# human GER informed about ROM AI being ready to enter the war
+#######################################################################################################
+event = { #
+	id = 32168
+	random = no 
+	country = GER
+
+	name = EVT_32168_NAME
+	desc = EVT_32168_DESC
+	style = 2
+	picture = "ger_event_alliance_rom"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+	}
+}
+
+
+################
+# Romania invades Yugoslavia
+#############################################
+event = {
+	id = 32163
+	random = no 
+	country = ROM
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		exists = YUG
+		atwar = no
+		flag = InvYugoslavia
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { war = { country = ROM country = SOV } }
+		NOT = { war = { country = ROM country = GER } }		
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ROMInvadeYUG }
+		command = { type = ai which = "switch/ROM_Invade_YUG_Buildup.ai" }
+	}
+}
+event = {
+	id = 32164
+	random = no 
+	country = ROM
+	
+	trigger = {
+		ai = yes
+		local_flag = ROMInvadeYUG
+		NOT = { flag = InvYugoslavia }
+		OR = {
+			atwar = yes
+			NOT = { exists = YUG }
+			AND = {
+				war = { country = GER country = YUG }
+				war = { country = ROM country = YUG }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ROMInvadeYUG }
+		command = { type = ai which = "switch/ROM_Invade_Release.ai" }
+	}
+}
+################
+# Shift Production
+#############################################
+#event = {
+#	id = 32165
+#	random = no 
+#	country = ROM
+#	
+#	trigger = {
+#		ai = yes
+#		OR = {
+#			atwar = yes
+#			atwar = GER
+#			atwar = SOV
+#			atwar = POL
+#			atwar = BUL
+#			atwar = YUG
+#			atwar = HUN
+#			NOT = { ai = YUG }
+#			NOT = { ai = BUL }
+#			NOT = { ai = HUN }
+#			NOT = { ai = POL }
+#			year = 1939
+#		}
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+#	}
+#}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 32166
+	random = no 
+	country = ROM
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = ROM_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = SOV
+			atwar = POL
+			atwar = BUL
+			atwar = YUG
+			atwar = HUN
+			NOT = { ai = YUG }
+			NOT = { ai = BUL }
+			NOT = { ai = HUN }
+			NOT = { ai = POL }
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ROM_low_mp.ai" }
+		command = { type = local_setflag which = ROM_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 32167
+	random = no 
+	country = ROM
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = ROM_low_mp
+		manpower = 40
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = SOV
+			atwar = POL
+			atwar = BUL
+			atwar = YUG
+			atwar = HUN
+			NOT = { ai = YUG }
+			NOT = { ai = BUL }
+			NOT = { ai = HUN }
+			NOT = { ai = POL }
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/ROM_normal_mp.ai" }
+		command = { type = local_clrflag which = ROM_low_mp }
+	}
+}

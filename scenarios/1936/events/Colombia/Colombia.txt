@@ -1,0 +1,67 @@
+# checked DH
+###########################################################################
+# 3124000 - 3124999	Colombia events
+###########################################################################
+##########################################################
+# Was 1052005 Possible colombian reaction
+##########################################################
+event = {
+	id = 3124000 # 4700000
+	random = no
+	country = COL
+
+	trigger = { war = { country = ECU country = PRU } } 
+
+	name = EVT_3124000_NAME
+ 	desc = EVT_3124000_DESC
+	style = 0
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = june year = 1943 }
+
+	action_a = { 
+		name = ACTIONNAME3124000A
+		command = { type = dissent value = 5 }
+		command = { type = money value = -1 }
+	}
+	action_b = { 
+		name = ACTIONNAME3124000B
+		 command = { type = money value = 1 }
+		 command = { type = dissent value = -4 }
+		 command = { type = oilpool  value = -600 }
+		 command = { type = rarematerialspool  value = -600 }
+		 command = { type = energypool  value = -600 }
+		 command = { type = supplies  value = -40 }
+		 command = { type = trigger which = 4800002 }
+	}
+}
+##########################################################
+# Little Reinforce for the Colombian Army
+# by CCM von Hausser
+##########################################################
+event = {
+	id = 3124001
+	random = no
+	country = COL
+
+	name = EVT_3124001_NAME
+ 	desc = EVT_3124001_DESC
+	style = 0
+
+	date = { day = 7 month = january year = 1939 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+	
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAME3124001A
+		command = { type = manpowerpool value = 20 }
+		command = { type = dissent value = 2 }
+	}
+	action_b = {
+		ai_chance = 3
+		name = ACTIONNAME3124001B
+		command = { }
+	}
+}

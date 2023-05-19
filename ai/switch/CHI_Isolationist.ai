@@ -1,0 +1,112 @@
+# China 1936 AI File by Lothos
+# Converted to DH by Dendro 2011-May-29
+
+neutrality = 149.000 
+war = 0
+
+###################################
+# Diplomacy
+###################################
+combat = { }
+demand_claims = {
+	CHC
+	CSX
+	SIK
+	CXB
+	CYN
+	CGX
+	TIB
+	JAP
+	MAN
+	SOV
+	MON
+	POR
+	ENG
+}
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.050 
+
+
+	AA_batteries = no
+	max_AA_level = 3
+	AA_provs = { } 
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = { } 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = no
+	max_air_base = 4 
+	air_base_provs = {
+		1247 # Beiping
+	}
+
+	naval_base = no
+	max_naval_base = 5 
+	naval_base_provs = { } 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = no 
+	force_ic_until = 1935
+	ic_end_year = 1941
+	IC_provs = { } 
+}
+
+military = { 
+	relative_build_scheme 	= yes 
+	max_batch_peace 	= 360 
+	max_batch_war 		= 180 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 10
+	d_02		= 10
+	militia 	= 20	
+	cavalry 	= 5
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor = 0
+	armor 		= 0
+	paratrooper = 0
+	marine 		= 0
+	bergsjaeger = 2
+	garrison	= 5
+  	hq 			= 5
+
+#				57 %
+	interceptor 	= 10
+	multi_role 		= 0
+	cas 			= 0
+	strategic_bomber = 0
+	tactical_bomber = 8
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				18 %
+	battleship 		= 0
+	carrier 		= 0
+	destroyer 		= 12
+	light_cruiser 	= 4
+	heavy_cruiser 	= 2
+	battlecruiser 	= 0
+	submarine 		= 2
+	nuclear_submarine = 2
+	d_09 = 0
+	d_08 = 0
+	transports		= 3
+#				25 %
+
+}
+ 

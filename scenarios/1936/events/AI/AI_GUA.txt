@@ -1,0 +1,199 @@
+#checked DH
+####################################
+# Guatemala AI events 33400 - 33499 by Lothos
+####################################
+################
+# Minister of Security Section 33400 - 33409
+#############################################
+event = { # Manuel Orellana takes power
+	id = 33400
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46050 # Manuel Orellana
+		NOT = { InCabinet =  46050 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 46050 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Alfredo Skinner Klee takes power
+	id = 33401
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46054 # Alfredo Skinner Klee
+		NOT = { InCabinet =  46054 }
+		NOT = { minister = 46050 } # Manuel Orellana
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 46054 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33410 - 33419
+#############################################
+event = { # Jorge Ubico Castaneda takes power
+	id = 33410
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46066 # Jorge Ubico Castaneda
+		NOT = { InCabinet =  46066 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 46066 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33420 - 33429
+#############################################
+################
+# Chief of the Army Section 33430 - 33439
+#############################################
+event = { # Federico Ponce Vaides takes power
+	id = 33430
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46071 # Federico Ponce Vaides
+		NOT = { InCabinet =  46071 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 46071 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33440 - 33449
+#############################################
+event = { # Diego A. Castro Arigon takes power
+	id = 33440
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46044 # Diego A. Castro Arigon
+		NOT = { InCabinet =  46044 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 46044 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Manuel Arroyo Arigon takes power
+	id = 33441
+	random = no 
+	country = GUA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 46048 # Manuel Arroyo
+		NOT = { InCabinet =  46048 }
+		NOT = { minister = 46044 } # Diego A. Castro Arigon
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 46048 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+#############################################
+# Regular AI Events 33460 - 33499
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33460
+	random = no 
+	country = GUA
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

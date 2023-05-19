@@ -1,0 +1,1319 @@
+# converted to DH, Kane, July 24 2011
+#########################################################################
+# 3167000 - 3167999	Romania political events
+#########################################################################
+
+#########################################################################
+#  USSR Claims Bessarabia (was 2700)
+#########################################################################
+event = { 
+	id = 2700 # Referenced in AI files
+	random = no
+	country = ROM
+	
+	# Triggered by SOV 3183019
+	
+	name = "EVT_2700_NAME"
+	desc = "EVT_2700_DESC"
+	style = 2
+	picture = "romania"
+	
+	action_a = {
+		name = ACTIONNAME2700A
+		ai_chance = 100
+		command = { type = secedeprovince which = SOV value = 304 }
+		command = { type = secedeprovince which = SOV value = 305 }
+		command = { type = secedeprovince which = SOV value = 306 }
+		command = { type = secedeprovince which = SOV value = 302 }
+		command = { type = secedeprovince which = SOV value = 303 }
+		command = { type = secedeprovince which = SOV value = 300 }
+		command = { type = relation which = SOV value = -15 }
+		command = { type = dissent value = 1 }
+		command = { type = trigger which = 3183020 } # SOV
+	}
+	action_b = {
+		name = ACTIONNAME2700B
+		ai_chance = 0
+		command = { type = war which = SOV } # Romania should be forced to declare the war, since the Axis and Soviets have an agreement
+		command = { type = domestic which = political_left value = -2 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = SOV value = -25 }
+		command = { type = relation which = GER value = 15 }
+		command = { type = dissent value = -2 }
+		command = { type = trigger which = 3183021 } # SOV		
+	}
+}
+#########################################################################
+#  The Vienna Diktat (was 2701)
+#########################################################################
+event = { 
+	id = 3167001
+	random = no
+	country = ROM
+	
+	# Triggered by GER 3136035
+	
+	name = "EVT_2701_NAME"
+	desc = "EVT_2701_DESC"
+	style = 2
+	picture = "vienna_diktat"
+	
+	action_a = {
+		name = ACTIONNAME3167001A
+		ai_chance = 100
+		command = { type = relation which = HUN value = 20 }
+		command = { type = relation which = GER value = 20 }
+		command = { type = secedeprovince which = HUN value = 296 }
+		command = { type = secedeprovince which = HUN value = 293 }
+		command = { type = secedeprovince which = HUN value = 288 }
+		command = { type = secedeprovince which = HUN value = 292 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = dissent value = 1 }
+		command = { type = trigger which = 3141005 } # HUN
+	}
+	action_b = {
+		name = ACTIONNAME3167001B
+		ai_chance = 0
+		command = { type = leave_alliance }
+		command = { type = war which = HUN }
+		command = { type = relation which = HUN value = -25 }
+		command = { type = relation which = GER value = -20 }
+		command = { type = dissent value = -2 }
+		command = { type = trigger which = 3141006 } # HUN
+	}
+}
+#########################################################################
+#  The Vienna Diktat - Germans rule in Romanian favor
+#########################################################################
+event = { 
+	id = 2702 # Referenced in AI files
+	random = no
+	country = ROM
+	
+	# Triggered by GER 3136035
+	
+	name = "EVT_2702_NAME"
+	desc = "EVT_2702_DESC"
+	style = 2
+	picture = "vienna_diktat"
+	
+	action_a = {
+		name = ACTIONNAME2702A
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = HUN value = -10 }
+		command = { type = dissent value = -2 }
+	}
+}
+####################################
+# Romania - alliance with Germany
+# by samu
+####################################
+event = {
+        id = 3167002
+        random = no
+        country = ROM
+        
+        # triggered by GER 3136083
+        
+        name = "EVT_2504_NAME"
+        desc = "EVT_2504_DESC"
+        style = 2
+        picture = "vienna_diktat"
+ 
+        action_a = {
+                name = ACTIONNAME3167002A
+                command = { type = alliance which = GER }
+		command = { type = manpowerpool value = 60 }               
+        }
+}
+#########################################################################
+# Civil unrest in Romania (was 702022, 6100007) modified by Luxor
+#########################################################################
+event = {
+	id = 3167003
+	random = no
+	country = ROM
+
+	trigger = { headofstate = 22001 } # King Carol II on power
+
+	name = EVT_3167003_NAME
+	desc = EVT_3167003_DESC
+	style = 2
+	picture = "rom_civil_unrest"
+
+	date = { day = 11 month = february year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3167003A
+		command = { type = dissent value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3167003B
+		command = { type = dissent value = 20 }
+	}
+}
+#########################################################################
+# The Iron Guard attempts a coup (was 702023, 6100008) modified by Luxor
+#########################################################################
+event = {
+	id = 3167004
+	random = no
+	country = ROM
+
+	trigger = { 
+				event = 3167003
+				event = 3167018
+				random = 30
+				}
+
+	name = EVT_3167004_NAME
+	desc = EVT_3167004_DESC
+	style = 2
+	picture = "rom_iron_guard"
+
+	date = { day = 24 month = october year = 1938 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3167004A
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167004B
+		command = { type = regime_falls }
+		command = { type = headofstate which = 22035 } # Mihai (fascist cabinet)
+		command = { trigger = { NOT = { local_flag = codreanu } } type = headofgovernment which = 22053 } # Corneliu Codreanu
+		command = { trigger = { local_flag = codreanu } type = headofgovernment which = 22054 } # Horia Sima
+ 		command = { type = foreignminister which = 22075 } # Mihail Sturdza 
+		command = { type = armamentminister  which = 22097 } # Constantin Papanace
+ 		command = { type = ministerofsecurity which = 22111 } # Ion Petrovicescu
+ 		command = { type = ministerofintelligence which = 22120 } # Eugen Cristescu
+ 		command = { type = chiefofstaff which = 22134 } # Ion Antonescu
+ 		command = { type = chiefofarmy which = 22145 } # Alexandru Ioanitiu
+ 		command = { type = chiefofnavy which = 22147 } # Horia Macellariu
+ 		command = { type = chiefofair which = 22155 } # Gheorghe Jienescu
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = -5 }
+		command = { type = sleepevent which = 3167006 }
+	}
+}
+#########################################################################
+# The creation of the FRN  created by hendriks
+#########################################################################
+event = {
+	id = 3167018
+	random = no
+	country = ROM
+
+	trigger = { 
+                headofstate = 22001 # King Carol II in power
+                government = democratic
+				NOT = { alliance = { country = ROM country = SOV } }
+				NOT = { alliance = { country = ROM country = GER } }
+				NOT = { alliance = { country = ROM country = ENG } }
+				random = 30
+        }
+
+	name = EVT_3167018_NAME
+ 	desc = EVT_3167018_DESC
+	style = 2
+	picture = "rom_creation_frn"
+
+	date = { day = 14 month = february year = 1938 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3167018A
+		command = { type = domestic which = political_left value = -2 }
+		command = { type = domestic which = democratic value = -3 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = dissent value = 1 }
+		command = { type = local_setflag which = codreanu } #Codreanu arrested
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167018B
+		command = { type = dissent value = 5 }
+	}
+}
+#########################################################################
+# The fall of King Carol (was 702024, 6100009) modified by Luxor
+#########################################################################
+event = {
+	id = 3167005
+	random = no
+	country = ROM
+
+	trigger = { 
+                headofstate = 22001 # King Carol II in power
+		OR = {
+			event = 3141005 #The Vienna diktat accepted
+			event = 2700 #USSR Claims Bessarabia
+                        event = 3167008 #Dobrich
+		}
+		NOT = { alliance = { country = ROM country = SOV } }
+		NOT = { alliance = { country = ROM country = ENG } }
+	}
+
+	name = EVT_3167005_NAME
+ 	desc = EVT_3167005_DESC
+	style = 2
+	picture = "rom_new_regime"
+
+	date = { day = 5 month = september year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3167005A
+		command = { type = headofstate which = 22035 } # Mihai
+		command = { type = headofgovernment which = 22048 } # Antonescu
+ 		command = { type = foreignminister which = 22075 } # Mihail Sturdza 
+ 		command = { type = armamentminister  which = 22097 } # Constantin Papanace
+ 		command = { type = ministerofsecurity which = 22111 } # Ion Petrovicescu
+ 		command = { type = ministerofintelligence which = 22120 } # Eugen Cristescu
+ 		command = { type = chiefofstaff which = 22134 } # Ion Antonescu
+ 		command = { type = chiefofarmy which = 22145 } # Alexandru Ioanitiu
+ 		command = { type = chiefofnavy which = 22184 } # Eugen Rosca
+ 		command = { type = chiefofair which = 22155 } # Gheorghe Jienescu
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = dissent value = -30 } # to erase all the dissent caused by 702022
+		command = { type = money value = 25 }
+	}
+}
+#########################################################################
+# Was 702025 The rebellion of the Iron Guard (was 702025, 6100010) modified by Luxor
+#########################################################################
+event = {
+	id = 3167006
+	random = no
+	country = ROM
+
+	trigger = { 
+		event = 3167005 # The fall of King Carol
+		NOT = { ispuppet = ROM }
+		NOT = { alliance = { country = ROM country = SOV } }
+	} 
+
+	name = EVT_3167006_NAME
+ 	desc = EVT_3167006_DESC
+	style = 2
+	picture = "rom_iron_guard"
+
+	date = { day = 20 month = january year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3167006A
+		command = { type = sleepminister which = 22054 } # Horia Sima
+		command = { type = sleepminister which = 22110 } # Horia Sima
+		command = { type = dissent value = -5 }
+		command = { type = trigger which = 3136036 }
+	}
+	action_b = {
+		name = ACTIONNAME3167006B
+		command = { type = dissent value = 30 }
+		command = { type = headofgovernment which = 22054 } # Horia Sima
+		command = { type = ministerofsecurity which = 22110 } # Horia Sima
+		command = { type = sleepminister which = 22007 } # Antonescu
+		command = { type = sleepminister which = 22048 } # Antonescu
+		command = { type = sleepminister which = 22057 } # Antonescu
+		command = { type = sleepminister which = 22076 } # Antonescu
+		command = { type = sleepminister which = 22127 } # Antonescu
+		command = { type = sleepteam which = 2911 } # Antonescu
+		command = { type = sleepleader which = 4303 } # Antonescu
+		#command = { type = dissent value = 5 }
+		command = { type = trigger which = 3136037 }
+	}
+}
+#########################################################################
+# Germany sends supplies to Romania (was 702026, 6100011)
+#########################################################################
+event = {
+	id = 3167007
+	random = no
+	country = ROM
+
+	 # Triggered by GER 3136036
+
+	name = EVT_3167007_NAME
+	desc = EVT_3167007_DESC
+	style = 2
+    picture = "TRP_help_allies"
+
+	action_a = {
+		name = ACTIONNAME3167007A
+		command = { type = supplies value = 500 }
+	}
+	action_b = {
+		name = ACTIONNAME3167007B
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+##############################################################
+# Bulgaria claims Dobrich (by Luxor)
+##############################################################
+event = {
+	id = 3167008
+	random = no
+	country = ROM
+	
+	# Triggered by BUL 3119000
+	
+	name = EVT_3167008_NAME
+	desc = EVT_3167008_DESC
+	style = 2
+	picture = "rom_dobrich"
+	
+	action_a = {
+		name = ACTIONNAME3167008A
+		command = { type = secedeprovince which = BUL value = 307 }
+		command = { type = dissent value = 2 }
+		command = { type = steal_tech which = GER } # German reward
+		command = { type = steal_tech which = GER }
+		command = { type = steal_tech which = GER }
+		command = { type = money value = 25 }
+		command = { type = trigger which = 3119001 }
+	}
+	action_b = {
+		name = ACTIONNAME3167008B
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3119002 }
+	}
+}
+########################################################## 
+# Tripartite Pact Proposal (by Luxor)
+########################################################## 
+event = { 
+	id = 3167009
+	random = no
+	country = ROM
+	
+	# Triggered by GER 3136069
+       
+	name = EVT_3167009_NAME
+	desc = EVT_3167009_DESC
+	style = 2
+	picture = "tripartite"
+	
+	action_a = {
+		name = ACTIONNAME3167009A
+		ai_chance = 100
+		command = { type = money value = 25 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = GER value = 100 }
+		command = { type = trigger which = 3136070 } # GER
+	}
+	action_b = {
+		name = ACTIONNAME3167009B 
+		ai_chance = 0
+		command = { type = money value = -10 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3136071 } # GER
+	}
+}
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3167011
+	random = no
+	country = ROM
+	
+	trigger = { 
+		NOT = { alliance = { country = ROM country = ENG } }
+		NOT = { alliance = { country = ROM country = GER } }
+		NOT = { alliance = { country = ROM country = ITA } }
+		NOT = { alliance = { country = ROM country = SOV } }
+		OR = {
+			alliance = { country = ROM country = YUG }
+			alliance = { country = ROM country = GRE }
+			alliance = { country = ROM country = TUR }
+			}
+		atwar = GER
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 2
+	picture = "hun_entent"
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3167011A
+		command = { type = leave_alliance }
+		command = { type = embargo which = ROM where = CZE value = 0 }
+		command = { type = embargo which = ROM where = BUL value = 0 }
+		command = { type = embargo which = ROM where = YUG value = 0 }
+		command = { type = embargo which = ROM where = HUN value = 0 }
+		command = { type = embargo which = ROM where = GRE value = 0 }
+		command = { type = embargo which = ROM where = TUR value = 0 }
+	}
+}
+########################################################## 
+# End of Balkan Entente 2
+########################################################## 
+event = { 
+	id = 3167020
+	random = no
+	country = ROM
+	
+	trigger = { 
+			NOT = { event = 3167011 }
+			alliance = { country = ROM country = GER }
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 2
+	picture = "hun_entent"
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3167011A
+		command = { type = embargo which = ROM where = CZE value = 0 }
+		command = { type = embargo which = ROM where = BUL value = 0 }
+		command = { type = embargo which = ROM where = YUG value = 0 }
+		command = { type = embargo which = ROM where = HUN value = 0 }
+		command = { type = embargo which = ROM where = GRE value = 0 }
+		command = { type = embargo which = ROM where = TUR value = 0 }
+	}
+}
+######################################################
+# Romania is grateful for the return of Bessarabia
+######################################################
+event = { 
+	id = 3167012
+	random = no 
+	country = ROM 
+
+	trigger = {
+		event = 3183020 #Bessarabia ceded to USSR
+		owned = { province = 302 data = ROM } #Romania has Bessarbia back
+		owned = { province = 303 data = ROM }
+		owned = { province = 304 data = ROM }
+		owned = { province = 297 data = ROM }
+		owned = { province = 298 data = ROM }
+		owned = { province = 300 data = ROM }
+		owned = { province = 305 data = ROM }
+		owned = { province = 306 data = ROM }
+	}
+
+	name = EVT_3167012_NAME
+	desc = EVT_3167012_DESC
+	style = 2
+	picture = "romania"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3167012A
+		command = { type = dissent value = -2 }
+	}
+}
+#########################################################################
+# Was 702014 Germany sends military equipment to Romania
+#########################################################################
+event = {
+	id = 6100002
+	random = no
+	country = ROM
+
+	trigger = {
+		NOT = { exists = CZE }
+		event = 3136505 #GER Decision Kriegsgeräte GmbH
+		control = { province = 207 data = GER } # Prague
+		random = 75
+		NOT = {
+			OR = {
+				alliance = { country = ROM country = SOV }
+				alliance = { country = ROM country = ENG }
+			}
+		}
+	}
+
+	name = EVT_6100002_NAME
+	desc = EVT_6100002_DESC
+	style = 2
+	picture = "rom_german_weapons"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 10 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100002A
+		#There was no motorised division in 1939~41 in the romanian army
+		#command = { type = add_division value = motorized when = 1 }
+		command = { type = activate_division which = 20600 value = 120 where = 316 when = 0 } 
+		command = { type = activate_division which = 20600 value = 121 where = 316 when = 0 } 
+		command = { type = manpowerpool value = 20 }
+		command = { type = gain_tech which = 2320  } #Arty 38'
+		command = { type = gain_tech which = 2520  } #AA 37'
+		command = { type = gain_tech which = 1210  } #Cav 36'
+		command = { type = gain_tech which = 10120 } #Cav 38'
+	}
+	action_b = {
+		name = ACTIONNAME6100002B
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+#########################################################################
+# Was 702015 Romania buys tanks from Germany
+#########################################################################
+event = {
+	id = 6100003
+	random = no
+	country = ROM
+
+	trigger = {
+		exists   = GER
+		alliance = { country = ROM  country = GER }
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		#war = { country = ROM  country = SOV }
+		#random = 7
+	}
+
+	name = EVT_6100003_NAME
+	desc = EVT_6100003_DESC
+	style = 2
+	picture = "rom_german_tanks"
+
+	date = { day = 1 month = april year = 1941 }
+	offset = 10 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100003A
+		#division formed with german military adviser help
+		command = { type = activate_division which = 20600 value = 122 where = 316 when = 0 } 
+		command = { trigger = { ai = no }     type = money value = -100 }
+		command = { type = relation          which = GER   value = 10   }
+		command = { type = waketeam          which = 2943 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = gain_tech which = 2020  } #PzDiv 38'
+		command = { type = gain_tech which = 2030  } #PzDiv 40'
+	}
+}
+#########################################################################
+# Was 702016 Romania buys tanks and technology from Germany
+#########################################################################
+event = {
+	id = 6100004
+	random = no
+	country = ROM
+
+	trigger = {
+		exists = GER
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		alliance = { country = ROM country = GER }
+		war      = { country = ROM country = SOV }
+		random   = 50
+	}
+
+	name = EVT_6100004_NAME
+	desc = EVT_6100004_DESC
+	style = 2
+	picture = "rom_german_tanks"
+
+	date = { day = 0 month = june year = 1943 }
+	offset = 7 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100004A
+		command = { type = manpowerpool value = 20 }	 
+		command = { trigger = { ai = no }     type = money value = -100 }
+		command = { type = relation          which = GER   value = 10   }
+		command = { type = gain_tech which = 2530  } #AA 39'
+		command = { type = gain_tech which = 2680  } #PzDiv 41'
+		command = { type = gain_tech which = 2690  } #PzDiv 42'
+		command = { type = gain_tech which = 2730  } #PzDiv 43'
+		command = { type = gain_tech which = 2430  } #AT 43'
+	}
+}
+#########################################################################
+# Was 702017 Romania buys tanks and technology from Germany
+#########################################################################
+event = {
+	id = 6100005
+	random = no
+	country = ROM
+
+	trigger = {
+		exists = GER
+		alliance = { country = ROM  country = GER }
+        event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		war = { country = ROM country = SOV }
+		random = 20
+	}
+
+	name = EVT_6100005_NAME
+	desc = EVT_6100005_DESC
+	style = 2
+	picture = "rom_german_tanks"
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 7 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100005A
+		command = { type = activate_division which = 20600 value = 123 where = 316 when = 0 } 
+		command = { trigger = { ai = no }     type = money value = -100 }
+		command = { type = relation          which = GER   value = 10   }
+		command = { type = manpowerpool value = 20 }	 
+		command = { type = gain_tech which = 2740  } #Pz 44'
+		command = { type = gain_tech which = 2040  } #PzDiv 42'
+		command = { type = gain_tech which = 2050  } #PzDiv 43'
+	}
+}
+#########################################################################
+# Was 702018 - (ROM) Polish Refugees (by Generalisimo(New version: Rommel))
+#########################################################################
+event = {
+	id = 6100006
+	random = no
+	country = ROM
+
+	# triggered by POL 7400000 A
+
+	name = EVT_6100006_NAME
+	desc = EVT_6100006_DESC
+	style = 2
+	picture = "pol_army_in_uk"
+
+	action_a = {
+		name = ACTIONNAME6100006A
+		command = { type = supplies value = 250 }
+		command = { type = trigger which = 432000 } # FRA
+	}
+}
+###########################################################
+# Was 702031 Bombers shipment reaches Konstaca (no War) by Copernicus
+###########################################################
+event = { 
+	id = 6100012
+	random = no
+	country = ROM
+
+	trigger = {
+		event = 7400003
+		atwar = no
+		exists = POL
+		NOT = {
+			OR = {
+				puppet = { country = ROM country = GER }
+				alliance = { country = ROM country = GER }
+				war = { country = POL country = ROM }
+			}
+		}
+	}	
+	
+	name = EVT_6100012_NAME
+	desc = EVT_6100012_DESC
+	style = 2
+	picture = "rom_polish_planes"
+
+	date = { day = 0 month = august year = 1939 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100012A
+		command = { type = trigger which = 7400005 } # Poland gets its fighters
+		command = { type = sleepevent which = 6100013 } 
+	}
+	action_b = {
+		name = ACTIONNAME6100012B
+		command = { type = sleepevent which = 6100013 } 
+	}
+}
+###########################################################
+# Was 702032 Fighters shipment reaches Konstaca (War) by Copernicus
+###########################################################
+event = { 
+	id = 6100013
+	random = no
+	country = ROM
+
+	trigger = {
+		event = 7400003
+		atwar = no
+		war = { country = POL country = GER }
+	}	
+	
+	name = EVT_6100013_NAME
+	desc = EVT_6100013_DESC
+    style = 2
+	picture = "rom_polish_planes_2"
+
+	date = { day = 0 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100013A
+		command = { type = sleepevent which = 6100012 } 
+	}
+	action_b = {
+		name = ACTIONNAME6100013B
+		command = { type = trigger which = 7400005 } # Poland gets fighters tech
+		command = { type = sleepevent which = 6100012 } 
+	}
+}
+
+
+###########################################################
+# Was 702037 Bombers shipment reaches Konstaca (no War) by Copernicus
+###########################################################
+event = { 
+	id = 6100014
+	random = no
+	country = ROM
+	
+	trigger = {
+		random = 30
+		event = 7400007
+		atwar = no
+		exists = POL
+		NOT = {
+			OR = {
+				puppet = { country = ROM country = GER }
+				alliance = { country = ROM country = GER }
+				war = { country = POL country = ROM }
+			}		
+		}
+	}	
+	
+	name = EVT_6100014_NAME
+	desc = EVT_6100014_DESC
+	style = 2
+	picture = "rom_polish_planes"
+
+	date = { day = 0 month = august year = 1939 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100014A
+		command = { type = trigger which = 7400009 } # Poland gets it's bombers
+		command = { type = sleepevent which = 6100015 } 
+	}
+	action_b = {
+		name = ACTIONNAME6100014B
+		command = { type = sleepevent which = 6100015 } 
+	}
+}
+
+###########################################################
+# Was 702038 Bombers shipment reaches Konstaca (War) by Copernicus
+###########################################################
+event = { 
+	id = 6100015
+	random = no
+	country = ROM
+
+	trigger = {
+		random = 40
+		event = 7400007
+		atwar = no
+		war = { country = POL country = GER }
+	}	
+
+	name = EVT_6100015_NAME
+	desc = EVT_6100015_DESC
+	style = 2
+	picture = "rom_polish_planes"
+
+	date = { day = 0 month = august year = 1939 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME6100015A
+		command = { type = sleepevent which = 6100014 } 
+	}
+	action_b = {
+		name = ACTIONNAME6100015B
+		command = { type = trigger which = 7400009 } # Poland gets bombers
+		command = { type = sleepevent which = 6100014 } 
+	}
+}
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 6100016
+	random = no
+	country = ROM
+
+	# triggered by SOV 5400017
+
+	name = EVT_6100016_NAME
+	desc = EVT_6100016_DESC
+	style = 2
+	picture = "hun_big_three"
+
+	action_a = { 
+		name = ACTIONNAME6100016A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = secedeprovince which = BUL value = 307 }
+		command = { type = secedeprovince which = SOV value = 304 }
+		command = { type = secedeprovince which = SOV value = 305 }
+		command = { type = secedeprovince which = SOV value = 306 }
+		command = { type = secedeprovince which = SOV value = 302 }
+		command = { type = secedeprovince which = SOV value = 303 }
+		command = { type = secedeprovince which = SOV value = 300 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Romanian War
+#########################################################################
+event = {
+	id = 3167013
+	random = no
+	country = SOV
+
+        trigger = { 
+		control = { province = 316 data = SOV } # Bukarest
+		war = { country = GER country = SOV }
+		war = { country = ROM country = SOV }
+        alliance = { country = ROM country = GER }
+		lost_national = { country = ROM value = 40 }
+		NOT = { alliance = { country = ROM country = SOV } }
+        NOT = { alliance = { country = ROM country = ENG } }            
+	}
+
+	name = EVT_3167013_NAME
+	desc = EVT_3167013_DESC
+	style = 2
+	picture = "rom_sov_peace"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3167013A
+		command = { type = trigger which = 3167014 } # ROM
+	}
+	action_b = {
+		name = ACTIONNAME3167013B
+		ai_chance = 0
+        command = { type = dissent value = 5 }
+		command = { type = relation which = ROM value = -50 }
+		command = { type = relation which = HUN value = -25 }
+		command = { type = relation which = BUL value = -25 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = FRA value = -20 }
+		command = { type = relation which = USA value = -25 }
+        command = { type = relation which = ENG value = -25 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Romanian War
+#########################################################################
+event = {
+	id = 3167014
+	random = no
+	country = ROM
+
+	# Triggered by SOV 3167013
+
+	name = EVT_3167014_NAME
+	desc = EVT_3167014_DESC
+	style = 2
+	picture = "rom_sov_peace"
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3167014A
+		command = { type = peace which = SOV value = 1 }
+                command = { type = peace which = ENG value = 1 }
+                command = { type = peace which = IRQ value = 1 }
+                command = { type = peace which = HOL value = 1 }
+                command = { type = peace which = NIC value = 1 }
+                command = { type = peace which = COL value = 1 }
+                command = { type = peace which = FIN value = 1 }
+				command = { type = leave_alliance }
+				command = { type = dissent value = 10 }
+				command = { type = non_aggression which = ROM where = SOV }
+				command = { type = removecore which = 302 } # Romania renounces all claims to the lost areas
+				command = { type = removecore which = 303 }
+				command = { type = removecore which = 304 }
+				command = { type = removecore which = 305 }
+				command = { type = removecore which = 306 }
+				command = { type = removecore which = 300 }
+				command = { type = removecore which = 238 }
+#				command = { type = removecore which = 618 }
+				command = { type = removecore which = 619 }
+				command = { type = removecore which = 620 }
+				command = { type = removecore which = 621 }
+				command = { type = removecore which = 625 }
+				command = { type = removecore which = 626 }
+				command = { type = addcore which = 292 } # Viena dictat reversed
+				command = { type = addcore which = 299 }
+				command = { type = addcore which = 301 }
+				command = { type = addcore which = 296 }
+				command = { type = addcore which = 287 }
+				command = { type = addcore which = 288 }
+				command = { type = relation which = SOV value = 125 }
+				command = { type = relation which = GER value = -200 }
+                command = { type = trigger which = 3167015 }
+				command = { type = waketeam which = 2926 }
+				command = { type = waketeam which = 2927 }
+				command = { type = waketeam which = 2928 }
+				command = { type = waketeam which = 2929 }
+				command = { type = waketeam which = 2930 }
+				command = { type = waketeam which = 2931 }
+				command = { type = sleepteam which = 2917 }
+				command = { type = sleepteam which = 2923 }
+				command = { type = sleepteam which = 2943 }
+				command = { type = secedearea which = SOV value = "Bessarabia" when = 1 }
+				command = { type = secederegion which = SOV value = "Poland" when = 1 }
+				command = { type = secederegion which = SOV value = "Ukraine" when = 1 }
+				command = { type = secederegion which = SOV value = "Czechoslovakia" when = 1 }
+				command = { type = secederegion which = SOV value = "Hungary" when = 1 }
+				command = { type = secederegion which = SOV value = "Balkan" when = 1 }
+				#romanian volunteer army
+				command = { type = add_division which = "1 'Tudor Vladimirescu' Divizie voluntar"      value = d_02 when = 4 }
+				command = { type = add_division which = "2 'Horia Closca si Crisan' Divizie voluntar"  value = d_02 when = 4 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167014B
+		command = { type = trigger which = 3167016 } #SOV
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = domestic which = freedom value = 1 }
+		command = { type = relation which = SOV value = -50 }
+		command = { type = relation which = GER value = 50 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Romanian War - Romania accepts
+#########################################################################
+event = {
+	id = 3167015
+	random = no
+	country = SOV
+
+	name = EVT_3167015_NAME
+	desc = EVT_3167015_DESC
+	style = 2
+	picture = "rom_sov_peace"
+
+	action_a = {
+		name = ACTIONNAME3167015A
+                command = { type = make_puppet which = ROM }
+	}
+}
+
+#########################################################################
+#  End of the Soviet-Romanian War - Romania refuses
+#########################################################################
+event = {
+	id = 3167016
+	random = no
+	country = SOV
+
+	name = EVT_3167016_NAME
+	desc = EVT_3167016_DESC
+	style = 2
+	picture = "rom_sov_peace"
+
+	action_a = {
+		name = ACTIONNAME3167016A
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#########################################################################
+#  Additional MP for Romania
+#########################################################################
+event = {
+	id = 3167017
+	random = no
+	country = ROM
+
+	trigger = { 
+		war = { country = ROM country = SOV }           
+	}
+
+	name = EVT_3167017_NAME
+	desc = EVT_3167017_DESC
+	style = 2
+	picture = "rom_manpower"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 25
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3167017A
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = manpowerpool value = 88 }
+	}
+	action_b = {
+		name = ACTIONNAME3167017B
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = interventionism value = -1 }
+	}
+}
+
+#########################################################################
+#  The Molotov-Ribbentrop Pact - Eastern Poland to Soviets
+#########################################################################
+event = {
+	id = 3167019
+	random = no
+	country = ROM
+
+	trigger = {
+				event = 2018
+				NOT = { event = 2024 } # Bitter Peace
+				alliance = { country = ROM country = GER }
+				NOT = { war = { country = ROM country = SOV } }
+				OR = {
+						area = { area = "Grodno" 				country = ROM data = 2 value = 1 }
+						area = { area = "Brest Litovsk" 		country = ROM data = 2 value = 1 }
+						area = { area = "Polotsk" 				country = ROM data = 2 value = 1 }
+						area = { area = "Lvov" 					country = ROM data = 2 value = 1 }
+						area = { area = "Estonia" 				country = ROM data = 2 value = 1 }
+						area = { area = "Latvia" 				country = ROM data = 2 value = 1 }
+						area = { area = "Lithuania" 			country = ROM data = 2 value = 1 }
+						region = { region = "Ukraine" 			country = ROM data = 2 value = 1 }
+						region = { region = "Belarus" 			country = ROM data = 2 value = 1 }
+						region = { region = "Western Russia" 	country = ROM data = 2 value = 1 }
+						}
+
+			}
+
+	name = EVT_2018_NAME # End of Poland
+	desc = EVT_2018_DESC
+	style = 2
+	picture = "E_Poland_Sov"
+
+	date = { day = 22 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME2018A
+		command = { type = secedearea which = SOV value = "Grodno" 			}
+		command = { type = secedearea which = SOV value = "Brest Litovsk" 	}
+		command = { type = secedearea which = SOV value = "Polotsk" 		}
+		command = { type = secedearea which = SOV value = "Lvov" 			}
+		command = { type = secedearea which = SOV value = "Estonia" 		}
+		command = { type = secedearea which = SOV value = "Latvia" 			}
+		command = { type = secedearea which = SOV value = "Lithuania" 		}
+		command = { type = secederegion which = SOV value = "Ukraine" 			}
+		command = { type = secederegion which = SOV value = "Belarus" 			}
+		command = { type = secederegion which = SOV value = "Western Russia" 	}
+		command = { type = secedeprovince which = GER value = 261 } # Memel
+		command = { type = secedeprovince which = GER value = 252 } # Suwalki
+	}
+}
+
+#########################################################################
+#  NMS Amiral Murgescu
+#########################################################################
+event = {
+	id = 3167030
+	random = no
+	country = ROM
+
+	name = EVT_3167030_NAME
+	desc = EVT_3167030_DESC
+	style = 2
+	picture = "rom_event_minelayer"
+
+	date = { day = 13 month = june year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3167030A
+        command = { type = activate_division which = 20600   value = 111 where = 310 when  = 0 } 
+	}
+}
+
+#########################################################################
+#  Romania build Vickers AA in licence 
+#########################################################################
+event = {
+	id = 3167031
+	random = no
+	country = ROM
+
+	trigger = { random = 80 }
+	
+	name = EVT_3167031_NAME
+	desc = EVT_3167031_DESC
+	style = 2
+	picture = "rom_event_vickers_resita_flak"
+
+	date = { day = 1 month = march year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		ai_chance = 100	
+		name = ACTIONNAME3167031A
+		command = { trigger = { ai = no } type = money     value = -25 }
+	    command = { type = construct which = ic  where = 295 value = 1 }		
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167031B
+		command = { type = dissent value = -1 }	
+	}	
+	
+}
+
+#########################################################################
+#  Romania ignores Vickers AA licence agreement
+#########################################################################
+event = {
+	id = 3167032
+	random = no
+	country = ROM
+
+	trigger = { event = 3167031 }
+	
+	name = EVT_3167032_NAME
+	desc = EVT_3167032_DESC
+	style = 2
+	picture = "rom_event_vickers_resita_flak"
+
+	date = { day = 1 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		ai_chance = 100	
+		name = ACTIONNAME3167032A
+		command = { type = relation  which = ENG value = -15 }
+		command = { trigger = { ai = no } type = money     value = -75 }
+	    command = { type = construct which = ic   where = 295 value = 1 }	
+        command = { type = construct which = flak where = 295 value = 2 }		
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167032B
+		command = { type = dissent  value = -1 }	
+		command = { type = relation which = ENG  value = 35 }
+	}	
+	
+}
+
+#########################################################################
+#  Romania AA defense for Ploesti
+#########################################################################
+event = {
+	id = 3167033
+	random = no
+	country = ROM
+
+	trigger = { 
+	    atwar = yes 
+	}
+	
+	name = EVT_3167033_NAME
+	desc = EVT_3167033_DESC
+	style = 2
+	picture = "rom_event_ploesti_flak"
+
+	date = { day = 1 month = august year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		ai_chance = 100	
+		name = ACTIONNAME3167033A
+		command = { trigger = { ai = no } type = money     value = -25  }
+		command = { trigger = { ai = no } type = supplies  value = -500 }
+        command = { type = construct which = flak where = 311 value = 2 }		
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167033B
+		command = { type = dissent  value = -1 }	
+	}	
+	
+}
+
+#########################################################################
+#  Romania: Callin the frontier guards
+#########################################################################
+event = {
+	id = 3167037
+	random = no
+	country = ROM
+
+	trigger = { 
+	    atwar = yes 
+	}
+	
+	name = EVT_3167037_NAME
+	desc = EVT_3167037_DESC
+	style = 2
+	picture = "rom_event_frontier_guards"
+
+	date = { day = 1 month = june year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		ai_chance = 100	
+		name = ACTIONNAME3167037A
+		command = { trigger = { ai = no } type = manpowerpool value = -10   }
+		command = { trigger = { ai = no } type = supplies     value = -1500 }
+        command = { type = activate_division which = 20600 value = 124 where = 316 when  = 0 } 	
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3167037B
+		command = { type = dissent  value = -1 }	
+	}	
+	
+}

@@ -1,0 +1,32 @@
+# checked DH
+###########################################################################
+#	4200000 - 4299999
+###########################################################################
+#########################################
+# Was 1052032 (URU)promise to aid Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 4200000
+	random = no
+	country = URU
+
+	# triggered by SOV 222041
+
+	name = EVT_4200000_NAME
+	desc = EVT_4200000_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME4200000A
+		command = { type = money value = 2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 1002118 }
+	}
+	action_b = {
+		name = ACTIONNAME4200000B
+		command = { type = money value = -1 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = sleepevent which = 1002118 }
+	}
+}

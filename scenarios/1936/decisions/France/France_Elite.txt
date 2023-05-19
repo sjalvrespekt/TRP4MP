@@ -1,0 +1,99 @@
+#####################################################################
+#  Legion Etranger
+#####################################################################
+
+event = {
+	id = 40000001
+	random = no
+	country = FRA
+	
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = yes
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 20
+			}
+	trigger = {
+                atwar = yes
+		energy = 13440
+		metal = 7720
+		rare_materials = 3360
+		manpower = 15
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_31364014_DESC
+	style = 0
+	picture = "elitelegion-1"
+	decision_picture = "decision_french_elite"
+	
+        date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME40000001A
+		ai_chance = 100
+		command = { type = activate_division which = 13500 value = 1501 when = 0 }
+		command = { type = energypool value = -6720 }
+		command = { type = metalpool value = -3360 }
+		command = { type = rarematerialspool value = -1680 }
+		command = { type = manpowerpool value = -20 }
+	}
+}
+
+#####################################################################
+#  Sections d'éclaireurs-skieurs
+#####################################################################
+
+event = {
+	id = 40000010
+	random = no
+	country = FRA
+	
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = yes
+		supplies = 2000
+		energy = 6500
+		metal = 2500
+		rare_materials = 850
+		manpower = 12
+			}
+	trigger = {
+        atwar = yes
+		OR = {
+		war = { country = FRA country = ITA }
+		event = { id = 2027 days = 270 } #Invasion Poland
+		}
+		supplies = 1500
+		energy = 5720
+		metal = 2360
+		rare_materials = 660
+		manpower = 3
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_40000010_DESC
+	style = 2
+	picture = "FRA_event_elitelegion-SES"
+	decision_picture = "decision_french_elite_SES"
+	
+    date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME40000010A
+		ai_chance = 100
+		command = { type = add_corps which = "Armée des Alpes" value = land where = 91 } #Chambery
+		command = { type = activate_division which = 13500     value = 1531 where = 91 }
+		command = { trigger = { AI = no } type = supplies value = -1500 }     
+		command = { trigger = { AI = no } type = energypool value = -5720 }   
+		command = { trigger = { AI = no } type = metalpool value = -2360 }       
+		command = { trigger = { AI = no } type = rarematerialspool value = -660 } 
+		command = { type = manpowerpool value = -3 }
+	}
+}

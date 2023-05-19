@@ -1,0 +1,67 @@
+# converted to DH, Kane, June 15 2011
+# Italy vs Greece AI File by Lothos
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	province_priorities = {
+		400	= 10 # Venice
+		396 = 10 # Genoa
+		425 = 10 # Reggio
+		434 = 30 # Cagliari
+		379 = 30 # Rhodes
+		381 = 30 # Ermoupoli
+
+		#Yugoslavia and ALbania
+		350 = 10 # Split
+		343 = 10 # Dubrovnik
+		359 = 10 # Tirana
+		
+		# North Africa
+		752 = 10 # Az Zawiyah
+		750 = 10 # Tripoli
+		761 = 10 # Benghazi
+		765 = 10 # Tobruk
+		
+		# Albania prep for Greece invasion
+		362 = 100 # Vlore
+	}
+	area_multiplier = {
+		434 = 2.0 # Cagliari
+		379 = 1.0 # Rhodes
+		381 = 1.0 # Ermoupoli
+	
+		# North Africa
+		752 = 1.0 # Az Zawiyah
+		750 = 1.0 # Tripoli
+		761 = 1.0 # Benghazi
+		765 = 1.0 # Tobruk
+		
+		# Albania prep for Greece invasion
+		362 = 5.0 # Vlore
+	}
+}
+front = { 
+	recklessness 		= 1 # 0-3
+	distrib_vs_ai 		= reactive
+	distrib_vs_human 	= even
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+	enemy_handicap = { } 
+	passivity = { }
+
+	province_priorities = {	
+		382 = 5.0 #Iraklion
+		377 = 3.0 # Athens
+	} 
+} 

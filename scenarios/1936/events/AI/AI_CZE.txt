@@ -1,0 +1,86 @@
+####################################
+# Checkloslavakia 29100 - 29199 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+#
+####################################
+################
+# Czechloslavakia joins the Axis
+#############################################
+event = {
+	id = 29100
+	random = no 
+	country = CZE
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = CZE }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/CZE_Axis.ai" }
+	}
+}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 29101
+	random = no 
+	country = CZE
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = CZE_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CZE_low_mp.ai" }
+		command = { type = local_setflag which = CZE_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 29102
+	random = no 
+	country = CZE
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = CZE_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "CZE_1936.ai" }
+		command = { type = local_clrflag which = CZE_low_mp }
+	}
+}

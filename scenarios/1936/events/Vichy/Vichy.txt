@@ -1,0 +1,2041 @@
+# converted to DH, Kane, July 26 2011
+#########################
+
+#########################################################################
+#  Independent Vichy France (was 4003) modified by Luxor
+#########################################################################
+event = { 
+	id = 3188000
+	random = no
+	country = VIC
+	
+	# triggered by GER 3136074
+	
+	name = EVT_3188000_NAME
+# 	desc = EVT_3188000_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3188000A
+		command = { type = leave_alliance }
+		command = { type = dissent value = -50 } #set dissent to 0
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = set_domestic which = freedom value = 3 }
+		command = { type = set_domestic which = democratic value = 4 } #7 } # was 4; raised to prevent Vichy from manually joining axis
+		command = { type = set_domestic which = interventionism value = 1 }
+		command = { type = transport_pool which = VIC value = 80 }
+		command = { type = escort_pool which = VIC value = 8 }
+		#command = { type = access which = GER }
+		command = { type = add_division value = transport }
+		command = { type = add_division value = transport }
+		command = { type = add_corps which = "1ère Groupe de Division Militaires" value = land where = 93 } #Avignon
+		command = { type = add_division which = "Brigade du Reserve Gen. du 1ère GDM" value = cavalry  when = 3 }
+		command = { type = add_division which = "7éme Division Militaire"             value = d_02     when = 2 where = anti_air }
+		command = { type = add_division which = "14éme Division Militaire"            value = d_02     when = 2 }
+		command = { type = add_division which = "15éme Division Militaire"            value = d_02     when = 2 }
+		command = { type = add_division which = "16éme Division Militaire"            value = d_02     when = 2 }
+		command = { type = add_corps which = "2éme Groupe de Division Militaires" value = land where = 71 } #Clermont-Fd.
+		command = { type = add_division which = "Brigade du Reserve Gen. du 2éme GDM" value = cavalry  when = 3 }
+		command = { type = add_division which = "9éme Division Militaire"             value = d_02     when = 2 where = anti_air }
+		command = { type = add_division which = "12éme Division Militaire"            value = d_02     when = 2 }
+		command = { type = add_division which = "13éme Division Militaire"            value = d_02     when = 2 }
+		command = { type = add_division which = "17éme Division Militaire"            value = d_02     when = 2 }
+        command = { type = add_corps which = "Commandement des Troupes du Maroc" value = land where = 718 } #Casablanca
+		command = { type = add_division which = "Division de Casablanca"              value = d_02     when = 2 where = light_armor_brigade }
+		command = { type = add_division which = "Division de Fez"                     value = d_02     when = 2 }
+		command = { type = add_division which = "Division de Marrakech"               value = d_02     when = 2 }
+		command = { type = add_division which = "Division de Meknès"                  value = d_02     when = 2 }
+		command = { type = add_corps which = "XIXe Région Militaire" value = land where = 727 } #Algiers
+		command = { type = add_division which = "Division de Oran"                    value = d_02     when = 2 where = light_armor_brigade }
+		command = { type = add_division which = "Division de Algiers"                 value = d_02     when = 2 where = light_armor_brigade }
+		command = { type = add_division which = "Division de Constantine"             value = d_02     when = 2 }
+		command = { type = add_corps which = "Commandement Supérieur des Troupes de la Tunisie" value = land where = 747 } #Tunis
+		command = { type = add_division which = "Division de Tunis"                   value = d_02     when = 2 }
+		command = { type = add_corps which = "Commandement Supérieur des Troupes du Liban" value = land where = 1019 } #Beirut
+		command = { type = add_division which = "1ère Armée du Levant"                value = d_02     when = 2 where = light_armor_brigade }
+		command = { type = add_corps which = "Commandement Supérieur des Troupes de la Syrie" value = land where = 1016 } #Damascus
+		command = { type = add_division which = "2éme Armée du Levant"                value = d_02     when = 2 }
+		command = { type = add_corps which = "Armée de l'Air de France"     value = air where = 89 } #
+		command = { type = add_division which = "Groupement de Chasse 22"             value = interceptor     when = 2 }
+		command = { type = add_division which = "Groupement de Bombardement 6"        value = tactical_bomber when = 2 }
+		command = { type = add_corps which = "Armée de l'Air de la Colonie" value = air where = 747 } #
+		command = { type = add_division which = "Groupement de Chasse 25"             value = interceptor     when = 2 }
+		command = { type = add_division which = "Groupement de Bombardement 11"       value = tactical_bomber when = 2 }
+		command = { type = supplies value = 200 } # removed from German pool
+		command = { type = headofstate which = 57001 }              # Phillipe Petain
+		command = { type = headofgovernment which = 57002 }         # Jean-Francois Darlan
+		command = { type = foreignminister which = 57003 }          # Paul Baudouin
+		command = { type = armamentminister which = 57004 }         # Marius Berliet
+		command = { type = ministerofsecurity which = 57005 }       # Joseph Barthélemy
+		command = { type = ministerofintelligence which = 57041 }   # Louis Rivet
+		command = { type = chiefofstaff which = 57007 }             # Charles Huntziger
+		command = { type = chiefofarmy which = 57008 }              # Maxime Weygand
+		command = { type = chiefofnavy which = 57009 }              # Jean-Francois Darlan
+		command = { type = chiefofair which = 57042 }               # Bertrand Pujo
+		command = { type = capital which = 74 } # Vichy
+		command = { trigger = { ai = yes NOT = { participant = { value = 1 } } NOT = { participant = { value = 2 } } NOT = { participant = { value = 3 } } } type = ai which = "switch/isolationist.ai" }
+		
+		# prevent partisans in Levante region
+		command = { type = province_revoltrisk which = 1014 value = -20 }
+		command = { type = province_revoltrisk which = 1015 value = -20 }
+		command = { type = province_revoltrisk which = 1016 value = -20 }
+		command = { type = province_revoltrisk which = 1017 value = -20 }
+		command = { type = province_revoltrisk which = 1018 value = -20 }
+		command = { type = province_revoltrisk which = 1019 value = -20 }
+		command = { type = province_revoltrisk which = 1020 value = -20 }
+		command = { type = province_revoltrisk which = 1021 value = -20 }
+		
+		command = { type = trigger which = 432005 }
+	}
+}
+
+############################################################
+# Vichy Army after the armistic 
+# 1ère Groupe de Division Militaires + Flak # Avignon 
+#      Brigade du Reserve Generale du 1ère GDM
+#      7éme Division Militaire
+#      14éme Division Militaire
+#      15éme Division Militaire
+#      16éme Division Militaire
+#
+# 2éme Groupe de Division Militaires + Flak # Clermont-Ferrand
+#      Brigade du Reserve Generale du 2ére GDM
+#      9éme Division Militaire
+#      12éme Division Militaire
+#      13éme Division Militaire
+#      17éme Division Militaire
+#
+#Air Force in Metropolitan France
+#      Groupement de Chasse 22
+#      Groupement de Bombardement 6
+#
+#Commandement des Troupes du Maroc
+#      Division de Casablanca (Inf)
+#      Division de Fez        (Inf)
+#      Division de Marrakech  (LInf)
+#      Division de Meknès     (LInf)
+#      Groupe de Chars de Combat (PzDiv) - or 3 tank brigades
+# Vichy had 2 battalions Char D1 (60 tanks) and 27 H35/H39 tanks of 
+# the 1ère Régiment de Chasseurs d'Afrique and the 62éme BCC with 30 R35 tanks.
+#
+#XIXéme Région Militaire
+#      Division de Oran        (Inf)
+#      Division de Algiers     (Inf)
+#      Division de Constantine (Inf)
+#
+#Commandement Supérieur des Troupes de Tunisie
+#      Division de Tunis       (Inf)
+#
+#Air Force in Colonial France
+#      Groupement de Chasse 25       (39 Flieger)
+#      Groupement de Bombardement 11 (48 Flieger)
+#############################################################
+# Vichy about to get annexed by Germany (by Lothos)
+#############################################################
+event = {
+	id = 3188003
+	random = no
+	country = VIC
+	
+	trigger = { 
+		NOT = { event = 3336000 } # New Order West
+		NOT = { alliance = { country = GER country = VIC } }
+		NOT = { war = { country = GER country = VIC } }
+		OR = { 
+			event = 432100
+			AND = {	war = { country = USA country = VIC }
+					war = { country = ENG country = VIC }
+					}
+				}
+				
+		random = 20
+
+		NOT = {
+				OR = {
+						control = { province = 718 data = ITA } #Casablanca
+						control = { province = 718 data = GER } 
+						control = { province = 718 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 728 data = ITA } #Oran
+						control = { province = 728 data = GER } 
+						control = { province = 728 data = VIC }
+						}						
+				}
+		NOT = {
+				OR = {
+						control = { province = 727 data = ITA } #Algiers
+						control = { province = 727 data = GER } 
+						control = { province = 727 data = VIC } 
+						}
+				}			
+		NOT = {
+				OR = {
+						control = { province = 736 data = ITA } #Bougie
+						control = { province = 736 data = GER } 
+						control = { province = 736 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 732 data = ITA } #Blida
+						control = { province = 732 data = GER } 
+						control = { province = 732 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 730 data = ITA } #Mascara
+						control = { province = 730 data = GER } 
+						control = { province = 730 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 748 data = ITA } #Bizerte
+						control = { province = 748 data = GER } 
+						control = { province = 748 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 747 data = ITA } #Tunis
+						control = { province = 747 data = GER } 
+						control = { province = 747 data = VIC } 
+						}
+				}
+		NOT = {
+				OR = {
+						control = { province = 745 data = ITA } #Sousse
+						control = { province = 745 data = GER } 
+						control = { province = 745 data = VIC } 
+						}
+				}
+	}
+	
+	name = EVT_3188003_NAME # Pressure on Vichy
+	desc = EVT_3188003_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = { 
+		name = ACTIONNAME3188003A
+		command = { type = leave_alliance }
+		
+		# French overseas provinces
+		
+		command = { trigger = { owned = { province = 717  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 717  }
+		command = { trigger = { owned = { province = 718  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 718  }
+		command = { trigger = { owned = { province = 719  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 719  }
+		command = { trigger = { owned = { province = 720  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 720  }
+		command = { trigger = { owned = { province = 721  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 721  }
+		command = { trigger = { owned = { province = 722  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 722  }
+		command = { trigger = { owned = { province = 723  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 723  }
+		command = { trigger = { owned = { province = 724  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 724  }
+		command = { trigger = { owned = { province = 725  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 725  }
+		command = { trigger = { owned = { province = 726  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 726  }
+		command = { trigger = { owned = { province = 727  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 727  }
+		command = { trigger = { owned = { province = 728  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 728  }
+		command = { trigger = { owned = { province = 729  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 729  }
+		command = { trigger = { owned = { province = 730  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 730  }
+		command = { trigger = { owned = { province = 731  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 731  }
+		command = { trigger = { owned = { province = 732  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 732  }
+		command = { trigger = { owned = { province = 733  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 733  }
+		command = { trigger = { owned = { province = 734  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 734  }
+		command = { trigger = { owned = { province = 735  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 735  }
+		command = { trigger = { owned = { province = 736  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 736  }
+		command = { trigger = { owned = { province = 737  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 737  }
+		command = { trigger = { owned = { province = 738  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 738  }
+		command = { trigger = { owned = { province = 739  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 739  }
+		command = { trigger = { owned = { province = 743  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 743  }
+		command = { trigger = { owned = { province = 740  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 740  }
+		command = { trigger = { owned = { province = 741  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 741  }
+		command = { trigger = { owned = { province = 742  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 742  }
+		command = { trigger = { owned = { province = 744  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 744  }
+		command = { trigger = { owned = { province = 745  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 745  }
+		command = { trigger = { owned = { province = 746  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 746  }
+		command = { trigger = { owned = { province = 747  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 747  }
+		command = { trigger = { owned = { province = 748  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 748  }
+		command = { trigger = { owned = { province = 749  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 749  }
+		command = { trigger = { owned = { province = 907  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 907  }
+		command = { trigger = { owned = { province = 908  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 908  }
+		command = { trigger = { owned = { province = 909  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 909  }
+		command = { trigger = { owned = { province = 910  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 910  }
+		command = { trigger = { owned = { province = 911  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 911  }
+		command = { trigger = { owned = { province = 914  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 914  }
+		command = { trigger = { owned = { province = 915  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 915  }
+		command = { trigger = { owned = { province = 917  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 917  }
+		command = { trigger = { owned = { province = 918  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 918  }
+		command = { trigger = { owned = { province = 919  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 919  }
+		command = { trigger = { owned = { province = 920  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 920  }
+		command = { trigger = { owned = { province = 921  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 921  }
+		command = { trigger = { owned = { province = 922  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 922  }
+		command = { trigger = { owned = { province = 923  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 923  }
+		command = { trigger = { owned = { province = 924  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 924  }
+		command = { trigger = { owned = { province = 925  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 925  }
+		command = { trigger = { owned = { province = 926  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 926  }
+		command = { trigger = { owned = { province = 927  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 927  }
+		command = { trigger = { owned = { province = 928  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 928  }
+		command = { trigger = { owned = { province = 942  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 942  }
+		command = { trigger = { owned = { province = 943  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 943  }
+		command = { trigger = { owned = { province = 944  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 944  }
+		command = { trigger = { owned = { province = 945  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 945  }
+		command = { trigger = { owned = { province = 946  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 946  }
+		command = { trigger = { owned = { province = 947  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 947  }
+		command = { trigger = { owned = { province = 948  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 948  }
+		command = { trigger = { owned = { province = 949  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 949  }
+		command = { trigger = { owned = { province = 950  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 950  }
+		command = { trigger = { owned = { province = 951  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 951  }
+		command = { trigger = { owned = { province = 957  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 957  }
+		command = { trigger = { owned = { province = 958  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 958  }
+		command = { trigger = { owned = { province = 959  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 959  }
+		command = { trigger = { owned = { province = 960  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 960  }
+		command = { trigger = { owned = { province = 961  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 961  }
+		command = { trigger = { owned = { province = 962  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 962  }
+		command = { trigger = { owned = { province = 965  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 965  }
+		command = { trigger = { owned = { province = 966  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 966  }
+		command = { trigger = { owned = { province = 967  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 967  }
+		command = { trigger = { owned = { province = 968  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 968  }
+		command = { trigger = { owned = { province = 970  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 970  }
+		command = { trigger = { owned = { province = 971  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 971  }
+		command = { trigger = { owned = { province = 972  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 972  }
+		command = { trigger = { owned = { province = 973  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 973  }
+		command = { trigger = { owned = { province = 974  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 974  }
+		command = { trigger = { owned = { province = 975  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 975  }
+		command = { trigger = { owned = { province = 976  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 976  }
+		command = { trigger = { owned = { province = 977  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 977  }
+		command = { trigger = { owned = { province = 978  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 978  }
+		command = { trigger = { owned = { province = 980  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 980  }
+		command = { trigger = { owned = { province = 981  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 981  }
+		command = { trigger = { owned = { province = 982  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 982  }
+		command = { trigger = { owned = { province = 983  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 983  }
+		command = { trigger = { owned = { province = 984  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 984  }
+		command = { trigger = { owned = { province = 985  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 985  }
+		command = { trigger = { owned = { province = 986  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 986  }
+		command = { trigger = { owned = { province = 833  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 833  }
+		command = { trigger = { owned = { province = 996  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 996  }
+		command = { trigger = { owned = { province = 999  data = -1 } exists = U14 } type = secedeprovince which = U14 value = 999  }
+		command = { trigger = { owned = { province = 1001 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1001 } 
+		command = { trigger = { owned = { province = 1002 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1002 } 
+		command = { trigger = { owned = { province = 1003 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1003 } 
+		command = { trigger = { owned = { province = 1000 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1000 } 
+		command = { trigger = { owned = { province = 2000 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 2000 } 
+		command = { trigger = { owned = { province = 1752 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1752 } 
+		command = { trigger = { owned = { province = 1767 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1767 } 
+		command = { trigger = { owned = { province = 1768 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1768 } 
+		command = { trigger = { owned = { province = 1581 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1581 } 
+		command = { trigger = { owned = { province = 1582 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1582 } 
+		command = { trigger = { owned = { province = 1583 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1583 } 
+		command = { trigger = { owned = { province = 1584 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1584 } 
+		command = { trigger = { owned = { province = 1585 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1585 } 
+		command = { trigger = { owned = { province = 1586 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1586 } 
+		command = { trigger = { owned = { province = 1730 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1730 } 
+		command = { trigger = { owned = { province = 1740 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1740 } 
+		command = { trigger = { owned = { province = 1743 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1743 } 
+		command = { trigger = { owned = { province = 1744 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 1744 } 
+		command = { trigger = { owned = { province = 2135 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 2135 }
+		
+		command = { trigger = { owned = { province = 717  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 717  }
+		command = { trigger = { owned = { province = 718  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 718  }
+		command = { trigger = { owned = { province = 719  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 719  }
+		command = { trigger = { owned = { province = 720  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 720  }
+		command = { trigger = { owned = { province = 721  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 721  }
+		command = { trigger = { owned = { province = 722  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 722  }
+		command = { trigger = { owned = { province = 723  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 723  }
+		command = { trigger = { owned = { province = 724  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 724  }
+		command = { trigger = { owned = { province = 725  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 725  }
+		command = { trigger = { owned = { province = 726  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 726  }
+		command = { trigger = { owned = { province = 727  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 727  }
+		command = { trigger = { owned = { province = 728  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 728  }
+		command = { trigger = { owned = { province = 729  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 729  }
+		command = { trigger = { owned = { province = 730  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 730  }
+		command = { trigger = { owned = { province = 731  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 731  }
+		command = { trigger = { owned = { province = 732  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 732  }
+		command = { trigger = { owned = { province = 733  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 733  }
+		command = { trigger = { owned = { province = 734  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 734  }
+		command = { trigger = { owned = { province = 735  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 735  }
+		command = { trigger = { owned = { province = 736  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 736  }
+		command = { trigger = { owned = { province = 737  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 737  }
+		command = { trigger = { owned = { province = 738  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 738  }
+		command = { trigger = { owned = { province = 739  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 739  }
+		command = { trigger = { owned = { province = 743  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 743  }
+		command = { trigger = { owned = { province = 740  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 740  }
+		command = { trigger = { owned = { province = 741  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 741  }
+		command = { trigger = { owned = { province = 742  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 742  }
+		command = { trigger = { owned = { province = 744  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 744  }
+		command = { trigger = { owned = { province = 745  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 745  }
+		command = { trigger = { owned = { province = 746  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 746  }
+		command = { trigger = { owned = { province = 747  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 747  }
+		command = { trigger = { owned = { province = 748  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 748  }
+		command = { trigger = { owned = { province = 749  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 749  }
+		command = { trigger = { owned = { province = 907  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 907  }
+		command = { trigger = { owned = { province = 908  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 908  }
+		command = { trigger = { owned = { province = 909  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 909  }
+		command = { trigger = { owned = { province = 910  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 910  }
+		command = { trigger = { owned = { province = 911  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 911  }
+		command = { trigger = { owned = { province = 914  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 914  }
+		command = { trigger = { owned = { province = 915  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 915  }
+		command = { trigger = { owned = { province = 917  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 917  }
+		command = { trigger = { owned = { province = 918  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 918  }
+		command = { trigger = { owned = { province = 919  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 919  }
+		command = { trigger = { owned = { province = 920  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 920  }
+		command = { trigger = { owned = { province = 921  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 921  }
+		command = { trigger = { owned = { province = 922  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 922  }
+		command = { trigger = { owned = { province = 923  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 923  }
+		command = { trigger = { owned = { province = 924  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 924  }
+		command = { trigger = { owned = { province = 925  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 925  }
+		command = { trigger = { owned = { province = 926  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 926  }
+		command = { trigger = { owned = { province = 927  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 927  }
+		command = { trigger = { owned = { province = 928  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 928  }
+		command = { trigger = { owned = { province = 942  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 942  }
+		command = { trigger = { owned = { province = 943  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 943  }
+		command = { trigger = { owned = { province = 944  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 944  }
+		command = { trigger = { owned = { province = 945  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 945  }
+		command = { trigger = { owned = { province = 946  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 946  }
+		command = { trigger = { owned = { province = 947  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 947  }
+		command = { trigger = { owned = { province = 948  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 948  }
+		command = { trigger = { owned = { province = 949  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 949  }
+		command = { trigger = { owned = { province = 950  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 950  }
+		command = { trigger = { owned = { province = 951  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 951  }
+		command = { trigger = { owned = { province = 957  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 957  }
+		command = { trigger = { owned = { province = 958  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 958  }
+		command = { trigger = { owned = { province = 959  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 959  }
+		command = { trigger = { owned = { province = 960  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 960  }
+		command = { trigger = { owned = { province = 961  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 961  }
+		command = { trigger = { owned = { province = 962  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 962  }
+		command = { trigger = { owned = { province = 965  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 965  }
+		command = { trigger = { owned = { province = 966  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 966  }
+		command = { trigger = { owned = { province = 967  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 967  }
+		command = { trigger = { owned = { province = 968  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 968  }
+		command = { trigger = { owned = { province = 970  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 970  }
+		command = { trigger = { owned = { province = 971  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 971  }
+		command = { trigger = { owned = { province = 972  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 972  }
+		command = { trigger = { owned = { province = 973  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 973  }
+		command = { trigger = { owned = { province = 974  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 974  }
+		command = { trigger = { owned = { province = 975  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 975  }
+		command = { trigger = { owned = { province = 976  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 976  }
+		command = { trigger = { owned = { province = 977  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 977  }
+		command = { trigger = { owned = { province = 978  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 978  }
+		command = { trigger = { owned = { province = 980  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 980  }
+		command = { trigger = { owned = { province = 981  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 981  }
+		command = { trigger = { owned = { province = 982  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 982  }
+		command = { trigger = { owned = { province = 983  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 983  }
+		command = { trigger = { owned = { province = 984  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 984  }
+		command = { trigger = { owned = { province = 985  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 985  }
+		command = { trigger = { owned = { province = 986  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 986  }
+		command = { trigger = { owned = { province = 833  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 833  }
+		command = { trigger = { owned = { province = 996  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 996  }
+		command = { trigger = { owned = { province = 999  data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 999  }
+		command = { trigger = { owned = { province = 1001 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1001 } 
+		command = { trigger = { owned = { province = 1002 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1002 } 
+		command = { trigger = { owned = { province = 1003 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1003 } 
+		command = { trigger = { owned = { province = 1000 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1000 } 
+		command = { trigger = { owned = { province = 2000 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 2000 } 
+		command = { trigger = { owned = { province = 1752 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1752 } 
+		command = { trigger = { owned = { province = 1767 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1767 } 
+		command = { trigger = { owned = { province = 1768 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1768 } 
+		command = { trigger = { owned = { province = 1581 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1581 } 
+		command = { trigger = { owned = { province = 1582 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1582 } 
+		command = { trigger = { owned = { province = 1583 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1583 } 
+		command = { trigger = { owned = { province = 1584 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1584 } 
+		command = { trigger = { owned = { province = 1585 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1585 } 
+		command = { trigger = { owned = { province = 1586 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1586 } 
+		command = { trigger = { owned = { province = 1730 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1730 } 
+		command = { trigger = { owned = { province = 1740 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1740 } 
+		command = { trigger = { owned = { province = 1743 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1743 } 
+		command = { trigger = { owned = { province = 1744 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 1744 } 
+		command = { trigger = { owned = { province = 2135 data = -1 } NOT = { exists = U14 } } type = secedeprovince which = USA value = 2135 }
+		
+#		command = { type = trigger which = 3136041 }
+	}
+}
+#############################################################
+# Vichy collapses (by Lothos)
+#############################################################
+event = { 
+	id = 3188004 # 5600012
+	random = no
+	country = VIC
+
+	trigger = {
+		event = { id = 3135001 days = 14 } # Vichy event for France; added to prevent chain malfunction when Vichy is established
+		OR = {
+			war = { country = GER country = VIC }
+			war = { country = ITA country = VIC }
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1948 }
+
+	name = EVT_3188004_NAME
+	desc = EVT_3188004_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3188004A 
+		command = { type = leave_alliance }
+		command = { type = secedeprovince which = U14 value = 717 }
+		command = { type = secedeprovince which = U14 value = 718 }
+		command = { type = secedeprovince which = U14 value = 720 }
+		command = { type = secedeprovince which = U14 value = 719 }
+		command = { type = secedeprovince which = U14 value = 721 }
+		command = { type = secedeprovince which = U14 value = 722 }
+		command = { type = secedeprovince which = U14 value = 723 }
+		command = { type = secedeprovince which = U14 value = 725 }
+		command = { type = secedeprovince which = U14 value = 726 }
+		command = { type = secedeprovince which = U14 value = 724 }
+		command = { type = secedeprovince which = U14 value = 741 }
+		command = { type = secedeprovince which = U14 value = 742 }
+		command = { type = secedeprovince which = U14 value = 744 }
+		command = { type = secedeprovince which = U14 value = 740 }
+		command = { type = secedeprovince which = U14 value = 746 }
+		command = { type = secedeprovince which = U14 value = 745 }
+		command = { type = secedeprovince which = U14 value = 747 }
+		command = { type = secedeprovince which = U14 value = 748 }
+		command = { type = secedeprovince which = U14 value = 749 }
+		command = { type = secedeprovince which = U14 value = 735 }
+		command = { type = secedeprovince which = U14 value = 743 }
+		command = { type = secedeprovince which = U14 value = 734 }
+		command = { type = secedeprovince which = U14 value = 731 }
+		command = { type = secedeprovince which = U14 value = 736 }
+		command = { type = secedeprovince which = U14 value = 732 }
+		command = { type = secedeprovince which = U14 value = 730 }
+		command = { type = secedeprovince which = U14 value = 727 }
+		command = { type = secedeprovince which = U14 value = 733 }
+		command = { type = secedeprovince which = U14 value = 729 }
+		command = { type = secedeprovince which = U14 value = 728 }
+		command = { type = secedeprovince which = U14 value = 739 }
+		command = { type = secedeprovince which = U14 value = 737 }
+		command = { type = secedeprovince which = U14 value = 738 }
+		command = { type = secedeprovince which = U14 value = 981 }
+		command = { type = secedeprovince which = U14 value = 982 }
+		command = { type = secedeprovince which = U14 value = 986 }
+		command = { type = secedeprovince which = U14 value = 984 }
+		command = { type = secedeprovince which = U14 value = 985 }
+		command = { type = secedeprovince which = U14 value = 972 }
+		command = { type = secedeprovince which = U14 value = 971 }
+		command = { type = secedeprovince which = U14 value = 976 }
+		command = { type = secedeprovince which = U14 value = 975 }
+		command = { type = secedeprovince which = U14 value = 977 }
+		command = { type = secedeprovince which = U14 value = 980 }
+		command = { type = secedeprovince which = U14 value = 978 }
+		command = { type = secedeprovince which = U14 value = 983 }
+		command = { type = secedeprovince which = U14 value = 966 }
+		command = { type = secedeprovince which = U14 value = 965 }
+		command = { type = secedeprovince which = U14 value = 967 }
+		command = { type = secedeprovince which = U14 value = 968 }
+		command = { type = secedeprovince which = U14 value = 958 }
+		command = { type = secedeprovince which = U14 value = 973 }
+		command = { type = secedeprovince which = U14 value = 962 }
+		command = { type = secedeprovince which = U14 value = 970 }
+		command = { type = secedeprovince which = U14 value = 960 }
+		command = { type = secedeprovince which = U14 value = 961 }
+		command = { type = secedeprovince which = U14 value = 959 }
+		command = { type = secedeprovince which = U14 value = 974 }
+		command = { type = secedeprovince which = U14 value = 942 }
+		command = { type = secedeprovince which = U14 value = 945 }
+		command = { type = secedeprovince which = U14 value = 957 }
+		command = { type = secedeprovince which = U14 value = 944 }
+		command = { type = secedeprovince which = U14 value = 950 }
+		command = { type = secedeprovince which = U14 value = 948 }
+		command = { type = secedeprovince which = U14 value = 949 }
+		command = { type = secedeprovince which = U14 value = 951 }
+		command = { type = secedeprovince which = U14 value = 922 }
+		command = { type = secedeprovince which = U14 value = 946 }
+		command = { type = secedeprovince which = U14 value = 943 }
+		command = { type = secedeprovince which = U14 value = 947 }
+		command = { type = secedeprovince which = U14 value = 920 }
+		command = { type = secedeprovince which = U14 value = 921 }
+		command = { type = secedeprovince which = U14 value = 925 }
+		command = { type = secedeprovince which = U14 value = 927 }
+		command = { type = secedeprovince which = U14 value = 923 }
+		command = { type = secedeprovince which = U14 value = 919 }
+		command = { type = secedeprovince which = U14 value = 926 }
+		command = { type = secedeprovince which = U14 value = 909 }
+		command = { type = secedeprovince which = U14 value = 910 }
+		command = { type = secedeprovince which = U14 value = 911 }
+		command = { type = secedeprovince which = U14 value = 928 }
+		command = { type = secedeprovince which = U14 value = 924 }
+		command = { type = secedeprovince which = U14 value = 928 }
+		command = { type = secedeprovince which = U14 value = 908 }
+		command = { type = secedeprovince which = U14 value = 907 }
+		command = { type = secedeprovince which = U14 value = 914 }
+		command = { type = secedeprovince which = U14 value = 915 }
+		command = { type = secedeprovince which = U14 value = 917 }
+		command = { type = secedeprovince which = U14 value = 918 }
+		command = { type = trigger which = 3136057 }
+	}
+}
+##################################################
+# Vichy loss of colonies (by Luxor)
+##################################################
+event = {
+	id = 3188005
+	random = no
+	country = VIC
+	
+	trigger = {
+		exists = U14
+		war = { country = ENG country = GER }
+	}
+	
+	name = EVT_3188005_NAME
+	desc = EVT_3188005_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3188005A
+		command = { type = secedeprovince which = U14 value = 924 }
+		command = { type = secedeprovince which = U14 value = 920 }
+		command = { type = secedeprovince which = U14 value = 921 }
+		command = { type = secedeprovince which = U14 value = 922 }
+		command = { type = dissent value = 3 }
+	}
+}
+event = {
+	id = 3188006
+	random = no
+	country = VIC
+	
+	trigger = {
+		exists = U14
+		event = 3188005
+		war = { country = ENG country = GER }
+	}
+	
+	name = EVT_3188006_NAME
+	desc = EVT_3188006_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3188006A
+		command = { type = secedeprovince which = U14 value = 925 }
+		command = { type = secedeprovince which = U14 value = 927 }
+		command = { type = secedeprovince which = U14 value = 928 }
+		command = { type = secedeprovince which = U14 value = 911 }
+		command = { type = secedeprovince which = U14 value = 909 }
+		command = { type = secedeprovince which = U14 value = 910 }
+		command = { type = secedeprovince which = U14 value = 919 }
+		command = { type = secedeprovince which = U14 value = 926 }
+		command = { type = secedeprovince which = U14 value = 923 }
+		command = { type = secedeprovince which = U14 value = 908 }
+		command = { type = secedeprovince which = U14 value = 907 }
+		command = { type = secedeprovince which = U14 value = 914 }
+		command = { type = secedeprovince which = U14 value = 915 }
+		command = { type = secedeprovince which = U14 value = 917 }
+		command = { type = secedeprovince which = U14 value = 918 }
+		command = { type = trigger which = 3190002 } # Free France capital moves
+		command = { type = dissent value = 3 }
+	}
+}
+
+event = {
+	id = 3188009
+	random = no
+	country = VIC
+	
+	trigger = {
+		exists = U14
+		event = 3188005
+		war = { country = ENG country = GER }
+	}
+	
+	name = EVT_3188009_NAME
+	desc = EVT_3188009_DESC
+	style = 0
+	
+	date = { day = 25 month = december year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3188006A
+		command = { type = secedeprovince which = U14 value = 2135 } #Saint-Pierre
+		command = { type = secedeprovince which = U14 value = 1752 } #St Martin
+		command = { type = dissent value = 1 }
+	}
+}
+#####################################################################
+# Allies troops enter Syria and Lebanon
+# By Luxor
+#####################################################################
+event = {
+	id = 3188007
+	random = no
+	country = VIC
+	
+	trigger = { 
+			atwar = ENG
+			exists = U14
+			alliance = { country = ENG country = U14 }
+			NOT = { exists = SYR }
+			NOT = { exists = LEB }
+                        event = 3800001
+	}
+	
+	name = EVT_3188007_NAME
+	desc = EVT_3188007_DESC
+	style = 0
+	
+	date = { day = 0 month = june year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3188007A
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1019 } # Lebanon
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1020 } # Syria
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1016 }
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1018 }
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1017 }
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1021 }
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1014 }
+		command = { trigger = { alliance = { country = ENG country = U14 } } type = secedeprovince which = U14 value = 1015 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1019 } # Lebanon
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1020 } # Syria
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1016 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1018 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1017 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1021 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1014 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = secedeprovince which = ENG value = 1015 }
+		command = { trigger = { NOT = { alliance = { country = ENG country = U14 } } } type = dissent value = 1 }
+		#command = { type = trigger which = 3131028 }
+	}
+}
+#####################################################################
+# Franco's Proposal
+#####################################################################
+event = {
+	id = 3188008
+	random = no
+	country = VIC
+	
+	# triggered by GER 3136165
+	
+	name = EVT_3188008_NAME
+	desc = EVT_3136165_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3146033A
+		command = { type = secedeprovince which = U01 value = 717 }
+		command = { type = secedeprovince which = U01 value = 718 }
+		command = { type = secedeprovince which = U01 value = 719 }
+		command = { type = secedeprovince which = U01 value = 720 }
+		command = { type = secedeprovince which = U01 value = 721 }
+		command = { type = secedeprovince which = U01 value = 722 }
+		command = { type = secedeprovince which = U01 value = 723 }
+		command = { type = secedeprovince which = U01 value = 724 }
+		command = { type = secedeprovince which = U01 value = 725 }
+		command = { type = secedeprovince which = U01 value = 726 }
+		command = { type = secedeprovince which = U01 value = 728 }
+		command = { type = secedeprovince which = U01 value = 729 }
+		
+		command = { type = dissent value = 35 }
+		command = { type = relation which = GER value = -150 }
+		command = { type = relation which = U01 value = -200 }
+		command = { type = end_puppet }
+		command = { type = end_access which = GER }
+		command = { type = trigger which = 3173012 } # U01
+	}
+}
+
+
+
+# 
+# HoI - Vichy France Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+# Japan demands bases in French Indochine
+# note:	triggering action for this event has been deactivated!
+# 		rework event, AI and follow-up events in case of future re-activation!
+#########################################################################
+event = { 
+	id = 4000
+	random = no
+	country = VIC
+	
+	# Triggered by JAP 3146055
+	
+	name = "EVT_4000_NAME"
+	desc = "EVT_4000_DESC"
+	style = 0
+	picture = "VIC"
+	
+	action_a = {
+		name = ACTIONNAME4000A
+		ai_chance = 100
+		command = { type = secedeprovince which = JAP value = 1403 }
+		command = { type = secedeprovince which = JAP value = 1399 }
+		command = { type = secedeprovince which = JAP value = 1392 }
+		command = { type = secedeprovince which = JAP value = 1393 }
+		command = { type = addcore which = 1014 }
+		command = { type = addcore which = 1015 }
+		command = { type = addcore which = 1021 }
+		command = { type = addcore which = 1017 }
+		command = { type = addcore which = 1016 }
+		command = { type = addcore which = 1018 }
+		command = { type = addcore which = 1019 }
+		command = { type = addcore which = 1020 }
+		command = { type = trigger which = 3804 }
+		command = { type = relation which = JAP value = 30 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = FRA value = -20 }
+		command = { type = relation which = ENG value = -20 }
+		command = { type = relation which = USA value = -15 }
+		command = { type = relation which = CHI value = -20 }
+	}
+	action_b = {
+		name = ACTIONNAME4000B
+		ai_chance = 0
+		command = { type = trigger which = 3146056 }
+		command = { type = addcore which = 1014 }
+		command = { type = addcore which = 1015 }
+		command = { type = addcore which = 1021 }
+		command = { type = addcore which = 1017 }
+		command = { type = addcore which = 1016 }
+		command = { type = addcore which = 1018 }
+		command = { type = addcore which = 1019 }
+		command = { type = addcore which = 1020 }
+		command = { type = relation which = JAP value = -20 }
+		command = { type = relation which = FRA value = -15 }
+		command = { type = relation which = USA value = 5 }
+	}
+}
+#########################################################################
+# Japan demands French Indochine
+#########################################################################
+event = { 
+	id = 4001
+	random = no
+	country = VIC
+	
+	# Triggered by JAP 3146055
+	
+	name = "EVT_4001_NAME"
+	desc = "EVT_4001_DESC"
+	style = 0
+	picture = "indochina_demand"
+
+	action_a = {
+		name = ACTIONNAME4001A
+		ai_chance = 100
+#		command = { type = secedeprovince which = JAP value = 1392 }
+		command = { type = secedeprovince which = JAP value = 1393 }
+		command = { type = secedeprovince which = JAP value = 1404 }
+		command = { type = secedeprovince which = JAP value = 1395 }
+		command = { type = secedeprovince which = JAP value = 1396 }
+		command = { type = secedeprovince which = JAP value = 1391 }
+		command = { type = secedeprovince which = JAP value = 1405 }
+		command = { type = secedeprovince which = JAP value = 1394 }
+		command = { type = secedeprovince which = JAP value = 1397 }
+		command = { type = secedeprovince which = JAP value = 1398 }
+		command = { type = secedeprovince which = JAP value = 1399 }
+		command = { type = secedeprovince which = JAP value = 1403 }
+#		command = { type = secedeprovince which = JAP value = 1402 }
+		command = { type = secedeprovince which = JAP value = 1400 }
+		command = { type = secedeprovince which = JAP value = 1401 }
+		command = { type = relation which = JAP value = 35 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = FRA value = -30 }
+		command = { type = relation which = ENG value = -25 }
+		command = { type = relation which = USA value = -15 }
+		command = { type = trigger which = 3894 }
+	}
+	action_b = {
+		name = ACTIONNAME4001B
+		ai_chance = 0
+		command = { type = trigger which = 3146056 }
+	}
+}
+#########################################################################
+# Japan demands French Indochine and Madagascar
+# note:	triggering action for this event has been deactivated!
+# 		rework event, AI and follow-up events in case of future re-activation!
+#########################################################################
+event = { 
+	id = 4002
+	random = no
+	country = VIC
+	
+	# Triggered by JAP 3146055
+	
+	name = "EVT_4002_NAME"
+	desc = "EVT_4002_DESC"
+	style = 0
+	picture = "indochina_demand"
+
+	action = {
+		trigger = { NOT = { alliance = { country = JAP country = GER } } }
+		ai_chance = 85
+		name = "ACTIONNAME4002A" # Refuse
+		command = { type = trigger which = 3146056 }
+	}
+	action = {
+		trigger = { NOT = { alliance = { country = JAP country = GER } } }
+		ai_chance = 15
+		name = "ACTIONNAME4002B" # Accept
+#		command = { type = secedeprovince which = JAP value = 1392 }
+		command = { type = secedeprovince which = JAP value = 1393 }
+		command = { type = secedeprovince which = JAP value = 1404 }
+		command = { type = secedeprovince which = JAP value = 1395 }
+		command = { type = secedeprovince which = JAP value = 1396 }
+		command = { type = secedeprovince which = JAP value = 1391 }
+		command = { type = secedeprovince which = JAP value = 1405 }
+		command = { type = secedeprovince which = JAP value = 1394 }
+		command = { type = secedeprovince which = JAP value = 1397 }
+		command = { type = secedeprovince which = JAP value = 1398 }
+		command = { type = secedeprovince which = JAP value = 1399 }
+		command = { type = secedeprovince which = JAP value = 1403 }
+#		command = { type = secedeprovince which = JAP value = 1402 }
+		command = { type = secedeprovince which = JAP value = 1400 }
+		command = { type = secedeprovince which = JAP value = 1401 }
+		command = { type = secedeprovince which = JAP value = 1003 }
+		command = { type = secedeprovince which = JAP value = 1002 }
+		command = { type = secedeprovince which = JAP value = 1001 }
+		command = { type = relation which = JAP value = 35 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = FRA value = -30 }
+		command = { type = relation which = ENG value = -25 }
+		command = { type = relation which = USA value = -15 }
+		command = { type = trigger which = 3894 }
+	}
+	
+	action = {
+		trigger = { alliance = { country = JAP country = GER } }
+		ai_chance = 15
+		name = "ACTIONNAME4002A" # Refuse
+		command = { type = trigger which = 3146056 }
+	}
+	action = {
+		trigger = { alliance = { country = JAP country = GER } }
+		ai_chance = 85
+		name = "ACTIONNAME4002B" # Accept
+#		command = { type = secedeprovince which = JAP value = 1392 }
+		command = { type = secedeprovince which = JAP value = 1393 }
+		command = { type = secedeprovince which = JAP value = 1404 }
+		command = { type = secedeprovince which = JAP value = 1395 }
+		command = { type = secedeprovince which = JAP value = 1396 }
+		command = { type = secedeprovince which = JAP value = 1391 }
+		command = { type = secedeprovince which = JAP value = 1405 }
+		command = { type = secedeprovince which = JAP value = 1394 }
+		command = { type = secedeprovince which = JAP value = 1397 }
+		command = { type = secedeprovince which = JAP value = 1398 }
+		command = { type = secedeprovince which = JAP value = 1399 }
+		command = { type = secedeprovince which = JAP value = 1403 }
+#		command = { type = secedeprovince which = JAP value = 1402 }
+		command = { type = secedeprovince which = JAP value = 1400 }
+		command = { type = secedeprovince which = JAP value = 1401 }
+		command = { type = secedeprovince which = JAP value = 1003 }
+		command = { type = secedeprovince which = JAP value = 1002 }
+		command = { type = secedeprovince which = JAP value = 1001 }
+		command = { type = relation which = JAP value = 35 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = FRA value = -30 }
+		command = { type = relation which = ENG value = -25 }
+		command = { type = relation which = USA value = -15 }
+		command = { type = trigger which = 3894 }
+	}
+}
+#########################################################################
+#  Vichy And The War
+#########################################################################
+event = { 
+	id = 432005 
+	random = no
+	country = VIC
+	
+	# triggered by VIC4003
+	
+	name = EVT_432005_NAME
+	desc = EVT_432005_DESC
+	style = 0	
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME432005A
+		command = { }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME432005B
+		command = { type = set_relation which = GER value = 150 } 
+		command = { type = dissent value = 2 }
+	}
+}
+###################################################################
+# 432030 - (VIC) Demand of ex-german colonies (by SykoNurse)
+###################################################################
+event = {
+	id = 432030
+	random = no
+	country = VIC
+
+	# triggered by 3136126
+
+	name = EVT_432030_NAME
+	desc = EVT_432030_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME432030A
+		command = { } 
+	}
+}
+###################################################################
+# 432031 - (VIC) Return of former colonies (by SykoNurse)
+###################################################################
+event = { 
+	id = 432031 
+	random = no
+	country = VIC
+
+	trigger = {
+		ispuppet = VIC
+		ispuppet = ENG
+		NOT = { exists = FRA }
+		event = 432030 # GER demanded VIC land
+	}
+
+	name = EVT_432031_NAME
+	desc = EVT_432031_DESC
+	style = 0
+
+	date = { day = 29 month = january year = 1939 } 
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = { 
+		name = ACTIONNAME432031A
+		command = { type = secedeprovince which = GER value = 950 }
+		command = { type = secedeprovince which = GER value = 948 }
+		command = { type = secedeprovince which = GER value = 949 }
+		command = { type = secedeprovince which = GER value = 951 }
+		command = { type = secedeprovince which = GER value = 925 }
+		command = { type = secedeprovince which = GER value = 920 }
+		command = { type = secedeprovince which = GER value = 921 }
+		command = { type = secedeprovince which = GER value = 927 }
+		command = { type = secedeprovince which = GER value = 923 }
+		command = { type = secedeprovince which = GER value = 919 }
+		command = { type = secedeprovince which = GER value = 926 }
+		command = { type = secedeprovince which = GER value = 924 }
+		command = { type = secedeprovince which = GER value = 928 }
+		command = { type = secedeprovince which = GER value = 911 }
+		command = { type = secedeprovince which = GER value = 909 }
+		command = { type = secedeprovince which = GER value = 910 }
+		command = { type = secedeprovince which = GER value = 908 }
+		command = { type = secedeprovince which = GER value = 907 }
+		command = { type = secedeprovince which = GER value = 914 }
+		command = { type = secedeprovince which = GER value = 915 }
+		command = { type = secedeprovince which = GER value = 917 }
+		command = { type = secedeprovince which = GER value = 918 }
+		command = { type = secedeprovince which = GER value = 1001 }
+		command = { type = secedeprovince which = GER value = 1002 }
+		command = { type = secedeprovince which = GER value = 1003 }
+		command = { type = secedeprovince which = GER value = 996 }
+	}
+}
+#########################################################################
+#  Food rations reduced 1940 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432032
+	random = no
+	country = VIC
+
+	trigger = { atwar = yes }                     	
+
+	name = EVT_432032_NAME
+	desc = EVT_432032_DESC
+	style = 0
+
+	date = { day = 29 month = August year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME432032A
+		command = { type = dissent value = 1 }
+		command = { type = supplies value = -150 }
+	}
+	action_b = {
+		name = ACTIONNAME432032B
+		command = { type = dissent value = 5 }
+	}
+}
+#########################################################################
+#  New Food rations 1940 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432033
+	random = no
+	country = VIC
+
+	trigger = { atwar = yes }                     	
+
+	name = EVT_432033_NAME
+	desc = EVT_432033_DESC
+	style = 0
+
+	date = { day = 23 month = September year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME432033A
+		command = { type = dissent value = -2 }
+	}
+}
+#########################################################################
+#  Petain dismisses his Vice-Premier Laval 1940 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432034
+	random = no
+	country = VIC
+
+	name = EVT_432034_NAME
+	desc = EVT_432034_DESC
+	style = 0
+
+	date = { day = 13 month = december year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+ 
+	action_a = {
+		name = ACTIONNAME432034A
+		command = { type = dissent value = 1 }
+		command = { type = headofgovernment which = 57002 } #HOG Jean-Francois Darlan		
+		command = { type = sleepminister which = 57011 } # HOG Pierre Laval
+	}
+}
+#########################################################################
+#  'War Guilt' trial 1940 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432035
+	random = no
+	country = VIC
+
+	trigger  = {
+		event = 3136033
+		NOT = { war = { country = GER country = VIC } }
+	}                      	
+
+	name = EVT_432035_NAME
+# 	desc = EVT_432035_DESC
+	style = 0
+
+	date = { day = 6 month = december year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+ 
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME432035A
+		command = { type = trigger which = 3190012 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME432035B
+		command = { type = leave_alliance }
+		command = { type = trigger which = 3136137 }
+	}
+}
+#########################################################################
+#  Wine ration reduced 1941 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432036
+	random = no
+	country = VIC
+
+	trigger = { atwar = yes }  
+
+	name = EVT_432036_NAME
+	desc = EVT_432036_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+ 
+	action_a = {
+		name = ACTIONNAME432036A
+		command = { type = dissent value = 10 }
+	}
+}
+#########################################################################
+#  Release and repatriation of French POWs 1941 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432037
+	random = no
+	country = VIC
+
+	trigger = { alliance = { country = GER country = VIC } }
+
+	name = EVT_432037_NAME
+	desc = EVT_432037_DESC
+	style = 0
+
+	date = { day = 19 month = may year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME432037A
+		command = { type = dissent value = -5 }
+		command = { type = construct which = ic where = 74 value = 5 } # Vichy
+		command = { type = construct which = ic where = 89 value = 2 } # Marseille
+		command = { type = construct which = ic where = 86 value = 1 } # Toulon
+		command = { type = construct which = ic where = 82 value = 1 } # Montpellier
+		command = { type = construct which = ic where = 78 value = 1 } # Saint Etienne
+	}
+}
+#########################################################################
+#  Relations with Soviet Union are broken off 1941 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432038
+	random = no
+	country = VIC
+
+	trigger = { alliance = { country = GER country = VIC } } 
+
+	name = EVT_432038_NAME
+	desc = EVT_432038_DESC
+	style = 0
+
+	date = { day = 29 month = June year = 1941 } # Was actually 30th
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+ 
+	action_a = {
+		name = ACTIONNAME432038A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME432038B
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = -15 }
+	}
+}
+#########################################################################
+#  Tobacco ration reduced 1941 (by 2Coats)
+#########################################################################
+event = { 
+	id = 432039
+	random = no
+	country = VIC
+
+	trigger = { atwar = yes }                      	
+
+	name = EVT_432039_NAME
+	desc = EVT_432039_DESC
+	style = 0
+
+	date = { day = 24 month = September year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME432039A
+		command = { type = dissent value = 1 }
+	}
+}
+###################################################################
+# Operation Catapult
+###################################################################
+event = {
+	id = 31231265
+	random = no
+	country = VIC
+
+	# triggered by 3131133 ENG
+
+	name = EVT_31231265_NAME
+	desc = EVT_31231265_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME31231265A
+		command = { } 
+#		command = { type = delete_unit which = 13500 value = 109 } # Bretagne
+#		command = { type = delete_unit which = 13500 value = 494 } # Valmy = Mogador
+#		command = { type = delete_unit which = 13500 value = 111 } # Lorraine
+ #       command = { type = delete_unit which = 13500 value = 255 } # destroyer
+  #      command = { type = delete_unit which = 13500 value = 152 } # destroyer
+#		command = { type = delete_unit which = 13500 value = 157 } # destroyer
+ #       command = { type = delete_unit which = 13500 value = 242 } # destroyer
+  #      command = { type = damage_division which = 13500 value = 300 where = 12 } # Strasbourg
+   #     command = { type = damage_division which = 13500 value = 301 where = 11 } # Dunkerque
+    #    command = { type = damage_division which = 13500 value = 302 where = 15 } # Richelieu
+     #   command = { type = damage_division which = 13500 value = 113 where = 10 } # Provence
+
+		command = { trigger = { division_exists = { type = 13500 id = 109 }} type = remove_division which = 13500 value = 109 } # Bretagne
+		command = { trigger = { division_exists = { type = 13500 id = 494 }} type = remove_division which = 13500 value = 494 } # Valmy = Mogador
+		command = { trigger = { division_exists = { type = 13500 id = 111 }} type = remove_division which = 13500 value = 111 } # Lorraine
+        command = { trigger = { division_exists = { type = 13500 id = 255 }} type = remove_division which = 13500 value = 255 } # destroyer
+        command = { trigger = { division_exists = { type = 13500 id = 152 }} type = remove_division which = 13500 value = 152 } # destroyer
+		command = { trigger = { division_exists = { type = 13500 id = 157 }} type = remove_division which = 13500 value = 157 } # destroyer
+        command = { trigger = { division_exists = { type = 13500 id = 242 }} type = remove_division which = 13500 value = 242 } # destroyer
+        command = { trigger = { division_exists = { type = 13500 id = 300 }} type = damage_division which = 13500 value = 300 where = 12 } # Strasbourg
+        command = { trigger = { division_exists = { type = 13500 id = 301 }} type = damage_division which = 13500 value = 301 where = 11 } # Dunkerque
+        command = { trigger = { division_exists = { type = 13500 id = 302 }} type = damage_division which = 13500 value = 302 where = 15 } # Richelieu
+        command = { trigger = { division_exists = { type = 13500 id = 113 }} type = damage_division which = 13500 value = 113 where = 10 } # Provence
+	}
+}
+
+#########################################################################
+# Operation Torch: D-Day
+#########################################################################
+
+event = { 
+	id = 432100
+	random = no
+	country = VIC
+	
+	# triggered by ENG 3131014
+	
+	name = EVT_432100_NAME
+	desc = EVT_432100_DESC
+	style = 0
+	picture = "operation_torch"
+	
+	action = {
+		name = ACTIONNAME432100A # We've lost the ports!
+		trigger = { NOT = { event = 3145012 } } #Fall of Libya
+		command = { type = secedeprovince which = USA value = 728 } #Oran
+		command = { type = secedeprovince which = USA value = 727 } #Algiers
+		command = { type = secedeprovince which = USA value = 718 } #Casablanca
+		command = { type = secedeprovince which = USA value = 720 }
+		command = { type = secedeprovince which = USA value = 719 }
+		command = { type = secedeprovince which = USA value = 717 }
+		command = { type = secedeprovince which = USA value = 722 }
+	}
+	
+	action = {
+		name = ACTIONNAME432101A # Battlefield Maghreb
+		trigger = { alliance = { country = USA country = U14 } event = 3145012 } #Fall of Libya
+		
+		command = { type = secedeprovince which = U14 value = 728 } #Oran
+		command = { type = secedeprovince which = U14 value = 727 } #Algiers
+		command = { type = secedeprovince which = U14 value = 718 } #Casablanca
+		command = { type = secedeprovince which = U14 value = 720 }
+		command = { type = secedeprovince which = U14 value = 719 }
+		command = { type = secedeprovince which = U14 value = 717 }
+		command = { type = secedeprovince which = U14 value = 722 }	
+		
+		command = { type = secedeprovince which = U14 value = 735 }
+		command = { type = secedeprovince which = U14 value = 743 }
+		command = { type = secedeprovince which = U14 value = 734 }
+		command = { type = secedeprovince which = U14 value = 731 }
+		command = { type = secedeprovince which = U14 value = 736 }
+		command = { type = secedeprovince which = U14 value = 732 }
+		command = { type = secedeprovince which = U14 value = 730 }
+		command = { type = secedeprovince which = U14 value = 727 }
+		command = { type = secedeprovince which = U14 value = 733 }
+		command = { type = secedeprovince which = U14 value = 729 }
+		command = { type = secedeprovince which = U14 value = 728 }
+		command = { type = secedeprovince which = U14 value = 721 }
+		command = { type = secedeprovince which = U14 value = 722 }
+		command = { type = secedeprovince which = U14 value = 723 }
+		command = { type = secedeprovince which = U14 value = 724 }
+		command = { type = secedeprovince which = U14 value = 725 }
+		command = { type = secedeprovince which = U14 value = 726 }
+
+		command = { type = secedeprovince which = U14 value = 741 }
+		command = { type = secedeprovince which = U14 value = 742 }
+		command = { type = secedeprovince which = U14 value = 744 }
+		command = { type = secedeprovince which = U14 value = 740 }
+		command = { type = secedeprovince which = U14 value = 746 }
+		command = { type = secedeprovince which = U14 value = 745 }
+		command = { type = secedeprovince which = U14 value = 747 }
+		command = { type = secedeprovince which = U14 value = 748 }
+		command = { type = secedeprovince which = U14 value = 749 }
+		
+		command = { type = secedeprovince which = U14 value = 739 }
+		command = { type = secedeprovince which = U14 value = 981 }
+		command = { type = secedeprovince which = U14 value = 982 }
+		command = { type = secedeprovince which = U14 value = 986 }
+		command = { type = secedeprovince which = U14 value = 984 }
+		command = { type = secedeprovince which = U14 value = 985 }
+		command = { type = secedeprovince which = U14 value = 974 }
+		command = { type = secedeprovince which = U14 value = 972 }
+		command = { type = secedeprovince which = U14 value = 971 }
+		command = { type = secedeprovince which = U14 value = 978 }
+		command = { type = secedeprovince which = U14 value = 983 }
+		command = { type = secedeprovince which = U14 value = 977 }
+		command = { type = secedeprovince which = U14 value = 980 }
+		command = { type = secedeprovince which = U14 value = 975 }
+		command = { type = secedeprovince which = U14 value = 976 }
+		command = { type = secedeprovince which = U14 value = 966 }
+		command = { type = secedeprovince which = U14 value = 965 }
+		command = { type = secedeprovince which = U14 value = 967 }
+		command = { type = secedeprovince which = U14 value = 968 }
+		command = { type = secedeprovince which = U14 value = 962 }
+		command = { type = secedeprovince which = U14 value = 970 }
+		command = { type = secedeprovince which = U14 value = 958 }
+		command = { type = secedeprovince which = U14 value = 973 }
+		command = { type = secedeprovince which = U14 value = 960 }
+		command = { type = secedeprovince which = U14 value = 961 }
+		command = { type = secedeprovince which = U14 value = 959 }
+		command = { type = secedeprovince which = U14 value = 942 }
+		command = { type = secedeprovince which = U14 value = 945 }
+		command = { type = secedeprovince which = U14 value = 957 }
+		command = { type = secedeprovince which = U14 value = 944 }
+		command = { type = secedeprovince which = U14 value = 950 }
+		command = { type = secedeprovince which = U14 value = 948 }
+		command = { type = secedeprovince which = U14 value = 949 }
+		command = { type = secedeprovince which = U14 value = 951 }
+		command = { type = secedeprovince which = U14 value = 737 }
+		command = { type = secedeprovince which = U14 value = 738 }
+		command = { type = secedeprovince which = U14 value = 946 }
+		command = { type = secedeprovince which = U14 value = 943 }
+		command = { type = secedeprovince which = U14 value = 947 }
+		command = { type = secedeprovince which = U14 value = 1003 }
+		command = { type = secedeprovince which = U14 value = 1002 }
+		command = { type = secedeprovince which = U14 value = 1001 }
+		command = { type = secedeprovince which = U14 value = 996 }
+		command = { type = secedeprovince which = U14 value = 833 }	
+		
+		command = { type = sleepevent which = 432101 }
+		command = { type = sleepevent which = 432102 }
+		command = { type = sleepevent which = 432103 }
+	}
+	
+	action = {
+		name = ACTIONNAME432101A # Battlefield Maghreb
+		trigger = { NOT = { alliance = { country = USA country = U14 } } event = 3145012 } #Fall of Libya
+		
+		command = { type = secedeprovince which = USA value = 728 } #Oran
+		command = { type = secedeprovince which = USA value = 727 } #Algiers
+		command = { type = secedeprovince which = USA value = 718 } #Casablanca
+		command = { type = secedeprovince which = USA value = 720 }
+		command = { type = secedeprovince which = USA value = 719 }
+		command = { type = secedeprovince which = USA value = 717 }
+		command = { type = secedeprovince which = USA value = 722 }	
+
+		command = { type = secedeprovince which = USA value = 735 }
+		command = { type = secedeprovince which = USA value = 743 }
+		command = { type = secedeprovince which = USA value = 734 }
+		command = { type = secedeprovince which = USA value = 731 }
+		command = { type = secedeprovince which = USA value = 736 }
+		command = { type = secedeprovince which = USA value = 732 }
+		command = { type = secedeprovince which = USA value = 730 }
+		command = { type = secedeprovince which = USA value = 727 }
+		command = { type = secedeprovince which = USA value = 733 }
+		command = { type = secedeprovince which = USA value = 729 }
+		command = { type = secedeprovince which = USA value = 728 }
+		command = { type = secedeprovince which = USA value = 721 }
+		command = { type = secedeprovince which = USA value = 722 }
+		command = { type = secedeprovince which = USA value = 723 }
+		command = { type = secedeprovince which = USA value = 724 }
+		command = { type = secedeprovince which = USA value = 725 }
+		command = { type = secedeprovince which = USA value = 726 }
+
+		command = { type = secedeprovince which = USA value = 741 }
+		command = { type = secedeprovince which = USA value = 742 }
+		command = { type = secedeprovince which = USA value = 744 }
+		command = { type = secedeprovince which = USA value = 740 }
+		command = { type = secedeprovince which = USA value = 746 }
+		command = { type = secedeprovince which = USA value = 745 }
+		command = { type = secedeprovince which = USA value = 747 }
+		command = { type = secedeprovince which = USA value = 748 }
+		command = { type = secedeprovince which = USA value = 749 }
+
+		command = { type = secedeprovince which = USA value = 739 }
+		command = { type = secedeprovince which = USA value = 981 }
+		command = { type = secedeprovince which = USA value = 982 }
+		command = { type = secedeprovince which = USA value = 986 }
+		command = { type = secedeprovince which = USA value = 984 }
+		command = { type = secedeprovince which = USA value = 985 }
+		command = { type = secedeprovince which = USA value = 974 }
+		command = { type = secedeprovince which = USA value = 972 }
+		command = { type = secedeprovince which = USA value = 971 }
+		command = { type = secedeprovince which = USA value = 978 }
+		command = { type = secedeprovince which = USA value = 983 }
+		command = { type = secedeprovince which = USA value = 977 }
+		command = { type = secedeprovince which = USA value = 980 }
+		command = { type = secedeprovince which = USA value = 975 }
+		command = { type = secedeprovince which = USA value = 976 }
+		command = { type = secedeprovince which = USA value = 966 }
+		command = { type = secedeprovince which = USA value = 965 }
+		command = { type = secedeprovince which = USA value = 967 }
+		command = { type = secedeprovince which = USA value = 968 }
+		command = { type = secedeprovince which = USA value = 962 }
+		command = { type = secedeprovince which = USA value = 970 }
+		command = { type = secedeprovince which = USA value = 958 }
+		command = { type = secedeprovince which = USA value = 973 }
+		command = { type = secedeprovince which = USA value = 960 }
+		command = { type = secedeprovince which = USA value = 961 }
+		command = { type = secedeprovince which = USA value = 959 }
+		command = { type = secedeprovince which = USA value = 942 }
+		command = { type = secedeprovince which = USA value = 945 }
+		command = { type = secedeprovince which = USA value = 957 }
+		command = { type = secedeprovince which = USA value = 944 }
+		command = { type = secedeprovince which = USA value = 950 }
+		command = { type = secedeprovince which = USA value = 948 }
+		command = { type = secedeprovince which = USA value = 949 }
+		command = { type = secedeprovince which = USA value = 951 }
+		command = { type = secedeprovince which = USA value = 737 }
+		command = { type = secedeprovince which = USA value = 738 }
+		command = { type = secedeprovince which = USA value = 946 }
+		command = { type = secedeprovince which = USA value = 943 }
+		command = { type = secedeprovince which = USA value = 947 }
+		command = { type = secedeprovince which = USA value = 1003 }
+		command = { type = secedeprovince which = USA value = 1002 }
+		command = { type = secedeprovince which = USA value = 1001 }
+		command = { type = secedeprovince which = USA value = 996 }
+		command = { type = secedeprovince which = USA value = 833 }	
+		
+		command = { type = sleepevent which = 432101 }
+		command = { type = sleepevent which = 432102 }
+		command = { type = sleepevent which = 432103 }
+	}
+}
+
+#########################################################################
+# Operation Torch: The Allies advance
+#########################################################################
+event = { 
+	id = 432101
+	random = no
+	country = VIC
+	
+	trigger = { 
+				event = 3131014 # ENG triggers Torch
+				OR = {
+						AND = {
+								event = 432100
+								OR = { 
+										garrison = { country = USA province = 728 type = land size = 1 }
+										garrison = { country = ENG province = 728 type = land size = 1 }
+										garrison = { country = USA province = 727 type = land size = 1 }
+										garrison = { country = ENG province = 727 type = land size = 1 }
+										garrison = { country = USA province = 718 type = land size = 1 }
+										garrison = { country = ENG province = 718 type = land size = 1 }
+										garrison = { country = USA province = 720 type = land size = 1 }
+										garrison = { country = ENG province = 720 type = land size = 1 }
+										garrison = { country = USA province = 719 type = land size = 1 }
+										garrison = { country = ENG province = 719 type = land size = 1 }
+										garrison = { country = USA province = 717 type = land size = 1 }
+										garrison = { country = ENG province = 717 type = land size = 1 }
+										garrison = { country = USA province = 722 type = land size = 1 }
+										garrison = { country = ENG province = 722 type = land size = 1 }
+										}
+								}
+						event = 3173012 # Franco's proposal accepted => ports in Morocco + Oran are already owned by Spain; backup trigger to complete North Africa event chain
+						}
+	}
+	
+	name = EVT_432101_NAME
+	desc = EVT_432101_DESC
+	style = 0
+	picture = "siam"
+	
+	date = { day = 10 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1964 }
+	
+	action_a = {
+		name = ACTIONNAME432101A # Battlefield Maghreb
+		
+		command = { type = secedeprovince which = ITA value = 735 }
+		command = { type = secedeprovince which = ITA value = 743 }
+		command = { type = secedeprovince which = ITA value = 734 }
+		command = { type = secedeprovince which = ITA value = 731 }
+		command = { type = secedeprovince which = ITA value = 736 }
+		command = { type = secedeprovince which = ITA value = 732 }
+		command = { type = secedeprovince which = ITA value = 730 }
+		command = { type = secedeprovince which = ITA value = 727 }
+		command = { type = secedeprovince which = ITA value = 733 }
+		command = { type = secedeprovince which = ITA value = 729 }
+		command = { type = secedeprovince which = ITA value = 728 }
+		command = { type = secedeprovince which = ITA value = 721 }
+		command = { type = secedeprovince which = ITA value = 722 }
+		command = { type = secedeprovince which = ITA value = 723 }
+		command = { type = secedeprovince which = ITA value = 724 }
+		command = { type = secedeprovince which = ITA value = 725 }
+		command = { type = secedeprovince which = ITA value = 726 }
+		
+		command = { type = secedeprovince which = ITA value = 741 }
+		command = { type = secedeprovince which = ITA value = 742 }
+		command = { type = secedeprovince which = ITA value = 744 }
+		command = { type = secedeprovince which = ITA value = 740 }
+		command = { type = secedeprovince which = ITA value = 746 }
+		command = { type = secedeprovince which = ITA value = 745 }
+		command = { type = secedeprovince which = ITA value = 747 }
+		command = { type = secedeprovince which = ITA value = 748 }
+		command = { type = secedeprovince which = ITA value = 749 }
+		
+		command = { type = secedeprovince which = U14 value = 739 }
+		command = { type = secedeprovince which = U14 value = 981 }
+		command = { type = secedeprovince which = U14 value = 982 }
+		command = { type = secedeprovince which = U14 value = 986 }
+		command = { type = secedeprovince which = U14 value = 984 }
+		command = { type = secedeprovince which = U14 value = 985 }
+		command = { type = secedeprovince which = U14 value = 974 }
+		command = { type = secedeprovince which = U14 value = 972 }
+		command = { type = secedeprovince which = U14 value = 971 }
+		command = { type = secedeprovince which = U14 value = 978 }
+		command = { type = secedeprovince which = U14 value = 983 }
+		command = { type = secedeprovince which = U14 value = 977 }
+		command = { type = secedeprovince which = U14 value = 980 }
+		command = { type = secedeprovince which = U14 value = 975 }
+		command = { type = secedeprovince which = U14 value = 976 }
+		command = { type = secedeprovince which = U14 value = 966 }
+		command = { type = secedeprovince which = U14 value = 965 }
+		command = { type = secedeprovince which = U14 value = 967 }
+		command = { type = secedeprovince which = U14 value = 968 }
+		command = { type = secedeprovince which = U14 value = 962 }
+		command = { type = secedeprovince which = U14 value = 970 }
+		command = { type = secedeprovince which = U14 value = 958 }
+		command = { type = secedeprovince which = U14 value = 973 }
+		command = { type = secedeprovince which = U14 value = 960 }
+		command = { type = secedeprovince which = U14 value = 961 }
+		command = { type = secedeprovince which = U14 value = 959 }
+		command = { type = secedeprovince which = U14 value = 942 }
+		command = { type = secedeprovince which = U14 value = 945 }
+		command = { type = secedeprovince which = U14 value = 957 }
+		command = { type = secedeprovince which = U14 value = 944 }
+		command = { type = secedeprovince which = U14 value = 950 }
+		command = { type = secedeprovince which = U14 value = 948 }
+		command = { type = secedeprovince which = U14 value = 949 }
+		command = { type = secedeprovince which = U14 value = 951 }
+		command = { type = secedeprovince which = U14 value = 737 }
+		command = { type = secedeprovince which = U14 value = 738 }
+		command = { type = secedeprovince which = U14 value = 946 }
+		command = { type = secedeprovince which = U14 value = 943 }
+		command = { type = secedeprovince which = U14 value = 947 }
+		command = { type = secedeprovince which = U14 value = 1003 }
+		command = { type = secedeprovince which = U14 value = 1002 }
+		command = { type = secedeprovince which = U14 value = 1001 }
+		command = { type = secedeprovince which = U14 value = 996 }
+		command = { type = secedeprovince which = U14 value = 833 }	
+	}
+}
+
+#########################################################################
+# Operation Torch: The Allies advance (USA)
+#########################################################################
+event = { 
+	id = 432102
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+			
+				event = 432101
+				NOT = { event = 432103 }
+				NOT = { exists = FRA }
+	
+				NOT = { country = ITA
+						country = GER 
+						country = USA }
+				
+				NOT = { control = { province = 728 data = ITA } }
+				NOT = { control = { province = 727 data = ITA } }
+				NOT = { control = { province = 718 data = ITA } }
+				NOT = { control = { province = 720 data = ITA } }
+				NOT = { control = { province = 719 data = ITA } }
+				NOT = { control = { province = 717 data = ITA } }
+				NOT = { control = { province = 722 data = ITA } }
+				NOT = { control = { province = 735 data = ITA } }
+				NOT = { control = { province = 743 data = ITA } }
+				NOT = { control = { province = 734 data = ITA } }
+				NOT = { control = { province = 731 data = ITA } }
+				NOT = { control = { province = 736 data = ITA } }
+				NOT = { control = { province = 732 data = ITA } }
+				NOT = { control = { province = 730 data = ITA } }
+				NOT = { control = { province = 733 data = ITA } }
+				NOT = { control = { province = 729 data = ITA } }
+				NOT = { control = { province = 721 data = ITA } }
+				NOT = { control = { province = 723 data = ITA } }
+				NOT = { control = { province = 724 data = ITA } }
+				NOT = { control = { province = 725 data = ITA } }
+				NOT = { control = { province = 726 data = ITA } }
+				NOT = { control = { province = 741 data = ITA } }
+				NOT = { control = { province = 742 data = ITA } }
+				NOT = { control = { province = 740 data = ITA } }
+				NOT = { control = { province = 744 data = ITA } }
+				NOT = { control = { province = 746 data = ITA } }
+				NOT = { control = { province = 745 data = ITA } }
+				NOT = { control = { province = 747 data = ITA } }
+				NOT = { control = { province = 748 data = ITA } }
+				NOT = { control = { province = 749 data = ITA } }
+				
+				NOT = { control = { province = 728 data = GER } }
+				NOT = { control = { province = 727 data = GER } }
+				NOT = { control = { province = 718 data = GER } }
+				NOT = { control = { province = 720 data = GER } }
+				NOT = { control = { province = 719 data = GER } }
+				NOT = { control = { province = 717 data = GER } }
+				NOT = { control = { province = 722 data = GER } }
+				NOT = { control = { province = 735 data = GER } }
+				NOT = { control = { province = 743 data = GER } }
+				NOT = { control = { province = 734 data = GER } }
+				NOT = { control = { province = 731 data = GER } }
+				NOT = { control = { province = 736 data = GER } }
+				NOT = { control = { province = 732 data = GER } }
+				NOT = { control = { province = 730 data = GER } }
+				NOT = { control = { province = 733 data = GER } }
+				NOT = { control = { province = 729 data = GER } }
+				NOT = { control = { province = 721 data = GER } }
+				NOT = { control = { province = 723 data = GER } }
+				NOT = { control = { province = 724 data = GER } }
+				NOT = { control = { province = 725 data = GER } }
+				NOT = { control = { province = 726 data = GER } }
+				NOT = { control = { province = 741 data = GER } }
+				NOT = { control = { province = 742 data = GER } }
+				NOT = { control = { province = 740 data = GER } }
+				NOT = { control = { province = 744 data = GER } }
+				NOT = { control = { province = 746 data = GER } }
+				NOT = { control = { province = 745 data = GER } }
+				NOT = { control = { province = 747 data = GER } }
+				NOT = { control = { province = 748 data = GER } }
+				NOT = { control = { province = 749 data = GER } }
+				
+				OR = {
+				control = { province = 728 data = -1 }
+				control = { province = 727 data = -1 }
+				control = { province = 718 data = -1 }
+				control = { province = 720 data = -1 }
+				control = { province = 719 data = -1 }
+				control = { province = 717 data = -1 }
+				control = { province = 722 data = -1 }
+				control = { province = 735 data = -1 }
+				control = { province = 743 data = -1 }
+				control = { province = 734 data = -1 }
+				control = { province = 731 data = -1 }
+				control = { province = 736 data = -1 }
+				control = { province = 732 data = -1 }
+				control = { province = 730 data = -1 }
+				control = { province = 733 data = -1 }
+				control = { province = 729 data = -1 }
+				control = { province = 721 data = -1 }
+				control = { province = 723 data = -1 }
+				control = { province = 724 data = -1 }
+				control = { province = 725 data = -1 }
+				control = { province = 726 data = -1 }
+				control = { province = 741 data = -1 }
+				control = { province = 742 data = -1 }
+				control = { province = 740 data = -1 }
+				control = { province = 744 data = -1 }
+				control = { province = 746 data = -1 }
+				control = { province = 745 data = -1 }
+				control = { province = 747 data = -1 }
+				control = { province = 748 data = -1 }
+				control = { province = 749 data = -1 }
+				}
+	}
+	
+	name = EVT_432102_NAME
+	desc = EVT_432102_DESC
+	style = 0
+	picture = "siam"
+	
+	date = { day = 10 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1964 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		
+		command = { type = control which = USA value = 728 }
+		command = { type = control which = USA value = 727 }
+		command = { type = control which = USA value = 718 }
+		command = { type = control which = USA value = 720 }
+		command = { type = control which = USA value = 719 }
+		command = { type = control which = USA value = 717 }
+		command = { type = control which = USA value = 722 }
+		
+		command = { type = control which = USA value = 735 }
+		command = { type = control which = USA value = 743 }
+		command = { type = control which = USA value = 734 }
+		command = { type = control which = USA value = 731 }
+		command = { type = control which = USA value = 736 }
+		command = { type = control which = USA value = 732 }
+		command = { type = control which = USA value = 730 }
+		command = { type = control which = USA value = 733 }
+		command = { type = control which = USA value = 729 }
+		command = { type = control which = USA value = 721 }
+		command = { type = control which = USA value = 723 }
+		command = { type = control which = USA value = 724 }
+		command = { type = control which = USA value = 725 }
+		command = { type = control which = USA value = 726 }
+
+		command = { type = control which = USA value = 741 }
+		command = { type = control which = USA value = 742 }
+		command = { type = control which = USA value = 744 }
+		command = { type = control which = USA value = 740 }
+		command = { type = control which = USA value = 746 }
+		command = { type = control which = USA value = 745 }
+		command = { type = control which = USA value = 747 }
+		command = { type = control which = USA value = 748 }
+		command = { type = control which = USA value = 749 }
+
+	}
+}
+
+#########################################################################
+# Operation Torch: The Allies advance
+#########################################################################
+event = { 
+	id = 432103
+	random = no
+	tag = { ITA U01 }
+	
+	persistent = yes
+	
+	trigger = {
+				NOT = { local_flag = Torch_lost }
+				
+				control = { province = 728 data = -2 }
+				control = { province = 727 data = -2 }
+				control = { province = 718 data = -2 }
+				control = { province = 720 data = -2 }
+				control = { province = 719 data = -2 }
+				control = { province = 717 data = -2 }
+				control = { province = 722 data = -2 }
+				control = { province = 735 data = -2 }
+				control = { province = 743 data = -2 }
+				control = { province = 734 data = -2 }
+				control = { province = 731 data = -2 }
+				control = { province = 736 data = -2 }
+				control = { province = 732 data = -2 }
+				control = { province = 730 data = -2 }
+				control = { province = 733 data = -2 }
+				control = { province = 729 data = -2 }
+				control = { province = 721 data = -2 }
+				control = { province = 723 data = -2 }
+				control = { province = 724 data = -2 }
+				control = { province = 725 data = -2 }
+				control = { province = 726 data = -2 }
+				control = { province = 741 data = -2 }
+				control = { province = 742 data = -2 }
+				control = { province = 740 data = -2 }
+				control = { province = 744 data = -2 }
+				control = { province = 746 data = -2 }
+				control = { province = 745 data = -2 }
+				control = { province = 747 data = -2 }
+				control = { province = 748 data = -2 }
+				control = { province = 749 data = -2 }
+				
+				owned = { province = 735 data = -1 }
+				owned = { province = 743 data = -1 }
+				owned = { province = 734 data = -1 }
+				owned = { province = 731 data = -1 }
+				owned = { province = 736 data = -1 }
+				owned = { province = 732 data = -1 }
+				owned = { province = 730 data = -1 }
+				owned = { province = 733 data = -1 }
+				owned = { province = 729 data = -1 }
+				owned = { province = 721 data = -1 }
+				owned = { province = 723 data = -1 }
+				owned = { province = 724 data = -1 }
+				owned = { province = 725 data = -1 }
+				owned = { province = 726 data = -1 }
+				owned = { province = 741 data = -1 }
+				owned = { province = 742 data = -1 }
+				owned = { province = 740 data = -1 }
+				owned = { province = 744 data = -1 }
+				owned = { province = 746 data = -1 }
+				owned = { province = 745 data = -1 }
+				owned = { province = 747 data = -1 }
+				owned = { province = 748 data = -1 }
+				owned = { province = 749 data = -1 }
+	}
+	
+	name = EVT_432103_NAME
+	desc = EVT_432103_DESC
+	style = 0
+	picture = "siam"
+	
+	date = { day = 10 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1964 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		
+		command = { type = local_setflag which = Torch_lost }
+		
+		command = { type = secedeprovince which = USA value = 728 when = 1 }
+		command = { type = secedeprovince which = USA value = 727 when = 1 }
+		command = { type = secedeprovince which = USA value = 718 when = 1 }
+		command = { type = secedeprovince which = USA value = 720 when = 1 }
+		command = { type = secedeprovince which = USA value = 719 when = 1 }
+		command = { type = secedeprovince which = USA value = 717 when = 1 }
+		command = { type = secedeprovince which = USA value = 722 when = 1 }
+
+		command = { type = secedeprovince which = USA value = 735 when = 1 }
+		command = { type = secedeprovince which = USA value = 743 when = 1 }
+		command = { type = secedeprovince which = USA value = 734 when = 1 }
+		command = { type = secedeprovince which = USA value = 731 when = 1 }
+		command = { type = secedeprovince which = USA value = 736 when = 1 }
+		command = { type = secedeprovince which = USA value = 732 when = 1 }
+		command = { type = secedeprovince which = USA value = 730 when = 1 }
+		command = { type = secedeprovince which = USA value = 733 when = 1 }
+		command = { type = secedeprovince which = USA value = 729 when = 1 }
+		command = { type = secedeprovince which = USA value = 721 when = 1 }
+		command = { type = secedeprovince which = USA value = 723 when = 1 }
+		command = { type = secedeprovince which = USA value = 724 when = 1 }
+		command = { type = secedeprovince which = USA value = 725 when = 1 }
+		command = { type = secedeprovince which = USA value = 726 when = 1 }
+
+		command = { type = secedeprovince which = USA value = 741 when = 1 }
+		command = { type = secedeprovince which = USA value = 742 when = 1 }
+		command = { type = secedeprovince which = USA value = 744 when = 1 }
+		command = { type = secedeprovince which = USA value = 740 when = 1 }
+		command = { type = secedeprovince which = USA value = 746 when = 1 }
+		command = { type = secedeprovince which = USA value = 745 when = 1 }
+		command = { type = secedeprovince which = USA value = 747 when = 1 }
+		command = { type = secedeprovince which = USA value = 748 when = 1 }
+		command = { type = secedeprovince which = USA value = 749 when = 1 }
+
+	}
+}
+
+#########################################################################
+# Operation Torch: Free France takes control (AI event)
+#########################################################################
+event = { 
+	id = 432104
+	random = no
+	country = USA
+	
+	trigger = {
+				AI = USA
+				AI = U14
+				alliance = { country = USA country = U14 }
+	
+				control = { province = 728 data = USA }
+				control = { province = 727 data = USA }
+				control = { province = 718 data = USA }
+				control = { province = 720 data = USA }
+				control = { province = 719 data = USA }
+				control = { province = 717 data = USA }
+				control = { province = 722 data = USA }
+				control = { province = 735 data = USA }
+				control = { province = 743 data = USA }
+				control = { province = 734 data = USA }
+				control = { province = 731 data = USA }
+				control = { province = 736 data = USA }
+				control = { province = 732 data = USA }
+				control = { province = 730 data = USA }
+				control = { province = 733 data = USA }
+				control = { province = 729 data = USA }
+				control = { province = 721 data = USA }
+				control = { province = 723 data = USA }
+				control = { province = 724 data = USA }
+				control = { province = 725 data = USA }
+				control = { province = 726 data = USA }
+				control = { province = 741 data = USA }
+				control = { province = 742 data = USA }
+				control = { province = 744 data = USA }
+				control = { province = 740 data = USA }
+				control = { province = 746 data = USA }
+				control = { province = 745 data = USA }
+				control = { province = 747 data = USA }
+				control = { province = 748 data = USA }
+				control = { province = 749 data = USA }
+				
+				owned = { province = 728 data = USA }
+				owned = { province = 727 data = USA }
+				owned = { province = 718 data = USA }
+				owned = { province = 720 data = USA }
+				owned = { province = 719 data = USA }
+				owned = { province = 717 data = USA }
+				owned = { province = 722 data = USA }
+				owned = { province = 735 data = USA }
+				owned = { province = 743 data = USA }
+				owned = { province = 734 data = USA }
+				owned = { province = 731 data = USA }
+				owned = { province = 736 data = USA }
+				owned = { province = 732 data = USA }
+				owned = { province = 730 data = USA }
+				owned = { province = 733 data = USA }
+				owned = { province = 729 data = USA }
+				owned = { province = 721 data = USA }
+				owned = { province = 723 data = USA }
+				owned = { province = 724 data = USA }
+				owned = { province = 725 data = USA }
+				owned = { province = 726 data = USA }
+				owned = { province = 741 data = USA }
+				owned = { province = 742 data = USA }
+				owned = { province = 744 data = USA }
+				owned = { province = 740 data = USA }
+				owned = { province = 746 data = USA }
+				owned = { province = 745 data = USA }
+				owned = { province = 747 data = USA }
+				owned = { province = 748 data = USA }
+				owned = { province = 749 data = USA }
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	picture = "siam"
+	
+	date = { day = 10 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1964 }
+	
+	action_a = {
+		command = { type = secedeprovince which = U14 value = 728 }#
+		command = { type = secedeprovince which = U14 value = 727 }
+		command = { type = secedeprovince which = U14 value = 718 }
+		command = { type = secedeprovince which = U14 value = 720 }
+		command = { type = secedeprovince which = U14 value = 719 }
+		command = { type = secedeprovince which = U14 value = 717 }
+		command = { type = secedeprovince which = U14 value = 722 }
+		command = { type = secedeprovince which = U14 value = 735 }#
+		command = { type = secedeprovince which = U14 value = 743 }
+		command = { type = secedeprovince which = U14 value = 734 }
+		command = { type = secedeprovince which = U14 value = 731 }
+		command = { type = secedeprovince which = U14 value = 736 }
+		command = { type = secedeprovince which = U14 value = 732 }
+		command = { type = secedeprovince which = U14 value = 730 }
+		command = { type = secedeprovince which = U14 value = 733 }
+		command = { type = secedeprovince which = U14 value = 729 }
+		command = { type = secedeprovince which = U14 value = 721 }
+		command = { type = secedeprovince which = U14 value = 723 }
+		command = { type = secedeprovince which = U14 value = 724 }
+		command = { type = secedeprovince which = U14 value = 725 }
+		command = { type = secedeprovince which = U14 value = 726 }
+		command = { type = secedeprovince which = U14 value = 741 }#
+		command = { type = secedeprovince which = U14 value = 742 }
+		command = { type = secedeprovince which = U14 value = 744 }
+		command = { type = secedeprovince which = U14 value = 740 }
+		command = { type = secedeprovince which = U14 value = 746 }
+		command = { type = secedeprovince which = U14 value = 745 }
+		command = { type = secedeprovince which = U14 value = 747 }
+		command = { type = secedeprovince which = U14 value = 748 }
+		command = { type = secedeprovince which = U14 value = 749 }
+	}
+}

@@ -1,0 +1,182 @@
+allowed_brigades = naval_anti_air_s
+max_allowed_brigades = 1
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# remark: -75% costs per ton for transport ships!
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# transport vessels get seadefence and airdefence of destroyers only because of their hull stability
+
+# 0 - Landingvessel Prewar (20000 to)
+model = {
+	cost						= 2.02
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 18
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0.35
+	visibility					= 10
+	seadefence					= 1
+	airdefence					= 0
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 0
+	subattack					= 0
+	shorebombardment			= 0
+	transportcapability			= 40
+	range						= 1600 # 800
+	supplyconsumption			= 0.393
+	fuelconsumption				= 1.2 #1.6
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}
+
+# 1 - Transport / Landing vessel 1936 (25000 to)
+model = {
+	cost						= 2.52
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 22
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0.35
+	visibility					= 12.5
+	seadefence					= 1
+	airdefence					= 1
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 0
+	subattack					= 0
+	shorebombardment			= 0
+	transportcapability			= 40
+	range						= 2100 # 1300
+	supplyconsumption			= 0.49
+	fuelconsumption				= 1.2 #1.6
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}
+# 2 - Transport / Landing vessel 1940 (30000 to)
+model = {
+	cost						= 3.02
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 24
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 1
+	subdetectioncapability		= 0.35
+	visibility					= 12 #90
+	seadefence					= 2
+	airdefence					= 2
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 1 #0
+	subattack					= 0
+	shorebombardment			= 1 #0
+	transportcapability			= 40
+	range						= 2800 # 1750
+	supplyconsumption			= 0.587
+	fuelconsumption				= 1.2 #1.6
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}
+
+# 3 - Transport / Landing vessel 1943 (35000 to)
+model = {
+	cost						= 3.53
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 24
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 1
+	subdetectioncapability		= 0.35
+	visibility					= 17.5
+	seadefence					= 3
+	airdefence					= 3
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 2 #0
+	subattack					= 1 #0
+	shorebombardment			= 2 #0
+	transportcapability			= 40
+	range						= 3400 #3200 # 2000
+	supplyconsumption			= 0.686
+	fuelconsumption				= 1.35 #1.8
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}
+
+# 4 - Transport / Landing vessel 1946 (40000 to)
+model = {
+	cost						= 4.04
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 26
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 2
+	subdetectioncapability		= 0.35
+	visibility					= 20
+	seadefence					= 4
+	airdefence					= 5
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 3 #0
+	subattack					= 2 #0
+	shorebombardment			= 4 #0
+	transportcapability			= 40
+	range						= 4000 # 2500
+	supplyconsumption			= 0.785
+	fuelconsumption				= 1.5 #2
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}
+
+# 5 - Transport / Landing vessel 1954 (40000 to)
+model = {
+	cost						= 4.04
+	buildtime 					= 350
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.1
+	maxspeed					= 26
+	surfacedetectioncapability	= 0.35
+	airdetectioncapability		= 2
+	subdetectioncapability		= 0.35
+	visibility					= 20
+	seadefence					= 5
+	airdefence					= 7
+	seaattack					= 0
+	convoyattack				= 0
+	airattack					= 6
+	subattack					= 3 #0
+	shorebombardment			= 5 #0
+	transportcapability			= 40
+	range						= 5000
+	supplyconsumption			= 0.785
+	fuelconsumption				= 1.5 #2
+	distance					= 0.15
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 100 transport = 1 }
+}

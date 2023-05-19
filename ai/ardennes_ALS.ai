@@ -1,0 +1,135 @@
+#
+# Hearts of Iron 2
+# Allies AI Ardennes 1944
+#
+
+
+
+max_front_ratio = 3.0 
+max_garrison_prop = 0.1
+min_garrison_prop = 0.05
+neutrality = 0.000 
+strat_redeploy_threshold = 15 
+target = { 
+	131 = 400 #Cologne
+} 
+
+garrison = {
+	# OVERSEAS DISTRIBUTION:
+	defend_overseas_beaches = yes
+	area_multiplier = {
+	}
+	
+	# PRIORITIES:
+	beach			= 0	# Beach level 2
+	capital	      = 10	# Our capital
+	human_border	= 0	# Ignored for allied human players
+	war_target		= 0	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		
+
+	}
+	province_priorities = {
+		55 = 10 #Paris
+		104 = 50 #Metz
+		107 = 200 #Strasburg
+		114 = 100 #Ghent
+		115 = 70 #Antwerp
+		131 = 200 #Cologne
+	}		
+	key_point_prio_mult	= 0
+}
+ 
+front = { 
+	strength = 1.0
+	organisation = 2.0
+	soft_attack = 1.0
+	hard_attack = 2.0
+	ground_defense = 1.0
+	dig_in = 1.05 #1.25 Against defender
+
+	frozen_attack = 0.85 #0.50
+	snow_attack = 0.6 # 0.50
+	blizzard_attack = 0.25
+	storm_attack = 0.60
+	muddy_attack = 0.75
+
+	largefort = 3.0 #Level 7 fort ?
+	smallfort = 1.5 #A 3 (Koln etc) level fort will decrease our efficiency.
+	occupied = 0.6
+	owned = 0.6
+
+	jungle_attack = 0.6 # 0.85 To be checked
+	mountain_attack = 0.4 # 0.60
+	swamp_attack = 0.60
+	forest_attack = 0.85
+	hill_attack = 0.75
+	river = 0.66 # 0.50
+	urban_attack 	= 0.40
+
+	recklessness = 1 # 3 #3 
+	distrib_vs_ai 	= reactive # reactive #reactive
+	distrib_vs_human 	= even  # reactive #reactive
+
+      enemy_reinf_days = 2 
+      reserve_prop = 0.300 
+      panic_ratio_vs_ai = 4.5
+      panic_ratio_vs_human = 3.0
+      base_attack_odds = 1.7 
+      min_attack_odds = 1.5 
+      max_attack_odds = 2.2 #Attrition war mode 
+      reinforce_odds = 0.05 #Don't reinforce   
+      withdraw_odds = 1.2
+
+      enemy_handicap = { } 
+      passivity = { } 
+} 
+
+leader_ratio = {
+land_field_marshal =0.051
+land_general =0.101
+land_lt_general =0.201
+
+sea_grand_admiral =0.05
+sea_admiral =0.067
+sea_vice_admiral =0.1
+
+air_marshal = 0.1
+air_general = 0.16
+air_lt_General = 0.267
+}
+
+air_marshal = {
+	icxdayscostfactor = 10.0		# How to value true industrial cost when calculating expect causalties
+	manpowercostfactor = 100.0		# How to value manpower cost when calculating expect causalties
+	destructionriskthreashold = 0.2		# when to fear a divisiopn might be destroyed
+
+	airsuperioritydesirability = 10.0	# desirability is a multiplier used when calcualting the mission desirability
+	airsuperioritylosstolerance = 1.0	# tolerance is the required kill:loss ration expected to do mission, 2.0 accept twice the losses of your enemy, 0.5 accept half
+	groundattacklosstolerance = 1.0
+	groundattackdesirability = 1.0
+	interdictionlosstolerance = 1.5
+	inderdictiondesirability = 1.0
+	logisticalstrikelosstolerance = 4.5
+	logisticalstrikeefficency = 0.01	# efficency is a tweakable param to adjust according to how much actual damage comes from doing this mission (not to be confused with desirability)
+	logisticalstrikedesirability = 100000.0
+	runwaycrateringlosstolerance = 1.5
+	runwaycrateringefficency = 0.01
+	runwaycrateringdesirability = 20000.0
+	strategicstriketolerance = 4.5
+	strategicstrikeefficency = 0.01
+	strategicstrikedesirability = 1000000.0
+	installationstriketolerance = 1.5
+	installationstrikeefficency = 0.01
+	installationstrikedesirability = 10.0
+	navalstriketolerance = 1.0
+	navalstrikedesirability = 10.0
+	portstriketolerance = 1.0
+	portstrikedesirability = 9.0
+}

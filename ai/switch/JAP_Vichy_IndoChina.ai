@@ -1,0 +1,64 @@
+# checked DH
+# Japan Release troops for Indo China AI File by Lothos
+
+max_front_ratio = 1.02
+
+max_garrison_prop = 0.35 #0.80
+min_garrison_prop = 0.25 #0.70
+
+max_front_ratios = {
+	CHI = 0.1
+	CGX = 0.1
+	CYN = 0.1
+	PHI = 4.0
+	HOL = 4.0
+	USA = 2.0
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 2.0
+	overseas_multiplier = 1.0
+	home_peace_cap 		= 50
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.0
+
+	# PRIORITIES:
+	beach			= 30	# Beach level 2
+	capital			= 30	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves		= 0
+	
+	opposing_alliance	= 10	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0		# If we are neutral, countries with claims on us get this
+	unstable_border		= 0		# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		CHI = 50
+		CSX = 50
+		SIK = 50
+		CXB = 50
+		CYN = 50
+		CGX = 50
+		CHC = 50
+		VIC = -1
+		MAN = -1
+		MON = -1
+		SIA = -1
+		SOV = 25
+		POR = -1
+		ENG = 50
+		FRA = 50
+		HOL = 10
+		USA = 50
+		AST = 10
+		NZL = 10
+	}
+	province_priorities = {	}
+	area_multiplier = {	}	
+}

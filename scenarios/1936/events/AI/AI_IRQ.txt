@@ -1,0 +1,47 @@
+####################################
+# Iraq AI events 37000 - 37099 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+#
+####################################
+################
+# Lowers neutrality to join Axis
+#############################################
+event = {
+	id = 37000
+	random = no 
+	country = IRQ
+	
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				control = { province = 1016 data = GER } # Damascus
+				control = { province = 1014 data = GER } # Dair az Zawr
+			}
+			AND = {
+				control = { province = 1016 data = ITA } # Damascus
+				control = { province = 1014 data = ITA } # Dair az Zawr
+			}
+			AND = {
+				OR = {
+					alliance = { country = TUR country = GER }
+					alliance = { country = TUR country = ITA }
+				}
+				control = { province = 1016 data = TUR } # Damascus
+				control = { province = 1014 data = TUR } # Dair az Zawr
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

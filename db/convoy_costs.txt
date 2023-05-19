@@ -1,0 +1,20 @@
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# remark: -90% costs per ton for convoy transports!
+# assumed tonnage: 2500to per ship
+
+transports = {
+	cost		= 2.35
+	buildtime 	= 150
+	manpower	= 0.045
+	size		= 10
+}
+
+# remark: -65% costs per ton for convoy escorts!
+# assumed tonnage: 900to per ship
+
+escorts = {
+	cost		= 1.65
+	buildtime 	= 270
+	manpower	= 0.85
+	size		= 10
+}

@@ -1,0 +1,290 @@
+# converted to DH, Kane, August 3 2011
+#########################################################################
+# 3187000 - 3187999	Slovakia political events
+#########################################################################
+
+#########################################################################
+#  The End of Czechoslovakia (was 2300 modified by Luxor)
+#########################################################################
+event = { 
+	id = 3187000
+	random = no
+	country = SLO
+
+	# Triggered by GER 3136013
+
+	name = EVT_3187000_NAME
+	desc = EVT_3187000_DESC
+	style = 0
+	picture = "ocupation"
+	
+	action_a = {
+		name = ACTIONNAME3187000A # Bohemia and Moravia to Germany	
+		command = { type = secedeprovince which = GER value = 199 }
+		command = { type = secedeprovince which = GER value = 207 }
+		command = { type = secedeprovince which = GER value = 198 }
+		command = { type = secedeprovince which = GER value = 202 }
+		command = { type = secedeprovince which = GER value = 196 }
+		command = { type = secedeprovince which = GER value = 201 }
+		command = { type = secedeprovince which = GER value = 203 }
+		command = { type = secedeprovince which = GER value = 206 }
+		command = { type = secedeprovince which = HUN value = 213 }
+		#command = { type = secedeprovince which = HUN value = 215 }
+		command = { type = energypool value = 20000 } 
+		command = { type = metalpool value = 10000 } 
+		command = { type = oilpool value = 5000 } 
+		command = { type = rarematerialspool value = 5000 } 
+		command = { type = supplies value = 500 } 
+		command = { type = trigger which = 3141000 } # HUN
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = domestic which = freedom value = -2 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = relation which = HUN value = 20 }
+		command = { type = relation which = ENG value = -15 }
+		command = { type = relation which = FRA value = -15 }
+		command = { type = relation which = SOV value = -25 }
+		command = { type = headofstate which = 31031 }
+		command = { type = headofgovernment which = 31034 }
+		command = { type = foreignminister which = 31037 }
+		command = { type = armamentminister which = 31042 }
+		command = { type = ministerofsecurity which = 31048 }
+		command = { type = ministerofintelligence which = 31055 }
+		command = { type = chiefofstaff which = 31060 }
+		command = { type = chiefofarmy which = 31063 }
+		command = { type = chiefofnavy which = 31066 }
+		command = { type = chiefofair which = 31069 }
+		command = { type = dissent value = -30 }
+		command = { type = steal_tech which = GER }
+		command = { type = steal_tech which = GER }
+		command = { type = steal_tech which = GER }
+		command = { type = sleepteam which = 4108 } #Kriegsgeräte GmbH		
+                 ### slovak army ###
+                command = { type = add_corps which = "Armáda Slovenskej" value = land where = 208 }
+                command = { type = add_division which = "Slo. schnelle Division" value = mechanized when = 0 } 
+                #slovakian fast division was the old czech 3rd fast division, an armored division of the CZE army
+                command = { type = add_division which = "Slo. Sicherungs-Division" value = garrison when = 2 }
+                command = { type = add_division which = "Slo. Heimat-Division" value = militia when = 2 }
+                 ### 3 divisions, later reorganised into 1 mobile front div, one security div and one homeland division
+                 ### slovak air force ###
+                command = { type = add_corps which = "Slovenské Vzdusné Zbrane" value = air where = 208 }
+                command = { type = add_division which = "1. Letecky Pluk" value = multi_role when = 2 }
+                 ###
+		command = { trigger = { NOT = { event = 3136017 } } type = trigger which = 3136017 } # just in case
+	}
+}
+#########################################################################
+#  The End of Czechoslovakia no Hungary (was 2301 modified by Luxor)
+#########################################################################
+event = { 
+	id = 3187001
+	random = no
+	country = SLO
+
+	# Triggered by GER 3136016
+
+	name = EVT_3187001_NAME
+	desc = EVT_3187001_DESC
+	style = 0
+	picture = "ocupation"
+	
+	action_a = {
+		name = ACTIONNAME3187001A # Bohemia and Moravia to Germany	
+		command = { type = secedeprovince which = GER value = 199 }
+		command = { type = secedeprovince which = GER value = 207 }
+		command = { type = secedeprovince which = GER value = 198 }
+		command = { type = secedeprovince which = GER value = 202 }
+		command = { type = secedeprovince which = GER value = 196 }
+		command = { type = secedeprovince which = GER value = 201 }
+		command = { type = secedeprovince which = GER value = 203 }
+		command = { type = secedeprovince which = GER value = 206 }
+		command = { type = energypool value = 20000 } 
+		command = { type = metalpool value = 10000 } 
+		command = { type = oilpool value = 5000 } 
+		command = { type = rarematerialspool value = 5000 } 
+		command = { type = supplies value = 500 } 
+		command = { type = trigger which = 3141000 }
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = democratic value = 2 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = domestic which = freedom value = -2 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = relation which = HUN value = 20 }
+		command = { type = relation which = ENG value = -15 }
+		command = { type = relation which = FRA value = -15 }
+		command = { type = relation which = SOV value = -25 }
+		command = { type = headofstate which = 31001 }
+		command = { type = headofgovernment which = 31002 }
+		command = { type = foreignminister which = 31003 }
+		command = { type = armamentminister which = 31004 }
+		command = { type = ministerofsecurity which = 31005 }
+		command = { type = ministerofintelligence which = 31006 }
+		command = { type = chiefofstaff which = 31007 }
+		command = { type = chiefofarmy which = 31008 }
+		command = { type = chiefofnavy which = 31009 }
+		command = { type = chiefofair which = 31010 }
+		command = { type = dissent value = -30 }
+		command = { type = steal_tech which = GER } 
+		command = { type = steal_tech which = GER } 
+		command = { type = steal_tech which = GER }
+		command = { type = add_division value = infantry } # ahistoric
+		command = { type = add_division value = infantry } # ahistoric
+		command = { type = add_division value = cavalry when = 3 } # ahistoric
+	}
+}
+event = {
+	id = 3187002
+	random = no
+	country = SLO
+
+	# Triggered by GER 2018
+
+	name = "EVT_2018_NAME"
+	desc = "EVT_2018_DESC"
+	style = 0
+	picture = "E_Poland_Sov"
+
+	action_a = {
+		name = ACTIONNAME3187002A
+		command = { type = relation which = SOV value = 10 }
+		command = { type = secedeprovince which = SOV value = 257 }
+		command = { type = secedeprovince which = SOV value = 258 }
+		command = { type = secedeprovince which = SOV value = 256 }
+		command = { type = secedeprovince which = SOV value = 255 }
+		command = { type = secedeprovince which = SOV value = 229 } # Lomza (historically accurate) 
+		command = { type = secedeprovince which = SOV value = 250 }
+		command = { type = secedeprovince which = SOV value = 254 }
+		command = { type = secedeprovince which = SOV value = 253 }
+		command = { type = secedeprovince which = SOV value = 251 }
+		command = { type = secedeprovince which = SOV value = 247 }
+		command = { type = secedeprovince which = SOV value = 245 }
+		command = { type = secedeprovince which = SOV value = 248 }
+		command = { type = secedeprovince which = SOV value = 249 }
+		command = { type = secedeprovince which = SOV value = 244 }
+		command = { type = secedeprovince which = SOV value = 246 }
+		command = { type = secedeprovince which = SOV value = 242 }
+		command = { type = secedeprovince which = SOV value = 240 }
+		command = { type = secedeprovince which = SOV value = 241 }
+		command = { type = secedeprovince which = SOV value = 238 }
+		command = { type = secedeprovince which = GER value = 181 }
+		command = { type = secedeprovince which = GER value = 226 }
+		command = { type = secedeprovince which = GER value = 225 }
+		command = { type = secedeprovince which = GER value = 224 }
+		command = { type = secedeprovince which = GER value = 222 }
+		command = { type = secedeprovince which = GER value = 230 }
+		command = { type = secedeprovince which = GER value = 227 }
+		command = { type = secedeprovince which = GER value = 221 }
+		command = { type = secedeprovince which = GER value = 235 }
+		command = { type = secedeprovince which = GER value = 236 }
+		command = { type = secedeprovince which = GER value = 223 }
+		command = { type = secedeprovince which = GER value = 231 }
+		command = { type = secedeprovince which = GER value = 233 }
+		command = { type = secedeprovince which = GER value = 234 }
+		command = { type = secedeprovince which = GER value = 232 }
+		command = { type = secedeprovince which = GER value = 228 }
+		command = { type = secedeprovince which = GER value = 243 }
+		command = { type = secedeprovince which = GER value = 237 }
+		command = { type = secedeprovince which = GER value = 239 }
+	}
+}
+####################################
+# Slovakia attacked
+####################################
+#event = {
+#        id = 3187003
+#        random = no
+#        country = SLO
+#        
+#        # triggered by GER 3136081; inactive event
+#        
+#        name = EVT_3187003_NAME
+#        desc = EVT_2302_DESC
+#        style = 0
+#        picture = "slovakia"
+# 
+#        action_a = {
+#                name = ACTIONNAME3187003A
+#                command = { type = secedeprovince which = HUN value = 209 } #Kosice  
+#                command = { type = secedeprovince which = HUN value = 214 }       
+#        }
+#}
+#########################################################################
+#  Slovak National Uprising
+#########################################################################
+event = {
+	id = 3187004
+	random = no
+	country = SLO
+	
+	trigger = {
+                atwar = yes
+		control = { province = 239 data = SOV }
+		war = { country = GER country = SOV }
+	        alliance = { country = GER country = SLO }
+	}
+
+	name = EVT_3187004_NAME
+	desc = EVT_3187004_DESC
+	style = 0
+	
+	date = { day = 6 month = march year = 1942 }
+	offset = 1
+	deathdate = { day = 10 month = march year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3187004A
+		command = { type = dissent value = 57 }
+	}
+}
+
+#########################################################################
+#  Slovak Hungarian War 1939
+#########################################################################
+event = {
+	id = 3187005
+	random = no
+	country = SLO
+
+	#triggered by HUN 3141019
+	
+	name = EVT_3187005_NAME
+	desc = EVT_3187005_DESC
+	style = 2
+	picture = "slo_event_slo_hun_war"
+	
+	action_a = {
+		name = ACTIONNAME3187005A
+		command = { trigger = { ai = no } type = dissent value = 1 }
+		command = { trigger = { ai = no } type = supplies value = -250 }
+		command = { }
+	}
+}
+
+event = {
+	id = 3187006
+	random = no
+	country = SLO
+
+	trigger = {
+                event = 3187005
+				}	
+	
+	name = EVT_3187006_NAME
+	desc = EVT_3187006_DESC
+	style = 2
+	picture = "slo_event_slo_hun_war_end"
+	
+	date = { day = 3 month = april year = 1939 }
+	offset = 1
+	deathdate = { day = 10 month = march year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3187006A
+		command = { trigger = { ai = yes } type = dissent value = -1 }
+		command = { trigger = { ai = no }  type = dissent value = 1 }
+		command = { type = trigger which = 3141031 }
+		command = { type = gain_tech which = 1030 } #we have learned our lesson.
+	}
+}
+

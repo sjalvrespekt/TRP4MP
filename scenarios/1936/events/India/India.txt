@@ -1,0 +1,305 @@
+#################################
+#
+# Raj Events by DerStudti
+# IDs reserved: 3131900-3131993
+#
+#################################
+
+
+#################################
+# Burma Independence
+#################################
+
+event = {
+	id = 3131900
+	random = no
+	country = U02
+	
+	# triggered by ENG 3131109
+	
+	name = EVT_3131109_NAME
+	desc = EVT_3131109_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3131109A
+		command = { type = removecore which = 1406 }
+		command = { type = removecore which = 1407 }
+		command = { type = removecore which = 1408 }
+		command = { type = removecore which = 1409 }
+		command = { type = removecore which = 1410 }
+		command = { type = removecore which = 1411 }
+		command = { type = removecore which = 1412 }
+		command = { type = removecore which = 1413 }
+		command = { type = removecore which = 1414 }
+		command = { type = removecore which = 1415 }
+		command = { type = removecore which = 1416 }
+		command = { type = removecore which = 1417 }
+		command = { type = removecore which = 1418 }
+		command = { type = removecore which = 1419 }
+		command = { type = removecore which = 1420 }
+		# command = { type = removecore which = 1421 }
+		command = { type = independence which = BUR value = 1 }
+		command = { type = trigger which = 3131110 } #ENG
+	}
+}
+
+#########################################################################
+# War
+#########################################################################
+event = { 
+	id = 3131901
+	random = no
+	country = U02
+	
+		trigger = { atwar = yes }
+
+	name = EVT_3131901_NAME
+	desc = EVT_3131901_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3131901A # For the king!
+		command = { type = manpowerpool value = 100 }
+		command = { type = industrial_modifier which = total value = 40 }
+		command = { type = dissent value = 3 }
+		command = { trigger = { ai = yes } type = ai which = "switch/U02_normal_mp.ai" }
+		command = { trigger = { local_flag = U02_low_mp } type = local_clrflag which = U02_low_mp }
+	}
+}
+
+#########################################################################
+# Japan threatens India
+#########################################################################
+event = { 
+	id = 3131902
+	random = no
+	country = U02
+	
+		trigger = {
+					OR = {
+							war = { country = U02 country = JAP }
+							NOT = { exists = CHI }
+							puppet = { country = CHI country = JAP }
+							AND = {
+									war = { country = JAP country = CHI }
+									lost_national = { country = CHI value = 40 }
+									}
+							war = { country = JAP country = TIB }
+							alliance = { country = JAP country = SIA }
+							}
+				}
+
+	name = EVT_3131902_NAME
+	desc = EVT_3131902_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3131902A # We will stand!
+		command = { type = manpowerpool value = 500 }
+		command = { type = industrial_modifier which = total value = 40 }
+		command = { type = dissent value = 5 }
+		command = { trigger = { ai = yes } type = ai which = "switch/U02_normal_mp.ai" }
+		command = { trigger = { local_flag = U02_low_mp } type = local_clrflag which = U02_low_mp }
+	}
+}
+
+#########################################################################
+# Volunteers 1943
+#########################################################################
+event = { 
+	id = 3131903
+	random = no
+	country = U02
+	
+		trigger = {
+				event = 3131902
+				war = { country = ENG country = JAP }
+				atwar = yes
+				OR = {	year = 1943
+						AND = { NOT = { exists = U00 }} 
+								army = { size = 150 which = 1 country = JAP }
+								}
+						AND = { exists = U00
+								army = { size = 50 which = 1 country = JAP }
+								army = { size = 100 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 75 which = 1 country = JAP }
+								army = { size = 75 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 100 which = 1 country = JAP }
+								army = { size = 50 which = 1 country = U00 }
+								}
+					}
+				
+
+	name = EVT_3131903_NAME
+	desc = EVT_3131903_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3131903A # Enlist them!
+		command = { type = manpowerpool value = 500 }
+		command = { trigger = { ai = yes } type = ai which = "switch/U02_normal_mp.ai" }
+		command = { trigger = { local_flag = U02_low_mp } type = local_clrflag which = U02_low_mp }
+	}
+}
+
+#########################################################################
+# Volunteers 1944
+#########################################################################
+event = { 
+	id = 3131904
+	random = no
+	country = U02
+	
+		trigger = {
+				event = 3131902
+				event = 3131903
+				war = { country = ENG country = JAP }
+				atwar = yes
+				OR = {	year = 1944
+						AND = { NOT = { exists = U00 }} 
+								army = { size = 180 which = 1 country = JAP }
+								}
+						AND = { exists = U00
+								army = { size = 60 which = 1 country = JAP }
+								army = { size = 120 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 85 which = 1 country = JAP }
+								army = { size = 95 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 110 which = 1 country = JAP }
+								army = { size = 70 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 135 which = 1 country = JAP }
+								army = { size = 55 which = 1 country = U00 }
+								}
+					}
+	
+
+	name = EVT_3131904_NAME
+	desc = EVT_3131904_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3131904A # Enlist them!
+		command = { type = manpowerpool value = 500 }
+		command = { trigger = { ai = yes } type = ai which = "switch/U02_normal_mp.ai" }
+		command = { trigger = { local_flag = U02_low_mp } type = local_clrflag which = U02_low_mp }
+	}
+}
+
+#########################################################################
+# Volunteers 1945
+#########################################################################
+event = { 
+	id = 3131905
+	random = no
+	country = U02
+	
+		trigger = {
+				event = 3131902
+				event = 3131903
+				event = 3131904
+				war = { country = ENG country = JAP }
+				atwar = yes
+				OR = {	year = 1945
+						AND = { NOT = { exists = U00 }} 
+								army = { size = 210 which = 1 country = JAP }
+								}
+						AND = { exists = U00
+								army = { size = 70 which = 1 country = JAP }
+								army = { size = 140 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 95 which = 1 country = JAP }
+								army = { size = 115 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 120 which = 1 country = JAP }
+								army = { size = 90 which = 1 country = U00 }
+								}
+						AND = { exists = U00
+								army = { size = 145 which = 1 country = JAP }
+								army = { size = 75 which = 1 country = U00 }
+								}
+					}
+	
+
+	name = EVT_3131905_NAME
+	desc = EVT_3131905_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3131905A # Enlist them!
+		command = { type = manpowerpool value = 500 }
+		command = { trigger = { ai = yes } type = ai which = "switch/U02_normal_mp.ai" }
+		command = { trigger = { local_flag = U02_low_mp } type = local_clrflag which = U02_low_mp }
+	}
+}
+
+#################################################################################
+# Colonial power of the british empire - U02 divisions
+#################################################################################
+event = {
+	id = 313111141
+	random = no
+	country = U02
+	save_date = yes
+
+	trigger = {
+		event    = { id = 313111140 days = 360 }
+	}
+
+	name = EVT_313111140_NAME
+	desc = EVT_313111140_DESC
+	picture = "eng_colonial_power_in_asia"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+
+	action_a = {
+	    name = ACTIONNAME313111141A
+		ai_chance = 100
+		command = { type = money     value = 350  }
+		command = { type = supplies  value = 5000 }
+		command = { type = add_corps which = "XIVth Army"     value = land   where = 1459 }
+		command = { type = activate_division which = 12700    value = 6710   where = 1459 }
+		command = { type = activate_division which = 12700    value = 6711   where = 1459 }
+		command = { type = activate_division which = 12700    value = 6712   where = 1459 }
+	}
+	
+	action_b = { 
+		name = ACTIONNAME313111138B
+        ai_chance = 0
+		command = { }
+	}		
+}

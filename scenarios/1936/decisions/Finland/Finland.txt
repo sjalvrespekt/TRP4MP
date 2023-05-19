@@ -1,0 +1,561 @@
+#########################################################################
+#  Germany takes control of Finnish Army
+#########################################################################
+event = {
+	id = 10023100
+	random = no
+	country = GER
+
+	decision = {
+		government = fascist
+		war = { country = FIN country = SOV }
+		war = { country = GER country = SOV }
+		NOT = {
+			OR = {
+				war = { country = GER country = FIN }
+				alliance = { country = GER country = FIN }
+			}
+		}
+	}
+	decision_trigger = { 
+			#event = 3136161 #Legion Condor
+			NOT = { military_control = { country = GER country = FIN }}
+			ai = FIN
+	}
+	
+	trigger = {
+		ai = no
+	}
+
+	name = "EVT_10023100_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "finnish_war"
+	decision_picture = "decision_finnish_war"
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = { 
+		name = ACTION_NAME_OK
+		command = { type = belligerence which = GER value = 3 }
+		command = { type = military_control which = GER where = FIN value = 1 }
+		command	= { type = local_setflag which = military_control_FIN }
+	}
+}
+##########################################
+# Germany no longer controls Finnish army
+##########################################
+event = {
+	id = 10023101
+	random = no
+	country = GER
+
+	trigger = {
+		military_control = { country = FIN }
+		local_flag = military_control_FIN
+		OR = { 
+			alliance = { country = GER country = FIN } 
+			NOT = { war = { country = GER country = SOV } } 
+			NOT = { war = { country = FIN country = SOV } } 
+			NOT = { ai = FIN }		
+		}
+	}
+	
+	name = "EVT_10023101_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "finnish_war"	
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = GER where = FIN value = 0 }
+		command	= { type = local_clrflag which = military_control_FIN }
+	}
+}
+
+##########################################
+# Finnland forms an armored division
+##########################################
+event = {  
+	id = 10023102
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	decision_trigger = { 		
+		atwar = SOV
+        supplies = 750      
+		energy = 3360
+		metal = 1680
+		rare_materials = 840
+		manpower = 17
+			}	
+	trigger = { 
+		atwar = SOV
+        supplies = 1500
+		energy = 6720
+		metal = 3360
+		rare_materials = 1680
+		manpower = 17
+	}
+
+	name = EVT_10023102_NAME # Finnish tank division
+	desc = EVT_10023102_DESC
+	style = 0
+	picture = "FIN-PzDiv"
+	decision_picture = "decision_finnland_armored_division"
+
+        date = { day = 29 month = June year = 1942 }
+	offset = 1
+	deathdate = { day = 2 month = july year = 1999 }
+           
+	action_a = { 
+		name = ACTIONNAME10023102A
+		command = { type = activate_division which = 32000 value = 23 when = 0 }
+		command = { trigger = { AI = no } type = supplies value = -1500 }
+		command = { trigger = { AI = no } type = energypool value = -6720 }
+		command = { trigger = { AI = no } type = metalpool value = -3360 }
+		command = { trigger = { AI = no } type = rarematerialspool value = -1680 }
+                command = { trigger = { ai = no } type = manpowerpool value = -17 }	
+	}
+}
+
+###############################################
+# Finland is buying equipment from germany
+###############################################
+
+event = {  
+	id = 10023103
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		atwar = no
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		atwar = no
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1940 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 10
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 85
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 0 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 4
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#####
+
+event = {  
+	id = 10023104
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1941 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 95
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 3 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 3
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 1
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#####
+
+event = {  
+	id = 10023105
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1942 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 6
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 2 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 3
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 80
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 2 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#####
+
+event = {  
+	id = 10023106
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 7
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 3 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 90
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 4 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 2
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 2 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#####
+
+event = {  
+	id = 10023107
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 90
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 5 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 5
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 1 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 4
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 2 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+#####
+
+event = {  
+	id = 10023108
+	random = no
+	country = FIN
+
+	decision = { ai = no }
+	
+	decision_trigger = { 	
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+		}	
+		
+	trigger = { 
+        money = 50
+		event = 3136505 #GER Kriegsgeräte GmbH
+		event = 3136074 #VIC France
+		atwar = yes
+		NOT = { ispuppet = yes }
+		NOT = { war = { country = GER  country = FIN }}
+	}
+
+	name = EVT_10023103_NAME # Finnish is buying new weapons
+	desc = EVT_10023103_DESC
+	style = 2
+	picture = "finnland_event_equipment"
+	decision_picture = "finnland_decision_equipment"
+
+    date = { day = 1 month = january year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+           
+	action_a = { 
+		name = ACTIONNAME10023103A #buy artillery
+		ai_chance = 45
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = artillery when = 5 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_b = { 
+		name = ACTIONNAME10023103B #buy anti tank guns
+		ai_chance = 45
+		command = { trigger = { AI = no } type = money    value = -25 }
+		command = { type = relation      which = GER      value = 10 }
+        command = { type = add_brigade   value = anti_tank when = 4 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_c = { 
+		name = ACTIONNAME10023103C #buy anti air guns
+		ai_chance = 9
+		command = { trigger = { AI = no } type = money   value = -25 }
+		command = { type = relation      which = GER     value = 10 }
+        command = { type = add_brigade   value = anti_air when = 4 }
+		command = { trigger = { ai = no } type = manpowerpool value = -3 }	
+		command = { type = trigger       which = 3136252 } #GER info event
+	}
+	action_d = { 
+		name = ACTIONNAME10023103D #we dont need any weapons
+		ai_chance = 1
+		command = { type = relation which = GER value = -10 }
+		command = { type = dissent  value = -1 }
+	}
+}
+
+##########################################################

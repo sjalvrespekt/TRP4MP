@@ -1,0 +1,217 @@
+#	paratrooper				
+#allowed_brigades =  artillery					
+#allowed_brigades =  anti_tank					
+#allowed_brigades =  anti_air					
+#allowed_brigades =  rocket_artillery					
+#allowed_brigades =  sp_artillery					
+#allowed_brigades =  sp_rct_artillery					
+#allowed_brigades =  tank_destroyer					
+#allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+#allowed_brigades =  armored_car					
+#allowed_brigades =  engineer					
+#allowed_brigades =  police					
+#allowed_brigades =  sp_anti_air	
+#allowed_brigades =  b_01				
+					
+# Early Airborne Division (1937)- 0					
+model = {					
+	cost =				8.49
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				19
+	toughness =				20
+	softness =				100
+	suppression =				2
+	airdefence =				10
+	softattack =				16
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				2.26
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 10000 equipment = 190 artillery = 15  anti_air = 3 anti_tank = 3                               }
+}					
+# Basic Airborne Division (1940) - 1					
+model = {					
+	cost =				9.27
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				21
+	toughness =				22
+	softness =				100
+	suppression =				2
+	airdefence =				11
+	softattack =				18
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				2.47
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 175 artillery = 15  anti_air = 6 anti_tank = 9                               }
+}					
+# Improved Airborne Division (1943)- 2					
+model = {					
+	cost =				10.14
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				25
+	toughness =				27
+	softness =				100
+	suppression =				2
+	airdefence =				13
+	softattack =				22
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				2.7
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 155 artillery = 15  anti_air = 6 anti_tank = 9                               }
+}					
+# Advanced Airborne Division (1945) - 3					
+model = {					
+	cost =				10.75
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				28
+	toughness =				30
+	softness =				100
+	suppression =				2
+	airdefence =				14
+	softattack =				24
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				2.87
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 10000 equipment = 140 artillery = 15  anti_air = 9 anti_tank = 9  trucks = 50                             }
+}					
+# Semimodern Airborne Division (1948)- 4					
+model = {					
+	cost =				11.63
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				33
+	toughness =				35
+	softness =				100
+	suppression =				2
+	airdefence =				17
+	softattack =				29
+	hardattack =				2
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				3.1
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 10000 equipment = 130 artillery = 15  anti_air = 9 anti_tank = 9  trucks = 75                             }
+}					
+# Modern Airborne Division (1952) - 5					
+model = {					
+	cost =				12.59
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				40
+	toughness =				43
+	softness =				100
+	suppression =				2
+	airdefence =				21
+	softattack =				35
+	hardattack =				4
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				3.36
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 130 artillery = 15  anti_air = 12 anti_tank = 6  trucks = 100 halftracks = 5                            }
+}					
+# Elite Airborne Division (1956) - 6					
+model = {					
+	cost =				13.63
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				47
+	toughness =				50
+	softness =				100
+	suppression =				2
+	airdefence =				24
+	softattack =				41
+	hardattack =				5
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				3.63
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 150 artillery = 15  anti_air = 12 anti_tank = 6  trucks = 125  armored_car = 5                           }
+}					
+# Elite Airborne Division (1961) - 7					
+model = {					
+	cost =				15.05
+	buildtime =			 	240
+	manpower =				10
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				58
+	toughness =				61
+	softness =				100
+	suppression =				2
+	airdefence =				29
+	softattack =				50
+	hardattack =				7
+	airattack =				3
+	transportweight =				10
+	supplyconsumption =				4.01
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 10000 equipment = 150 artillery = 15  anti_air = 12 anti_tank = 6  trucks = 150  armored_car = 10                           }
+}					

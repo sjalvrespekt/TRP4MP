@@ -1,0 +1,3057 @@
+####################################
+# USA 28000 - 28999 by Lothos
+####################################
+# Unit building AI
+#	USADefense			= Build massive land troops
+#	USABuildStandard	= Standard Build
+#	USABuildLand 		= Build more land troops
+#	USABuildAir			= Build planes mainly
+
+# Behavior Flags
+#	USADDay				= Launch D-Day
+#	USAInvadeUK			= Invade the UK
+#	USAFrance			= France lives so send help 
+
+# Air AI Flags
+#	USAGroundAir		= Concentrate on Ground Targets
+#	USAStrategicAir		= Concentrate on Strategic Targets
+
+# Embargo Flags (USA must be a democracy)
+#	USAEmbargoGER		= Embargo against German
+#	USAEmbargoITA		= Embargo against Italy
+#	USAEmbargoJAP		= Embargo against Japan
+#	USAEmbargoGER_ITA	= Embargo both Germany and Italy
+#	USAEmbargoGER_JAP	= Embargo both Germany and Japan
+#	USAEmbargoITA_JAP	= Embargo both Italy and Japan
+#	USAEmbargoGER_ITA_JAP	= Embargo Germany, Italy and Japan
+
+################
+# USA loads researching of nukes and special techs AI
+#############################################
+event = {
+	id = 28000
+	random = no 
+	country = USA
+
+	trigger = {
+		ai = yes
+		year = 1941
+		NOT = { lost_national = { country = USA value = 1 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Nuke_Research.ai" }
+	}
+}
+################
+# USA Gear up Level 1
+#############################################
+event = {
+	id = 28001
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = USA country = GER } }
+		OR = {
+			atwar = GER
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_1.ai" }
+	}
+}
+################
+# USA Gear up Level 2
+#############################################
+event = {
+	id = 28002
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = USA country = GER } }
+		OR = {
+				control = { province = 55 data = GER } # Paris
+				control = { province = 55 data = VIC } # Paris
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_2.ai" }
+		command = { type = sleepevent which = 28001 }
+	}
+}
+################
+# USA Gear up Level 3
+#############################################
+event = {
+	id = 28003
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		NOT = { war = { country = USA country = GER } }
+		war = { country = SOV country = GER }
+		OR = {
+				control = { province = 55 data = GER } # Paris
+				control = { province = 55 data = VIC } # Paris
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_3.ai" }
+		command = { type = sleepevent which = 28001 }
+		command = { type = sleepevent which = 28002 }
+	}
+}
+################
+# USA Gear up Level 4
+#############################################
+event = {
+	id = 28004
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USADefense }		
+		OR = {
+			atwar = USA
+			AND = {
+				random = 5
+				year = 1942
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+		command = { type = local_clrflag which = USADDay }
+		command = { type = sleepevent which = 28001 }
+		command = { type = sleepevent which = 28002 }
+		command = { type = sleepevent which = 28003 }
+	}
+}
+################
+# Load D-Day AI
+#############################################
+event = {
+	id = 28005
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				
+				war = { country = GER country = USA }
+				war = { country = GER country = ENG }
+				war = { country = GER country = SOV }
+		
+				NOT = { local_flag = USADefense }
+				NOT = { local_flag = USADDay }
+				NOT = { local_flag = USAInvadeUK }
+				NOT = { local_flag = USAFrance }
+				
+				OR = {
+						year = 1943 #time for buildup
+						lost_national = { country = SOV value = 25 } #SOV under pressure
+						lost_national = { country = GER value = 5 } #GER under pressure
+						army = { size = 100 type = 1 which = 1 }	# US army has at least 100 divisions (except GAR and HQ, only ready divisions, including foreign expeditionary forces)
+						
+						# Germany having few troops in France, perhaps because SOV advances?
+						NOT = { garrison = { country = -2 province = 37 type = land size = 20 area = 2 } }			
+						}
+				
+				#Check to make sure Allies are not already in France		
+				NOT = { region = { region = "France" country = -3 value = 1 } } # check if not at least 1 percent of all provinces in France are controlled by allied/friendly countries
+		
+				# Northern Africa campaign finished
+				NOT = { garrison = { country = -2 province = 750 type = land size = 1 area = 2 } } # Libya 
+				NOT = { garrison = { country = -2 province = 747 type = land size = 1 area = 2 } } # Tunisia
+				NOT = { garrison = { country = -2 province = 727 type = land size = 1 area = 2 } } # Algeria
+				NOT = { garrison = { country = -2 province = 718 type = land size = 1 area = 2 } } # Morocco
+				NOT = { garrison = { country = -2 province = 789 type = land size = 1 area = 2 } } # Egypt
+			}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USADDay }
+		command = { type = setflag  which = DDay }
+		command = { type = ai which = "switch/USA_Dday.ai" }
+	}
+}
+################
+# D-Day successful go back to normal AI
+#############################################
+event = {
+	id = 28006
+	random = no 
+	country = USA
+	persistent = yes
+
+	trigger = {
+				ai = yes
+				local_flag = USADDay
+				NOT = { local_flag = USADefense }
+				NOT = { local_flag = USAInvadeUK }
+				
+				OR = {
+						NOT = { war = { country = GER country = USA } }
+						NOT = { war = { country = GER country = ENG } }
+						NOT = { war = { country = GER country = SOV } }
+						}
+				
+				OR = {
+						NOT = { army = { size = 50 type = 1 which = 1 } }	# US army has less than 50 divisions (except GAR and HQ, only ready divisions, including foreign expeditionary forces)
+						
+						# Germany having many troops in France
+						garrison = { country = -2 province = 37 type = land size = 40 area = 2 }
+
+						#Allies already in France		
+						region = { region = "France" country = -3 value = 25 } # check if at least 25 percent of all provinces in France are controlled by allied/friendly countries		
+
+						# Northern Africa campaign not finished
+						garrison = { country = -2 province = 750 type = land size = 1 area = 2 } # Libya 
+						garrison = { country = -2 province = 747 type = land size = 1 area = 2 } # Tunisia
+						garrison = { country = -2 province = 727 type = land size = 1 area = 2 } # Algeria
+						garrison = { country = -2 province = 718 type = land size = 1 area = 2 } # Morocco
+						garrison = { country = -2 province = 789 type = land size = 1 area = 2 } # Egypt	
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USADDay }
+		command = { type = clrflag which = DDay }
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+	}
+}
+################
+# USA loads EXP Force Ratio for war with SOV
+#############################################
+event = {
+	id = 28007
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		war = { country = USA country = SOV }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_ALIvsSOV.ai" }
+	}
+}
+################
+# USA Loads national defense AI
+#############################################
+event = {
+	id = 28008
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USADefense }
+		OR = {
+			war = { country = USA country = CAN }
+			war = { country = USA country = MEX }
+			AND = {
+				lost_national = { country = CAN value = 2 }
+				NOT = { war = { country = USA country = CAN } }
+			}
+			AND = {
+				lost_national = { country = MEX value = 2 }
+				NOT = { war = { country = USA country = MEX } }
+			}
+			AND = {
+				OR = {
+						NOT = { region = { region = "Southwest US" country = -3 value = 100 } } # not all provinces in the region controlled by allied/friendly countries
+						NOT = { region = { region = "Northwest US" country = -3 value = 100 } }
+						NOT = { region = { region = "Southeast US" country = -3 value = 100 } }
+						NOT = { region = { region = "Southwest US" country = -3 value = 100 } }
+						NOT = { region = { region = "Midwest US" country = -3 value = 100 } }
+						NOT = { region = { region = "Southcentral US" country = -3 value = 100 } }
+						NOT = { area = { area = "Hawaii" country = -3 value = 100 } }
+						}
+				atwar = USA
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USADefense }
+		command = { type = local_clrflag which = USAInvadeUK }
+		command = { type = local_clrflag which = USABuildStandard }
+		command = { type = local_clrflag which = USABuildLand }
+		command = { type = local_clrflag which = USADDay }
+		command = { type = ai which = "switch/USA_Homeland.ai" }
+	}
+}
+################
+# USA Goes back to normal war production
+#############################################
+event = {
+	id = 28009
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = USADefense
+		AND = {
+			NOT = { war = { country = USA country = CAN } }
+			NOT = { war = { country = USA country = MEX } }
+			NOT = { lost_national = { country = CAN value = 2 } }
+			NOT = { lost_national = { country = MEX value = 2 } }
+			NOT = { lost_national = { country = USA value = 2 } }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USADefense }
+	}
+}
+################
+# USA loads Standard builds AI
+#############################################
+event = {
+	id = 28010
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			year = 1940
+		}
+		NOT = { local_flag = USABuildStandard }
+		NOT = { local_flag = USADefense }
+		NOT = {
+			AND = {
+				local_flag = USABuildAir
+				OR = {
+					AND = {
+						war = { country = GER country = USA }
+						NOT = { air_percentage = { country = GER value = 1.0 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { air_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { air_percentage = { country = SOV value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { air_percentage = { country = ENG value = 1.0 } }
+					}
+					AND = {
+						war = { country = JAP country = USA }
+						NOT = { air_percentage = { country = JAP value = 1.0 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1936
+						NOT = { year = 1937 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1941
+						NOT = { year = 1942 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.5 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.3 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 0.6 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.5 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.7 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.35 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1942
+						NOT = { year = 1943 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.6 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.4 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 0.7 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.6 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.8 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.45 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1942
+						NOT = { year = 1943 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1943
+						NOT = { year = 1944 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.7 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.5 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 1.0 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.7 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.9 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.55 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1939
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1940
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1941
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1942
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1943
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1944
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.8 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.6 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 1.0 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.9 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 1.0 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.65 } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USABuildAir }
+		command = { type = local_setflag which = USABuildStandard }
+		command = { type = local_clrflag which = USABuildLand }
+		command = { type = ai which = "switch/USA_Build_Standard.ai" }
+	}
+}
+################
+# USA loads Land builds AI
+#############################################
+event = {
+	id = 28011
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		manpower = 150 # just activate land build if there's enough mp
+		OR = {
+			atwar = yes
+			year = 1940
+		}
+		NOT = { local_flag = USABuildLand }
+		NOT = { local_flag = USADefense }
+		OR = {
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1936
+						NOT = { year = 1937 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1941
+						NOT = { year = 1942 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.5 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.3 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 0.6 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.5 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.7 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.35 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1942
+						NOT = { year = 1943 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.6 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.4 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 0.7 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.6 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.8 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.45 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1942
+						NOT = { year = 1943 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1943
+						NOT = { year = 1944 }
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.7 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.5 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 1.0 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.7 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 0.9 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.55 } }
+					}
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1939
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1940
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1941
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1942
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1943
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1944
+					}
+				}
+				OR = {
+					AND = {
+						NOT = { ai = GER }
+						NOT = { land_percentage = { country = GER value = 0.8 } }
+					}
+					AND = {
+						ai = GER
+						NOT = { land_percentage = { country = GER value = 0.6 } }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						NOT = { land_percentage = { country = JAP value = 1.0 } }
+					}
+					AND = {
+						ai = JAP
+						NOT = { land_percentage = { country = JAP value = 0.9 } }
+					}
+					AND = {
+						war = { country = ITA country = USA }
+						NOT = { land_percentage = { country = ITA value = 1.0 } }
+					}
+					AND = {
+						war = { country = ENG country = USA }
+						NOT = { land_percentage = { country = ENG value = 1.0 } }
+					}
+					AND = {
+						war = { country = SOV country = USA }
+						NOT = { land_percentage = { country = SOV value = 0.65 } }
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USABuildAir }
+		command = { type = local_clrflag which = USABuildStandard }
+		command = { type = local_setflag which = USABuildLand }
+		command = { type = ai which = "switch/USA_Build_Land.ai" }
+	}
+}
+################
+# USA Loads Air build AI
+#############################################
+event = {
+	id = 28012
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = USABuildAir }
+		NOT = { local_flag = USADefense }
+		NOT = { local_flag = USABuildLand }
+		OR = {
+			not = { manpower = 100 } # USA low on mp => switch to less expensive buildup
+			AND = {
+				war = { country = GER country = USA }
+				NOT = { air_percentage = { country = GER value = 1.0 } }
+			}
+			AND = {
+				war = { country = ITA country = USA }
+				NOT = { air_percentage = { country = ITA value = 1.0 } }
+			}
+			AND = {
+				war = { country = SOV country = USA }
+				NOT = { air_percentage = { country = SOV value = 1.0 } }
+			}
+			AND = {
+				war = { country = ENG country = USA }
+				NOT = { air_percentage = { country = ENG value = 1.0 } }
+			}
+			AND = {
+				war = { country = JAP country = USA }
+				NOT = { air_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USABuildAir }
+		command = { type = local_clrflag which = USABuildStandard }
+		command = { type = local_clrflag which = USABuildLand }
+		command = { type = ai which = "switch/USA_Build_Air.ai" }
+	}
+}
+################
+# USA builds transports
+#############################################
+event = {
+	id = 28013
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USADefense }
+		OR = {
+			AND = {
+				atwar = no
+				year = 1939
+				NOT = { year = 1940 }
+				NOT = { transport = { country = USA value = 20 } }
+			}
+			AND = {
+				atwar = no
+				year = 1940
+				NOT = { year = 1941 }
+				NOT = { transport = { country = USA value = 40 } }
+			}
+			AND = {
+				atwar = yes
+				NOT = { transport = { country = USA value = 80 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = transport }
+	}
+}
+################
+# USA Loads invasion of Italy AI
+#############################################
+#event = {
+#	id = XXXXX
+#	random = no 
+#	country = USA
+#	persistent = yes
+	
+#	trigger = {
+#		ai = yes
+#		flag = InvadeItaly
+#		NOT = { local_flag = USAItaly }
+#		NOT = { local_flag = USADDay }
+#		NOT = { local_flag = USADefense }
+#		NOT = { local_flag = USAInvadeUK }
+#	}
+
+#	name = "AI_EVENT"
+#	style = 0	
+	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+
+#	action_a = {
+#		command = { type = local_setflag which = USAItaly }
+#		command = { type = ai which = "switch/USA_Italy.ai" }
+#	}
+#}
+################
+# USA Loads invasion of Italy AI
+#############################################
+#event = {
+#	id = 28014
+#	random = no 
+#	country = USA
+#	persistent = yes
+	
+#	trigger = {
+#		ai = yes
+#		local_flag = USAItaly
+#		OR = {
+#			local_flag = USADDay
+#			local_flag = USADefense
+#			local_flag = USAInvadeUK
+#		}
+#	}
+
+#	name = "AI_EVENT"
+#	style = 0	
+	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+
+#	action_a = {
+#		command = { type = local_clrflag which = USAItaly }
+#	}
+#}
+################
+# USA Loads invasion of UK AI
+#############################################
+event = {
+	id = 28015
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USAInvadeUK }
+		NOT = { local_flag = USADefense }
+		OR = {
+			AND = {
+				war = { country = ENG country = USA }
+				OR = {
+					control = { province = 29 data = ENG }
+					control = { province = 26 data = ENG }
+					control = { province = 25 data = ENG }
+					control = { province = 27 data = ENG }
+					control = { province = 23 data = ENG }
+					control = { province = 19 data = ENG }
+					control = { province = 24 data = ENG }
+					control = { province = 22 data = ENG }
+					control = { province = 17 data = ENG }
+					control = { province = 18 data = ENG }
+				}
+				NOT = { garrison = { country = ENG province = 29  type = land size = 20 area = yes } }
+				OR = {
+					AND = {
+						ai = ENG
+						land_percentage = { country = ENG value = 0.6 }
+					}
+					AND = {
+						NOT = { ai = ENG }
+						land_percentage = { country = ENG value = 0.8 }
+					}
+				}
+			}
+			AND = {
+				alliance = { country = ENG country = USA }
+				NOT = { garrison = { country = GER province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = ITA province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = U01 province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = SPR province = 29  type = land size = 20 area = yes } }
+				OR = {
+					AND = {
+						NOT = { control = { province = 29 data = ENG } }
+						NOT = { control = { province = 29 data = USA } }
+						owned = { province = 19 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 26 data = ENG } }
+						NOT = { control = { province = 26 data = USA } }
+						owned = { province = 20 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 25 data = ENG } }
+						NOT = { control = { province = 25 data = USA } }
+						owned = { province = 17  data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 27 data = ENG } }
+						NOT = { control = { province = 27 data = USA } }
+						owned = { province = 21 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 23 data = ENG } }
+						NOT = { control = { province = 23 data = USA } }
+						owned = { province = 23 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 19 data = ENG } }
+						NOT = { control = { province = 19 data = USA } }
+						owned = { province = 22 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 24 data = ENG } }
+						NOT = { control = { province = 24 data = USA } }
+						owned = { province = 16 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 22 data = ENG } }
+						NOT = { control = { province = 22 data = USA } }
+						owned = { province = 15 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 17 data = ENG } }
+						NOT = { control = { province = 17 data = USA } }
+						owned = { province = 14 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 18 data = ENG } }
+						NOT = { control = { province = 18 data = USA } }
+						owned = { province = 13 data = ENG }
+					}
+				}
+				OR = {
+					AND = {
+						ai = GER
+						OR = {
+							AND = {
+								war = { country = GER country = SOV }
+								land_percentage = { country = GER value = 0.4 }
+							}
+							AND = {
+								NOT = { war = { country = GER country = SOV } }
+								land_percentage = { country = GER value = 0.6 }
+							}
+						}
+					}
+					AND = {
+						NOT = { ai = GER }
+						OR = {
+							AND = {
+								war = { country = GER country = SOV }
+								land_percentage = { country = GER value = 0.5 }
+							}
+							AND = {
+								NOT = { war = { country = GER country = SOV } }
+								land_percentage = { country = GER value = 0.7 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAInvadeUK }
+		command = { type = local_clrflag which = USAItaly }
+		command = { type = local_clrflag which = USADDay }
+		command = { type = ai which = "switch/USA_Invade_UK.ai" }
+	}
+}
+event = {
+	id = 28016
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		local_flag = USAInvadeUK
+		NOT = { local_flag = USADefense }
+		NOT = {
+			AND = {
+				war = { country = ENG country = USA }
+				OR = {
+					control = { province = 29 data = ENG }
+					control = { province = 26 data = ENG }
+					control = { province = 25 data = ENG }
+					control = { province = 27 data = ENG }
+					control = { province = 23 data = ENG }
+					control = { province = 19 data = ENG }
+					control = { province = 24 data = ENG }
+					control = { province = 22 data = ENG }
+					control = { province = 17 data = ENG }
+					control = { province = 18 data = ENG }
+				}
+				NOT = { garrison = { country = ENG province = 19  type = land size = 20 area = yes } }
+				OR = {
+					AND = {
+						ai = ENG
+						land_percentage = { country = ENG value = 0.6 }
+					}
+					AND = {
+						NOT = { ai = ENG }
+						land_percentage = { country = ENG value = 0.8 }
+					}
+				}
+			}
+			AND = {
+				alliance = { country = ENG country = USA }
+				NOT = { garrison = { country = GER province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = ITA province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = U01 province = 29  type = land size = 20 area = yes } }
+				NOT = { garrison = { country = SPR province = 29  type = land size = 20 area = yes } }
+				OR = {
+					AND = {
+						NOT = { control = { province = 29 data = ENG } }
+						NOT = { control = { province = 29 data = USA } }
+						owned = { province = 29 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 26 data = ENG } }
+						NOT = { control = { province = 26 data = USA } }
+						owned = { province = 26 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 25 data = ENG } }
+						NOT = { control = { province = 25 data = USA } }
+						owned = { province = 25  data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 27 data = ENG } }
+						NOT = { control = { province = 27 data = USA } }
+						owned = { province = 27 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 23 data = ENG } }
+						NOT = { control = { province = 23 data = USA } }
+						owned = { province = 23 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 19 data = ENG } }
+						NOT = { control = { province = 19 data = USA } }
+						owned = { province = 19 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 24 data = ENG } }
+						NOT = { control = { province = 24 data = USA } }
+						owned = { province = 24 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 22 data = ENG } }
+						NOT = { control = { province = 22 data = USA } }
+						owned = { province = 22 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 17 data = ENG } }
+						NOT = { control = { province = 17 data = USA } }
+						owned = { province = 17 data = ENG }
+					}
+					AND = {
+						NOT = { control = { province = 18 data = ENG } }
+						NOT = { control = { province = 18 data = USA } }
+						owned = { province = 18
+ data = ENG }
+					}
+				}
+				OR = {
+					AND = {
+						ai = GER
+						OR = {
+							AND = {
+								war = { country = GER country = SOV }
+								land_percentage = { country = GER value = 0.4 }
+							}
+							AND = {
+								NOT = { war = { country = GER country = SOV } }
+								land_percentage = { country = GER value = 0.6 }
+							}
+						}
+					}
+					AND = {
+						NOT = { ai = GER }
+						OR = {
+							AND = {
+								war = { country = GER country = SOV }
+								land_percentage = { country = GER value = 0.5 }
+							}
+							AND = {
+								NOT = { war = { country = GER country = SOV } }
+								land_percentage = { country = GER value = 0.7 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAInvadeUK }
+		command = { type = local_clrflag which = USADDay }
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+		command = { type = ai which = "switch/USA_Garrison.ai" }
+	}
+}
+################
+# USA does Embargos
+#############################################
+event = {
+	id = 28017
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoGER }
+		NOT = { alliance = { country = USA country = GER } }
+		OR = {
+			war = { country = FRA country = GER }
+			war = { country = ENG country = GER }
+			war = { country = ITA country = GER }
+			war = { country = SPR country = GER }
+			war = { country = U01 country = GER }
+			war = { country = SWE country = GER }
+			war = { country = NOR country = GER }
+			war = { country = POL country = GER }
+			war = { country = FIN country = GER }
+			war = { country = SCH country = GER }
+			war = { country = CZE country = GER }
+			war = { country = AUS country = GER }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAEmbargoGER }
+		command = { type = ai which = "switch/USA_Embargo_GER.ai" }
+		command = { type = end_trades which = USA where = GER }
+	}
+}
+event = {
+	id = 28018
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoJAP }
+		NOT = { alliance = { country = USA country = JAP } }
+		OR = {
+			event = 3800 # Oil Embargo
+			war = { country = FRA country = JAP }
+			war = { country = ENG country = JAP }
+			war = { country = HOL country = JAP }
+			war = { country = PHI country = JAP }
+			war = { country = VIC country = JAP }
+			war = { country = AST country = JAP }
+			war = { country = NZL country = JAP }
+			war = { country = POR country = JAP }
+			war = { country = SIA country = JAP }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAEmbargoJAP }
+		command = { type = ai which = "switch/USA_Embargo_JAP.ai" }
+		command = { type = end_trades which = USA where = JAP }
+	}
+}
+event = {
+	id = 28019
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoITA }
+		NOT = { alliance = { country = USA country = ITA } }
+		OR = {
+			war = { country = FRA country = ITA }
+			war = { country = ENG country = ITA }
+			war = { country = HOL country = ITA }
+			war = { country = YUG country = ITA }
+			war = { country = GRE country = ITA }
+			war = { country = U01 country = ITA }
+			war = { country = SPR country = ITA }
+			war = { country = TUR country = ITA }
+			war = { country = SCH country = ITA }
+			war = { country = POL country = ITA }
+			war = { country = CZE country = ITA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAEmbargoITA }
+		command = { type = ai which = "switch/USA_Embargo_ITA.ai" }
+		command = { type = end_trades which = USA where = ITA }
+	}
+}
+event = {
+	id = 28020
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoGER_ITA }
+		local_flag = USAEmbargoGER
+		local_flag = USAEmbargoITA
+		NOT = { local_flag = USAEmbargoJAP }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAEmbargoGER_ITA }
+		command = { type = local_clrflag which = USAEmbargoGER_JAP }
+		command = { type = local_clrflag which = USAEmbargoITA_JAP }
+		command = { type = local_clrflag which = USAEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_ITA.ai" }
+	}
+}
+event = {
+	id = 28021
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoGER_JAP }
+		local_flag = USAEmbargoGER
+		NOT = { local_flag = USAEmbargoITA }
+		local_flag = USAEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAEmbargoGER_ITA }
+		command = { type = local_setflag which = USAEmbargoGER_JAP }
+		command = { type = local_clrflag which = USAEmbargoITA_JAP }
+		command = { type = local_clrflag which = USAEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_JAP.ai" }
+	}
+}
+event = {
+	id = 28022
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoITA_JAP }
+		NOT = { local_flag = USAEmbargoGER }
+		local_flag = USAEmbargoITA
+		local_flag = USAEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAEmbargoGER_ITA }
+		command = { type = local_clrflag which = USAEmbargoGER_JAP }
+		command = { type = local_setflag which = USAEmbargoITA_JAP }
+		command = { type = local_clrflag which = USAEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_ITA_JAP.ai" }
+	}
+}
+event = {
+	id = 28023
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = USAEmbargoGER_ITA_JAP }
+		local_flag = USAEmbargoGER
+		local_flag = USAEmbargoITA
+		local_flag = USAEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAEmbargoGER_ITA }
+		command = { type = local_clrflag which = USAEmbargoGER_JAP }
+		command = { type = local_clrflag which = USAEmbargoITA_JAP }
+		command = { type = local_setflag which = USAEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_ITA_JAP.ai" }
+	}
+}
+################
+# USA Air AI
+#############################################
+event = {
+	id = 28024
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USAGroundAir }
+		OR = {
+			local_flag = USADefense
+			local_flag = USADDay
+			local_flag = USAInvadeUK
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1953 }
+
+	action_a = {
+		command = { type = local_setflag which = USAGroundAir }
+		command = { type = local_clrflag which = USAStrategicAir }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+event = {
+	id = 28025
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USAStrategicAir }
+		NOT = {
+			local_flag = USADefense
+			local_flag = USADDay
+			local_flag = USAInvadeUK
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 7 month = August year = 1942 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1953 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAGroundAir }
+		command = { type = local_setflag which = USAStrategicAir }
+		command = { type = ai which = "Air_Strategic.ai" }
+	}
+}
+################
+# USA builds paratroopers and transport plane 
+#############################################
+event = {
+	id = 28026
+	random = no
+	country = USA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		technology = 4290 #4250
+		NOT = { lost_national = { country = USA value = 2 } }
+		OR = {
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1936
+						NOT = { year = 1937 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1941
+						NOT = { year = 1942 }
+					}
+				}
+				NOT = { transport_plane = { country = USA value = 1 } }
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1937
+						NOT = { year = 1938 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1942
+						NOT = { year = 1943 }
+					}
+				}
+				NOT = { transport_plane = { country = USA value = 2 } }
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1938
+						NOT = { year = 1939 }
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1939
+						NOT = { year = 1940 }
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1940
+						NOT = { year = 1941 }
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1941
+						NOT = { year = 1942 }
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1942
+						NOT = { year = 1943 }
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1943
+						NOT = { year = 1944 }
+					}
+				}
+				NOT = { transport_plane = { country = USA value = 3 } }
+			}
+			AND = {
+				OR = {
+					AND = {
+						local_flag = USA1936
+						year = 1939
+					}
+					AND = {
+						local_flag = USA1937
+						year = 1940
+					}
+					AND = {
+						local_flag = USA1938
+						year = 1941
+					}
+					AND = {
+						local_flag = USA1939
+						year = 1942
+					}
+					AND = {
+						local_flag = USA1940
+						year = 1943
+					}
+					AND = {
+						local_flag = USA1941
+						year = 1944
+					}
+				}
+				NOT = { transport_plane = { country = USA value = 4 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = transport_plane }
+	}
+}
+event = {
+	id = 28027
+	random = no
+	country = USA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 1070 # Airborne
+		NOT = { lost_national = { country = USA value = 2 } }
+		OR = {
+			AND = {
+				transport_plane = { country = USA value = 1 }
+				NOT = { transport_plane = { country = USA value = 1 } }
+				NOT = { paratrooper = { country = USA value = 1 } }
+			}
+			AND = {
+				transport_plane = { country = USA value = 2 }
+				NOT = { transport_plane = { country = USA value = 2 } }
+				NOT = { paratrooper = { country = USA value = 2 } }
+			}
+			AND = {
+				transport_plane = { country = USA value = 3 }
+				NOT = { transport_plane = { country = USA value = 3 } }
+				NOT = { paratrooper = { country = USA value = 3 } }
+			}
+			AND = {
+				transport_plane = { country = USA value = 4 }
+				NOT = { paratrooper = { country = USA value = 4 } }
+			}
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = paratrooper }
+	}
+}
+################
+# USA builds Carriers
+#############################################
+event = {
+	id = 28028
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USADefense }
+		NOT = { carrier = { country = USA value = 15 } }
+		OR = {
+			atwar = yes
+			year = 1941
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = carrier value = cag }
+	}
+}
+################
+# USA flag start year system
+#	used to tell me how to adjust USA Production by his entry year
+#############################################
+event = {
+	id = 28029
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1936 }
+		command = { type = sleepevent which = 28030 }
+		command = { type = sleepevent which = 28031 }
+		command = { type = sleepevent which = 28032 }
+		command = { type = sleepevent which = 28033 }
+		command = { type = sleepevent which = 28034 }
+	}
+}
+event = {
+	id = 28030
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1937 }
+		command = { type = sleepevent which = 28031 }
+		command = { type = sleepevent which = 28032 }
+		command = { type = sleepevent which = 28033 }
+		command = { type = sleepevent which = 28034 }
+	}
+}
+event = {
+	id = 28031
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1938 }
+		command = { type = sleepevent which = 28032 }
+		command = { type = sleepevent which = 28033 }
+		command = { type = sleepevent which = 28034 }
+	}
+}
+event = {
+	id = 28032
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1939 }
+		command = { type = sleepevent which = 28033 }
+		command = { type = sleepevent which = 28034 }
+	}
+}
+event = {
+	id = 28033
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1940 }
+		command = { type = sleepevent which = 28034 }
+	}
+}
+event = {
+	id = 28034
+	random = no
+	country = USA
+
+	trigger = {
+		ai = yes
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USA1941 }
+	}
+}
+################
+# USA builds Submarines
+#############################################
+event = {
+	id = 28035
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USADefense }
+		NOT = { submarine = { country = USA value = 10 } }
+		OR = {
+			atwar = yes
+			year = 1941
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = build_division which = submarine }
+	}
+}
+################
+# USA AI Slider manipulation
+#
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 28036
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = interventionism value = 1}
+		NOT = { domestic = { type = interventionism value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 28037
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = 1}
+		NOT = { domestic = { type = professional_army value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+
+########
+# USA sends EXP Forces to Australia
+####################
+event = {
+	id = 28038
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USAFrance }
+		NOT = { local_flag = USAexpENG }
+		NOT = { local_flag = USADefense }
+		NOT = { local_flag = USADefendAustralia }
+		atwar = AST
+		alliance = { country = USA country = AST }
+		lost_national = { country = AST value = 1 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_EXP_AST.ai" }
+		command = { type = local_setflag which = USADefendAustralia }
+	}
+}
+
+########
+# USA rescinds Australian Defense force
+####################
+event = {
+	id = 28039
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = USAexpENG }
+		OR = {
+			AND = {
+				local_flag = USADefendAustralia
+				local_flag = USADefense
+			}
+			AND = {
+				local_flag = USADefendAustralia
+				NOT = { lost_national = { country = AST value = 1 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_EXP_Reset.ai" }
+		command = { type = local_clrflag which = USADefendAustralia }
+	}
+}
+
+########
+#  USA helps defend France because they are still alive
+####################
+event = {
+	id = 28040
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = FRA
+		NOT = { local_flag = USAFrance }
+		NOT = { local_flag = USADefense }
+		NOT = { local_flag = USAexpENG }
+		alliance = { country = USA country = FRA }
+		NOT = {	lost_national = { country = FRA value = 50 } }
+		OR = {
+			war = { country = USA country = GER }
+			war = { country = USA country = ITA }
+			war = { country = USA country = SOV }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_EXP_FRA.ai" }
+		command = { type = local_setflag which = USAFrance }
+		command = { type = local_clrflag which = USADefendAustralia }
+		command = { type = local_clrflag which = USADDay }		
+	}
+}
+event = {
+	id = 28041
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		exists = FRA
+		local_flag = USAFrance
+		OR = {
+			local_flag = USADefense
+			NOT = { exists = FRA }
+			NOT = { alliance = { country = USA country = FRA } }
+			lost_national = { country = FRA value = 50 }
+			NOT = {
+				war = { country = USA country = GER }
+				war = { country = USA country = ITA }
+				war = { country = USA country = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_0.ai" }
+		command = { type = local_clrflag which = USAFrance }
+	}
+}
+################
+# USA builds V1 Bomb
+#############################################
+event = {
+	id = 28042
+	random = no
+	country = USA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7100
+		NOT = { technology = 7110 } # V2 Rocket
+		NOT = { lost_national = { country = USA value = 1 } }
+		NOT = { flying_bomb = { country = USA value = 2 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_bomb }
+	}
+}
+################
+# USA builds Rockets
+#############################################
+event = {
+	id = 28043
+	random = no
+	country = USA
+	persistent = yes
+	style = 0	
+
+	trigger = {
+		ai = yes
+		technology = 7110
+		NOT = { lost_national = { country = USA value = 1 } }
+		NOT = { flying_rocket = { country = USA value = 5 } }
+	}
+
+	date = { day = 0 month = october year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+
+	action_a = {
+		command = { type = build_division which = flying_rocket }
+		command = { type = sleepevent which = 28042 }
+	}
+}
+
+################ 
+# USA Activates Wartime Research teams 
+############################################# 
+event = { 
+   id = 28044 
+   random = no 
+   country = USA 
+
+   trigger = { 
+      AI = yes 
+      atwar = yes    
+      } 
+
+   name = "AI_EVENT" 
+   # desc = "AI_EVENT" 
+     style = 0 
+
+   date = { day = 0 month = january year = 1936 } 
+   offset = 14 
+   deathdate = { day = 29 month = december year = 1939 } 
+
+   action_a = {  
+      command = { type = waketeam which = 104 } #Grumman Aircrafts 
+      command = { type = waketeam which = 106 } #North American Aviation 
+      command = { type = waketeam which = 109 } #Higgins 
+      command = { type = waketeam which = 117 } #Raytheon 
+      command = { type = waketeam which = 119 } #Robert Oppenheimer 
+      command = { type = waketeam which = 121 } #Springfield Armory 
+      command = { type = waketeam which = 126 } #Chester Nimitz 
+      command = { type = waketeam which = 128 } #Dwight Eisenhower 
+      command = { type = waketeam which = 132 } #Omar Bradley 
+      command = { type = waketeam which = 132 } #IBM 
+      command = { type = waketeam which = 136 } #US Army Airborne School 
+      } 
+}
+
+########################################
+# USA shifts naval priorities to Europe
+########################################
+
+event = {
+	id = 28045
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { local_flag = USAnavalEurope }
+		OR = {
+			navy = 450 # enough ships to cope with two theatres at once
+			NOT = { war = { country = USA country = JAP }} # JAP defeated
+			AND = {
+					NOT = { AI = GER }
+					war = { country = USA country = GER }
+					}
+			AND = {
+					NOT = { AI = ITA }
+					war = { country = USA country = ITA }
+					}
+			NOT = { lost_national = { country = USA value = 1 }}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USAnavalEurope.ai" }
+		command = { type = local_setflag which = USAnavalEurope }
+	}
+}
+
+########################################
+# ...and back to normal
+########################################
+
+event = {
+	id = 28046
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = USAnavalEurope
+		OR = {
+			NOT = { navy = 250 }
+			NOT = { war = { country = USA country = GER }}
+			NOT = { war = { country = USA country = ITA }}
+			lost_national = { country = USA value = 1 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_Gear_Up_4.ai" }
+		command = { type = local_clrflag which = USAnavalEurope }
+		command = { type = local_clrflag which = USADDay }
+	}
+}
+
+########################################
+# USA builds CVLs as war breaks out
+########################################
+
+event = {
+	id = 28047
+	random = no 
+	country = USA
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { carrier = 6 }
+		NOT = { light_carrier = 6 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+		command = { type = build_division which = light_carrier value = light_cag when = 1 cost = 1.0 where = 450 }
+	}
+}
+
+################
+# USA loads war research AI
+#############################################
+event = {
+	id = 28048
+	random = no 
+	country = USA
+
+	trigger = {
+				ai = yes
+				OR = {
+						atwar = yes
+						year = 1941
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/USA_research_war.ai" }
+	}
+}
+
+################
+# Expeditionary units to ENG while African Campaign is running
+#############################################
+event = {
+	id = 28049
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				atwar = yes
+				alliance = { country = USA country = ENG }
+				NOT = { local_flag = USAexpENG }
+				NOT = { local_flag = USAFrance }
+				NOT = { local_flag = USADefense }
+				NOT = { local_flag = USADefendAustralia }				
+				
+				# Northern Africa campaign not finished, enemy presence there
+				OR = {
+						garrison = { country = -2 province = 750 type = land size = 1 area = 2 } # Libya 
+						garrison = { country = -2 province = 747 type = land size = 1 area = 2 } # Tunisia
+						garrison = { country = -2 province = 727 type = land size = 1 area = 2 } # Algeria
+						garrison = { country = -2 province = 718 type = land size = 1 area = 2 } # Morocco
+						garrison = { country = -2 province = 789 type = land size = 1 area = 2 } # Egypt
+						}	
+						
+				# US units not conducting an invasion of Europe or Japan at the same time			
+				NOT = { garrison = { country = USA province = 55 type = land size = 1 area = 2 } } # France
+				NOT = { garrison = { country = USA province = 419 type = land size = 1 area = 2 } } # Italy
+				NOT = { garrison = { country = USA province = 116 type = land size = 1 area = 2 } } # Benelux
+				NOT = { garrison = { country = USA province = 163 type = land size = 1 area = 2 } } # Germany
+				NOT = { garrison = { country = USA province = 1552 type = land size = 1 area = 2 } } # Japan
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = USAexpENG }
+		command = { type = ai which = "switch/USA_exp_ENG_on.ai" }
+	}
+}
+
+event = {
+	id = 28050
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+				local_flag = USAexpENG
+				ai = yes
+				
+				OR = {
+						atwar = no
+						NOT = { alliance = { country = USA country = ENG } }
+						
+						# Northern Africa campaign finished, no enemy presence there
+						AND = {
+								NOT = { garrison = { country = -2 province = 750 type = land size = 1 area = 2 } } # Libya 
+								NOT = { garrison = { country = -2 province = 747 type = land size = 1 area = 2 } } # Tunisia
+								NOT = { garrison = { country = -2 province = 727 type = land size = 1 area = 2 } } # Algeria
+								NOT = { garrison = { country = -2 province = 718 type = land size = 1 area = 2 } } # Morocco
+								NOT = { garrison = { country = -2 province = 789 type = land size = 1 area = 2 } } # Egypt
+								}
+								
+						# US units conducting an invasion of Europe or Japan at the same time						
+						garrison = { country = USA province = 55 type = land size = 1 area = 2 } # France
+						garrison = { country = USA province = 419 type = land size = 1 area = 2 } # Italy
+						garrison = { country = USA province = 116 type = land size = 1 area = 2 } # Benelux
+						garrison = { country = USA province = 163 type = land size = 1 area = 2 } # Germany
+						garrison = { country = USA province = 1552 type = land size = 1 area = 2 } # Japan
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = USAexpENG }
+		command = { type = ai which = "switch/USA_EXP_Reset.ai" }
+	}
+}
+
+
+
+####################################
+# USA 28500 - 28599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 28500 - 28509
+#############################################
+event = { # J. Edgar Hoover takes power
+	id = 28500
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6005 # J. Edgar Hoover
+		NOT = { InCabinet = 6005 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 6005 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 28510 - 28519
+#############################################
+event = { # George C. Marshall takes power
+	id = 28510
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 6136 # George C. Marshall
+		NOT = { InCabinet = 6136 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 6136 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+event = { # Douglas MacArthur takes power
+	id = 28511
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 6181 # Douglas MacArthur
+		NOT = { InCabinet = 6181 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 6181 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Dwight D. Eisenhower takes power
+	id = 28512
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 6137 # Dwight D. Eisenhower
+		NOT = { InCabinet = 6137 }
+		NOT = { minister = 6181 } # Douglas MacArthur
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 6137 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 28520 - 28529
+#############################################
+event = { # Henry J. Kaiser takes power
+	id = 28520
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6120 # Henry J. Kaiser
+		NOT = { InCabinet = 6120 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 6120 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 28530 - 28539
+#############################################
+event = { # George C. Marshall takes power
+	id = 28530
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6144 # George C. Marshall
+		NOT = { InCabinet = 6144 }
+		NOT = { minister = 6182 } # Douglas MacArthur
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 6144 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Douglas MacArthur takes power
+	id = 28531
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6182 # Douglas MacArthur
+		NOT = { InCabinet = 6182 }
+		NOT = { InCabinet = 6008 } # Malin Craig
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 6182 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 28540 - 28549
+#############################################
+#event = { # Robert F. Wagner takes power
+#	id = 28540
+#	random = no 
+#	country = USA
+#	persistent = yes
+#	
+#	trigger = {
+#		ai = yes
+#		atwar = no
+#		minister = 6206 # Robert F. Wagner
+#		NOT = { InCabinet = 6206 }
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = armamentminister which = 6206 }
+#		command = { type = dissent value = -1 }
+#	}
+#}
+event = { # Henry Morgenthau takes power
+	id = 28541
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6077 # Henry Morgenthau
+		NOT = { InCabinet = 6077 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 6206 } # Robert F. Wagner
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 6077 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Harold Ickes takes power
+	id = 28542
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6199 # Harold Ickes
+		NOT = { InCabinet = 6199 }
+		OR = {
+			AND = {
+				atwar = yes
+				NOT = { minister = 6077 } # Henry Morgenthau
+			}
+			AND = {
+				NOT = { minister = 6077 } # Henry Morgenthau
+				NOT = { minister = 6206 } # Robert F. Wagner
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 6199 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 28550 - 28559
+#############################################
+event = { # Charles Lindbergh takes power
+	id = 28550
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6172 # Charles Lindbergh
+		NOT = { InCabinet = 6172 }
+		NOT = { InCabinet = 6010 } #Oscar westover
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 6172 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 28560 - 28569
+#############################################
+event = { # Ernest J. King takes power
+	id = 28560
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6163 # Ernest J. King
+		NOT = { InCabinet = 6163 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 6163 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Harold R. Stark takes power
+	id = 28561
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 6159 # Harold R. Stark
+		NOT = { InCabinet = 6159 }
+		NOT = { minister = 6163 } # Ernest J. King
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 6159 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# USA releases Norway after reconquering the country
+# (to free up garrison units from there)
+#############################################
+event = { 
+	id = 28562
+	random = no 
+	country = USA
+	persistent = yes
+	
+	trigger = {
+				ai = yes
+				NOT = { exists = NOR }
+				region = { region = "Norway" country = -3 } # check if all provinces in Norway are controlled by allied/friendly
+				region = { region = "Norway" value = 1 } # check if at least one provinces in Norway is controlled by USA
+				}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = independence which = NOR value = 1 }
+		command = { type = alliance which = NOR }
+	}
+}

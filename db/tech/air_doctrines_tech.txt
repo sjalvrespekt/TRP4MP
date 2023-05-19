@@ -1,0 +1,2242 @@
+# #####################################
+# AIR DOCTRINE		     #
+# #####################################
+
+#######################################
+# REMARKS!
+#######################################
+#
+# all air doctrines begin at 1.0 efficiency and go up at about 4% relatively per doctrine => end value 1.37 (1.04^8)
+# misc attack values have been adapted accordingly
+#
+# airborne_assault begins at 0.5 efficiency and goes up at about 8% relatively per doctrine => end value 0.925 (0.5*(1.08^8))
+# => airborne fighting against units on the ground is always worse than fighting on the ground itself
+#
+#######################################
+
+# The AIR DOCTRINE Group
+technology =
+{ id          = 9
+  category    = air_doctrines
+  name        = TECH_AD_NAME # Localized name
+  desc        = TECH_AD_DESC # Localized description
+
+##################################
+#Activating basic techs
+##################################
+  # Ground Warfare
+  application =
+  { id        = 9010
+    name      = TECH_APP_AD_1_NAME
+    desc      = TECH_APP_AD_1_DESC
+    position  = { x = 229 y = 33 }
+    year      = 1936
+    component = { id = 9011 name = TECH_CMP_AD_1_1_NAME type = centralized_execution difficulty = 7 }
+    component = { id = 9012 name = TECH_CMP_AD_1_2_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9013 name = TECH_CMP_AD_1_3_NAME type = decentralized_execution difficulty = 7 }
+    component = { id = 9014 name = TECH_CMP_AD_1_4_NAME type = piloting difficulty = 7 }
+    component = { id = 9015 name = TECH_CMP_AD_1_5_NAME type = training difficulty = 7 }
+    effects =
+    { command = { type = enable_task which = Ground_attack }
+      command = { type = enable_task which = interdiction }
+      command = { type = enable_task which = Logistical_strike }
+      command = { type = enable_task which = Strategic_bombardment }
+      command = { type = enable_task which = Installation_strike }
+      command = { type = enable_task which = Runway_cratering }
+    }
+  }
+  # Naval Warfare
+  application =
+  { id        = 9020
+    name      = TECH_APP_AD_2_NAME
+    desc      = TECH_APP_AD_2_DESC
+    position  = { x = 68 y = 218 }
+    year      = 1936
+    component = { id = 9021 name = TECH_CMP_AD_2_1_NAME type = centralized_execution difficulty = 7 }
+    component = { id = 9022 name = TECH_CMP_AD_2_2_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9023 name = TECH_CMP_AD_2_3_NAME type = decentralized_execution difficulty = 7 }
+    component = { id = 9024 name = TECH_CMP_AD_2_4_NAME type = piloting difficulty = 7 }
+    component = { id = 9025 name = TECH_CMP_AD_2_5_NAME type = training difficulty = 7 }
+    effects =
+    { command = { type = enable_task which = Naval_strike }
+      command = { type = enable_task which = Port_strike }
+      command = { type = enable_task which = Convoy_air_raiding }
+    }
+  }
+  # Air Warfare
+  application =
+  { id        = 9030
+    name      = TECH_APP_AD_3_NAME
+    desc      = TECH_APP_AD_3_DESC
+    position  = { x = 334 y = 218 }
+    year      = 1936
+    component = { id = 9031 name = TECH_CMP_AD_3_1_NAME type = centralized_execution difficulty = 7 }
+    component = { id = 9032 name = TECH_CMP_AD_3_2_NAME type = rt_user_6 difficulty = 7 } #double_time = yes }
+    component = { id = 9033 name = TECH_CMP_AD_3_3_NAME type = decentralized_execution difficulty = 7 }
+    component = { id = 9034 name = TECH_CMP_AD_3_4_NAME type = rt_user_5 difficulty = 7 } #double_time = yes }
+    component = { id = 9035 name = TECH_CMP_AD_3_5_NAME type = training difficulty = 7 }
+    effects =
+    { command = { type = enable_task which = Air_superiority }
+     command = { type = enable_task which = Air_scramble }
+    }
+  }
+###############################
+# Air Superiority Defensive
+###############################
+  # Air Superiority Defensive 1937
+  application =
+  { id        = 9040 #9600
+    name      = TECH_APP_AD_4_NAME
+    desc      = TECH_APP_AD_4_DESC
+    position  = { x = 445 y = 244 }
+    year      = 1937
+    component = { id = 9041 name = TECH_CMP_AD_4_1_NAME type = centralized_execution difficulty = 2 }
+    component = { id = 9042 name = TECH_CMP_AD_4_2_NAME type = rt_user_6 difficulty = 2 } #double_time = yes }
+    component = { id = 9043 name = TECH_CMP_AD_4_3_NAME type = rt_user_6 difficulty = 2 } #double_time = yes }
+    component = { id = 9044 name = TECH_CMP_AD_4_4_NAME type = rt_user_6 difficulty = 2 } #double_time = yes }
+    component = { id = 9045 name = TECH_CMP_AD_4_5_NAME type = training difficulty = 2 }
+    required  = { 9030 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0133 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0266 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = max_organization which = Interceptor value = 3 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = morale which = Interceptor value = 3 }
+      command = { type = max_organization which = d_01 value = 2 }
+      command = { type = morale which = d_01 value = 2 }
+    }
+  }
+  # Air Superiority Defensive 1940
+  application =
+  { id        = 9050 #9610
+    name      = TECH_APP_AD_5_NAME
+    desc      = TECH_APP_AD_5_DESC
+    position  = { x = 445 y = 260 }
+    year      = 1940
+    component = { id = 9051 name = TECH_CMP_AD_5_1_NAME type = centralized_execution difficulty = 3 }
+    component = { id = 9052 name = TECH_CMP_AD_5_2_NAME type = rt_user_6 difficulty = 3 } #double_time = yes }
+    component = { id = 9053 name = TECH_CMP_AD_5_3_NAME type = rt_user_6 difficulty = 3 } #double_time = yes }
+    component = { id = 9054 name = TECH_CMP_AD_5_4_NAME type = rt_user_6 difficulty = 3 } #double_time = yes }
+    component = { id = 9055 name = TECH_CMP_AD_5_5_NAME type = training difficulty = 3 }
+    required  = { 9040 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0133 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0266 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = max_organization which = Interceptor value = 3 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = morale which = Interceptor value = 3 }
+      command = { type = max_organization which = d_01 value = 2 }
+      command = { type = morale which = d_01 value = 2 }
+    }
+  }
+
+  # Air Superiority Defensive 1942
+  application =
+  { id        = 9060 #9620
+    name      = TECH_APP_AD_6_NAME
+    desc      = TECH_APP_AD_6_DESC
+    position  = { x = 445 y = 276 }
+    year      = 1942
+    component = { id = 9061 name = TECH_CMP_AD_6_1_NAME type = centralized_execution difficulty = 4 }
+    component = { id = 9062 name = TECH_CMP_AD_6_2_NAME type = rt_user_6 difficulty = 4 } #double_time = yes }
+    component = { id = 9063 name = TECH_CMP_AD_6_3_NAME type = rt_user_6 difficulty = 4 } #double_time = yes }
+    component = { id = 9064 name = TECH_CMP_AD_6_4_NAME type = rt_user_6 difficulty = 4 } #double_time = yes }
+    component = { id = 9065 name = TECH_CMP_AD_6_5_NAME type = training difficulty = 4 }
+    required  = { 9050 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0133 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0266 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = max_organization which = Interceptor value = 6 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = morale which = Interceptor value = 6 }
+      command = { type = max_organization which = d_01 value = 4 }
+      command = { type = morale which = d_01 value = 4 }
+    }
+  }
+
+  # Air Superiority Defensive 1944
+  application =
+  { id        = 9070 #9630
+    name      = TECH_APP_AD_7_NAME
+    desc      = TECH_APP_AD_7_DESC
+    position  = { x = 445 y = 292 }
+    year      = 1944
+    component = { id = 9071 name = TECH_CMP_AD_7_1_NAME type = centralized_execution difficulty = 5 }
+    component = { id = 9072 name = TECH_CMP_AD_7_2_NAME type = rt_user_6 difficulty = 5 } #double_time = yes }
+    component = { id = 9073 name = TECH_CMP_AD_7_3_NAME type = rt_user_6 difficulty = 5 } #double_time = yes }
+    component = { id = 9074 name = TECH_CMP_AD_7_4_NAME type = rt_user_6 difficulty = 5 } #double_time = yes }
+    component = { id = 9075 name = TECH_CMP_AD_7_5_NAME type = training difficulty = 5 }
+    required  = { 9060 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.015 }
+	command = { type = task_efficiency which = Air_scramble value = 0.03 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = max_organization which = Interceptor value = 6 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = morale which = Interceptor value = 6 }
+      command = { type = max_organization which = d_01 value = 4 }
+      command = { type = morale which = d_01 value = 4 }
+    }
+  }
+
+  # Air Superiority Defensive 1946
+  application =
+  { id        = 9080 #9640
+    name      = TECH_APP_AD_8_NAME
+    desc      = TECH_APP_AD_8_DESC
+    position  = { x = 445 y = 308 }
+    year      = 1946
+    component = { id = 9081 name = TECH_CMP_AD_8_1_NAME type = centralized_execution difficulty = 6 }
+    component = { id = 9082 name = TECH_CMP_AD_8_2_NAME type = rt_user_6 difficulty = 6 } #double_time = yes }
+    component = { id = 9083 name = TECH_CMP_AD_8_3_NAME type = rt_user_6 difficulty = 6 } #double_time = yes }
+    component = { id = 9084 name = TECH_CMP_AD_8_4_NAME type = rt_user_6 difficulty = 6 } #double_time = yes }
+    component = { id = 9085 name = TECH_CMP_AD_8_5_NAME type = training difficulty = 6 }
+    required  = { 9070 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.015 }
+	command = { type = task_efficiency which = Air_scramble value = 0.03 }
+      command = { type = max_organization which = multi_role value = 6 }
+      command = { type = max_organization which = Interceptor value = 9 }
+      command = { type = morale which = multi_role value = 6 }
+      command = { type = morale which = Interceptor value = 9 }
+      command = { type = max_organization which = d_01 value = 6 }
+      command = { type = morale which = d_01 value = 6 }
+    }
+  }
+
+  # Air Superiority Defensive 1948
+  application =
+  { id        = 9090 #9650
+    name      = TECH_APP_AD_9_NAME
+    desc      = TECH_APP_AD_9_DESC
+    position  = { x = 445 y = 324 }
+    year      = 1948
+    component = { id = 9091 name = TECH_CMP_AD_9_1_NAME type = centralized_execution difficulty = 7 }
+    component = { id = 9092 name = TECH_CMP_AD_9_2_NAME type = rt_user_6 difficulty = 7 } #double_time = yes }
+    component = { id = 9093 name = TECH_CMP_AD_9_3_NAME type = rt_user_6 difficulty = 7 } #double_time = yes }
+    component = { id = 9094 name = TECH_CMP_AD_9_4_NAME type = rt_user_6 difficulty = 7 } #double_time = yes }
+    component = { id = 9095 name = TECH_CMP_AD_9_5_NAME type = training difficulty = 7 }
+    required  = { 9080 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0166 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0333 }
+      command = { type = max_organization which = multi_role value = 6 }
+      command = { type = max_organization which = Interceptor value = 9 }
+      command = { type = morale which = multi_role value = 6 }
+      command = { type = morale which = Interceptor value = 9 }
+      command = { type = max_organization which = d_01 value = 6 }
+      command = { type = morale which = d_01 value = 6 }
+    }
+  }
+  # Air Superiority Defensive 1951
+  application =
+  { id        = 9100 #9660
+    name      = TECH_APP_AD_10_NAME
+    desc      = TECH_APP_AD_10_DESC
+    position  = { x = 445 y = 340 }
+    year      = 1951
+    component = { id = 9101 name = TECH_CMP_AD_10_1_NAME type = centralized_execution difficulty = 8 }
+    component = { id = 9102 name = TECH_CMP_AD_10_2_NAME type = rt_user_6 difficulty = 8 } #double_time = yes }
+    component = { id = 9103 name = TECH_CMP_AD_10_3_NAME type = rt_user_6 difficulty = 8 } #double_time = yes }
+    component = { id = 9104 name = TECH_CMP_AD_10_4_NAME type = rt_user_6 difficulty = 8 } #double_time = yes }
+    component = { id = 9105 name = TECH_CMP_AD_10_5_NAME type = training difficulty = 8 }
+    required  = { 9090 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0166 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0333 }
+      command = { type = max_organization which = multi_role value = 8 }
+      command = { type = max_organization which = Interceptor value = 12 }
+      command = { type = morale which = multi_role value = 8 }
+      command = { type = morale which = Interceptor value = 12 }
+      command = { type = max_organization which = d_01 value = 8 }
+      command = { type = morale which = d_01 value = 8 }
+    }
+  }
+
+  # Air Superiority Defensive 1954
+  application =
+  { id        = 9110 #9670
+    name      = TECH_APP_AD_11_NAME
+    desc      = TECH_APP_AD_11_DESC
+    position  = { x = 445 y = 356 }
+    year      = 1954
+    component = { id = 9111 name = TECH_CMP_AD_11_1_NAME type = centralized_execution difficulty = 9 }
+    component = { id = 9112 name = TECH_CMP_AD_11_2_NAME type = rt_user_6 difficulty = 9 } #double_time = yes }
+    component = { id = 9113 name = TECH_CMP_AD_11_3_NAME type = rt_user_6 difficulty = 9 } #double_time = yes }
+    component = { id = 9114 name = TECH_CMP_AD_11_4_NAME type = rt_user_6 difficulty = 9 } #double_time = yes }
+    component = { id = 9115 name = TECH_CMP_AD_11_5_NAME type = training difficulty = 9 }
+    required  = { 9100 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.02 }
+	command = { type = task_efficiency which = Air_scramble value = 0.04 }
+      command = { type = max_organization which = multi_role value = 8 }
+      command = { type = max_organization which = Interceptor value = 12 }
+      command = { type = morale which = multi_role value = 8 }
+      command = { type = morale which = Interceptor value = 12 }
+      command = { type = max_organization which = d_01 value = 8 }
+      command = { type = morale which = d_01 value = 8 }
+    }
+  }
+###############################
+# Air Superiority Offensive
+###############################
+  # Air Superiority Offensive 1938
+  application =
+  { id        = 9120 #9900
+    name      = TECH_APP_AD_12_NAME
+    desc      = TECH_APP_AD_12_DESC
+    position  = { x = 334 y = 244 }
+    year      = 1938
+    component = { id = 9121 name = TECH_CMP_AD_12_1_NAME type = decentralized_execution difficulty = 2 }
+    component = { id = 9122 name = TECH_CMP_AD_12_2_NAME type = rt_user_5 difficulty = 2 } #double_time = yes }
+    component = { id = 9123 name = TECH_CMP_AD_12_3_NAME type = rt_user_5 difficulty = 2 } #double_time = yes }
+    component = { id = 9124 name = TECH_CMP_AD_12_4_NAME type = rt_user_5 difficulty = 2 } #double_time = yes }
+    component = { id = 9125 name = TECH_CMP_AD_12_5_NAME type = training difficulty = 2 }
+    required  = { 9030 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0266 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0133 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = max_organization which = Interceptor value = 2 }
+      command = { type = max_organization which = escort value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = morale which = Interceptor value = 2 }
+      command = { type = morale which = escort value = 3 }
+      command = { type = max_organization which = d_01 value = 3 }
+      command = { type = morale which = d_01 value = 3 }
+    }
+  }
+
+  # Air Superiority Offensive 1940
+  application =
+  { id        = 9130 #9910
+    name      = TECH_APP_AD_13_NAME
+    desc      = TECH_APP_AD_13_DESC
+    position  = { x = 334 y = 260 }
+    year      = 1940
+    component = { id = 9131 name = TECH_CMP_AD_13_1_NAME type = decentralized_execution difficulty = 3 }
+    component = { id = 9132 name = TECH_CMP_AD_13_2_NAME type = rt_user_5 difficulty = 3 } #double_time = yes }
+    component = { id = 9133 name = TECH_CMP_AD_13_3_NAME type = rt_user_5 difficulty = 3 } #double_time = yes }
+    component = { id = 9134 name = TECH_CMP_AD_13_4_NAME type = rt_user_5 difficulty = 3 } #double_time = yes }
+    component = { id = 9135 name = TECH_CMP_AD_13_5_NAME type = training difficulty = 3 }
+    required  = { 9120 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0266 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0133 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = max_organization which = Interceptor value = 2 }
+      command = { type = max_organization which = escort value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = morale which = Interceptor value = 2 }
+      command = { type = morale which = escort value = 3 }
+      command = { type = max_organization which = d_01 value = 3 }
+      command = { type = morale which = d_01 value = 3 }
+    }
+  }
+
+  # Air Superiority Offensive 1942
+  application =
+  { id        = 9140 #9920
+    name      = TECH_APP_AD_14_NAME
+    desc      = TECH_APP_AD_14_DESC
+    position  = { x = 334 y = 276 }
+    year      = 1942
+    component = { id = 9141 name = TECH_CMP_AD_14_1_NAME type = decentralized_execution difficulty = 4 }
+    component = { id = 9142 name = TECH_CMP_AD_14_2_NAME type = rt_user_5 difficulty = 4 } #double_time = yes }
+    component = { id = 9143 name = TECH_CMP_AD_14_3_NAME type = rt_user_5 difficulty = 4 } #double_time = yes }
+    component = { id = 9144 name = TECH_CMP_AD_14_4_NAME type = rt_user_5 difficulty = 4 } #double_time = yes }
+    component = { id = 9145 name = TECH_CMP_AD_14_5_NAME type = training difficulty = 4 }
+    required  = { 9130 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0266 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0133 }
+      command = { type = max_organization which = multi_role value = 6 }
+      command = { type = max_organization which = Interceptor value = 4 }
+      command = { type = max_organization which = escort value = 6 }
+      command = { type = morale which = multi_role value = 6 }
+      command = { type = morale which = Interceptor value = 4 }
+      command = { type = morale which = escort value = 6 }
+      command = { type = max_organization which = d_01 value = 6 }
+      command = { type = morale which = d_01 value = 6 }
+    }
+  }
+
+  # Air Superiority Offensive 1944
+  application =
+  { id        = 9150 #9930
+    name      = TECH_APP_AD_15_NAME
+    desc      = TECH_APP_AD_15_DESC
+    position  = { x = 334 y = 292 }
+    year      = 1944
+    component = { id = 9151 name = TECH_CMP_AD_15_1_NAME type = decentralized_execution difficulty = 5 }
+    component = { id = 9152 name = TECH_CMP_AD_15_2_NAME type = rt_user_5 difficulty = 5 } #double_time = yes }
+    component = { id = 9153 name = TECH_CMP_AD_15_3_NAME type = rt_user_5 difficulty = 5 } #double_time = yes }
+    component = { id = 9154 name = TECH_CMP_AD_15_4_NAME type = rt_user_5 difficulty = 5 } #double_time = yes }
+    component = { id = 9155 name = TECH_CMP_AD_15_5_NAME type = training difficulty = 5 }
+    required  = { 9140 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.03 }
+	command = { type = task_efficiency which = Air_scramble value = 0.015 }
+      command = { type = max_organization which = multi_role value = 6 }
+      command = { type = max_organization which = Interceptor value = 4 }
+      command = { type = max_organization which = escort value = 6 }
+      command = { type = morale which = multi_role value = 6 }
+      command = { type = morale which = Interceptor value = 4 }
+      command = { type = morale which = escort value = 6 }
+      command = { type = max_organization which = d_01 value = 6 }
+      command = { type = morale which = d_01 value = 6 }
+    }
+  }
+  # Air Superiority Offensive 1946
+  application =
+  { id        = 9160 #9940
+    name      = TECH_APP_AD_16_NAME
+    desc      = TECH_APP_AD_16_DESC
+    position  = { x = 334 y = 308 }
+    year      = 1946
+    component = { id = 9161 name = TECH_CMP_AD_16_1_NAME type = decentralized_execution difficulty = 6 }
+    component = { id = 9162 name = TECH_CMP_AD_16_2_NAME type = rt_user_5 difficulty = 6 } #double_time = yes }
+    component = { id = 9163 name = TECH_CMP_AD_16_3_NAME type = rt_user_5 difficulty = 6 } #double_time = yes }
+    component = { id = 9164 name = TECH_CMP_AD_16_4_NAME type = rt_user_5 difficulty = 6 } #double_time = yes }
+    component = { id = 9165 name = TECH_CMP_AD_16_5_NAME type = training difficulty = 6 }
+    required  = { 9150 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.03 }
+	command = { type = task_efficiency which = Air_scramble value = 0.015 }
+      command = { type = max_organization which = multi_role value = 9 }
+      command = { type = max_organization which = Interceptor value = 6 }
+      command = { type = max_organization which = escort value = 9 }
+      command = { type = morale which = multi_role value = 9 }
+      command = { type = morale which = Interceptor value = 6 }
+      command = { type = morale which = escort value = 9 }
+      command = { type = max_organization which = d_01 value = 9 }
+      command = { type = morale which = d_01 value = 9 }
+    }
+  }
+
+  # Air Superiority Offensive 1948
+  application =
+  { id        = 9170
+    name      = TECH_APP_AD_17_NAME
+    desc      = TECH_APP_AD_17_DESC
+    position  = { x = 334 y = 324 }
+    year      = 1948
+    component = { id = 9171 name = TECH_CMP_AD_17_1_NAME type = decentralized_execution difficulty = 7 }
+    component = { id = 9172 name = TECH_CMP_AD_17_2_NAME type = rt_user_5 difficulty = 7 } #double_time = yes }
+    component = { id = 9173 name = TECH_CMP_AD_17_3_NAME type = rt_user_5 difficulty = 7 } #double_time = yes }
+    component = { id = 9174 name = TECH_CMP_AD_17_4_NAME type = rt_user_5 difficulty = 7 } #double_time = yes }
+    component = { id = 9175 name = TECH_CMP_AD_17_5_NAME type = training difficulty = 7 }
+    required  = { 9160 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0333 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0166 }
+      command = { type = max_organization which = multi_role value = 9 }
+      command = { type = max_organization which = Interceptor value = 6 }
+      command = { type = max_organization which = escort value = 9 }
+      command = { type = morale which = multi_role value = 9 }
+      command = { type = morale which = Interceptor value = 6 }
+      command = { type = morale which = escort value = 9 }
+      command = { type = max_organization which = d_01 value = 9 }
+      command = { type = morale which = d_01 value = 9 }
+    }
+  }
+
+  # Air Superiority Offensive 1951
+  application =
+  { id        = 9180
+    name      = TECH_APP_AD_18_NAME
+    desc      = TECH_APP_AD_18_DESC
+    position  = { x = 334 y = 340 }
+    year      = 1951
+    component = { id = 9181 name = TECH_CMP_AD_18_1_NAME type = decentralized_execution difficulty = 8 }
+    component = { id = 9182 name = TECH_CMP_AD_18_2_NAME type = rt_user_5 difficulty = 8 } #double_time = yes }
+    component = { id = 9183 name = TECH_CMP_AD_18_3_NAME type = rt_user_5 difficulty = 8 } #double_time = yes }
+    component = { id = 9184 name = TECH_CMP_AD_18_4_NAME type = rt_user_5 difficulty = 8 } #double_time = yes }
+    component = { id = 9185 name = TECH_CMP_AD_18_5_NAME type = training difficulty = 8 }
+    required  = { 9170 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.0333 }
+	command = { type = task_efficiency which = Air_scramble value = 0.0166 }
+      command = { type = max_organization which = multi_role value = 12 }
+      command = { type = max_organization which = Interceptor value = 8 }
+      command = { type = max_organization which = escort value = 12 }
+      command = { type = morale which = multi_role value = 12 }
+      command = { type = morale which = Interceptor value = 8 }
+      command = { type = morale which = escort value = 12 }
+      command = { type = max_organization which = d_01 value = 12 }
+      command = { type = morale which = d_01 value = 12 }
+    }
+  }
+
+  # Air Superiority Offensive 1954
+  application =
+  { id        = 9190
+    name      = TECH_APP_AD_19_NAME
+    desc      = TECH_APP_AD_19_DESC
+    position  = { x = 334 y = 356 }
+    year      = 1954
+    component = { id = 9191 name = TECH_CMP_AD_19_1_NAME type = decentralized_execution difficulty = 9 }
+    component = { id = 9192 name = TECH_CMP_AD_19_2_NAME type = rt_user_5 difficulty = 9 } #double_time = yes }
+    component = { id = 9193 name = TECH_CMP_AD_19_3_NAME type = rt_user_5 difficulty = 9 } #double_time = yes }
+    component = { id = 9194 name = TECH_CMP_AD_19_4_NAME type = rt_user_5 difficulty = 9 } #double_time = yes }
+    component = { id = 9195 name = TECH_CMP_AD_19_5_NAME type = training difficulty = 9 }
+    required  = { 9180 }
+    effects =
+    { command = { type = task_efficiency which = Air_superiority value = 0.04 }
+	command = { type = task_efficiency which = Air_scramble value = 0.02 }
+      command = { type = max_organization which = multi_role value = 12 }
+      command = { type = max_organization which = Interceptor value = 8 }
+      command = { type = max_organization which = escort value = 12 }
+      command = { type = morale which = multi_role value = 12 }
+      command = { type = morale which = Interceptor value = 8 }
+      command = { type = morale which = escort value = 12 }
+      command = { type = max_organization which = d_01 value = 12 }
+      command = { type = morale which = d_01 value = 12 }
+    }
+  }
+
+##############################
+# Ground Attack & Interdiction
+##############################
+  # Ground Attack & Interdiction 1938
+  application =
+  { id        = 9200
+    name      = TECH_APP_AD_20_NAME
+    desc      = TECH_APP_AD_20_DESC
+    position  = { x = 112 y = 60 }
+    year      = 1938
+    component = { id = 9201 name = TECH_CMP_AD_20_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9202 name = TECH_CMP_AD_20_2_NAME type = rt_user_3 difficulty = 2 } #double_time = yes }
+    component = { id = 9203 name = TECH_CMP_AD_20_3_NAME type = rt_user_3 difficulty = 2 } #double_time = yes }
+    component = { id = 9204 name = TECH_CMP_AD_20_4_NAME type = rt_user_3 difficulty = 2 } #double_time = yes }
+    component = { id = 9205 name = TECH_CMP_AD_20_5_NAME type = training difficulty = 2 }
+    required  = { 9010 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.04 }
+      command = { type = task_efficiency which = interdiction value = 0.04 }
+      command = { type = max_organization which = CAS value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = morale which = CAS value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = multi_role value = 1 }
+      command = { type = morale which = multi_role value = 1 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1940
+  application =
+  { id        = 9210
+    name      = TECH_APP_AD_21_NAME
+    desc      = TECH_APP_AD_21_DESC
+    position  = { x = 112 y = 76 }
+    year      = 1940
+    component = { id = 9211 name = TECH_CMP_AD_21_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9212 name = TECH_CMP_AD_21_2_NAME type = rt_user_3 difficulty = 3 } #double_time = yes }
+    component = { id = 9213 name = TECH_CMP_AD_21_3_NAME type = rt_user_3 difficulty = 3 } #double_time = yes }
+    component = { id = 9214 name = TECH_CMP_AD_21_4_NAME type = rt_user_3 difficulty = 3 } #double_time = yes }
+    component = { id = 9215 name = TECH_CMP_AD_21_5_NAME type = training difficulty = 3 }
+    required  = { 9200 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.04 }
+      command = { type = task_efficiency which = interdiction value = 0.04 }
+      command = { type = max_organization which = CAS value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = morale which = CAS value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = multi_role value = 1 }
+      command = { type = morale which = multi_role value = 1 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1942
+  application =
+  { id        = 9220
+    name      = TECH_APP_AD_22_NAME
+    desc      = TECH_APP_AD_22_DESC
+    position  = { x = 112 y = 92 }
+    year      = 1942
+    component = { id = 9221 name = TECH_CMP_AD_22_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9222 name = TECH_CMP_AD_22_2_NAME type = rt_user_3 difficulty = 4 } #double_time = yes }
+    component = { id = 9223 name = TECH_CMP_AD_22_3_NAME type = rt_user_3 difficulty = 4 } #double_time = yes }
+    component = { id = 9224 name = TECH_CMP_AD_22_4_NAME type = rt_user_3 difficulty = 4 } #double_time = yes }
+    component = { id = 9225 name = TECH_CMP_AD_22_5_NAME type = training difficulty = 4 }
+    required  = { 9210 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.04 }
+      command = { type = task_efficiency which = interdiction value = 0.04 }
+      command = { type = max_organization which = CAS value = 6 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = morale which = CAS value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1944
+  application =
+  { id        = 9230
+    name      = TECH_APP_AD_23_NAME
+    desc      = TECH_APP_AD_23_DESC
+    position  = { x = 112 y = 108 }
+    year      = 1944
+    component = { id = 9231 name = TECH_CMP_AD_23_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9232 name = TECH_CMP_AD_23_2_NAME type = rt_user_3 difficulty = 5 } #double_time = yes }
+    component = { id = 9233 name = TECH_CMP_AD_23_3_NAME type = rt_user_3 difficulty = 5 } #double_time = yes }
+    component = { id = 9234 name = TECH_CMP_AD_23_4_NAME type = rt_user_3 difficulty = 5 } #double_time = yes }
+    component = { id = 9235 name = TECH_CMP_AD_23_5_NAME type = training difficulty = 5 }
+    required  = { 9220 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.045 }
+      command = { type = task_efficiency which = interdiction value = 0.045 }
+      command = { type = max_organization which = CAS value = 6 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = morale which = CAS value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1946
+  application =
+  { id        = 9240
+    name      = TECH_APP_AD_24_NAME
+    desc      = TECH_APP_AD_24_DESC
+    position  = { x = 112 y = 124 }
+    year      = 1946
+    component = { id = 9241 name = TECH_CMP_AD_24_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9242 name = TECH_CMP_AD_24_2_NAME type = rt_user_3 difficulty = 6 } #double_time = yes }
+    component = { id = 9243 name = TECH_CMP_AD_24_3_NAME type = rt_user_3 difficulty = 6 } #double_time = yes }
+    component = { id = 9244 name = TECH_CMP_AD_24_4_NAME type = rt_user_3 difficulty = 6 } #double_time = yes }
+    component = { id = 9245 name = TECH_CMP_AD_24_5_NAME type = training difficulty = 6 }
+    required  = { 9230 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.045 }
+      command = { type = task_efficiency which = interdiction value = 0.045 }
+      command = { type = max_organization which = CAS value = 9 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = morale which = CAS value = 9 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1948
+  application =
+  { id        = 9250
+    name      = TECH_APP_AD_25_NAME
+    desc      = TECH_APP_AD_25_DESC
+    position  = { x = 112 y = 140 }
+    year      = 1948
+    component = { id = 9251 name = TECH_CMP_AD_25_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9252 name = TECH_CMP_AD_25_2_NAME type = rt_user_3 difficulty = 7 } #double_time = yes }
+    component = { id = 9253 name = TECH_CMP_AD_25_3_NAME type = rt_user_3 difficulty = 7 } #double_time = yes }
+    component = { id = 9254 name = TECH_CMP_AD_25_4_NAME type = rt_user_3 difficulty = 7 } #double_time = yes }
+    component = { id = 9255 name = TECH_CMP_AD_25_5_NAME type = training difficulty = 7 }
+    required  = { 9240 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.05 }
+      command = { type = task_efficiency which = interdiction value = 0.05 }
+      command = { type = max_organization which = CAS value = 9 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = morale which = CAS value = 9 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1951
+  application =
+  { id        = 9260
+    name      = TECH_APP_AD_26_NAME
+    desc      = TECH_APP_AD_26_DESC
+    position  = { x = 112 y = 156 }
+    year      = 1951
+    component = { id = 9261 name = TECH_CMP_AD_26_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9262 name = TECH_CMP_AD_26_2_NAME type = rt_user_3 difficulty = 8 } #double_time = yes }
+    component = { id = 9263 name = TECH_CMP_AD_26_3_NAME type = rt_user_3 difficulty = 8 } #double_time = yes }
+    component = { id = 9264 name = TECH_CMP_AD_26_4_NAME type = rt_user_3 difficulty = 8 } #double_time = yes }
+    component = { id = 9265 name = TECH_CMP_AD_26_5_NAME type = training difficulty = 8 }
+    required  = { 9250 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.05 }
+      command = { type = task_efficiency which = interdiction value = 0.05 }
+      command = { type = max_organization which = CAS value = 12 }
+      command = { type = max_organization which = Tactical_Bomber value = 9 }
+      command = { type = morale which = CAS value = 12 }
+      command = { type = morale which = Tactical_Bomber value = 9 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+
+  # Ground Attack & Interdiction 1954
+  application =
+  { id        = 9270
+    name      = TECH_APP_AD_27_NAME
+    desc      = TECH_APP_AD_27_DESC
+    position  = { x = 112 y = 172 }
+    year      = 1954
+    component = { id = 9271 name = TECH_CMP_AD_27_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9272 name = TECH_CMP_AD_27_2_NAME type = rt_user_3 difficulty = 9 } #double_time = yes }
+    component = { id = 9273 name = TECH_CMP_AD_27_3_NAME type = rt_user_3 difficulty = 9 } #double_time = yes }
+    component = { id = 9274 name = TECH_CMP_AD_27_4_NAME type = rt_user_3 difficulty = 9 } #double_time = yes }
+    component = { id = 9275 name = TECH_CMP_AD_27_5_NAME type = training difficulty = 9 }
+    required  = { 9260 }
+    effects =
+    { command = { type = task_efficiency which = Ground_attack value = 0.06 }
+      command = { type = task_efficiency which = interdiction value = 0.06 }
+      command = { type = max_organization which = CAS value = 9 }
+      command = { type = max_organization which = Tactical_Bomber value = 9 }
+      command = { type = morale which = CAS value = 9 }
+      command = { type = morale which = Tactical_Bomber value = 9 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+
+#########################################
+# Convoy Raiding & Naval strike
+#########################################
+  # Convoy Raiding & Naval strike 1938
+  application =
+  { id        = 9300
+    name      = TECH_APP_AD_30_NAME
+    desc      = TECH_APP_AD_30_DESC
+    position  = { x = 112 y = 244 }
+    year      = 1938
+    component = { id = 9301 name = TECH_CMP_AD_30_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9302 name = TECH_CMP_AD_30_2_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9303 name = TECH_CMP_AD_30_3_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9304 name = TECH_CMP_AD_30_4_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9305 name = TECH_CMP_AD_30_5_NAME type = training difficulty = 2 }
+    required  = { 9020 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.04 }
+      command = { type = task_efficiency which = Naval_strike value = 0.04 }
+      command = { type = max_organization which = cag value = 2 }
+      command = { type = max_organization which = light_cag value = 2 }
+	  command = { type = max_organization which = escort_carrier value = 2 }
+      command = { type = max_organization which = Naval_Bomber value = 3 }
+      command = { type = max_organization which = tactical_Bomber value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = morale which = cag value = 2 }
+      command = { type = morale which = light_cag value = 2 }
+	  command = { type = morale which = escort_carrier value = 2 }
+      command = { type = morale which = Naval_Bomber value = 3 }
+      command = { type = morale which = tactical_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1940
+  application =
+  { id        = 9310
+    name      = TECH_APP_AD_31_NAME
+    desc      = TECH_APP_AD_31_DESC
+    position  = { x = 112 y = 260 }
+    year      = 1940
+    component = { id = 9311 name = TECH_CMP_AD_31_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9312 name = TECH_CMP_AD_31_2_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9313 name = TECH_CMP_AD_31_3_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9314 name = TECH_CMP_AD_31_4_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9315 name = TECH_CMP_AD_31_5_NAME type = training difficulty = 3 }
+    required  = { 9300 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.04 }
+      command = { type = task_efficiency which = Naval_strike value = 0.04 }
+      command = { type = max_organization which = cag value = 2 }
+      command = { type = max_organization which = light_cag value = 2 }
+	  command = { type = max_organization which = escort_carrier value = 2 }
+      command = { type = max_organization which = Naval_Bomber value = 3 }
+      command = { type = max_organization which = tactical_Bomber value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = morale which = cag value = 2 }
+      command = { type = morale which = light_cag value = 2 }
+	  command = { type = morale which = escort_carrier value = 2 }
+      command = { type = morale which = Naval_Bomber value = 3 }
+      command = { type = morale which = tactical_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1942
+  application =
+  { id        = 9320
+    name      = TECH_APP_AD_32_NAME
+    desc      = TECH_APP_AD_32_DESC
+    position  = { x = 112 y = 276 }
+    year      = 1942
+    component = { id = 9321 name = TECH_CMP_AD_32_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9322 name = TECH_CMP_AD_32_2_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9323 name = TECH_CMP_AD_32_3_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9324 name = TECH_CMP_AD_32_4_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9325 name = TECH_CMP_AD_32_5_NAME type = training difficulty = 4 }
+    required  = { 9310 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.04 }
+      command = { type = task_efficiency which = Naval_strike value = 0.04 }
+      command = { type = max_organization which = cag value = 3 }
+      command = { type = max_organization which = light_cag value = 3 }
+	  command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = max_organization which = Naval_Bomber value = 6 }
+      command = { type = max_organization which = tactical_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = cag value = 3 }
+      command = { type = morale which = light_cag value = 3 }
+	  command = { type = morale which = escort_carrier value = 3 }
+      command = { type = morale which = Naval_Bomber value = 6 }
+      command = { type = morale which = tactical_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1944
+  application =
+  { id        = 9330
+    name      = TECH_APP_AD_33_NAME
+    desc      = TECH_APP_AD_33_DESC
+    position  = { x = 112 y = 292 }
+    year      = 1944
+    component = { id = 9331 name = TECH_CMP_AD_33_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9332 name = TECH_CMP_AD_33_2_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9333 name = TECH_CMP_AD_33_3_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9334 name = TECH_CMP_AD_33_4_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9335 name = TECH_CMP_AD_33_5_NAME type = training difficulty = 5 }
+    required  = { 5440 9320 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.045 }
+      command = { type = task_efficiency which = Naval_strike value = 0.045 }
+      command = { type = max_organization which = cag value = 3 }
+      command = { type = max_organization which = light_cag value = 3 }
+	  command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = max_organization which = Naval_Bomber value = 6 }
+      command = { type = max_organization which = tactical_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = cag value = 3 }
+      command = { type = morale which = light_cag value = 3 }
+	  command = { type = morale which = escort_carrier value = 3 }
+      command = { type = morale which = Naval_Bomber value = 6 }
+      command = { type = morale which = tactical_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1946
+  application =
+  { id        = 9340
+    name      = TECH_APP_AD_34_NAME
+    desc      = TECH_APP_AD_34_DESC
+    position  = { x = 112 y = 308 }
+    year      = 1946
+    component = { id = 9341 name = TECH_CMP_AD_34_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9342 name = TECH_CMP_AD_34_2_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9343 name = TECH_CMP_AD_34_3_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9344 name = TECH_CMP_AD_34_4_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9345 name = TECH_CMP_AD_34_5_NAME type = training difficulty = 6 }
+    required  = { 9330 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.045 }
+      command = { type = task_efficiency which = Naval_strike value = 0.045 }
+      command = { type = max_organization which = cag value = 4 }
+      command = { type = max_organization which = light_cag value = 4 }
+	  command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = max_organization which = Naval_Bomber value = 9 }
+      command = { type = max_organization which = tactical_Bomber value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = morale which = cag value = 4 }
+      command = { type = morale which = light_cag value = 4 }
+	  command = { type = morale which = escort_carrier value = 4 }
+      command = { type = morale which = Naval_Bomber value = 9 }
+      command = { type = morale which = tactical_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1948
+  application =
+  { id        = 9350
+    name      = TECH_APP_AD_35_NAME
+    desc      = TECH_APP_AD_35_DESC
+    position  = { x = 112 y = 324 }
+    year      = 1948
+    component = { id = 9351 name = TECH_CMP_AD_35_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9352 name = TECH_CMP_AD_35_2_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9353 name = TECH_CMP_AD_35_3_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9354 name = TECH_CMP_AD_35_4_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9355 name = TECH_CMP_AD_35_5_NAME type = training difficulty = 7 }
+    required  = { 5460 9340 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.05 }
+      command = { type = task_efficiency which = Naval_strike value = 0.05 }
+      command = { type = max_organization which = cag value = 4 }
+      command = { type = max_organization which = light_cag value = 4 }
+	  command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = max_organization which = Naval_Bomber value = 9 }
+      command = { type = max_organization which = tactical_Bomber value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = morale which = cag value = 4 }
+      command = { type = morale which = light_cag value = 4 }
+	  command = { type = morale which = escort_carrier value = 4 }
+      command = { type = morale which = Naval_Bomber value = 9 }
+      command = { type = morale which = tactical_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1951
+  application =
+  { id        = 9360
+    name      = TECH_APP_AD_36_NAME
+    desc      = TECH_APP_AD_36_DESC
+    position  = { x = 112 y = 340 }
+    year      = 1951
+    component = { id = 9361 name = TECH_CMP_AD_36_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9362 name = TECH_CMP_AD_36_2_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9363 name = TECH_CMP_AD_36_3_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9364 name = TECH_CMP_AD_36_4_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9365 name = TECH_CMP_AD_36_5_NAME type = training difficulty = 8 }
+    required  = { 9350 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.05 }
+      command = { type = task_efficiency which = Naval_strike value = 0.05 }
+      command = { type = max_organization which = cag value = 5 }
+      command = { type = max_organization which = light_cag value = 5 }
+	  command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = max_organization which = Naval_Bomber value = 12 }
+      command = { type = max_organization which = tactical_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = cag value = 5 }
+      command = { type = morale which = light_cag value = 5 }
+	  command = { type = morale which = escort_carrier value = 5 }
+      command = { type = morale which = Naval_Bomber value = 12 }
+      command = { type = morale which = tactical_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+
+  # Convoy Raiding & Naval strike 1954
+  application =
+  { id        = 9370
+    name      = TECH_APP_AD_37_NAME
+    desc      = TECH_APP_AD_37_DESC
+    position  = { x = 112 y = 356 }
+    year      = 1954
+    component = { id = 9371 name = TECH_CMP_AD_37_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9372 name = TECH_CMP_AD_37_2_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9373 name = TECH_CMP_AD_37_3_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9374 name = TECH_CMP_AD_37_4_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9375 name = TECH_CMP_AD_37_5_NAME type = training difficulty = 9 }
+    required  = { 9360 }
+    effects =
+    { command = { type = task_efficiency which = convoy_air_raiding value = 0.06 }
+      command = { type = task_efficiency which = Naval_strike value = 0.06 }
+      command = { type = max_organization which = cag value = 5 }
+      command = { type = max_organization which = light_cag value = 5 }
+	  command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = max_organization which = Naval_Bomber value = 12 }
+      command = { type = max_organization which = tactical_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = cag value = 5 }
+      command = { type = morale which = light_cag value = 5 }
+	  command = { type = morale which = escort_carrier value = 5 }
+      command = { type = morale which = Naval_Bomber value = 12 }
+      command = { type = morale which = tactical_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+################################
+# Strategic Bombardments
+################################
+  # Strategic Bombardments 1936
+  application =
+  { id        = 9400
+    name      = TECH_APP_AD_40_NAME
+    desc      = TECH_APP_AD_40_DESC
+    position  = { x = 445 y = 60 }
+    year      = 1936
+    component = { id = 9401 name = TECH_CMP_AD_40_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9402 name = TECH_CMP_AD_40_2_NAME type = rt_user_2 difficulty = 2 } #double_time = yes }
+    component = { id = 9403 name = TECH_CMP_AD_40_3_NAME type = rt_user_2 difficulty = 2 } #double_time = yes }
+    component = { id = 9404 name = TECH_CMP_AD_40_4_NAME type = rt_user_2 difficulty = 2 } #double_time = yes }
+    component = { id = 9405 name = TECH_CMP_AD_40_5_NAME type = training difficulty = 2 }
+    required  = { 9010 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Strategic Bombardments 1940
+  application =
+  { id        = 9410
+    name      = TECH_APP_AD_41_NAME
+    desc      = TECH_APP_AD_41_DESC
+    position  = { x = 445 y = 76 }
+    year      = 1940
+    component = { id = 9411 name = TECH_CMP_AD_41_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9412 name = TECH_CMP_AD_41_2_NAME type = rt_user_2 difficulty = 3 } #double_time = yes }
+    component = { id = 9413 name = TECH_CMP_AD_41_3_NAME type = rt_user_2 difficulty = 3 } #double_time = yes }
+    component = { id = 9414 name = TECH_CMP_AD_41_4_NAME type = rt_user_2 difficulty = 3 } #double_time = yes }
+    component = { id = 9415 name = TECH_CMP_AD_41_5_NAME type = training difficulty = 3 }
+    required  = { 9400 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Strategic Bombardments 1942
+  application =
+  { id        = 9420
+    name      = TECH_APP_AD_42_NAME
+    desc      = TECH_APP_AD_42_DESC
+    position  = { x = 445 y = 92 }
+    year      = 1942
+    component = { id = 9421 name = TECH_CMP_AD_42_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9422 name = TECH_CMP_AD_42_2_NAME type = rt_user_2 difficulty = 4 } #double_time = yes }
+    component = { id = 9423 name = TECH_CMP_AD_42_3_NAME type = rt_user_2 difficulty = 4 } #double_time = yes }
+    component = { id = 9424 name = TECH_CMP_AD_42_4_NAME type = rt_user_2 difficulty = 4 } #double_time = yes }
+    component = { id = 9425 name = TECH_CMP_AD_42_5_NAME type = training difficulty = 4 }
+    required  = { 9410 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Strategic Bombardments 1944
+  application =
+  { id        = 9430
+    name      = TECH_APP_AD_43_NAME
+    desc      = TECH_APP_AD_43_DESC
+    position  = { x = 445 y = 108 }
+    year      = 1944
+    component = { id = 9431 name = TECH_CMP_AD_43_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9432 name = TECH_CMP_AD_43_2_NAME type = rt_user_2 difficulty = 5 } #double_time = yes }
+    component = { id = 9433 name = TECH_CMP_AD_43_3_NAME type = rt_user_2 difficulty = 5 } #double_time = yes }
+    component = { id = 9434 name = TECH_CMP_AD_43_4_NAME type = rt_user_2 difficulty = 5 } #double_time = yes }
+    component = { id = 9435 name = TECH_CMP_AD_43_5_NAME type = training difficulty = 5 }
+    required  = { 9420 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.045 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Strategic Bombardments 1946
+  application =
+  { id        = 9440
+    name      = TECH_APP_AD_44_NAME
+    desc      = TECH_APP_AD_44_DESC
+    position  = { x = 445 y = 124 }
+    year      = 1946
+    component = { id = 9441 name = TECH_CMP_AD_44_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9442 name = TECH_CMP_AD_44_2_NAME type = rt_user_2 difficulty = 6 } #double_time = yes }
+    component = { id = 9443 name = TECH_CMP_AD_44_3_NAME type = rt_user_2 difficulty = 6 } #double_time = yes }
+    component = { id = 9444 name = TECH_CMP_AD_44_4_NAME type = rt_user_2 difficulty = 6 } #double_time = yes }
+    component = { id = 9445 name = TECH_CMP_AD_44_5_NAME type = training difficulty = 6 }
+    required  = { 9430 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.045 }
+      command = { type = max_organization which = Strategic_Bomber value = 9 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 9 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+
+  # Strategic Bombardments 1948
+  application =
+  { id        = 9450
+    name      = TECH_APP_AD_45_NAME
+    desc      = TECH_APP_AD_45_DESC
+    position  = { x = 445 y = 140 }
+    year      = 1948
+    component = { id = 9451 name = TECH_CMP_AD_45_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9452 name = TECH_CMP_AD_45_2_NAME type = rt_user_2 difficulty = 7 } #double_time = yes }
+    component = { id = 9453 name = TECH_CMP_AD_45_3_NAME type = rt_user_2 difficulty = 7 } #double_time = yes }
+    component = { id = 9454 name = TECH_CMP_AD_45_4_NAME type = rt_user_2 difficulty = 7 } #double_time = yes }
+    component = { id = 9455 name = TECH_CMP_AD_45_5_NAME type = training difficulty = 7 }
+    required  = { 9440 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.05 }
+      command = { type = max_organization which = Strategic_Bomber value = 9 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 9 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+
+  # Strategic Bombardments 1951
+  application =
+  { id        = 9460
+    name      = TECH_APP_AD_46_NAME
+    desc      = TECH_APP_AD_46_DESC
+    position  = { x = 445 y = 156 }
+    year      = 1951
+    component = { id = 9461 name = TECH_CMP_AD_46_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9462 name = TECH_CMP_AD_46_2_NAME type = rt_user_2 difficulty = 8 } #double_time = yes }
+    component = { id = 9463 name = TECH_CMP_AD_46_3_NAME type = rt_user_2 difficulty = 8 } #double_time = yes }
+    component = { id = 9464 name = TECH_CMP_AD_46_4_NAME type = rt_user_2 difficulty = 8 } #double_time = yes }
+    component = { id = 9465 name = TECH_CMP_AD_46_5_NAME type = training difficulty = 8 }
+    required  = { 9450 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.05 }
+      command = { type = max_organization which = Strategic_Bomber value = 12 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 12 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+
+  # Strategic Bombardments 1954
+  application =
+  { id        = 9470
+    name      = TECH_APP_AD_47_NAME
+    desc      = TECH_APP_AD_47_DESC
+    position  = { x = 445 y = 172 }
+    year      = 1954
+    component = { id = 9471 name = TECH_CMP_AD_47_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9472 name = TECH_CMP_AD_47_2_NAME type = rt_user_2 difficulty = 9 } #double_time = yes }
+    component = { id = 9473 name = TECH_CMP_AD_47_3_NAME type = rt_user_2 difficulty = 9 } #double_time = yes }
+    component = { id = 9474 name = TECH_CMP_AD_47_4_NAME type = rt_user_2 difficulty = 9 } #double_time = yes }
+    component = { id = 9475 name = TECH_CMP_AD_47_5_NAME type = training difficulty = 9 }
+    required  = { 9460 }
+    effects =
+    { command = { type = task_efficiency which = Strategic_bombardment value = 0.06 }
+      command = { type = max_organization which = Strategic_Bomber value = 12 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 12 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+#########################
+# Logistical Strikes
+#########################
+  # Logistical Strikes 1937
+  application =
+  { id        = 9500
+    name      = TECH_APP_AD_50_NAME
+    desc      = TECH_APP_AD_50_DESC
+    position  = { x = 334 y = 60 }
+    year      = 1937
+    component = { id = 9501 name = TECH_CMP_AD_50_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9502 name = TECH_CMP_AD_50_2_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9503 name = TECH_CMP_AD_50_3_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9504 name = TECH_CMP_AD_50_4_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9505 name = TECH_CMP_AD_50_5_NAME type = training difficulty = 2 }
+    required  = { 9010 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.04 }
+      command = { type = max_organization which = tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Logistical Strikes 1940
+  application =
+  { id        = 9510
+    name      = TECH_APP_AD_51_NAME
+    desc      = TECH_APP_AD_51_DESC
+    position  = { x = 334 y = 76 }
+    year      = 1940
+    component = { id = 9511 name = TECH_CMP_AD_51_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9512 name = TECH_CMP_AD_51_2_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9513 name = TECH_CMP_AD_51_3_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9514 name = TECH_CMP_AD_51_4_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9515 name = TECH_CMP_AD_51_5_NAME type = training difficulty = 3 }
+    required  = { 9500 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.04 }
+      command = { type = max_organization which = tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Logistical Strikes 1942
+  application =
+  { id        = 9520
+    name      = TECH_APP_AD_52_NAME
+    desc      = TECH_APP_AD_52_DESC
+    position  = { x = 334 y = 92 }
+    year      = 1942
+    component = { id = 9521 name = TECH_CMP_AD_52_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9522 name = TECH_CMP_AD_52_2_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9523 name = TECH_CMP_AD_52_3_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9524 name = TECH_CMP_AD_52_4_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9525 name = TECH_CMP_AD_52_5_NAME type = training difficulty = 4 }
+    required  = { 9510 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.04 }
+      command = { type = max_organization which = tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Logistical Strikes 1944
+  application =
+  { id        = 9530
+    name      = TECH_APP_AD_53_NAME
+    desc      = TECH_APP_AD_53_DESC
+    position  = { x = 334 y = 108 }
+    year      = 1944
+    component = { id = 9531 name = TECH_CMP_AD_53_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9532 name = TECH_CMP_AD_53_2_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9533 name = TECH_CMP_AD_53_3_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9534 name = TECH_CMP_AD_53_4_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9535 name = TECH_CMP_AD_53_5_NAME type = training difficulty = 5 }
+    required  = { 9520 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.045 }
+      command = { type = max_organization which = tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Logistical Strikes 1946
+  application =
+  { id        = 9540
+    name      = TECH_APP_AD_54_NAME
+    desc      = TECH_APP_AD_54_DESC
+    position  = { x = 334 y = 124 }
+    year      = 1946
+    component = { id = 9541 name = TECH_CMP_AD_54_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9542 name = TECH_CMP_AD_54_2_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9543 name = TECH_CMP_AD_54_3_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9544 name = TECH_CMP_AD_54_4_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9545 name = TECH_CMP_AD_54_5_NAME type = training difficulty = 6 }
+    required  = { 9530 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.045 }
+      command = { type = max_organization which = tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = morale which = tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+
+  # Logistical Strikes 1948
+  application =
+  { id        = 9550
+    name      = TECH_APP_AD_55_NAME
+    desc      = TECH_APP_AD_55_DESC
+    position  = { x = 334 y = 140 }
+    year      = 1948
+    component = { id = 9551 name = TECH_CMP_AD_55_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9552 name = TECH_CMP_AD_55_2_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9553 name = TECH_CMP_AD_55_3_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9554 name = TECH_CMP_AD_55_4_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9555 name = TECH_CMP_AD_55_5_NAME type = training difficulty = 7 }
+    required  = { 9540 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.05 }
+      command = { type = max_organization which = tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = morale which = tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+  # Logistical Strikes 1951
+  application =
+  { id        = 9560
+    name      = TECH_APP_AD_56_NAME
+    desc      = TECH_APP_AD_56_DESC
+    position  = { x = 334 y = 156 }
+    year      = 1951
+    component = { id = 9561 name = TECH_CMP_AD_56_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9562 name = TECH_CMP_AD_56_2_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9563 name = TECH_CMP_AD_56_3_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9564 name = TECH_CMP_AD_56_4_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9565 name = TECH_CMP_AD_56_5_NAME type = training difficulty = 8 }
+    required  = { 9550 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.05 }
+      command = { type = max_organization which = tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 8 }
+      command = { type = morale which = tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+  # Logistical Strikes 1954
+  application =
+  { id        = 9570
+    name      = TECH_APP_AD_57_NAME
+    desc      = TECH_APP_AD_57_DESC
+    position  = { x = 334 y = 172 }
+    year      = 1954
+    component = { id = 9571 name = TECH_CMP_AD_57_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9572 name = TECH_CMP_AD_57_2_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9573 name = TECH_CMP_AD_57_3_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9574 name = TECH_CMP_AD_57_4_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9575 name = TECH_CMP_AD_57_5_NAME type = training difficulty = 9 }
+    required  = { 9560 }
+    effects =
+    { command = { type = task_efficiency which = Logistical_strike value = 0.06 }
+      command = { type = max_organization which = tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 8 }
+      command = { type = morale which = tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+#################################
+# Air Supply & Assaults
+#################################
+  # Air Supply & Assaults 1938
+  application =
+  { id        = 9600
+    name      = TECH_APP_AD_60_NAME
+    desc      = TECH_APP_AD_60_DESC
+    position  = { x = 223 y = 244 }
+    year      = 1938
+    component = { id = 9601 name = TECH_CMP_AD_60_1_NAME type = small_unit_tactics difficulty = 2 }
+    component = { id = 9602 name = TECH_CMP_AD_60_2_NAME type = airborne_training difficulty = 2 } #double_time = yes }
+    component = { id = 9603 name = TECH_CMP_AD_60_3_NAME type = airborne_training difficulty = 2 } #double_time = yes }
+    component = { id = 9604 name = TECH_CMP_AD_60_4_NAME type = airborne_training difficulty = 2 } #double_time = yes }
+    component = { id = 9605 name = TECH_CMP_AD_60_5_NAME type = training difficulty = 2 }
+    required  = { 9030 }
+    effects =
+    { command = { type = enable_task which = Air_supply }
+      command = { type = enable_task which = Airborne_assault }
+      command = { type = task_efficiency which = Airborne_assault value = 0.04 }
+      command = { type = task_efficiency which = Air_supply value = 0.04 }
+      command = { type = max_organization which = transport_plane value = 3 }
+      command = { type = max_organization which = paratrooper value = 3 }
+      command = { type = morale which = transport_plane value = 3 }
+      command = { type = morale which = paratrooper value = 3 }
+      command = { type = paradrop_attack value = 3 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1940
+  application =
+  { id        = 9610
+    name      = TECH_APP_AD_61_NAME
+    desc      = TECH_APP_AD_61_DESC
+    position  = { x = 223 y = 260 }
+    year      = 1940
+    component = { id = 9611 name = TECH_CMP_AD_61_1_NAME type = small_unit_tactics difficulty = 3 }
+    component = { id = 9612 name = TECH_CMP_AD_61_2_NAME type = airborne_training difficulty = 3 } #double_time = yes }
+    component = { id = 9613 name = TECH_CMP_AD_61_3_NAME type = airborne_training difficulty = 3 } #double_time = yes }
+    component = { id = 9614 name = TECH_CMP_AD_61_4_NAME type = airborne_training difficulty = 3 } #double_time = yes }
+    component = { id = 9615 name = TECH_CMP_AD_61_5_NAME type = training difficulty = 3 }
+    required  = { 9600 }
+    effects =
+    { command = { type = task_efficiency which = Airborne_assault value = 0.04 }
+      command = { type = task_efficiency which = Air_supply value = 0.04 }
+      command = { type = max_organization which = transport_plane value = 3 }
+      command = { type = max_organization which = paratrooper value = 3 }
+      command = { type = morale which = transport_plane value = 3 }
+      command = { type = morale which = paratrooper value = 3 }
+      command = { type = paradrop_attack value = 4 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1942
+  application =
+  { id        = 9620
+    name      = TECH_APP_AD_62_NAME
+    desc      = TECH_APP_AD_62_DESC
+    position  = { x = 223 y = 276 }
+    year      = 1942
+    component = { id = 9621 name = TECH_CMP_AD_62_1_NAME type = small_unit_tactics difficulty = 4 }
+    component = { id = 9622 name = TECH_CMP_AD_62_2_NAME type = airborne_training difficulty = 4 } #double_time = yes }
+    component = { id = 9623 name = TECH_CMP_AD_62_3_NAME type = airborne_training difficulty = 4 } #double_time = yes }
+    component = { id = 9624 name = TECH_CMP_AD_62_4_NAME type = airborne_training difficulty = 4 } #double_time = yes }
+    component = { id = 9625 name = TECH_CMP_AD_62_5_NAME type = training difficulty = 4 }
+    required  = { 9610 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.045 }
+      command = { type = task_efficiency which = Air_supply value = 0.04 }
+      command = { type = max_organization which = transport_plane value = 6 }
+      command = { type = max_organization which = paratrooper value = 6 }
+      command = { type = morale which = transport_plane value = 6 }
+      command = { type = morale which = paratrooper value = 6 }
+      command = { type = paradrop_attack value = 5 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1944
+  application =
+  { id        = 9630
+    name      = TECH_APP_AD_63_NAME
+    desc      = TECH_APP_AD_63_DESC
+    position  = { x = 223 y = 292 }
+    year      = 1944
+    component = { id = 9631 name = TECH_CMP_AD_63_1_NAME type = small_unit_tactics difficulty = 5 }
+    component = { id = 9632 name = TECH_CMP_AD_63_2_NAME type = airborne_training difficulty = 5 } #double_time = yes }
+    component = { id = 9633 name = TECH_CMP_AD_63_3_NAME type = airborne_training difficulty = 5 } #double_time = yes }
+    component = { id = 9634 name = TECH_CMP_AD_63_4_NAME type = airborne_training difficulty = 5 } #double_time = yes }
+    component = { id = 9635 name = TECH_CMP_AD_63_5_NAME type = training difficulty = 5 }
+    required  = { 9620 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.05 }
+      command = { type = task_efficiency which = Air_supply value = 0.045 }
+      command = { type = max_organization which = transport_plane value = 6 }
+      command = { type = max_organization which = paratrooper value = 6 }
+      command = { type = morale which = transport_plane value = 6 }
+      command = { type = morale which = paratrooper value = 6 }
+      command = { type = paradrop_attack value = 6 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1946
+  application =
+  { id        = 9640
+    name      = TECH_APP_AD_64_NAME
+    desc      = TECH_APP_AD_64_DESC
+    position  = { x = 223 y = 308 }
+    year      = 1946
+    component = { id = 9641 name = TECH_CMP_AD_64_1_NAME type = small_unit_tactics difficulty = 6 }
+    component = { id = 9642 name = TECH_CMP_AD_64_2_NAME type = airborne_training difficulty = 6 } #double_time = yes }
+    component = { id = 9643 name = TECH_CMP_AD_64_3_NAME type = airborne_training difficulty = 6 } #double_time = yes }
+    component = { id = 9644 name = TECH_CMP_AD_64_4_NAME type = airborne_training difficulty = 6 } #double_time = yes }
+    component = { id = 9645 name = TECH_CMP_AD_64_5_NAME type = training difficulty = 6 }
+    required  = { 9630 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.055 }
+      command = { type = task_efficiency which = Air_supply value = 0.045 }
+      command = { type = max_organization which = transport_plane value = 9 }
+      command = { type = max_organization which = paratrooper value = 9 }
+      command = { type = morale which = transport_plane value = 9 }
+      command = { type = morale which = paratrooper value = 9 }
+      command = { type = paradrop_attack value = 7 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1948
+  application =
+  { id        = 9650
+    name      = TECH_APP_AD_65_NAME
+    desc      = TECH_APP_AD_65_DESC
+    position  = { x = 223 y = 324 }
+    year      = 1948
+    component = { id = 9651 name = TECH_CMP_AD_65_1_NAME type = small_unit_tactics difficulty = 7 }
+    component = { id = 9652 name = TECH_CMP_AD_65_2_NAME type = airborne_training difficulty = 7 } #double_time = yes }
+    component = { id = 9653 name = TECH_CMP_AD_65_3_NAME type = airborne_training difficulty = 7 } #double_time = yes }
+    component = { id = 9654 name = TECH_CMP_AD_65_4_NAME type = airborne_training difficulty = 7 } #double_time = yes }
+    component = { id = 9655 name = TECH_CMP_AD_65_5_NAME type = training difficulty = 7 }
+    required  = { 9640 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.06 }
+      command = { type = task_efficiency which = Air_supply value = 0.05 }
+      command = { type = max_organization which = transport_plane value = 9 }
+      command = { type = max_organization which = paratrooper value = 9 }
+      command = { type = morale which = transport_plane value = 9 }
+      command = { type = morale which = paratrooper value = 9 }
+      command = { type = paradrop_attack value = 8 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1951
+  application =
+  { id        = 9660
+    name      = TECH_APP_AD_66_NAME
+    desc      = TECH_APP_AD_66_DESC
+    position  = { x = 223 y = 340 }
+    year      = 1951
+    component = { id = 9661 name = TECH_CMP_AD_66_1_NAME type = small_unit_tactics difficulty = 8 }
+    component = { id = 9662 name = TECH_CMP_AD_66_2_NAME type = airborne_training difficulty = 8 } #double_time = yes }
+    component = { id = 9663 name = TECH_CMP_AD_66_3_NAME type = airborne_training difficulty = 8 } #double_time = yes }
+    component = { id = 9664 name = TECH_CMP_AD_66_4_NAME type = airborne_training difficulty = 8 } #double_time = yes }
+    component = { id = 9665 name = TECH_CMP_AD_66_5_NAME type = training difficulty = 8 }
+    required  = { 9650 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.065 }
+      command = { type = task_efficiency which = Air_supply value = 0.05 }
+      command = { type = max_organization which = transport_plane value = 12 }
+      command = { type = max_organization which = paratrooper value = 12 }
+      command = { type = morale which = transport_plane value = 12 }
+      command = { type = morale which = paratrooper value = 12 }
+      command = { type = paradrop_attack value = 8 which = paratrooper }
+    }
+  }
+
+  # Air Supply & Assaults 1954
+  application =
+  { id        = 9670
+    name      = TECH_APP_AD_67_NAME
+    desc      = TECH_APP_AD_67_DESC
+    position  = { x = 223 y = 356 }
+    year      = 1954
+    component = { id = 9671 name = TECH_CMP_AD_67_1_NAME type = small_unit_tactics difficulty = 9 }
+    component = { id = 9672 name = TECH_CMP_AD_67_2_NAME type = airborne_training difficulty = 9 } #double_time = yes }
+    component = { id = 9673 name = TECH_CMP_AD_67_3_NAME type = airborne_training difficulty = 9 } #double_time = yes }
+    component = { id = 9674 name = TECH_CMP_AD_67_4_NAME type = airborne_training difficulty = 9 } #double_time = yes }
+    component = { id = 9675 name = TECH_CMP_AD_67_5_NAME type = training difficulty = 9 }
+    required  = { 9660 }
+    effects =
+   { command = { type = task_efficiency which = Airborne_assault value = 0.07 }
+      command = { type = task_efficiency which = Air_supply value = 0.06 }
+      command = { type = max_organization which = transport_plane value = 12 }
+      command = { type = max_organization which = paratrooper value = 12 }
+      command = { type = morale which = transport_plane value = 12 }
+      command = { type = morale which = paratrooper value = 12 }
+      command = { type = paradrop_attack value = 9 which = paratrooper }
+    }
+  }
+######################################
+# Naval Port and Airfield Strikes
+######################################
+  # Naval Port and Airfield Strikes 1938
+  application =
+  { id        = 9700
+    name      = TECH_APP_AD_70_NAME
+    desc      = TECH_APP_AD_70_DESC
+    position  = { x = 1 y = 244 }
+    year      = 1938
+    component = { id = 9701 name = TECH_CMP_AD_7_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9702 name = TECH_CMP_AD_7_2_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9703 name = TECH_CMP_AD_7_3_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9704 name = TECH_CMP_AD_7_4_NAME type = rt_user_4 difficulty = 2 } #double_time = yes }
+    component = { id = 9705 name = TECH_CMP_AD_7_5_NAME type = training difficulty = 2 }
+    required  = { 9020 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.04 }
+      command = { type = max_organization which = CAG value = 2 }
+      command = { type = max_organization which = light_cag value = 2 }
+	  command = { type = max_organization which = escort_carrier value = 2 }
+	  command = { type = max_organization which = Tactical_Bomber value = 1 }
+      command = { type = max_organization which = Naval_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = morale which = CAG value = 2 }
+	  command = { type = morale which = light_cag value = 2 }
+	  command = { type = morale which = escort_carrier value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 1 }
+      command = { type = morale which = Naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1940
+  application =
+  { id        = 9710
+    name      = TECH_APP_AD_71_NAME
+    desc      = TECH_APP_AD_71_DESC
+    position  = { x = 1 y = 260 }
+    year      = 1940
+    component = { id = 9711 name = TECH_CMP_AD_71_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9712 name = TECH_CMP_AD_71_2_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9713 name = TECH_CMP_AD_71_3_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9714 name = TECH_CMP_AD_71_4_NAME type = rt_user_4 difficulty = 3 } #double_time = yes }
+    component = { id = 9715 name = TECH_CMP_AD_71_5_NAME type = training difficulty = 3 }
+    required  = { 9700 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.04 }
+      command = { type = max_organization which = CAG value = 2 }
+	  command = { type = max_organization which = light_cag value = 2 }
+	  command = { type = max_organization which = escort_carrier value = 2 }
+      command = { type = max_organization which = Tactical_Bomber value = 1 }
+      command = { type = max_organization which = Naval_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = morale which = CAG value = 2 }
+	  command = { type = morale which = light_cag value = 2 }
+	  command = { type = morale which = escort_carrier value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 1 }
+      command = { type = morale which = Naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1942
+  application =
+  { id        = 9720
+    name      = TECH_APP_AD_72_NAME
+    desc      = TECH_APP_AD_72_DESC
+    position  = { x = 1 y = 276 }
+    year      = 1942
+    component = { id = 9721 name = TECH_CMP_AD_72_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9722 name = TECH_CMP_AD_72_2_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9723 name = TECH_CMP_AD_72_3_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9724 name = TECH_CMP_AD_72_4_NAME type = rt_user_4 difficulty = 4 } #double_time = yes }
+    component = { id = 9725 name = TECH_CMP_AD_72_5_NAME type = training difficulty = 4 }
+    required  = { 9710 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.04 }
+      command = { type = max_organization which = CAG value = 3 }
+	  command = { type = max_organization which = light_cag value = 3 }
+	  command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = Naval_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = CAG value = 3 }
+	  command = { type = morale which = light_cag value = 3 }
+	  command = { type = morale which = escort_carrier value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = Naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1944
+  application =
+  { id        = 9730
+    name      = TECH_APP_AD_73_NAME
+    desc      = TECH_APP_AD_73_DESC
+    position  = { x = 1 y = 292 }
+    year      = 1944
+    component = { id = 9731 name = TECH_CMP_AD_73_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9732 name = TECH_CMP_AD_73_2_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9733 name = TECH_CMP_AD_73_3_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9734 name = TECH_CMP_AD_73_4_NAME type = rt_user_4 difficulty = 5 } #double_time = yes }
+    component = { id = 9735 name = TECH_CMP_AD_73_5_NAME type = training difficulty = 5 }
+    required  = { 5440 9720 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.045 }
+      command = { type = max_organization which = CAG value = 3 }
+	  command = { type = max_organization which = light_cag value = 3 }
+	  command = { type = max_organization which = escort_carrier value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = Naval_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = CAG value = 3 }
+	  command = { type = morale which = light_cag value = 3 }
+	  command = { type = morale which = escort_carrier value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = Naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1946
+  application =
+  { id        = 9740
+    name      = TECH_APP_AD_74_NAME
+    desc      = TECH_APP_AD_74_DESC
+    position  = { x = 1 y = 308 }
+    year      = 1946
+    component = { id = 9741 name = TECH_CMP_AD_74_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9742 name = TECH_CMP_AD_74_2_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9743 name = TECH_CMP_AD_74_3_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9744 name = TECH_CMP_AD_74_4_NAME type = rt_user_4 difficulty = 6 } #double_time = yes }
+    component = { id = 9745 name = TECH_CMP_AD_74_5_NAME type = training difficulty = 6 }
+    required  = { 9730 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.045 }
+      command = { type = max_organization which = CAG value = 4 }
+	  command = { type = max_organization which = light_cag value = 4 }
+	  command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = max_organization which = Tactical_Bomber value = 3 }
+      command = { type = max_organization which = Naval_Bomber value = 6 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = morale which = CAG value = 4 }
+	  command = { type = morale which = light_cag value = 4 }
+	  command = { type = morale which = escort_carrier value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 3 }
+      command = { type = morale which = Naval_Bomber value = 6 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1948
+  application =
+  { id        = 9750
+    name      = TECH_APP_AD_75_NAME
+    desc      = TECH_APP_AD_75_DESC
+    position  = { x = 1 y = 324 }
+    year      = 1948
+    component = { id = 9751 name = TECH_CMP_AD_75_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9752 name = TECH_CMP_AD_75_2_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9753 name = TECH_CMP_AD_75_3_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9754 name = TECH_CMP_AD_75_4_NAME type = rt_user_4 difficulty = 7 } #double_time = yes }
+    component = { id = 9755 name = TECH_CMP_AD_75_5_NAME type = training difficulty = 7 }
+    required  = { 9740 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.05 }
+      command = { type = max_organization which = CAG value = 4 }
+	  command = { type = max_organization which = light_cag value = 4 }
+	  command = { type = max_organization which = escort_carrier value = 4 }
+      command = { type = max_organization which = Tactical_Bomber value = 3 }
+      command = { type = max_organization which = Naval_Bomber value = 6 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = morale which = CAG value = 4 }
+	  command = { type = morale which = light_cag value = 4 }
+	  command = { type = morale which = escort_carrier value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 3 }
+      command = { type = morale which = Naval_Bomber value = 6 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+    }
+  }
+  # Naval Port and Airfield Strikes 1951
+  application =
+  { id        = 9760
+    name      = TECH_APP_AD_76_NAME
+    desc      = TECH_APP_AD_76_DESC
+    position  = { x = 1 y = 340 }
+    year      = 1951
+    component = { id = 9761 name = TECH_CMP_AD_76_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9762 name = TECH_CMP_AD_76_2_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9763 name = TECH_CMP_AD_76_3_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9764 name = TECH_CMP_AD_76_4_NAME type = rt_user_4 difficulty = 8 } #double_time = yes }
+    component = { id = 9765 name = TECH_CMP_AD_76_5_NAME type = training difficulty = 8 }
+    required  = { 9750 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.05 }
+      command = { type = max_organization which = CAG value = 5 }
+	  command = { type = max_organization which = light_cag value = 5 }
+	  command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = Naval_Bomber value = 8 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = CAG value = 5 }
+	  command = { type = morale which = light_cag value = 5 }
+	  command = { type = morale which = escort_carrier value = 5 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = Naval_Bomber value = 8 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+
+  # Naval Port and Airfield Strikes 1954
+  application =
+  { id        = 9770
+    name      = TECH_APP_AD_77_NAME
+    desc      = TECH_APP_AD_77_DESC
+    position  = { x = 1 y = 356 }
+    year      = 1954
+    component = { id = 9771 name = TECH_CMP_AD_77_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9772 name = TECH_CMP_AD_77_2_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9773 name = TECH_CMP_AD_77_3_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9774 name = TECH_CMP_AD_77_4_NAME type = rt_user_4 difficulty = 9 } #double_time = yes }
+    component = { id = 9775 name = TECH_CMP_AD_77_5_NAME type = training difficulty = 9 }
+    required  = { 9760 }
+    effects =
+    { command = { type = task_efficiency which = Port_strike value = 0.06 }
+      command = { type = max_organization which = CAG value = 5 }
+	  command = { type = max_organization which = light_cag value = 5 }
+	  command = { type = max_organization which = escort_carrier value = 5 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = Naval_Bomber value = 8 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = CAG value = 5 }
+	  command = { type = morale which = light_cag value = 5 }
+	  command = { type = morale which = escort_carrier value = 5 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = Naval_Bomber value = 8 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+#################################
+# Installation Strikes
+#################################
+  # Installation Strikes 1937
+  application =
+  { id        = 9800
+    name      = TECH_APP_AD_80_NAME
+    desc      = TECH_APP_AD_80_DESC
+    position  = { x = 223 y = 60 }
+    year      = 1937
+    component = { id = 9801 name = TECH_CMP_AD_80_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9802 name = TECH_CMP_AD_80_2_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9803 name = TECH_CMP_AD_80_3_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9804 name = TECH_CMP_AD_80_4_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9805 name = TECH_CMP_AD_80_5_NAME type = training difficulty = 2 }
+    required  = { 9010 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.04 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 2 }
+      command = { type = morale which = naval_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Installation Strikes 1940
+  application =
+  { id        = 9810
+    name      = TECH_APP_AD_81_NAME
+    desc      = TECH_APP_AD_81_DESC
+    position  = { x = 223 y = 76 }
+    year      = 1940
+    component = { id = 9811 name = TECH_CMP_AD_81_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9812 name = TECH_CMP_AD_81_2_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9813 name = TECH_CMP_AD_81_3_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9814 name = TECH_CMP_AD_81_4_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9815 name = TECH_CMP_AD_81_5_NAME type = training difficulty = 3 }
+    required  = { 9800 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.04 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 2 }
+      command = { type = morale which = naval_Bomber value = 1 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+    }
+  }
+
+  # Installation Strikes 1942
+  application =
+  { id        = 9820
+    name      = TECH_APP_AD_82_NAME
+    desc      = TECH_APP_AD_82_DESC
+    position  = { x = 223 y = 92 }
+    year      = 1942
+    component = { id = 9821 name = TECH_CMP_AD_82_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9822 name = TECH_CMP_AD_82_2_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9823 name = TECH_CMP_AD_82_3_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9824 name = TECH_CMP_AD_82_4_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9825 name = TECH_CMP_AD_82_5_NAME type = training difficulty = 4 }
+    required  = { 9810 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.04 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 4 }
+      command = { type = morale which = naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+
+  # Installation Strikes 1944 
+  application =
+  { id        = 9830
+    name      = TECH_APP_AD_83_NAME
+    desc      = TECH_APP_AD_83_DESC
+    position  = { x = 223 y = 108 }
+    year      = 1944
+    component = { id = 9831 name = TECH_CMP_AD_83_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9832 name = TECH_CMP_AD_83_2_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9833 name = TECH_CMP_AD_83_3_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9834 name = TECH_CMP_AD_83_4_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9835 name = TECH_CMP_AD_83_5_NAME type = training difficulty = 5 }
+    required  = { 5440 9820 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.045 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 4 }
+      command = { type = morale which = naval_Bomber value = 2 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+    }
+  }
+
+  # Installation Strikes 1946
+  application =
+  { id        = 9840
+    name      = TECH_APP_AD_84_NAME
+    desc      = TECH_APP_AD_84_DESC
+    position  = { x = 223 y = 124 }
+    year      = 1946
+    component = { id = 9841 name = TECH_CMP_AD_84_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9842 name = TECH_CMP_AD_84_2_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9843 name = TECH_CMP_AD_84_3_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9844 name = TECH_CMP_AD_84_4_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9845 name = TECH_CMP_AD_84_5_NAME type = training difficulty = 6 }
+    required  = { 9830 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.045 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 6 }
+      command = { type = morale which = naval_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+    }
+  }
+
+  # Installation Strikes 1948
+  application =
+  { id        = 9850
+    name      = TECH_APP_AD_85_NAME
+    desc      = TECH_APP_AD_85_DESC
+    position  = { x = 223 y = 140 }
+    year      = 1948
+    component = { id = 9851 name = TECH_CMP_AD_85_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9852 name = TECH_CMP_AD_85_2_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9853 name = TECH_CMP_AD_85_3_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9854 name = TECH_CMP_AD_85_4_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9855 name = TECH_CMP_AD_85_5_NAME type = training difficulty = 7 }
+    required  = { 5460 9840 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.05 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 6 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = max_organization which = Strategic_Bomber value = 6 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 6 }
+      command = { type = morale which = naval_Bomber value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 6 }
+    }
+  }
+
+  # Installation Strikes 1951
+  application =
+  { id        = 9860
+    name      = TECH_APP_AD_86_NAME
+    desc      = TECH_APP_AD_86_DESC
+    position  = { x = 223 y = 156 }
+    year      = 1951
+    component = { id = 9861 name = TECH_CMP_AD_86_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9862 name = TECH_CMP_AD_86_2_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9863 name = TECH_CMP_AD_86_3_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9864 name = TECH_CMP_AD_86_4_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9865 name = TECH_CMP_AD_86_5_NAME type = training difficulty = 8 }
+    required  = { 9850 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.05 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 8 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 8 }
+      command = { type = morale which = naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 8 }
+    }
+  }
+
+  # Installation Strikes 1954
+  application =
+  { id        = 9870
+    name      = TECH_APP_AD_87_NAME
+    desc      = TECH_APP_AD_87_DESC
+    position  = { x = 223 y = 172 }
+    year      = 1954
+    component = { id = 9871 name = TECH_CMP_AD_87_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9872 name = TECH_CMP_AD_87_2_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9873 name = TECH_CMP_AD_87_3_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9874 name = TECH_CMP_AD_87_4_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9875 name = TECH_CMP_AD_87_5_NAME type = training difficulty = 9 }
+    required  = { 5260 9860 }
+    effects =
+    { command = { type = task_efficiency which = Installation_strike value = 0.06 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 8 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = max_organization which = Strategic_Bomber value = 8 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 8 }
+      command = { type = morale which = naval_Bomber value = 4 }
+      command = { type = morale which = Strategic_Bomber value = 8 }
+    }
+  }
+##############################
+# Runwaycratering 
+##############################
+  # Runway 1938
+  application =
+  { id        = 9900
+    name      = TECH_APP_AD_90_NAME
+    desc      = TECH_APP_AD_90_DESC
+    position  = { x = 1 y = 60 }
+    year      = 1938
+    component = { id = 9901 name = TECH_CMP_AD_90_1_NAME type = bomber_tactics difficulty = 2 }
+    component = { id = 9902 name = TECH_CMP_AD_90_2_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9903 name = TECH_CMP_AD_90_3_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9904 name = TECH_CMP_AD_90_4_NAME type = rt_user_1 difficulty = 2 } #double_time = yes }
+    component = { id = 9905 name = TECH_CMP_AD_90_5_NAME type = training difficulty = 2 }
+    required  = { 9010 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 3 }
+      command = { type = max_organization which = multi_role value = 1 }
+      command = { type = morale which = multi_role value = 1 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Runway 1940
+  application =
+  { id        = 9910
+    name      = TECH_APP_AD_91_NAME
+    desc      = TECH_APP_AD_91_DESC
+    position  = { x = 1 y = 76 }
+    year      = 1940
+    component = { id = 9911 name = TECH_CMP_AD_91_1_NAME type = bomber_tactics difficulty = 3 }
+    component = { id = 9919 name = TECH_CMP_AD_91_2_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9913 name = TECH_CMP_AD_91_3_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9914 name = TECH_CMP_AD_91_4_NAME type = rt_user_1 difficulty = 3 } #double_time = yes }
+    component = { id = 9915 name = TECH_CMP_AD_91_5_NAME type = training difficulty = 3 }
+    required  = { 9900 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 1 }
+      command = { type = max_organization which = Tactical_Bomber value = 2 }
+      command = { type = max_organization which = cas value = 3 }
+      command = { type = morale which = Strategic_Bomber value = 1 }
+      command = { type = morale which = Tactical_Bomber value = 2 }
+      command = { type = morale which = cas value = 3 }
+      command = { type = max_organization which = multi_role value = 1 }
+      command = { type = morale which = multi_role value = 1 }
+      command = { type = max_organization which = naval_Bomber value = 1 }
+      command = { type = morale which = naval_Bomber value = 1 }
+    }
+  }
+
+  # Runway 1942
+  application =
+  { id        = 9920
+    name      = TECH_APP_AD_92_NAME
+    desc      = TECH_APP_AD_92_DESC
+    position  = { x = 1 y = 92 }
+    year      = 1942
+    component = { id = 9921 name = TECH_CMP_AD_92_1_NAME type = bomber_tactics difficulty = 4 }
+    component = { id = 9922 name = TECH_CMP_AD_92_2_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9923 name = TECH_CMP_AD_92_3_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9924 name = TECH_CMP_AD_92_4_NAME type = rt_user_1 difficulty = 4 } #double_time = yes }
+    component = { id = 9925 name = TECH_CMP_AD_92_5_NAME type = training difficulty = 4 }
+    required  = { 9910 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.04 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 6 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 6 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Runway 1944
+  application =
+  { id        = 9930
+    name      = TECH_APP_AD_93_NAME
+    desc      = TECH_APP_AD_93_DESC
+    position  = { x = 1 y = 108 }
+    year      = 1944
+    component = { id = 9931 name = TECH_CMP_AD_93_1_NAME type = bomber_tactics difficulty = 5 }
+    component = { id = 9932 name = TECH_CMP_AD_93_2_NAME type = rt_user_1 difficulty = 5 } #double_time = yes }
+    component = { id = 9933 name = TECH_CMP_AD_93_3_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9934 name = TECH_CMP_AD_93_4_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9935 name = TECH_CMP_AD_93_5_NAME type = training difficulty = 5 }
+    required  = { 9920 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.045 }
+      command = { type = max_organization which = Strategic_Bomber value = 2 }
+      command = { type = max_organization which = Tactical_Bomber value = 4 }
+      command = { type = max_organization which = cas value = 6 }
+      command = { type = morale which = Strategic_Bomber value = 2 }
+      command = { type = morale which = Tactical_Bomber value = 4 }
+      command = { type = morale which = cas value = 6 }
+      command = { type = max_organization which = multi_role value = 2 }
+      command = { type = morale which = multi_role value = 2 }
+      command = { type = max_organization which = naval_Bomber value = 2 }
+      command = { type = morale which = naval_Bomber value = 2 }
+    }
+  }
+
+  # Runway 1946
+  application =
+  { id        = 9940
+    name      = TECH_APP_AD_94_NAME
+    desc      = TECH_APP_AD_94_DESC
+    position  = { x = 1 y = 124 }
+    year      = 1946
+    component = { id = 9941 name = TECH_CMP_AD_94_1_NAME type = bomber_tactics difficulty = 6 }
+    component = { id = 9942 name = TECH_CMP_AD_94_2_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9943 name = TECH_CMP_AD_94_3_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9944 name = TECH_CMP_AD_94_4_NAME type = rt_user_1 difficulty = 6 } #double_time = yes }
+    component = { id = 9945 name = TECH_CMP_AD_94_5_NAME type = training difficulty = 6 }
+    required  = { 9930 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.045 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 9 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 9 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+  # Runway 1948
+  application =
+  { id        = 9950
+    name      = TECH_APP_AD_95_NAME
+    desc      = TECH_APP_AD_95_DESC
+    position  = { x = 1 y = 140 }
+    year      = 1948
+    component = { id = 9951 name = TECH_CMP_AD_95_1_NAME type = bomber_tactics difficulty = 7 }
+    component = { id = 9952 name = TECH_CMP_AD_95_2_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9953 name = TECH_CMP_AD_95_3_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9954 name = TECH_CMP_AD_95_4_NAME type = rt_user_1 difficulty = 7 } #double_time = yes }
+    component = { id = 9955 name = TECH_CMP_AD_95_5_NAME type = training difficulty = 7 }
+    required  = { 9940 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.05 }
+      command = { type = max_organization which = Strategic_Bomber value = 3 }
+      command = { type = max_organization which = Tactical_Bomber value = 6 }
+      command = { type = max_organization which = cas value = 9 }
+      command = { type = morale which = Strategic_Bomber value = 3 }
+      command = { type = morale which = Tactical_Bomber value = 6 }
+      command = { type = morale which = cas value = 9 }
+      command = { type = max_organization which = multi_role value = 3 }
+      command = { type = morale which = multi_role value = 3 }
+      command = { type = max_organization which = naval_Bomber value = 3 }
+      command = { type = morale which = naval_Bomber value = 3 }
+    }
+  }
+  # Runway 1951
+  application =
+  { id        = 9960
+    name      = TECH_APP_AD_96_NAME
+    desc      = TECH_APP_AD_96_DESC
+    position  = { x = 1 y = 156 }
+    year      = 1951
+    component = { id = 9961 name = TECH_CMP_AD_96_1_NAME type = bomber_tactics difficulty = 8 }
+    component = { id = 9962 name = TECH_CMP_AD_96_2_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9963 name = TECH_CMP_AD_96_3_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9964 name = TECH_CMP_AD_96_4_NAME type = rt_user_1 difficulty = 8 } #double_time = yes }
+    component = { id = 9965 name = TECH_CMP_AD_96_5_NAME type = training difficulty = 8 }
+    required  = { 9950 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.05 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 12 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 12 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+  # Runway 1954
+  application =
+  { id        = 9970
+    name      = TECH_APP_AD_97_NAME
+    desc      = TECH_APP_AD_97_DESC
+    position  = { x = 1 y = 172 }
+    year      = 1954
+    component = { id = 9971 name = TECH_CMP_AD_97_1_NAME type = bomber_tactics difficulty = 9 }
+    component = { id = 9972 name = TECH_CMP_AD_97_2_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9973 name = TECH_CMP_AD_97_3_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9974 name = TECH_CMP_AD_97_4_NAME type = rt_user_1 difficulty = 9 } #double_time = yes }
+    component = { id = 9975 name = TECH_CMP_AD_97_5_NAME type = training difficulty = 9 }
+    required  = { 9960 }
+    effects =
+    { command = { type = task_efficiency which = Runway_cratering value = 0.06 }
+      command = { type = max_organization which = Strategic_Bomber value = 4 }
+      command = { type = max_organization which = Tactical_Bomber value = 8 }
+      command = { type = max_organization which = cas value = 12 }
+      command = { type = morale which = Strategic_Bomber value = 4 }
+      command = { type = morale which = Tactical_Bomber value = 8 }
+      command = { type = morale which = cas value = 12 }
+      command = { type = max_organization which = multi_role value = 4 }
+      command = { type = morale which = multi_role value = 4 }
+      command = { type = max_organization which = naval_Bomber value = 4 }
+      command = { type = morale which = naval_Bomber value = 4 }
+    }
+  }
+}

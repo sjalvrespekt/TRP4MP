@@ -1,0 +1,233 @@
+####################################
+# Columbia AI events 34500 - 34599 by Lothos
+#
+# Converted to DH by Dendro 2011-May-29
+#
+####################################
+################
+# Minister of Security Section 34500 - 34509
+#############################################
+event = { # Alberto Lleras Camargo takes power
+	id = 34500
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37095 # Alberto Lleras Camargo
+		NOT = { InCabinet = 37095 }
+		OR = {
+			manpower = 20
+			NOT = { minister = 37096 } # Francesco José Urrutia
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 37095 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Francesco José Urrutia takes power
+	id = 34501
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37096 # Francesco José Urrutia
+		NOT = { InCabinet = 37096 }
+		OR = {
+			NOT = { manpower = 20 }
+			NOT = { minister = 37095 } # Alberto Lleras Camargo
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 37096 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 34510 - 34519
+#############################################
+event = { # Jorge Mercado Sanchez takes power
+	id = 34510
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37007 # Jorge Mercado Sanchez
+		NOT = { InCabinet = 37007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 37007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 34520 - 34529
+#############################################
+event = { # Fernando Londono y Londono takes power
+	id = 34520
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37006 # Fernando Londono y Londono
+		NOT = { InCabinet = 37006 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 37006 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 34530 - 34539
+#############################################
+event = { # Ruben Piedrahita Arango takes power
+	id = 34530
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37140 # Ruben Piedrahita Arango
+		NOT = { InCabinet = 37140 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 37140 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 34540 - 34549
+#############################################
+event = { # Alain Adair Arriaga takes power
+	id = 34540
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37074 # Alain Adair Arriaga
+		NOT = { InCabinet = 37074 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 37074 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Joaquin Fernandez takes power
+	id = 34541
+	random = no 
+	country = COL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 37084 # Joaquin Fernandez
+		NOT = { InCabinet = 37084 }
+		NOT = { minister = 37074 } # Alain Adair Arriaga
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 37084 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34560 - 34599
+#############################################
+################
+# Columbia will get involved in the war
+#############################################
+event = {
+	id = 34560
+	random = no 
+	country = COL
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

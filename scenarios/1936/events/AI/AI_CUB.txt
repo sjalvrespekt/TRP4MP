@@ -1,0 +1,210 @@
+####################################
+# Cuba AI events 34600 - 34699 by Lothos
+#
+# Converted to DH by Dendro 2011-May-30
+#
+####################################
+################
+# Minister of Security Section 34600 - 34609
+#############################################
+event = { # A. Odero y Garcia takes power
+	id = 34600
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 33078 # A. Odero y Garcia
+		NOT = { InCabinet = 33078 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 33078 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 34610 - 34619
+#############################################
+event = { # Fulgencio Batista takes power
+	id = 34610
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 33097 # Fulgencio Batista
+		NOT = { InCabinet = 33097 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 20 }
+			AND = {
+				atwar = yes
+				NOT = { minister = 33007 } # Julio Sanguily
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 33097 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Julio Sanguily takes power
+	id = 34611
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 20
+		minister = 33007 # Julio Sanguily
+		NOT = { InCabinet = 33007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 33007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 34620 - 34629
+#############################################
+event = { # Carlos Hevia takes power
+	id = 34620
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 33090 # Carlos Hevia
+		NOT = { InCabinet = 33090 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 33090 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 34630 - 34639
+#############################################
+event = { # Fulgencio Batista takes power
+	id = 34630
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 33103 # Fulgencio Batista
+		NOT = { InCabinet = 33103 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 33103 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 34640 - 34649
+#############################################
+event = { # Carlos Prio takes power
+	id = 34640
+	random = no 
+	country = CUB
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 33004 # Carlos Prio
+		NOT = { InCabinet = 33004 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 33004 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34660 - 34699
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 34660
+	random = no 
+	country = CUB
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

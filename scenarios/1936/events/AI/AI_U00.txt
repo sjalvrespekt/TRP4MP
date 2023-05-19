@@ -1,0 +1,830 @@
+####################################
+# Kwantung AI events 37400 - 37499 by Lothos
+#		37400 - 37449 = Slider Change Events
+#		37450 - 37499 = Minister Change Events
+####################################
+################
+# Kwantung AI Slider manipulation
+#
+#	Free Market
+#############################################
+# converted to DH, Kane, June 4, 2011
+event = { # Free Market
+	id = 37400
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = 1}
+		OR = {
+			AND = {
+				NOT = { domestic = { type = free_market value = 0 } }
+				OR = {
+					ideology = leninist
+					ideology = stalinist
+					ideology = nazi
+					ideology = fascist
+					ideology = paternal_autocrat
+					ideology = social_conservative
+				}
+			}
+			AND = {
+				OR = {
+					ideology = social_democrat
+					ideology = left_wing_radical
+					ideology = social_liberal
+				}
+				NOT = { domestic = { type = free_market value = 7 } }
+			}
+			AND = {
+				ideology = market_liberal
+				NOT = { domestic = { type = free_market value = 9 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = 1 }
+	}
+}
+event = { # Free Market
+	id = 37401
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = free_market value = -1}
+		OR = {
+			AND = {
+				domestic = { type = free_market value = 0 }
+				OR = {
+					ideology = leninist
+					ideology = stalinist
+					ideology = nazi
+					ideology = fascist
+					ideology = paternal_autocrat
+					ideology = social_conservative
+				}
+			}
+			AND = {
+				OR = {
+					ideology = social_democrat
+					ideology = left_wing_radical
+					ideology = social_liberal
+				}
+				domestic = { type = free_market value = 7 }
+			}
+			AND = {
+				ideology = market_liberal
+				domestic = { type = free_market value = 9 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = free_market value = -1 }
+	}
+}
+################
+#	Open Society
+#############################################
+event = { # Open Society
+	id = 37402
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = freedom value = -1 }
+		AND = {
+			domestic = { type = freedom value = 0 }
+			OR = {
+				government = fascist
+				government = communist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = -1 }
+	}
+}
+event = { # Open Society
+	id = 37403
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = freedom value = 1 }
+		AND = {
+			NOT = { domestic = { type = freedom value = 9 } }
+			government = democratic
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = freedom value = 1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 37404
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = professional_army value = 1 }
+		AND = {
+			NOT = { domestic = { type = professional_army value = 9 } }
+			OR = {
+				government = fascist
+				government = communist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+event = { # Standing Army
+	id = 37405
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = professional_army value = -1 }
+		AND = {
+			domestic = { type = professional_army value = 0 }
+			government = democratic
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = -1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 37406
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = defense_lobby value = 1 }
+		AND = {
+			NOT = { domestic = { type = defense_lobby value = 9 } }
+			OR = {
+				government = fascist
+				government = communist
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+event = { # Hawk Lobby
+	id = 37407
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = defense_lobby value = -1 }
+		AND = {
+			domestic = { type = defense_lobby value = 0 }
+			government = democratic
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = -1 }
+	}
+}
+################
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 37408
+	random = no
+	country = U00
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = { type = interventionism value = 1 }
+		NOT = { domestic = { type = interventionism value = 9 } }
+		OR = {
+			atwar = yes
+			government = fascist
+			government = communist
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+
+
+####################################
+# Kwantung 37450 - 37499 = Minister Change Events
+####################################
+################
+# Minister of Security Section 37450 - 37454
+#############################################
+event = { # Ushio Shigenosuke takes power
+	id = 37450
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952299 # Ushio Shigenosuke
+		NOT = { InCabinet = 952299 }
+		OR = {
+			NOT = { war = { country = JAP country = CHI } }
+			NOT = {
+				war = { country = JAP country = CHI }
+				OR = {
+					minister = 952301 # Baba Eiichi
+					minister = 952311 # Hirabayashi Morito
+					}
+				OR = {
+					lost_national = { country = CHI value = 10 }
+					control = { province = 1337 data = JAP } # Nanjing
+					}
+				}
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 952299 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Goto Fumio takes power
+	id = 37451
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { minister = 952299 } # Ushio Shigenosuke
+		minister = 952205 # Goto Fumio
+		NOT = { InCabinet = 952205 }
+		OR = {
+			NOT = { war = { country = JAP country = CHI } }
+			NOT = {
+				war = { country = JAP country = CHI }
+				OR = {
+					minister = 952301 # Baba Eiichi
+					minister = 952311 # Hirabayashi Morito
+					}
+				OR = {
+					lost_national = { country = CHI value = 10 }
+					control = { province = 1337 data = JAP } # Nanjing
+					}
+				}
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 952205 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+#####
+# event 37452 deleted by Gormadoc
+#####
+event = { # Baba Eiichi takes power
+	id = 37453
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952301 # Baba Eiichi
+		NOT = { InCabinet = 952301 }
+		manpower = 100
+		war = { country = JAP country = CHI }
+		OR = {
+			lost_national = { country = CHI value = 10 }
+			control = { province = 1337 data = JAP } # Nanjing
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 952301 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Hirabayashi Morito takes power
+	id = 37454
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952311 # Hirabayashi Morito
+		NOT = { InCabinet = 952311 }
+		NOT = { manpower = 100 }
+		war = { country = JAP country = CHI }
+		OR = {
+			lost_national = { country = CHI value = 10 }
+			control = { province = 1337 data = JAP } # Nanjing
+			}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 952311 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 37455 - 37457
+#############################################
+event = { # Kanichiro Tashiro takes power
+	id = 37455
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 952342 # Kanichiro Tashiro
+		NOT = { InCabinet = 952342 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 952342 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Sugiyama Hajime takes power
+	id = 37456
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { minister = 952342 } # Kanin Kotohito
+		minister = 952346 # Sugiyama Hajime
+		NOT = { InCabinet = 952346 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 952346 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Hirotsugu Hayashida takes power
+	id = 37457
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 952341 # Hirotsugu Hayashida
+		NOT = { InCabinet = 952341 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 952341 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 37458
+#############################################
+event = { # Takasu Shiro takes power
+	id = 37458
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952327 # Takasu Shiro
+		NOT = { InCabinet = 952327 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 952327 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 37459 - 37460
+#############################################
+event = { # Sugiyama Hajime takes power
+	id = 37459
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 952355 # Sugiyama Hajime
+		NOT = { InCabinet = 952355 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 952355 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Inanba Satoru takes power
+	id = 37460
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		minister = 952351 # Inanba Satoru
+		NOT = { InCabinet = 952351 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 952351 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 37461 - 37463
+#############################################
+event = { # Fujiwara Ginjiro takes power
+	id = 37461
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952279 # Fujiwara Ginjiro
+		NOT = { InCabinet = 952279 }
+		OR = {
+			war = { country = U00 country = USA }
+			war = { country = U00 country = ENG }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 952279 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Hatta Yoshiaki takes power
+	id = 37462
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952277 # Hatta Yoshiaki
+		NOT = { InCabinet = 952277 }
+		OR = {
+			NOT = { minister = 952279 } # Fujiwara Ginjiro
+			AND = {
+				minister = 952279 # Fujiwara Ginjiro
+				NOT = { war = { country = U00 country = USA } }
+				NOT = { war = { country = U00 country = ENG } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 952277 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Shoda Kazue takes power
+	id = 37463
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952285 # Shoda Kazue
+		NOT = { InCabinet = 952285 }
+		NOT = { minister = 952277 } # Hatta Yoshiaki
+		OR = {
+			NOT = { minister = 952279 } # Fujiwara Ginjiro
+			AND = {
+				minister = 952279 # Fujiwara Ginjiro
+				NOT = { war = { country = U00 country = USA } }
+				NOT = { war = { country = U00 country = ENG } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 952285 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Chief of Air Minister Section 37464
+#############################################
+event = { # Hata Shunroku takes power
+	id = 37464
+	random = no 
+	country = U00
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 952371 # Hata Shunroku
+		NOT = { InCabinet = 952371 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 952371 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+######################
+#KWA goes reactive after Pacific war has begun
+######################
+event = { 
+	id = 37465
+	random = no
+	country = U00
+ 
+         trigger = 	{
+				ai = U00
+				OR =	{
+						event = 777503
+						event = 777504
+						}
+					}
+					
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 0
+	picture = "private_sector"
+
+    date = { day = 0 month = january year = 1936 }
+    offset = 1 # Check for trigger conditions every day
+	deathdate = { day = 29 month = december year = 1964 }
+
+
+    action_a = {
+				command = { type = ai which = "switch/U00_reactive.ai" }
+				}
+		}	
+		
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 37466
+	random = no 
+	country = U00
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = U00_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/U00_low_mp.ai" }
+		command = { type = local_setflag which = U00_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 37467
+	random = no 
+	country = U00
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = U00_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/U00_normal_mp.ai" }
+		command = { type = local_clrflag which = U00_low_mp }
+	}
+}

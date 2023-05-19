@@ -1,0 +1,62 @@
+# checked DH
+### Event File for Free City of Danzig ###
+
+# IDs used: 410000++
+
+#########################################################################
+# Heimwehr Danzig
+#########################################################################
+event = {  
+	id = 410000
+	random = no
+	country = U04
+
+	trigger = { 
+		manpower = 1.5
+		government = fascist
+	}
+
+	name = EVT_410000_NAME 
+	desc = EVT_410000_DESC 
+	style = 0
+	picture = "SS-2"
+
+	date = { day = 19 month = june year = 1939 }
+	offset = 1
+	deathdate = { day = 2 month = july year = 1999 }
+           
+	action_a = { 
+		name = "ACTION_NAME_OK"
+		command = { type = activate_division which = 14500 value = 410000 when = 0 }
+	}
+}
+#########################################################################
+# Albert Forster takes power
+#########################################################################
+event = {  
+	id = 410001
+	random = no
+	country = U04
+
+	name = EVT_410001_NAME 
+	desc = EVT_410001_DESC 
+	style = 0
+	picture = "Danzig"
+
+	date = { day = 22 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 22 month = august year = 1999 }
+           
+	action_a = { 
+		name = "ACTION_NAME_OK"
+		command = { type = headofstate which = 845011 }
+		command = { type = headofgovernment which = 845012 }
+		command = { type = foreignminister which = 845013 }
+		command = { type = armamentminister which = 845014 }
+		command = { type = ministerofintelligence which = 845016 }
+		command = { type = chiefofstaff which = 845017 }
+		command = { type = chiefofarmy which = 845018 }
+		command = { type = chiefofnavy which = 845019 }
+		command = { type = chiefofair which = 845020 }
+	}
+}

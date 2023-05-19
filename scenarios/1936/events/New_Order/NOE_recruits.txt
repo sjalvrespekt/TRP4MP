@@ -1,0 +1,1932 @@
+##########################################################################
+# NOE recruiting events with Ribbentrop-Schulenburg Plan
+##########################################################################
+
+#################################################
+# Germany recruits in Estonia
+#################################################
+event = { 
+	id = 3236074 # 5371
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236074A
+		command = { type = add_division which = "46. SS-Freiw.Kav.Div. 'Estnische Nr.2'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236075 #5372
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236074
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236075A
+		command = { type = add_division which = "60. SS-Freiw.Kav.Div. 'Estnische Nr.3'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236076 #5373
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236075
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236076A
+		command = { type = add_division which = "74. SS-Freiw.Kav.Div. 'Estnische Nr.4'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236077 #5374
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236076
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236077A
+		command = { type = add_division which = "88. SS-Freiw.Kav.Div. 'Estnische Nr.5'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236078 #5375
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236077
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236078A
+		command = { type = add_division which = "102. SS-Freiw.Kav.Div. 'Estnische Nr.6'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236079 #5376
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236078
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236079A
+		command = { type = add_division which = "116. SS-Freiw.Kav.Div. 'Estnische Nr.7'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+event = { 
+	id = 3236080 #5377
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 50
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 270 data = GER }
+		NOT = { owned = { province = 270 data = GER } }
+		supplies = 1750
+		event = 3236079
+	}
+
+	name = EVT_3236074_NAME
+	desc = EVT_3236074_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236080A
+		command = { type = add_division which = "130. SS-Freiw.Kav.Div. 'Estnische Nr.8'" value = cavalry when = 1 }
+		command = { type = supplies value = -1750 }
+	}
+}
+#################################################
+# Germany recruits in Latvia
+#################################################
+
+event = { 
+	id = 3236081 #5381
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236081A
+		command = { type = add_division which = "47. SS-Freiw.Kav.Div. 'Lettische Nr.1'" value = cavalry when = 1 }
+		command = { type = add_division which = "48. SS-Freiw.Kav.Div. 'Lettische Nr.2'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236082 #5382
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236082A
+		command = { type = add_division which = "61. SS-Freiw.Kav.Div. 'Lettische Nr.3'" value = cavalry when = 1 }
+		command = { type = add_division which = "62. SS-Freiw.Kav.Div. 'Lettische Nr.4'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236083 #5383
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236083A
+		command = { type = add_division which = "75. SS-Freiw.Kav.Div. 'Lettische Nr.5'" value = cavalry when = 1 }
+		command = { type = add_division which = "76. SS-Freiw.Kav.Div. 'Lettische Nr.6'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236084 #5384
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236084A
+		command = { type = add_division which = "89. SS-Freiw.Kav.Div. 'Lettische Nr.7'" value = cavalry when = 1 }
+		command = { type = add_division which = "90. SS-Freiw.Kav.Div. 'Lettische Nr.8'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236085 #5385
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236085A
+		command = { type = add_division which = "103. SS-Freiw.Kav.Div. 'Lettische Nr.9'" value = cavalry when = 1 }
+		command = { type = add_division which = "104. SS-Freiw.Kav.Div. 'Lettische Nr.10'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236086 #5386
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236086A
+		command = { type = add_division which = "117. SS-Freiw.Kav.Div. 'Lettische Nr.11'" value = cavalry when = 1 }
+		command = { type = add_division which = "118. SS-Freiw.Kav.Div. 'Lettische Nr.12'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236087 #5387
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		NOT = {
+			owned = { province = 264 data = GER } # 264	Riga
+			owned = { province = 266 data = GER } # 266	Daugavpils
+			owned = { province = 265 data = GER } # 265	Valmiera
+			owned = { province = 267 data = GER } # 267	Jekabpils
+			owned = { province = 269 data = GER } # 269	Jelgava
+			owned = { province = 268 data = GER } # 268	Liepaja
+		}
+	}
+
+	name = EVT_3236081_NAME
+	desc = EVT_3236081_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236087A
+		command = { type = add_division which = "131. SS-Freiw.Kav.Div. 'Lettische Nr.13'" value = cavalry when = 1 }
+		command = { type = add_division which = "132. SS-Freiw.Kav.Div. 'Lettische Nr.14'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+#################################################
+# Germany recruits in Lithuania
+#################################################
+event = { 
+	id = 3236088 #5390
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1940 }
+	
+	action_a = {
+		name = ACTIONNAME3236088A
+		command = { type = add_division which = "49. SS-Freiw.Kav.Div. 'Lituanische Nr.1'" value = cavalry when = 1 }
+		command = { type = add_division which = "50. SS-Freiw.Kav.Div. 'Lituanische Nr.2'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236089 #5391
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236089A
+		command = { type = add_division which = "63. SS-Freiw.Kav.Div. 'Lituanische Nr.3'" value = cavalry when = 1 }
+		command = { type = add_division which = "64. SS-Freiw.Kav.Div. 'Lituanische Nr.4'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236090 #5392
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236090A
+		command = { type = add_division which = "77. SS-Freiw.Kav.Div. 'Lituanische Nr.5'" value = cavalry when = 1 }
+		command = { type = add_division which = "78. SS-Freiw.Kav.Div. 'Lituanische Nr.6'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236091 #5393
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236091A
+		command = { type = add_division which = "91. SS-Freiw.Kav.Div. 'Lituanische Nr.7'" value = cavalry when = 1 }
+		command = { type = add_division which = "92. SS-Freiw.Kav.Div. 'Lituanische Nr.8'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236092 #5394
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236092A
+		command = { type = add_division which = "105. SS-Freiw.Kav.Div. 'Lituanische Nr.9'" value = cavalry when = 1 }
+		command = { type = add_division which = "106. SS-Freiw.Kav.Div. 'Lituanische Nr.10'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+
+event = { 
+	id = 3236093 #5395
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236093A
+		command = { type = add_division which = "119. SS-Freiw.Kav.Div. 'Lituanische Nr.11'" value = cavalry when = 1 }
+		command = { type = add_division which = "120. SS-Freiw.Kav.Div. 'Lituanische Nr.12'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236094 #5396
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236094A
+		command = { type = add_division which = "133. SS-Freiw.Kav.Div. 'Litauische Nr.13'" value = cavalry when = 1 }
+		command = { type = add_division which = "134. SS-Freiw.Kav.Div. 'Litauische Nr.14'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+event = { 
+	id = 3236095 #5397
+	random = no 
+	country = GER 
+ 
+	trigger = { 
+		random = 20
+		supplies = 3500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 263 data = GER } # 263	Alytus
+		NOT = {
+			owned = { province = 259 data = GER } # 259	Siauliau
+			owned = { province = 262 data = GER } # 262	Kaunas
+			owned = { province = 263 data = GER } # 263	Alytus
+		}
+	}
+
+	name = EVT_3236088_NAME
+	desc = EVT_3236088_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236095A
+		command = { type = add_division which = "144. SS-Freiw.Kav.Div. 'Litauische Nr.15'" value = cavalry when = 1 }
+		command = { type = add_division which = "145. SS-Freiw.Kav.Div. 'Litauische Nr.16'" value = cavalry when = 0 }
+		command = { type = supplies value = -3500 }
+	}
+}
+
+##########################################################
+# Germany recruits in Ukraine - Rosenberg plan
+##########################################################
+event = { 
+	id = 3236096 #5410
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236096A
+		command = { type = add_division which = "51.SS-Freiw.Gr.Div. 'Ukrainische Nr.1'" value = d_02 when = 2 }
+		command = { type = add_division which = "52.SS-Freiw.Gr.Div. 'Ukrainische Nr.2'" value = militia when = 2 }
+		command = { type = add_division which = "53.SS-Freiw.Gr.Div. 'Ukrainische Nr.3'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236097 #5411
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236097A
+		command = { type = add_division which = "65.SS-Freiw.Gr.Div. 'Ukrainische Nr.4'" value = d_02 when = 2 }
+		command = { type = add_division which = "66.SS-Freiw.Gr.Div. 'Ukrainische Nr.5'" value = militia when = 2 }
+		command = { type = add_division which = "67.SS-Freiw.Gr.Div. 'Ukrainische Nr.6'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236098 #5412
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236098A
+		command = { type = add_division which = "79.SS-Freiw.Gr.Div. 'Ukrainische Nr.7'" value = d_02 when = 2 }
+		command = { type = add_division which = "80.SS-Freiw.Gr.Div. 'Ukrainische Nr.8'" value = militia when = 2 }
+		command = { type = add_division which = "81.SS-Freiw.Gr.Div. 'Ukrainische Nr.9'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236073
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236073A
+		command = { type = add_division which = "93.SS-Freiw.Gr.Div. 'Ukrainische Nr.10'" value = d_02 when = 2 }
+		command = { type = add_division which = "94.SS-Freiw.Gr.Div. 'Ukrainische Nr.11'" value = militia when = 2 }
+		command = { type = add_division which = "95.SS-Freiw.Gr.Div. 'Ukrainische Nr.12'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236072
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236072A
+		command = { type = add_division which = "107.SS-Freiw.Gr.Div. 'Ukrainische Nr.13'" value = d_02 when = 2 }
+		command = { type = add_division which = "108.SS-Freiw.Gr.Div. 'Ukrainische Nr.14'" value = militia when = 2 }
+		command = { type = add_division which = "109.SS-Freiw.Gr.Div. 'Ukrainische Nr.15'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236071
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236071A
+		command = { type = add_division which = "121.SS-Freiw.Gr.Div. 'Ukrainische Nr.16'" value = d_02 when = 2 }
+		command = { type = add_division which = "122.SS-Freiw.Gr.Div. 'Ukrainische Nr.17'" value = militia when = 2 }
+		command = { type = add_division which = "123.SS-Freiw.Gr.Div. 'Ukrainische Nr.18'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236070
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 611 data = GER } # 611	Zhitomir, These areas in Ukraine must be German-held
+		control = { province = 612 data = GER } # 612	Vinnitsa
+		control = { province = 609 data = GER } # 609	Korosten
+		NOT = {
+			owned = { province = 611 data = GER } # 611	Zhitomir
+			owned = { province = 612 data = GER } # 612	Vinnitsa
+			owned = { province = 609 data = GER } # 609	Korosten
+		}
+	}
+
+	name = EVT_3236096_NAME
+	desc = EVT_3236096_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236070A
+		command = { type = add_division which = "135.SS-Freiw.Gr.Div. 'Ukrainische Nr.19'" value = d_02 when = 2 }
+		command = { type = add_division which = "136.SS-Freiw.Gr.Div. 'Ukrainische Nr.20'" value = militia when = 2 }
+		command = { type = add_division which = "137.SS-Freiw.Gr.Div. 'Ukrainische Nr.21'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+##########################################################
+# Germany recruits in the Caucasus - Rosenberg plan
+##########################################################
+event = { 
+	id = 3236069
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236069A
+		command = { type = add_division which = "54.SS-Freiw.Geb.Div. 'Kaukasische Nr.1'" value = d_02 when = 2 }
+		command = { type = add_division which = "55.SS-Freiw.Geb.Div. 'Kaukasische Nr.2'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236068
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236068A
+		command = { type = add_division which = "68.SS-Freiw.Geb.Div. 'Kaukasische Nr.3'" value = d_02 when = 2 }
+		command = { type = add_division which = "69.SS-Freiw.Geb.Div. 'Kaukasische Nr.4'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236067
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236067A
+		command = { type = add_division which = "82.SS-Freiw.Geb.Div. 'Kaukasische Nr.5'" value = d_02 when = 2 }
+		command = { type = add_division which = "83.SS-Freiw.Geb.Div. 'Kaukasische Nr.6'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236066
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236066A
+		command = { type = add_division which = "96.SS-Freiw.Geb.Div. 'Kaukasus Nr.7'" value = d_02 when = 2 }
+		command = { type = add_division which = "97.SS-Freiw.Geb.Div. 'Kaukasus Nr.8'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236065
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236065A
+		command = { type = add_division which = "110.SS-Freiw.Geb.Div. 'Kaukasische Nr.9'" value = d_02 when = 2 }
+		command = { type = add_division which = "111.SS-Freiw.Geb.Div. 'Kaukasische Nr.10'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236064
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236064A
+		command = { type = add_division which = "124.SS-Freiw.Geb.Div. 'Kaukasische Nr.11'" value = d_02 when = 2 }
+		command = { type = add_division which = "125.SS-Freiw.Geb.Div. 'Kaukasische Nr.12'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+event = { 
+	id = 3236063
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1500
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 709 data = GER } # 709	Tblisi, All of Georgia must be liberated
+		control = { province = 707 data = GER } # 707	Tskhinvali
+		control = { province = 701 data = GER } # 701	Nalchik
+		control = { province = 703 data = GER } # 703	Vladikavkaz
+		control = { province = 708 data = GER } # 708	Kutaisi
+		control = { province = 695 data = GER } # 695	Sochi
+		control = { province = 710 data = GER } # 710	Sukhumi
+		control = { province = 693 data = GER } # 693	Maykop
+		control = { province = 711 data = GER } # 711	Yerevan, All of Armenia must be liberated
+		control = { province = 714 data = GER } # 714	Nakhchivan
+		control = { province = 704 data = GER } # 704	Makhachkala, All of Azerbaijan must be liberated
+		control = { province = 712 data = GER } # 712	Stepanakert
+		control = { province = 713 data = GER } # 713	Baku
+		NOT = {
+			owned = { province = 709 data = GER } # 709	Tblisi
+			owned = { province = 707 data = GER } # 707	Tskhinvali
+			owned = { province = 701 data = GER } # 701	Nalchik
+			owned = { province = 703 data = GER } # 703	Vladikavkaz
+			owned = { province = 708 data = GER } # 708	Kutaisi
+			owned = { province = 695 data = GER } # 695	Sochi
+			owned = { province = 710 data = GER } # 710	Sukhumi
+			owned = { province = 693 data = GER } # 693	Maykop
+			owned = { province = 711 data = GER } # 711	Yerevan
+			owned = { province = 714 data = GER } # 714	Nakhchivan
+			owned = { province = 704 data = GER } # 704	Makhachkala
+			owned = { province = 712 data = GER } # 712	Stepanakert
+			owned = { province = 713 data = GER } # 713	Baku
+		}
+	}
+
+	name = EVT_3236069_NAME
+	desc = EVT_3236069_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236063A
+		command = { type = add_division which = "138.SS-Freiw.Geb.Div. 'Kaukasische Nr.13'" value = d_02 when = 2 }
+		command = { type = add_division which = "139.SS-Freiw.Geb.Div. 'Kaukasische Nr.14'" value = d_02 when = 2 }
+		command = { type = supplies value = -1500 }
+	}
+}
+##########################################################
+# Germany recruits in Eastern Ukraine - Rosenberg plan
+##########################################################
+event = { 
+	id = 3236062
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236062A
+		command = { type = add_division which = "56.Waffen-Gr.Div. der SS 'Ukrainische Nr.22'" value = d_02 when = 2 }
+		command = { type = add_division which = "57.Waffen-Gr.Div. der SS 'Ukrainische Nr.23'" value = militia when = 2 }
+		command = { type = add_division which = "58.Waffen-Gr.Div. der SS 'Ukrainische Nr.24'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236061
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236061A
+		command = { type = add_division which = "70.Waffen-Gr.Div. der SS 'Ukrainische Nr.25'" value = d_02 when = 2 }
+		command = { type = add_division which = "71.Waffen-Gr.Div. der SS 'Ukrainische Nr.26'" value = militia when = 2 }
+		command = { type = add_division which = "72.Waffen-Gr.Div. der SS 'Ukrainische Nr.27'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236060
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236060A
+		command = { type = add_division which = "84.Waffen-Gr.Div. der SS 'Ukrainische Nr.28'" value = d_02 when = 2 }
+		command = { type = add_division which = "85.Waffen-Gr.Div. der SS 'Ukrainische Nr.29'" value = militia when = 2 }
+		command = { type = add_division which = "86.Waffen-Gr.Div. der SS 'Ukrainische Nr.30'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236059
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236059A
+		command = { type = add_division which = "98.Waffen-Gr.Div. der SS 'Ukrainische Nr.31'" value = d_02 when = 2 }
+		command = { type = add_division which = "99.Waffen-Gr.Div. der SS 'Ukrainische Nr.32'" value = militia when = 2 }
+		command = { type = add_division which = "100.Waffen-Gr.Div. der SS 'Ukrainische Nr.33'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236058
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236058A
+		command = { type = add_division which = "112.Waffen-Gr.Div. der SS 'Ukrainische Nr.34'" value = d_02 when = 2 }
+		command = { type = add_division which = "113.Waffen-Gr.Div. der SS 'Ukrainische Nr.35'" value = militia when = 2 }
+		command = { type = add_division which = "114.Waffen-Gr.Div. der SS 'Ukrainische Nr.36'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236057
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236057A
+		command = { type = add_division which = "126.Waffen-Gr.Div. der SS 'Ukrainische Nr.37'" value = d_02 when = 2 }
+		command = { type = add_division which = "127.Waffen-Gr.Div. der SS 'Ukrainische Nr.38'" value = militia when = 2 }
+		command = { type = add_division which = "128.Waffen-Gr.Div. der SS 'Ukrainische Nr.39'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+event = { 
+	id = 3236036 # 5436
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 1350
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 617 data = GER } # 617	Kiev, These areas in Ukraine must be German-held
+		control = { province = 636 data = GER } # 636	Kharkov
+		control = { province = 623 data = GER } # 623	Melitopol
+		control = { province = 627 data = GER } # 627	Krivoy Rog
+		NOT = {		
+			owned = { province = 617 data = GER } # 617	Kiev
+			owned = { province = 636 data = GER } # 636	Kharkov
+			owned = { province = 623 data = GER } # 623	Melitopol
+			owned = { province = 627 data = GER } # 627	Krivoy Rog
+		}
+	}
+
+	name = EVT_3236062_NAME
+	desc = EVT_3236062_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236036A
+		command = { type = add_division which = "140.Waffen-Gr.Div. der SS 'Ukrainische Nr.40'" value = d_02 when = 2 }
+		command = { type = add_division which = "141.Waffen-Gr.Div. der SS 'Ukrainische Nr.41'" value = militia when = 2 }
+		command = { type = add_division which = "142.Waffen-Gr.Div. der SS 'Ukrainische Nr.42'" value = militia when = 2 }
+		command = { type = supplies value = -1350 }
+	}
+}
+##########################################################
+# Germany recruits in Belarus - Rosenberg plan
+##########################################################
+
+event = { 
+	id = 3236037 # 5441
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3236037A
+		command = { type = add_division which = "59.Waffen-Gr.Div. der SS 'Weissruthenische Nr.1'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236038 # 5442
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1942 }
+	
+	action_a = {
+		name = ACTIONNAME3236038A
+		command = { type = add_division which = "73.Waffen-Gr.Div. der SS 'Weissruthenische Nr.2'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236039 # 5443
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1943 }
+	
+	action_a = {
+		name = ACTIONNAME3236039A
+		command = { type = add_division which = "87.Waffen-Gr.Div. der SS 'Weissruthenische Nr.3'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236040 # 5444
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1944 }
+	
+	action_a = {
+		name = ACTIONNAME3236040A
+		command = { type = add_division which = "101.Waffen-Gr.Div. der SS 'Weissruthenische Nr.4'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236041 # 5445
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1945 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3236041A
+		command = { type = add_division which = "115.Waffen-Gr.Div. der SS 'Weissruthenische Nr.5'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236042 # 5446
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1946 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1946 }
+	
+	action_a = {
+		name = ACTIONNAME3236042A
+		command = { type = add_division which = "129.Waffen-Gr.Div. der SS 'Weissruthenische Nr.6'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}
+event = { 
+	id = 3236043 # 5447
+	random = no 
+	country = GER 
+
+	trigger = { 
+		random = 20
+		supplies = 300
+		war = { country = GER  country = SOV }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 599 data = GER } # 599	Minsk, These areas in Belarus must be German-held
+		control = { province = 251 data = GER } # 251	Nowogrodek
+		control = { province = 594 data = GER } # 594	Bobruisk
+		NOT = {		
+			owned = { province = 599 data = GER } # 599	Minsk
+			owned = { province = 251 data = GER } # 251	Nowogrodek
+			owned = { province = 594 data = GER } # 594	Bobruisk
+		}
+	}
+
+	name = EVT_3236037_NAME
+	desc = EVT_3236037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1947 }
+	offset = 30 #check for trigger conditions every month
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3236043A
+		command = { type = add_division which = "143.Waffen-Gr.Div. der SS 'Weissruthenische Nr.7'" value = militia when = 2 }
+		command = { type = supplies value = -300 }
+	}
+}

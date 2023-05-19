@@ -1,0 +1,394 @@
+allowed_brigades = naval_anti_air_s
+allowed_brigades = naval_radar_s # changed to s
+allowed_brigades = naval_fire_controll_s # changed to s
+allowed_brigades = naval_improved_hull_s # changed to s
+allowed_brigades = naval_torpedoes_s
+allowed_brigades = floatplane
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0.1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB. BC. CA. CL. DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB. BC. CA. CL. DD
+#sea attack/2 for carriers/CAG
+
+#Pre-WW1-Coastal Battleship (5000to)
+model = {
+	cost = 0.56
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.35
+	maxspeed = 16
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 2.5
+	seadefence = 3
+	airdefence = 1
+	seaattack = 4
+	airattack = 0
+	subattack = 0.01
+	convoyattack = 4
+	transportcapability = 0
+	shorebombardment = 4
+	range = 1600
+	supplyconsumption = 0.39
+	fuelconsumption = 0.5
+	distance = 0.12
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 350 }
+	
+	}
+#WW1-Monitor (8000to)
+model = {
+	cost = 2.09
+	buildtime = 540
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.35
+	maxspeed = 12
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 4
+	seadefence = 3
+	airdefence = 1
+	seaattack = 5
+	airattack = 0
+	subattack = 0.01
+	convoyattack = 5
+	transportcapability = 0
+	shorebombardment = 7
+	range = 1600
+	supplyconsumption = 0.63
+	fuelconsumption = 0.8
+	distance = 0.28
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 350 }
+	
+	}
+#WW1-Costal Battleship (7000to)
+model = {
+	cost = 0.79
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.45
+	maxspeed = 23
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 3.5
+	seadefence = 4
+	airdefence = 2
+	seaattack = 6
+	airattack = 1
+	subattack = 0.01
+	convoyattack = 6
+	transportcapability = 0
+	shorebombardment = 6
+	range = 2000
+	supplyconsumption = 0.55
+	fuelconsumption = 0.7
+	distance = 0.21
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 450 }
+	
+	}
+#WW1 Heavy Cruiser (10000to)
+model = {
+	cost = 1.12
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.7
+	maxspeed = 32
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 5
+	seadefence = 3
+	airdefence = 2
+	seaattack = 5
+	airattack = 1
+	subattack = 0.01
+	convoyattack = 5
+	transportcapability = 0
+	shorebombardment = 3
+	range = 3200
+	supplyconsumption = 0.78
+	fuelconsumption = 1
+	distance = 0.19
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 700 }
+	
+	}
+#Washington Treaty Heavy Cruiser (11000to)
+model = {
+	cost = 1.23
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.7
+	maxspeed = 32
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 5.5
+	seadefence = 4
+	airdefence = 3
+	seaattack = 6
+	airattack = 2
+	subattack = 0.01
+	convoyattack = 6
+	transportcapability = 0
+	shorebombardment = 4
+	range = 3600
+	supplyconsumption = 0.86
+	fuelconsumption = 1.1
+	distance = 0.28
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 700 }
+	
+	}
+#London Treaty Heavy Cruiser (12000to)
+model = {
+	cost = 1.35
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 0.8
+	maxspeed = 34
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 6
+	seadefence = 5
+	airdefence = 3
+	seaattack = 7
+	airattack = 2
+	subattack = 0.01
+	convoyattack = 7
+	transportcapability = 0
+	shorebombardment = 5
+	range = 4000
+	supplyconsumption = 0.95
+	fuelconsumption = 1.2
+	distance = 0.30
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 800 }
+	
+	}
+#Pocket Battleship (13000to)
+model = {
+	cost = 1.28
+	buildtime = 1440
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.0
+	maxspeed = 28
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 6.5
+	seadefence = 5
+	airdefence = 4
+	seaattack = 9
+	airattack = 2
+	subattack = 0.01
+	convoyattack = 9
+	transportcapability = 0
+	shorebombardment = 6
+	range = 4800
+	supplyconsumption = 1.02
+	fuelconsumption = 1.3
+	distance = 0.37
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 1000 }
+	
+	}
+#Pre-WW2 Heavy Cruiser (13000to)
+model = {
+	cost = 1.46
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.2
+	maxspeed = 33
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 6.5
+	seadefence = 5
+	airdefence = 4
+	seaattack = 8
+	airattack = 3
+	subattack = 0.01
+	convoyattack = 8
+	transportcapability = 0
+	shorebombardment = 5
+	range = 4400
+	supplyconsumption = 1.02
+	fuelconsumption = 1.3
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 1200 }
+	
+	}
+#WW2 Heavy Cruiser (16000to)
+model = {
+	cost = 2.51
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.2
+	maxspeed = 33
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 8
+	seadefence = 6
+	airdefence = 4
+	seaattack = 9
+	airattack = 3
+	subattack = 0.01
+	convoyattack = 9
+	transportcapability = 0
+	shorebombardment = 6
+	range = 4800
+	supplyconsumption = 1.26
+	fuelconsumption = 1.6
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 1200 }
+	heavy_cruiser = 10
+	}
+#Cold War Heavy Cruiser (17000to)
+model = {
+	cost = 2.67
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.8
+	maxspeed = 33
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 8.5
+	seadefence = 7
+	airdefence = 12
+	seaattack = 10
+	airattack = 6
+	subattack = 0.01
+	convoyattack = 10
+	transportcapability = 0
+	shorebombardment = 7
+	range = 5600
+	supplyconsumption = 1.34
+	fuelconsumption = 1.7
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 1800 }
+	heavy_cruiser = 10
+	}
+#Guided Missile Cruiser (13000to)
+model = {
+	cost = 2.04
+	buildtime = 900
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.1
+	maxspeed = 33
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 6.5
+	seadefence = 8
+	airdefence = 15
+	seaattack = 12
+	airattack = 8
+	subattack = 0.01
+	convoyattack = 12
+	transportcapability = 0
+	shorebombardment = 8
+	range = 6400
+	supplyconsumption = 1.02
+	fuelconsumption = 1.3
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.25 #2.5 # Anmerkung: nur ein Modifikator für upgrade_time festlegbar, aber zwei Ausgangsmodelle hierher modernisierbar, wobei einmal 1.0 und einmal 4.0 benötigt würde; also auf 2.5 als Durchschnitt gesetzt
+	upgrade_cost_factor = 0.3 #0.15
+	equipment = { heavy_cruiser = 1 manpower = 1100 }
+	
+	}
+#Nuclear powered Cruiser (16000to)
+model = {
+	cost = 1.79
+	buildtime = 1260
+	defaultorganisation = 30
+	morale = 30
+	manpower = 1.2
+	maxspeed = 30
+	surfacedetectioncapability = 0.35
+	airdetectioncapability = 0.01
+	subdetectioncapability = 0.35
+	visibility = 8
+	seadefence = 8
+	airdefence = 18
+	seaattack = 12
+	airattack = 10
+	subattack = 0.01
+	convoyattack = 12
+	transportcapability = 0
+	shorebombardment = 8
+	range = 12800
+	supplyconsumption = 1.25
+	fuelconsumption = 0
+	distance = 0.32
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	upgrade_time_factor = 1.0
+	upgrade_cost_factor = 0.15
+	equipment = { heavy_cruiser = 1 manpower = 1200 }
+	
+	}

@@ -1,0 +1,337 @@
+# checked DH
+###############################################################################################
+# 3158000 - 3158999	Norway political events
+###############################################################################################
+
+###########################################################
+# Altmark Incident (was 1002001, 8200001) modified by Luxor
+###########################################################
+event = { 
+	id = 3158000
+	random = no
+	country = NOR
+	
+	trigger = {
+		war = { country = GER country = ENG }
+		NOT = {	
+			war = { country = NOR country = GER }
+			war = { country = NOR country = ENG }
+			war = { country = NOR country = SOV }
+			alliance = { country = NOR country = GER }
+			alliance = { country = NOR country = ENG }
+			alliance = { country = NOR country = SOV }
+		}
+	}
+
+	name = EVT_3158000_NAME
+	desc = EVT_3158000_DESC
+	style = 0
+
+    date = { day = 15 month = february year = 1940 }
+    offset = 1
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		ai_chance = 98
+		name = ACTIONNAME3158000A
+		command = { type = money value = -1 }
+		command = { type = trigger which = 3136038 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3158000B
+		command = { type = alliance which = ENG }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_c = {
+		ai_chance = 1
+		name = ACTIONNAME3158000C
+		command = { type = alliance which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3128000 }
+	}
+}
+###########################################################
+# Germany invades Norway (was 1002004, 8200002)
+###########################################################
+event = { 
+	id = 3158001
+	random = no
+	country = NOR
+	
+	trigger = {	war = { country = GER  country = DEN } }
+	# Will also be triggered by Germany 29
+	
+	name = EVT_3158001_NAME
+	desc = EVT_3158001_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = april year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3158001A
+		command = { type = alliance which = ENG }
+		command = { type = domestic which = democratic value = 1 }
+		#command = { trigger = { NOT = { ai = GER }} type = strength which = land when = 1 where = 0 org = 1.0 value = 1.0 }		
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 2  where = -100 }
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 4  where = -100 }
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 6  where = -100 }
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 8  where = -100 }
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 10 where = -100 }
+		command = { trigger = { NOT = { ai = GER }} type = damage_division which = 12600 value = 12 where = -100 }
+	}
+}
+###########################################################
+# UK invades Norway (by Luxor)
+###########################################################
+event = { 
+	id = 3158002
+	random = no
+	country = NOR
+	
+	# Triggered by ENG 3131005
+	
+	name = EVT_3158002_NAME
+	desc = EVT_3158002_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3158002A
+		command = { type = trigger which = 3136167 } # GER
+	}
+}
+###########################################################
+# German Invasion
+###########################################################
+event = { 
+	id = 3158003
+	random = no
+	country = NOR
+	
+	# Triggered by GER 3136170
+	
+	name = EVT_3158003_NAME
+	desc = EVT_3136170_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3158003A
+		ai_chance = 99
+		command = {  }
+	}
+	action_b = {
+		name = ACTIONNAME3158003B
+		ai_chance = 1
+		command = { type = peace which = GER value = 1 } # Separate peace
+		command = { type = trigger which = 3136171 } # GER
+	}
+}
+###########################################################
+# Norwegian army suffers severe morale blow with most part of country occupied
+###########################################################
+#event = { 
+#	id = 3158004
+#	random = no
+#	country = NOR
+#	
+#	trigger = {
+#                AI = yes
+#                AI = GER
+#		war = { country = GER country = NOR }
+#                lost_national = { country = NOR value = 65 }
+#	}
+#	
+#	name = EVT_3158004_NAME
+#	desc = EVT_3158004_DESC
+#	style = 0
+#
+#	action_a = {
+#		name = ACTIONNAME3158004A # All is lost
+#		command = { type = ground_def_eff value = 0.2 }
+#	}
+#}
+#
+#
+###########################################################################
+#  	8200000 - 8299999
+###########################################################################
+##################################################################################
+# Was 1002000 NOR - Quisling and his Ultra-Nationalist Party (by nachinus)
+##################################################################################
+event = {
+	id = 8200000
+	random = no
+	country = NOR
+
+	trigger = {
+		random = 20
+		atwar = no
+		government = democratic
+		exists = GER
+		NOT = {
+			OR = {
+				alliance = { country = NOR country = ENG }
+				alliance = { country = NOR country = GER }
+				alliance = { country = NOR country = ITA }
+				atwar = GER
+			}
+		}
+		event = 3136006 #Austria annexed via Anschluss
+	}
+
+	name = EVT_8200000_NAME
+ 	desc = EVT_8200000_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1938 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME8200000A
+		command = { type = dissent value = 4 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME8200000B
+		command = { type = dissent value = 8 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME8200000C
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+############################################
+# Was 1002074 (NOR) The backpack collection (by Ghost_dk)
+############################################
+event = {
+	id = 8200003
+	random = no
+	country = NOR
+
+	trigger = {
+		random = 20 
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			war = { country = FIN country = NOR }
+			alliance = { country = NOR country = SOV }
+		}
+	}
+
+	name = EVT_8200003_NAME
+	desc = EVT_8200003_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8200003A
+		command = { type = trigger which = 1002075 }
+	}
+	action_b = {
+		name = ACTIONNAME8200003B
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 1002075 }
+	}
+}
+########################################
+# Was 1002078 (NOR)USSR protests (by Ghost_dk)
+########################################
+event = {
+	id = 8200004
+	random = no
+	country = NOR
+
+	# triggered by SOV 222042
+
+	name = EVT_8200004_NAME
+	desc = EVT_8200004_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8200004A
+		command = { type = money value = -1 }
+	}
+}
+###################################
+# Was 1002114 (NOR)Allies Request Military access
+# By Luxor
+###################################
+event = { 
+	id = 8200005
+	random = no
+	country = NOR 
+
+	# triggered by ENG 3131079
+
+	name = EVT_8200005_NAME
+	desc = EVT_8200005_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8200005A
+		command = { type = trigger which = 3131095 }
+	}
+	action_b = {
+		name = ACTIONNAME8200005B
+		command = { type = access which = ENG }
+		command = { type = trigger which = 3131094 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 8200006
+	random = no
+	country = NOR 
+
+	# triggered by 3182091
+
+	name = EVT_5800008_NAME
+	desc = EVT_5800008_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME5800008A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = { 
+	id = 8200007
+	random = no
+	country = NOR 
+
+	# triggered by 3182093
+
+	name = EVT_5800009_NAME
+	desc = EVT_5800009_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 100
+		name = ACTIONNAME5800009A
+		command = { type = alliance which = ENG }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME5800009B
+		command = { }
+	}
+}

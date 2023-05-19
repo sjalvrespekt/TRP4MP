@@ -1,0 +1,217 @@
+#	elite motorized				
+#allowed_brigades =  artillery					
+#allowed_brigades =  anti_tank					
+#allowed_brigades =  anti_air					
+#allowed_brigades =  rocket_artillery					
+allowed_brigades =  sp_artillery					
+allowed_brigades =  sp_rct_artillery					
+allowed_brigades =  tank_destroyer					
+allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+allowed_brigades =  sp_anti_air	
+allowed_brigades =  b_01				
+					
+# Early Elite Motorized Division (1937) - 0					
+model = {					
+	cost =				11.51
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				23
+	toughness =				24
+	softness =				90
+	suppression =				0
+	airdefence =				20
+	softattack =				20
+	hardattack =				0
+	airattack =				1
+	transportweight =				37.5
+	supplyconsumption =				2.81
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 17000 equipment = 437 artillery = 69 heavy_artillery = 28 anti_air = 7 anti_tank = 9 horses = 5877 trucks = 1725  armored_car = 3                           }
+}					
+# Basic Elite Motorized Division (1939) - 1					
+model = {					
+	cost =				12.22
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				26
+	toughness =				27
+	softness =				90
+	suppression =				0
+	airdefence =				22
+	softattack =				22
+	hardattack =				1
+	airattack =				1
+	transportweight =				37.5
+	supplyconsumption =				2.99
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 17000 equipment = 403 artillery = 83 heavy_artillery = 14 anti_air = 14 anti_tank = 86 horses = 5566 trucks = 3450  armored_car = 3                           }
+}					
+# Improved Elite Motorized Division (1942) - 2					
+model = {					
+	cost =				13.36
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				30
+	toughness =				32
+	softness =				90
+	suppression =				0
+	airdefence =				27
+	softattack =				27
+	hardattack =				2
+	airattack =				1
+	transportweight =				37.5
+	supplyconsumption =				3.27
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 17000 equipment = 247 artillery = 71 heavy_artillery = 14 anti_air = 14 anti_tank = 86 horses = 5566 trucks = 3680 halftracks = 3 armored_car = 10              balloon = 7             }
+}					
+# Advanced Elite Motorized Division (1944) - 3					
+model = {					
+	cost =				14.17
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				34
+	toughness =				36
+	softness =				90
+	suppression =				0
+	airdefence =				30
+	softattack =				30
+	hardattack =				2
+	airattack =				2
+	transportweight =				37.5
+	supplyconsumption =				3.46
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 17000 equipment = 288 artillery = 71 heavy_artillery = 14 anti_air = 21 anti_tank = 86 horses = 6938 trucks = 3738 halftracks = 10 armored_car = 15     sp_artillery = 10         balloon = 12             }
+}					
+# Semimodern Elite Motorized Division (1947) - 4					
+model = {					
+	cost =				15.49
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				41
+	toughness =				43
+	softness =				90
+	suppression =				0
+	airdefence =				35
+	softattack =				35
+	hardattack =				4
+	airattack =				2
+	transportweight =				37.5
+	supplyconsumption =				3.79
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 17000 equipment = 299 artillery = 71 heavy_artillery = 28 anti_air = 21 anti_tank = 83 horses = 1254 trucks = 3795 halftracks = 21 armored_car = 28     sp_artillery = 21         balloon = 14             }
+}					
+# Modern Elite Motorized Division (1951) - 5					
+model = {					
+	cost =				16.77
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				48
+	toughness =				51
+	softness =				90
+	suppression =				0
+	airdefence =				41
+	softattack =				41
+	hardattack =				5
+	airattack =				2
+	transportweight =				37.5
+	supplyconsumption =				4.1
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 316 artillery = 71 heavy_artillery = 28 anti_air = 28 anti_tank = 69 horses = 955 trucks = 3795 halftracks = 41 armored_car = 41     sp_artillery = 21         balloon = 14             }
+}					
+# Elite Elite Motorized Division (1955) - 6					
+model = {					
+	cost =				18.16
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				56
+	toughness =				59
+	softness =				90
+	suppression =				0
+	airdefence =				49
+	softattack =				49
+	hardattack =				6
+	airattack =				3
+	transportweight =				37.5
+	supplyconsumption =				4.44
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 351 artillery = 83 heavy_artillery = 28 anti_air = 28 anti_tank = 41  trucks = 3910 halftracks = 83 armored_car = 14     sp_artillery = 41         balloon = 12             }
+}					
+# Elite Elite Motorized Division (1960) - 7					
+model = {					
+	cost =				20.05
+	buildtime =			 	220
+	manpower =				17
+	maxspeed =				12
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				68
+	toughness =				72
+	softness =				90
+	suppression =				0
+	airdefence =				59
+	softattack =				59
+	hardattack =				8
+	airattack =				3
+	transportweight =				37.5
+	supplyconsumption =				4.9
+	fuelconsumption =				5.15
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 17000 equipment = 351 artillery = 83 heavy_artillery = 28 anti_air = 28 anti_tank = 35  trucks = 4025 halftracks = 124 armored_car = 3     sp_artillery = 41       helicopter = 7  balloon = 7             }
+}					

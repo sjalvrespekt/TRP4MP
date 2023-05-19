@@ -1,0 +1,219 @@
+#	elite mechanized				
+#allowed_brigades =  artillery										
+#allowed_brigades =  anti_tank																												
+#allowed_brigades =  anti_air																																						
+#allowed_brigades =  rocket_artillery																																						
+allowed_brigades =  sp_artillery																																						
+allowed_brigades =  sp_rct_artillery																																						
+allowed_brigades =  tank_destroyer																																						
+#allowed_brigades =  light_armor_brigade																																						
+allowed_brigades =  heavy_armor																																						
+allowed_brigades =  super_heavy_armor																																						
+#allowed_brigades =  armored_car																																						
+allowed_brigades =  engineer																																						
+#allowed_brigades =  police																																						
+allowed_brigades =  sp_anti_air		
+#allowed_brigades =  b_01																																				
+																																						
+#upgrade = { type = light_armor upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }																																						
+																																						
+# Early Elite Mechanized Division (1937) - 0																																						
+model = {																																						
+	cost =				15.59																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			42																																	
+	toughness =			44																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			20																																	
+	softattack =			36																																	
+	hardattack =			2																																	
+	airattack =			2																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		5.09																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	#upgrade_time_factor =		0.6																																	
+	#upgrade_cost_factor =		0																																	
+	equipment =		{ manpower = 17000 equipment = 165 artillery = 41  anti_air = 65 anti_tank = 45  trucks = 2451 halftracks = 122 armored_car = 44 light_armor = 24   tank_destroyer = 24 sp_artillery = 35                      }																																	
+}																																						
+# Basic Elite Mechanized Division (1940) - 1																																						
+model = {																																						
+	cost =				17.04																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			49																																	
+	toughness =			52																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			24																																	
+	softattack =			42																																	
+	hardattack =			4																																	
+	airattack =			2																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		5.57																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 185 artillery = 41  anti_air = 76 anti_tank = 41  trucks = 2335 halftracks = 138 armored_car = 48 light_armor = 12 medium_armor = 12  tank_destroyer = 28 sp_artillery = 41                      }																																	
+}																																						
+# Improved Elite Mechanized Division (1943) - 2																																						
+model = {																																						
+	cost =				18.62																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			59																																	
+	toughness =			62																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			28																																	
+	softattack =			51																																	
+	hardattack =			7																																	
+	airattack =			2																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		6.08																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 205 artillery = 41 heavy_artillery = 5 anti_air = 83 anti_tank = 41  trucks = 2369 halftracks = 138 armored_car = 56  medium_armor = 12  tank_destroyer = 39 sp_artillery = 48                      }																																	
+}																																						
+# Advanced Elite Mechanized Division (1945) - 3																																						
+model = {																																						
+	cost =				19.76																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			66																																	
+	toughness =			70																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			32																																	
+	softattack =			57																																	
+	hardattack =			10																																	
+	airattack =			2																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		6.45																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.47																																	
+	equipment =		{ manpower = 17000 equipment = 219 artillery = 41 heavy_artillery = 9 anti_air = 83 anti_tank = 35  trucks = 1760 halftracks = 276 armored_car = 56  medium_armor = 12  tank_destroyer = 41 sp_artillery = 55         balloon = 7             }																																	
+}																																						
+# Semi-Modern Elite Mechanized Division (1948) - 4																																						
+model = {																																						
+	cost =				21.38																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			77																																	
+	toughness =			81																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			37																																	
+	softattack =			66																																	
+	hardattack =			15																																	
+	airattack =			3																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		6.98																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 242 artillery = 48 heavy_artillery = 9 anti_air = 62 anti_tank = 35  trucks = 1507 halftracks = 403 armored_car = 41  medium_armor = 12  tank_destroyer = 41 sp_artillery = 62         balloon = 12             }																																	
+}																																						
+# Modern Elite Mechanized Division (1952) - 5																																						
+model = {																																						
+	cost =				23.15																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			91																																	
+	toughness =			96																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			43																																	
+	softattack =			78																																	
+	hardattack =			19																																	
+	airattack =			3																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		7.56																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 265 artillery = 48 heavy_artillery = 14 anti_air = 62 anti_tank = 28  trucks = 1535 halftracks = 414 armored_car = 28  medium_armor = 12  tank_destroyer = 28 sp_artillery = 62         balloon = 14             }																																	
+}																																						
+# Elite Elite Mechanized Division (1956) - 6																																						
+model = {																																						
+	cost =				25.05																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			106																																	
+	toughness =			111																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			50																																	
+	softattack =			91																																	
+	hardattack =			24																																	
+	airattack =			4																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		8.18																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 316 artillery = 55 heavy_artillery = 14 anti_air = 55 anti_tank = 24  trucks = 1265 halftracks = 518 armored_car = 14  medium_armor = 12  tank_destroyer = 28 sp_artillery = 59         balloon = 14             }																																	
+}																																						
+# Elite Elite Mechanized Division (1961) - 7																																						
+model = {																																						
+	cost =				27.65																																	
+	buildtime =			294																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		22																																	
+	morale =			20																																	
+	defensiveness =			129																																	
+	toughness =			136																																	
+	softness =			55																																	
+	suppression =			0																																	
+	airdefence =			61																																	
+	softattack =			111																																	
+	hardattack =			31																																	
+	airattack =			5																																	
+	transportweight =		37.5																																	
+	supplyconsumption =		9.03																																	
+	fuelconsumption =		7																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 351 artillery = 55 heavy_artillery = 21 anti_air = 55 anti_tank = 21  trucks = 1265 halftracks = 552 armored_car = 3  medium_armor = 12  tank_destroyer = 28 sp_artillery = 55       helicopter = 3  balloon = 12             }																																	
+}																																						

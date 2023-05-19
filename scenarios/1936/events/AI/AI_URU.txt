@@ -1,0 +1,159 @@
+# checked DH
+####################################
+# Uruguay AI events 34200 - 34299 by Lothos
+####################################
+################
+# Minister of Security Section 34200 - 34209
+#############################################
+event = { # Roberto Acosta Díez takes power
+	id = 34200
+	random = no 
+	country = URU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 41015 # Roberto Acosta Díez
+		NOT = { InCabinet = 41015 }
+		OR = {
+			manpower = 20
+			NOT = { minister = 41061 } # Horacio Arredondo
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 41015 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Horacio Arredondo takes power
+	id = 34201
+	random = no 
+	country = URU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 41061 # Horacio Arredondo
+		NOT = { InCabinet = 41061 }
+		OR = {
+			NOT = { manpower = 20 }
+			NOT = { minister = 41015 } # Roberto Acosta Díez
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 41061 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 34210 - 34219
+#############################################
+################
+# Head of Intelligence Section 34220 - 34229
+#############################################
+event = { # Lui Soro Contioni takes power
+	id = 34220
+	random = no 
+	country = URU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 41016 # Lui Soro Contioni
+		NOT = { InCabinet = 41016 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 41016 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Enrique Moutisch takes power
+	id = 34221
+	random = no 
+	country = URU
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 41070 # Enrique Moutisch
+		NOT = { InCabinet = 41070 }
+		NOT = { minister = 41016 } # Lui Soro Contioni
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 41070 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 34230 - 34239
+#############################################
+################
+# Armament Minister Section 34240 - 34249
+#############################################
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34260 - 34299
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 34260
+	random = no 
+	country = URU
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 2
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

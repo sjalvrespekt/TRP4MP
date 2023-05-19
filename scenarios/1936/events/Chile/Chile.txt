@@ -1,0 +1,76 @@
+# checked DH
+###########################################################################
+#	4500000 - 4599999
+###########################################################################
+#########################################
+# Was 1052023 (CHL)Protest agains soviet attack on Finland (by Ghost_dk)
+#########################################
+event = {
+	id = 4500000
+	random = no
+	country = CHL
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			alliance = { country = CHL country = SOV }
+			war = { country = CHL country = FIN }
+		}
+	}
+
+	name = EVT_4500000_NAME # Protest against Soviet attack on Finland
+	desc = EVT_4500000_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 2 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME4500000A # Protest
+		command = { type = trigger which = 222052 }
+		command = { type = money value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4500000B # Condone attack
+		command = { type = sleepevent which = 222051 }
+		command = { type = money value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+############################################
+# Was 1052040 1945 Literature
+############################################
+event = {
+	id = 4500001
+	random = no
+	country = CHL
+
+	trigger = {
+		exists = SWE 
+		exists = CHL
+		NOT = {
+			war = { country = SWE country = CHL }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+	
+	name = EVT_4500001_NAME # 1945 Nobel Prize in Literature
+	desc = EVT_4500001_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME4500001A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}

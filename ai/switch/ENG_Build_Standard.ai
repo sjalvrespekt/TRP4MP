@@ -1,0 +1,59 @@
+# England Standard Build by Lothos adapted to TRP
+# Converted to DH by Dendro 2011-July-06
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.05
+}
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 360 
+	max_batch_home_front 	= 360
+
+	#### Divisions etc...
+	infantry 		= 25
+	d_02			= 4 # will transmute into garrisons as long as no territory has been lost
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 6
+	mechanized 		= 0
+	light_armor 	= 0
+	armor 			= 4
+	paratrooper 	= 0
+	marine 			= 4
+	bergsjaeger 	= 0
+	garrison		= 0
+    hq 				= 3
+
+#				46 %
+	interceptor 		= 9
+	multi_role 		= 7
+	d_01			= 2
+	cas 			= 0
+	strategic_bomber = 4
+	tactical_bomber = 5
+	naval_bomber 	= 5
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				32 %
+	battleship 		= 1
+	carrier 		= 1
+	light_carrier	= 2
+	escort_carrier	= 2
+	destroyer 		= 6
+	light_cruiser 	= 2
+	heavy_cruiser 	= 1
+	battlecruiser 	= 0
+	submarine 		= 1
+	nuclear_submarine = 1
+	d_09 = 3
+	d_08 = 0
+	transports 		= 2
+#				22 %
+}

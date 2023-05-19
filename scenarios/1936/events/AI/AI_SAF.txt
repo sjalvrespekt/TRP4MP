@@ -1,0 +1,284 @@
+# checked DH
+####################################
+# South Africa AI events 36400 - 36499 by Lothos
+####################################
+################
+# Minister of Security Section 36400 - 36409
+#############################################
+event = { # D. F. Malan takes power
+	id = 36400
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70060 # D. F. Malan
+		NOT = { InCabinet = 70060 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 70060 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # C. R. Swart takes power
+	id = 36401
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70057 # C. R. Swart
+		NOT = { InCabinet = 70057 }
+		NOT = { minister = 70060 } # D. F. Malan
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 70057 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 36410 - 36419
+#############################################
+event = { # Jan C. Smuts takes power
+	id = 36410
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70074 # Jan C. Smuts
+		NOT = { InCabinet = 70074 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 70074 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 36420 - 36429
+#############################################
+event = { # Nicolaas Havenga takes power
+	id = 36420
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70070 # Nicolaas Havenga
+		NOT = { InCabinet = 70070 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 70070 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 36430 - 36439
+#############################################
+event = { # James Mitchell-Baker takes power
+	id = 36430
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70077 # James Mitchell-Baker
+		NOT = { InCabinet = 70077 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 70077 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 36440 - 36449
+#############################################
+event = { # S.P. Le Roux takes power
+	id = 36440
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70043 # S.P. Le Roux
+		NOT = { InCabinet = 70043 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 70043 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # W. E. Madeley takes power
+	id = 36441
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70046 # W. E. Madeley
+		NOT = { InCabinet = 70046 }
+		NOT = { minister = 70043 } # S.P. Le Roux
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 70046 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 36450 - 36459
+#############################################
+event = { # Pierre van Ryneveld takes power
+	id = 36450
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70010 # Pierre van Ryneveld
+		NOT = { InCabinet = 70010 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 70010 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 36460 - 36469
+#############################################
+event = { # Pierre Oliver-Knoll takes power
+	id = 36460
+	random = no 
+	country = SAF
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 70009 # Pierre Oliver-Knoll
+		NOT = { InCabinet = 70009 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofnavy which = 70009 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 36470 - 36499
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 36470
+	random = no 
+	country = SAF
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = ENG
+			atwar = FRA
+			atwar = USA
+			year = 1939
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}

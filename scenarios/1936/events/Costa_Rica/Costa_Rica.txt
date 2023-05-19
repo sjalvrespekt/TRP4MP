@@ -1,0 +1,94 @@
+# checked DH
+###########################################################################
+#	9100000 - 9199999
+###########################################################################
+##########################################################################
+# Was 602027 - (COS) Costa Rica express their solidarity (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9100000 
+	random = no 
+	country = COS
+
+	trigger = {
+		war = { country = USA country = JAP } 
+		NOT = {
+			OR = {
+				ispuppet = COS
+				alliance = { country = COS country = ENG } 
+				alliance = { country = COS country = USA } 
+				alliance = { country = COS country = GER } 
+				alliance = { country = COS country = SOV } 
+				atwar = COS
+			}
+		}
+	}
+
+	name = EVT_9100000_NAME # Costa Rica express their solidarity
+	desc = EVT_9100000_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME9100000A # Declare war against Japan
+		command = { type = alliance which = USA }
+		command = { type = access which = USA }
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 10 }
+	} 
+	action_b = { 
+		name = ACTIONNAME9100000B # It is not necessary
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}
+##########################################################################
+# Was 602028 - (COS) Costa Rica joins the allies (by Generalisimo)
+#########################################################################
+event = { 
+	id = 9100001
+	random = no 
+	country = COS
+
+	trigger = {
+		event = 9100000 
+		war = { country = USA country = JAP } 
+		war = { country = COS country = JAP } 
+		alliance = { country = USA country = ENG } 
+		exists = ENG	
+		NOT = {
+			OR = {
+				ispuppet = COS
+				alliance = { country = COS country = ENG } 
+				alliance = { country = COS country = USA } 
+				alliance = { country = COS country = GER } 
+				alliance = { country = COS country = SOV } 
+			}
+		}
+	}
+
+	name = EVT_9100001_NAME # Costa Rica joins the allies
+	desc = EVT_9100001_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME9100001A # Join the allies
+		command = { type = alliance which = ENG }
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 5 }
+	} 
+	action_b = { 
+		name = ACTIONNAME9100001B # It is not necessary
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}

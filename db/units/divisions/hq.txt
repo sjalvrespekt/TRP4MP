@@ -1,0 +1,142 @@
+#hq
+#allowed_brigades =  artillery																																						
+#allowed_brigades =  anti_tank																																						
+#allowed_brigades =  anti_air																																						
+#allowed_brigades =  rocket_artillery																																						
+#allowed_brigades =  sp_artillery																																						
+#allowed_brigades =  sp_rct_artillery																																						
+#allowed_brigades =  tank_destroyer																																						
+#allowed_brigades =  light_armor_brigade																																						
+#allowed_brigades =  heavy_armor																																						
+#allowed_brigades =  super_heavy_armor																																						
+allowed_brigades =  armored_car																																						
+allowed_brigades =  engineer																																						
+#allowed_brigades =  police																																						
+allowed_brigades =  sp_anti_air	
+#allowed_brigades =  b_01																																					
+																																						
+# Basic HQ Division (1918) - 0																																						
+model = {																																						
+	cost =				14.54																																	
+	buildtime =			 	240																																	
+	manpower =				3																																	
+	maxspeed =				8																																	
+	defaultorganisation =				20																																	
+	morale =				20																																	
+	defensiveness =				14																																	
+	toughness =				15																																	
+	softness =				100																																	
+	suppression =				1																																	
+	airdefence =				4																																	
+	softattack =				1																																	
+	hardattack =				0																																	
+	airattack =				1																																	
+	transportweight =				10																																	
+	supplyconsumption =				3.88																																	
+	fuelconsumption =				0																																	
+	reinforce_time =				0.5																																	
+	reinforce_cost =				1.4																																	
+	#upgrade_time_factor =				0.6																																	
+	#upgrade_cost_factor =				0																																	
+	equipment =				{ manpower = 3000 equipment = 50   anti_air = 4  horses = 500 trucks = 300                balloon = 10             }																																	
+}																																						
+# Improved HQ Division (1939) #Motorized/Mechanized - 1																																						
+model = {																																						
+	cost =				19.01																																	
+	buildtime =			 	240																																	
+	manpower =				3																																	
+	maxspeed =				11																																	
+	defaultorganisation =				20																																	
+	morale =				20																																	
+	defensiveness =				23																																	
+	toughness =				25																																	
+	softness =				90																																	
+	suppression =				1																																	
+	airdefence =				7																																	
+	softattack =				2																																	
+	hardattack =				0																																	
+	airattack =				1																																	
+	transportweight =				10																																	
+	supplyconsumption =				5.07																																	
+	fuelconsumption =				1.5																																	
+	reinforce_time =				0.5																																	
+	reinforce_cost =				1.4																																	
+	upgrade_time_factor =				0.6																																	
+	upgrade_cost_factor =				0.8																																	
+	equipment =				{ manpower = 3000 equipment = 50   anti_air = 6  horses = 300 trucks = 350 halftracks = 50               balloon = 10             }																																	
+}																																						
+# Advanced HQ Division (1944) #Armoured/Mechanized - 2																																						
+model = {																																						
+	cost =				22.04																																	
+	buildtime =			 	240																																	
+	manpower =				3																																	
+	maxspeed =				13																																	
+	defaultorganisation =				20																																	
+	morale =				20																																	
+	defensiveness =				31																																	
+	toughness =				33																																	
+	softness =				75																																	
+	suppression =				1																																	
+	airdefence =				10																																	
+	softattack =				3																																	
+	hardattack =				0																																	
+	airattack =				1																																	
+	transportweight =				10																																	
+	supplyconsumption =				5.88																																	
+	fuelconsumption =				3																																	
+	reinforce_time =				0.5																																	
+	reinforce_cost =				1.4																																	
+	upgrade_time_factor =				0.6																																	
+	upgrade_cost_factor =				0.8																																	
+	equipment =				{ manpower = 3000 equipment = 50   anti_air = 8  horses = 100 trucks = 500 halftracks = 75               balloon = 10             }																																	
+}																																						
+# Semimodern HQ Division (1951) #Armoured/Mechanized - 3																																						
+model = {																																						
+	cost =				26.06																																	
+	buildtime =			 	240																																	
+	manpower =				3																																	
+	maxspeed =				13																																	
+	defaultorganisation =				20																																	
+	morale =				20																																	
+	defensiveness =				44																																	
+	toughness =				47																																	
+	softness =				75																																	
+	suppression =				1																																	
+	airdefence =				13																																	
+	softattack =				4																																	
+	hardattack =				0																																	
+	airattack =				2																																	
+	transportweight =				10																																	
+	supplyconsumption =				6.95																																	
+	fuelconsumption =				3																																	
+	reinforce_time =				0.5																																	
+	reinforce_cost =				1.4																																	
+	upgrade_time_factor =				0.6																																	
+	upgrade_cost_factor =				0.8																																	
+	equipment =				{ manpower = 3000 equipment = 50   anti_air = 12   trucks = 600 halftracks = 100               balloon = 10             }																																	
+}																																						
+# Modern HQ Division (1960) #Armoured/Mechanized - 4																																						
+model = {																																						
+	cost =				31.14																																	
+	buildtime =			 	240																																	
+	manpower =				3																																	
+	maxspeed =				13																																	
+	defaultorganisation =				20																																	
+	morale =				20																																	
+	defensiveness =				62																																	
+	toughness =				66																																	
+	softness =				75																																	
+	suppression =				1																																	
+	airdefence =				19																																	
+	softattack =				5																																	
+	hardattack =				1																																	
+	airattack =				3																																	
+	transportweight =				10																																	
+	supplyconsumption =				8.3																																	
+	fuelconsumption =				3																																	
+	reinforce_time =				0.5																																	
+	reinforce_cost =				1.4																																	
+	upgrade_time_factor =				0.6																																	
+	upgrade_cost_factor =				0.8																																	
+	equipment =				{ manpower = 3000 equipment = 50   anti_air = 16   trucks = 600 halftracks = 125               balloon = 10             }																																	
+}																																						

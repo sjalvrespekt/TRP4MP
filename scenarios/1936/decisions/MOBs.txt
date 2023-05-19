@@ -1,0 +1,466 @@
+#################################################################
+# Emergency mobilization decision
+#################################################################
+event = {	
+	id = 3199901
+	random = no
+	
+	persistent = yes
+	
+	decision = {
+				local_flag = total_war
+				NOT = { local_flag = emergency_mob }
+				atwar = yes
+				OR = {
+						lost_national = { value = 10 }
+						AND = {
+								IC = 50
+								NOT = { manpower = 100 }
+								}
+						AND = {
+								IC = 5
+								NOT = { IC = 50 }
+								NOT = { manpower = 40 }
+								}
+						AND = {
+								IC = 1
+								NOT = { IC = 5 }
+								NOT = { manpower = 20 }
+								}
+						}
+				}
+				
+	decision_trigger = {
+						OR = {
+								lost_national = { value = 10 }
+								AND = {
+										IC = 50
+										NOT = { manpower = 10 }
+										}
+								AND = {
+										IC = 5
+										NOT = { IC = 50 }
+										NOT = { manpower = 4 }
+										}
+								AND = {
+										IC = 1
+										NOT = { IC = 5 }
+										NOT = { manpower = 2 }
+										}
+								}
+						}
+	
+	trigger =	{ 
+				local_flag = total_war
+				NOT = { local_flag = emergency_mob }
+				atwar = yes
+				OR = {
+						AND = {
+								lost_national = { value = 10 }
+								OR = {
+										AND = {
+												IC = 50
+												NOT = { manpower = 100 }
+												}
+										AND = {
+												IC = 5
+												NOT = { IC = 50 }
+												NOT = { manpower = 40 }
+												}
+										AND = {
+												IC = 1
+												NOT = { IC = 5 }
+												NOT = { manpower = 20 }
+												}
+										}
+								}
+						AND = {
+								IC = 50
+								NOT = { manpower = 15 }
+								random = 2
+								}
+						AND = {
+								IC = 5
+								NOT = { IC = 50 }
+								NOT = { manpower = 6 }
+								random = 2
+								}
+						AND = {
+								IC = 1
+								NOT = { IC = 5 }
+								NOT = { manpower = 3 }
+								random = 2
+								}
+						}
+				}
+	
+	name = DEC_MOBEMERG_NAME 
+	desc = DEC_MOBEMERG_DESC
+	style = 2
+	picture = "event_mob_emergency"
+	decision_picture = "decision_mob_emergency"
+	
+	date = { day = 0 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {			
+		name = ACTIONNAME_MOBEMERG_A # Enlist them
+		command = { type = manpowerpool value = 0.1 when = 1 }	# slightly more than 2-year-growth
+		command = { type = industrial_modifier which = total value = -10 } # recruits taken from factory service; other option: 	type = relative_manpower value = [%] 			# Add a percentage of [yearly national manpower income * 50] to the pool
+		command = { trigger = { AI = NO NOT = { lost_national = { value = 10 } } } type = dissent value = 5 }
+		command = { type = local_setflag which = emergency_mob }
+
+	}
+}
+
+#################################################################
+# Total War
+#################################################################
+event = {	
+	id = 3199902
+	random = no
+	
+	persistent = yes
+	
+	decision = {
+				NOT = { local_flag = total_war }
+				atwar = yes
+				OR = {
+						lost_national = { value = 1 }
+						AND = {
+								OR = {
+										country = SOV
+										country = GER
+										country = CHI
+										country = CHC
+										country = FRA
+										country = ITA
+										}
+								OR = {
+										NOT = { manpower = 100 }
+										losses = { type = manpower value = 2000000 data = 0 }
+										}
+						AND = {
+								NOT = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												}
+										}
+								IC = 50
+								OR = {
+										NOT = { manpower = 100 }
+										losses = { type = manpower value = 1000000 data = 0 }
+										}
+								}
+						AND = {
+								NOT = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												}
+										}
+								IC = 5
+								NOT = { IC = 50 }
+								OR = {
+										NOT = { manpower = 40 }
+										losses = { type = manpower value = 500000 data = 0 }
+										}
+								}
+						AND = {
+								NOT = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												}
+										}
+								IC = 1
+								NOT = { IC = 5 }
+								OR = {
+										NOT = { manpower = 20 }
+										losses = { type = manpower value = 75000 data = 0 }
+										}
+								}
+						}
+				}
+				}
+				
+	decision_trigger = {
+						OR = {
+								lost_national = { value = 1 }
+								AND = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												country = JAP
+												country = U00
+												}
+										OR = {
+												NOT = { manpower = 100 }
+												losses = { type = manpower value = 2000000 data = 0 }
+												}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 50
+										OR = {
+												NOT = { manpower = 100 }
+												losses = { type = manpower value = 1000000 data = 0 }
+												}
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 5
+										NOT = { IC = 50 }
+										OR = {
+												NOT = { manpower = 40 }
+												losses = { type = manpower value = 500000 data = 0 }
+												}
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 1
+										NOT = { IC = 5 }
+										OR = {
+												NOT = { manpower = 20 }
+												losses = { type = manpower value = 75000 data = 0 }
+												}
+										}
+								}
+						}
+						}
+	
+	trigger =	{ 
+				NOT = { local_flag = total_war }
+				atwar = yes
+				OR = {
+						AND = {
+								lost_national = { value = 1 }
+								AND = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												country = JAP
+												country = U00
+												}
+										OR = {
+												NOT = { manpower = 100 }
+												losses = { type = manpower value = 2000000 data = 0 }
+												}
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 50
+										OR = {
+												NOT = { manpower = 100 }
+												losses = { type = manpower value = 1000000 data = 0 }
+												}
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 5
+										NOT = { IC = 50 }
+										OR = {
+												NOT = { manpower = 40 }
+												losses = { type = manpower value = 500000 data = 0 }
+												}
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 1
+										NOT = { IC = 5 }
+										OR = {
+												NOT = { manpower = 20 }
+												losses = { type = manpower value = 75000 data = 0 }
+												}
+										}
+								}
+								
+								AND = {
+										OR = {
+												country = SOV
+												country = GER
+												country = CHI
+												country = CHC
+												country = FRA
+												country = ITA
+												country = JAP
+												country = U00
+												}
+										OR = {
+												NOT = { manpower = 15 }
+												losses = { type = manpower value = 2000000 data = 0 }
+												}
+										random = 2
+										}								
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 50
+										OR = {
+												NOT = { manpower = 15 }
+												losses = { type = manpower value = 1000000 data = 0 }
+												}
+										random = 2
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 5
+										NOT = { IC = 50 }
+										OR = {
+												NOT = { manpower = 6 }
+												losses = { type = manpower value = 500000 data = 0 }
+												}
+										random = 2
+										}
+								AND = {
+										NOT = {
+												OR = {
+														country = SOV
+														country = GER
+														country = CHI
+														country = CHC
+														country = FRA
+														country = ITA
+														country = JAP
+														country = U00
+														}
+												}
+										IC = 1
+										NOT = { IC = 5 }
+										OR = {
+												NOT = { manpower = 3 }
+												losses = { type = manpower value = 75000 data = 0 }
+												}
+										random = 2
+										}
+								}
+				}
+	
+	name = DEC_TOTALWAR_NAME 
+	desc = DEC_TOTALWAR_DESC
+	style = 2
+	picture = "event_mob_totalwar"
+	decision_picture = "decision_mob_totalwar"
+	
+	date = { day = 0 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {			
+		name = ACTIONNAME_TOTALWAR_A # Enlist them
+		command = { type = manpowerpool value = 0.05 when = 1 }	# slightly more than 1-year-growth
+#		command = { type = industrial_modifier which = total value = -5 } # recruits taken from factory service; other option: 	type = relative_manpower value = [%] 			# Add a percentage of [yearly national manpower income * 50] to the pool
+		command = { trigger = { AI = NO NOT = { lost_national = { value = 1 } } } type = dissent value = 3 }
+		command = { type = local_setflag which = total_war }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = activate_unit_type which = d_02 }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry }} type = local_setflag which = activation_light_infantry }
+	}
+}

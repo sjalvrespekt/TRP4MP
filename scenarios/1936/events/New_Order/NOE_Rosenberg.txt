@@ -1,0 +1,1914 @@
+##########################################################################
+# Barbarossa events with Rosenberg Plan (Reichskommissariate)
+##########################################################################
+
+########################################################################################
+# Victory in the East
+########################################################################################
+event = { 
+	id = 3236009
+	random = no
+	country = GER
+
+	trigger = {
+		flag = NOE_Ros # Rosenberg plan chosen
+		lost_VP = { country = SOV value = 50 } # The USSR must have lost at least half of its VPs
+#		lost_IC = { country = SOV value = 50 } # The USSR must have lost at least half of its ICs
+		war = { country = GER country = SOV }
+		NOT = { control = { province = 55 data = FRA } } # Paris
+		OR = {
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 572 data = SOV } # Moscow
+			}
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 713 data = SOV } # Baku
+			}
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 572 data = SOV } # Moscow
+				control = { province = 713 data = SOV } # Baku
+			}
+			NOT = {
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 572 data = SOV } # Moscow
+				control = { province = 713 data = SOV } # Baku
+			}
+		}
+	}
+
+	name = EVT_3236034_NAME
+	desc = EVT_3236009_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+#	action_a = {
+#		name = ACTIONNAME3236034A
+#		command = { type = trigger which = 3236010 } #Russian Civil War
+#		command = { type = supplies value = -2000 }
+#	}
+	action_a = {
+		name = ACTIONNAME3236034B
+		command = { type = trigger which = 3236011 } #normal victory event
+	}
+}
+event = { 
+	id = 3236010
+	random = no
+	country = GER
+
+	# triggered by GER 3236009 or 3236034
+
+	name = EVT_3236010_NAME
+	desc = EVT_3236010_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283040A
+		command = { type = setflag which = Russia_Civil_War }
+	}
+}
+event = { 
+	id = 3236011
+	random = no
+	country = GER
+
+	# triggered by GER 3236009 or 3236034
+
+	name = EVT_3236011_NAME
+	desc = EVT_3236011_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283040A
+		command = { }	
+	}
+}
+#########################################################################
+# Germany offers Peace
+#########################################################################
+event = { 
+	id = 3283037
+	random = no
+	country = SOV
+	
+	trigger = {
+		event = 3236011 # Rosenberg or Ribbentrop-Schulenburg peace offer
+	}
+	
+	name = EVT_3283037_NAME
+	desc = EVT_3283037_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3283037A
+		command = { type = trigger which = 2024 } # SOV, Bitter Peace
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3283037B
+		command = { type = trigger which = 3283201 } # GER, Soviets refuse to accept, choice
+		command = { type = dissent value = 35 }
+	}
+}
+########################################################################################
+# Total Victory in the East!
+########################################################################################
+event = { 
+	id = 3236016
+	random = no
+	country = GER
+
+	trigger = {
+		event = 3236000 # Germany and the USSR have gone to war
+                NOT = { exists = SOV }
+		OR = {
+			flag = NOE_Ros # Rosenberg plan chosen
+			flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		}
+	}
+
+	name = EVT_3236016_NAME
+	desc = EVT_3236016_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3236016A
+		command = { type = money value = 1000 }
+		command = { type = dissent value = -10 }
+	}
+}
+
+########################################################################################
+########################################################################################
+#
+# Reichskommissariate
+#
+########################################################################################
+########################################################################################
+
+####################################################
+# Reichskommissariate partisan activity
+####################################################
+
+event = {
+	id = 3236200
+	random = no
+	tag = { U40 U41 U42 U43 U44 U45 U46 U47 U61 U62 U63  }
+	
+	persistent = yes
+
+	trigger = {
+		AI = yes
+		#NOT = { AI = GER }
+		puppet = { country = -1 country = GER }
+		event = 3436005
+		OR = {
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 25
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 30
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1959 }
+	
+	action_a = {
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+	}
+}
+
+####################################################
+# Reichskommissariate - released during advance
+# Generalgouvernement, Ostland, Ukraine
+####################################################
+
+####################################################
+# Generalgouvernement
+# release event
+# establishment of national provinces after 5 years
+####################################################
+
+event = { 
+	id = 3236201
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U44 } #Generalgouvernement
+				NOT = { exists = POL }
+				NOT = { exists = UKR }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				area = { area = "Lvov"	 country = -3 }
+				area = { area = "Krakow" country = -3 }
+				control = { province = 232 data = -1 } # Warsaw
+				control = { province = 228 data = -3 } # Siedlce
+				# areas in the east
+				area = { area = "Polotsk"		country = -3 } #Bialystok
+				area = { area = "Brest Litovsk"	country = -3 }
+				area = { area = "Transnistria"		country = -3 } #Zhitomir
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U44 } #Generalgouvernement
+				NOT = { exists = POL }
+				NOT = { exists = UKR }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				area = { area = "Lvov"	 country = -3 }
+				area = { area = "Krakow" country = -3 }
+				control = { province = 232 data = -1 } # Warsaw
+				control = { province = 228 data = -3 } # Siedlce
+				# areas in the east
+				area = { area = "Polotsk"		country = -3 } #Bialystok
+				area = { area = "Brest Litovsk"	country = -3 }
+				area = { area = "Transnistria"	country = -3 } #Zhitomir
+				}
+
+	name = EVT_3236201_NAME
+	desc = EVT_3236201_DESC
+	style = 2
+	decision_picture = "ger_decision_generalgouvernement"
+	picture = "ger_event_generalgouvernement"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236201A
+		command = { type = independence which = U44 value = 1 }
+		command = { type = make_puppet which = U44 }
+	}
+}
+
+event = { 
+	id = 3236202 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U44
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236201_NAME
+	desc = EVT_3236201_DESC
+	style = 2
+	picture = "ger_event_generalgouvernement"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 236 data = -3 } NOT = { control = { province = 236 data = -1 } } NOT = { owned = { province = 236 data = -3 } } } type = secedeprovince which = -3 value = 236 when = 2 }
+		command = { trigger = { control = { province = 228 data = -3 } NOT = { control = { province = 228 data = -1 } } NOT = { owned = { province = 228 data = -3 } } } type = secedeprovince which = -3 value = 228 when = 2 }
+		command = { trigger = { control = { province = 246 data = -3 } NOT = { control = { province = 246 data = -1 } } NOT = { owned = { province = 246 data = -3 } } } type = secedeprovince which = -3 value = 246 when = 2 }
+		command = { trigger = { control = { province = 237 data = -3 } NOT = { control = { province = 237 data = -1 } } NOT = { owned = { province = 237 data = -3 } } } type = secedeprovince which = -3 value = 237 when = 2 }
+		command = { trigger = { control = { province = 243 data = -3 } NOT = { control = { province = 243 data = -1 } } NOT = { owned = { province = 243 data = -3 } } } type = secedeprovince which = -3 value = 243 when = 2 }
+		command = { trigger = { control = { province = 239 data = -3 } NOT = { control = { province = 239 data = -1 } } NOT = { owned = { province = 239 data = -3 } } } type = secedeprovince which = -3 value = 239 when = 2 }
+		command = { trigger = { control = { province = 233 data = -3 } NOT = { control = { province = 233 data = -1 } } NOT = { owned = { province = 233 data = -3 } } } type = secedeprovince which = -3 value = 233 when = 2 }
+		command = { trigger = { control = { province = 234 data = -3 } NOT = { control = { province = 234 data = -1 } } NOT = { owned = { province = 234 data = -3 } } } type = secedeprovince which = -3 value = 234 when = 2 }
+		command = { trigger = { control = { province = 232 data = -3 } NOT = { control = { province = 232 data = -1 } } NOT = { owned = { province = 232 data = -3 } } } type = secedeprovince which = -3 value = 232 when = 2 }
+		command = { trigger = { control = { province = 238 data = -3 } NOT = { control = { province = 238 data = -1 } } NOT = { owned = { province = 238 data = -3 } } } type = secedeprovince which = -3 value = 238 when = 2 }
+		command = { trigger = { control = { province = 240 data = -3 } NOT = { control = { province = 240 data = -1 } } NOT = { owned = { province = 240 data = -3 } } } type = secedeprovince which = -3 value = 240 when = 2 }
+		command = { trigger = { control = { province = 241 data = -3 } NOT = { control = { province = 241 data = -1 } } NOT = { owned = { province = 241 data = -3 } } } type = secedeprovince which = -3 value = 241 when = 2 }
+		command = { trigger = { control = { province = 242 data = -3 } NOT = { control = { province = 242 data = -1 } } NOT = { owned = { province = 242 data = -3 } } } type = secedeprovince which = -3 value = 242 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236203
+	random = no 
+	country = U44
+ 
+	trigger = { 
+				event = { id = 3236202 days = 1800 }   #Generalgouvernement established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_generalgouvernement"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { type = addcore which = 236 }
+		command = { type = addcore which = 228 }
+		command = { type = addcore which = 246 }
+		command = { type = addcore which = 237 }
+		command = { type = addcore which = 243 }
+		command = { type = addcore which = 239 }
+		command = { type = addcore which = 233 }
+		command = { type = addcore which = 234 }
+		command = { type = addcore which = 232 }
+		command = { type = addcore which = 238 }
+		command = { type = addcore which = 240 }
+		command = { type = addcore which = 241 }
+		command = { type = addcore which = 242 }
+	}
+}
+
+####################################################
+# Ostland
+# release event
+# establishment of national provinces after 5 years
+####################################################
+
+event = { 
+	id = 3236204
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U40 } #Ostland
+				NOT = { exists = EST }
+				NOT = { exists = LAT }
+				NOT = { exists = LIT }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Baltic States"	} # Baltic States under german control
+				region = { region = "Poland"			country = -3 } # Poland under axis control
+				# areas in the east
+				region = { region = "Belarus"			country = -3 value = 50 } #at least 50% under axis control
+				region = { region = "Western Russia"	country = -3 value = 50 } #at least 50% under axis control
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U40 } #Ostland
+				NOT = { exists = EST }
+				NOT = { exists = LAT }
+				NOT = { exists = LIT }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Baltic States"	} # Baltic States under german control
+				region = { region = "Poland"			country = -3 } # Poland under axis control
+				# areas in the east
+				region = { region = "Belarus"			country = -3 value = 50 } #at least 50% under axis control
+				region = { region = "Western Russia"	country = -3 value = 50 } #at least 50% under axis control
+				}
+
+	name = EVT_3236204_NAME
+	desc = EVT_3236204_DESC
+	style = 2
+	decision_picture = "ger_decision_ostland"
+	picture = "ger_event_ostland"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236204A
+		command = { type = independence which = U40 value = 1 }
+		command = { type = make_puppet which = U40 }
+	}
+}
+
+event = { 
+	id = 3236205 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U40
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236204_NAME
+	desc = EVT_3236204_DESC
+	style = 2
+	picture = "ger_event_ostland"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 270 data = -3 } NOT = { control = { province = 270 data = -1 } } NOT = { owned = { province = 270 data = -3 } } } type = secedeprovince which = -3 value = 270 when = 2 }
+		command = { trigger = { control = { province = 262 data = -3 } NOT = { control = { province = 262 data = -1 } } NOT = { owned = { province = 262 data = -3 } } } type = secedeprovince which = -3 value = 262 when = 2 }
+		command = { trigger = { control = { province = 274 data = -3 } NOT = { control = { province = 274 data = -1 } } NOT = { owned = { province = 274 data = -3 } } } type = secedeprovince which = -3 value = 274 when = 2 }
+		command = { trigger = { control = { province = 275 data = -3 } NOT = { control = { province = 275 data = -1 } } NOT = { owned = { province = 275 data = -3 } } } type = secedeprovince which = -3 value = 275 when = 2 }
+		command = { trigger = { control = { province = 271 data = -3 } NOT = { control = { province = 271 data = -1 } } NOT = { owned = { province = 271 data = -3 } } } type = secedeprovince which = -3 value = 271 when = 2 }
+		command = { trigger = { control = { province = 272 data = -3 } NOT = { control = { province = 272 data = -1 } } NOT = { owned = { province = 272 data = -3 } } } type = secedeprovince which = -3 value = 272 when = 2 }
+		command = { trigger = { control = { province = 273 data = -3 } NOT = { control = { province = 273 data = -1 } } NOT = { owned = { province = 273 data = -3 } } } type = secedeprovince which = -3 value = 273 when = 2 }
+		command = { trigger = { control = { province = 267 data = -3 } NOT = { control = { province = 267 data = -1 } } NOT = { owned = { province = 267 data = -3 } } } type = secedeprovince which = -3 value = 267 when = 2 }
+		command = { trigger = { control = { province = 269 data = -3 } NOT = { control = { province = 269 data = -1 } } NOT = { owned = { province = 269 data = -3 } } } type = secedeprovince which = -3 value = 269 when = 2 }
+		command = { trigger = { control = { province = 268 data = -3 } NOT = { control = { province = 268 data = -1 } } NOT = { owned = { province = 268 data = -3 } } } type = secedeprovince which = -3 value = 268 when = 2 }
+		command = { trigger = { control = { province = 266 data = -3 } NOT = { control = { province = 266 data = -1 } } NOT = { owned = { province = 266 data = -3 } } } type = secedeprovince which = -3 value = 266 when = 2 }
+		command = { trigger = { control = { province = 265 data = -3 } NOT = { control = { province = 265 data = -1 } } NOT = { owned = { province = 265 data = -3 } } } type = secedeprovince which = -3 value = 265 when = 2 }
+		command = { trigger = { control = { province = 259 data = -3 } NOT = { control = { province = 259 data = -1 } } NOT = { owned = { province = 259 data = -3 } } } type = secedeprovince which = -3 value = 259 when = 2 }
+		command = { trigger = { control = { province = 263 data = -3 } NOT = { control = { province = 263 data = -1 } } NOT = { owned = { province = 263 data = -3 } } } type = secedeprovince which = -3 value = 263 when = 2 }
+		command = { trigger = { control = { province = 260 data = -3 } NOT = { control = { province = 260 data = -1 } } NOT = { owned = { province = 260 data = -3 } } } type = secedeprovince which = -3 value = 260 when = 2 }
+		command = { trigger = { control = { province = 599 data = -3 } NOT = { control = { province = 599 data = -1 } } NOT = { owned = { province = 599 data = -3 } } } type = secedeprovince which = -3 value = 599 when = 2 }
+		command = { trigger = { control = { province = 594 data = -3 } NOT = { control = { province = 594 data = -1 } } NOT = { owned = { province = 594 data = -3 } } } type = secedeprovince which = -3 value = 594 when = 2 }
+		command = { trigger = { control = { province = 591 data = -3 } NOT = { control = { province = 591 data = -1 } } NOT = { owned = { province = 591 data = -3 } } } type = secedeprovince which = -3 value = 591 when = 2 }
+		command = { trigger = { control = { province = 600 data = -3 } NOT = { control = { province = 600 data = -1 } } NOT = { owned = { province = 600 data = -3 } } } type = secedeprovince which = -3 value = 600 when = 2 }
+		command = { trigger = { control = { province = 596 data = -3 } NOT = { control = { province = 596 data = -1 } } NOT = { owned = { province = 596 data = -3 } } } type = secedeprovince which = -3 value = 596 when = 2 }
+		command = { trigger = { control = { province = 601 data = -3 } NOT = { control = { province = 601 data = -1 } } NOT = { owned = { province = 601 data = -3 } } } type = secedeprovince which = -3 value = 601 when = 2 }
+		command = { trigger = { control = { province = 255 data = -3 } NOT = { control = { province = 255 data = -1 } } NOT = { owned = { province = 255 data = -3 } } } type = secedeprovince which = -3 value = 255 when = 2 }
+		command = { trigger = { control = { province = 257 data = -3 } NOT = { control = { province = 257 data = -1 } } NOT = { owned = { province = 257 data = -3 } } } type = secedeprovince which = -3 value = 257 when = 2 }
+		command = { trigger = { control = { province = 251 data = -3 } NOT = { control = { province = 251 data = -1 } } NOT = { owned = { province = 251 data = -3 } } } type = secedeprovince which = -3 value = 251 when = 2 }
+		command = { trigger = { control = { province = 590 data = -3 } NOT = { control = { province = 590 data = -1 } } NOT = { owned = { province = 590 data = -3 } } } type = secedeprovince which = -3 value = 590 when = 2 }
+		command = { trigger = { control = { province = 592 data = -3 } NOT = { control = { province = 592 data = -1 } } NOT = { owned = { province = 592 data = -3 } } } type = secedeprovince which = -3 value = 592 when = 2 }
+		command = { trigger = { control = { province = 593 data = -3 } NOT = { control = { province = 593 data = -1 } } NOT = { owned = { province = 593 data = -3 } } } type = secedeprovince which = -3 value = 593 when = 2 }
+		command = { trigger = { control = { province = 256 data = -3 } NOT = { control = { province = 256 data = -1 } } NOT = { owned = { province = 256 data = -3 } } } type = secedeprovince which = -3 value = 256 when = 2 }
+		command = { trigger = { control = { province = 258 data = -3 } NOT = { control = { province = 258 data = -1 } } NOT = { owned = { province = 258 data = -3 } } } type = secedeprovince which = -3 value = 258 when = 2 }
+		command = { trigger = { control = { province = 566 data = -3 } NOT = { control = { province = 566 data = -1 } } NOT = { owned = { province = 566 data = -3 } } } type = secedeprovince which = -3 value = 566 when = 2 }
+		command = { trigger = { control = { province = 564 data = -3 } NOT = { control = { province = 564 data = -1 } } NOT = { owned = { province = 564 data = -3 } } } type = secedeprovince which = -3 value = 564 when = 2 }
+		command = { trigger = { control = { province = 253 data = -3 } NOT = { control = { province = 253 data = -1 } } NOT = { owned = { province = 253 data = -3 } } } type = secedeprovince which = -3 value = 253 when = 2 }
+		command = { trigger = { control = { province = 586 data = -3 } NOT = { control = { province = 586 data = -1 } } NOT = { owned = { province = 586 data = -3 } } } type = secedeprovince which = -3 value = 586 when = 2 }
+		command = { trigger = { control = { province = 588 data = -3 } NOT = { control = { province = 588 data = -1 } } NOT = { owned = { province = 588 data = -3 } } } type = secedeprovince which = -3 value = 588 when = 2 }
+		command = { trigger = { control = { province = 587 data = -3 } NOT = { control = { province = 587 data = -1 } } NOT = { owned = { province = 587 data = -3 } } } type = secedeprovince which = -3 value = 587 when = 2 }
+		command = { trigger = { control = { province = 589 data = -3 } NOT = { control = { province = 589 data = -1 } } NOT = { owned = { province = 589 data = -3 } } } type = secedeprovince which = -3 value = 589 when = 2 }
+		command = { trigger = { control = { province = 575 data = -3 } NOT = { control = { province = 575 data = -1 } } NOT = { owned = { province = 575 data = -3 } } } type = secedeprovince which = -3 value = 575 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236206
+	random = no 
+	country = U40
+ 
+	trigger = { 
+				event = { id = 3236205 days = 1800 }   #Ostland established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_ostland"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { type = addcore which = 270 }
+		command = { type = addcore which = 262 }
+		command = { type = addcore which = 274 }
+		command = { type = addcore which = 275 }
+		command = { type = addcore which = 271 }
+		command = { type = addcore which = 272 }
+		command = { type = addcore which = 273 }
+		command = { type = addcore which = 267 }
+		command = { type = addcore which = 269 }
+		command = { type = addcore which = 268 }
+		command = { type = addcore which = 266 }
+		command = { type = addcore which = 265 }
+		command = { type = addcore which = 259 }
+		command = { type = addcore which = 263 }
+		command = { type = addcore which = 260 }
+		command = { type = addcore which = 599 }
+		command = { type = addcore which = 594 }
+		command = { type = addcore which = 591 }
+		command = { type = addcore which = 600 }
+		command = { type = addcore which = 596 }
+		command = { type = addcore which = 601 }
+		command = { type = addcore which = 255 }
+		command = { type = addcore which = 257 }
+		command = { type = addcore which = 251 }
+		command = { type = addcore which = 590 }
+		command = { type = addcore which = 592 }
+		command = { type = addcore which = 593 }
+		command = { type = addcore which = 256 }
+		command = { type = addcore which = 258 }
+		command = { type = addcore which = 566 }
+		command = { type = addcore which = 564 }
+		command = { type = addcore which = 253 }
+		command = { type = addcore which = 586 }
+		command = { type = addcore which = 588 }
+		command = { type = addcore which = 587 }
+		command = { type = addcore which = 589 }
+		command = { type = addcore which = 575 }
+	}
+}
+
+####################################################
+# Ukraine
+# release event
+# establishment of national provinces after 5 years
+####################################################
+
+event = { 
+	id = 3236207
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U41 } #Ukraine
+				NOT = { exists = UKR }
+				NOT = { exists = RUS }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				area = { area = "Brest Litovsk"		}
+				area = { area = "Transnistria"			country = -3	} #Zhitomir, Transnistria under Axis control (may be given to Romania before)
+				area = { area = "Mozyr"				}
+				area = { area = "Kiev"				}
+				area = { area = "Poltava"			}
+				area = { area = "Kharkov"			}
+				area = { area = "Krim"				}
+				area = { area = "Dnepropretovsk"	} #Zaporozhye
+				# areas in the east
+				region = { region = "Southern Russia"	country = -3 value = 25 } #at least 25% under axis control
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U41 } #Ukraine
+				NOT = { exists = UKR }
+				NOT = { exists = RUS }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				area = { area = "Brest Litovsk"		}
+				area = { area = "Transnistria"			country = -3	} #Zhitomir, Transnistria under Axis control (may be given to Romania before)
+				area = { area = "Mozyr"				}
+				area = { area = "Kiev"				}
+				area = { area = "Poltava"			}
+				area = { area = "Kharkov"			}
+				area = { area = "Krim"				}
+				area = { area = "Dnepropretovsk"	} #Zaporozhye
+				# areas in the east
+				region = { region = "Southern Russia"	country = -3 value = 25 } #at least 25% under axis control
+				}
+
+	name = EVT_3236207_NAME
+	desc = EVT_3236207_DESC
+	style = 2
+	decision_picture = "ger_decision_ukraine"
+	picture = "ger_event_ukraine"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236207A
+		command = { type = independence which = U41 value = 1 }
+		command = { type = make_puppet which = U41 }
+	}
+}
+
+event = { 
+	id = 3236208 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U41
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236207_NAME
+	desc = EVT_3236207_DESC
+	style = 2
+	picture = "ger_event_ukraine"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 247 data = -3 } NOT = { control = { province = 247 data = -1 } } NOT = { owned = { province = 247 data = -3 } } } type = secedeprovince which = -3 value = 247 when = 2 }
+		command = { trigger = { control = { province = 248 data = -3 } NOT = { control = { province = 248 data = -1 } } NOT = { owned = { province = 248 data = -3 } } } type = secedeprovince which = -3 value = 248 when = 2 }
+		command = { trigger = { control = { province = 597 data = -3 } NOT = { control = { province = 597 data = -1 } } NOT = { owned = { province = 597 data = -3 } } } type = secedeprovince which = -3 value = 597 when = 2 }
+		command = { trigger = { control = { province = 598 data = -3 } NOT = { control = { province = 598 data = -1 } } NOT = { owned = { province = 598 data = -3 } } } type = secedeprovince which = -3 value = 598 when = 2 }
+		command = { trigger = { control = { province = 609 data = -3 } NOT = { control = { province = 609 data = -1 } } NOT = { owned = { province = 609 data = -3 } } } type = secedeprovince which = -3 value = 609 when = 2 }
+		command = { trigger = { control = { province = 595 data = -3 } NOT = { control = { province = 595 data = -1 } } NOT = { owned = { province = 595 data = -3 } } } type = secedeprovince which = -3 value = 595 when = 2 }
+		command = { trigger = { control = { province = 249 data = -3 } NOT = { control = { province = 249 data = -1 } } NOT = { owned = { province = 249 data = -3 } } } type = secedeprovince which = -3 value = 249 when = 2 }
+		command = { trigger = { control = { province = 245 data = -3 } NOT = { control = { province = 245 data = -1 } } NOT = { owned = { province = 245 data = -3 } } } type = secedeprovince which = -3 value = 245 when = 2 }
+		command = { trigger = { control = { province = 244 data = -3 } NOT = { control = { province = 244 data = -1 } } NOT = { owned = { province = 244 data = -3 } } } type = secedeprovince which = -3 value = 244 when = 2 }
+		command = { trigger = { control = { province = 616 data = -3 } NOT = { control = { province = 616 data = -1 } } NOT = { owned = { province = 616 data = -3 } } } type = secedeprovince which = -3 value = 616 when = 2 }
+		command = { trigger = { control = { province = 614 data = -3 } NOT = { control = { province = 614 data = -1 } } NOT = { owned = { province = 614 data = -3 } } } type = secedeprovince which = -3 value = 614 when = 2 }
+		command = { trigger = { control = { province = 611 data = -3 } NOT = { control = { province = 611 data = -1 } } NOT = { owned = { province = 611 data = -3 } } } type = secedeprovince which = -3 value = 611 when = 2 }
+		command = { trigger = { control = { province = 618 data = -3 } NOT = { control = { province = 618 data = -1 } } NOT = { owned = { province = 618 data = -3 } } } type = secedeprovince which = -3 value = 618 when = 2 }
+		command = { trigger = { control = { province = 612 data = -3 } NOT = { control = { province = 612 data = -1 } } NOT = { owned = { province = 612 data = -3 } } } type = secedeprovince which = -3 value = 612 when = 2 }
+		command = { trigger = { control = { province = 613 data = -3 } NOT = { control = { province = 613 data = -1 } } NOT = { owned = { province = 613 data = -3 } } } type = secedeprovince which = -3 value = 613 when = 2 }
+		command = { trigger = { control = { province = 615 data = -3 } NOT = { control = { province = 615 data = -1 } } NOT = { owned = { province = 615 data = -3 } } } type = secedeprovince which = -3 value = 615 when = 2 }
+		command = { trigger = { control = { province = 628 data = -3 } NOT = { control = { province = 628 data = -1 } } NOT = { owned = { province = 628 data = -3 } } } type = secedeprovince which = -3 value = 628 when = 2 }
+		command = { trigger = { control = { province = 627 data = -3 } NOT = { control = { province = 627 data = -1 } } NOT = { owned = { province = 627 data = -3 } } } type = secedeprovince which = -3 value = 627 when = 2 }
+		command = { trigger = { control = { province = 622 data = -3 } NOT = { control = { province = 622 data = -1 } } NOT = { owned = { province = 622 data = -3 } } } type = secedeprovince which = -3 value = 622 when = 2 }
+		command = { trigger = { control = { province = 623 data = -3 } NOT = { control = { province = 623 data = -1 } } NOT = { owned = { province = 623 data = -3 } } } type = secedeprovince which = -3 value = 623 when = 2 }
+		command = { trigger = { control = { province = 624 data = -3 } NOT = { control = { province = 624 data = -1 } } NOT = { owned = { province = 624 data = -3 } } } type = secedeprovince which = -3 value = 624 when = 2 }
+		command = { trigger = { control = { province = 630 data = -3 } NOT = { control = { province = 630 data = -1 } } NOT = { owned = { province = 630 data = -3 } } } type = secedeprovince which = -3 value = 630 when = 2 }
+		command = { trigger = { control = { province = 631 data = -3 } NOT = { control = { province = 631 data = -1 } } NOT = { owned = { province = 631 data = -3 } } } type = secedeprovince which = -3 value = 631 when = 2 }
+		command = { trigger = { control = { province = 632 data = -3 } NOT = { control = { province = 632 data = -1 } } NOT = { owned = { province = 632 data = -3 } } } type = secedeprovince which = -3 value = 632 when = 2 }
+		command = { trigger = { control = { province = 636 data = -3 } NOT = { control = { province = 636 data = -1 } } NOT = { owned = { province = 636 data = -3 } } } type = secedeprovince which = -3 value = 636 when = 2 }
+		command = { trigger = { control = { province = 629 data = -3 } NOT = { control = { province = 629 data = -1 } } NOT = { owned = { province = 629 data = -3 } } } type = secedeprovince which = -3 value = 629 when = 2 }
+		command = { trigger = { control = { province = 610 data = -3 } NOT = { control = { province = 610 data = -1 } } NOT = { owned = { province = 610 data = -3 } } } type = secedeprovince which = -3 value = 610 when = 2 }
+		command = { trigger = { control = { province = 639 data = -3 } NOT = { control = { province = 639 data = -1 } } NOT = { owned = { province = 639 data = -3 } } } type = secedeprovince which = -3 value = 639 when = 2 }
+		command = { trigger = { control = { province = 637 data = -3 } NOT = { control = { province = 637 data = -1 } } NOT = { owned = { province = 637 data = -3 } } } type = secedeprovince which = -3 value = 637 when = 2 }
+		command = { trigger = { control = { province = 641 data = -3 } NOT = { control = { province = 641 data = -1 } } NOT = { owned = { province = 641 data = -3 } } } type = secedeprovince which = -3 value = 641 when = 2 }
+		command = { trigger = { control = { province = 638 data = -3 } NOT = { control = { province = 638 data = -1 } } NOT = { owned = { province = 638 data = -3 } } } type = secedeprovince which = -3 value = 638 when = 2 }
+		command = { trigger = { control = { province = 640 data = -3 } NOT = { control = { province = 640 data = -1 } } NOT = { owned = { province = 640 data = -3 } } } type = secedeprovince which = -3 value = 640 when = 2 }
+		command = { trigger = { control = { province = 635 data = -3 } NOT = { control = { province = 635 data = -1 } } NOT = { owned = { province = 635 data = -3 } } } type = secedeprovince which = -3 value = 635 when = 2 }
+		command = { trigger = { control = { province = 634 data = -3 } NOT = { control = { province = 634 data = -1 } } NOT = { owned = { province = 634 data = -3 } } } type = secedeprovince which = -3 value = 634 when = 2 }
+		command = { trigger = { control = { province = 633 data = -3 } NOT = { control = { province = 633 data = -1 } } NOT = { owned = { province = 633 data = -3 } } } type = secedeprovince which = -3 value = 633 when = 2 }
+		command = { trigger = { control = { province = 648 data = -3 } NOT = { control = { province = 648 data = -1 } } NOT = { owned = { province = 648 data = -3 } } } type = secedeprovince which = -3 value = 648 when = 2 }
+		command = { trigger = { control = { province = 646 data = -3 } NOT = { control = { province = 646 data = -1 } } NOT = { owned = { province = 646 data = -3 } } } type = secedeprovince which = -3 value = 646 when = 2 }
+		command = { trigger = { control = { province = 647 data = -3 } NOT = { control = { province = 647 data = -1 } } NOT = { owned = { province = 647 data = -3 } } } type = secedeprovince which = -3 value = 647 when = 2 }
+		command = { trigger = { control = { province = 604 data = -3 } NOT = { control = { province = 604 data = -1 } } NOT = { owned = { province = 604 data = -3 } } } type = secedeprovince which = -3 value = 604 when = 2 }
+		command = { trigger = { control = { province = 602 data = -3 } NOT = { control = { province = 602 data = -1 } } NOT = { owned = { province = 602 data = -3 } } } type = secedeprovince which = -3 value = 602 when = 2 }
+		command = { trigger = { control = { province = 607 data = -3 } NOT = { control = { province = 607 data = -1 } } NOT = { owned = { province = 607 data = -3 } } } type = secedeprovince which = -3 value = 607 when = 2 }
+		command = { trigger = { control = { province = 608 data = -3 } NOT = { control = { province = 608 data = -1 } } NOT = { owned = { province = 608 data = -3 } } } type = secedeprovince which = -3 value = 608 when = 2 }
+		command = { trigger = { control = { province = 605 data = -3 } NOT = { control = { province = 605 data = -1 } } NOT = { owned = { province = 605 data = -3 } } } type = secedeprovince which = -3 value = 605 when = 2 }
+		command = { trigger = { control = { province = 606 data = -3 } NOT = { control = { province = 606 data = -1 } } NOT = { owned = { province = 606 data = -3 } } } type = secedeprovince which = -3 value = 606 when = 2 }
+		command = { trigger = { control = { province = 603 data = -3 } NOT = { control = { province = 603 data = -1 } } NOT = { owned = { province = 603 data = -3 } } } type = secedeprovince which = -3 value = 603 when = 2 }
+		command = { trigger = { control = { province = 581 data = -3 } NOT = { control = { province = 581 data = -1 } } NOT = { owned = { province = 581 data = -3 } } } type = secedeprovince which = -3 value = 581 when = 2 }
+		command = { trigger = { control = { province = 582 data = -3 } NOT = { control = { province = 582 data = -1 } } NOT = { owned = { province = 582 data = -3 } } } type = secedeprovince which = -3 value = 582 when = 2 }
+		command = { trigger = { control = { province = 580 data = -3 } NOT = { control = { province = 580 data = -1 } } NOT = { owned = { province = 580 data = -3 } } } type = secedeprovince which = -3 value = 580 when = 2 }
+		command = { trigger = { control = { province = 652 data = -3 } NOT = { control = { province = 652 data = -1 } } NOT = { owned = { province = 652 data = -3 } } } type = secedeprovince which = -3 value = 652 when = 2 }
+		command = { trigger = { control = { province = 645 data = -3 } NOT = { control = { province = 645 data = -1 } } NOT = { owned = { province = 645 data = -3 } } } type = secedeprovince which = -3 value = 645 when = 2 }
+		command = { trigger = { control = { province = 643 data = -3 } NOT = { control = { province = 643 data = -1 } } NOT = { owned = { province = 643 data = -3 } } } type = secedeprovince which = -3 value = 643 when = 2 }
+		command = { trigger = { control = { province = 642 data = -3 } NOT = { control = { province = 642 data = -1 } } NOT = { owned = { province = 642 data = -3 } } } type = secedeprovince which = -3 value = 642 when = 2 }
+		command = { trigger = { control = { province = 662 data = -3 } NOT = { control = { province = 662 data = -1 } } NOT = { owned = { province = 662 data = -3 } } } type = secedeprovince which = -3 value = 662 when = 2 }
+		command = { trigger = { control = { province = 660 data = -3 } NOT = { control = { province = 660 data = -1 } } NOT = { owned = { province = 660 data = -3 } } } type = secedeprovince which = -3 value = 660 when = 2 }
+		command = { trigger = { control = { province = 666 data = -3 } NOT = { control = { province = 666 data = -1 } } NOT = { owned = { province = 666 data = -3 } } } type = secedeprovince which = -3 value = 666 when = 2 }
+		command = { trigger = { control = { province = 654 data = -3 } NOT = { control = { province = 654 data = -1 } } NOT = { owned = { province = 654 data = -3 } } } type = secedeprovince which = -3 value = 654 when = 2 }
+		command = { trigger = { control = { province = 663 data = -3 } NOT = { control = { province = 663 data = -1 } } NOT = { owned = { province = 663 data = -3 } } } type = secedeprovince which = -3 value = 663 when = 2 }
+		command = { trigger = { control = { province = 659 data = -3 } NOT = { control = { province = 659 data = -1 } } NOT = { owned = { province = 659 data = -3 } } } type = secedeprovince which = -3 value = 659 when = 2 }
+		command = { trigger = { control = { province = 661 data = -3 } NOT = { control = { province = 661 data = -1 } } NOT = { owned = { province = 661 data = -3 } } } type = secedeprovince which = -3 value = 661 when = 2 }
+		command = { trigger = { control = { province = 669 data = -3 } NOT = { control = { province = 669 data = -1 } } NOT = { owned = { province = 669 data = -3 } } } type = secedeprovince which = -3 value = 669 when = 2 }
+		command = { trigger = { control = { province = 665 data = -3 } NOT = { control = { province = 665 data = -1 } } NOT = { owned = { province = 665 data = -3 } } } type = secedeprovince which = -3 value = 665 when = 2 }
+		command = { trigger = { control = { province = 655 data = -3 } NOT = { control = { province = 655 data = -1 } } NOT = { owned = { province = 655 data = -3 } } } type = secedeprovince which = -3 value = 655 when = 2 }
+		command = { trigger = { control = { province = 653 data = -3 } NOT = { control = { province = 653 data = -1 } } NOT = { owned = { province = 653 data = -3 } } } type = secedeprovince which = -3 value = 653 when = 2 }
+		command = { trigger = { control = { province = 657 data = -3 } NOT = { control = { province = 657 data = -1 } } NOT = { owned = { province = 657 data = -3 } } } type = secedeprovince which = -3 value = 657 when = 2 }
+		command = { trigger = { control = { province = 658 data = -3 } NOT = { control = { province = 658 data = -1 } } NOT = { owned = { province = 658 data = -3 } } } type = secedeprovince which = -3 value = 658 when = 2 }
+		command = { trigger = { control = { province = 651 data = -3 } NOT = { control = { province = 651 data = -1 } } NOT = { owned = { province = 651 data = -3 } } } type = secedeprovince which = -3 value = 651 when = 2 }
+		command = { trigger = { control = { province = 650 data = -3 } NOT = { control = { province = 650 data = -1 } } NOT = { owned = { province = 650 data = -3 } } } type = secedeprovince which = -3 value = 650 when = 2 }
+		command = { trigger = { control = { province = 649 data = -3 } NOT = { control = { province = 649 data = -1 } } NOT = { owned = { province = 649 data = -3 } } } type = secedeprovince which = -3 value = 649 when = 2 }
+		command = { trigger = { control = { province = 644 data = -3 } NOT = { control = { province = 644 data = -1 } } NOT = { owned = { province = 644 data = -3 } } } type = secedeprovince which = -3 value = 644 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236209
+	random = no 
+	country = U41
+ 
+	trigger = { 
+				event = { id = 3236208 days = 1800 }   #RK Ukraine established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_ukraine"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { type = addcore which = 247 }
+		command = { type = addcore which = 248 }
+		command = { type = addcore which = 597 }
+		command = { type = addcore which = 598 }
+		command = { type = addcore which = 609 }
+		command = { type = addcore which = 595 }
+		command = { type = addcore which = 249 }
+		command = { type = addcore which = 245 }
+		command = { type = addcore which = 244 }
+		command = { type = addcore which = 616 }
+		command = { type = addcore which = 614 }
+		command = { type = addcore which = 611 }
+		command = { type = addcore which = 618 }
+		command = { type = addcore which = 612 }
+		command = { type = addcore which = 613 }
+		command = { type = addcore which = 615 }
+		command = { type = addcore which = 628 }
+		command = { type = addcore which = 627 }
+		command = { type = addcore which = 622 }
+		command = { type = addcore which = 623 }
+		command = { type = addcore which = 624 }
+		command = { type = addcore which = 630 }
+		command = { type = addcore which = 631 }
+		command = { type = addcore which = 632 }
+		command = { type = addcore which = 636 }
+		command = { type = addcore which = 629 }
+		command = { type = addcore which = 610 }
+		command = { type = addcore which = 639 }
+		command = { type = addcore which = 637 }
+		command = { type = addcore which = 641 }
+		command = { type = addcore which = 638 }
+		command = { type = addcore which = 640 }
+		command = { type = addcore which = 635 }
+		command = { type = addcore which = 634 }
+		command = { type = addcore which = 633 }
+		command = { type = addcore which = 648 }
+		command = { type = addcore which = 646 }
+		command = { type = addcore which = 647 }
+		command = { type = addcore which = 604 }
+		command = { type = addcore which = 602 }
+		command = { type = addcore which = 607 }
+		command = { type = addcore which = 608 }
+		command = { type = addcore which = 605 }
+		command = { type = addcore which = 606 }
+		command = { type = addcore which = 603 }
+		command = { type = addcore which = 581 }
+		command = { type = addcore which = 582 }
+		command = { type = addcore which = 580 }
+		command = { type = addcore which = 652 }
+		command = { type = addcore which = 645 }
+		command = { type = addcore which = 643 }
+		command = { type = addcore which = 642 }
+		command = { type = addcore which = 662 }
+		command = { type = addcore which = 660 }
+		command = { type = addcore which = 666 }
+		command = { type = addcore which = 654 }
+		command = { type = addcore which = 663 }
+		command = { type = addcore which = 659 }
+		command = { type = addcore which = 661 }
+		command = { type = addcore which = 669 }
+		command = { type = addcore which = 665 }
+		command = { type = addcore which = 655 }
+		command = { type = addcore which = 653 }
+		command = { type = addcore which = 657 }
+		command = { type = addcore which = 658 }
+		command = { type = addcore which = 651 }
+		command = { type = addcore which = 650 }
+		command = { type = addcore which = 649 }
+		command = { type = addcore which = 644 }
+	}
+}
+
+####################################################
+# Reichskommissariate - released (normally) after victory
+# Kaukasus, Moskowien
+####################################################
+
+####################################################
+# Kaukasus
+# release event
+# establishment of national provinces after 5 years
+####################################################
+
+event = { 
+	id = 3236210
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U42 } #RK Kaukasus
+				NOT = { exists = RUS }
+				NOT = { exists = GEO }
+				NOT = { exists = AZB }
+				NOT = { exists = ARM }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Kaukasus"	 }
+				# areas in the east
+				area = { area = "Transnistria"			country = -3	} #Zhitomir
+				area = { area = "Kiev"					country = -3	}
+				area = { area = "Poltava"				country = -3	}
+				area = { area = "Kharkov"				country = -3	}
+				area = { area = "Krim"					country = -3	}
+				area = { area = "Dnepropretovsk"		country = -3	} #Zaporozhye
+				region = { region = "Southern Russia"	country = -3 }
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U42 } #RK Kaukasus
+				NOT = { exists = RUS }
+				NOT = { exists = GEO }
+				NOT = { exists = AZB }
+				NOT = { exists = ARM }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Kaukasus"	 }
+				# areas in the east
+				area = { area = "Transnistria"			country = -3	} #Zhitomir
+				area = { area = "Kiev"					country = -3	}
+				area = { area = "Poltava"				country = -3	}
+				area = { area = "Kharkov"				country = -3	}
+				area = { area = "Krim"					country = -3	}
+				area = { area = "Dnepropretovsk"		country = -3	} #Zaporozhye
+				region = { region = "Southern Russia"	country = -3 }
+				}
+
+	name = EVT_3236210_NAME
+	desc = EVT_3236210_DESC
+	style = 2
+	decision_picture = "ger_decision_kaukasus"
+	picture = "ger_event_kaukasus"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236210A
+		command = { type = independence which = U42 value = 1 }
+		command = { type = make_puppet which = U42 }
+	}
+}
+
+event = { 
+	id = 3236211 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U42
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236210_NAME
+	desc = EVT_3236210_DESC
+	style = 2
+	picture = "ger_event_kaukasus"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 1067 data = -3 } NOT = { control = { province = 1067 data = -1 } } NOT = { owned = { province = 1067 data = -3 } } } type = secedeprovince which = -3 value = 1067 when = 2 }
+		command = { trigger = { control = { province = 1062 data = -3 } NOT = { control = { province = 1062 data = -1 } } NOT = { owned = { province = 1062 data = -3 } } } type = secedeprovince which = -3 value = 1062 when = 2 }
+		command = { trigger = { control = { province = 1063 data = -3 } NOT = { control = { province = 1063 data = -1 } } NOT = { owned = { province = 1063 data = -3 } } } type = secedeprovince which = -3 value = 1063 when = 2 }
+		command = { trigger = { control = { province = 712  data = -3 } NOT = { control = { province = 712  data = -1 } } NOT = { owned = { province = 712  data = -3 } } } type = secedeprovince which = -3 value = 712  when = 2 }
+		command = { trigger = { control = { province = 714  data = -3 } NOT = { control = { province = 714  data = -1 } } NOT = { owned = { province = 714  data = -3 } } } type = secedeprovince which = -3 value = 714  when = 2 }
+		command = { trigger = { control = { province = 386  data = -3 } NOT = { control = { province = 386  data = -1 } } NOT = { owned = { province = 386  data = -3 } } } type = secedeprovince which = -3 value = 386  when = 2 }
+		command = { trigger = { control = { province = 1083 data = -3 } NOT = { control = { province = 1083 data = -1 } } NOT = { owned = { province = 1083 data = -3 } } } type = secedeprovince which = -3 value = 1083 when = 2 }
+		command = { trigger = { control = { province = 713  data = -3 } NOT = { control = { province = 713  data = -1 } } NOT = { owned = { province = 713  data = -3 } } } type = secedeprovince which = -3 value = 713  when = 2 }
+		command = { trigger = { control = { province = 1081 data = -3 } NOT = { control = { province = 1081 data = -1 } } NOT = { owned = { province = 1081 data = -3 } } } type = secedeprovince which = -3 value = 1081 when = 2 }
+		command = { trigger = { control = { province = 1082 data = -3 } NOT = { control = { province = 1082 data = -1 } } NOT = { owned = { province = 1082 data = -3 } } } type = secedeprovince which = -3 value = 1082 when = 2 }
+		command = { trigger = { control = { province = 710  data = -3 } NOT = { control = { province = 710  data = -1 } } NOT = { owned = { province = 710  data = -3 } } } type = secedeprovince which = -3 value = 710  when = 2 }
+		command = { trigger = { control = { province = 701  data = -3 } NOT = { control = { province = 701  data = -1 } } NOT = { owned = { province = 701  data = -3 } } } type = secedeprovince which = -3 value = 701  when = 2 }
+		command = { trigger = { control = { province = 703  data = -3 } NOT = { control = { province = 703  data = -1 } } NOT = { owned = { province = 703  data = -3 } } } type = secedeprovince which = -3 value = 703  when = 2 }
+		command = { trigger = { control = { province = 705  data = -3 } NOT = { control = { province = 705  data = -1 } } NOT = { owned = { province = 705  data = -3 } } } type = secedeprovince which = -3 value = 705  when = 2 }
+		command = { trigger = { control = { province = 707  data = -3 } NOT = { control = { province = 707  data = -1 } } NOT = { owned = { province = 707  data = -3 } } } type = secedeprovince which = -3 value = 707  when = 2 }
+		command = { trigger = { control = { province = 708  data = -3 } NOT = { control = { province = 708  data = -1 } } NOT = { owned = { province = 708  data = -3 } } } type = secedeprovince which = -3 value = 708  when = 2 }
+		command = { trigger = { control = { province = 711  data = -3 } NOT = { control = { province = 711  data = -1 } } NOT = { owned = { province = 711  data = -3 } } } type = secedeprovince which = -3 value = 711  when = 2 }
+		command = { trigger = { control = { province = 695  data = -3 } NOT = { control = { province = 695  data = -1 } } NOT = { owned = { province = 695  data = -3 } } } type = secedeprovince which = -3 value = 695  when = 2 }
+		command = { trigger = { control = { province = 700  data = -3 } NOT = { control = { province = 700  data = -1 } } NOT = { owned = { province = 700  data = -3 } } } type = secedeprovince which = -3 value = 700  when = 2 }
+		command = { trigger = { control = { province = 702  data = -3 } NOT = { control = { province = 702  data = -1 } } NOT = { owned = { province = 702  data = -3 } } } type = secedeprovince which = -3 value = 702  when = 2 }
+		command = { trigger = { control = { province = 704  data = -3 } NOT = { control = { province = 704  data = -1 } } NOT = { owned = { province = 704  data = -3 } } } type = secedeprovince which = -3 value = 704  when = 2 }
+		command = { trigger = { control = { province = 699  data = -3 } NOT = { control = { province = 699  data = -1 } } NOT = { owned = { province = 699  data = -3 } } } type = secedeprovince which = -3 value = 699  when = 2 }
+		command = { trigger = { control = { province = 698  data = -3 } NOT = { control = { province = 698  data = -1 } } NOT = { owned = { province = 698  data = -3 } } } type = secedeprovince which = -3 value = 698  when = 2 }
+		command = { trigger = { control = { province = 692  data = -3 } NOT = { control = { province = 692  data = -1 } } NOT = { owned = { province = 692  data = -3 } } } type = secedeprovince which = -3 value = 692  when = 2 }
+		command = { trigger = { control = { province = 697  data = -3 } NOT = { control = { province = 697  data = -1 } } NOT = { owned = { province = 697  data = -3 } } } type = secedeprovince which = -3 value = 697  when = 2 }
+		command = { trigger = { control = { province = 691  data = -3 } NOT = { control = { province = 691  data = -1 } } NOT = { owned = { province = 691  data = -3 } } } type = secedeprovince which = -3 value = 691  when = 2 }
+		command = { trigger = { control = { province = 696  data = -3 } NOT = { control = { province = 696  data = -1 } } NOT = { owned = { province = 696  data = -3 } } } type = secedeprovince which = -3 value = 696  when = 2 }
+		command = { trigger = { control = { province = 693  data = -3 } NOT = { control = { province = 693  data = -1 } } NOT = { owned = { province = 693  data = -3 } } } type = secedeprovince which = -3 value = 693  when = 2 }
+		command = { trigger = { control = { province = 694  data = -3 } NOT = { control = { province = 694  data = -1 } } NOT = { owned = { province = 694  data = -3 } } } type = secedeprovince which = -3 value = 694  when = 2 }
+	}
+}
+
+event = { 
+	id = 3236212
+	random = no 
+	country = U42
+ 
+	trigger = { 
+				event = { id = 3236211 days = 1800 }   #Kaukasus established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_kaukasus"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { type = addcore which = 1067 }
+		command = { type = addcore which = 1062 }
+		command = { type = addcore which = 1063 }
+		command = { type = addcore which = 712  }
+		command = { type = addcore which = 714  }
+		command = { type = addcore which = 386  }
+		command = { type = addcore which = 1083 }
+		command = { type = addcore which = 713  }
+		command = { type = addcore which = 1081 }
+		command = { type = addcore which = 1082 }
+		command = { type = addcore which = 710  }
+		command = { type = addcore which = 701  }
+		command = { type = addcore which = 703  }
+		command = { type = addcore which = 705  }
+		command = { type = addcore which = 707  }
+		command = { type = addcore which = 708  }
+		command = { type = addcore which = 711  }
+		command = { type = addcore which = 695  }
+		command = { type = addcore which = 700  }
+		command = { type = addcore which = 702  }
+		command = { type = addcore which = 704  }
+		command = { type = addcore which = 699  }
+		command = { type = addcore which = 698  }
+		command = { type = addcore which = 692  }
+		command = { type = addcore which = 697  }
+		command = { type = addcore which = 691  }
+		command = { type = addcore which = 696  }
+		command = { type = addcore which = 693  }
+		command = { type = addcore which = 694  }
+	}
+}
+
+####################################################
+# Moskowien
+# release event
+# establishment of national provinces after 10 years
+####################################################
+
+event = { 
+	id = 3236213
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U43 } #RK Moskowien
+				NOT = { exists = RUS }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Northern Russia" }
+				region = { region = "Russia" }
+				# surrounding areas
+				region = { region = "Western Russia"	country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				OR = {
+						region = { region = "White Sea Tundra"	country = -3 }
+						NOT = { region = { region = "White Sea Tundra"	country = -2 } }
+						AND = {
+								region = { region = "White Sea Tundra"	country = FIN }
+								NOT = { war = { country = GER country = FIN } }
+								}
+						}
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U43 } #RK Moskowien
+				NOT = { exists = RUS }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				region = { region = "Northern Russia" }
+				region = { region = "Russia" }
+				# surrounding areas
+				region = { region = "Western Russia"	country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				OR = {
+						region = { region = "White Sea Tundra"	country = -3 }
+						NOT = { region = { region = "White Sea Tundra"	country = -2 } }
+						AND = {
+								region = { region = "White Sea Tundra"	country = FIN }
+								NOT = { war = { country = GER country = FIN } }
+								}
+						}
+				}
+
+	name = EVT_3236213_NAME
+	desc = EVT_3236213_DESC
+	style = 2
+	decision_picture = "ger_decision_moskowien"
+	picture = "ger_event_moskowien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236213A
+		command = { type = independence which = U43 value = 1 }
+		command = { type = make_puppet which = U43 }
+	}
+}
+
+event = { 
+	id = 3236214 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U43
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236213_NAME
+	desc = EVT_3236213_DESC
+	style = 2
+	picture = "ger_event_moskowien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }	
+		command = { trigger = { control = { province = 542 data = -3 } NOT = { control = { province = 542 data = -1 } } NOT = { owned = { province = 542 data = -3 } } } type = secedeprovince which = -3 value = 542 when = 2 }
+		command = { trigger = { control = { province = 543 data = -3 } NOT = { control = { province = 543 data = -1 } } NOT = { owned = { province = 543 data = -3 } } } type = secedeprovince which = -3 value = 543 when = 2 }
+		command = { trigger = { control = { province = 544 data = -3 } NOT = { control = { province = 544 data = -1 } } NOT = { owned = { province = 544 data = -3 } } } type = secedeprovince which = -3 value = 544 when = 2 }
+		command = { trigger = { control = { province = 545 data = -3 } NOT = { control = { province = 545 data = -1 } } NOT = { owned = { province = 545 data = -3 } } } type = secedeprovince which = -3 value = 545 when = 2 }
+		command = { trigger = { control = { province = 546 data = -3 } NOT = { control = { province = 546 data = -1 } } NOT = { owned = { province = 546 data = -3 } } } type = secedeprovince which = -3 value = 546 when = 2 }
+		command = { trigger = { control = { province = 547 data = -3 } NOT = { control = { province = 547 data = -1 } } NOT = { owned = { province = 547 data = -3 } } } type = secedeprovince which = -3 value = 547 when = 2 }
+		command = { trigger = { control = { province = 548 data = -3 } NOT = { control = { province = 548 data = -1 } } NOT = { owned = { province = 548 data = -3 } } } type = secedeprovince which = -3 value = 548 when = 2 }
+		command = { trigger = { control = { province = 551 data = -3 } NOT = { control = { province = 551 data = -1 } } NOT = { owned = { province = 551 data = -3 } } } type = secedeprovince which = -3 value = 551 when = 2 }
+		command = { trigger = { control = { province = 553 data = -3 } NOT = { control = { province = 553 data = -1 } } NOT = { owned = { province = 553 data = -3 } } } type = secedeprovince which = -3 value = 553 when = 2 }
+		command = { trigger = { control = { province = 554 data = -3 } NOT = { control = { province = 554 data = -1 } } NOT = { owned = { province = 554 data = -3 } } } type = secedeprovince which = -3 value = 554 when = 2 }
+		command = { trigger = { control = { province = 555 data = -3 } NOT = { control = { province = 555 data = -1 } } NOT = { owned = { province = 555 data = -3 } } } type = secedeprovince which = -3 value = 555 when = 2 }
+		command = { trigger = { control = { province = 556 data = -3 } NOT = { control = { province = 556 data = -1 } } NOT = { owned = { province = 556 data = -3 } } } type = secedeprovince which = -3 value = 556 when = 2 }
+		command = { trigger = { control = { province = 557 data = -3 } NOT = { control = { province = 557 data = -1 } } NOT = { owned = { province = 557 data = -3 } } } type = secedeprovince which = -3 value = 557 when = 2 }
+		command = { trigger = { control = { province = 558 data = -3 } NOT = { control = { province = 558 data = -1 } } NOT = { owned = { province = 558 data = -3 } } } type = secedeprovince which = -3 value = 558 when = 2 }
+		command = { trigger = { control = { province = 559 data = -3 } NOT = { control = { province = 559 data = -1 } } NOT = { owned = { province = 559 data = -3 } } } type = secedeprovince which = -3 value = 559 when = 2 }
+		command = { trigger = { control = { province = 562 data = -3 } NOT = { control = { province = 562 data = -1 } } NOT = { owned = { province = 562 data = -3 } } } type = secedeprovince which = -3 value = 562 when = 2 }
+		command = { trigger = { control = { province = 563 data = -3 } NOT = { control = { province = 563 data = -1 } } NOT = { owned = { province = 563 data = -3 } } } type = secedeprovince which = -3 value = 563 when = 2 }
+		command = { trigger = { control = { province = 567 data = -3 } NOT = { control = { province = 567 data = -1 } } NOT = { owned = { province = 567 data = -3 } } } type = secedeprovince which = -3 value = 567 when = 2 }
+		command = { trigger = { control = { province = 568 data = -3 } NOT = { control = { province = 568 data = -1 } } NOT = { owned = { province = 568 data = -3 } } } type = secedeprovince which = -3 value = 568 when = 2 }
+		command = { trigger = { control = { province = 569 data = -3 } NOT = { control = { province = 569 data = -1 } } NOT = { owned = { province = 569 data = -3 } } } type = secedeprovince which = -3 value = 569 when = 2 }
+		command = { trigger = { control = { province = 570 data = -3 } NOT = { control = { province = 570 data = -1 } } NOT = { owned = { province = 570 data = -3 } } } type = secedeprovince which = -3 value = 570 when = 2 }
+		command = { trigger = { control = { province = 571 data = -3 } NOT = { control = { province = 571 data = -1 } } NOT = { owned = { province = 571 data = -3 } } } type = secedeprovince which = -3 value = 571 when = 2 }
+		command = { trigger = { control = { province = 574 data = -3 } NOT = { control = { province = 574 data = -1 } } NOT = { owned = { province = 574 data = -3 } } } type = secedeprovince which = -3 value = 574 when = 2 }
+		command = { trigger = { control = { province = 576 data = -3 } NOT = { control = { province = 576 data = -1 } } NOT = { owned = { province = 576 data = -3 } } } type = secedeprovince which = -3 value = 576 when = 2 }
+		command = { trigger = { control = { province = 577 data = -3 } NOT = { control = { province = 577 data = -1 } } NOT = { owned = { province = 577 data = -3 } } } type = secedeprovince which = -3 value = 577 when = 2 }
+		command = { trigger = { control = { province = 578 data = -3 } NOT = { control = { province = 578 data = -1 } } NOT = { owned = { province = 578 data = -3 } } } type = secedeprovince which = -3 value = 578 when = 2 }
+		command = { trigger = { control = { province = 579 data = -3 } NOT = { control = { province = 579 data = -1 } } NOT = { owned = { province = 579 data = -3 } } } type = secedeprovince which = -3 value = 579 when = 2 }
+		command = { trigger = { control = { province = 583 data = -3 } NOT = { control = { province = 583 data = -1 } } NOT = { owned = { province = 583 data = -3 } } } type = secedeprovince which = -3 value = 583 when = 2 }
+		command = { trigger = { control = { province = 584 data = -3 } NOT = { control = { province = 584 data = -1 } } NOT = { owned = { province = 584 data = -3 } } } type = secedeprovince which = -3 value = 584 when = 2 }
+		command = { trigger = { control = { province = 585 data = -3 } NOT = { control = { province = 585 data = -1 } } NOT = { owned = { province = 585 data = -3 } } } type = secedeprovince which = -3 value = 585 when = 2 }
+		command = { trigger = { control = { province = 656 data = -3 } NOT = { control = { province = 656 data = -1 } } NOT = { owned = { province = 656 data = -3 } } } type = secedeprovince which = -3 value = 656 when = 2 }
+		command = { trigger = { control = { province = 664 data = -3 } NOT = { control = { province = 664 data = -1 } } NOT = { owned = { province = 664 data = -3 } } } type = secedeprovince which = -3 value = 664 when = 2 }
+		command = { trigger = { control = { province = 667 data = -3 } NOT = { control = { province = 667 data = -1 } } NOT = { owned = { province = 667 data = -3 } } } type = secedeprovince which = -3 value = 667 when = 2 }
+		command = { trigger = { control = { province = 668 data = -3 } NOT = { control = { province = 668 data = -1 } } NOT = { owned = { province = 668 data = -3 } } } type = secedeprovince which = -3 value = 668 when = 2 }
+		command = { trigger = { control = { province = 670 data = -3 } NOT = { control = { province = 670 data = -1 } } NOT = { owned = { province = 670 data = -3 } } } type = secedeprovince which = -3 value = 670 when = 2 }
+		command = { trigger = { control = { province = 671 data = -3 } NOT = { control = { province = 671 data = -1 } } NOT = { owned = { province = 671 data = -3 } } } type = secedeprovince which = -3 value = 671 when = 2 }
+		command = { trigger = { control = { province = 672 data = -3 } NOT = { control = { province = 672 data = -1 } } NOT = { owned = { province = 672 data = -3 } } } type = secedeprovince which = -3 value = 672 when = 2 }
+		command = { trigger = { control = { province = 673 data = -3 } NOT = { control = { province = 673 data = -1 } } NOT = { owned = { province = 673 data = -3 } } } type = secedeprovince which = -3 value = 673 when = 2 }
+		command = { trigger = { control = { province = 674 data = -3 } NOT = { control = { province = 674 data = -1 } } NOT = { owned = { province = 674 data = -3 } } } type = secedeprovince which = -3 value = 674 when = 2 }
+		command = { trigger = { control = { province = 675 data = -3 } NOT = { control = { province = 675 data = -1 } } NOT = { owned = { province = 675 data = -3 } } } type = secedeprovince which = -3 value = 675 when = 2 }
+		command = { trigger = { control = { province = 676 data = -3 } NOT = { control = { province = 676 data = -1 } } NOT = { owned = { province = 676 data = -3 } } } type = secedeprovince which = -3 value = 676 when = 2 }
+		command = { trigger = { control = { province = 677 data = -3 } NOT = { control = { province = 677 data = -1 } } NOT = { owned = { province = 677 data = -3 } } } type = secedeprovince which = -3 value = 677 when = 2 }
+		command = { trigger = { control = { province = 678 data = -3 } NOT = { control = { province = 678 data = -1 } } NOT = { owned = { province = 678 data = -3 } } } type = secedeprovince which = -3 value = 678 when = 2 }
+		command = { trigger = { control = { province = 679 data = -3 } NOT = { control = { province = 679 data = -1 } } NOT = { owned = { province = 679 data = -3 } } } type = secedeprovince which = -3 value = 679 when = 2 }
+		command = { trigger = { control = { province = 680 data = -3 } NOT = { control = { province = 680 data = -1 } } NOT = { owned = { province = 680 data = -3 } } } type = secedeprovince which = -3 value = 680 when = 2 }
+		command = { trigger = { control = { province = 681 data = -3 } NOT = { control = { province = 681 data = -1 } } NOT = { owned = { province = 681 data = -3 } } } type = secedeprovince which = -3 value = 681 when = 2 }
+		command = { trigger = { control = { province = 682 data = -3 } NOT = { control = { province = 682 data = -1 } } NOT = { owned = { province = 682 data = -3 } } } type = secedeprovince which = -3 value = 682 when = 2 }
+		command = { trigger = { control = { province = 683 data = -3 } NOT = { control = { province = 683 data = -1 } } NOT = { owned = { province = 683 data = -3 } } } type = secedeprovince which = -3 value = 683 when = 2 }
+		command = { trigger = { control = { province = 684 data = -3 } NOT = { control = { province = 684 data = -1 } } NOT = { owned = { province = 684 data = -3 } } } type = secedeprovince which = -3 value = 684 when = 2 }
+		command = { trigger = { control = { province = 685 data = -3 } NOT = { control = { province = 685 data = -1 } } NOT = { owned = { province = 685 data = -3 } } } type = secedeprovince which = -3 value = 685 when = 2 }
+		command = { trigger = { control = { province = 686 data = -3 } NOT = { control = { province = 686 data = -1 } } NOT = { owned = { province = 686 data = -3 } } } type = secedeprovince which = -3 value = 686 when = 2 }
+		command = { trigger = { control = { province = 688 data = -3 } NOT = { control = { province = 688 data = -1 } } NOT = { owned = { province = 688 data = -3 } } } type = secedeprovince which = -3 value = 688 when = 2 }
+		command = { trigger = { control = { province = 689 data = -3 } NOT = { control = { province = 689 data = -1 } } NOT = { owned = { province = 689 data = -3 } } } type = secedeprovince which = -3 value = 689 when = 2 }
+		command = { trigger = { control = { province = 573 data = -3 } NOT = { control = { province = 573 data = -1 } } NOT = { owned = { province = 573 data = -3 } } } type = secedeprovince which = -3 value = 573 when = 2 }
+		command = { trigger = { control = { province = 561 data = -3 } NOT = { control = { province = 561 data = -1 } } NOT = { owned = { province = 561 data = -3 } } } type = secedeprovince which = -3 value = 561 when = 2 }
+		command = { trigger = { control = { province = 565 data = -3 } NOT = { control = { province = 565 data = -1 } } NOT = { owned = { province = 565 data = -3 } } } type = secedeprovince which = -3 value = 565 when = 2 }
+		command = { trigger = { control = { province = 560 data = -3 } NOT = { control = { province = 560 data = -1 } } NOT = { owned = { province = 560 data = -3 } } } type = secedeprovince which = -3 value = 560 when = 2 }
+		command = { trigger = { control = { province = 552 data = -3 } NOT = { control = { province = 552 data = -1 } } NOT = { owned = { province = 552 data = -3 } } } type = secedeprovince which = -3 value = 552 when = 2 }
+		command = { trigger = { control = { province = 549 data = -3 } NOT = { control = { province = 549 data = -1 } } NOT = { owned = { province = 549 data = -3 } } } type = secedeprovince which = -3 value = 549 when = 2 }
+		command = { trigger = { control = { province = 550 data = -3 } NOT = { control = { province = 550 data = -1 } } NOT = { owned = { province = 550 data = -3 } } } type = secedeprovince which = -3 value = 550 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236215
+	random = no 
+	country = U43
+ 
+	trigger = { 
+				event = { id = 3236214 days = 3600 }   #Moskowien established 10 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_moskowien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { type = addcore which = 542 }
+		command = { type = addcore which = 543 }
+		command = { type = addcore which = 544 }
+		command = { type = addcore which = 545 }
+		command = { type = addcore which = 546 }
+		command = { type = addcore which = 547 }
+		command = { type = addcore which = 548 }
+		command = { type = addcore which = 551 }
+		command = { type = addcore which = 553 }
+		command = { type = addcore which = 554 }
+		command = { type = addcore which = 555 }
+		command = { type = addcore which = 556 }
+		command = { type = addcore which = 557 }
+		command = { type = addcore which = 558 }
+		command = { type = addcore which = 559 }
+		command = { type = addcore which = 562 }
+		command = { type = addcore which = 563 }
+		command = { type = addcore which = 567 }
+		command = { type = addcore which = 568 }
+		command = { type = addcore which = 569 }
+		command = { type = addcore which = 570 }
+		command = { type = addcore which = 571 }
+		command = { type = addcore which = 574 }
+		command = { type = addcore which = 576 }
+		command = { type = addcore which = 577 }
+		command = { type = addcore which = 578 }
+		command = { type = addcore which = 579 }
+		command = { type = addcore which = 583 }
+		command = { type = addcore which = 584 }
+		command = { type = addcore which = 585 }
+		command = { type = addcore which = 656 }
+		command = { type = addcore which = 664 }
+		command = { type = addcore which = 667 }
+		command = { type = addcore which = 668 }
+		command = { type = addcore which = 670 }
+		command = { type = addcore which = 671 }
+		command = { type = addcore which = 672 }
+		command = { type = addcore which = 673 }
+		command = { type = addcore which = 674 }
+		command = { type = addcore which = 675 }
+		command = { type = addcore which = 676 }
+		command = { type = addcore which = 677 }
+		command = { type = addcore which = 678 }
+		command = { type = addcore which = 679 }
+		command = { type = addcore which = 680 }
+		command = { type = addcore which = 681 }
+		command = { type = addcore which = 682 }
+		command = { type = addcore which = 683 }
+		command = { type = addcore which = 684 }
+		command = { type = addcore which = 685 }
+		command = { type = addcore which = 686 }
+		command = { type = addcore which = 688 }
+		command = { type = addcore which = 689 }
+		command = { type = addcore which = 573 }
+		command = { type = addcore which = 561 }
+		command = { type = addcore which = 565 }
+		command = { type = addcore which = 560 }
+		command = { type = addcore which = 552 }
+		command = { type = addcore which = 549 }
+		command = { type = addcore which = 550 }
+	}
+}
+
+####################################################
+# Reichskommissariate - possible additional entities
+# Kalmückien, Kosakien
+####################################################
+
+####################################################
+# Kalmückien
+# release event
+# arbitration on claims and national provinces
+# establishment of national provinces after 2 years
+####################################################
+
+event = { 
+	id = 3236216
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U63 } #Kalmückien
+				NOT = { exists = RUS }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				control = { province = 1113 data = -3 } #Uralsk
+				control = { province = 706 data = -1 } #Astrakhan
+				# surrounding areas
+				region = { region = "Kaukasus"	country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U63 } #Kalmückien
+				NOT = { exists = RUS }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				control = { province = 1113 data = -3 } #Uralsk
+				control = { province = 706 data = -1 } #Astrakhan
+				# surrounding areas
+				region = { region = "Kaukasus"	country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				}
+
+	name = EVT_3236216_NAME
+	desc = EVT_3236216_DESC
+	style = 2
+	decision_picture = "ger_decision_kalmueckien"
+	picture = "ger_event_kalmueckien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236216A
+		command = { type = independence which = U63 value = 1 }
+		command = { type = make_puppet which = U63 }
+	}
+}
+
+event = { 
+	id = 3236217 # German arbitration on kalmykian claims
+	random = no 
+	country = GER
+ 
+	trigger = { 
+				puppet = { country = GER country = U63 }
+				OR = {
+						NOT = { owned = { province = 698 data = U63 } }
+						NOT = { owned = { province = 700 data = U63 } }
+						}
+				owned = { province = 698 data = -3 }
+				owned = { province = 700 data = -3 }			
+				}
+
+	name = EVT_3236217_NAME
+	desc = EVT_3236217_DESC
+	style = 2
+	picture = "ger_event_kalmueckien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 90
+		name = ACTIONNAME3236217A #support kalmykian claims
+		command = { trigger = { NOT = { owned = { province = 698 data = U63 } } } type = secedeprovince which = U63 value = 698 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 698 data = U63 } } } type = secedeprovince which = U63 value = 700 when = 2 }
+	}
+	action_b = {
+		ai_chance = 10
+		name = ACTIONNAME3236217B #keep existing order
+		command = { }
+	}
+}
+
+event = { 
+	id = 3236218 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U63
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236216_NAME
+	desc = EVT_3236216_DESC
+	style = 2
+	picture = "ger_event_kalmueckien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 698 data = -3 } NOT = { control = { province = 698 data = -1 } } NOT = { owned = { province = 698 data = -3 } } } type = secedeprovince which = -3 value = 698 when = 2 }
+		command = { trigger = { control = { province = 700 data = -3 } NOT = { control = { province = 700 data = -1 } } NOT = { owned = { province = 700 data = -3 } } } type = secedeprovince which = -3 value = 700 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236219
+	random = no 
+	country = U63
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 698 }
+						owned = { province = 700 }
+						}
+				event = { id = 3236218 days = 720 }   #Kalmückien established 2 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_kalmueckien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { trigger = { owned = { province = 698 } } type = addcore which = 698 }
+		command = { trigger = { owned = { province = 700 } } type = addcore which = 700 }
+	}
+}
+
+####################################################
+# Kosakien
+# release event
+# arbitration on claims and national provinces
+# establishment of national provinces after 2 years
+####################################################
+
+event = { 
+	id = 3236220
+	random = no 
+	country = GER
+
+	decision = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U62 } #Kosakien
+				NOT = { exists = RUS }
+				}
+				
+	decision_trigger = { 
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				control = { province = 1134	data = -1 } #Orenburg
+				control = { province = 690 data = -1 } #Sterlitamak
+				# surrounding areas
+				region = { region = "Kaukasus"			country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				region = { region = "Northern Russia"	country = -3 }
+				region = { region = "Russia"			country = -3 }
+				area = { area = "Syzran"				country = -3 }
+				area = { area = "Engels"				country = -3 }
+				area = { area = "Orenburg"				country = -3 }
+				}
+
+	trigger = { 
+				flag = NOE_Ros # Rosenberg plan chosen
+				NOT = { exists = U62 } #Kosakien
+				NOT = { exists = RUS }
+				OR = {
+						AND = {
+								event = 3236009 # Victory in the East
+								event = 2024
+								}
+						war = { country = GER country = SOV }
+						}
+				# provinces needed for release
+				control = { province = 1134 data = -1 } #Orenburg
+				control = { province = 690 data = -1 } #Sterlitamak
+				# surrounding areas
+				region = { region = "Kaukasus"			country = -3 }
+				region = { region = "Southern Russia"	country = -3 }
+				region = { region = "Northern Russia"	country = -3 }
+				region = { region = "Russia"			country = -3 }
+				area = { area = "Syzran"				country = -3 }
+				area = { area = "Engels"				country = -3 }
+				area = { area = "Orenburg"				country = -3 }
+				}
+
+	name = EVT_3236220_NAME
+	desc = EVT_3236220_DESC
+	style = 2
+	decision_picture = "ger_decision_kosakien"
+	picture = "ger_event_kosakien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236220A
+		command = { type = independence which = U62 value = 1 }
+		command = { type = make_puppet which = U62 }
+	}
+}
+
+event = { 
+	id = 3236221 # German arbitration on kosakian claims
+	random = no 
+	country = GER
+ 
+	trigger = { 
+				puppet = { country = GER country = U62 }				
+				OR = {			
+						NOT = { owned = { province = 691 data = U62 } }
+						NOT = { owned = { province = 698 data = U62 } }
+						NOT = { owned = { province = 700 data = U62 } }
+						NOT = { owned = { province = 699 data = U62 } }
+						NOT = { owned = { province = 697 data = U62 } }
+						NOT = { owned = { province = 692 data = U62 } }
+						NOT = { owned = { province = 644 data = U62 } }
+						NOT = { owned = { province = 649 data = U62 } }
+						NOT = { owned = { province = 643 data = U62 } }
+						NOT = { owned = { province = 645 data = U62 } }
+						NOT = { owned = { province = 642 data = U62 } }
+						NOT = { owned = { province = 662 data = U62 } }
+						NOT = { owned = { province = 659 data = U62 } }
+						NOT = { owned = { province = 661 data = U62 } }
+						NOT = { owned = { province = 663 data = U62 } }
+						NOT = { owned = { province = 660 data = U62 } }
+						NOT = { owned = { province = 669 data = U62 } }
+						NOT = { owned = { province = 665 data = U62 } }
+						NOT = { owned = { province = 668 data = U62 } }
+						NOT = { owned = { province = 667 data = U62 } }
+						NOT = { owned = { province = 690 data = U62 } }
+						NOT = { owned = { province = 664 data = U62 } }
+						NOT = { owned = { province = 672 data = U62 } }
+						NOT = { owned = { province = 666 data = U62 } }
+						}
+				owned = { province = 691 data = -3 }
+				owned = { province = 698 data = -3 }
+				owned = { province = 700 data = -3 }
+				owned = { province = 699 data = -3 }
+				owned = { province = 697 data = -3 }
+				owned = { province = 692 data = -3 }
+				owned = { province = 644 data = -3 }
+				owned = { province = 649 data = -3 }
+				owned = { province = 643 data = -3 }
+				owned = { province = 645 data = -3 }
+				owned = { province = 642 data = -3 }
+				owned = { province = 662 data = -3 }
+				owned = { province = 659 data = -3 }
+				owned = { province = 661 data = -3 }
+				owned = { province = 663 data = -3 }
+				owned = { province = 660 data = -3 }
+				owned = { province = 669 data = -3 }
+				owned = { province = 665 data = -3 }
+				owned = { province = 668 data = -3 }
+				owned = { province = 667 data = -3 }
+				owned = { province = 690 data = -3 }
+				owned = { province = 664 data = -3 }
+				owned = { province = 672 data = -3 }
+				owned = { province = 666 data = -3 }			
+				}
+
+	name = EVT_3236221_NAME
+	desc = EVT_3236221_DESC
+	style = 2
+	picture = "ger_event_kosakien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14 # Kalmykian claims event shall have a chance to trigger
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 90
+		name = ACTIONNAME3236221A #support kosakian claims
+		command = { trigger = { NOT = { owned = { province = 691 data = U62 } } } type = secedeprovince which = U62 value = 691 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 698 data = U62 } NOT = { owned = { province = 700 data = U63 } } } } type = secedeprovince which = U62 value = 698 when = 2 } #Kalmykian claims
+		command = { trigger = { NOT = { owned = { province = 700 data = U62 } NOT = { owned = { province = 700 data = U63 } } } } type = secedeprovince which = U62 value = 700 when = 2 } #Kalmykian claims
+		command = { trigger = { NOT = { owned = { province = 699 data = U62 } } } type = secedeprovince which = U62 value = 699 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 697 data = U62 } } } type = secedeprovince which = U62 value = 697 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 692 data = U62 } } } type = secedeprovince which = U62 value = 692 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 644 data = U62 } } } type = secedeprovince which = U62 value = 644 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 649 data = U62 } } } type = secedeprovince which = U62 value = 649 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 643 data = U62 } } } type = secedeprovince which = U62 value = 643 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 645 data = U62 } } } type = secedeprovince which = U62 value = 645 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 642 data = U62 } } } type = secedeprovince which = U62 value = 642 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 662 data = U62 } } } type = secedeprovince which = U62 value = 662 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 659 data = U62 } } } type = secedeprovince which = U62 value = 659 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 661 data = U62 } } } type = secedeprovince which = U62 value = 661 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 663 data = U62 } } } type = secedeprovince which = U62 value = 663 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 660 data = U62 } } } type = secedeprovince which = U62 value = 660 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 669 data = U62 } } } type = secedeprovince which = U62 value = 669 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 665 data = U62 } } } type = secedeprovince which = U62 value = 665 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 668 data = U62 } } } type = secedeprovince which = U62 value = 668 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 667 data = U62 } } } type = secedeprovince which = U62 value = 667 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 690 data = U62 } } } type = secedeprovince which = U62 value = 690 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 664 data = U62 } } } type = secedeprovince which = U62 value = 664 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 672 data = U62 } } } type = secedeprovince which = U62 value = 672 when = 2 }
+		command = { trigger = { NOT = { owned = { province = 666 data = U62 } } } type = secedeprovince which = U62 value = 666 when = 2 }
+	}
+	action_b = {
+		ai_chance = 10
+		name = ACTIONNAME3236217B #keep existing order
+		command = { }
+	}
+}
+
+event = { 
+	id = 3236222 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U62
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236220_NAME
+	desc = EVT_3236220_DESC
+	style = 2
+	picture = "ger_event_kosakien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 691 data = -3 } NOT = { control = { province = 691 data = -1 } } NOT = { owned = { province = 691 data = -3 } } } type = secedeprovince which = -3 value = 691 when = 2 }
+		command = { trigger = { control = { province = 698 data = -3 } NOT = { control = { province = 698 data = -1 } } NOT = { owned = { province = 698 data = -3 } } } type = secedeprovince which = -3 value = 698 when = 2 }
+		command = { trigger = { control = { province = 700 data = -3 } NOT = { control = { province = 700 data = -1 } } NOT = { owned = { province = 700 data = -3 } } } type = secedeprovince which = -3 value = 700 when = 2 }
+		command = { trigger = { control = { province = 699 data = -3 } NOT = { control = { province = 699 data = -1 } } NOT = { owned = { province = 699 data = -3 } } } type = secedeprovince which = -3 value = 699 when = 2 }
+		command = { trigger = { control = { province = 697 data = -3 } NOT = { control = { province = 697 data = -1 } } NOT = { owned = { province = 697 data = -3 } } } type = secedeprovince which = -3 value = 697 when = 2 }
+		command = { trigger = { control = { province = 692 data = -3 } NOT = { control = { province = 692 data = -1 } } NOT = { owned = { province = 692 data = -3 } } } type = secedeprovince which = -3 value = 692 when = 2 }
+		command = { trigger = { control = { province = 644 data = -3 } NOT = { control = { province = 644 data = -1 } } NOT = { owned = { province = 644 data = -3 } } } type = secedeprovince which = -3 value = 644 when = 2 }
+		command = { trigger = { control = { province = 649 data = -3 } NOT = { control = { province = 649 data = -1 } } NOT = { owned = { province = 649 data = -3 } } } type = secedeprovince which = -3 value = 649 when = 2 }
+		command = { trigger = { control = { province = 643 data = -3 } NOT = { control = { province = 643 data = -1 } } NOT = { owned = { province = 643 data = -3 } } } type = secedeprovince which = -3 value = 643 when = 2 }
+		command = { trigger = { control = { province = 645 data = -3 } NOT = { control = { province = 645 data = -1 } } NOT = { owned = { province = 645 data = -3 } } } type = secedeprovince which = -3 value = 645 when = 2 }
+		command = { trigger = { control = { province = 642 data = -3 } NOT = { control = { province = 642 data = -1 } } NOT = { owned = { province = 642 data = -3 } } } type = secedeprovince which = -3 value = 642 when = 2 }
+		command = { trigger = { control = { province = 662 data = -3 } NOT = { control = { province = 662 data = -1 } } NOT = { owned = { province = 662 data = -3 } } } type = secedeprovince which = -3 value = 662 when = 2 }
+		command = { trigger = { control = { province = 659 data = -3 } NOT = { control = { province = 659 data = -1 } } NOT = { owned = { province = 659 data = -3 } } } type = secedeprovince which = -3 value = 659 when = 2 }
+		command = { trigger = { control = { province = 661 data = -3 } NOT = { control = { province = 661 data = -1 } } NOT = { owned = { province = 661 data = -3 } } } type = secedeprovince which = -3 value = 661 when = 2 }
+		command = { trigger = { control = { province = 663 data = -3 } NOT = { control = { province = 663 data = -1 } } NOT = { owned = { province = 663 data = -3 } } } type = secedeprovince which = -3 value = 663 when = 2 }
+		command = { trigger = { control = { province = 660 data = -3 } NOT = { control = { province = 660 data = -1 } } NOT = { owned = { province = 660 data = -3 } } } type = secedeprovince which = -3 value = 660 when = 2 }
+		command = { trigger = { control = { province = 669 data = -3 } NOT = { control = { province = 669 data = -1 } } NOT = { owned = { province = 669 data = -3 } } } type = secedeprovince which = -3 value = 669 when = 2 }
+		command = { trigger = { control = { province = 665 data = -3 } NOT = { control = { province = 665 data = -1 } } NOT = { owned = { province = 665 data = -3 } } } type = secedeprovince which = -3 value = 665 when = 2 }
+		command = { trigger = { control = { province = 668 data = -3 } NOT = { control = { province = 668 data = -1 } } NOT = { owned = { province = 668 data = -3 } } } type = secedeprovince which = -3 value = 668 when = 2 }
+		command = { trigger = { control = { province = 667 data = -3 } NOT = { control = { province = 667 data = -1 } } NOT = { owned = { province = 667 data = -3 } } } type = secedeprovince which = -3 value = 667 when = 2 }
+		command = { trigger = { control = { province = 690 data = -3 } NOT = { control = { province = 690 data = -1 } } NOT = { owned = { province = 690 data = -3 } } } type = secedeprovince which = -3 value = 690 when = 2 }
+		command = { trigger = { control = { province = 664 data = -3 } NOT = { control = { province = 664 data = -1 } } NOT = { owned = { province = 664 data = -3 } } } type = secedeprovince which = -3 value = 664 when = 2 }
+		command = { trigger = { control = { province = 672 data = -3 } NOT = { control = { province = 672 data = -1 } } NOT = { owned = { province = 672 data = -3 } } } type = secedeprovince which = -3 value = 672 when = 2 }
+		command = { trigger = { control = { province = 666 data = -3 } NOT = { control = { province = 666 data = -1 } } NOT = { owned = { province = 666 data = -3 } } } type = secedeprovince which = -3 value = 666 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236223
+	random = no 
+	country = U62
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 691 }
+						owned = { province = 698 }
+						owned = { province = 700 }
+						owned = { province = 699 }
+						owned = { province = 697 }
+						owned = { province = 692 }
+						owned = { province = 644 }
+						owned = { province = 649 }
+						owned = { province = 643 }
+						owned = { province = 645 }
+						owned = { province = 642 }
+						owned = { province = 662 }
+						owned = { province = 659 }
+						owned = { province = 661 }
+						owned = { province = 663 }
+						owned = { province = 660 }
+						owned = { province = 669 }
+						owned = { province = 665 }
+						owned = { province = 668 }
+						owned = { province = 667 }
+						owned = { province = 690 }
+						owned = { province = 664 }
+						owned = { province = 672 }
+						owned = { province = 666 }
+						}
+				event = { id = 3236222 days = 720 }   #Kalmückien established 2 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_kosakien"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+		command = { trigger = { owned = { province = 691 } } type = addcore which = 691 }
+		command = { trigger = { owned = { province = 698 } } type = addcore which = 698 }
+		command = { trigger = { owned = { province = 700 } } type = addcore which = 700 }
+		command = { trigger = { owned = { province = 699 } } type = addcore which = 699 }
+		command = { trigger = { owned = { province = 697 } } type = addcore which = 697 }
+		command = { trigger = { owned = { province = 692 } } type = addcore which = 692 }
+		command = { trigger = { owned = { province = 644 } } type = addcore which = 644 }
+		command = { trigger = { owned = { province = 649 } } type = addcore which = 649 }
+		command = { trigger = { owned = { province = 643 } } type = addcore which = 643 }
+		command = { trigger = { owned = { province = 645 } } type = addcore which = 645 }
+		command = { trigger = { owned = { province = 642 } } type = addcore which = 642 }
+		command = { trigger = { owned = { province = 662 } } type = addcore which = 662 }
+		command = { trigger = { owned = { province = 659 } } type = addcore which = 659 }
+		command = { trigger = { owned = { province = 661 } } type = addcore which = 661 }
+		command = { trigger = { owned = { province = 663 } } type = addcore which = 663 }
+		command = { trigger = { owned = { province = 660 } } type = addcore which = 660 }
+		command = { trigger = { owned = { province = 669 } } type = addcore which = 669 }
+		command = { trigger = { owned = { province = 665 } } type = addcore which = 665 }
+		command = { trigger = { owned = { province = 668 } } type = addcore which = 668 }
+		command = { trigger = { owned = { province = 667 } } type = addcore which = 667 }
+		command = { trigger = { owned = { province = 690 } } type = addcore which = 690 }
+		command = { trigger = { owned = { province = 664 } } type = addcore which = 664 }
+		command = { trigger = { owned = { province = 672 } } type = addcore which = 672 }
+		command = { trigger = { owned = { province = 666 } } type = addcore which = 666 }
+	}
+}
+
+####################################################
+# Reichskommissariate - manual releases
+# Don-Wolga
+####################################################
+
+####################################################
+# Don-Wolga
+# event for gaining national provinces
+####################################################
+
+event = { 
+	id = 3236224 # event added so that national province - event may trigger even in case of a manual release
+	random = no 
+	country = U61
+	
+	save_date = yes
+ 
+	trigger = { 
+				puppet = { country = -1 country = GER }
+				}
+
+	name = EVT_3236224_NAME
+	desc = EVT_3236224_DESC
+	style = 2
+	picture = "ger_event_don-wolga"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { }
+		command = { trigger = { control = { province = 652 data = -3 } NOT = { control = { province = 652 data = -1 } } NOT = { owned = { province = 652 data = -3 } } } type = secedeprovince which = -3 value = 652 when = 2 }
+		command = { trigger = { control = { province = 645 data = -3 } NOT = { control = { province = 645 data = -1 } } NOT = { owned = { province = 645 data = -3 } } } type = secedeprovince which = -3 value = 645 when = 2 }
+		command = { trigger = { control = { province = 643 data = -3 } NOT = { control = { province = 643 data = -1 } } NOT = { owned = { province = 643 data = -3 } } } type = secedeprovince which = -3 value = 643 when = 2 }
+		command = { trigger = { control = { province = 642 data = -3 } NOT = { control = { province = 642 data = -1 } } NOT = { owned = { province = 642 data = -3 } } } type = secedeprovince which = -3 value = 642 when = 2 }
+		command = { trigger = { control = { province = 662 data = -3 } NOT = { control = { province = 662 data = -1 } } NOT = { owned = { province = 662 data = -3 } } } type = secedeprovince which = -3 value = 662 when = 2 }
+		command = { trigger = { control = { province = 660 data = -3 } NOT = { control = { province = 660 data = -1 } } NOT = { owned = { province = 660 data = -3 } } } type = secedeprovince which = -3 value = 660 when = 2 }
+		command = { trigger = { control = { province = 666 data = -3 } NOT = { control = { province = 666 data = -1 } } NOT = { owned = { province = 666 data = -3 } } } type = secedeprovince which = -3 value = 666 when = 2 }
+		command = { trigger = { control = { province = 654 data = -3 } NOT = { control = { province = 654 data = -1 } } NOT = { owned = { province = 654 data = -3 } } } type = secedeprovince which = -3 value = 654 when = 2 }
+		command = { trigger = { control = { province = 663 data = -3 } NOT = { control = { province = 663 data = -1 } } NOT = { owned = { province = 663 data = -3 } } } type = secedeprovince which = -3 value = 663 when = 2 }
+		command = { trigger = { control = { province = 659 data = -3 } NOT = { control = { province = 659 data = -1 } } NOT = { owned = { province = 659 data = -3 } } } type = secedeprovince which = -3 value = 659 when = 2 }
+		command = { trigger = { control = { province = 661 data = -3 } NOT = { control = { province = 661 data = -1 } } NOT = { owned = { province = 661 data = -3 } } } type = secedeprovince which = -3 value = 661 when = 2 }
+		command = { trigger = { control = { province = 669 data = -3 } NOT = { control = { province = 669 data = -1 } } NOT = { owned = { province = 669 data = -3 } } } type = secedeprovince which = -3 value = 669 when = 2 }
+		command = { trigger = { control = { province = 665 data = -3 } NOT = { control = { province = 665 data = -1 } } NOT = { owned = { province = 665 data = -3 } } } type = secedeprovince which = -3 value = 665 when = 2 }
+		command = { trigger = { control = { province = 655 data = -3 } NOT = { control = { province = 655 data = -1 } } NOT = { owned = { province = 655 data = -3 } } } type = secedeprovince which = -3 value = 655 when = 2 }
+		command = { trigger = { control = { province = 653 data = -3 } NOT = { control = { province = 653 data = -1 } } NOT = { owned = { province = 653 data = -3 } } } type = secedeprovince which = -3 value = 653 when = 2 }
+		command = { trigger = { control = { province = 657 data = -3 } NOT = { control = { province = 657 data = -1 } } NOT = { owned = { province = 657 data = -3 } } } type = secedeprovince which = -3 value = 657 when = 2 }
+		command = { trigger = { control = { province = 658 data = -3 } NOT = { control = { province = 658 data = -1 } } NOT = { owned = { province = 658 data = -3 } } } type = secedeprovince which = -3 value = 658 when = 2 }
+		command = { trigger = { control = { province = 651 data = -3 } NOT = { control = { province = 651 data = -1 } } NOT = { owned = { province = 651 data = -3 } } } type = secedeprovince which = -3 value = 651 when = 2 }
+		command = { trigger = { control = { province = 650 data = -3 } NOT = { control = { province = 650 data = -1 } } NOT = { owned = { province = 650 data = -3 } } } type = secedeprovince which = -3 value = 650 when = 2 }
+		command = { trigger = { control = { province = 649 data = -3 } NOT = { control = { province = 649 data = -1 } } NOT = { owned = { province = 649 data = -3 } } } type = secedeprovince which = -3 value = 649 when = 2 }
+	}
+}
+
+event = { 
+	id = 3236225
+	random = no 
+	country = U61
+ 
+	trigger = { 
+				OR = {
+						owned = { province = 652 }
+						owned = { province = 645 }
+						owned = { province = 643 }
+						owned = { province = 642 }
+						owned = { province = 662 }
+						owned = { province = 660 }
+						owned = { province = 666 }
+						owned = { province = 654 }
+						owned = { province = 663 }
+						owned = { province = 659 }
+						owned = { province = 661 }
+						owned = { province = 669 }
+						owned = { province = 665 }
+						owned = { province = 655 }
+						owned = { province = 653 }
+						owned = { province = 657 }
+						owned = { province = 658 }
+						owned = { province = 651 }
+						owned = { province = 650 }
+						owned = { province = 649 }
+						}
+				event = { id = 3236224 days = 1800 }   #Don-Wolga established 5 years ago
+				}
+
+	name = EVT_3236203_NAME
+	desc = EVT_3236203_DESC
+	style = 2
+	picture = "ger_event_don-wolga"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH		
+		command = { trigger = { owned = { province = 652 } } type = addcore which = 652 }
+		command = { trigger = { owned = { province = 645 } } type = addcore which = 645 }
+		command = { trigger = { owned = { province = 643 } } type = addcore which = 643 }
+		command = { trigger = { owned = { province = 642 } } type = addcore which = 642 }
+		command = { trigger = { owned = { province = 662 } } type = addcore which = 662 }
+		command = { trigger = { owned = { province = 660 } } type = addcore which = 660 }
+		command = { trigger = { owned = { province = 666 } } type = addcore which = 666 }
+		command = { trigger = { owned = { province = 654 } } type = addcore which = 654 }
+		command = { trigger = { owned = { province = 663 } } type = addcore which = 663 }
+		command = { trigger = { owned = { province = 659 } } type = addcore which = 659 }
+		command = { trigger = { owned = { province = 661 } } type = addcore which = 661 }
+		command = { trigger = { owned = { province = 669 } } type = addcore which = 669 }
+		command = { trigger = { owned = { province = 665 } } type = addcore which = 665 }
+		command = { trigger = { owned = { province = 655 } } type = addcore which = 655 }
+		command = { trigger = { owned = { province = 653 } } type = addcore which = 653 }
+		command = { trigger = { owned = { province = 657 } } type = addcore which = 657 }
+		command = { trigger = { owned = { province = 658 } } type = addcore which = 658 }
+		command = { trigger = { owned = { province = 651 } } type = addcore which = 651 }
+		command = { trigger = { owned = { province = 650 } } type = addcore which = 650 }
+		command = { trigger = { owned = { province = 649 } } type = addcore which = 649 }		
+	}
+}

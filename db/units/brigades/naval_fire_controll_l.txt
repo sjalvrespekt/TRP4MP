@@ -1,0 +1,93 @@
+detachable = yes
+
+# 0 - Naval Fire Control Computer 1940 Capitals ( no Carriers )
+model = {
+	cost 						= 1
+	buildtime					= 90
+	manpower 					= 0.0
+	surfacedetectioncapability	= 0
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0
+	airdefence					= 0
+	seaattack					= 3
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 2
+	shorebombardment			= 2
+	distance					= 0.03
+	supplyconsumption 			= 0.0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.6
+}
+# 1 - Naval Fire Control Computer 1943
+model = {
+	cost 						= 1.5
+	buildtime					= 90
+	manpower 					= 0.0
+	surfacedetectioncapability	= 0
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0
+	airdefence					= 0
+	seaattack					= 3
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 3
+	shorebombardment			= 3
+	distance					= 0.03
+	supplyconsumption 			= 0.0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+}
+# 2 - Naval Fire Control Computer 1945
+model = {
+	cost 						= 1.5
+	buildtime					= 90
+	manpower 					= 0.0
+	surfacedetectioncapability	= 0
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0
+	airdefence					= 0
+	seaattack					= 4
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 4
+	shorebombardment			= 4
+	distance					= 0.05
+	supplyconsumption 			= 0.0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+}
+# 3 - Naval Fire Control Computer 1949
+model = {
+	cost 						= 2
+	buildtime					= 90
+	manpower 					= 0.0
+	surfacedetectioncapability	= 0
+	airdetectioncapability		= 0
+	subdetectioncapability		= 0
+	airdefence					= 0
+	seaattack					= 5
+	convoyattack				= 0
+	subattack					= 0
+	airattack					= 6
+	shorebombardment			= 6
+	distance					= 0.05
+	supplyconsumption 			= 0.0
+	fuelconsumption				= 0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+}
+
+########################################
+

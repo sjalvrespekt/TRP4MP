@@ -1,0 +1,54 @@
+# checked DH
+####################################
+# Peru AI events 34800 - 34899 by Lothos
+####################################
+################
+# Minister of Security Section 34800 - 34809
+#############################################
+################
+# Chief of Staff Section 34810 - 34819
+#############################################
+################
+# Head of Intelligence Section 34820 - 34829
+#############################################
+################
+# Chief of the Army Section 34830 - 34839
+#############################################
+################
+# Armament Minister Section 34840 - 34849
+#############################################
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34860 - 34899
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 34860
+	random = no 
+	country = PRU
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

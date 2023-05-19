@@ -1,0 +1,3137 @@
+# converted to DH, Kane, July 23 2011
+# Last Update 13-APR-2008
+##########################
+
+#####################################################################################################
+# 3145000 - 3145999	Italy political events
+# 3145037 last used
+# 3145500+ decisions
+#####################################################################################################
+#event = {
+#	id = 400000070
+#	random = no
+#	country = ITA
+#
+#	name = EVT_400000070_NAME
+#	desc = EVT_400000070_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#
+#	action_a = {
+#		name = "OK"
+#                command = { }
+#	}
+#
+#}
+#########################################################
+# Tripartite Pact - Italy's response after Japan signed
+# (was 462002 by Steel) modified by Luxor
+#########################################################
+event = {
+	id = 3145000
+	random = no
+	country = ITA
+
+	# Triggered by JAP 3146000
+
+	name = EVT_3145000_NAME
+	desc = EVT_3145000_DESC
+	style = 2
+	picture = "tripartite"
+
+	action_a = {
+		name = ACTIONNAME3145000A
+		ai_chance = 98
+		command = { type = money value = 670 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = relation which = JAP value = 50 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = trigger which = 3136062 } # GER
+	}
+	action_b = {
+		name = ACTIONNAME3145000B
+		ai_chance = 2
+		command = { type = money value = -670 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3136063 } # GER
+	}
+}
+#########################################################
+# Tripartite Pact - Italy's response after Japan refused
+# (was 462003 by Steel) modified by Luxor
+#########################################################
+event = {
+	id = 3145001
+	random = no
+	country = ITA
+
+	# Triggered by JAP 3146000
+
+	name = EVT_3145000_NAME
+	desc = EVT_3145000_DESC
+	style = 2
+	picture = "tripartite"
+
+	action_a = {
+		name = ACTIONNAME3145000A
+		ai_chance = 98
+		command = { type = money value = 370 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = manpowerpool value = 20 }
+		command = { type = trigger which = 3136064 } # GER
+	}
+	action_b = {
+		name = ACTIONNAME3145000B
+		ai_chance = 2
+		command = { type = money value = -670 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3136065 } # GER
+	}
+}
+#########################################################################
+# Annexation of Albania (was 2902)
+# modified by Luxor
+#########################################################################
+event = {
+	id = 3145002
+	random = no
+	country = ITA
+
+	trigger = {
+		NOT = { event = 3145033 } # Italian surrender
+		exists = ALB
+		OR = {
+			event = 3136013 # Germany annexes Bohemia and Moravia - Mussolini feels he must not be outdone...
+			event = 3136016
+			event = 3136011
+		}
+		NOT = {
+			OR = {
+				alliance = { country = ALB country = ITA }
+				alliance = { country = ALB country = SOV }
+				alliance = { country = ALB country = GER }
+				war = { country = ALB country = ITA }
+			}
+		}
+	}
+
+	name = EVT_2902_NAME
+	desc = EVT_2902_DESC
+	style = 2
+	picture = "Albania"
+
+	date = { day = 6 month = april year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145002A
+		ai_chance = 99
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = trigger which = 3500 } # ALB
+		command = { type = relation which = ALB value = -20 }
+		command = { type = relation which = YUG value = -5 }
+		command = { type = relation which = GRE value = -5 }
+		command = { type = addcore  which = 359 } # Italy claims Albania
+		command = { type = addcore  which = 360 } # Italy claims Albania
+		command = { type = addcore  which = 361 } # Italy claims Albania
+		command = { type = addcore  which = 362 } # Italy claims Albania
+	}
+	action_b = {
+		name = ACTIONNAME3145002B
+		ai_chance = 1
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = ALB value = 20 }
+		command = { type = relation which = YUG value = 5 }
+		command = { type = relation which = GRE value = 5 }
+	}
+}
+event = { # 2905
+	id = 3145005
+	random = no
+	country = ITA
+
+	trigger = {
+		NOT = { event = 3145033 } # Italian surrender
+		exists = ALB
+		OR = {
+			event = 3136013 # Germany annexes Bohemia and Moravia - Mussolini feels he must not be outdone...
+			event = 3136016
+			event = 3136011
+		}
+		OR = {
+			alliance = { country = ALB country = ITA }
+			alliance = { country = ALB country = SOV }
+			alliance = { country = ALB country = GER }
+			war = { country = ALB country = ITA }
+		}
+	}
+
+	name = EVT_2902_NAME
+	desc = EVT_2902_DESC
+	style = 2
+	picture = "Albania"
+
+	date = { day = 6 month = april year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145005A
+		command = { type = addcore  which = 359 } # Italy claims Albania
+		command = { type = addcore  which = 360 } # Italy claims Albania
+		command = { type = addcore  which = 361 } # Italy claims Albania
+		command = { type = addcore  which = 362 } # Italy claims Albania
+	}
+}
+#########################################################################
+#  Annexation of Albania - Zog refuses (was 2903)
+#########################################################################
+event = {
+	id = 3145003
+	random = no
+	country = ITA
+
+	# Triggered by ALB 3500
+
+	name = EVT_2903_NAME
+	desc = EVT_2903_DESC
+	style = 2
+	picture = "Albania"
+
+	action_a = {
+		name = ACTIONNAME3145003A
+		ai_chance = 98
+		command = { type = war which = ALB }
+		command = { type = relation which = YUG value = -10 }
+		command = { type = relation which = GRE value = -10 }
+		command = { type = dissent value = -4 }
+	}
+	action_b = {
+		name = ACTIONNAME3145003B
+		ai_chance = 2
+		command = { type = dissent value = 5 }
+		command = { type = relation which = ALB value = 10 }
+	}
+}
+#########################################################################
+#  Annexation of Albania - Zog accepts (was 2904)
+#########################################################################
+event = {
+	id = 3145004
+	random = no
+	country = ITA
+
+	# Triggered by ALB 3500
+
+	name = EVT_2904_NAME
+	desc = EVT_2904_DESC
+	style = 2
+	picture = "Albania"
+
+	action_a = {
+		name = ACTIONNAME3145004A
+		command = { type = inherit which = ALB }
+		command = { type = dissent value = -5 }
+		command = { type = relation which = YUG value = -5 }
+		command = { type = relation which = GRE value = -10 }
+	}
+}
+#########################################################################
+#  Spanish Civil War - Intervention
+#########################################################################
+event = {
+	id = 3145006
+	random = no
+	country = ITA
+
+	# Triggered by U01 3173000
+	trigger = { event = 3173000 }
+
+	name = EVT_3145006_NAME
+	desc = EVT_3145006_DESC
+	style = 2
+	picture = "SCW_Italian_Intervention"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145006A
+		ai_chance = 99
+		command = { type = setflag which = SCW_aid_ITA }
+		command = { type = non_aggression which = ITA where = U01 when = 1150 }	#NAP until autumn 1939
+	}
+	action_b = {
+		name = ACTIONNAME3145006B
+		ai_chance = 1
+		command = { type = dissent value = 5 }
+		command = { type = relation which = U01 value = -20 }
+		command = { type = relation which = SPR value = 20 }
+		command = { type = relation which = FRA value = 5 }
+		command = { type = relation which = ENG value = 5 }
+		command = { type = relation which = SOV value = 5 }
+		command = { type = relation which = GER value = -5 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = belligerence which = ITA value = -1 }
+		command = { type = non_aggression which = ITA where = U01 when = 1150 }	#NAP until autumn 1939
+	}
+}
+event = {
+	id = 3145036
+	random = no
+	country = ITA
+
+	trigger = {
+		flag = SCW_aid_ITA
+		war = { country = U01 country = SPR }
+		ai = no
+		manpower = 79
+		supplies = 500
+		not = { event = 3145203 }
+	}
+
+	name = EVT_3145036_NAME
+	desc = EVT_2901_DESC
+	style = 2
+	picture = "SCW_Italian_Intervention"
+
+	date = { day = 2 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145036A
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = U01 value = 10 }
+		command = { type = relation which = SPR value = -20 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = SOV value = -5 }
+		command = { type = relation which = GER value = 5 }
+		command = { type = trigger which = 3173004 } # U01
+		command = { type = trigger which = 3182073 } # USA
+		command = { type = belligerence which = ITA value = 1 }
+		command = { type = manpowerpool value = -79 } # 78.846
+		command = { type = trade which = ITA where = U01 supplies = -15  when = 1080 value = 1 } #3 years of economic aid, can't be cancelled
+	            command = { type = sleepleader which = 6021 } #ITA Generals in Spain
+	            command = { type = sleepleader which = 6024 }
+	            command = { type = sleepleader which = 6193 }
+	            command = { type = sleepleader which = 6074 }
+	            command = { type = sleepleader which = 6126 }	
+	            command = { type = sleepleader which = 6350 }
+	            command = { type = sleepleader which = 6457 }
+	            command = { type = sleepleader which = 6470 }				
+		command = { type = convoypool which = ITA value = -10 }			
+		#command = { type = supplies value = -500 }
+	}
+}
+event = {
+	id = 3145037
+	random = no
+	country = ITA
+
+	trigger = {
+		event = 3145036
+		war = { country = U01 country = SPR }
+	}
+
+	name = EVT_3145037_NAME
+	desc = EVT_3145037_DESC
+	style = 2
+
+	date = { day = 0 month = february year = 1937 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145037A
+		command = { type = gain_tech which = 1030 } # Basic Infantry Division 1939
+		command = { type = gain_tech which = 4080 } # Close Air Support 1937
+		command = { type = gain_tech which = 9200 } # Dive Bombing Concept
+	}
+}
+#########################################################################
+# Italian soldiers return home
+#########################################################################
+event = {
+	id = 3145038
+	random = no
+	country = ITA
+
+	trigger = {	event = 3173011
+			event = 3145036
+			ai = no
+			}
+
+	name = EVT_3145038_NAME
+	desc = EVT_3136163_DESC
+	style = 2
+	picture = "ita_scw_return_home"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145038A
+		command = { type = manpowerpool value = 70 }
+		command = { type = end_trades which = ITA where = U01 }
+		command = { type = convoypool which = ITA value = 10 }	
+	    command = { type = wakeleader which = 6021 } #ITA Generals in Spain
+	    command = { type = wakeleader which = 6024 }
+	    command = { type = wakeleader which = 6193 }
+	    command = { type = wakeleader which = 6074 }
+	    command = { type = wakeleader which = 6126 }		
+		command = { type = add_leader_skill which = 6021 value = 1 }
+		command = { type = add_leader_skill which = 6024 value = 1 }		
+		command = { type = add_leader_skill which = 6193 value = 1 }
+		command = { type = add_leader_skill which = 6074 value = 1 }
+		command = { type = add_leader_skill which = 6126 value = 1 }		
+	    command = { type = wakeleader which = 6350 } #ITA Airforce Gen in Spain
+	    command = { type = wakeleader which = 6457 }
+	    command = { type = wakeleader which = 6470 }
+		command = { type = add_leader_skill which = 6350 value = 1 }
+		command = { type = add_leader_skill which = 6457 value = 1 }
+		command = { type = add_leader_skill which = 6470 value = 1 }	
+	}
+}
+event = {
+	id = 3145039
+	random = no
+	country = ITA
+
+	trigger = {	event = 3174019
+			event = 3145036
+			ai = no
+			}
+
+	name = EVT_3145038_NAME
+	desc = EVT_3136163_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145038A
+		command = { type = manpowerpool value = 30 }
+		command = { type = end_trades which = ITA where = U01 }
+		command = { type = convoypool which = ITA value = 3 }	
+	}
+}
+###########################################################################
+# Ethiopia becomes an Italian vassal (by Luxor)
+###########################################################################
+event = {
+	id = 3145007 # 5900000
+	random = no
+	country = ITA
+
+	# Triggered by ITA 3145026
+
+	name =EVT_3145007_NAME
+	desc =EVT_3145007_DESC
+	style = 2
+	picture = "ita_eth_vassal"
+
+	action_a = {
+		name = ACTIONNAME3145007A
+		command = { type = make_puppet which = ETH }
+	}
+}
+###########################################################################
+# Italian soldiers return home from the Spanish Civil war
+###########################################################################
+event = {
+	id = 3145008 # 5900001
+	random = no
+	country = ITA
+
+	# triggered by U01 6000003
+
+	name = EVT_3145008_NAME
+	desc = EVT_3145008_DESC
+	style = 2
+	picture = "ita_scw_return_home"
+
+	action_a = {
+		name = ACTIONNAME3145008A
+		command = { type = add_division value = infantry }
+		command = { type = add_division value = infantry }
+	}
+}
+##################################
+# Anti-Comintern Pact proposal
+# Italy's Response
+##################################
+event = {
+	id = 3145009 # 462000
+	random = no
+	country = ITA
+
+	# triggered by GER 3136156
+
+	name = EVT_3145009_NAME
+	desc = EVT_3145009_DESC
+	style = 2
+	picture = "anti_comitern_pact"
+
+	action_a = {
+		name = ACTIONNAME3145009A
+		ai_chance = 90
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = SOV value = -40 }
+		command = { type = relation which = GER value = 40 }
+		command = { type = manpowerpool value = 10 }
+		command = { type = trigger which = 3136157 } # German effects
+	}
+	action_b = {
+		name = ACTIONNAME3145009B
+		ai_chance = 10
+		command = { type = domestic which = interventionism value = -1 }
+	}
+}
+#############################
+# Dutch East Indies - Italy
+#############################
+event = {
+	id = 3145010 # 462004
+	random = no
+	country = ITA
+
+	trigger = {
+		NOT = { exists = U19
+				event = 3146003 } # japanese surrender
+		alliance = { country = JAP country = ITA }
+
+	}
+
+	date = { day = 0 month = july year = 1940 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_3145010_NAME
+	desc = EVT_3145010_DESC
+	style = 2
+	picture = "ger_jap_order"
+
+	action_a = {
+		name = ACTIONNAME3145010A
+		command = { type = dissent value = -1 }
+		command = { type = money value = 201 }
+		command = { type = secederegion which = JAP value = "Indonesia"		when = 1 }
+		command = { type = secederegion which = JAP value = "New Guinea"	when = 1 }
+	}
+}
+########################################
+# 462005 - Manpower: WAR (by McNaughton)
+########################################
+event = {
+	id = 3145011 # 462005
+	random = no
+	country = ITA
+
+	trigger = {
+		OR = {
+			war = { country = ITA country = GER }
+			war = { country = ITA country = USA }
+			war = { country = ITA country = ENG }
+			war = { country = ITA country = SOV }
+			war = { country = ITA country = FRA }
+		}
+	}
+
+	name = EVT_3145011_NAME
+	desc = EVT_3145011_DESC
+	style = 2
+	picture = "ita_mp_one"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145011A
+		command = { type = manpowerpool value = 495 }
+#		command = { type = relative_manpower value = -10 }
+	}
+}
+#####################################
+# 462006 - Manpower: Fall of Libya
+# by McNaughton
+#####################################
+event = {
+	id = 3145012 # 462006
+	random = no
+	country = ITA
+
+	trigger = {
+		atwar = yes
+		NOT = {
+			OR = {
+				control = { province = 750 data = -3 } # Tripoli not controlled by Italy or allied nations
+				control = { province = 765 data = -3 } # Tobruk not controlled by Italy or allied nations
+				control = { province = 761 data = -3 } # Benghazi not controlled by Italy or allied nations
+			}
+		}
+	}
+
+	name = EVT_3145012_NAME
+	desc = EVT_3145012_DESC
+	style = 2
+	#picture = "ita_mp_two"
+	picture = "ita_event_libya_lost"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145012A
+		command = { trigger = { AI = NO } type = dissent value = 10 }
+		command = { type = sleepevent which = 31362209 } # ITA paratroopers in Libya decision
+		command = { type = sleepevent which = 31362210 } # ITA paratroopers in Libya event
+		command = { type = manpowerpool value = 150 }
+	}
+}
+#########################################################################
+# Creation of a Ethiopian Vassal state under Italian control
+# (by Generalisimo) modified by Luxor
+#########################################################################
+#event = {
+#	id = 3145013 # 462007
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#		control = { province = 1046 data = ITA } # Addis Abeba #wrong ID with DH???
+#		exists = ETH
+#	}
+#
+#	name = EVT_3145013_NAME
+#	desc = EVT_3145013_DESC
+#	style = 2
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145013A
+#		command = { type = inherit which = ETH }
+#	}
+#	action_b = {
+#		name = ACTIONNAME3145013B
+#		command = { type = make_puppet which = ETH }
+#		command = { type = trigger which = 552004 }	# ETH
+#		command = { type = sleepevent which = 3145023 }	# ITA Pacifying Ethiopia
+#		command = { type = sleepevent which = 3131065 }	# ENG The Emperor's Response
+#		command = { type = sleepevent which = 3145025 }	# ITA Pacifying Ethiopia, ETH response
+#		command = { type = sleepevent which = 3145026 }	# ITA Pacifying Ethiopia, ETH response
+#	}
+#}
+#########################################################################
+#  Ethiopia demands East Africa (by Generalisimo)
+#########################################################################
+event = {
+	id = 3145014 # 462015
+	random = no
+	country = ITA
+
+	# triggered by ETH 552006
+
+	name = EVT_3145014_NAME
+	desc = EVT_3145014_DESC
+	style = 2
+	picture = "eth_iea"
+
+	action_a = {
+		name = ACTIONNAME3145014A
+		command = { type = secedeprovince which = ETH value = 834 }
+		command = { type = secedeprovince which = ETH value = 835 }
+		command = { type = secedeprovince which = ETH value = 836 }
+		command = { type = secedeprovince which = ETH value = 837 }
+		command = { type = secedeprovince which = ETH value = 838 }
+		command = { type = secedeprovince which = ETH value = 815 }
+		command = { type = secedeprovince which = ETH value = 816 }
+		command = { type = secedeprovince which = ETH value = 817 }
+		command = { type = trigger which = 552007 }
+		command = { type = peace which = ETH value = 0 }
+	}
+	action_b = {
+		name = ACTIONNAME3145014B
+		command = { type = trigger which = 552008 } # ETH
+	}
+	action_c = {
+		name = ACTIONNAME3145014C
+		command = { type = trigger which = 552009 } # ETH
+	}
+	action_d = {
+		name = ACTIONNAME3145014D
+		command = { type = trigger which = 552010 } # ETH
+	}
+}
+#########################################################################
+#  Ethiopia response to our offers of peace (by Generalisimo)
+#  462016 to 462019
+#########################################################################
+event = {
+	id = 3145015 # 462016
+	random = no
+	country = ITA
+
+	# triggered by ETH 552008 A
+
+	name = EVT_3145015_NAME
+	desc = EVT_3145015_DESC
+	style = 2
+	picture = "ita_eth"
+	
+	action_a = {
+		name = ACTIONNAME3145015A
+		command = { type = secedeprovince which = ETH value = 817 }
+		command = { type = secedeprovince which = ETH value = 816 }
+		command = { type = secedeprovince which = ETH value = 815 }
+		command = { type = peace which = ETH value = 0 }
+	}
+}
+event = {
+	id = 3145016 # 462017
+	random = no
+	country = ITA
+
+	# triggered by ETH 552008 B
+
+	name = EVT_3145016_NAME
+	desc = EVT_3145016_DESC
+	style = 2
+	picture = "ita_eth"
+
+	action_a = {
+		name = ACTIONNAME3145016A
+		command = {  }
+	}
+}
+event = {
+	id = 3145017 # 462018
+	random = no
+	country = ITA
+
+	# triggered by ETH 552009 A
+
+	name = EVT_3145017_NAME
+	desc = EVT_3145017_DESC
+	style = 2
+	picture = "ita_eth"
+
+	action_a = {
+		name = ACTIONNAME3145017A
+		command = { type = secedeprovince which = ETH value = 834 }
+		command = { type = secedeprovince which = ETH value = 835 }
+		command = { type = secedeprovince which = ETH value = 837 }
+		command = { type = secedeprovince which = ETH value = 836 }
+		command = { type = secedeprovince which = ETH value = 838 }
+		command = { type = peace which = ETH value = 0 }
+	}
+}
+event = {
+	id = 3145018 # 462019
+	random = no
+	country = ITA
+
+	# triggered by ETH 552009 B
+
+	name = EVT_3145018_NAME
+	desc = EVT_3145018_DESC
+	style = 2
+	picture = "ita_eth"
+
+	action_a = {
+		name = ACTIONNAME3145018A
+		command = {  }
+	}
+}
+#####################################
+# 462020 - Political: Death of Italo Balbo
+# by McNaughton
+#####################################
+event = {
+	id = 3145019 # 462020
+	random = no
+	country = ITA
+
+	trigger = {
+		OR = {
+			war = { country = ENG country = ITA }
+			war = { country = SOV country = ITA }
+		}
+		random = 75
+		headofgovernment = 3002
+	}
+
+	name = EVT_3145019_NAME
+ 	desc = EVT_3145019_DESC
+	style = 2
+	picture = "ita_death_of_balbo"
+
+	date = { day = 20 month = June year = 1940 }
+	offset = 8
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+			name = ACTIONNAME3145019A
+		command = { type = sleepleader   which = 6015 }
+		command = { type = sleepleader   which = 6473 }
+		command = { type = sleepminister which = 3201 }
+		command = { type = sleepteam     which = 1815 }
+	}
+	action_b = {
+			name = ACTIONNAME3145019B
+			command = { type = dissent value = 5 }
+	}
+}
+
+#########################################################################
+#  Anschluss - Fears of German Foreign Policy?
+#########################################################################
+event = {
+	id = 3145021 # 462075
+	random = no
+	country = ITA
+
+	trigger = {
+        	NOT = { exists = AUS }
+		control = { province = 195 data = GER } # Wien
+		event = 3136006 # Anschluss
+	}
+
+	name = EVT_3145021_NAME
+	desc = EVT_3145021_DESC
+	style = 2
+	picture = "ita_anschluss"
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145021A
+		ai_chance = 95
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = relation which = ENG value = -30 }
+		command = { type = relation which = FRA value = -30 }
+	}
+	action_b = {
+		name = ACTIONNAME3145021B
+		ai_chance = 4
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = ENG value = 30 }
+		command = { type = relation which = FRA value = 30 }
+ 		command = { type = money value = 100 }
+	}
+	action_c = {
+		name = ACTIONNAME3145021C
+		ai_chance = 1
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = dissent value = -3 }
+ 		command = { type = leave_alliance }
+		command = { type = relation which = GER value = -100 }
+		command = { type = relation which = ENG value = 70 }
+		command = { type = relation which = FRA value = 70 }
+ 		command = { type = money value = 300 } # diplomatic influence
+	}
+}
+
+####################################################################
+# 462077 - (ITA) Pacifying Ethiopia (by SykoNurse)
+####################################################################
+event = {
+	id = 3145023 # 462077
+	random = no
+	country = ITA
+
+	trigger = {
+		random = 40
+		event = 3131048 # Haile Selassie I. fled to London!
+		supplies = 25
+	}
+
+	name = EVT_3145023_NAME
+ 	desc = EVT_3145023_DESC
+	style = 2
+	picture = "ita_eth"
+
+	date = { day = 0 month = july year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME3145023A
+		command = { type = trigger which = 3131065 }
+		command = { type = supplies value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3145023B
+		command = { }
+	}
+}
+##########################################
+# 462080 - Haile Selassie Refuse offer (by Generalisimo)
+##########################################
+event = {
+	id = 3145025 # 462080
+	random = no
+	country = ITA
+
+	# triggered by ENG 3131065
+
+	name = EVT_3145025_NAME
+	desc = EVT_3145025_DESC
+	style = 2
+	picture = "ita_eth"
+
+	action_a = {
+		name = ACTIONNAME3145025A
+		command = { type = money value = -34 }
+	}
+}
+##########################################
+# 462081 - Haile Selassie Accept offer (by Generalisimo)
+##########################################
+event = {
+	id = 3145026 # 462081
+	random = no
+	country = ITA
+
+	# triggered by ENG 3131065
+
+	name = EVT_3145026_NAME
+	desc = EVT_3145026_DESC
+	style = 2
+	picture = "haile2"
+
+	action_a = {
+		name = ACTIONNAME3145026A
+		command = { type = independence which = ETH value = 1 }
+		command = { type = dissent value = -5 }
+		command = { type = trigger which = 3145007 }
+		command = { type = trigger which = 552016 } # Creation of a Ethiopian Vassal w/Haile Selassie
+		command = { type = money value = 245 }
+	}
+}
+
+#####################################
+# The vatican condemns soviet attacks on Finland (by Ghost_dk)
+#####################################
+event = {
+	id = 3145028 # 462082
+	random = no
+	country = ITA
+
+	trigger = {
+		random = 15
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			alliance = { country = SOV country = ITA }
+			war = { country = FIN country = ITA }
+		}
+	}
+
+	name = EVT_3145028_NAME
+	desc = EVT_3145028_DESC
+	style = 2
+	picture = "ita_pius"
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145028A
+		command = { type = trigger which = 222055 }
+	}
+}
+#########################################
+# Send aid to Finland (by Luxor)
+#########################################
+event = {
+	id = 3145029 # 462083
+	random = no
+	country = ITA
+
+	trigger = {
+		atwar = no
+		war = { country = FIN country = SOV }
+		NOT = { event = 2628 }
+		NOT = { war = { country = GER country = SOV } }
+		NOT = { alliance = { country = GER country = SOV } }
+	}
+
+	name = EVT_3145029_NAME
+	desc = EVT_3145029_DESC
+	style = 2
+	picture = "ger_fin_help"
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145029A
+		command = { type = supplies value = -200 }
+		command = { type = trigger which = 3136145 }
+		command = { type = money value = 134 }
+		command = { type = relation which = FIN value = 50 }
+		command = { type = relation which = SOV value = -50 }
+	}
+	action_b = {
+		name = ACTIONNAME3145029B
+		command = { type = money value = -67 }
+	}
+}
+######################################
+# Shipment stopped by Germany (by Luxor)
+######################################
+event = {
+	id = 3145030
+	random = no
+	country = ITA
+
+	# triggered by GER 3136145
+
+	name = EVT_3145030_NAME
+	desc = EVT_3145030_DESC
+	style = 2
+	picture = "ger_fin_help"
+
+	action_a = {
+		name = ACTIONNAME3145030A
+		command = { type = trigger which = 3136146 }
+	}
+	action_b = {
+		name = ACTIONNAME3145030B
+		command = { type = relation which = FIN value = -50 }
+		command = { type = relation which = SOV value = 50 }
+	}
+}
+##########################################
+# 462120 - Failings of the Italian Army
+##########################################
+#event = {
+#	id = 3145031 # 462085
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#		lost_national = { country = ITA value = 20 }
+#		random = 50 # some random chance for event
+#		control = { province = 2183 data = ITA }
+#		control = { province = 765 data = ITA }
+#		control = { province = 381 data = ITA }
+#		control = { province = 377 data = ITA }
+#	}
+#
+#	name = EVT_3145031_NAME
+# 	desc = EVT_3145031_DESC
+#	style = 2
+#
+#	date = { day = 29 month = september year = 1940 }
+#	offset = 30
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145031A
+#		command = { type = industrial_modifier which = supplies value = -5 }
+#		command = { type = surprise which = land value = -5 }
+#		command = { type = counterattack value = -1 }
+#		command = { type = ambush value = -1 }
+#		command = { type = breakthrough value = -1 }
+#		command = { type = assault value = -1 }
+#		command = { type = max_organization which = land value = -5 }
+#		command = { type = morale which = land value = -5 }
+#	}
+#}
+#event = {
+#   id = 3145041
+#   random = no
+#   country = ITA
+#
+#   trigger = {
+#		random = 50
+#		control = { province = 2183 data = ITA }
+#		control = { province = 765 data = ITA }
+#		control = { province = 381 data = ITA }
+#		control = { province = 377 data = ITA }
+#		control = { province = 388 data = ITA }
+#		control = { province = 387 data = ITA }
+#		OR = {
+#			AND = {
+#				control = { province = 900 data = ITA }
+#				control = { province = 791 data = ITA }
+#				control = { province = 789 data = ITA }
+#			}
+#			puppet = { country = EGY country = ITA }
+#		}
+#	}
+#
+#   name = EVT_3145041_NAME
+#   desc = EVT_3145041_DESC
+#   style = 2
+#
+#   date = { day = 0 month = january year = 1943 }
+#	offset = 30
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145040A
+#		command = { type = industrial_modifier which = supplies value = 10 }
+#		command = { type = surprise which = land value = 5 }
+#		command = { type = counterattack value = 1 }
+#		command = { type = ambush value = 1 }
+#		command = { type = breakthrough value = 1 }
+#		command = { type = assault value = 1 }
+#		command = { type = max_organization which = land value = 5 }
+#		command = { type = morale which = land value = 5 }
+#	}
+#}
+#
+#event = {
+#   id = 3145040
+#   random = no
+#   country = ITA
+#
+#   trigger = {
+#      random = 50
+#      control = { province = 2183 data = ITA }
+#			control = { province = 765 data = ITA }
+#			control = { province = 381 data = ITA }
+#			control = { province = 377 data = ITA }
+#			OR = {
+#				control = { province = 387 data = ITA }
+#				control = { province = 388 data = ITA }
+#				control = { province = 382 data = ITA }
+#				control = { province = 380 data = ITA }
+#			}
+#   }
+#
+#   name = EVT_3145040_NAME
+#   desc = EVT_3145040_DESC
+#   style = 2
+#
+#   date = { day = 0 month = january year = 1942 }
+#   offset = 30
+#   deathdate = { day = 29 month = december year = 1999 }
+#
+#   action_a = {
+#      name = ACTIONNAME3145040A
+#      command = { type = industrial_modifier which = supplies value = 5 }
+#		command = { type = surprise which = land value = 5 }
+#		command = { type = counterattack value = 1 }
+#		command = { type = ambush value = 1 }
+#		command = { type = breakthrough value = 1 }
+#		command = { type = assault value = 1 }
+#		command = { type = max_organization which = land value = 5 }
+#		command = { type = morale which = land value = 5 }
+#   }
+#}
+############################################
+# 1938 Physics
+############################################
+event = {
+	id = 3145032 # 462111
+	random = no
+	country = ITA
+
+	trigger = {
+		exists = SWE
+		exists = ITA
+		NOT = {
+			war = { country = SWE country = ITA }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_3145032_NAME
+	desc = EVT_3145032_DESC
+	style = 2
+	picture = "physics_1938"
+
+	date = { day = 14 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME3145032A
+		command = { type = dissent value = -1 }
+	}
+}
+
+#############################################
+#
+# Italian surrender
+#
+# ITA changes tag to RSI, allies create ITA as soon as they conquer parts of Italy or after the war has ended
+# no peacing out with ITA so that claims, cores and conquered territories don't get mixed up
+#
+#############################################
+
+event = {
+	id = 3145033
+	random = no
+	country = ITA
+
+	trigger = {
+				OR = {
+						war = { country = ITA country = SOV }
+						war = { country = ITA country = ENG }
+						war = { country = ITA country = USA }
+						}
+				OR = { # at least one key point on italian mainland under enemy control
+						control = { province = 419 data = -2 } # Rome
+						control = { province = 421 data = -2 } # Naples
+						control = { province = 398 data = -2 } # Turin
+						control = { province = 407 data = -2 } # Milan
+						control = { province = 422 data = -2 } # Taranto
+						control = { province = 400 data = -2 } # Venice
+						}	
+				OR = {
+						AND = {
+								OR = {
+										AI = ITA
+										AND = {
+												NOT = { AI = ITA }
+												AI = USA
+												AI = ENG
+												}
+										}
+								lost_national = { country = ITA value = 25 }
+								}
+						AND = {
+								NOT = { AI = ITA } # multiplayer
+								OR = {
+										NOT = { AI = USA }
+										NOT = { AI = ENG }
+										}
+								lost_national = { country = ITA value = 55 }
+								}
+						}
+				alliance = { country = GER country = ITA }
+				NOT = { event = 3336000 } # New Order
+				NOT = { exists = RSI }
+				}
+
+	name = EVT_3145033_NAME
+	desc = EVT_3145033_DESC
+	style = 2
+	picture = "ita_surrender"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 6
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145033A
+		ai_chance = 100
+
+		# first clean up overseas territories and those countries that are most likely to get annexed there		
+			# Africa and Middle East region where it's unlikely that Italy annexed or created any states
+		command = { type = secederegion which = ENG value = "Libya"				when = 1 }
+		command = { type = secederegion which = ENG value = "Ethiopia"			when = 1 }	
+		command = { type = secederegion which = ENG value = "Central Africa"	when = 1 }
+		command = { type = secederegion which = ENG value = "West Africa"		when = 1 }
+		command = { type = secederegion which = ENG value = "Algeria"			when = 1 }
+		command = { type = secederegion which = ENG value = "Tunisia"			when = 1 }
+		command = { type = secederegion which = ENG value = "Morocco"			when = 1 }
+		command = { type = secederegion which = ENG value = "Sahara"			when = 1 }
+		command = { type = secederegion which = ENG value = "Sudan"				when = 1 }
+		command = { type = secederegion which = ENG value = "South Africa"		when = 1 }
+		command = { type = secederegion which = ENG value = "Southwest Africa"	when = 1 }
+		command = { type = secederegion which = ENG value = "Madagascar"		when = 1 }		
+			# Middle East
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 87 data = ITA } } type = secedeprovince which = FRA value = 87 when = 1 } #Nice
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 90 data = ITA } } type = secedeprovince which = FRA value = 90 when = 1 } #Grenoble
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 91 data = ITA } } type = secedeprovince which = FRA value = 91 when = 1 } #Chambery
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 86 data = ITA } } type = secedeprovince which = FRA value = 86 when = 1 } #Toulon
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 93 data = ITA } } type = secedeprovince which = FRA value = 93 when = 1 } #Avignon
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 92 data = ITA } } type = secedeprovince which = FRA value = 92 when = 1 } #Valence
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = FRA control = { province = 94 data = ITA } } type = secedeprovince which = FRA value = 94 when = 1 } #Corsica
+		
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 87 data = ITA } } type = secedeprovince which = U14 value = 87 when = 1 } #Nice
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 90 data = ITA } } type = secedeprovince which = U14 value = 90 when = 1 } #Grenoble
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 91 data = ITA } } type = secedeprovince which = U14 value = 91 when = 1 } #Chambery
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 86 data = ITA } } type = secedeprovince which = U14 value = 86 when = 1 } #Toulon
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 93 data = ITA } } type = secedeprovince which = U14 value = 93 when = 1 } #Avignon
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 92 data = ITA } } type = secedeprovince which = U14 value = 92 when = 1 } #Valence
+		command = { trigger = { NOT = { alliance = { country = ITA country = GER }} exists = U14 control = { province = 94 data = ITA } } type = secedeprovince which = U14 value = 94 when = 1 } #Corsica
+		
+		command = { type = secederegion which = ENG value = "Middle East"		when = 1 }				
+			# Horn of Africa
+		command = { trigger = { owned = { province = 833 data = -1 } exists = U14 } type = secedeprovince which = U14 value = 833 } # Djibouti
+		command = { trigger = { owned = { province = 833 data = -1 } NOT = { exists = U14 } exists = FRA } type = secedeprovince which = U14 value = 833 } # Djibouti
+		command = { trigger = { owned = { province = 833 data = -1 } NOT = { exists = U14 exists = FRA } } type = secedeprovince which = ENG value = 833 } # Djibouti
+		command = { type = secederegion which = ENG value = "Horn of Africa"	when = 1 }
+			# Egypt (no country release here so that ENG keeps the Suez canal)
+		command = { trigger = { puppet = { country = EGY country = ITA } } type = end_mastery which = EGY } # Egypt if forced to be italian puppet
+		command = { type = secederegion which = ENG value = "Egypt"				when = 1 }
+			# Turkey
+		command = { trigger = { puppet = { country = TUR country = ITA } } type = end_mastery which = TUR } # Turkey if forced to be italian puppet
+		command = { type = secedeprovince which = ENG value = 387 when = 1 } # Cyprus
+		command = { type = secedeprovince which = ENG value = 388 when = 1 } # Cyprus		
+		command = { trigger = { owned = { province = 1075 data = -1 } NOT = { exists = TUR } } type = independence which = TUR when = 1 } # Turkey if annexed	
+		command = { trigger = { exists = TUR } type = secederegion which = TUR value = "Anatolia"			when = 1 }
+		command = { trigger = { NOT = { exists = TUR } } type = secederegion which = ENG value = "Anatolia"			when = 1 }
+			# Persia
+		command = { trigger = { puppet = { country = PER country = ITA } } type = end_mastery which = PER } # Persia if forced to be italian puppet
+		command = { trigger = { owned = { province = 1085 data = -1 } NOT = { exists = PER } } type = independence which = PER when = 1 } # Persia if annexed	
+		command = { trigger = { exists = PER } type = secederegion which = PER value = "Persia"			when = 1 }
+		command = { trigger = { NOT = { exists = PER } } type = secederegion which = ENG value = "Persia"			when = 1 }
+				
+		# then clean up those strange territories that might have gotten under (human) control	
+			# Spain
+		command = { trigger = { puppet = { country = U01 country = ITA } } type = end_mastery which = U01 } # Nationalist Spain if forced to be italian puppet
+		command = { trigger = { puppet = { country = SPR country = ITA } } type = end_mastery which = SPR } # Republican Spain if forced to be italian puppet
+		command = { trigger = { owned = { province = 460 data = -1 } NOT = { exists = U01 } NOT = { exists = SPR } } type = independence which = U01 when = 1 } # Spain if annexed	
+		command = { trigger = { exists = U01 } type = secederegion which = U01 value = "Spain"			when = 1 }
+		command = { trigger = { exists = SPR } type = secederegion which = SPR value = "Spain"			when = 1 }
+			# Switzerland
+		command = { trigger = { puppet = { country = SCH country = ITA } } type = end_mastery which = SCH } # Switzerland if forced to be italian puppet
+		command = { trigger = { owned = { province = 392 data = -1 } NOT = { exists = SCH } } type = independence which = SCH when = 1 } # Switzerland if annexed	
+		command = { trigger = { exists = SCH } type = secederegion which = SCH value = "Switzerland"			when = 1 }
+			# Yugoslavia
+		command = { trigger = { puppet = { country = YUG country = ITA } } type = end_mastery which = YUG } # Yugoslavia if forced to be italian puppet
+		command = { trigger = { owned = { province = 338 data = -1 } NOT = { exists = YUG } NOT = { exists = SPR } } type = independence which = YUG when = 1 } # Yugoslavia if annexed	
+		command = { trigger = { exists = YUG } type = secedearea which = YUG value = "Croatia" when = 1 }
+		command = { trigger = { exists = YUG } type = secedearea which = YUG value = "Bosnia" when = 1 }
+		command = { trigger = { exists = YUG } type = secedearea which = YUG value = "Central Serbia" when = 1 }
+		command = { trigger = { exists = YUG } type = secedearea which = YUG value = "East Serbia" when = 1 }
+
+		# then do the historical transfer of provinces to GER if it still exists
+			# Southern France after Case Anton
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 87 data = ITA } } type = removeclaim which = 87 } #Nice
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 90 data = ITA } } type = removeclaim which = 90 } #Grenoble
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 91 data = ITA } } type = removeclaim which = 91 } #Chambery
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 86 data = ITA } } type = removeclaim which = 86 } #Toulon
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 93 data = ITA } } type = removeclaim which = 93 } #Avignon
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 92 data = ITA } } type = removeclaim which = 92 } #Valence
+		command = { trigger = { alliance = { country = ITA country = GER } owned = { province = 94 data = ITA } } type = removeclaim which = 94 } #Corsica		
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 87 data = ITA } } type = secedeprovince which = GER value = 87 when = 1 } #Nice
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 90 data = ITA } } type = secedeprovince which = GER value = 90 when = 1 } #Grenoble
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 91 data = ITA } } type = secedeprovince which = GER value = 91 when = 1 } #Chambery
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 86 data = ITA } } type = secedeprovince which = GER value = 86 when = 1 } #Toulon
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 93 data = ITA } } type = secedeprovince which = GER value = 93 when = 1 } #Avignon
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 92 data = ITA } } type = secedeprovince which = GER value = 92 when = 1 } #Valence
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 94 data = ITA } } type = secedeprovince which = GER value = 94 when = 1 } #Corsica			
+				# South Tyrol, Operationszone Alpenvorland
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 401 data = ITA } } type = addcore which = 401 where = GER } #Trento
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 402 data = ITA } } type = addcore which = 401 where = GER } #Bolzano
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 394 data = ITA } } type = addcore which = 394 where = GER } #Belluno		
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 401 data = ITA } } type = secedeprovince which = GER value = 401 when = 1 } #Trento
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 402 data = ITA } } type = secedeprovince which = GER value = 402 when = 1 } #Bolzano
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 394 data = ITA } } type = secedeprovince which = GER value = 394 when = 1 } #Belluno
+				# Operationszone Adriatisches Küstenland
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 405 data = ITA } } type = addclaim which = 405 where = GER } #Udine
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 404 data = ITA } } type = addclaim which = 404 where = GER } #Trieste
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 403 data = ITA } } type = addclaim which = 403 where = GER } #Capodistria
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 406 data = ITA } } type = addclaim which = 406 where = GER } #Fiume
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 349 data = ITA } } type = addclaim which = 349 where = GER } #Ljubljana		
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 405 data = ITA } } type = secedeprovince which = GER value = 405 when = 1 } #Udine
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 404 data = ITA } } type = secedeprovince which = GER value = 404 when = 1 } #Trieste
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 403 data = ITA } } type = secedeprovince which = GER value = 403 when = 1 } #Capodistria
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 406 data = ITA } } type = secedeprovince which = GER value = 406 when = 1 } #Fiume
+		command = { trigger = { alliance = { country = ITA country = GER } control = { province = 349 data = ITA } } type = secedeprovince which = GER value = 349 when = 1 } #Ljubljana		
+		
+		# then do the historical transfer of provinces to CRO if it still exists
+		command = { trigger = { alliance = { country = ITA country = CRO } control = { province = 350 data = ITA } } type = secedeprovince which = CRO value = 350 when = 1 } #Split
+		command = { trigger = { alliance = { country = ITA country = CRO } control = { province = 351 data = ITA } } type = secedeprovince which = CRO value = 351 when = 1 } #Knin
+		command = { trigger = { alliance = { country = ITA country = CRO } control = { province = 343 data = ITA } } type = secedeprovince which = CRO value = 343 when = 1 } #Dubrovnik	
+				
+		# then care about italian event-puppet so that its status doesn't screw up in the future
+		command = { trigger = { puppet = { country = MTN country = ITA } } type = inherit which = MTN }
+		
+		# remove any claims or national provinces gained during a normal game (Yugoslavia, Greece)
+# not necessary since RSI is created and may keep them until annexation!
+#		command = { type = removecore which = 359 }
+#		command = { type = removecore which = 360 }
+#		command = { type = removecore which = 361 }
+#		command = { type = removecore which = 362 }
+#		command = { type = removecore which = 343 }
+#		command = { type = removecore which = 350 }
+#		command = { type = removecore which = 349 }
+#		command = { type = removecore which = 406 }
+#		command = { type = removecore which = 403 }
+#		command = { type = removecore which = 378 }
+#		command = { type = removecore which = 379 }
+#		command = { type = removeclaim which = 329 }
+#		command = { type = removeclaim which = 332 }
+#		command = { type = removeclaim which = 334 }
+#		command = { type = removeclaim which = 754 }
+#		command = { type = removeclaim which = 752 }
+#		command = { type = removeclaim which = 750 }
+#		command = { type = removeclaim which = 757 }
+#		command = { type = removeclaim which = 756 }
+#		command = { type = removeclaim which = 762 }
+#		command = { type = removeclaim which = 761 }
+#		command = { type = removeclaim which = 768 }
+#		command = { type = removeclaim which = 760 }
+#		command = { type = removeclaim which = 766 }
+#		command = { type = removeclaim which = 765 }
+#		command = { type = removeclaim which = 771 }
+#		command = { type = removeclaim which = 769 }
+#		command = { type = removeclaim which = 770 }
+#		command = { type = removeclaim which = 773 }
+#		command = { type = removeclaim which = 755 }
+#		command = { type = removeclaim which = 751 }
+#		command = { type = removeclaim which = 774 }
+#		command = { type = removeclaim which = 776 }
+#		command = { type = removeclaim which = 777 }
+#		command = { type = removeclaim which = 758 }
+#		command = { type = removeclaim which = 759 }
+#		command = { type = removeclaim which = 763 }
+#		command = { type = removeclaim which = 775 }
+#		command = { type = removeclaim which = 764 }
+#		command = { type = removeclaim which = 767 }
+#		command = { type = removeclaim which = 772 }
+#		command = { type = removeclaim which = 753 }
+#		command = { type = removeclaim which = 815 }
+#		command = { type = removeclaim which = 817 }
+#		command = { type = removeclaim which = 816 }
+#		command = { type = removeclaim which = 837 }
+#		command = { type = removeclaim which = 836 }
+#		command = { type = removeclaim which = 838 }
+#		command = { type = removeclaim which = 834 }
+#		command = { type = removeclaim which = 835 }
+#		command = { type = removeclaim which = 378 }
+#		command = { type = removeclaim which = 379 }
+	
+		# remove the italian ground and air forces so that the historical units may be created by event
+		command = { type = demobilize which = land when = 1 where = 0 value = 0 } # disbands all land units and returns MP to the pool (maybe change to "no return" with manpower system rework)
+		command = { type = demobilize which = air when = 1 where = 0 value = 0 } # disbands all air units and returns MP to the pool
+#		command = { type = demobilize which = naval when = 1 where = 0 value = 30 } # disbands all naval units but 30 and returns MP to the pool
+
+		# now switch tag to Repubblica Sociale Italiana
+		command = { trigger = { NOT = { exists = RSI } } type = country which = RSI }
+		
+		# government formation and army creation in RSI event
+	}
+#	action_b = {
+#		ai_chance = 0
+#		name = ACTIONNAME3145033B
+#		command = { type = dissent value = 47 }
+#		command = { type = manpowerpool value = -537 } # Desertions
+#	}
+}
+
+####################################################
+# Italy Surrenders: RSI joins Axis
+####################################################
+event = {
+	id = 3145201
+	random = no
+	country = RSI
+
+	trigger = { 
+				event = 3145033
+				}
+
+	name = EVT_3145201_NAME
+	desc = EVT_3145201_DESC
+	style = 2
+	picture = "ita_rsi"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145201A
+		
+		command = { trigger = { control = { province = 407 data = RSI } } type = capital which = 407 } #Milano, 1944+ capital
+		
+		command = { type = supplies value = 1500 } # German support
+		command = { type = alliance which = GER }
+		command = { type = add_division which = "1a Divisione Bersaglieri 'Italia'"     value = infantry       when = 3 where = artillery }
+		command = { type = add_division which = "2a Divisione Granatieri 'Littorio'"    value = infantry       when = 4 where = artillery }
+		command = { type = add_division which = "3a Divisione Marina 'San Marco'"       value = marine         when = 2 }
+        command = { type = add_division which = "4a Divisione Alpina 'Monterosa'"       value = d_07           when = 2 }
+		command = { type = add_division which = "Gruppo Corazzato 'Leonessa'"           value = armor          when = 4 where = -40 }
+		# Armored division include: 
+	    # Gruppo Squadroni Corazzati “Leoncello” (20 tanks)
+		# Gruppo Squadroni Corazzati “San Giusto” (26 tanks)
+		# Gruppo Corazzato “Leonessa” (~60 tanks)
+		##Navy##
+		command = { type = add_division which = "Divisione Fanteria di Marina 'Decima'"   value = marine       when = 2 }
+		command = { type = add_division which = "Divisione Atlantica Fucilieri di Marina" value = garrison     when = 3 where = -40 }
+		# Division was formed at Bordeaux (FRA) to defend the fortress of Bordeaux with the encircled italian and german troops
+		##Airforce ground forces##
+		command = { type = add_division which = "Divisione Contra-Paracadutisti 'Aquila'" value = garrison     when = 3 }
+		##italay fascist party militia##
+		command = { type = add_division which = "Div. Antiaerea e anticarro 'Etna'"       value = d_02         when = 3 where = anti_air }
+        ##combat reserves for the po valley and the boarder to croatia and the balkan##
+        command = { type = add_division which = "Raggruppamento 'Cacciatori degli Appennini'" value = bergsjaeger when = 2 where = -60 }	
+		#### air force units, historical units merged##
+		command = { type = add_division which = "1a/2a/3a Gruppo Caccia" value = multi_role when = 3 }
+		command = { type = add_division which = "Gruppo Aerosiluranti 'Buscaglia-Faggioni'" value = naval_bomber when = 2 where = escort }
+		####
+		command = { type = set_domestic which = democratic value = 1 }
+		command = { type = set_domestic which = political_left value = 1 }
+		command = { type = set_domestic which = free_market value = 2 }
+		command = { type = set_domestic which = freedom value = 1 }		
+		####
+		command = { type = headofstate            which = 508001   } #Head of State;Benito Mussolini
+        command = { type = headofgovernment       which = 9892224  } #Head of Government;Benito Mussolini
+        command = { type = foreignminister        which = 9892225  } #Foreign Minister;Serafino Mazzolini
+        command = { type = armamentminister       which = 508004   } #Minister of Armament;Giampietro Pellegrini
+        command = { type = ministerofsecurity     which = 9892226  } #Minister of Security;Piero Pisenti
+		command = { type = ministerofintelligence which = 9892227  } #Head of Military Intelligence;Guido Buffarini Guidi
+		command = { type = chiefofstaff           which = 508007   } #Chief of Staff;Gastone Gambara 
+        command = { type = chiefofarmy            which = 508008   } #Chief of Army;Rodolfo Graziani
+		command = { type = chiefofnavy            which = 508039   } #Chief of Navy;Antonio Legnani
+        command = { type = chiefofair             which = 508036   } #Chief of Air Force;Ernesto Botto
+		
+		command = { trigger = { exists = GER } type = trigger which = 3145215 }
+		
+		# leftover backup command for unlikely outcome
+		command = { trigger = { NOT = { exists = GER } exists = ITA NOT = { participant = { country = ITA value = 4 } } NOT = { atwar = ITA } } type = war which = ITA }
+	}
+}
+		 
+event = {
+	id = 3145215
+	random = no
+	country = GER
+
+	name = EVT_3145201_NAME
+	desc = EVT_3145033_DESC
+	style = 2
+	picture = "ita_rsi"
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = make_puppet which = RSI }
+		command = { trigger = { exists = ITA NOT = { participant = { country = ITA value = 4 } } NOT = { atwar = ITA } } type = war which = ITA }
+		command = { type = add_division which = "Transportgruppe 10 (ita.)" value = transport_plane when = 1 }
+	}
+}
+
+############
+# Armistice of Cassibile
+# USA/ENG create ITA if they advance into Italy
+############
+
+event = {
+	id = 3145230
+	random = no
+	tag = { ENG USA }
+
+	trigger = {
+                event = 3145033
+				NOT = { exists = ITA }
+				atwar = yes
+				NOT = { flag = USA_NATO_WARSAWPACT } # regular post-WW2 peace event chain
+				region = { region = "Italy" value = 5 } # check if 5 per cent of Italian provinces are controlled by the current country
+				OR = {
+						control = { province = 430 } #Palermo
+						control = { province = 421 } #Naples
+						control = { province = 419 } #Rome
+						control = { province = 398 } #Turin
+						control = { province = 407 } #Milan
+						control = { province = 400 } #Venice
+						}
+	}
+
+	name = EVT_3145218_NAME
+	desc = EVT_3145218_DESC
+	style = 2
+	picture = "ita_surrender"
+
+        date = { day = 0 month = january year = 1936 }
+        offset = 1
+        deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145218A
+		command = { type = independence which = ITA value = 1 }
+		command = { type = alliance which = ITA }
+		command = { type = make_puppet which = ITA }
+		command = { type = trigger which = 3145218 }
+	}
+}
+
+# https://en.wikipedia.org/wiki/Italian_Co-belligerent_Army
+# https://en.wikipedia.org/wiki/Italian_Co-belligerent_Air_Force
+
+event = { # ITA forms government and gets some deserting units from RSI, especially navy
+	id = 3145218
+	random = no
+	country = ITA
+
+	name = EVT_3145218_NAME
+	desc = EVT_3145218_DESC
+	style = 2
+	picture = "ita_surrender"
+
+	action_a = {
+		name = ACTIONNAME3145218A
+		
+		#ITA politics
+		command = { type = headofstate            which = 3033    } #Vittorio Emmanuele III
+		command = { type = headofgovernment       which = 3045    } #Badoglio
+		command = { type = foreignminister        which = 3061    } #Ivanoe Bonomi
+		command = { type = armamentminister       which = 3081    } #Alessandro Marchese Casati
+		command = { type = ministerofsecurity     which = 3103    } #Ivanoe Bonomi
+		command = { type = ministerofintelligence which = 9892229 } #Ivanoe Bonomi
+		command = { type = chiefofstaff           which = 3125    } #Badoglio
+		command = { type = chiefofarmy            which = 9892239 } #Umberto Utili
+		command = { type = chiefofair             which = 3163    } #Renato Sandalli
+		command = { type = chiefofnavy            which = 3154    } #Tomasso Tittoni was dead - Raffaele de Courten
+		
+        command = { type = relation which = USA value = 100 }
+        command = { type = relation which = ENG value = 100 }
+        command = { type = relation which = SOV value = 100 }
+        command = { type = relation which = GER value = -300 }
+		
+		command = { type = transport_pool which = ITA value = 200 } # allied units in Italy shall not be out of supply
+		
+		# add historical starting units
+		
+		# combat groups formed in late 1944, maybe move to additional event
+		command = { type = add_division which = "Gruppo di Combattimento 'Cremona'" value = d_02 when = 3 }
+		command = { type = add_division which = "Gruppo di Combattimento 'Friuli'" value = d_02 when = 3 }
+		command = { type = add_division which = "Gruppo di Combattimento 'Folgore'" value = paratrooper when = 2 } # consisted of men from Nembo division
+		command = { type = add_division which = "Gruppo di Combattimento 'Legnano'" value = d_02 when = 3 }
+		command = { type = add_division which = "Gruppo di Combattimento 'Mantova'" value = d_02 when = 3 }
+		command = { type = add_division which = "Gruppo di Combattimento 'Piceno'" value = d_02 when = 3 }
+		
+		# auxiliary divisions (second line coastal divisions, bad equipment)
+		command = { type = add_division which = "205a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "209a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "210a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "212a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "227a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "228a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "230a Divisione Costiera" value = garrison when = 1 }
+		command = { type = add_division which = "231a Divisione Costiera" value = garrison when = 1 }
+		
+		# internal security divisions
+		command = { type = add_division which = "30a Divisione sicurezza interna 'Sabauda'" value = militia when = 2 }
+		command = { type = add_division which = "28a Divisione sicurezza interna 'Aosta'" value = militia when = 2 }
+		command = { type = add_division which = "31a Divisione sicurezza interna 'Calabria'" value = militia when = 2 }
+		
+#		# actual starting units in 1943 and early 1944
+#		command = { trigger = { control = { province = 430 } } type = add_corps which = "Corpo Italiano di Liberazione" value = land where = 430 } 
+#		command = { type = add_division which = "1a Raggruppamento Motorizzato" value = motorized when = 3 where = sp_artillery }
+#		command = { type = add_division which = "184a Divisione paracadutisti 'Nembo'" value = paratrooper when = 2 }
+		
+		# air force, historical units merged
+		command = { trigger = { control = { province = 430 } } type = add_corps which = "Aeronautica Cobelligerante Italiana" value = air where = 430 }
+		command = { type = add_division which = "Raggruppamento Caccia" value = interceptor when = 2 }
+		command = { type = add_division which = "Raggruppamento Bombardamento" value = tactical_bomber when = 1 }
+		
+		command = { trigger = { war = { country = RSI }} type = trigger which = 3145202 }
+	}
+}
+
+event = { # RSI naval units desert to ITA
+	id = 3145202
+	random = no
+	country = RSI
+
+	name = EVT_3145202_NAME #add new text, check EVT_3145202_NAME
+	desc = EVT_3145202_DESC #add new text, check EVT_3145202_DESC
+	style = 2
+	picture = "ita_surrender"
+
+	action_a = {
+		name = ACTIONNAME3145202A #add new text, check ACTIONNAME3145202A
+		command = { type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 50 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 100 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 150 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 200 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 250 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 300 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 350 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { trigger = { navy = 400 } type = switch_allegiance which = -2 where = ITA }	# random naval unit
+		command = { type = dissent value = 2 }
+	}
+}
+
+# event IDs gained by deleting some events: 3145216, 3145217
+
+###################################
+# The Potsdam Conference
+###################################
+event = {
+	id = 3145034 # 5900004
+	random = no
+	country = ITA
+
+	# triggered by USA 3182091
+
+	name = EVT_3145034_NAME
+	desc = EVT_3145034_DESC
+	style = 2
+	picture = "potsdam_conference"
+
+	action_a = {
+		name = ACTIONNAME3145034A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = {
+	id = 3145035 # 5900005
+	random = no
+	country = ITA
+
+	# triggered by USA 3182093
+
+	name = EVT_3145035_NAME
+	desc = EVT_3145035_DESC
+	style = 2
+	picture = "potsdam_conference"
+
+	action_a = {
+		name = ACTIONNAME3145035A
+		ai_chance = 100
+		command = { type = alliance which = ENG }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3145035B
+		ai_chance = 0
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+#########################################################################
+# A European New Order - Palestine, Jordan, Syria, and Lebanon
+#########################################################################
+event = {
+      id = 3345042
+      random = no
+      country = ITA
+
+      trigger = {
+			control = { province = 1024 data = ITA } #
+			control = { province = 1022 data = ITA } #
+			control = { province = 1023 data = ITA } #
+			control = { province = 1026 data = ITA } #
+			control = { province = 1025 data = ITA } #
+			control = { province = 1172 data = ITA } #
+			control = { province = 1011 data = ITA } #
+			control = { province = 1013 data = ITA } #
+			control = { province = 1008 data = ITA } #
+			control = { province = 1010 data = ITA } #
+			control = { province = 1009 data = ITA } #
+			event = 3336001
+      }
+
+      name = EVT_3345042_NAME
+      desc = EVT_3345042_DESC
+      style = 2
+	  picture = "ita_new_empire"
+
+      date = { day = 0 month = january year = 1936 }
+      offset = 7
+      deathdate = { day = 29 month = december year = 1999 }
+
+      action_a = {
+           name = ACTIONNAME3345042A
+           command = { type = independence which = JOR value = 1 }
+           command = { type = independence which = PAL value = 1 }
+           command = { type = trigger which = 3345043 }
+      }
+      action_b = {
+            name = ACTIONNAME3345042B
+            command = { type = dissent value = 5 }
+      }
+}
+event = {
+   id = 3345043
+   random = no
+   country = ITA
+
+   # triggered by ITA 3345042
+
+   name = EVT_3345042_NAME
+   desc = EVT_3345043_DESC
+   style = 2
+   picture = "ita_new_empire"
+
+   action_a = {
+      name = ACTIONNAME3345043
+      command = { type = make_puppet which = JOR }
+      command = { type = make_puppet which = PAL }
+   }
+}
+
+event = {
+   id = 3345044
+   random = no
+   country = ITA
+
+   trigger = {
+         control = { province = 1014 data = ITA } #
+         control = { province = 1015 data = ITA } #
+         control = { province = 1021 data = ITA } #
+         control = { province = 1018 data = ITA } #
+         control = { province = 1017 data = ITA } #
+         control = { province = 1016 data = ITA } #
+         control = { province = 1019 data = ITA } #
+         control = { province = 1020 data = ITA } #
+      OR = {
+         event = 3399012
+         event = 3335002
+      }
+   }
+
+   name = EVT_3345044_NAME
+   desc = EVT_3345044_DESC
+   style = 2
+   picture = "ita_new_empire"
+
+   date = { day = 0 month = january year = 1936 }
+   offset = 7
+   deathdate = { day = 29 month = december year = 1999 }
+
+   action_a = {
+      name = ACTIONNAME3345044A
+      command = { type = independence which = LEB value = 1 }
+      command = { type = independence which = SYR value = 1 }
+      command = { type = trigger which = 3345045 }
+   }
+   action_b = {
+      name = ACTIONNAME3345044B
+      command = { type = dissent value = 5 }
+   }
+}
+
+event = {
+   id = 3345045 # 3345004
+   random = no
+   country = ITA
+
+   # triggered by ITA 3345044
+
+   name = EVT_3345044_NAME
+   desc = EVT_3345043_DESC
+   style = 2
+   picture = "ita_new_empire"
+
+   action_a = {
+      name = ACTIONNAME3345043
+      command = { type = make_puppet which = LEB }
+      command = { type = make_puppet which = SYR }
+      command = { type = secedeprovince which = SYR value = 1020 }
+      command = { type = secedeprovince which = SYR value = 1014 }
+      command = { type = secedeprovince which = SYR value = 1015 }
+   }
+}
+#########################################
+# MVSN Manpower
+#########################################
+event = {
+   id = 3145042
+   random = no
+   country = ITA
+
+   trigger = {
+      atwar = yes
+      random = 50
+      government = fascist
+   }
+
+   name = EVT_3345046_NAME
+   desc = EVT_3345046_DESC
+   style = 2
+   picture = "ita_mp_three"
+
+   date = { day = 29 month = august year = 1940 }
+   offset = 30
+   deathdate = { day = 29 month = december year = 1999 }
+
+   action_a = {
+      name = ACTIONNAME3345046A
+      command = { type = manpowerpool value = 240 }
+   }
+}
+#########################################
+# Castel Benito Parachute School
+#########################################
+#event = {
+#   id = 3145043
+#   random = no
+#   country = ITA#
+#
+#   trigger = {
+#      random = 50
+#      control = { province = 932 data = -1 }
+#   }
+#
+#   name = EVT_3345047_NAME
+#   desc = EVT_3345047_DESC
+#   style = 2
+#
+#   date = { day = 29 month = january year = 1938 }
+#   offset = 30
+#   deathdate = { day = 29 month = december year = 1999 }
+
+#   action_a = {
+#      name = ACTIONNAME3345047A
+#      command = { type = gain_tech which = 1070 }
+#      command = { type = supplies value = -175 }
+#   }
+#   action_b = {
+#      name = ACTIONNAME3345047B
+#      command = { }
+#   }
+#}
+##################################################################
+# Afrikakorps sent
+#   AI event for Italians if Germany is AI controlled.
+##################################################################
+event = {
+	id = 3145044 # 3036027
+	random = no
+	country = ITA
+
+	name = EVT_3136009_NAME # Africakorps sent
+	desc = EVT_3136009_DESC
+	style = 2
+	picture = "ita_dak"
+
+	action_a = {
+		name = ACTIONNAME3136009A # Ok, send the Afrikakorps
+		command = { type = add_corps which = "Deutsches Afrikakorps" value = land where = 750 } # Tripoli
+		command = { type = add_division which = "DAK" value = hq when = 1 where = sp_anti_air }
+		command = { type = add_division which = "90. leichte Afrika-Division (mot)"  value = motorized when = 2 where = sp_artillery   }
+		command = { type = add_division which = "164. leichte Afrika-Division (mot)" value = motorized when = 2 where = tank_destroyer }
+		command = { trigger = { not = { year = 1942 }} type = add_division which = "15. Panzer-Division" value = armor when = 3 where = sp_artillery }
+		command = { trigger = { not = { year = 1942 }} type = add_division which = "21. Panzer-Division" value = armor when = 2 where = sp_artillery }
+		command = { trigger = { year = 1942 } type = add_division which = "15. Panzer-Division" value = armor when = 4 where = sp_artillery }
+		command = { trigger = { year = 1942 } type = add_division which = "21. Panzer-Division" value = armor when = 3 where = sp_artillery }
+	}
+}
+
+###########################################################################
+# Manpower after Vichy + diplomatic reaction
+###########################################################################
+event = {
+	id = 3145045
+	random = no
+	country = ITA
+
+	trigger = {
+			event = 3136033 # Vichy for Germany
+			OR = {
+			war = { country = ITA country = GER }
+			war = { country = ITA country = USA }
+			war = { country = ITA country = ENG }
+			war = { country = ITA country = SOV }
+			war = { country = ITA country = FRA }
+			}
+		}
+
+	name = EVT_3145045_NAME
+	desc = EVT_3145045_DESC
+	style = 2
+	picture = "ita_mp_four"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = manpowerpool value = 1270 }
+		command = { trigger = { AI = ITA NOT = { alliance = { country = ITA country = GER } } } type = alliance which = GER }
+		command = { type = 	end_non_aggression which = ITA where = YUG }
+	}
+}
+
+#############################
+# Spanish Civil War AI events
+#############################
+
+
+event = {
+	id = 3145203
+	random = no
+	country = ITA
+
+	trigger = {
+		flag = SCW_aid_ITA
+		war = { country = U01 country = SPR }
+		ai = yes
+		supplies = 500
+		not = { event = 3145036 }
+	}
+
+	name = EVT_3145036_NAME
+	desc = EVT_2901_DESC
+	style = 2
+	picture = "SCW_Italian_Intervention"
+
+	date = { day = 2 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145036A
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = U01 value = 10 }
+		command = { type = relation which = SPR value = -20 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = SOV value = -5 }
+		command = { type = relation which = GER value = 5 }
+		command = { type = trigger which = 3173004 } # U01
+		command = { type = trigger which = 3182073 } # USA
+		command = { type = belligerence which = ITA value = 1 }
+		command = { type = supplies value = -500 }
+	}
+}
+event = {
+	id = 3145204
+	random = no
+	country = ITA
+
+	trigger = {
+		event = 3145203
+		war = { country = U01 country = SPR }
+	}
+
+	name = EVT_3145037_NAME
+	desc = EVT_3145037_DESC
+	style = 2
+
+	date = { day = 0 month = february year = 1937 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145037A
+		command = { type = gain_tech which = 1030 } # Basic Infantry Division 1939
+		command = { type = gain_tech which = 4080 } # Close Air Support 1937
+		command = { type = gain_tech which = 9200 } # Dive Bombing Concept
+	}
+}
+#########################################################################
+# Italian soldiers return home AI
+#########################################################################
+event = {
+	id = 3145205
+	random = no
+	country = ITA
+
+	trigger = {	event = 3173011
+			event = 3145203
+			ai = yes
+			}
+
+	name = EVT_3145038_NAME
+	desc = EVT_3136163_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145038A
+		command = { }
+	}
+}
+event = {
+	id = 3145206
+	random = no
+	country = ITA
+
+	trigger = {	event = 3174019
+			event = 3145203
+			ai = yes
+			}
+
+	name = EVT_3145038_NAME
+	desc = EVT_3136163_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3145038A
+		command = { }
+	}
+}
+#########################################################################
+# Italian air force
+#########################################################################
+#event = {
+#	id = 3145208
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				exists = ITA
+#	}
+#
+#	name = EVT_3145208_NAME
+#	desc = EVT_3145208_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145208A
+#		ai_chance = 90
+#		command = { type = add_corps which = "1a Squadra Aerea" value = air where = 407 } # Milano
+#		command = { type = activate_division which = 23500 value = 250 where = 407 }
+#		command = { type = activate_division which = 23500 value = 251 where = 407 }
+#		command = { type = activate_division which = 23500 value = 252 where = 407 }
+#		command = { type = add_corps which = "2a Squadra Aerea" value = air where = 430 } # Palermo
+#		command = { type = activate_division which = 23500 value = 213 where = 430 }
+#		command = { type = activate_division which = 23500 value = 253 where = 430 }
+#		command = { type = activate_division which = 23500 value = 254 where = 430 }
+#		command = { type = add_corps which = "Aeronautica della Libia" value = air where = 750 } # Tripolis
+#		command = { type = activate_division which = 23500 value = 217 where = 750 }
+#		command = { type = activate_division which = 23500 value = 256 where = 750 }
+#		command = { type = activate_division which = 23500 value = 257 where = 750 }
+#		command = { type = add_corps which = "Aeronautica della Sardegna" value = air where = 434 } # Cagliari
+#		command = { type = activate_division which = 23500 value = 218 where = 434 }
+#		command = { type = activate_division which = 23500 value = 255 where = 434 }
+#		command = { type = add_corps which = "Aeronautica AOI" value = air where = 815 } # Massawa
+#		command = { type = activate_division which = 23500 value = 220 where = 815 }
+#		command = { type = activate_division which = 23500 value = 259 where = 815 }
+#		command = { type = activate_division which = 23500 value = 260 where = 815 }
+#		command = { type = add_corps which = "5a Squadra Aerea" value = air where = 419 } # Rome
+#		command = { type = activate_division which = 23500 value = 215 where = 419 }
+#		command = { type = strength_cap which = tactical_bomber when = 0 where = 1 value = 33 }
+#		command = { type = strength_cap which = naval_bomber when = 0 where = 1 value = 33 }
+#		command = { type = strength_cap which = cas when = 0 where = 1 value = 33 }
+#	}
+#
+#	action_b = {
+#		name = ACTIONNAME3145208B
+#		ai_chance = 10
+#		command = { type = add_division which = "" value = tactical_bomber when = 0 where = escort }
+#		command = { type = add_division which = "" value = tactical_bomber when = 0 where = escort }
+#		command = { type = add_division which = "" value = tactical_bomber when = 0 where = escort }
+#		command = { type = add_division which = "" value = tactical_bomber when = 0 where = escort }
+#		command = { type = add_division which = "" value = naval_bomber when = 0 where = escort }
+#		command = { type = strength_cap which = air when = 0 where = 1 value = 100 }
+#		command = { type = sleepevent which = 3145209 }
+#		command = { type = local_setflag which = stormos_big }
+#	}
+#}
+#
+#event = {
+#	id = 3145209
+#	random = no
+#	country = ITA
+#
+#	save_date = yes
+#
+#	decision = { 	ai = no
+#					event = 3145208
+#					NOT = { local_flag = stormos_big }
+#					}
+#	decision_trigger = {
+#							OR = {
+#									war = { country = ITA  country = ENG }
+#									atwar = GER
+#								}
+#       }
+#
+#	trigger = {
+#							OR = {
+#									war = { country = ITA  country = ENG }
+#									atwar = GER
+#								}
+#	}
+#
+#	name = EVT_3145209_NAME
+#	desc = EVT_3145209_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#	decision_picture = "regiaaeronauticaatwar"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action = { trigger = { ai = no atwar = no }
+#		name = ACTIONNAME3145209A
+#		command = { type = dissent value = 3 } # Penalty for human player for reforming air force too early => HINT IN EVENT TEXT!
+#       command = { type = strength_cap which = air when = 0 where = 1 value = 100 }
+#		command = { type = max_organization which = tactical_bomber value = -25 }
+#		command = { type = max_organization which = naval_bomber value = -25 }
+#		command = { type = max_organization which = cas value = -25 }
+#	}
+#
+#	action = { trigger = { ai = no atwar = yes }
+#		name = ACTIONNAME3145209B
+#       command = { type = strength_cap which = air when = 0 where = 1 value = 100 }
+#		command = { type = max_organization which = tactical_bomber value = -25 }
+#		command = { type = max_organization which = naval_bomber value = -25 }
+#		command = { type = max_organization which = cas value = -25 }
+#	}
+#
+#	action = { trigger = { ai = yes }
+#		name = ACTIONNAME3145209B
+#       command = { type = strength_cap which = air when = 0 where = 1 value = 100 }
+#		command = { type = max_organization which = tactical_bomber value = -25 }
+#		command = { type = max_organization which = naval_bomber value = -25 }
+#		command = { type = max_organization which = cas value = -25 }
+#	}
+#}
+#
+#event = {
+#	id = 3145210
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				event = { id = 3145209 days = 30  }
+#	}
+#
+#	name = EVT_3145210_NAME
+#	desc = EVT_3145210_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145210A
+#		command = { type = max_organization which = tactical_bomber value = 5 }
+#		command = { type = max_organization which = naval_bomber value = 5 }
+#		command = { type = max_organization which = cas value = 5 }
+#	}
+#}
+#
+#event = {
+#	id = 3145211
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				event = { id = 3145209 days = 60  }
+#	}
+#
+#	name = EVT_3145210_NAME
+#	desc = EVT_3145210_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145210A
+#		command = { type = max_organization which = tactical_bomber value = 5 }
+#		command = { type = max_organization which = naval_bomber value = 5 }
+#		command = { type = max_organization which = cas value = 5 }
+#	}
+#}
+#
+#event = {
+#	id = 3145212
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				event = { id = 3145209 days = 90  }
+#	}
+#
+#	name = EVT_3145210_NAME
+#	desc = EVT_3145210_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145210A
+#		command = { type = max_organization which = tactical_bomber value = 5 }
+#		command = { type = max_organization which = naval_bomber value = 5 }
+#		command = { type = max_organization which = cas value = 5 }
+#	}
+#}
+#
+#event = {
+#	id = 3145213
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				event = { id = 3145209 days = 120  }
+#	}
+#
+#	name = EVT_3145210_NAME
+#	desc = EVT_3145210_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145210A
+#		command = { type = max_organization which = tactical_bomber value = 5 }
+#		command = { type = max_organization which = naval_bomber value = 5 }
+#		command = { type = max_organization which = cas value = 5 }
+#	}
+#}
+#
+#event = {
+#	id = 3145214
+#	random = no
+#	country = ITA
+#
+#	trigger = {
+#				event = { id = 3145209 days = 150  }
+#	}
+#
+#	name = EVT_3145210_NAME
+#	desc = EVT_3145210_DESC
+#	style = 2
+#	picture = "regiaaeronautica"
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME3145210A
+#		command = { type = max_organization which = tactical_bomber value = 5 }
+#		command = { type = max_organization which = naval_bomber value = 5 }
+#		command = { type = max_organization which = cas value = 5 }
+#	}
+#}
+#
+############################################
+# Coastal garrison activation for AI
+############################################
+event = {
+	id = 3145221
+	random = no
+	country = ITA
+
+	trigger = {
+				OR = {					# will save supplies for AI and improve building behaviour
+						AND = {
+								atwar = yes
+								year = 1939
+								month = september
+								}
+						atwar = GER
+						}
+				ai = ITA
+				}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		command = { trigger = { control = { province = 750 data = -3 } }type = add_corps which = "Piazzaforte di Tripoli" value = land where = 750 } # Tripoli
+		command = { trigger = { control = { province = 750 data = -3 } }type = activate_division which = 23500 value = 93 where = 750 }
+		command = { trigger = { control = { province = 761 data = -3 } }type = add_corps which = "Piazzaforte di Bengazi" value = land where = 761 } # Bengazi
+		command = { trigger = { control = { province = 761 data = -3 } }type = activate_division which = 23500 value = 94 where = 761 }
+		command = { trigger = { control = { province = 752 data = -3 } }type = add_corps which = "Piazzaforte di Zawijah" value = land where = 752 } # Az Zawijah
+		command = { trigger = { control = { province = 752 data = -3 } }type = activate_division which = 23500 value = 95 where = 752 }
+		command = { trigger = { control = { province = 765 data = -3 } }type = add_corps which = "Piazzaforte di Tobruk" value = land where = 765 } # Tobruk
+		command = { trigger = { control = { province = 765 data = -3 } }type = activate_division which = 23500 value = 96 where = 765 }
+		command = { trigger = { control = { province = 435 data = -3 } }type = add_corps which = "Piazzaforte di Sassari" value = land where = 435 } # Sassari #AI won't guard the northern coastline in Sardinia...
+		command = { trigger = { control = { province = 435 data = -3 } }type = activate_division which = 23500 value = 98 where = 435 }
+		command = { trigger = { control = { province = 359 data = -3 } }type = add_corps which = "Piazzaforte di Tirana" value = land where = 359 } # Tirana
+		command = { trigger = { control = { province = 359 data = -3 } }type = activate_division which = 23500 value = 2001 where = 359 }
+	}
+}
+
+#########################################################################
+# Garrison removal for human player
+#########################################################################
+event = {
+	id = 3145222
+	random = no
+	country = ITA
+
+	trigger = {
+				event = 3145221
+				ai = no
+				OR = {
+						division_exists = { type = 23500 id = 93 }
+						division_exists = { type = 23500 id = 94 }
+						division_exists = { type = 23500 id = 95 }
+						division_exists = { type = 23500 id = 96 }
+						division_exists = { type = 23500 id = 2001 }
+				}
+				}
+
+	name = EVT_3131999_NAME
+	desc = EVT_3131999_DESC
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1964 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { division_exists = { type = 23500 id = 93 } } type = manpowerpool value = -6.5 }
+		command = { trigger = { division_exists = { type = 23500 id = 93 } } type = remove_division which = 23500 value = 93 }
+		command = { trigger = { division_exists = { type = 23500 id = 94 } } type = manpowerpool value = -3 }
+		command = { trigger = { division_exists = { type = 23500 id = 94 } } type = remove_division which = 23500 value = 94 }
+		command = { trigger = { division_exists = { type = 23500 id = 95 } } type = manpowerpool value = -3 }
+		command = { trigger = { division_exists = { type = 23500 id = 95 } } type = remove_division which = 23500 value = 95 }
+		command = { trigger = { division_exists = { type = 23500 id = 96 } } type = manpowerpool value = -3.25 }
+		command = { trigger = { division_exists = { type = 23500 id = 96 } } type = remove_division which = 23500 value = 96 }
+		command = { trigger = { division_exists = { type = 23500 id = 2001 } } type = manpowerpool value = -13 }
+		command = { trigger = { division_exists = { type = 23500 id = 2001 } } type = remove_division which = 23500 value = 2001 }                
+	}
+}
+
+#######################################################################################################
+# Events for Italian East Africa
+#######################################################################################################
+
+event = { #
+	id = 3145207
+	random = no
+	country = U18
+	persistent = yes
+
+	trigger = {
+		NOT = { InCabinet = 821029 } # Amedeo di Savoia-Aosta
+	}
+
+	name = EVT_3145207_NAME
+	desc = EVT_3145207_DESC
+	style = 2
+
+	date = { day = 20 month = december year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME3145207A
+		command = { type = headofstate which = 821029 }
+		command = { type = dissent value = -1 }
+#		command = { trigger = { ai = yes } type = manpowerpool value = 20 }
+#		command = {	trigger = { ai = yes } type = build_division which = d_02 when = 2 cost = -0.5 where = 30 }
+	}
+}
+
+event = { #
+	id = 3145219
+	random = no
+	tag = { U18 ETH }
+
+	trigger = {
+				participant = { country = ITA value = 2 } #Axis
+				OR = {
+						AND = {
+								country = U18
+								AI = U18
+								puppet = { country = U18 country = ITA }
+								NOT = { participant = { country = U18 value = 2 }} #Axis
+								NOT = { alliance = { country = U18 country = ITA }}
+								}
+						AND = {
+								country = ETH
+								AI = ETH
+								puppet = { country = ETH country = ITA }
+								NOT = { participant = { country = ETH value = 2 }} #Axis
+								NOT = { alliance = { country = ETH country = ITA }}
+								}
+						}
+		
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = alliance which = GER }
+	}
+}
+
+event = { #
+	id = 3145220
+	random = no
+	tag = { U18 ETH }
+
+	trigger = {
+				atwar = ITA
+				NOT = { participant = { country = ITA value = 2 }} #Axis
+				OR = {
+						AND = {
+								country = U18
+								AI = U18
+								puppet = { country = U18 country = ITA }
+								NOT = { participant = { country = U18 value = 2 }} #Axis
+								}
+						AND = {
+								country = ETH
+								AI = ETH
+								puppet = { country = ETH country = ITA }
+								NOT = { participant = { country = ETH value = 2 }} #Axis
+								}
+					}
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = alliance which = ITA }
+	}
+}
+
+event = { #
+	id = 3145223
+	random = no
+	country = U18
+	
+	# triggered by ITA decision 3145501
+
+	name = EVT_3145501_NAME
+	desc = EVT_3145501_DESC
+	style = 2
+	
+	picture = "ita_event_AOI_troops"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = add_division which = "65a Divisione Fanteria 'Granatieri di Savoia'" value = d_02 when = 2 where = light_armor_brigade }
+		command = { type = add_division which = "45a Divisione Fanteria 'Cacciatori d'Africa'" value = d_02 when = 2 where = artillery }
+		command = { type = supplies value = 500 } # 1000 paid for unit equipment
+	}
+}
+
+#################################################################################
+# Somalian divisions of AOI service
+#################################################################################
+event = {
+	id = 3145224
+	random = no
+	country = U18
+	save_date = yes
+
+	trigger = {
+		war = { country = ITA country = ENG }
+		war = { country = U18 country = ENG }
+		control = { province = 825 data = U18 } #Addis Abeba
+		control = { province = 835 data = U18 } #Galkacya
+		control = { province = 836 data = U18 } #Mogadishu
+		alliance = { country = ITA country = U18 }
+	}
+
+	name = EVT_3145224_NAME
+	desc = EVT_3145224_DESC
+	picture = "ita_somalian_divisions"
+	style = 2
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+
+	action_a = {
+	    name = ACTIONNAME3145224A
+		ai_chance = 100
+		command = { type = supplies value = 500 }
+		command = { type = add_corps which = "Corpo Autonomo dell'AOI" value = land where = 836 }
+		command = { type = add_division which = "101a Divisione Somale" value = militia when = 2 }
+		command = { type = add_division which = "102a Divisione Somale" value = militia when = 2 }
+	}
+	
+	action_b = { 
+		name = ACTIONNAME313111138B
+        ai_chance = 0
+		command = { }
+	}		
+}
+
+#################################################################################
+# Via Balbia
+#################################################################################
+event = {
+	id = 3145225
+	random = no
+	country = ITA
+
+	name = EVT_3145225_NAME
+	desc = EVT_3145225_DESC
+	picture = "ita_event_via_balbia"
+	style = 2
+
+	date = { day = 14 month = march year = 1937 }
+
+	action_a = {
+	    name = ACTION_NAME_EXCELLENT
+		command = { type = construct which = infrastructure where = 752 value = 10 }
+		command = { type = construct which = infrastructure where = 750 value = 10 }
+		command = { type = construct which = infrastructure where = 757 value = 10 }
+		command = { type = construct which = infrastructure where = 756 value = 10 }
+		command = { type = construct which = infrastructure where = 759 value = 10 }
+		command = { type = construct which = infrastructure where = 762 value = 10 }
+		command = { type = construct which = infrastructure where = 763 value = 10 }
+		command = { type = construct which = infrastructure where = 761 value = 10 }
+		command = { type = construct which = infrastructure where = 764 value = 10 }
+		command = { type = construct which = infrastructure where = 768 value = 10 }
+		command = { type = construct which = infrastructure where = 767 value = 10 }
+		command = { type = construct which = infrastructure where = 765 value = 10 }
+		command = { type = construct which = infrastructure where = 771 value = 10 }	
+	}	
+}
+
+#################################################################################
+# The losses of the italian merchant navy
+# http://www.regiamarina.net/detail_text_with_list.asp?nid=53&lid=1&cid=1
+#################################################################################
+event = {
+	id = 3145226
+	random = no
+	country = ITA
+	
+	one_action = yes
+
+	trigger = {
+		war = { country = ITA country = ENG }
+	}
+
+	name = EVT_3145226_NAME
+	desc = EVT_3145226_DESC
+	picture = "ita_event_merchant"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 0 month = december year = 1999 }
+
+	action = {
+	    name = ACTIONNAME3145226A #historical losses: 256 ships stranded outside the mediterranean, about 75(?) of them successful blockade runners to Germany => 180 ships lost
+		ai_chance = 75
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = ITA value = -256 } 
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = GER value = 75 } #blockade runners
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = ENG value = 50 } #captured ships
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = USA value = 26 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned
+		###
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = ITA value = -128 } #half the losses
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = GER value = 38 } #blockade runners
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = ENG value = 25 } #captured ships
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = USA value = 13 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned
+		###
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = ITA value = -64 } #0.25*the losses
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = GER value = 19 } #blockade runners
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = ENG value = 12 } #captured ships
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = USA value = 16 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned
+	}
+	action = { 
+		name = ACTIONNAME3145226B #smaller losses as in history: 128 ships stranded outside the mediterranean, same proportion of blockade runners => 90 ships lost
+        ai_chance = 25
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = ITA value = -128 } 
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = GER value = 38 } #blockade runners
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = ENG value = 25 } #captured ships
+		command = { trigger = { NOT = { AI = ITA } } type = transport_pool which = USA value = 13 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned
+		###
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = ITA value = -64 } #half the losses
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = GER value = 19 } #blockade runners
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = ENG value = 12 } #captured ships
+		command = { trigger = { AI = ITA AI = ENG AI = USA } type = transport_pool which = USA value = 6 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned
+		###
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = ITA value = -32 } #0.25*the losses
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = GER value = 10 } #blockade runners
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = ENG value = 6 } #captured ships
+		command = { trigger = { AI = ITA OR = { NOT = { AI = ENG } NOT = { AI = USA } } } type = transport_pool which = USA value = 3 } #captured ships in the USA, taken into the custody of the Coast Guard, based on the Espionage Act of 1917, later requisitioned	
+	}		
+}
+
+#################################################################################
+# War booty
+#################################################################################
+event = {
+	id = 3145227
+	random = no
+	country = ITA
+
+	trigger = {
+				atwar = yes
+				alliance = { country = GER country = ITA }
+				OR = {
+						NOT = { exists = GRE }
+						alliance = { country = GRE country = ITA }
+						}
+				OR = {
+						NOT = { exists = YUG }
+						alliance = { country = YUG country = ITA }
+						}
+	}
+
+	name = EVT_3145227_NAME
+	desc = EVT_3145227_DESC
+	picture = "ita_event_merchant2"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 0 month = december year = 1999 }
+
+	action = {
+	    name = ACTION_NAME_EXCELLENT
+		command = { type = transport_pool which = ITA value = 50 } 
+		command = { type = transport_pool which = GER value = 20 } 
+	}
+}
+
+#################################################################################
+# ITA fortified Sicily 
+#################################################################################
+event = {
+	id = 3145229
+	random = no
+	country = ITA
+
+    #triggered by ITA Dec 
+	
+	#trigger = {	event = { id = 3145228 days = 14 }}
+
+	name = EVT_3145229_NAME
+	desc = EVT_3145229_DESC
+	picture = "ita_event_fortified_sicily"
+	style = 2
+
+	action = {
+	    name = ACTIONNAME3145229A
+        command = { type = construct which = coastal_fort where = 430 value = 1 } #Palermo
+		command = { type = construct which = coastal_fort where = 433 value = 1 } #Siracuse
+		command = { type = construct which = land_fort    where = 431 value = 2 } #Messina
+		command = { type = construct which = coastal_fort where = 425 value = 2 } #Reggio C.
+		command = { trigger = { ai = no } type = supplies value = -500 }
+		command = { type = add_corps    which = "XII Corpo d'Armata"      value = land     where = 430 } #Palermo
+		command = { type = add_division which = "207a Divisione Costiera" value = garrison when  = 3   }
+		command = { type = add_corps    which = "XVI Corpo d'Armata"      value = land     where = 433 } #Siracuse
+		command = { type = add_division which = "206a Divisione Costiera" value = garrison when  = 3   }
+	}
+}
+
+#################################################################################
+# ITA war loot from yugoslavia
+#################################################################################
+
+event = {
+	id = 3145250
+	random = no
+	country = ITA
+
+    #triggered by N_O YUG 3445000
+
+	name = EVT_3145250_NAME
+	desc = EVT_3145250_DESC
+	picture = "ita_event_ships_from_yug"
+	style = 2
+
+	action = {
+	    name = ACTIONNAME3145250A
+		command = { type = convoypool which = ITA value = 6 }	
+		command = { trigger = { ai = no } type = money    value = -100  }
+		command = { trigger = { ai = no } type = supplies value = -1500 }
+		command = { trigger = { ai = no } type = dissent  value = -1 }
+		###
+		command = { type = add_corps which = "Flottiglia Jugoslavia" value = naval where = 406 } #
+		command = { type = activate_division which = 23500 value = 1600 where = 406 } 
+		command = { type = activate_division which = 23500 value = 1601 where = 406 }
+		command = { type = activate_division which = 23500 value = 1602 where = 406 }
+		command = { type = activate_division which = 23500 value = 1603 where = 406 }
+		command = { type = activate_division which = 23500 value = 1604 where = 406 }
+		command = { type = activate_division which = 23500 value = 1605 where = 406 }
+	}
+}
+
+############################################
+# Ramb
+############################################
+event = {
+	id = 3145231
+	random = no
+	country = ITA
+
+	trigger = {
+				war = { country = ITA country = ENG }
+				}
+
+	name = EVT_3145231_NAME
+	desc = EVT_3145231_DESC
+	picture = "ita_event_ramb"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		name = ACTIONNAME3136230A #requisition and rebuild them
+		
+		# Ramb I & II
+		# if Massaua is under italian control
+		command = { trigger = { control = { province = 815 data = -3 } } type = add_corps which = "Comando navale Africa Orientale Italiana" value = naval where = 815 } # Massawa
+		command = { trigger = { control = { province = 815 data = -3 } } type = activate_division which = 23500 value = 1295 where = 815 }
+		command = { trigger = { control = { province = 815 data = -3 } } type = activate_division which = 23500 value = 1296 where = 815 }
+		# if Massaua is not under italian control, but Mogadishu still ist
+		command = { trigger = { NOT = { control = { province = 815 data = -3 } } control = { province = 836 data = -3 } } type = add_corps which = "Comando navale Africa Orientale Italiana" value = naval where = 836 } # Mogadishu
+		command = { trigger = { NOT = { control = { province = 815 data = -3 } } control = { province = 836 data = -3 } } type = activate_division which = 23500 value = 1295 where = 836 }
+		command = { trigger = { NOT = { control = { province = 815 data = -3 } } control = { province = 836 data = -3 } } type = activate_division which = 23500 value = 1296 where = 836 }
+		# if neither Massaua nor Mogadishu are under control => pool deployment
+		command = { trigger = { NOT = { control = { province = 815 data = -3 } } NOT = { control = { province = 836 data = -3 } } } type = activate_division which = 23500 value = 1295 when = 0 }
+		command = { trigger = { NOT = { control = { province = 815 data = -3 } } NOT = { control = { province = 836 data = -3 } } } type = activate_division which = 23500 value = 1296 when = 0 }	
+		
+		# Ramb III
+		# if Genoa is under italian control
+		command = { trigger = { control = { province = 396 data = -3 } } type = add_corps which = "RN Ramb III" value = naval where = 396 } # Genoa
+		command = { trigger = { control = { province = 396 data = -3 } } type = activate_division which = 23500 value = 1297 where = 396 }
+		# if Genoa isn't under italian control => pool deployment
+		command = { trigger = { NOT = { control = { province = 396 data = -3 } } } type = activate_division which = 23500 value = 1297 when = 0 }
+	}
+}
+
+############################################
+# Devaluation of the Italian Lire
+############################################
+event = {
+	id = 3145233
+	random = no
+	country = ITA
+
+	trigger = {
+		NOT = { atwar = yes }
+		headofgovernment = 3002 #Mussolini
+	}
+
+	name = EVT_3145233_NAME
+	desc = EVT_3145233_DESC
+	picture = "ita_event_devaluation"
+	style = 2
+
+	date = { day = 4 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		name = ACTION_NAME_OK 
+		command = { trigger = { ai = no } type = dissent value = 2 }
+		command = { type = domestic which = free_market value = -1 }
+		command = { trigger = { ai = no }  type = money value = 75  }
+		command = { trigger = { ai = yes } type = money value = 250 }
+	}
+}
+
+############################################
+# Albanian-Italian Economic Agreements
+############################################
+event = {
+	id = 3145234
+	random = no
+	country = ITA
+
+	trigger = {
+		headofgovernment = 3002 #Mussolini
+	}
+
+	name = EVT_3145234_NAME
+	desc = EVT_3145234_DESC
+	picture = "ita_event_ita_alb_trade"
+	style = 2
+
+	date = { day = 18 month = march year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = ACTION_NAME_OK 
+		command = { type = trade which = ALB where = ITA  oil = -1 money = 0.1 when = 900 value = 1 }
+	}
+}
+
+#######################################################
+# Assassination Attempt of Italian Viceroy in AOI
+#######################################################
+event = {
+	id = 3145260
+	random = no
+	country = U18
+	
+	one_action = yes
+
+	trigger = {
+        headofstate = 821001 #Graziani
+        NOT = { InCabinet = 821029 } # Amedeo di Savoia-Aosta		
+	}
+
+	name = EVT_3145260_NAME
+	desc = EVT_3145260_DESC
+	picture = "ita_event_assassination"
+	style = 2
+
+	date = { day = 18 month = february year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME3145261A
+		ai_chance = 98
+		command = { trigger = { ai = no } type = dissent value = 1 }
+		command = { type = trigger which = 3145261 } #ITA Event Graziani survived
+		command = { type = sleepevent which = 3145262 }
+	}	
+	action_b = {
+		name = ACTIONNAME3145262A
+		ai_chance = 2
+		command = { type = headofstate which = 821029 }
+		command = { type = sleepminister which = 821001	}
+		command = { trigger = { ai = no } type = dissent value = 3 }
+		command = { type = trigger which = 3145262 } #ITA Event Graziani died
+		command = { type = sleepevent which = 3145261 }
+	}
+	
+}
+
+event = {
+	id = 3145261 #Survived
+	random = no
+	country = ITA
+
+	name = EVT_3145260_NAME
+	desc = EVT_3145261_DESC
+	picture = "ita_event_assassination"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME3145261A 
+		command = { trigger = { ai = no } type = dissent value = 1 }
+		command = { type = money value = -100 }
+	}
+}
+
+event = {
+	id = 3145262 #Died
+	random = no
+	country = ITA
+
+	name = EVT_3145260_NAME
+	desc = EVT_3145262_DESC
+	picture = "ita_event_assassination"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME3145262A 
+		command = { trigger = { ai = no } type = dissent value = 2 }
+		command = { type = sleepminister which = 3139 }
+		command = { type = sleepleader which = 6084 }	
+		#command = { type = sleepteam which = [tech team id]}
+	}
+}
+
+######################################################################################### 
+# Italo-Yugoslav Non-Aggression and Neutrality Pact 
+#########################################################################################
+event = { 
+	id = 3145263
+	random = no
+	country = ITA
+	
+	trigger = { 
+			NOT = { war = { country = ITA country = YUG }}
+			NOT = { atwar = yes }
+	}
+       
+	name = EVT_3145263_NAME
+	desc = EVT_3145263_DESC
+	picture = "ita_event_non_aggression_yug"
+	style = 2
+	
+	date = { day = 24 month = march year = 1937 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1937 }
+	
+	action_a = {
+	  ai_chance = 95
+		name = ACTIONNAME3145263A
+		command = { type = embargo which = YUG where = ITA value = -1 }
+		command = { type = trade which = YUG where = ITA metal = -10 money = 0.5 when = 720 value = 1 }
+		command = { type = non_aggression which = ITA where = YUG  } 
+		command = { type = relation   which = HUN value = -50 }
+        command = { type = dissent value = -1 }	
+        command = { type = trigger which = 3145264 } # YUG info event		
+	}
+	
+	action_b = {
+	  ai_chance = 5
+		name = ACTIONNAME3145263B
+        command = { trigger = { ai = no }  type = dissent  value = 3    }
+		command = { trigger = { ai = no }  type = money    value = -150 }
+		command = { type = relation   which = HUN value = 50 }
+		command = { type = sleepevent which = 3145264 }
+	}	
+}
+
+event = {
+	id = 3145264 
+	random = no
+	country = YUG
+
+	name = EVT_3145263_NAME
+	desc = EVT_3145263_DESC
+	picture = "ita_event_non_aggression_yug"
+	style = 2
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { trigger = { ai = no } type = dissent value = -1 }
+	}
+}
+
+#####################################################################
+# Anti-French Demonstrations in Italian Parliament
+#####################################################################
+event = {
+	id = 3145265
+	random = no
+	country = ITA
+
+	trigger = {
+		headofgovernment = 3002 #Mussolini
+	}
+
+	name = EVT_3145265_NAME
+	desc = EVT_3145265_DESC
+	picture = "ita_event_ita_demonstration_france"
+	style = 2
+
+	date = { day = 29 month = november year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME3145265A 
+		command = { type = relation which = FRA value = -50 }
+		command = { type = trigger which = 3145266 }
+	}
+}
+event = {
+	id = 3145266
+	random = no
+	country = FRA
+
+	name = EVT_3145265_NAME
+	desc = EVT_3145266_DESC
+	picture = "ita_event_ita_demonstration_france"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME3145266A 
+		command = { type = relation which = ITA value = -50 }
+	}
+}
+
+event = {
+	id = 3145267 #Italian Invalidation of Treaty of 1935 with France
+	random = no
+	country = ITA
+
+	trigger = {
+		headofgovernment = 3002 #Mussolini
+	}
+
+	name = EVT_3145267_NAME
+	desc = EVT_3145267_DESC
+	picture = "ita_event_ita_fra_treaty"
+	style = 2
+
+	date = { day = 16 month = december year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = may year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME3145267A 
+		command = { type = relation which = FRA value = -25 }
+		command = { type = dissent  value = -1 }
+		command = { type = trigger  which = 3145268 }
+	}
+}
+event = {
+	id = 3145268
+	random = no
+	country = FRA
+
+	name = EVT_3145267_NAME
+	desc = EVT_3145267_DESC
+	picture = "ita_event_ita_fra_treaty"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME3145268A 
+		command = { type = relation which = ITA value = -25 }
+	}
+}

@@ -1,0 +1,153 @@
+# National Spain 1936 AI File by Lothos adapted to TRP 
+# converted to DH, Kane, June 4 2011
+
+switch = no # [yes/no]
+max_front_ratio = 1.2
+max_garrison_prop = 0.12
+min_garrison_prop = 0.22
+neutrality = 150
+war = 0
+exp_force_ratio = 0.400
+exp_force_ratios = { } 
+no_exp_forces_to = { }
+use_offensive_supply = no
+
+###################################
+# Diplomacy
+###################################
+combat = { SPR = 200 }
+
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.00 
+}
+
+
+
+military = { 
+
+
+
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 200 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 65
+	d_02		= 0
+	militia 	= 0	
+	cavalry 	= 10
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 0
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 20
+	garrison	= 5
+    hq 			= 0
+
+#				100 %
+	interceptor 	= 0
+	multi_role 	= 0
+	cas 		= 0
+	strategic_bomber = 0
+	tactical_bomber = 0
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				0 %
+	battleship 	= 0
+	carrier 	= 0
+	escort_carrier	= 0
+	destroyer 	= 0
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 0
+#				0 %
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 	= 2.0
+	overseas_multiplier 	= 0.1
+	home_peace_cap 		= 50
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0
+
+	# PRIORITIES:
+	beach		= 0		# Beach level 2
+	capital		= 30	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target	= 0	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		FRA = -1
+		ENG = -1
+		POR = -1
+		SPR = 15
+	}
+	province_priorities = {
+		448 = 30 # Leon
+		451 = 25 # Burgos
+		443 = 30 # Bilbao new
+		
+		474 = 30 # Seville
+	}
+	area_multiplier = { }
+}
+front = { 
+	recklessness 		= 0 #1 # 0-3
+	distrib_vs_ai 		= op_defensive #reactive
+	distrib_vs_human 	= op_defensive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+   	enemy_handicap = {
+		
+	} 
+   	passivity = {
+		
+	} 
+	province_priorities = {	
+
+		460 = 4.0 #Madrid
+		451 = 2.5 #Burgos
+		448 = 5.0 #Leon
+		444 = 3.0 #Oviedo
+		445 = 3.0 #Santander
+		440 = 2.0 #Barcelona new
+		442 = 3.0 #Zaragoza new
+		441 = 1.0 #La Coruna 0.01
+		449 = 1.0 #Vigo 0.01
+
+	 }
+
+}

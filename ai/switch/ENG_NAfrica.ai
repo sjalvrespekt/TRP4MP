@@ -1,0 +1,191 @@
+# USA North Africa1 AI File by Lothos
+# Converted to DH by Dendro 2011-July-06
+
+###################################
+# Invasions and Naval
+###################################
+invasion = {
+	invasion			= yes
+ 	base				= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random				= 10.0	#How big a random range.  (1.0 = 1%)
+	coastal				= 0.1	#increase to avoid coastal forts more.
+	beach				= 0.1	#higher, avoid worst beaches.
+	distance			= 0.1	#higher = avoid long distance.
+	max_distance  		= 50.0  
+	max_staging_distance = 25	# How far should the staging area be from the target invasion point
+	pocket				= 0.1	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island				= 0.1	#prioritise taking pure islands.
+	enemy				= 0.1	#higher = much more vary of troops in province.
+	adjacentenemy 		= 0.1	#higher = much more vary of troops nearby
+	air_base			= 0.1 
+    naval_base 			= 0.1 
+    air_support 		= 1.0 
+    redirect 			= priority
+	ignore				= no
+	help_allies 		= no
+      
+	staging_province = { 
+		348	# Gibraltar
+	}
+
+	target = {
+		# Moroco DH
+		718 = 2200 # Casablanca
+		717 = 2200 # Rabat
+
+		# Algiers DH
+		728 = 2200 # Oran
+		727 = 2200 # Algiers
+
+		# Tunisia DH
+		748 = 1900 # Bizerte
+		747 = 1900 # Tunis
+		735 = 1900 # Bona
+		745 = 1900 # Sousse
+
+		# MEDITERRANEAN SEA
+		# -----------------
+		# Greece
+		370 = -1
+		364 = -1
+		366 = -1
+		374 = -1
+		377 = -1 # Athens
+		372 = -1
+		371 = -1
+		# Greek Islands
+		382 = -1 # Irakleio
+		379 = -1 # Rhodes		
+		# Albania
+		359 = -1
+		# Yugoslavia
+		343 = -1
+		350 = -1
+		347 = -1
+		#Italy, Adriatic coast
+		400 = -1
+		411 = -1
+		420 = -1
+		426 = -1
+		#Italy, southern and western coastline + Sardinia + Sicily
+		422 = -1 # Taranto
+		432 = -1 # Catania
+		433 = -1 # Siracuse
+		430 = -1 # Palermo
+		431 = -1 # Messina
+		427 = -1 # Salerno
+		421 = -1
+		418 = -1 # Gaeta
+		416 = -1 # Anzio
+		410 = -1
+		434 = -1 # Cagliari
+		435 = -1 # Sassari
+		#France
+		87  = -1
+		86  = -1
+		89  = -1
+		82  = -1
+		79  = -1
+		80  = -1
+		
+		#Norway DH
+		483 = -1 # Oslo
+		485 = -1 # Kristiansan
+		495 = -1 # Narvik
+		491 = -1 # Alesund
+		493 = -1 # Trondheim
+		487 = -1 # Stavanger
+		488 = -1 # Bergen
+		490 = -1 # Andalsnes
+		494 = -1 # Bodo
+
+		# Baltic States (in case of un-holy alliance) DH
+		531 = -1 # Viipuri
+		530 = -1 # Terijoki
+		553 = -1 # Leningrad
+		550 = -1 # Kingisepp
+		274 = -1 # Narva
+		270 = -1 # Tallinn
+		271 = -1 # Parnu
+		275 = -1 # Kuressaare
+		264 = -1 # Riga
+		265 = -1 # Valmiera
+		269 = -1 # Jelgava
+		268 = -1 # Liepaia
+		259 = -1 # Siauliai
+		261 = -1 # Klaipeda
+
+		# German DH
+		184 = -1 # Königsberg
+		183 = -1 # Elbing
+		182 = -1 # Tilsit
+		181 = -1 # Danzig
+		226 = -1 # Gdynia
+		155 = -1 # Stolp
+		158 = -1 # Stettin
+		162 = -1 # Stralsund
+		153 = -1 # Rostock
+		151 = -1 # Lubeck
+		152 = -1 # Kiel
+		150 = -1 # Flensburg
+	
+		# Atlantic Wall DH
+		217 = -1 # Aalborg
+		216 = -1 # Abenra
+		218 = -1 # Frederikshavn
+		220  = -1 # Arhus
+		122  = -1 # Amsterdam
+		123  = -1 # Middleburg
+		125  = -1 # Rotterdam
+		114  = -1 # Bruges
+		49  = -1 # Calais
+		51  = -1 # Dunquerque
+		53  = -1 # Dieppe
+		45 = -1 # Le Havre
+		44  = -1 # Caen
+		46  = -1 # Bayeux
+		38 = -1 # Rennes
+		41 = -1 # St. Brieux
+		37  = -1 # Brest
+		39  = -1 # Lorient
+		40  = -1 # St. Nazaire
+		68 = -1 # Bordeaux
+		67 = -1 # Mont-de-Marsan
+		57 = -1 # Nantes	
+		
+		# Kwantung Long areas DH
+		1228 = -1 # Seoul
+		1221 = -1 # Pyongyang
+		1217 = -1 # anshan
+		1232 = -1 # Busan
+
+		# China, conquered by KWA DH
+		1241 = -1 # Tianjin
+		1328 = -1 # qingdao
+		1329 = -1 # Weifang
+		1331 = -1 # Yantai
+		1332 = -1 # Zaozhuang
+		1333 = -1 # Huaiyin
+		1334 = -1 # Natong
+		1338 = -1 # Shanghai
+		1358 = -1 # Fuzhou
+		1360 = -1 # Xiamen
+		1375 = -1 # Shantou
+		1373 = -1 # Jiangmen
+		1365 = -1 # Haikou
+		 
+		#Japan DH
+		1561 = -1 # Kagoshima
+		1560 = -1 # Nagasaki
+		1557 = -1 # Nagoya
+		1550 = -1 # Yokohama
+		1553 = -1 # Osaka
+		1554 = -1 # Hiroshima
+		1552 = -1 # Tokyo
+		1547 = -1 # Akita
+		1542 = -1 # Toyohara
+
+	} 
+} 
+
+	

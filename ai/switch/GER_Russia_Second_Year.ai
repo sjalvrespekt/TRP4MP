@@ -1,0 +1,38 @@
+# German operation Barbarosa Invasion AI File by Lothos
+# converted to DH, Kane, June 5 2011
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+front = { 
+	recklessness 		= 1 # 0-3
+	distrib_vs_ai 		= offensive
+	distrib_vs_human 	= reactive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+	enemy_handicap = { } 
+	passivity = { }
+	province_priorities = {	
+		# Russian Marsh
+		248 = 0.3 #Pinsk
+		249 = 0.3 #Samy
+		244 = 0.3 #Rowne
+		595 = 0.3 #Mozyr
+		609 = 0.3 #Korosten
+		619 = 0.3 #Novograd-Volynsky
+	}
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion = yes
+} 

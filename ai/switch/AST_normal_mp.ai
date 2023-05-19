@@ -1,0 +1,104 @@
+# Australia normal MP AI file by DerStudti
+
+upgrading = 0.25
+reinforcement = 0.05
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.05 
+
+
+	AA_batteries = atwar
+	max_AA_level = 4
+	AA_provs = { 
+		1708 # Melbourne
+		1707 # Canberra
+		1705 # Sydney
+	}
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = { } 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = yes
+	max_air_base = 4
+	air_base_provs = {
+		1699 # Townsville
+		1726 # Rabaul
+	} 
+
+	naval_base = yes
+	max_naval_base = 10
+	naval_base_provs = {
+		1726 # Rabaul
+	} 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = yes 
+	force_ic_until = 1938
+	ic_end_year = 1940
+	IC_provs = {
+		1708 # Melbourne
+		1707 # Canberra
+		1705 # Sydney
+	} 
+}
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 210 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 22
+	d_02		= 5 # will transmute into garrisons
+	militia 	= 0
+	cavalry 	= 0
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 0
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 0
+	garrison	= 0
+    hq 			= 3
+
+#				30 %
+	interceptor 	= 5
+	multi_role 	= 0
+	cas 		= 0
+	strategic_bomber = 0
+	tactical_bomber = 10
+	naval_bomber 	= 5
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				20 %
+	battleship 	= 0
+	carrier 	= 0
+	light_carrier = 0
+	escort_carrier	= 0
+	destroyer 	= 30
+	light_cruiser 	= 8
+	heavy_cruiser 	= 5
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 7
+#				50 %
+
+}

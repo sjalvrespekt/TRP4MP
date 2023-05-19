@@ -1,0 +1,215 @@
+# checked DH
+####################################
+# Ireland AI events 34300 - 34399 by Lothos
+####################################
+################
+# Minister of Security Section 34300 - 34309
+#############################################
+event = { # John W. Dulanty takes power
+	id = 34300
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25097 # John W. Dulanty
+		NOT = { InCabinet = 25097 }
+		OR = {
+			manpower = 20
+			NOT = { minister = 25098 } # Frank McDermott
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 25097 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Frank McDermott takes power
+	id = 34301
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25098 # Frank McDermott
+		NOT = { InCabinet = 25098 }
+		OR = {
+			NOT = { manpower = 20 }
+			NOT = { minister = 25097 } # John W. Dulanty
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 25098 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 34310 - 34319
+#############################################
+event = { # Hubert de la Poer Gough takes power
+	id = 34310
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25129 # Hubert de la Poer Gough
+		NOT = { InCabinet = 25129 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 20 }
+			AND = {
+				atwar = yes
+				NOT = { minister = 25007 } # M.J. Costello
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 25129 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # M.J. Costello takes power
+	id = 34311
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 20
+		minister = 25007 # M.J. Costello
+		NOT = { InCabinet = 25007 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 25007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 34320 - 34329
+#############################################
+event = { # Frank Aiken takes power
+	id = 34320
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25109 # Frank Aiken
+		NOT = { InCabinet = 25109 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 25109 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 34330 - 34339
+#############################################
+event = { # Cecil Lavery takes power
+	id = 34330
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25132 # Cecil Lavery
+		NOT = { InCabinet = 25132 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 25132 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 34340 - 34349
+#############################################
+event = { # Seán MacEntee takes power
+	id = 34340
+	random = no 
+	country = IRE
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 25004 # Seán MacEntee
+		NOT = { InCabinet = 25004 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 25004 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 34360 - 34399
+#############################################

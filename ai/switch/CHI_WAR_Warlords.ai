@@ -1,0 +1,265 @@
+# China 1936 AI File by Lothos
+# Converted to DH by Dendro 2011-May-29
+
+neutrality = 100.000 
+war = 60
+
+###################################
+# Diplomacy
+###################################
+combat = {
+	CHC = 150
+	CSX = 150
+	SIK = 150
+	CXB = 150
+	CYN = 150
+	CGX = 150
+	TIB = 150
+}
+demand_claims = {
+	CHC
+	CSX
+	SIK
+	CXB
+	CYN
+	CGX
+	TIB
+}
+befriend = { }
+protect = { }
+target = { 	
+	#Guangxi Clique DH
+	1381 = 150 # bose
+	1380 = 150 # Liuzhou
+	1378 = 150 # Guilin
+	1383 = 150 # Wuzhou
+	1368 = 150 # Shaoguan 
+	1375 = 150 # Shantou
+	1370 = 150 # Lufeng
+	1369 = 150 # Guangzhou
+	1373 = 150 # Jiangmen
+	1367 = 150 # Naoming
+	1365 = 150 # Haikou
+	1374 = 150 # Pingxiang
+	1379 = 150 # Nanning
+
+	#Yunan DH 
+	1292 = 125 # 	Ya'an
+	1291 = 125 # 	Xichang
+	1296 = 125 # 	Guanxiang
+	1293 = 125 # 	Panzhihua
+	1388 = 125 # 	Gejiu
+	1387 = 125 # 	Jinghong
+	1386 = 125 # 	Pu'er
+	1390 = 125 # 	Kunming
+	1300 = 125 # 	Yibin
+	1385 = 125 # 	Dali
+	1389 = 125 # 	Baoshan
+
+
+	#Shanxi DH
+	1245 = 115 # 	Tangshan
+	1241 = 115 # 	Tianjin
+	1247 = 115 # 	Beiping
+	1246 = 115 # 	Zhangyan
+	1323 = 115 # 	Anyang
+	1243 = 115 # 	Baoding
+	1250 = 115 # 	Lingqui
+	1242 = 115 # 	Shijiazhuang
+	1249 = 115 # 	Yangquan
+	1244 = 115 # 	Changzhou
+	1331 = 115 # 	Yantai
+	1329 = 115 # 	Weifang
+	1328 = 115 # 	Qingdao
+	1330 = 115 # 	Jinan
+	1239 = 115 # 	Jining
+	1238 = 115 # 	Huhehaote
+	1251 = 115 # 	Datong
+	1252 = 115 # 	Taiyuan
+	1254 = 115 # 	Hequ
+	1248 = 115 # 	Changzhi
+	1269 = 115 # 	Uqai
+
+	#Xibei San Ma DH
+	1272 = 110 # 	Bayan Hot
+	1270 = 110 # 	Linhe
+	1265 = 110 # 	Zhangye
+	1266 = 110 # 	Yumen
+	1283 = 110 # 	Ge'ermu
+	1284 = 110 # 	Xining
+	1268 = 110 # 	Yinchuan
+	1271 = 110 # 	Wuzhong
+
+	#Communist China DH
+	1255 = 200 # 	Pingliang
+	1259 = 200 # 	Yan'an
+
+
+	# Sinkiang DH
+	1279 = 90 # 	Kaxgar
+	1275 = 90 # 	Aqsu
+	1280 = 90 # 	Ghulja
+	1281 = 90 # 	Urumqi
+	1277 = 90 # 	Qumul
+	1273 = 90 # 	Aletai
+	1276 = 90 # 	Karamay
+	1282 = 90 # 	Xoten
+	1274 = 90 # 	Quarqan
+
+	#United Kingdom
+	1371 = 40 #Hong Kong
+
+	#Portugal
+	1372 = 100 # Macao
+} 
+trade = {
+	energy 		= -1
+	rare_materials 	= -1
+	metal 		= -1
+	oil 		= -1
+	supplies 	= -1
+	money 		= -1
+
+	favored = {
+		GER = 100
+		ENG = 70
+		FRA = 50
+		USA = 100
+		AST = 90
+		NZL = 90
+		SIA = 40
+	}
+	embargo = { JAP }
+}
+tech_sharing = {
+	favored = {
+		GER = 100
+		ENG = 70
+		FRA = 50
+		USA = 100
+	}
+	embargo = { JAP MAN }
+	not = { }
+	prioritized = {	}
+}
+###################################
+# Construction and Tech Research
+###################################
+#technology = { 
+#	endgoal 	= { } 
+#	preference 	= {
+#		# Logistics
+#		1310
+#	} 
+#	ignore 		= {
+#		# Airborne
+#		1070 1080 1090 1100
+#
+#		# Marines
+#		1150 1160 1170 1180
+#
+#		# Air Transports
+#		4250 4260 4270
+#
+#		# Rocketry
+#		5550 5560 5570 5580 5590
+#	}
+# 
+#	armor 		= 1 
+#	infantry 	= 7
+#	industry 	= 4
+#	aircraft 	= 1
+#	naval 		= 1
+#	land_doctrines 	= 4
+#	secret_weapons 	= 0
+#	air_doctrines 	= 1
+#	naval_doctrines = 1
+#}  
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier 	= 0.5
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 1.0
+
+	# PRIORITIES:
+	beach			= 20	# Beach level 2
+	capital			= 40	# Our capital
+	human_border		= 0	# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		SOV = -1
+		MON = -1
+		TIB = 50
+		NEP = -1
+		AFG = -1
+		FRA = -1
+		ENG = -1
+		POR = -1
+		JAP = 50
+		CHC = 50
+		MAN = 50
+		CSX = 50
+		SIK = 50
+		CXB = 50
+		CYN = 50
+		CGX = 50
+	}
+	province_priorities = {	}
+	area_multiplier = { }
+}
+front = { 
+	recklessness 		= 1 # 0-3
+	distrib_vs_ai 		= even
+	distrib_vs_human 	= even
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+	strength 	= 1.0
+	organisation 	= 1.0
+	soft_attack 	= 1.0
+	hard_attack 	= 1.0
+	ground_defense 	= 1.0
+	dig_in 		= 1.0 # Against defender
+
+	frozen_attack 	= 1.0
+	snow_attack 	= 1.0
+	blizzard_attack = 1.0
+	storm_attack 	= 1.0
+	muddy_attack 	= 1.0
+
+	
+	
+	occupied 	= 0.7
+	owned 		= 0.7
+
+	jungle_attack 	= 1.0
+	mountain_attack = 1.0
+	swamp_attack 	= 1.0
+	forest_attack 	= 1.0
+	hill_attack 	= 1.0
+	urban_attack 	= 1.0
+	river 		= 1.0
+
+      	enemy_handicap = { } 
+      	passivity = { } 
+} 

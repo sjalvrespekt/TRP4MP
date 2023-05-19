@@ -1,0 +1,25 @@
+# converted to DH, Kane, June 10 2011
+# Romania invasion of Yugoslavia AI File by Lothos
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	# Borders with specific countries
+	country_priorities = {
+		GER = -1
+		ITA = -1
+		HUN = 20
+		YUG = 20
+		BUL = 10
+		SOV = 100
+		SLO = -1
+		POL = 50
+	}
+	province_priorities = {
+		313 = 80 # Sulina
+		309 = 80 # Braila
+		310 = 80 # Constanza	
+	}
+	area_multiplier = { }
+}

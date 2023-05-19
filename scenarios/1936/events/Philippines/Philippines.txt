@@ -1,0 +1,182 @@
+# created 21.03.2016 by Gerrit 'Lord Rommel'
+#########################################################
+
+########################################################################################
+# 3182500 -  events
+########################################################################################
+
+#########################################################################
+# Philippines Army - first generation of conscripts  
+#########################################################################
+event = {
+	id = 3182500 
+	random = no
+	country = PHI
+	
+	trigger = {
+		atwar = no
+		puppet = { country = PHI country = USA }
+	}
+	
+	name = EVT_3182500_NAME
+	desc = EVT_3182500_DESC
+	style = 2
+	picture = "phi_event_conscripts"
+	
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 6 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTIONNAME3182500A
+		command = { type = dissent   value = -1 }
+		command = { type = construct which = ic where = 1565 value = 1   }
+        command = { type = domestic  which = professional_army value = -1 }
+		command = { type = manpowerpool value = 15 }		
+	}
+}
+#########################################################################
+# Philippines Army - a new army need new weapons
+#########################################################################
+event = {
+	id = 3182501 
+	random = no
+	country = PHI
+	
+	trigger = {
+		atwar = yes
+		puppet = { country = PHI country = USA }
+		war = { country = USA country = JAP }
+		war = { country = PHI country = JAP }
+	}
+	
+	name = EVT_3182501_NAME
+	desc = EVT_3182501_DESC
+	style = 2
+	picture = "phi_event_conscripts_supplies"
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+	  ai_chance = 100
+		name = ACTIONNAME3182501A
+		command = { type = trigger    which = 3182502 }
+		command = { type = relation   which = USA value = 50  }
+	}
+	action_b = {
+	  ai_chance = 0
+		name = ACTIONNAME3182501B
+		command = { type = sleepevent which = 3182502 } 
+		command = { type = dissent    value = 3 }
+		command = { type = relation   which = USA value = -50 }
+	}		
+}
+
+event = {
+	id = 3182502
+	random = no
+	country = USA
+	
+    #triggered by 3182501
+	
+	name = EVT_3182502_NAME
+	desc = EVT_3182501_DESC
+	style = 2
+	picture = "usa_event_supplies_for_phi"
+	
+	action_a = {
+	  ai_chance = 100
+		name = ACTIONNAME3182502A #we must rearm our allies against JAP
+		command = { type = trigger    which = 3182503 }
+		command = { type = relation   which = PHI value = 25  }
+		command = { type = supplies   value = -1000 }
+#		command = { type = trade      which = PHI where = USA supplies = 5 when = 360 value = 1 }	
+	}
+	action_b = {
+	  ai_chance = 0
+		name = ACTIONNAME3182502B #they can defend their coast without help
+		command = { type = sleepevent which = 3182503 } 
+		command = { type = relation   which = PHI value = -75 }
+	}		
+}
+
+event = {
+	id = 3182503
+	random = no
+	country = PHI
+	
+    #triggered by 3182502
+	
+	name = EVT_3182503_NAME
+	desc = EVT_3182503_DESC
+	style = 2
+	picture = "phi_event_supplies_for_phi"
+	
+	action_a = {
+	  ai_chance = 100
+		name = ACTIONNAME3182503A
+        #command = { type = remove_division which = 11804 value = 4 }
+		#command = { type = add_corps which = "North Luzon Force" value = land when = 430044 where = 1566 } #
+		#command = { type = activate_division which = 11804 value = 10 where = 1566 }
+		#command = { type = activate_division which = 11804 value = 11 where = 1566 }
+		#command = { type = activate_division which = 11804 value = 12 where = 1566 }
+		#command = { type = add_corps which = "South Luzon Force" value = land               where = 1565 } #
+		#command = { type = activate_division which = 11804 value = 13 where = 1565 }
+		#command = { type = activate_division which = 11804 value = 14 where = 1565 }
+		#command = { type = activate_division which = 11804 value = 15 where = 1565 }
+		#command = { type = add_corps which = "Visayan-Mindanao Force" value = land          where = 1574 } #
+		#command = { type = activate_division which = 11804 value = 16 where = 1574 }
+		#command = { type = activate_division which = 11804 value = 17 where = 1574 }
+		#command = { type = activate_division which = 11804 value = 18 where = 1574 }
+		#command = { type = add_corps which = "Reserve Force" value = land                   where = 1568 } #
+		#command = { type = activate_division which = 11804 value = 19 where = 1568 }
+                #deactivated because PHI is building enought troops with their own IC
+		command = { type = manpowerpool value = 100  }
+                command = { type = supplies     value = 500 }
+	}
+}
+
+#########################################################################
+# Philippines Army - army in chaos
+#########################################################################
+event = {
+	id = 3182504 
+	random = no
+	country = PHI
+	
+	trigger = {
+		atwar = yes
+		puppet = { country = PHI country = USA }
+		war = { country = USA country = JAP }
+		war = { country = PHI country = JAP }
+		lost_national = { value = 20 }  
+	}
+	
+	name = EVT_3182504_NAME
+	desc = EVT_3182504_DESC
+	style = 2
+	picture = "phi_event_army_in_chaos"
+	
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+	
+	action_a = {
+		name = ACTIONNAME3182504A #army is in chaos.
+		command = { type = remove_division which = -1 }
+		command = { type = remove_division which = -1 }
+		#command = { type = remove_division which = -1 }
+		command = { type = damage_division which = -1 where = 45 }
+		command = { type = damage_division which = -1 where = 45 }
+		command = { type = disorg_division which = -1 where = 50 }
+		command = { type = disorg_division which = -1 where = 50 }
+		#command = { trigger = { NOT = { ai = USA }} type = disorg_division which = -1 where = 50 }
+		#command = { trigger = { NOT = { ai = USA }} type = disorg_division which = -1 where = 50 }
+		command = { type = disorg_division which = -1 where = 20 }
+		command = { type = disorg_division which = -1 where = 20 }
+	}
+}
+
+

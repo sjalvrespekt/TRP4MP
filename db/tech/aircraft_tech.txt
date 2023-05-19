@@ -1,0 +1,1684 @@
+technology =
+{ id          = 4
+  category    = aircraft
+  name        = TECH_AIRCRAFT_NAME # Localized name
+  desc        = TECH_AIRCRAFT_DESC # Localized description
+  label =
+  { tag      = TECH_CAT_SINGLE
+    position = { x = 11 y = 9 }
+  }
+  label =
+  { tag      = TECH_CAT_DOUBLE
+    position = { x = 273 y = 9 }
+  }
+#  label =
+#  { tag      = TECH_CAT_STRATBOMBERS
+#    position = { x = 576 y = 1 }
+#  }
+#  label =
+#  { tag      = TECH_CAT_CAG
+#    position = { x = 576 y = 140 }
+#  }
+  label =
+  { tag      = TECH_CAT_ROCKETRY
+    position = { x = 536 y = 9 }
+  }
+
+  # #####################################
+  # Single Engined
+  # #####################################
+  # Single Engine design study 1929
+  application =
+  { id        = 4010
+    name      = TECH_APP_AIRCRAFT_1_NAME
+    desc      = TECH_APP_AIRCRAFT_1_DESC
+    position  = { x = 1 y = 26 }
+    year      = 1929
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4011 name = TECH_CMP_AIRCRAFT_1_1_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4012 name = TECH_CMP_AIRCRAFT_1_2_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4013 name = TECH_CMP_AIRCRAFT_1_3_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4014 name = TECH_CMP_AIRCRAFT_1_4_NAME type = mechanics difficulty = 6 }
+    component = { id = 4015 name = TECH_CMP_AIRCRAFT_1_5_NAME type = management difficulty = 6 double_time = yes }
+    effects   = { }
+  }
+  # Interceptor 1930
+  application =
+  { id        = 4020
+    name      = TECH_APP_AIRCRAFT_2_NAME
+    desc      = TECH_APP_AIRCRAFT_2_DESC
+    position  = { x = 112 y = 1 }
+    year      = 1930
+    # Fighter Engine
+    # Interceptor Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Interceptor Prototype Tests
+    component = { id = 4021 name = TECH_CMP_AIRCRAFT_2_1_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4022 name = TECH_CMP_AIRCRAFT_2_2_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4023 name = TECH_CMP_AIRCRAFT_2_3_NAME type = artillery difficulty = 2 }
+    component = { id = 4024 name = TECH_CMP_AIRCRAFT_2_4_NAME type = mechanics difficulty = 2 }
+    component = { id = 4025 name = TECH_CMP_AIRCRAFT_2_5_NAME type = aircraft_testing difficulty = 2 double_time = yes }
+    required  = { 4010 }
+    effects =
+    {
+		command = { type = activate_unit_type which = interceptor }
+		command = { type = new_model which = interceptor value = 0 }
+    }
+  }
+  # Multi_Role_Fighter 1930
+  application =
+  { id        = 4030
+    name      = TECH_APP_AIRCRAFT_3_NAME
+    desc      = TECH_APP_AIRCRAFT_3_DESC
+    position  = { x = 112 y = 18 }
+    year      = 1930
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4031 name = TECH_CMP_AIRCRAFT_3_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4032 name = TECH_CMP_AIRCRAFT_3_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4033 name = TECH_CMP_AIRCRAFT_3_3_NAME type = mechanics difficulty = 3 }
+    component = { id = 4034 name = TECH_CMP_AIRCRAFT_3_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4035 name = TECH_CMP_AIRCRAFT_3_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4010 }
+    effects =
+    {
+		command = { type = activate_unit_type which = multi_role }
+		command = { type = new_model which = multi_role value = 0 }
+    }
+  }
+  # Close Air Support 1930
+  application =
+  { id        = 4040
+    name      = TECH_APP_AIRCRAFT_4_NAME
+    desc      = TECH_APP_AIRCRAFT_4_DESC
+    position  = { x = 112 y = 35 }
+    year      = 1930
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4041 name = TECH_CMP_AIRCRAFT_4_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4042 name = TECH_CMP_AIRCRAFT_4_2_NAME type = mechanics difficulty = 3 }
+    component = { id = 4043 name = TECH_CMP_AIRCRAFT_4_3_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4044 name = TECH_CMP_AIRCRAFT_4_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4045 name = TECH_CMP_AIRCRAFT_4_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4010 }
+    effects =
+    {
+		command = { type = activate_unit_type which = cas }
+		command = { type = new_model which = cas value = 0 }
+    }
+  }
+  # Single Engine design study 1936
+  application =
+  { id        = 4050
+    name      = TECH_APP_AIRCRAFT_5_NAME
+    desc      = TECH_APP_AIRCRAFT_5_DESC
+    position  = { x = 1 y = 97 }
+    year      = 1936
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4051 name = TECH_CMP_AIRCRAFT_5_1_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4052 name = TECH_CMP_AIRCRAFT_5_2_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4053 name = TECH_CMP_AIRCRAFT_5_3_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4054 name = TECH_CMP_AIRCRAFT_5_4_NAME type = mechanics difficulty = 6 }
+    component = { id = 4055 name = TECH_CMP_AIRCRAFT_5_5_NAME type = management difficulty = 6 double_time = yes }
+    required  = { 4010 }
+    effects   = { }
+  }
+  # Interceptor 1937
+  application =
+  { id        = 4060
+    name      = TECH_APP_AIRCRAFT_6_NAME
+    desc      = TECH_APP_AIRCRAFT_6_DESC
+    position  = { x = 112 y = 72 }
+    year      = 1937
+    # Fighter Engine
+    # Interceptor Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Interceptor Prototype Tests
+    component = { id = 4061 name = TECH_CMP_AIRCRAFT_6_1_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4062 name = TECH_CMP_AIRCRAFT_6_2_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4063 name = TECH_CMP_AIRCRAFT_6_3_NAME type = artillery difficulty = 2 }
+    component = { id = 4064 name = TECH_CMP_AIRCRAFT_6_4_NAME type = mechanics difficulty = 2 }
+    component = { id = 4065 name = TECH_CMP_AIRCRAFT_6_5_NAME type = aircraft_testing difficulty = 2 double_time = yes }
+    required  = { 4020 4050 }
+    effects =
+    { command = { type = new_model which = interceptor value = 1 }
+	  command = { type = scrap_model which = interceptor value = 0 }
+    }
+  }
+  # Multirole Fighter 1937
+  application =
+  { id        = 4070
+    name      = TECH_APP_AIRCRAFT_7_NAME
+    desc      = TECH_APP_AIRCRAFT_7_DESC
+    position  = { x = 112 y = 89 }
+    year      = 1937
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4071 name = TECH_CMP_AIRCRAFT_7_1_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4072 name = TECH_CMP_AIRCRAFT_7_2_NAME type = aeronautics difficulty = 2 }
+    component = { id = 4073 name = TECH_CMP_AIRCRAFT_7_3_NAME type = mechanics difficulty = 2 }
+    component = { id = 4074 name = TECH_CMP_AIRCRAFT_7_4_NAME type = general_equipment difficulty = 2 }
+    component = { id = 4075 name = TECH_CMP_AIRCRAFT_7_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4030 4050 }
+    effects =
+    { command = { type = new_model which = multi_role value = 1 }
+	  command = { type = scrap_model which = multi_role value = 0 }
+    }
+  }
+  # Close Air Support 1937
+  application =
+  { id        = 4080
+    name      = TECH_APP_AIRCRAFT_8_NAME
+    desc      = TECH_APP_AIRCRAFT_8_DESC
+    position  = { x = 112 y = 106 }
+    year      = 1937
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4081 name = TECH_CMP_AIRCRAFT_8_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4082 name = TECH_CMP_AIRCRAFT_8_2_NAME type = mechanics difficulty = 3 }
+    component = { id = 4083 name = TECH_CMP_AIRCRAFT_8_3_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4084 name = TECH_CMP_AIRCRAFT_8_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4085 name = TECH_CMP_AIRCRAFT_8_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4040 4050 }
+    effects =
+    { command = { type = new_model which = cas value = 1 }
+	  command = { type = scrap_model which = cas value = 0 }
+    }
+  }
+  # Single Engine design study 1939
+  application =
+  { id        = 4090
+    name      = TECH_APP_AIRCRAFT_9_NAME
+    desc      = TECH_APP_AIRCRAFT_9_DESC
+    position  = { x = 1 y = 178 }
+    year      = 1939
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4091 name = TECH_CMP_AIRCRAFT_9_1_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4092 name = TECH_CMP_AIRCRAFT_9_2_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4093 name = TECH_CMP_AIRCRAFT_9_3_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4094 name = TECH_CMP_AIRCRAFT_9_4_NAME type = mechanics difficulty = 7 }
+    component = { id = 4095 name = TECH_CMP_AIRCRAFT_9_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 4050 }
+    effects = { }
+  }
+  # Interceptor 1940
+  application =
+  { id        = 4100
+    name      = TECH_APP_AIRCRAFT_10_NAME
+    desc      = TECH_APP_AIRCRAFT_10_DESC
+    position  = { x = 112 y = 144 }
+    year      = 1940
+    # Fighter Engine
+    # Interceptor Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Interceptor Prototype Tests
+    component = { id = 4101 name = TECH_CMP_AIRCRAFT_10_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4102 name = TECH_CMP_AIRCRAFT_10_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4103 name = TECH_CMP_AIRCRAFT_10_3_NAME type = artillery difficulty = 3 }
+    component = { id = 4104 name = TECH_CMP_AIRCRAFT_10_4_NAME type = mechanics difficulty = 3 }
+    component = { id = 4105 name = TECH_CMP_AIRCRAFT_10_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4060 4090 }
+    effects =
+    { command = { type = new_model which = interceptor value = 2 }
+      command = { type = scrap_model which = interceptor value = 1 }
+    }
+  }
+  # Multi_role 1940
+  application =
+  { id        = 4110
+    name      = TECH_APP_AIRCRAFT_11_NAME
+    desc      = TECH_APP_AIRCRAFT_11_DESC
+    position  = { x = 112 y = 161 }
+    year      = 1940
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4111 name = TECH_CMP_AIRCRAFT_11_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4112 name = TECH_CMP_AIRCRAFT_11_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4113 name = TECH_CMP_AIRCRAFT_11_3_NAME type = mechanics difficulty = 3 }
+    component = { id = 4114 name = TECH_CMP_AIRCRAFT_11_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4115 name = TECH_CMP_AIRCRAFT_11_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4070 4090 }
+    effects =
+    { command = { type = new_model which = multi_role value = 2 }
+      command = { type = scrap_model which = multi_role value = 1}
+    }
+  }
+  # CAS 1940
+  application =
+  { id        = 4120
+    name      = TECH_APP_AIRCRAFT_12_NAME
+    desc      = TECH_APP_AIRCRAFT_12_DESC
+    position  = { x = 112 y = 178 }
+    year      = 1940
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4121 name = TECH_CMP_AIRCRAFT_12_1_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4122 name = TECH_CMP_AIRCRAFT_12_2_NAME type = mechanics difficulty = 4 }
+    component = { id = 4123 name = TECH_CMP_AIRCRAFT_12_3_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4124 name = TECH_CMP_AIRCRAFT_12_4_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4125 name = TECH_CMP_AIRCRAFT_12_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4080 4090 }
+    effects =
+    { command = { type = new_model which = cas value = 2 }
+      command = { type = scrap_model which = cas value = 1 }
+    }
+  }
+  # Escort fighter brigade 1940
+  application =
+  { id        = 4130
+    name      = TECH_APP_AIRCRAFT_13_NAME
+    desc      = TECH_APP_AIRCRAFT_13_DESC
+    position  = { x = 112 y = 195 }
+    year      = 1940
+    # Fighter Engine
+    # Escort Fighter Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4131 name = TECH_CMP_AIRCRAFT_13_1_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4132 name = TECH_CMP_AIRCRAFT_13_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4133 name = TECH_CMP_AIRCRAFT_13_3_NAME type = mechanics difficulty = 4 }
+    component = { id = 4134 name = TECH_CMP_AIRCRAFT_13_4_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4135 name = TECH_CMP_AIRCRAFT_13_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4090 4360 }
+    effects =
+    { command = { type = new_model which = escort value = 2 }
+      command = { type = scrap_model which = escort value = 1 }
+      command = { type = new_model which = d_01 value = 2 }
+      command = { type = scrap_model which = d_01 value = 1 }
+    }
+  }
+  # Single Engine design study 1941
+  application =
+  { id        = 4140
+    name      = TECH_APP_AIRCRAFT_14_NAME
+    desc      = TECH_APP_AIRCRAFT_14_DESC
+    position  = { x = 1 y = 266 }
+    year      = 1941
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4141 name = TECH_CMP_AIRCRAFT_14_1_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4142 name = TECH_CMP_AIRCRAFT_14_2_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4143 name = TECH_CMP_AIRCRAFT_14_3_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4144 name = TECH_CMP_AIRCRAFT_14_4_NAME type = mechanics difficulty = 7 }
+    component = { id = 4145 name = TECH_CMP_AIRCRAFT_14_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 4090 }
+    effects = { }
+  }
+  # Interceptor 1942
+  application =
+  { id        = 4150
+    name      = TECH_APP_AIRCRAFT_15_NAME
+    desc      = TECH_APP_AIRCRAFT_15_DESC
+    position  = { x = 112 y = 232 }
+    year      = 1942
+    # Fighter Engine
+    # Interceptor Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Interceptor Prototype Tests
+    component = { id = 4151 name = TECH_CMP_AIRCRAFT_15_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4152 name = TECH_CMP_AIRCRAFT_15_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4153 name = TECH_CMP_AIRCRAFT_15_3_NAME type = artillery difficulty = 3 }
+    component = { id = 4154 name = TECH_CMP_AIRCRAFT_15_4_NAME type = mechanics difficulty = 3 }
+    component = { id = 4155 name = TECH_CMP_AIRCRAFT_15_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4100 4140 }
+    effects =
+    { command = { type = new_model which = interceptor value = 3 }
+      command = { type = scrap_model which = interceptor value = 2 }
+    }
+  }
+  # Multi Role Fighter 1942
+  application =
+  { id        = 4160
+    name      = TECH_APP_AIRCRAFT_16_NAME
+    desc      = TECH_APP_AIRCRAFT_16_DESC
+    position  = { x = 112 y = 249 }
+    year      = 1942
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi Role Prototype Tests
+    component = { id = 4161 name = TECH_CMP_AIRCRAFT_16_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4162 name = TECH_CMP_AIRCRAFT_16_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4163 name = TECH_CMP_AIRCRAFT_16_3_NAME type = mechanics difficulty = 3 }
+    component = { id = 4164 name = TECH_CMP_AIRCRAFT_16_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4165 name = TECH_CMP_AIRCRAFT_16_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4110 4140 }
+    effects =
+    { command = { type = new_model which = multi_role value = 3 }
+      command = { type = scrap_model which = multi_role value = 2 }
+    }
+  }
+  # Close Air Support 1942
+  application =
+  { id        = 4170
+    name      = TECH_APP_AIRCRAFT_17_NAME
+    desc      = TECH_APP_AIRCRAFT_17_DESC
+    position  = { x = 112 y = 266 }
+    year      = 1942
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4171 name = TECH_CMP_AIRCRAFT_17_1_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4172 name = TECH_CMP_AIRCRAFT_17_2_NAME type = mechanics difficulty = 4 }
+    component = { id = 4173 name = TECH_CMP_AIRCRAFT_17_3_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4174 name = TECH_CMP_AIRCRAFT_17_4_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4175 name = TECH_CMP_AIRCRAFT_17_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4120 4140 }
+    effects =
+    { command = { type = new_model which = cas value = 3 }
+      command = { type = scrap_model which = cas value = 2 }
+    }
+  }
+
+  # Escort Fighter Brigade 1942
+  application =
+  { id        = 4180
+    name      = TECH_APP_AIRCRAFT_18_NAME
+    desc      = TECH_APP_AIRCRAFT_18_DESC
+    position  = { x = 112 y = 283 }
+    year      = 1942
+    # Fighter Engine
+    # Escort Fighter Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4181 name = TECH_CMP_AIRCRAFT_18_1_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4182 name = TECH_CMP_AIRCRAFT_18_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4183 name = TECH_CMP_AIRCRAFT_18_3_NAME type = mechanics difficulty = 4 }
+    component = { id = 4184 name = TECH_CMP_AIRCRAFT_18_4_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4185 name = TECH_CMP_AIRCRAFT_18_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4130 4140 }
+    effects =
+    { command = { type = new_model which = escort value = 3 }
+      command = { type = scrap_model which = escort value = 2 }
+      command = { type = new_model which = d_01 value = 3 }
+      command = { type = scrap_model which = d_01 value = 2 }
+    }
+  }
+
+  # Single Engine design study 1943
+  application =
+  { id        = 4190
+    name      = TECH_APP_AIRCRAFT_19_NAME
+    desc      = TECH_APP_AIRCRAFT_19_DESC
+    position  = { x = 1 y = 362 }
+    year      = 1943
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4191 name = TECH_CMP_AIRCRAFT_19_1_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4192 name = TECH_CMP_AIRCRAFT_19_2_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4193 name = TECH_CMP_AIRCRAFT_19_3_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4194 name = TECH_CMP_AIRCRAFT_19_4_NAME type = mechanics difficulty = 8 }
+    component = { id = 4195 name = TECH_CMP_AIRCRAFT_19_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 4140 }
+    effects =
+    { command = { type = info_may_cause which = 7010 }
+    }
+  }
+  
+  # interceptor 1944
+  application =
+  { id        = 42009
+    name      = TECH_APP_AIRCRAFT_209_NAME
+    desc      = TECH_APP_AIRCRAFT_209_DESC
+    position  = { x = 112 y = 320 }
+    year      = 1944
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi Role Prototype Tests
+    component = { id = 42019 name = TECH_CMP_AIRCRAFT_20_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 42029 name = TECH_CMP_AIRCRAFT_20_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 42039 name = TECH_CMP_AIRCRAFT_20_3_NAME type = mechanics difficulty = 5 }
+    component = { id = 42049 name = TECH_CMP_AIRCRAFT_20_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 42059 name = TECH_CMP_AIRCRAFT_20_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4150 4190 }
+    effects =
+    { command = { type = new_model which = interceptor value = 4 }
+      command = { type = scrap_model which = interceptor value = 3 }
+    }
+  } 
+  
+  # Multi Role 1944
+  application =
+  { id        = 4200
+    name      = TECH_APP_AIRCRAFT_20_NAME
+    desc      = TECH_APP_AIRCRAFT_20_DESC
+    position  = { x = 112 y = 337 }
+    year      = 1944
+    # Fighter Engine
+    # Multi_Role Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi Role Prototype Tests
+    component = { id = 4201 name = TECH_CMP_AIRCRAFT_20_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4202 name = TECH_CMP_AIRCRAFT_20_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4203 name = TECH_CMP_AIRCRAFT_20_3_NAME type = mechanics difficulty = 5 }
+    component = { id = 4204 name = TECH_CMP_AIRCRAFT_20_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4205 name = TECH_CMP_AIRCRAFT_20_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4160 4190 }
+    effects =
+    { command = { type = new_model which = multi_role value = 4 }
+      command = { type = scrap_model which = multi_role value = 3 }
+    }
+  }
+  # Close Air support 1944
+  application =
+  { id        = 4210
+    name      = TECH_APP_AIRCRAFT_21_NAME
+    desc      = TECH_APP_AIRCRAFT_21_DESC
+    position  = { x = 112 y = 354 }
+    year      = 1944
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4211 name = TECH_CMP_AIRCRAFT_21_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4212 name = TECH_CMP_AIRCRAFT_21_2_NAME type = mechanics difficulty = 5 }
+    component = { id = 4213 name = TECH_CMP_AIRCRAFT_21_3_NAME type = technical_efficiency difficulty = 5 }
+    component = { id = 4214 name = TECH_CMP_AIRCRAFT_21_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4215 name = TECH_CMP_AIRCRAFT_21_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4170 4190 }
+    effects =
+    { command = { type = new_model which = cas value = 4 }
+      command = { type = scrap_model which = cas value = 3 }
+    }
+  }
+  # Escort Fighter Brigade 1944
+  application =
+  { id        = 4220
+    name      = TECH_APP_AIRCRAFT_22_NAME
+    desc      = TECH_APP_AIRCRAFT_22_DESC
+    position  = { x = 112 y = 371 }
+    year      = 1944
+    # Fighter Engine
+    # Escort Fighter Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4221 name = TECH_CMP_AIRCRAFT_22_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4222 name = TECH_CMP_AIRCRAFT_22_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4223 name = TECH_CMP_AIRCRAFT_22_3_NAME type = mechanics difficulty = 5 }
+    component = { id = 4224 name = TECH_CMP_AIRCRAFT_22_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4225 name = TECH_CMP_AIRCRAFT_22_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4180 4190 }
+    effects =
+    { command = { type = new_model which = escort value = 4 }
+      command = { type = scrap_model which = escort value = 3 }
+      command = { type = new_model which = d_01 value = 4 }
+      command = { type = scrap_model which = d_01 value = 3 }
+    }
+  }
+
+  # Escort Fighter Brigade 1945
+  application =
+  { id        = 42209
+    name      = TECH_APP_AIRCRAFT_2209_NAME
+    desc      = TECH_APP_AIRCRAFT_2209_DESC
+    position  = { x = 112 y = 405 }
+    year      = 1945
+    # Fighter Engine
+    # Escort Fighter Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 42211 name = TECH_CMP_AIRCRAFT_2209_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 42222 name = TECH_CMP_AIRCRAFT_2209_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 42233 name = TECH_CMP_AIRCRAFT_2209_3_NAME type = mechanics difficulty = 5 }
+    component = { id = 42244 name = TECH_CMP_AIRCRAFT_2209_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 42255 name = TECH_CMP_AIRCRAFT_2209_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4220 4190 }
+    effects =
+    { command = { type = new_model which = escort value = 5 }
+      command = { type = scrap_model which = escort value = 4 }
+      command = { type = new_model which = d_01 value = 5 }
+      command = { type = scrap_model which = d_01 value = 4 }
+    }
+  }
+
+  # Single Engine design study 1946
+  application =
+  { id        = 4230
+    name      = TECH_APP_AIRCRAFT_23_NAME
+    desc      = TECH_APP_AIRCRAFT_23_DESC
+    position  = { x = 1 y = 433 }
+    year      = 1946
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4231 name = TECH_CMP_AIRCRAFT_23_1_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4232 name = TECH_CMP_AIRCRAFT_23_2_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4233 name = TECH_CMP_AIRCRAFT_23_3_NAME type = artillery difficulty = 8 }
+    component = { id = 4234 name = TECH_CMP_AIRCRAFT_23_4_NAME type = mechanics difficulty = 8 }
+    component = { id = 4235 name = TECH_CMP_AIRCRAFT_23_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 4190 }
+    effects = { }
+  }
+  
+  # Multi Role Fighter 1947
+  #application =
+  #{ id        = 4240
+  # name      = TECH_APP_AIRCRAFT_24_NAME
+  # desc      = TECH_APP_AIRCRAFT_24_DESC
+  # position  = { x = 112 y = 314 }
+  #year      = 1947
+  # Fighter Engine
+  # Multi_Role Airframe
+  # Ammuniation
+  # Target Aiming Devices, Electrical Subsystems
+  # Multi Role Prototype Tests
+  # component = { id = 4241 name = TECH_CMP_AIRCRAFT_24_1_NAME type = aeronautics difficulty = 5 }
+  # component = { id = 4242 name = TECH_CMP_AIRCRAFT_24_2_NAME type = aeronautics difficulty = 5 }
+  # component = { id = 4243 name = TECH_CMP_AIRCRAFT_24_3_NAME type = mechanics difficulty = 5 }
+  # component = { id = 4244 name = TECH_CMP_AIRCRAFT_24_4_NAME type = general_equipment difficulty = 5 }
+  # component = { id = 4245 name = TECH_CMP_AIRCRAFT_24_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+  # required  = { 4200 4230 }
+  # effects =
+  # { command = { type = new_model which = multi_role value = 5 }
+  #  command = { type = scrap_model which = multi_role value = 3 }
+  #}
+  #}
+  
+  # Close Air support 1947
+  application =
+  { id        = 4250
+    name      = TECH_APP_AIRCRAFT_25_NAME
+    desc      = TECH_APP_AIRCRAFT_25_DESC
+    position  = { x = 112 y = 425 }
+    year      = 1947
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4251 name = TECH_CMP_AIRCRAFT_25_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4252 name = TECH_CMP_AIRCRAFT_25_2_NAME type = mechanics difficulty = 5 }
+    component = { id = 4253 name = TECH_CMP_AIRCRAFT_25_3_NAME type = technical_efficiency difficulty = 5 }
+    component = { id = 4254 name = TECH_CMP_AIRCRAFT_25_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4255 name = TECH_CMP_AIRCRAFT_25_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4210 4230 }
+    effects =
+    { command = { type = new_model which = cas value = 5 }
+      command = { type = scrap_model which = cas value = 4 }
+    }
+  }
+  # Escort Fighter Brigade 1947
+  application =
+  { id        = 4260
+    name      = TECH_APP_AIRCRAFT_26_NAME
+    desc      = TECH_APP_AIRCRAFT_26_DESC
+    position  = { x = 112 y = 442 }
+    year      = 1947
+    # Fighter Engine
+    # Escort Fighter Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # Multi_Role Prototype Tests
+    component = { id = 4261 name = TECH_CMP_AIRCRAFT_26_1_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4262 name = TECH_CMP_AIRCRAFT_26_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4263 name = TECH_CMP_AIRCRAFT_26_3_NAME type = mechanics difficulty = 5 }
+    component = { id = 4264 name = TECH_CMP_AIRCRAFT_26_4_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4265 name = TECH_CMP_AIRCRAFT_26_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 42209 4230 }
+    effects =
+    { command = { type = new_model which = escort value = 6 }
+      command = { type = scrap_model which = escort value = 5 }
+      command = { type = new_model which = d_01 value = 6 }
+      command = { type = scrap_model which = d_01 value = 5 }
+    }
+  }
+  # Single Engine design study 1949
+  application =
+  { id        = 4270
+    name      = TECH_APP_AIRCRAFT_27_NAME
+    desc      = TECH_APP_AIRCRAFT_27_DESC
+    position  = { x = 1 y = 459 }
+    year      = 1949
+    # Engine
+    # Airframe
+    # Guns and bombs
+    # Co-ordination of research
+    # General Mechanic research
+    component = { id = 4271 name = TECH_CMP_AIRCRAFT_27_1_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4272 name = TECH_CMP_AIRCRAFT_27_2_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4273 name = TECH_CMP_AIRCRAFT_27_3_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4274 name = TECH_CMP_AIRCRAFT_27_4_NAME type = mechanics difficulty = 9  }
+    component = { id = 4275 name = TECH_CMP_AIRCRAFT_27_5_NAME type = management difficulty = 9 double_time = yes }
+    required  = { 4230 }
+    effects = { }
+  }
+  # Close Air Support 1950
+  application =
+  { id        = 4280
+    name      = TECH_APP_AIRCRAFT_28_NAME
+    desc      = TECH_APP_AIRCRAFT_28_DESC
+    position  = { x = 112 y = 459 }
+    year      = 1950
+    # CAS Engine
+    # CAS Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # CAS Prototype Tests
+    component = { id = 4281 name = TECH_CMP_AIRCRAFT_28_1_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4282 name = TECH_CMP_AIRCRAFT_28_2_NAME type = mechanics difficulty = 6 }
+    component = { id = 4283 name = TECH_CMP_AIRCRAFT_28_3_NAME type = technical_efficiency difficulty = 6 }
+    component = { id = 4284 name = TECH_CMP_AIRCRAFT_28_4_NAME type = general_equipment difficulty = 6 }
+    component = { id = 4285 name = TECH_CMP_AIRCRAFT_28_5_NAME type = aircraft_testing difficulty = 6 double_time = yes }
+    required  = { 4250 4270 }
+    effects =
+    { command = { type = new_model which = cas value = 6 }
+      command = { type = scrap_model which = cas value = 5 }
+    }
+  }
+
+  # #####################################
+  # Multi Engined
+  # #####################################
+  # Multi Engine design study 1929
+  application =
+  { id        = 4290
+    name      = TECH_APP_AIRCRAFT_29_NAME
+    desc      = TECH_APP_AIRCRAFT_29_DESC
+    position  = { x = 264 y = 26 }
+    year      = 1929
+    component = { id = 4291 name = TECH_CMP_AIRCRAFT_29_1_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4292 name = TECH_CMP_AIRCRAFT_29_2_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4293 name = TECH_CMP_AIRCRAFT_29_3_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4294 name = TECH_CMP_AIRCRAFT_29_4_NAME type = technical_efficiency difficulty = 7 }
+    component = { id = 4295 name = TECH_CMP_AIRCRAFT_29_5_NAME type = management difficulty = 7 double_time = yes }
+    effects = { }
+  }
+
+  # Tactical Bomber 1930
+  application =
+  { id        = 4300
+    name      = TECH_APP_AIRCRAFT_30_NAME
+    desc      = TECH_APP_AIRCRAFT_30_DESC
+    position  = { x = 375 y = 1 }
+    year      = 1930
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4301 name = TECH_CMP_AIRCRAFT_30_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4302 name = TECH_CMP_AIRCRAFT_30_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4303 name = TECH_CMP_AIRCRAFT_30_3_NAME type = chemistry difficulty = 3 }
+    component = { id = 4304 name = TECH_CMP_AIRCRAFT_30_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4305 name = TECH_CMP_AIRCRAFT_30_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4290 }
+    effects =
+    { 	command = { type = activate_unit_type which = tactical_bomber }
+	command = { type = new_model which = tactical_bomber value = 0 }
+    }
+  }
+
+  # Naval Bomber 1930
+  application =
+  { id        = 4310
+    name      = TECH_APP_AIRCRAFT_31_NAME
+    desc      = TECH_APP_AIRCRAFT_31_DESC
+    position  = { x = 375 y = 18 }
+    year      = 1930
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4311 name = TECH_CMP_AIRCRAFT_31_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4312 name = TECH_CMP_AIRCRAFT_31_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4313 name = TECH_CMP_AIRCRAFT_31_3_NAME type = naval_artillery difficulty = 3 }
+    component = { id = 4314 name = TECH_CMP_AIRCRAFT_31_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4315 name = TECH_CMP_AIRCRAFT_31_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4290 }
+    effects =
+    { 	command = { type = activate_unit_type which = naval_bomber }
+	command = { type = new_model which = naval_bomber value = 0 }
+    }
+  }
+
+  # Escort Fighter Brigade 1930
+  application =
+  { id        = 4320
+    name      = TECH_APP_AIRCRAFT_32_NAME
+    desc      = TECH_APP_AIRCRAFT_32_DESC
+    position  = { x = 375 y = 35 }
+    year      = 1930
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4321 name = TECH_CMP_AIRCRAFT_32_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4322 name = TECH_CMP_AIRCRAFT_32_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4323 name = TECH_CMP_AIRCRAFT_32_3_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4324 name = TECH_CMP_AIRCRAFT_32_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4325 name = TECH_CMP_AIRCRAFT_32_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4290 }
+    effects = 
+    { 	command = { type = activate_unit_type which = escort }
+	command = { type = new_model which = escort value = 0 }
+        command = { type = activate_unit_type which = d_01 }
+	command = { type = new_model which = d_01 value = 0 }
+    }
+  }
+
+  # Multi Engine design study 1936
+  application =
+  { id        = 4330
+    name      = TECH_APP_AIRCRAFT_33_NAME
+    desc      = TECH_APP_AIRCRAFT_33_DESC
+    position  = { x = 264 y = 106 }
+    year      = 1936
+    component = { id = 4331 name = TECH_CMP_AIRCRAFT_33_1_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4332 name = TECH_CMP_AIRCRAFT_33_2_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4333 name = TECH_CMP_AIRCRAFT_33_3_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4334 name = TECH_CMP_AIRCRAFT_33_4_NAME type = technical_efficiency difficulty = 7 }
+    component = { id = 4335 name = TECH_CMP_AIRCRAFT_33_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 4290 }
+    effects = { }
+  }
+
+  # Tactical Bomber 1937
+  application =
+  { id        = 4340
+    name      = TECH_APP_AIRCRAFT_34_NAME
+    desc      = TECH_APP_AIRCRAFT_34_DESC
+    position  = { x = 375 y = 72 }
+    year      = 1937
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4341 name = TECH_CMP_AIRCRAFT_34_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4342 name = TECH_CMP_AIRCRAFT_34_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4343 name = TECH_CMP_AIRCRAFT_34_3_NAME type = chemistry difficulty = 3 }
+    component = { id = 4344 name = TECH_CMP_AIRCRAFT_34_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4345 name = TECH_CMP_AIRCRAFT_34_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4300 4330 }
+    effects =
+    { command = { type = new_model which = tactical_bomber value = 1 }
+	  command = { type = scrap_model which = tactical_bomber value = 0 }
+    }
+  }
+
+  # Naval Bomber 1937
+  application =
+  { id        = 4350
+    name      = TECH_APP_AIRCRAFT_35_NAME
+    desc      = TECH_APP_AIRCRAFT_35_DESC
+    position  = { x = 375 y = 89 }
+    year      = 1937
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4351 name = TECH_CMP_AIRCRAFT_35_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4352 name = TECH_CMP_AIRCRAFT_35_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4353 name = TECH_CMP_AIRCRAFT_35_3_NAME type = naval_artillery difficulty = 3 }
+    component = { id = 4354 name = TECH_CMP_AIRCRAFT_35_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4355 name = TECH_CMP_AIRCRAFT_35_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4310 4330 }
+    effects =
+    { command = { type = new_model which = naval_bomber value = 1 }
+	  command = { type = scrap_model which = naval_bomber value = 0 }
+    }
+  }
+
+  # Escort Fighter Brigade 1937
+  application =
+  { id        = 4360
+    name      = TECH_APP_AIRCRAFT_36_NAME
+    desc      = TECH_APP_AIRCRAFT_36_DESC
+    position  = { x = 375 y = 106 }
+    year      = 1937
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4361 name = TECH_CMP_AIRCRAFT_36_1_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4362 name = TECH_CMP_AIRCRAFT_36_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4363 name = TECH_CMP_AIRCRAFT_36_3_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4364 name = TECH_CMP_AIRCRAFT_36_4_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4365 name = TECH_CMP_AIRCRAFT_36_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4320 4330 }
+    effects =
+    { command = { type = new_model which = escort value = 1 }
+      command = { type = new_model which = d_01 value = 1 }
+	  command = { type = scrap_model which = escort value = 0 }
+      command = { type = scrap_model which = d_01 value = 0 }
+    }
+  }
+
+  # Transport Plane 1937
+  application =
+  { id        = 4370
+    name      = TECH_APP_AIRCRAFT_37_NAME
+    desc      = TECH_APP_AIRCRAFT_37_DESC
+    position  = { x = 375 y = 123 }
+    year      = 1937
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4371 name = TECH_CMP_AIRCRAFT_37_1_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4372 name = TECH_CMP_AIRCRAFT_37_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4373 name = TECH_CMP_AIRCRAFT_37_3_NAME type = training difficulty = 3 }
+    component = { id = 4374 name = TECH_CMP_AIRCRAFT_37_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4375 name = TECH_CMP_AIRCRAFT_37_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4330 }
+    effects =
+    { 	command = { type = activate_unit_type which = transport_plane }
+		command = { type = new_model which = transport_plane value = 0 }
+    }
+  }
+
+  # Mutli Engine design study 1938
+  application =
+  { id        = 4380
+    name      = TECH_APP_AIRCRAFT_38_NAME
+    desc      = TECH_APP_AIRCRAFT_38_DESC
+    position  = { x = 264 y = 185 }
+    year      = 1938
+    component = { id = 4381 name = TECH_CMP_AIRCRAFT_38_1_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4382 name = TECH_CMP_AIRCRAFT_38_2_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4383 name = TECH_CMP_AIRCRAFT_38_3_NAME type = aeronautics difficulty = 7 }
+    component = { id = 4384 name = TECH_CMP_AIRCRAFT_38_4_NAME type = technical_efficiency difficulty = 7 }
+    component = { id = 4385 name = TECH_CMP_AIRCRAFT_38_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 4330 }
+    effects = { }
+  }
+
+  # Tactical Bomber 1939
+  application =
+  { id        = 4390
+    name      = TECH_APP_AIRCRAFT_39_NAME
+    desc      = TECH_APP_AIRCRAFT_39_DESC
+    position  = { x = 375 y = 160 }
+    year      = 1939
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4391 name = TECH_CMP_AIRCRAFT_39_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4392 name = TECH_CMP_AIRCRAFT_39_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4393 name = TECH_CMP_AIRCRAFT_39_3_NAME type = chemistry difficulty = 3 }
+    component = { id = 4394 name = TECH_CMP_AIRCRAFT_39_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4395 name = TECH_CMP_AIRCRAFT_39_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4340 4380 }
+    effects =
+    { command = { type = new_model which = tactical_bomber value = 2 }
+      command = { type = scrap_model which = tactical_bomber value = 1 }
+    }
+  }
+
+
+  # Naval Bomber 1939
+  application =
+  { id        = 4400
+    name      = TECH_APP_AIRCRAFT_40_NAME
+    desc      = TECH_APP_AIRCRAFT_40_DESC
+    position  = { x = 375 y = 177 }
+    year      = 1939
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4401 name = TECH_CMP_AIRCRAFT_40_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4402 name = TECH_CMP_AIRCRAFT_40_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4403 name = TECH_CMP_AIRCRAFT_40_3_NAME type = naval_artillery difficulty = 3 }
+    component = { id = 4404 name = TECH_CMP_AIRCRAFT_40_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4405 name = TECH_CMP_AIRCRAFT_40_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4350 4380 }
+    effects =
+    { command = { type = new_model which = naval_bomber value = 2 }
+      command = { type = scrap_model which = naval_bomber value = 1 }
+    }
+  }
+
+  # Transport Plane 1939
+  application =
+  { id        = 4410
+    name      = TECH_APP_AIRCRAFT_41_NAME
+    desc      = TECH_APP_AIRCRAFT_41_DESC
+    position  = { x = 375 y = 194 }
+    year      = 1939
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4411 name = TECH_CMP_AIRCRAFT_41_1_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4412 name = TECH_CMP_AIRCRAFT_41_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4413 name = TECH_CMP_AIRCRAFT_41_3_NAME type = training difficulty = 3 }
+    component = { id = 4414 name = TECH_CMP_AIRCRAFT_41_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4415 name = TECH_CMP_AIRCRAFT_41_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4370 4380 }
+    effects =
+    { command = { type = new_model which = transport_plane value = 1 }
+	  command = { type = scrap_model which = transport_plane value = 0 }
+    }
+  }
+
+  # Multi Engine design study 1940
+  application =
+  { id        = 4420
+    name      = TECH_APP_AIRCRAFT_42_NAME
+    desc      = TECH_APP_AIRCRAFT_42_DESC
+    position  = { x = 264 y = 256 }
+    year      = 1940
+    component = { id = 4421 name = TECH_CMP_AIRCRAFT_42_1_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4422 name = TECH_CMP_AIRCRAFT_42_2_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4423 name = TECH_CMP_AIRCRAFT_42_3_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4424 name = TECH_CMP_AIRCRAFT_42_4_NAME type = technical_efficiency difficulty = 8 }
+    component = { id = 4425 name = TECH_CMP_AIRCRAFT_42_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 4380 }
+    effects = { }
+  }
+
+  # Tactical Bomber 1941
+  application =
+  { id        = 4430
+    name      = TECH_APP_AIRCRAFT_43_NAME
+    desc      = TECH_APP_AIRCRAFT_43_DESC
+    position  = { x = 375 y = 231 }
+    year      = 1941
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4431 name = TECH_CMP_AIRCRAFT_43_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4432 name = TECH_CMP_AIRCRAFT_43_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4433 name = TECH_CMP_AIRCRAFT_43_3_NAME type = chemistry difficulty = 3 }
+    component = { id = 4434 name = TECH_CMP_AIRCRAFT_43_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4435 name = TECH_CMP_AIRCRAFT_43_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4390 4420 }
+    effects =
+    { command = { type = new_model which = tactical_bomber value = 3 }
+      command = { type = scrap_model which = tactical_bomber value = 2 }
+    }
+  }
+
+
+  # Naval Bomber 1941
+  application =
+  { id        = 4440
+    name      = TECH_APP_AIRCRAFT_44_NAME
+    desc      = TECH_APP_AIRCRAFT_44_DESC
+    position  = { x = 375 y = 248 }
+    year      = 1941
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4441 name = TECH_CMP_AIRCRAFT_44_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4442 name = TECH_CMP_AIRCRAFT_44_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4443 name = TECH_CMP_AIRCRAFT_44_3_NAME type = naval_artillery difficulty = 3 }
+    component = { id = 4444 name = TECH_CMP_AIRCRAFT_44_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4445 name = TECH_CMP_AIRCRAFT_44_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4400 4420 }
+    effects =
+    { command = { type = new_model which = naval_bomber value = 3 }
+      command = { type = scrap_model which = naval_bomber value = 2 }
+    }
+  }
+
+  # Transport Plane 1941
+  application =
+  { id        = 4450
+    name      = TECH_APP_AIRCRAFT_45_NAME
+    desc      = TECH_APP_AIRCRAFT_45_DESC
+    position  = { x = 375 y = 265 }
+    year      = 1941
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4451 name = TECH_CMP_AIRCRAFT_45_1_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4452 name = TECH_CMP_AIRCRAFT_45_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4453 name = TECH_CMP_AIRCRAFT_45_3_NAME type = training difficulty = 3 }
+    component = { id = 4454 name = TECH_CMP_AIRCRAFT_45_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4455 name = TECH_CMP_AIRCRAFT_45_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4410 4420 }
+    effects =
+    { command = { type = new_model which = transport_plane value = 2 }
+      command = { type = scrap_model which = transport_plane value = 1 }
+    }
+  }
+
+  # Multi Engine design study 1943
+  application =
+  { id        = 4460
+    name      = TECH_APP_AIRCRAFT_46_NAME
+    desc      = TECH_APP_AIRCRAFT_46_DESC
+    position  = { x = 264 y = 336 }
+    year      = 1943
+    component = { id = 4461 name = TECH_CMP_AIRCRAFT_46_1_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4462 name = TECH_CMP_AIRCRAFT_46_2_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4463 name = TECH_CMP_AIRCRAFT_46_3_NAME type = aeronautics difficulty = 8 }
+    component = { id = 4464 name = TECH_CMP_AIRCRAFT_46_4_NAME type = technical_efficiency difficulty = 8 }
+    component = { id = 4465 name = TECH_CMP_AIRCRAFT_46_5_NAME type = management difficulty = 8 double_time = yes }
+    required  = { 4420 }
+    effects = { }
+  }
+
+  # Tactical Bomber 1944
+  application =
+  { id        = 4470
+    name      = TECH_APP_AIRCRAFT_47_NAME
+    desc      = TECH_APP_AIRCRAFT_47_DESC
+    position  = { x = 375 y = 302 }
+    year      = 1944
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4471 name = TECH_CMP_AIRCRAFT_47_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4472 name = TECH_CMP_AIRCRAFT_47_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4473 name = TECH_CMP_AIRCRAFT_47_3_NAME type = chemistry difficulty = 3 }
+    component = { id = 4474 name = TECH_CMP_AIRCRAFT_47_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4475 name = TECH_CMP_AIRCRAFT_47_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4430 4460 }
+    effects =
+    { command = { type = new_model which = tactical_bomber value = 4 }
+      command = { type = scrap_model which = tactical_bomber value = 3 }
+    }
+  }
+
+
+  # Naval Bomber 1944
+  application =
+  { id        = 4480
+    name      = TECH_APP_AIRCRAFT_48_NAME
+    desc      = TECH_APP_AIRCRAFT_48_DESC
+    position  = { x = 375 y = 319 }
+    year      = 1944
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4841 name = TECH_CMP_AIRCRAFT_48_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4842 name = TECH_CMP_AIRCRAFT_48_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4843 name = TECH_CMP_AIRCRAFT_48_3_NAME type = Naval_artillery difficulty = 3 }
+    component = { id = 4848 name = TECH_CMP_AIRCRAFT_48_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4845 name = TECH_CMP_AIRCRAFT_48_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4440 4460 }
+    effects =
+    { command = { type = new_model which = naval_bomber value = 4 }
+      command = { type = scrap_model which = naval_bomber value = 3 }
+    }
+  }
+
+  # Transport Plane 1944
+  application =
+  { id        = 4490
+    name      = TECH_APP_AIRCRAFT_49_NAME
+    desc      = TECH_APP_AIRCRAFT_49_DESC
+    position  = { x = 375 y = 336 }
+    year      = 1944
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4491 name = TECH_CMP_AIRCRAFT_49_1_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4492 name = TECH_CMP_AIRCRAFT_49_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4493 name = TECH_CMP_AIRCRAFT_49_3_NAME type = training difficulty = 3 }
+    component = { id = 4494 name = TECH_CMP_AIRCRAFT_49_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4495 name = TECH_CMP_AIRCRAFT_49_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4450 4460 }
+    effects =
+    { command = { type = new_model which = transport_plane value = 3 }
+      command = { type = scrap_model which = transport_plane value = 2 }
+    }
+  }
+
+  # Multi Engine design study 1947
+  application =
+  { id        = 4500
+    name      = TECH_APP_AIRCRAFT_50_NAME
+    desc      = TECH_APP_AIRCRAFT_50_DESC
+    position  = { x = 264 y = 398 }
+    year      = 1947
+    component = { id = 4501 name = TECH_CMP_AIRCRAFT_50_1_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4502 name = TECH_CMP_AIRCRAFT_50_2_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4503 name = TECH_CMP_AIRCRAFT_50_3_NAME type = aeronautics difficulty = 9 }
+    component = { id = 4504 name = TECH_CMP_AIRCRAFT_50_4_NAME type = technical_efficiency difficulty = 9 }
+    component = { id = 4505 name = TECH_CMP_AIRCRAFT_50_5_NAME type = management difficulty = 9 double_time = yes }
+    required  = { 4460 }
+    effects = { }
+  }
+
+  # Transport Plane 1948
+  application =
+  { id        = 4510
+    name      = TECH_APP_AIRCRAFT_51_NAME
+    desc      = TECH_APP_AIRCRAFT_51_DESC
+    position  = { x = 375 y = 390 }
+    year      = 1948
+    # Bomber Engine
+    # Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Bomber Prototype Tests
+    component = { id = 4511 name = TECH_CMP_AIRCRAFT_51_1_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4512 name = TECH_CMP_AIRCRAFT_51_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4513 name = TECH_CMP_AIRCRAFT_51_3_NAME type = training difficulty = 3 }
+    component = { id = 4514 name = TECH_CMP_AIRCRAFT_51_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4515 name = TECH_CMP_AIRCRAFT_51_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4490 4500 }
+    effects =
+    { command = { type = new_model which = transport_plane value = 4 }
+      command = { type = scrap_model which = transport_plane value = 3 }
+    }
+  }
+
+################################
+# Strategic Bombers
+################################
+  
+  # Strategic Bomber 1930
+  application =
+  { id        = 4520
+    name      = TECH_APP_AIRCRAFT_52_NAME
+    desc      = TECH_APP_AIRCRAFT_52_DESC
+    position  = { x = 375 y = 52 }
+    year      = 1930
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4521 name = TECH_CMP_AIRCRAFT_52_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4522 name = TECH_CMP_AIRCRAFT_52_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4523 name = TECH_CMP_AIRCRAFT_52_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4524 name = TECH_CMP_AIRCRAFT_52_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4525 name = TECH_CMP_AIRCRAFT_52_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4290 }
+    effects =
+    { command = { type = activate_unit_type which = strategic_bomber }
+      command = { type = new_model which = strategic_bomber value = 0 }
+    }
+  }
+
+  # Strategic Bomber 1936
+  application =
+  { id        = 4530
+    name      = TECH_APP_AIRCRAFT_53_NAME
+    desc      = TECH_APP_AIRCRAFT_53_DESC
+    position  = { x = 375 y = 140 }
+    year      = 1936
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4531 name = TECH_CMP_AIRCRAFT_53_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4532 name = TECH_CMP_AIRCRAFT_53_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4533 name = TECH_CMP_AIRCRAFT_53_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4534 name = TECH_CMP_AIRCRAFT_53_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4535 name = TECH_CMP_AIRCRAFT_53_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4330 4520 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 1 }
+	  command = { type = scrap_model which = strategic_bomber value = 0 }
+    }
+  }
+
+  # Strategic Bomber 1939
+  application =
+  { id        = 4540
+    name      = TECH_APP_AIRCRAFT_54_NAME
+    desc      = TECH_APP_AIRCRAFT_54_DESC
+    position  = { x = 375 y = 211 }
+    year      = 1939
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4541 name = TECH_CMP_AIRCRAFT_54_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4542 name = TECH_CMP_AIRCRAFT_54_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4543 name = TECH_CMP_AIRCRAFT_54_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4544 name = TECH_CMP_AIRCRAFT_54_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4545 name = TECH_CMP_AIRCRAFT_54_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4380 4530 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 2 }
+      command = { type = scrap_model which = strategic_bomber value = 1 }
+    }
+  }
+
+  # Strategic Bomber 1941
+  application =
+  { id        = 4550
+    name      = TECH_APP_AIRCRAFT_55_NAME
+    desc      = TECH_APP_AIRCRAFT_55_DESC
+    position  = { x = 375 y = 282 }
+    year      = 1941
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4551 name = TECH_CMP_AIRCRAFT_55_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4552 name = TECH_CMP_AIRCRAFT_55_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4553 name = TECH_CMP_AIRCRAFT_55_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4554 name = TECH_CMP_AIRCRAFT_55_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4555 name = TECH_CMP_AIRCRAFT_55_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4420 4540 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 3 }
+      command = { type = scrap_model which = strategic_bomber value = 2 }
+    }
+  }
+
+  # Strategic Bomber 1943 ( B29 Superfortress )
+  application =
+  { id        = 4560
+    name      = TECH_APP_AIRCRAFT_56_NAME
+    desc      = TECH_APP_AIRCRAFT_56_DESC
+    position  = { x = 375 y = 353 }
+    year      = 1943
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4561 name = TECH_CMP_AIRCRAFT_56_1_NAME type = technical_efficiency difficulty = 5 }
+    component = { id = 4562 name = TECH_CMP_AIRCRAFT_56_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4563 name = TECH_CMP_AIRCRAFT_56_3_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4564 name = TECH_CMP_AIRCRAFT_56_4_NAME type = electronics difficulty = 5 }
+    component = { id = 4565 name = TECH_CMP_AIRCRAFT_56_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4460 4550 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 4 }
+      command = { type = scrap_model which = strategic_bomber value = 3 }
+    }
+  }
+
+  # Strategic Bomber 1945 ( B50 Superfortress )
+  application =
+  { id        = 4630
+    name      = TECH_APP_AIRCRAFT_63_NAME
+    desc      = TECH_APP_AIRCRAFT_63_DESC
+    position  = { x = 375 y = 370 }
+    year      = 1945
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4631 name = TECH_CMP_AIRCRAFT_63_1_NAME type = technical_efficiency difficulty = 5 }
+    component = { id = 4632 name = TECH_CMP_AIRCRAFT_63_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4633 name = TECH_CMP_AIRCRAFT_63_3_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4634 name = TECH_CMP_AIRCRAFT_63_4_NAME type = electronics difficulty = 5 }
+    component = { id = 4635 name = TECH_CMP_AIRCRAFT_63_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4460 4560 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 5 }
+      command = { type = scrap_model which = strategic_bomber value = 4 }
+    }
+  }
+
+  # Strategic Bomber 1948 ( B36 Peacemaker )
+  application =
+  { id        = 4640
+    name      = TECH_APP_AIRCRAFT_64_NAME
+    desc      = TECH_APP_AIRCRAFT_64_DESC
+    position  = { x = 375 y = 407 }
+    year      = 1948
+    # Heavy Bomber Engine
+    # Heavy Bomber Airframe
+    # Ammuniation and Explosives
+    # Target Aiming Devices, Electrical Subsystems
+    # Heavy Bomber Prototype Tests
+    component = { id = 4641 name = TECH_CMP_AIRCRAFT_63_1_NAME type = technical_efficiency difficulty = 6 }
+    component = { id = 4642 name = TECH_CMP_AIRCRAFT_63_2_NAME type = aeronautics difficulty = 6 }
+    component = { id = 4643 name = TECH_CMP_AIRCRAFT_63_3_NAME type = general_equipment difficulty = 6 }
+    component = { id = 4644 name = TECH_CMP_AIRCRAFT_63_4_NAME type = electronics difficulty = 6 }
+    component = { id = 4645 name = TECH_CMP_AIRCRAFT_63_5_NAME type = aircraft_testing difficulty = 6 double_time = yes }
+    required  = { 4500 4630 }
+    effects =
+    { command = { type = new_model which = strategic_bomber value = 6 }
+      command = { type = scrap_model which = strategic_bomber value = 5 }
+    }
+  }
+#######################################################
+# Carrier Air Group
+#######################################################
+
+  # Carrier Air Group 1930
+  application =
+  { id        = 4570
+    name      = TECH_APP_AIRCRAFT_57_NAME
+    desc      = TECH_APP_AIRCRAFT_57_DESC
+    position  = { x = 112 y = 52 }
+    year      = 1930
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+    component = { id = 4571 name = TECH_CMP_AIRCRAFT_57_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4572 name = TECH_CMP_AIRCRAFT_57_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4573 name = TECH_CMP_AIRCRAFT_57_3_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4574 name = TECH_CMP_AIRCRAFT_57_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4575 name = TECH_CMP_AIRCRAFT_57_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4010 }
+    effects =
+    {	command = { type = activate_unit_type which = cag }
+	command = { type = new_model which = cag value = 0 }
+	command = { type = activate_unit_type which = light_cag }
+	command = { type = new_model which = light_cag value = 0 }
+    }
+  }
+
+  # Carrier Air Group 1937
+  application =
+  { id        = 4580
+    name      = TECH_APP_AIRCRAFT_58_NAME
+    desc      = TECH_APP_AIRCRAFT_58_DESC
+    position  = { x = 112 y = 124 }
+    year      = 1937
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+    component = { id = 4581 name = TECH_CMP_AIRCRAFT_58_1_NAME type = technical_efficiency difficulty = 3 }
+    component = { id = 4582 name = TECH_CMP_AIRCRAFT_58_2_NAME type = aeronautics difficulty = 3 }
+    component = { id = 4583 name = TECH_CMP_AIRCRAFT_58_3_NAME type = general_equipment difficulty = 3 }
+    component = { id = 4584 name = TECH_CMP_AIRCRAFT_58_4_NAME type = electronics difficulty = 3 }
+    component = { id = 4585 name = TECH_CMP_AIRCRAFT_58_5_NAME type = aircraft_testing difficulty = 3 double_time = yes }
+    required  = { 4050 4570 }
+    effects =
+    { command = { type = new_model which = cag value = 1 }
+	  command = { type = new_model which = light_cag value = 1 }
+	  command = { type = scrap_model which = cag value = 0 }
+	  command = { type = scrap_model which = light_cag value = 0 }
+    }
+  }
+
+  # Carrier Air Group 1940
+  application =
+  { id        = 4590
+    name      = TECH_APP_AIRCRAFT_59_NAME
+    desc      = TECH_APP_AIRCRAFT_59_DESC
+    position  = { x = 112 y = 212 }
+    year      = 1940
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+    component = { id = 4591 name = TECH_CMP_AIRCRAFT_59_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4592 name = TECH_CMP_AIRCRAFT_59_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4593 name = TECH_CMP_AIRCRAFT_59_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4594 name = TECH_CMP_AIRCRAFT_59_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4595 name = TECH_CMP_AIRCRAFT_59_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4090 4580 }
+    effects =
+    { command = { type = new_model which = cag value = 2 }
+      command = { type = scrap_model which = cag value = 1 }
+	command = { type = new_model which = light_cag value = 2 }
+	command = { type = scrap_model which = light_cag value = 1 }
+    }
+  }
+
+  # Carrier Air Group 1942
+  application =
+  { id        = 4600
+    name      = TECH_APP_AIRCRAFT_60_NAME
+    desc      = TECH_APP_AIRCRAFT_60_DESC
+    position  = { x = 112 y = 300 }
+    year      = 1942
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+    component = { id = 4601 name = TECH_CMP_AIRCRAFT_60_1_NAME type = technical_efficiency difficulty = 4 }
+    component = { id = 4602 name = TECH_CMP_AIRCRAFT_60_2_NAME type = aeronautics difficulty = 4 }
+    component = { id = 4603 name = TECH_CMP_AIRCRAFT_60_3_NAME type = general_equipment difficulty = 4 }
+    component = { id = 4604 name = TECH_CMP_AIRCRAFT_60_4_NAME type = electronics difficulty = 4 }
+    component = { id = 4605 name = TECH_CMP_AIRCRAFT_60_5_NAME type = aircraft_testing difficulty = 4 double_time = yes }
+    required  = { 4140 4590 }
+    effects =
+    { command = { type = new_model which = cag value = 3 }
+      command = { type = scrap_model which = cag value = 2 }
+	command = { type = new_model which = light_cag value = 3 }
+	command = { type = scrap_model which = light_cag value = 2 }
+    }
+  }
+
+  # Carrier Air Group 1944
+  application =
+  { id        = 4610
+    name      = TECH_APP_AIRCRAFT_61_NAME
+    desc      = TECH_APP_AIRCRAFT_61_DESC
+    position  = { x = 112 y = 388 }
+    year      = 1944
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+    component = { id = 4611 name = TECH_CMP_AIRCRAFT_61_1_NAME type = technical_efficiency difficulty = 5 }
+    component = { id = 4612 name = TECH_CMP_AIRCRAFT_61_2_NAME type = aeronautics difficulty = 5 }
+    component = { id = 4613 name = TECH_CMP_AIRCRAFT_61_3_NAME type = general_equipment difficulty = 5 }
+    component = { id = 4614 name = TECH_CMP_AIRCRAFT_61_4_NAME type = electronics difficulty = 5 }
+    component = { id = 4615 name = TECH_CMP_AIRCRAFT_61_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+    required  = { 4190 4600 }
+    effects =
+    { command = { type = new_model which = cag value = 4 }
+      command = { type = scrap_model which = cag value = 3 }
+	command = { type = new_model which = light_cag value = 4 }
+	command = { type = scrap_model which = light_cag value = 3 }
+    }
+  }
+
+#  # Carrier Air Group 1947
+#  application =
+#  { id        = 4620
+#    name      = TECH_APP_AIRCRAFT_62_NAME
+#    desc      = TECH_APP_AIRCRAFT_62_DESC
+#    position  = { x = 568 y = 222 }
+#    year      = 1947
+    # Fighter Airframe
+    # Bomber Airframe
+    # Ammuniation
+    # Target Aiming Devices, Electrical Subsystems
+    # CAG Prototype Tests
+#    component = { id = 4621 name = TECH_CMP_AIRCRAFT_62_1_NAME type = technical_efficiency difficulty = 5 }
+#    component = { id = 4622 name = TECH_CMP_AIRCRAFT_62_2_NAME type = aeronautics difficulty = 5 }
+#    component = { id = 4623 name = TECH_CMP_AIRCRAFT_62_3_NAME type = general_equipment difficulty = 5 }
+#    component = { id = 4624 name = TECH_CMP_AIRCRAFT_62_4_NAME type = electronics difficulty = 5 }
+#    component = { id = 4625 name = TECH_CMP_AIRCRAFT_62_5_NAME type = aircraft_testing difficulty = 5 double_time = yes }
+#    required  = { 4230 4610 }
+#    effects =
+#    { command = { type = new_model which = cag value = 5 }
+#      command = { type = scrap_model which = cag value = 4 }
+#    }
+#  }
+
+################################
+# Rocketry
+################################
+
+  # Rocket Test and Research Facility
+  application =
+  { id        = 5550
+    name      = TECH_APP_INDUSTRY_55_NAME
+    desc      = TECH_APP_INDUSTRY_55_DESC
+    position  = { x = 527 y = 26 }
+    year      = 1936
+    # Wind Tunnels
+    component = { id = 5551 name = TECH_CMP_INDUSTRY_55_1_NAME type = aeronautics difficulty = 7 }
+    # Test Range
+    component = { id = 5552 name = TECH_CMP_INDUSTRY_55_2_NAME type = rocketry difficulty = 7 }
+    # Telemetrics Station
+    component = { id = 5553 name = TECH_CMP_INDUSTRY_55_3_NAME type = rocketry difficulty = 7 }
+    # Rocket Fuels
+    component = { id = 5554 name = TECH_CMP_INDUSTRY_55_4_NAME type = chemistry difficulty = 7 }
+    # Basic Rocket Flight Tests
+    component = { id = 5555 name = TECH_CMP_INDUSTRY_55_5_NAME type = management difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = allow_building which = rocket_test }
+    }
+  }
+  # Rocket Engine
+  application =
+  { id        = 5560
+    name      = TECH_APP_INDUSTRY_56_NAME
+    desc      = TECH_APP_INDUSTRY_56_DESC
+    position  = { x = 527 y = 43 }
+    year      = 1939
+    # Chamber
+    component = { id = 5561 name = TECH_CMP_INDUSTRY_56_1_NAME type = rocketry difficulty = 8 }
+    # Diffuser
+    component = { id = 5562 name = TECH_CMP_INDUSTRY_56_2_NAME type = rocketry difficulty = 8 }
+    # Nozzle
+    component = { id = 5563 name = TECH_CMP_INDUSTRY_56_3_NAME type = rocketry difficulty = 8 }
+    # Fuel injector
+    component = { id = 5564 name = TECH_CMP_INDUSTRY_56_4_NAME type = rocketry difficulty = 8 }
+    # Burner
+    component = { id = 5565 name = TECH_CMP_INDUSTRY_56_5_NAME type = rocketry difficulty = 8 }
+    required  = { 5550 }
+    effects =
+    { command = { type = info_may_cause which = 7100 }
+      command = { type = info_may_cause which = 7260 }
+      command = { type = info_may_cause which = 7270 }
+    }
+  }
+  # Turbojet Engine
+  application =
+  { id        = 5570
+    name      = TECH_APP_INDUSTRY_57_NAME
+    desc      = TECH_APP_INDUSTRY_57_DESC
+    position  = { x = 543 y = 60 }
+    year      = 1939
+    # Compressor
+    component = { id = 5571 name = TECH_CMP_INDUSTRY_57_1_NAME type = rocketry difficulty = 8 }
+    # Fan
+    component = { id = 5572 name = TECH_CMP_INDUSTRY_57_2_NAME type = rocketry difficulty = 8 }
+    # Air intake
+    component = { id = 5573 name = TECH_CMP_INDUSTRY_57_3_NAME type = rocketry difficulty = 8 }
+    # Fuel injector
+    component = { id = 5574 name = TECH_CMP_INDUSTRY_57_4_NAME type = rocketry difficulty = 8 }
+    # Burner
+    component = { id = 5575 name = TECH_CMP_INDUSTRY_57_5_NAME type = rocketry difficulty = 8 }
+    required  = { 5560 }
+    effects =
+    { command = { type = info_may_cause which = 7010 }
+      command = { type = info_may_cause which = 7030 }
+      command = { type = info_may_cause which = 7080 }
+      command = { type = info_may_cause which = 7400 }
+    }
+  }
+  # Flying Bomb Development
+  application =
+  { id        = 5580
+    name      = TECH_APP_INDUSTRY_58_NAME
+    desc      = TECH_APP_INDUSTRY_58_DESC
+    position  = { x = 543 y = 77 }
+    year      = 1943
+    # Solid Fuel Rocket Engine
+    component = { id = 5581 name = TECH_CMP_INDUSTRY_58_1_NAME type = rocketry difficulty = 6 }
+    # Gyroscope Autopilot
+    component = { id = 5582 name = TECH_CMP_INDUSTRY_58_2_NAME type = rocketry difficulty = 6 }
+    # Launch Catapult
+    component = { id = 5583 name = TECH_CMP_INDUSTRY_58_3_NAME type = rocketry difficulty = 6 }
+    # Modified Steering Fens
+    component = { id = 5584 name = TECH_CMP_INDUSTRY_58_4_NAME type = rocketry difficulty = 6 }
+    # Trajectory Test Flights
+    component = { id = 5585 name = TECH_CMP_INDUSTRY_58_5_NAME type = management difficulty = 6 double_time = yes }
+    required  = { 5560 }
+    effects =
+    { command = { type = info_may_cause which = 7100 }
+    }
+  }
+  # Flying Rocket Development
+  application =
+  { id        = 5590
+    name      = TECH_APP_INDUSTRY_59_NAME
+    desc      = TECH_APP_INDUSTRY_59_DESC
+    position  = { x = 543 y = 94 }
+    year      = 1943
+    # Liquid Fuel Rocket Engine
+    component = { id = 5591 name = TECH_CMP_INDUSTRY_59_1_NAME type = rocketry difficulty = 7 }
+    # Advanced Gyroscope Autopilot
+    component = { id = 5592 name = TECH_CMP_INDUSTRY_59_2_NAME type = rocketry difficulty = 7 }
+    # Mobile Launch Sites
+    component = { id = 5593 name = TECH_CMP_INDUSTRY_59_3_NAME type = rocketry difficulty = 7 }
+    # Reinforced Ribs
+    component = { id = 5594 name = TECH_CMP_INDUSTRY_59_4_NAME type = rocketry difficulty = 7 }
+    # Trajectory Test Flights
+    component = { id = 5595 name = TECH_CMP_INDUSTRY_59_5_NAME type = management difficulty = 7 double_time = yes }
+    required  = { 5580 }
+    effects =
+    { command = { type = info_may_cause which = 7110 }
+    }
+  }
+
+
+}

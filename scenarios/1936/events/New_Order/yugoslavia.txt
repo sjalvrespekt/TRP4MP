@@ -1,0 +1,1949 @@
+# Last Update 18-APR-2008
+#########################
+
+###################################################
+# Yugoslavia events by Luxor
+# 34xx000 - 34xx999
+# converted to DH map by DerStudti
+###################################################
+
+#########################################################################
+# Yugoslavia - Germany Relationships; Yugoslavia forced to sign the Tripartite Pact
+#########################################################################
+event = { 
+	id = 3436009
+	random = no
+	country = GER
+	
+	trigger = {
+                event = 3136033 #Vichy for GER
+				exists = YUG
+#				relation = { which = YUG value = 50 } #was: 100
+				NOT = { war = { country = GER country = YUG } }
+				NOT = { alliance = { country = GER country = YUG } }
+				NOT = { alliance = { country = ENG country = YUG } }
+				OR = {
+						control = { province = 55 data = GER } # Paris
+						control = { province = 55 data = VIC } # Paris
+						}
+				NOT = { exists = FRA }
+				random = 25
+				OR = {
+						AI = yes
+						AND = {
+								AI = no
+								year = 1941
+								}
+						}
+				}
+
+	name = EVT_3436009_NAME
+	desc = EVT_3436009_DESC
+	style = 2
+	picture = "ger_event_yug_tripartite"
+	
+	date = { day = 0 month = september year = 1940 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1999 } 
+	
+	action_a = {
+				name = ACTIONNAME3436009A
+				ai_chance = 99
+				command = { type = alliance which = YUG }
+				}
+	action_b = {
+				name = ACTIONNAME3436009B
+				ai_chance = 1
+				command = { type = dissent value = 2 }
+				}
+}
+#########################################################################
+# Anti-German coup in Yugoslavia
+#########################################################################
+event = {
+	id = 3486000
+	random = no
+	country = YUG
+
+	trigger = { 
+		alliance = { country = GER country = YUG }
+		#NOT = { puppet = { country = YUG country = GER } }
+		NOT = { ispuppet = YUG }
+		war = { country = GER country = ENG }
+	}
+
+	name = EVT_3486000_NAME #"Anti-German coup in Yugoslavia"
+	desc = EVT_3486000_DESC
+	style = 0
+	picture = "yougoslavian"
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 } 
+	
+	action_a = {
+		name = ACTIONNAME3486000A #"We shall not allow Germany to determine our fate"
+		ai_chance = 99
+		command = { type = headofstate which = 20094 } # H.M. Petar II
+ 		command = { type = headofgovernment which = 20033 } # Dusan Simovic
+ 		command = { type = foreignminister which = 20040 } # Momcilo Nincic
+		command = { type = dissent value = -5 }
+		command = { type = leave_alliance }
+		command = { type = peace which = ENG value = 1 } # It leaves the alliance
+		command = { type = peace which = HOL value = 1 }
+		command = { type = peace which = BEL value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = peace which = GRE value = 1 }
+		command = { type = peace which = USA value = 1 }
+		command = { type = setflag which = yugoslavia_coup }
+	}
+	action_b = {
+		name = ACTIONNAME3486000B #"Back down the coup"
+		ai_chance = 1
+		command = { }
+	}
+}
+#########################################################################
+# Anti-German coup in Yugoslavia, GER declares war
+#########################################################################
+event = {
+	id = 3436000
+	random = no
+	country = GER
+
+	trigger = {
+		flag = yugoslavia_coup
+		NOT = { war = { country = GER country = YUG } }
+		NOT = { alliance = { country = GER country = YUG } }
+	}
+
+	name = EVT_3486000_NAME #"Anti-German coup in Yugoslavia"
+	desc = EVT_3486000_DESC
+	style = 0
+	picture = "yougoslavian"
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 } 
+	
+	action_a = {
+		name = ACTIONNAME3436000A #"Declare war immediately"
+		ai_chance = 99
+		command = { type = set_relation which = YUG value = -200 }
+		command = { type = addcore which = 346 } # Maribor
+		command = { type = war which = YUG }
+	}
+	action_b = {
+		name = ACTIONNAME3436000B #"Back down for now"
+		ai_chance = 1
+		command = { type = set_relation which = YUG value = -200 }
+	}
+}
+
+#########################################################################
+# Yugoslavia - ahistorical developments - Tito's pan-slavist coup
+# if GER choses not to attack YUG
+#########################################################################
+event = { 
+	id = 3186006
+	random = no
+	country = YUG
+	
+	trigger = {
+                NOT = { ispuppet = YUG }
+				atwar = no
+				NOT = { participant = { value = 4 } } # YUG neutral
+				war = { country = GER country = SOV }
+				random = 5
+				}
+
+	name = EVT_3186006_NAME
+	desc = EVT_3186006_DESC
+	style = 2
+	picture = "yug_event_titos_coup"
+	
+	date = { day = 0 month = september year = 1940 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1999 } 
+	
+	action_a = {
+				name = ACTIONNAME3186006A
+				command = { type = set_domestic which = political_left value = 8 }
+				command = { type = set_domestic which = democratic value = 4 }
+				command = { type = headofstate which = 20031 } # Tito
+				command = { type = headofgovernment which = 20037 } # Tito
+				command = { type = foreignminister which = 20045 } # Simic
+				command = { type = armamentminister which = 20054 } # Popovic
+				command = { type = ministerofsecurity which = 20062 } # Popovic
+				command = { type = ministerofintelligence which = 20069 } # Rankovic
+				command = { type = chiefofstaff which = 20075 } # Jovanovic
+				command = { type = chiefofarmy which = 20082 } # Mihailovic
+				command = { type = chiefofnavy which = 20084 } # Nedic
+				command = { type = chiefofair which = 20093 } # Ribar
+				command = { type = flag_ext where = YUG which = "_com" }
+				command = { type = leave_alliance when = 1 }
+				command = { type = alliance where = 3 }
+				}
+}
+
+#########################################################################
+# ITA,HUN,ROM,BUL,GRE, GER partition events
+#########################################################################
+event = { 
+	id = 3436010
+	random = no 
+	country = GER
+	#persistent = yes
+	
+	trigger = {
+		#event = 3445000 #partitioning event ITA
+		#event = 3441000 #partitioning event HUN
+		#event = 3467000 #partitioning event ROM
+		#event = 3419000 #partitioning event BUL
+		alliance = { country = GER country = ITA }
+		OR = {
+			control = { province = 366 data = GER } # Kozani
+			control = { province = 367 data = GER } # Ioannina
+			control = { province = 369 data = GER } # Metsovo
+			control = { province = 371 data = GER } # Kerkyra
+			control = { province = 376 data = GER } # Agrinion
+			control = { province = 368 data = GER } # Larissa
+			control = { province = 377 data = GER } # Athens
+			control = { province = 375 data = GER } # Levadhia
+			control = { province = 372 data = GER } # Patra
+			control = { province = 373 data = GER } # Corinth
+			control = { province = 374 data = GER } # Chalcis
+			control = { province = 383 data = GER } # Mytilene
+			control = { province = 381 data = GER } # Ermoupoli
+			control = { province = 378 data = GER } # Kalymno
+			control = { province = 379 data = GER } # Rodos
+			control = { province = 382 data = GER } # Irakleio
+			control = { province = 380 data = GER } # Sitia
+			control = { province = 364 data = GER } # Kavala
+			control = { province = 363 data = GER } # Xanthi
+			control = { province = 370 data = GER } # Alexandroupoli
+			control = { province = 365 data = GER } # Thessaloniki
+		}
+		NOT = { exists = YUG }
+		OR =	{
+				NOT = { exists = GRE }
+				alliance = { country = GER country = GRE }
+				AND =	{
+						exists = GRE
+						war = { country = SOV country = GER }
+						NOT = { war = { country = GER country = GRE } }
+						}
+				}	
+	}
+
+	name = EVT_3136076_NAME # The Partitioning of Greece: Germany
+	desc = EVT_3136076_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 14 #7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136076A # Partition Greece according to plan
+		ai_chance = 100
+		command = { type = secedeprovince which = ITA value = 366 when = 1 } # Kozani
+		command = { type = secedeprovince which = ITA value = 367 when = 1 } # Ioannina
+		command = { type = secedeprovince which = ITA value = 369 when = 1 } # Metsovo
+		command = { type = secedeprovince which = ITA value = 371 when = 1 } # Kerkyra
+		command = { type = secedeprovince which = ITA value = 376 when = 1 } # Agrinion
+		command = { type = secedeprovince which = ITA value = 368 when = 1 } # Larissa
+		command = { type = secedeprovince which = ITA value = 377 when = 1 } # Athens
+		command = { type = secedeprovince which = ITA value = 375 when = 1 } # Levadhia
+		command = { type = secedeprovince which = ITA value = 372 when = 1 } # Patra
+		command = { type = secedeprovince which = ITA value = 373 when = 1 } # Corinth
+		command = { type = secedeprovince which = ITA value = 374 when = 1 } # Chalcis
+		command = { type = secedeprovince which = ITA value = 383 when = 1 } # Mytilene
+		command = { type = secedeprovince which = ITA value = 381 when = 1 } # Ermoupoli
+		command = { type = secedeprovince which = ITA value = 378 when = 1 } # Kalymno
+		command = { type = secedeprovince which = ITA value = 379 when = 1 } # Rodos
+		command = { type = secedeprovince which = ITA value = 382 when = 1 } # Irakleio
+		command = { type = secedeprovince which = ITA value = 380 when = 1 } # Sitia
+		command = { type = secedeprovince which = BUL value = 364 when = 1 } # Kavala
+		command = { type = secedeprovince which = BUL value = 363 when = 1 } # Xanthi
+		command = { type = secedeprovince which = BUL value = 370 when = 1 } # Alexandroupoli
+		command = { type = secedeprovince which = ITA value = 365 when = 1 } # Thessaloniki
+	}
+	action_b = {
+		name = ACTIONNAME3136076B # No, leave it as it is
+		ai_chance = 0
+		command = { }
+	}
+}
+event = { 
+	id = 3445000
+	random = no
+	country = ITA
+
+	trigger = {
+		alliance = { country = GER country = ITA }
+		OR = {
+			control = { province = 349 data = ITA } # Ljubljana
+			control = { province = 346 data = ITA } # Maribor
+			control = { province = 345 data = ITA } # Bjelovar
+			control = { province = 347 data = ITA } # Karlovac #ITA
+			control = { province = 352 data = ITA } # Zagreb
+			control = { province = 353 data = ITA } # Banja Luka
+			control = { province = 357 data = ITA } # Bihac
+			control = { province = 358 data = ITA } # Travnik
+			control = { province = 355 data = ITA } # Sarajevo
+			control = { province = 354 data = ITA } # Tuzla
+			control = { province = 356 data = ITA } # Mostar #ITA
+			control = { province = 344 data = ITA } # Osijek
+			control = { province = 337 data = ITA } # Ruma
+			control = { province = 336 data = ITA } # Petrovgrad
+			control = { province = 338 data = ITA } # Belgrade
+			control = { province = 342 data = ITA } # Uzice
+			control = { province = 340 data = ITA } # Sabac
+			control = { province = 330 data = ITA } # Nis
+			control = { province = 331 data = ITA } # Pirot
+			control = { province = 339 data = ITA } # Bor
+			control = { province = 327 data = ITA } # Krusevac
+			control = { province = 328 data = ITA } # Kumanovo
+			control = { province = 333 data = ITA } # Skopje
+			control = { province = 351 data = ITA } # Knin #ITA
+		}
+		NOT = { exists = YUG }
+	}
+
+	name = EVT_3445000_NAME #"Partition of Yugoslavia: Italy"
+	desc = EVT_3445000_DESC #"With our Yugoslavian enemies defeated Yugoslavia shall be partitioned according to plan. Bulgaria, Hungary, and Italy will also receive a portion of the former Yugoslavia, with Germany controlling Croatia and Serbia."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3 #1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3445000A #"Partition Yugoslavia"
+		ai_chance = 100
+		command = { type = secedeprovince which = GER value = 349 } # Ljubljana
+		command = { type = secedeprovince which = GER value = 346 } # Maribor
+		command = { type = secedeprovince which = GER value = 345 } # Bjelovar
+		command = { type = secedeprovince which = GER value = 347 } # Karlovac #ITA
+		command = { type = secedeprovince which = GER value = 352 } # Zagreb
+		command = { type = secedeprovince which = GER value = 353 } # Banja Luka
+		command = { type = secedeprovince which = GER value = 357 } # Bihac
+		command = { type = secedeprovince which = GER value = 358 } # Travnik
+		command = { type = secedeprovince which = GER value = 355 } # Sarajevo
+		command = { type = secedeprovince which = GER value = 354 } # Tuzla
+		command = { type = secedeprovince which = GER value = 356 } # Mostar #ITA
+		command = { type = secedeprovince which = GER value = 344 } # Osijek
+		command = { type = secedeprovince which = GER value = 337 } # Ruma
+		command = { type = secedeprovince which = GER value = 336 } # Petrovgrad
+		command = { type = secedeprovince which = GER value = 338 } # Belgrade
+		command = { type = secedeprovince which = GER value = 342 } # Uzice
+		command = { type = secedeprovince which = GER value = 340 } # Sabac
+		command = { type = secedeprovince which = GER value = 330 } # Nis
+		command = { type = secedeprovince which = GER value = 331 } # Pirot
+		command = { type = secedeprovince which = GER value = 339 } # Bor
+		command = { type = secedeprovince which = GER value = 327 } # Krusevac
+		command = { type = secedeprovince which = GER value = 328 } # Kumanovo
+		command = { type = secedeprovince which = GER value = 333 } # Skopje
+		command = { type = secedeprovince which = GER value = 351 } # Knin #ITA
+		
+		command = { type = addclaim which = 329 } # Pristina
+		command = { type = addclaim which = 334 } # Tetovo
+		command = { type = addclaim which = 335 } # Prijepolje
+		command = { type = addclaim which = 332 } # Cetinje
+		
+		command = { type = trigger which = 3145250 } #Event ITA		
+	}
+	action_b = {
+		name = ACTIONNAME3445000B #"Dishonour the Pact and keep the gains"
+		ai_chance = 0
+		command = { type = relation which = GER value = -100 }
+		command = { type = addclaim which = 329 } # Pristina
+		command = { type = addclaim which = 334 } # Tetovo
+		command = { type = addclaim which = 335 } # Prijepolje
+		command = { type = addclaim which = 332 } # Cetinje
+	}
+}
+event = { 
+	id = 3441000
+	random = no
+	country = HUN
+
+	trigger = {
+		alliance = { country = GER country = HUN }
+		OR = {
+			control = { province = 349 data = HUN } # Ljubljana
+			control = { province = 346 data = HUN } # Maribor
+			control = { province = 345 data = HUN } # Bjelovar
+			control = { province = 347 data = HUN } # Karlovac #ITA
+			control = { province = 352 data = HUN } # Zagreb
+			control = { province = 353 data = HUN } # Banja Luka
+			control = { province = 357 data = HUN } # Bihac
+			control = { province = 350 data = HUN } # Split
+			control = { province = 351 data = HUN } # Knin #ITA
+			control = { province = 358 data = HUN } # Travnik
+			control = { province = 355 data = HUN } # Sarajevo
+			control = { province = 354 data = HUN } # Tuzla
+			control = { province = 356 data = HUN } # Mostar #ITA
+			control = { province = 343 data = HUN } # Dubrovnik
+			control = { province = 332 data = HUN } # Cetinje
+			control = { province = 344 data = HUN } # Osijek
+			control = { province = 337 data = HUN } # Ruma
+			control = { province = 336 data = HUN } # Petrovgrad
+			control = { province = 338 data = HUN } # Belgrade
+			control = { province = 342 data = HUN } # Uzice
+			control = { province = 335 data = HUN } # Prijepolje #GER
+			control = { province = 340 data = HUN } # Sabac
+			control = { province = 329 data = HUN } # Pristina #GER
+			control = { province = 334 data = HUN } # Tetovo #GER
+			control = { province = 330 data = HUN } # Nis
+			control = { province = 331 data = HUN } # Pirot
+			control = { province = 339 data = HUN } # Bor
+			control = { province = 327 data = HUN } # Krusevac
+			control = { province = 328 data = HUN } # Kumanovo
+			control = { province = 333 data = HUN } # Skopje
+			control = { province = 359 data = HUN } # Tirane
+			control = { province = 361 data = HUN } # Shkoder
+			control = { province = 362 data = HUN } # Vlore
+			control = { province = 360 data = HUN } # Korce
+		}
+		NOT = { exists = YUG }
+	}
+
+	name = EVT_3441000_NAME #"Partition of Yugoslavia: Hungary"
+	desc = EVT_3445000_DESC #"With our Yugoslavian enemies defeated Yugoslavia shall be partitioned according to plan. Bulgaria, Hungary, and Italy will also receive a portion of the former Yugoslavia, with Germany controlling Croatia and Serbia."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3445000A #"Partition Yugoslavia"
+		ai_chance = 100
+		command = { type = secedeprovince which = GER value = 349 } # Ljubljana
+		command = { type = secedeprovince which = GER value = 346 } # Maribor
+		command = { type = secedeprovince which = GER value = 345 } # Bjelovar
+		command = { type = secedeprovince which = GER value = 347 } # Karlovac #ITA
+		command = { type = secedeprovince which = GER value = 352 } # Zagreb
+		command = { type = secedeprovince which = GER value = 353 } # Banja Luka
+		command = { type = secedeprovince which = GER value = 357 } # Bihac
+		command = { type = secedeprovince which = ITA value = 350 } # Split
+		command = { type = secedeprovince which = GER value = 351 } # Knin #ITA
+		command = { type = secedeprovince which = GER value = 358 } # Travnik
+		command = { type = secedeprovince which = GER value = 355 } # Sarajevo
+		command = { type = secedeprovince which = GER value = 354 } # Tuzla
+		command = { type = secedeprovince which = GER value = 356 } # Mostar #ITA
+		command = { type = secedeprovince which = ITA value = 343 } # Dubrovnik
+		command = { type = secedeprovince which = ITA value = 332 } # Cetinje
+		command = { type = secedeprovince which = GER value = 344 } # Osijek
+		command = { type = secedeprovince which = GER value = 337 } # Ruma
+		command = { type = secedeprovince which = GER value = 336 } # Petrovgrad
+		command = { type = secedeprovince which = GER value = 338 } # Belgrade
+		command = { type = secedeprovince which = GER value = 342 } # Uzice
+		command = { type = secedeprovince which = ITA value = 335 } # Prijepolje #GER
+		command = { type = secedeprovince which = GER value = 340 } # Sabac
+		command = { type = secedeprovince which = ITA value = 329 } # Pristina #GER
+		command = { type = secedeprovince which = ITA value = 334 } # Tetovo #GER
+		command = { type = secedeprovince which = GER value = 330 } # Nis
+		command = { type = secedeprovince which = GER value = 331 } # Pirot
+		command = { type = secedeprovince which = GER value = 339 } # Bor
+		command = { type = secedeprovince which = GER value = 327 } # Krusevac
+		command = { type = secedeprovince which = GER value = 328 } # Kumanovo
+		command = { type = secedeprovince which = GER value = 333 } # Skopje
+		command = { type = secedeprovince which = GER value = 359 } # Tirane
+		command = { type = secedeprovince which = GER value = 361 } # Shkoder
+		command = { type = secedeprovince which = GER value = 362 } # Vlore
+		command = { type = secedeprovince which = GER value = 360 } # Korce
+		
+		command = { type = removeclaim which = 347 } # Hungarian non-national claims on Yugoslavia
+		command = { type = removeclaim which = 352 }
+		command = { type = removeclaim which = 345 }
+		command = { type = removeclaim which = 344 }
+		command = { type = removeclaim which = 337 }
+		command = { type = removeclaim which = 336 }
+	}
+	action_b = {
+		name = ACTIONNAME3445000B #"Dishonour the Pact and keep the gains"
+		ai_chance = 0
+		#command = { type = leave_alliance }
+		command = { type = relation which = GER value = -100 }
+	}
+}
+event = { 
+	id = 3467000
+	random = no
+	country = ROM
+
+	trigger = {
+		alliance = { country = GER country = ROM }
+		OR = {
+			
+			control = { province = 349 data = ROM } # Ljubljana
+			control = { province = 346 data = ROM } # Maribor
+			control = { province = 345 data = ROM } # Bjelovar
+			control = { province = 347 data = ROM } # Karlovac #ITA
+			control = { province = 352 data = ROM } # Zagreb
+			control = { province = 353 data = ROM } # Banja Luka
+			control = { province = 357 data = ROM } # Bihac
+			control = { province = 350 data = ROM } # Split
+			control = { province = 351 data = ROM } # Knin #ITA
+			control = { province = 358 data = ROM } # Travnik
+			control = { province = 355 data = ROM } # Sarajevo
+			control = { province = 354 data = ROM } # Tuzla
+			control = { province = 356 data = ROM } # Mostar #ITA
+			control = { province = 343 data = ROM } # Dubrovnik
+			control = { province = 332 data = ROM } # Cetinje
+			control = { province = 344 data = ROM } # Osijek
+			control = { province = 337 data = ROM } # Ruma
+			control = { province = 336 data = ROM } # Petrovgrad
+			control = { province = 338 data = ROM } # Belgrade
+			control = { province = 342 data = ROM } # Uzice
+			control = { province = 335 data = ROM } # Prijepolje #GER
+			control = { province = 340 data = ROM } # Sabac
+			control = { province = 329 data = ROM } # Pristina #GER
+			control = { province = 334 data = ROM } # Tetovo #GER
+			control = { province = 330 data = ROM } # Nis
+			control = { province = 331 data = ROM } # Pirot
+			control = { province = 339 data = ROM } # Bor
+			control = { province = 327 data = ROM } # Krusevac
+			control = { province = 328 data = ROM } # Kumanovo
+			control = { province = 333 data = ROM } # Skopje
+			control = { province = 359 data = ROM } # Tirane
+			control = { province = 361 data = ROM } # Shkoder
+			control = { province = 362 data = ROM } # Vlore
+			control = { province = 360 data = ROM } # Korce
+		}
+		NOT = { exists = YUG }
+	}
+
+	name = EVT_3467000_NAME #"Partition of Yugoslavia: Romania"
+	desc = EVT_3445000_DESC #"With our Yugoslavian enemies defeated Yugoslavia shall be partitioned according to plan. Bulgaria, Hungary, and Italy will also receive a portion of the former Yugoslavia, with Germany controlling Croatia and Serbia."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3445000A #"Partition Yugoslavia"
+		ai_chance = 100
+		command = { type = secedeprovince which = GER value = 349 } # Ljubljana
+		command = { type = secedeprovince which = GER value = 346 } # Maribor
+		command = { type = secedeprovince which = GER value = 345 } # Bjelovar
+		command = { type = secedeprovince which = GER value = 347 } # Karlovac #ITA
+		command = { type = secedeprovince which = GER value = 352 } # Zagreb
+		command = { type = secedeprovince which = GER value = 353 } # Banja Luka
+		command = { type = secedeprovince which = GER value = 357 } # Bihac
+		command = { type = secedeprovince which = ITA value = 350 } # Split
+		command = { type = secedeprovince which = GER value = 351 } # Knin #ITA
+		command = { type = secedeprovince which = GER value = 358 } # Travnik
+		command = { type = secedeprovince which = GER value = 355 } # Sarajevo
+		command = { type = secedeprovince which = GER value = 354 } # Tuzla
+		command = { type = secedeprovince which = GER value = 356 } # Mostar #ITA
+		command = { type = secedeprovince which = ITA value = 343 } # Dubrovnik
+		command = { type = secedeprovince which = ITA value = 332 } # Cetinje
+		command = { type = secedeprovince which = GER value = 344 } # Osijek
+		command = { type = secedeprovince which = GER value = 337 } # Ruma
+		command = { type = secedeprovince which = GER value = 336 } # Petrovgrad
+		command = { type = secedeprovince which = GER value = 338 } # Belgrade
+		command = { type = secedeprovince which = GER value = 342 } # Uzice
+		command = { type = secedeprovince which = ITA value = 335 } # Prijepolje
+		command = { type = secedeprovince which = GER value = 340 } # Sabac
+		command = { type = secedeprovince which = ITA value = 329 } # Pristina #GER
+		command = { type = secedeprovince which = ITA value = 334 } # Tetovo #GER
+		command = { type = secedeprovince which = GER value = 330 } # Nis
+		command = { type = secedeprovince which = GER value = 331 } # Pirot
+		command = { type = secedeprovince which = GER value = 339 } # Bor
+		command = { type = secedeprovince which = GER value = 327 } # Krusevac
+		command = { type = secedeprovince which = GER value = 328 } # Kumanovo
+		command = { type = secedeprovince which = GER value = 333 } # Skopje
+		command = { type = secedeprovince which = GER value = 359 } # Tirane
+		command = { type = secedeprovince which = GER value = 361 } # Shkoder
+		command = { type = secedeprovince which = GER value = 362 } # Vlore
+		command = { type = secedeprovince which = GER value = 360 } # Korce
+	}
+	action_b = {
+		name = ACTIONNAME3445000B #"Dishonour the Pact and keep the gains"
+		ai_chance = 0
+		#command = { type = leave_alliance }
+		command = { type = relation which = GER value = -100 }
+	}
+}
+event = {
+	id = 3419000
+	random = no
+	country = BUL
+	
+	persistent = yes
+
+	trigger = {
+		alliance = { country = GER country = BUL }
+		OR = {	
+			control = { province = 349 data = BUL } # Ljubljana
+			control = { province = 346 data = BUL } # Maribor
+			control = { province = 345 data = BUL } # Bjelovar
+			control = { province = 347 data = BUL } # Karlovac #ITA
+			control = { province = 352 data = BUL } # Zagreb
+			control = { province = 353 data = BUL } # Banja Luka
+			control = { province = 357 data = BUL } # Bihac
+			control = { province = 350 data = BUL } # Split
+			control = { province = 351 data = BUL } # Knin #ITA
+			control = { province = 358 data = BUL } # Travnik
+			control = { province = 355 data = BUL } # Sarajevo
+			control = { province = 354 data = BUL } # Tuzla
+			control = { province = 356 data = BUL } # Mostar #ITA
+			control = { province = 343 data = BUL } # Dubrovnik
+			control = { province = 332 data = BUL } # Cetinje
+			control = { province = 344 data = BUL } # Osijek
+			control = { province = 337 data = BUL } # Ruma
+			control = { province = 336 data = BUL } # Petrovgrad
+			control = { province = 338 data = BUL } # Belgrade
+			control = { province = 342 data = BUL } # Uzice
+			control = { province = 335 data = BUL } # Prijepolje #GER
+			control = { province = 340 data = BUL } # Sabac
+			control = { province = 329 data = BUL } # Pristina #GER
+			control = { province = 334 data = BUL } # Tetovo #GER
+			control = { province = 330 data = BUL } # Nis
+			control = { province = 331 data = BUL } # Pirot ###
+			control = { province = 339 data = BUL } # Bor
+			control = { province = 327 data = BUL } # Krusevac
+			control = { province = 328 data = BUL } # Kumanovo ###
+			control = { province = 333 data = BUL } # Skopje ###
+			control = { province = 359 data = BUL } # Tirane
+			control = { province = 361 data = BUL } # Shkoder
+			control = { province = 362 data = BUL } # Vlore
+			control = { province = 360 data = BUL } # Korce
+		}
+			NOT = { exists = YUG }
+			NOT = { event = 3436002 } # Bulgarian Claims => german corridor to Greece to speed up conquest
+#			OR =	{
+#				NOT = { exists = GRE }
+#				alliance = { country = GER country = GRE }
+#				AND =	{
+#						exists = GRE
+#						war = { country = SOV country = GER }
+#						NOT = { war = { country = GER country = GRE } }
+#						}
+#				}	
+	}
+
+	name = EVT_3419000_NAME #"Partition of Yugoslavia: Bulgaria"
+	desc = EVT_3445000_DESC #"With our Yugoslavian enemies defeated Yugoslavia shall be partitioned according to plan. Bulgaria, Hungary, and Italy will also receive a portion of the former Yugoslavia, with Germany controlling Croatia and Serbia."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3445000A #"Partition Yugoslavia"
+		ai_chance = 100
+		command = { type = secedeprovince which = GER value = 349 } # Ljubljana
+		command = { type = secedeprovince which = GER value = 346 } # Maribor
+		command = { type = secedeprovince which = GER value = 345 } # Bjelovar
+		command = { type = secedeprovince which = GER value = 347 } # Karlovac #ITA
+		command = { type = secedeprovince which = GER value = 352 } # Zagreb
+		command = { type = secedeprovince which = GER value = 353 } # Banja Luka
+		command = { type = secedeprovince which = GER value = 357 } # Bihac
+		command = { type = secedeprovince which = ITA value = 350 } # Split
+		command = { type = secedeprovince which = GER value = 351 } # Knin #ITA
+		command = { type = secedeprovince which = GER value = 358 } # Travnik
+		command = { type = secedeprovince which = GER value = 355 } # Sarajevo
+		command = { type = secedeprovince which = GER value = 354 } # Tuzla
+		command = { type = secedeprovince which = GER value = 356 } # Mostar #ITA
+		command = { type = secedeprovince which = ITA value = 343 } # Dubrovnik
+		command = { type = secedeprovince which = ITA value = 332 } # Cetinje
+		command = { type = secedeprovince which = GER value = 344 } # Osijek
+		command = { type = secedeprovince which = GER value = 337 } # Ruma
+		command = { type = secedeprovince which = GER value = 336 } # Petrovgrad
+		command = { type = secedeprovince which = GER value = 338 } # Belgrade
+		command = { type = secedeprovince which = GER value = 342 } # Uzice
+		command = { type = secedeprovince which = ITA value = 335 } # Prijepolje #GER
+		command = { type = secedeprovince which = GER value = 340 } # Sabac
+		command = { type = secedeprovince which = ITA value = 329 } # Pristina #GER
+		command = { type = secedeprovince which = ITA value = 334 } # Tetovo #GER
+		command = { type = secedeprovince which = GER value = 330 } # Nis
+		command = { type = secedeprovince which = GER value = 331 } # Pirot ###
+		command = { type = secedeprovince which = GER value = 339 } # Bor
+		command = { type = secedeprovince which = GER value = 327 } # Krusevac
+		command = { type = secedeprovince which = GER value = 328 } # Kumanovo ###
+		command = { type = secedeprovince which = GER value = 333 } # Skopje ###
+		command = { type = secedeprovince which = GER value = 359 } # Tirane
+		command = { type = secedeprovince which = GER value = 361 } # Shkoder
+		command = { type = secedeprovince which = GER value = 362 } # Vlore
+		command = { type = secedeprovince which = GER value = 360 } # Korce
+	}
+	action_b = {
+		name = ACTIONNAME3445000B #"Dishonour the Pact and keep the gains"
+		ai_chance = 0
+		#command = { type = leave_alliance }
+		command = { type = relation which = GER value = -100 }
+	}
+}
+event = { 
+	id = 3437000
+	random = no
+	country = GRE
+
+	trigger = {
+		alliance = { country = GER country = GRE }
+		OR = {
+			control = { province = 349 data = GRE } # Ljubljana
+			control = { province = 346 data = GRE } # Maribor
+			control = { province = 345 data = GRE } # Bjelovar
+			control = { province = 347 data = GRE } # Karlovac #ITA
+			control = { province = 352 data = GRE } # Zagreb
+			control = { province = 353 data = GRE } # Banja Luka
+			control = { province = 357 data = GRE } # Bihac
+			control = { province = 350 data = GRE } # Split
+			control = { province = 351 data = GRE } # Knin #ITA
+			control = { province = 358 data = GRE } # Travnik
+			control = { province = 355 data = GRE } # Sarajevo
+			control = { province = 354 data = GRE } # Tuzla
+			control = { province = 356 data = GRE } # Mostar #ITA
+			control = { province = 343 data = GRE } # Dubrovnik
+			control = { province = 332 data = GRE } # Cetinje
+			control = { province = 344 data = GRE } # Osijek
+			control = { province = 337 data = GRE } # Ruma
+			control = { province = 336 data = GRE } # Petrovgrad
+			control = { province = 338 data = GRE } # Belgrade
+			control = { province = 342 data = GRE } # Uzice
+			control = { province = 335 data = GRE } # Prijepolje #GER
+			control = { province = 340 data = GRE } # Sabac
+			control = { province = 329 data = GRE } # Pristina #GER
+			control = { province = 334 data = GRE } # Tetovo #GER
+			control = { province = 330 data = GRE } # Nis
+			control = { province = 331 data = GRE } # Pirot
+			control = { province = 339 data = GRE } # Bor
+			control = { province = 327 data = GRE } # Krusevac
+			control = { province = 328 data = GRE } # Kumanovo
+			control = { province = 333 data = GRE } # Skopje
+			control = { province = 359 data = GRE } # Tirane
+			control = { province = 361 data = GRE } # Shkoder
+			control = { province = 362 data = GRE } # Vlore
+			control = { province = 360 data = GRE } # Korce
+		}
+		NOT = { exists = YUG }
+	}
+
+	name = EVT_3437000_NAME #"Partition of Yugoslavia: Axis Greece"
+	desc = EVT_3445000_DESC #"With our Yugoslavian enemies defeated Yugoslavia shall be partitioned according to plan. Bulgaria, Hungary, and Italy will also receive a portion of the former Yugoslavia, with Germany controlling Croatia and Serbia."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3445000A #"Partition Yugoslavia"
+		ai_chance = 100
+		command = { type = secedeprovince which = GER value = 349 } # Ljubljana
+		command = { type = secedeprovince which = GER value = 346 } # Maribor
+		command = { type = secedeprovince which = GER value = 345 } # Bjelovar
+		command = { type = secedeprovince which = GER value = 347 } # Karlovac #ITA
+		command = { type = secedeprovince which = GER value = 352 } # Zagreb
+		command = { type = secedeprovince which = GER value = 353 } # Banja Luka
+		command = { type = secedeprovince which = GER value = 357 } # Bihac
+		command = { type = secedeprovince which = ITA value = 350 } # Split
+		command = { type = secedeprovince which = GER value = 351 } # Knin #ITA
+		command = { type = secedeprovince which = GER value = 358 } # Travnik
+		command = { type = secedeprovince which = GER value = 355 } # Sarajevo
+		command = { type = secedeprovince which = GER value = 354 } # Tuzla
+		command = { type = secedeprovince which = GER value = 356 } # Mostar #ITA
+		command = { type = secedeprovince which = ITA value = 343 } # Dubrovnik
+		command = { type = secedeprovince which = ITA value = 332 } # Cetinje
+		command = { type = secedeprovince which = GER value = 344 } # Osijek
+		command = { type = secedeprovince which = GER value = 337 } # Ruma
+		command = { type = secedeprovince which = GER value = 336 } # Petrovgrad
+		command = { type = secedeprovince which = GER value = 338 } # Belgrade
+		command = { type = secedeprovince which = GER value = 342 } # Uzice
+		command = { type = secedeprovince which = ITA value = 335 } # Prijepolje #GER
+		command = { type = secedeprovince which = GER value = 340 } # Sabac
+		command = { type = secedeprovince which = ITA value = 329 } # Pristina #GER
+		command = { type = secedeprovince which = ITA value = 334 } # Tetovo #GER
+		command = { type = secedeprovince which = GER value = 330 } # Nis
+		command = { type = secedeprovince which = GER value = 331 } # Pirot
+		command = { type = secedeprovince which = GER value = 339 } # Bor
+		command = { type = secedeprovince which = GER value = 327 } # Krusevac
+		command = { type = secedeprovince which = GER value = 328 } # Kumanovo
+		command = { type = secedeprovince which = GER value = 333 } # Skopje
+		command = { type = secedeprovince which = GER value = 359 } # Tirane
+		command = { type = secedeprovince which = GER value = 361 } # Shkoder
+		command = { type = secedeprovince which = GER value = 362 } # Vlore
+		command = { type = secedeprovince which = GER value = 360 } # Korce
+	}
+	action_b = {
+		name = ACTIONNAME3445000B #"Dishonour the Pact and keep the gains"
+		ai_chance = 0
+		#command = { type = leave_alliance }
+		command = { type = relation which = GER value = -100 }
+	}
+}
+
+##########################################################################################################
+# Partition of Greece events
+###########################################################################################################
+event = { 
+	id = 6396
+	random = no 
+	country = YUG
+	
+	trigger = { 
+		alliance = { country = GER country = YUG }
+		OR = {
+			control = { province = 364 data = YUG } # Kavala
+			control = { province = 363 data = YUG } # Xanthi
+			control = { province = 370 data = YUG } # Alexandroupoli
+			control = { province = 365 data = YUG } # Thessaloniki
+			control = { province = 366 data = YUG } # Kozani
+			control = { province = 367 data = YUG } # Ioannina
+			control = { province = 369 data = YUG } # Metsovo
+			control = { province = 371 data = YUG } # Kerkyra
+			control = { province = 376 data = YUG } # Agrinion
+			control = { province = 368 data = YUG } # Larissa
+			control = { province = 377 data = YUG } # Athens
+			control = { province = 375 data = YUG } # Levadhia
+			control = { province = 372 data = YUG } # Patra
+			control = { province = 373 data = YUG } # Corinth
+			control = { province = 374 data = YUG } # Chalcis
+			control = { province = 383 data = YUG } # Mytilene
+			control = { province = 381 data = YUG } # Ermoupoli
+			control = { province = 378 data = YUG } # Kalymno
+			control = { province = 379 data = YUG } # Rodos
+			control = { province = 382 data = YUG } # Irakleio
+			control = { province = 380 data = YUG } # Sitia
+		}
+		NOT = { exists = GRE }
+	}
+
+	name = EVT_6396_NAME #"The Partitioning of Greece: Yugoslavia"
+	desc = EVT_6396_DESC #"Now that victory has been secured in the West and Mediterranean, Axis plans provided that Greece would be annexed by Italy, with the area around Thesselonika going to Bulgaria." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME6396A #"Partition Greece according to plan."
+		command = { type = secedeprovince which = ITA value = 366 when = 1 } # Kozani
+		command = { type = secedeprovince which = ITA value = 367 when = 1 } # Ioannina
+		command = { type = secedeprovince which = ITA value = 369 when = 1 } # Metsovo
+		command = { type = secedeprovince which = ITA value = 371 when = 1 } # Kerkyra
+		command = { type = secedeprovince which = ITA value = 376 when = 1 } # Agrinion
+		command = { type = secedeprovince which = ITA value = 368 when = 1 } # Larissa
+		command = { type = secedeprovince which = ITA value = 377 when = 1 } # Athens
+		command = { type = secedeprovince which = ITA value = 375 when = 1 } # Levadhia
+		command = { type = secedeprovince which = ITA value = 372 when = 1 } # Patra
+		command = { type = secedeprovince which = ITA value = 373 when = 1 } # Corinth
+		command = { type = secedeprovince which = ITA value = 374 when = 1 } # Chalcis
+		command = { type = secedeprovince which = ITA value = 383 when = 1 } # Mytilene
+		command = { type = secedeprovince which = ITA value = 381 when = 1 } # Ermoupoli
+		command = { type = secedeprovince which = ITA value = 378 when = 1 } # Kalymno
+		command = { type = secedeprovince which = ITA value = 379 when = 1 } # Rodos
+		command = { type = secedeprovince which = ITA value = 382 when = 1 } # Irakleio
+		command = { type = secedeprovince which = ITA value = 380 when = 1 } # Sitia
+		command = { type = secedeprovince which = BUL value = 364 when = 1 } # Kavala
+		command = { type = secedeprovince which = BUL value = 363 when = 1 } # Xanthi
+		command = { type = secedeprovince which = BUL value = 370 when = 1 } # Alexandroupoli
+		command = { type = secedeprovince which = ITA value = 365 when = 1 } # Thessaloniki
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3445000B #"No, they shall remain part of our nation."
+		command = { }
+	}
+}
+event = { 
+	id = 6397
+	random = no 
+	country = CRO
+	
+	trigger = { 
+		alliance = { country = GER country = CRO }
+		OR = {
+			control = { province = 364 data = CRO } # Kavala
+			control = { province = 363 data = CRO } # Xanthi
+			control = { province = 370 data = CRO } # Alexandroupoli
+			control = { province = 365 data = CRO } # Thessaloniki
+			control = { province = 366 data = CRO } # Kozani
+			control = { province = 367 data = CRO } # Ioannina
+			control = { province = 369 data = CRO } # Metsovo
+			control = { province = 371 data = CRO } # Kerkyra
+			control = { province = 376 data = CRO } # Agrinion
+			control = { province = 368 data = CRO } # Larissa
+			control = { province = 377 data = CRO } # Athens
+			control = { province = 375 data = CRO } # Levadhia
+			control = { province = 372 data = CRO } # Patra
+			control = { province = 373 data = CRO } # Corinth
+			control = { province = 374 data = CRO } # Chalcis
+			control = { province = 383 data = CRO } # Mytilene
+			control = { province = 381 data = CRO } # Ermoupoli
+			control = { province = 378 data = CRO } # Kalymno
+			control = { province = 379 data = CRO } # Rodos
+			control = { province = 382 data = CRO } # Irakleio
+			control = { province = 380 data = CRO } # Sitia
+		}
+		NOT = { exists = GRE }
+	}
+
+	name = EVT_6397_NAME #"The Partitioning of Greece: Croatia"
+	desc = EVT_6396_DESC #"Now that victory has been secured in the West and Mediterranean, Axis plans provided that Greece would be annexed by Italy, with the area around Thesselonika going to Bulgaria." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME6396A #"Partition Greece according to plan."
+		command = { type = secedeprovince which = ITA value = 366 when = 1 } # Kozani
+		command = { type = secedeprovince which = ITA value = 367 when = 1 } # Ioannina
+		command = { type = secedeprovince which = ITA value = 369 when = 1 } # Metsovo
+		command = { type = secedeprovince which = ITA value = 371 when = 1 } # Kerkyra
+		command = { type = secedeprovince which = ITA value = 376 when = 1 } # Agrinion
+		command = { type = secedeprovince which = ITA value = 368 when = 1 } # Larissa
+		command = { type = secedeprovince which = ITA value = 377 when = 1 } # Athens
+		command = { type = secedeprovince which = ITA value = 375 when = 1 } # Levadhia
+		command = { type = secedeprovince which = ITA value = 372 when = 1 } # Patra
+		command = { type = secedeprovince which = ITA value = 373 when = 1 } # Corinth
+		command = { type = secedeprovince which = ITA value = 374 when = 1 } # Chalcis
+		command = { type = secedeprovince which = ITA value = 383 when = 1 } # Mytilene
+		command = { type = secedeprovince which = ITA value = 381 when = 1 } # Ermoupoli
+		command = { type = secedeprovince which = ITA value = 378 when = 1 } # Kalymno
+		command = { type = secedeprovince which = ITA value = 379 when = 1 } # Rodos
+		command = { type = secedeprovince which = ITA value = 382 when = 1 } # Irakleio
+		command = { type = secedeprovince which = ITA value = 380 when = 1 } # Sitia
+		command = { type = secedeprovince which = BUL value = 364 when = 1 } # Kavala
+		command = { type = secedeprovince which = BUL value = 363 when = 1 } # Xanthi
+		command = { type = secedeprovince which = BUL value = 370 when = 1 } # Alexandroupoli
+		command = { type = secedeprovince which = ITA value = 365 when = 1 } # Thessaloniki
+	}
+
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3445000B #"No, they shall remain part of our nation."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6398
+	random = no 
+	country = VIC
+	
+	trigger = { 
+		alliance = { country = GER country = VIC }
+		OR = {
+			control = { province = 364 data = VIC } # Kavala
+			control = { province = 363 data = VIC } # Xanthi
+			control = { province = 370 data = VIC } # Alexandroupoli
+			control = { province = 365 data = VIC } # Thessaloniki
+			control = { province = 366 data = VIC } # Kozani
+			control = { province = 367 data = VIC } # Ioannina
+			control = { province = 369 data = VIC } # Metsovo
+			control = { province = 371 data = VIC } # Kerkyra
+			control = { province = 376 data = VIC } # Agrinion
+			control = { province = 368 data = VIC } # Larissa
+			control = { province = 377 data = VIC } # Athens
+			control = { province = 375 data = VIC } # Levadhia
+			control = { province = 372 data = VIC } # Patra
+			control = { province = 373 data = VIC } # Corinth
+			control = { province = 374 data = VIC } # Chalcis
+			control = { province = 383 data = VIC } # Mytilene
+			control = { province = 381 data = VIC } # Ermoupoli
+			control = { province = 378 data = VIC } # Kalymno
+			control = { province = 379 data = VIC } # Rodos
+			control = { province = 382 data = VIC } # Irakleio
+			control = { province = 380 data = VIC } # Sitia
+		}
+		NOT = { exists = GRE }
+	}
+
+	name = EVT_6398_NAME #"The Partitioning of Greece: Vichy France"
+	desc = EVT_6396_DESC #"Now that victory has been secured in the West and Mediterranean, Axis plans provided that Greece would be annexed by Italy, with the area around Thesselonika going to Bulgaria." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME6396A #"Partition Greece according to plan."
+		command = { type = secedeprovince which = ITA value = 366 when = 1 } # Kozani
+		command = { type = secedeprovince which = ITA value = 367 when = 1 } # Ioannina
+		command = { type = secedeprovince which = ITA value = 369 when = 1 } # Metsovo
+		command = { type = secedeprovince which = ITA value = 371 when = 1 } # Kerkyra
+		command = { type = secedeprovince which = ITA value = 376 when = 1 } # Agrinion
+		command = { type = secedeprovince which = ITA value = 368 when = 1 } # Larissa
+		command = { type = secedeprovince which = ITA value = 377 when = 1 } # Athens
+		command = { type = secedeprovince which = ITA value = 375 when = 1 } # Levadhia
+		command = { type = secedeprovince which = ITA value = 372 when = 1 } # Patra
+		command = { type = secedeprovince which = ITA value = 373 when = 1 } # Corinth
+		command = { type = secedeprovince which = ITA value = 374 when = 1 } # Chalcis
+		command = { type = secedeprovince which = ITA value = 383 when = 1 } # Mytilene
+		command = { type = secedeprovince which = ITA value = 381 when = 1 } # Ermoupoli
+		command = { type = secedeprovince which = ITA value = 378 when = 1 } # Kalymno
+		command = { type = secedeprovince which = ITA value = 379 when = 1 } # Rodos
+		command = { type = secedeprovince which = ITA value = 382 when = 1 } # Irakleio
+		command = { type = secedeprovince which = ITA value = 380 when = 1 } # Sitia
+		command = { type = secedeprovince which = BUL value = 364 when = 1 } # Kavala
+		command = { type = secedeprovince which = BUL value = 363 when = 1 } # Xanthi
+		command = { type = secedeprovince which = BUL value = 370 when = 1 } # Alexandroupoli
+		command = { type = secedeprovince which = ITA value = 365 when = 1 } # Thessaloniki
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3445000B #"No, they shall remain part of our nation."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6399
+	random = no 
+	country = ITA
+	trigger = { 
+		control = { province = 364 data = ITA } # Kavala
+		control = { province = 363 data = ITA } # Xanthi
+		control = { province = 370 data = ITA } # Alexandroupoli
+		control = { province = 365 data = ITA } # Thessaloniki
+		NOT = { exists = GRE }
+		exists = BUL
+	}
+
+	name = EVT_6399_NAME #"The Partitioning of Greece: Italy"
+	desc = EVT_6396_DESC #"Now that victory has been secured in the West and Mediterranean, Axis plans provided that Greece would be annexed by Italy, with the area around Thesselonika going to Bulgaria. Germany will take control of Crete." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME6396A #"Partition Greece according to plan."
+		command = { type = secedeprovince which = BUL value = 364 } # Kavala
+		command = { type = secedeprovince which = BUL value = 363 } # Xanthi
+		command = { type = secedeprovince which = BUL value = 370 } # Alexandroupoli
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3445000B #"No, Thesselonika shall remain part of our nation."
+		command = { }
+	}
+}
+
+
+#########################################################################
+# Yugoslavian Partition. Germany events
+#########################################################################
+event = { # Hungarian claims
+	id = 3436001
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = YUG }
+		alliance = { country = GER country = HUN }
+		control = { province = 341 data = GER } # Novi Sad
+	}
+	
+	name = EVT_3436001_NAME #"Hungarian claims"
+	desc = EVT_3436001_DESC #"Hungary is asking Novi Sad territory."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"Accept the request"
+		ai_chance = 100
+		command = { type = secedeprovince which = HUN value = 341 } # Novi Sad
+	}
+	action_b = {
+		name = ACTION_NAME_REFUSE #"Refuse the request"
+		ai_chance = 0
+		command = { type = relation which = HUN value = -100 }
+	}
+}
+event = { # Bulgarian claims
+	id = 3436002
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = YUG }
+		OR =	{
+				NOT = { exists = GRE }
+				alliance = { country = GER country = GRE }
+				AND =	{
+						exists = GRE
+						war = { country = SOV country = GER }
+						NOT = { war = { country = GER country = GRE } }
+						}
+				}			
+		alliance = { country = GER country = BUL }
+		OR =	{
+				control = { province = 331 data = GER }
+				control = { province = 328 data = GER }
+				control = { province = 333 data = GER }
+				control = { province = 363 data = GER }
+				control = { province = 364 data = GER }
+				control = { province = 370 data = GER }
+				control = { province = 365 data = GER }
+				}
+	}
+	
+	name = EVT_3436002_NAME #"Bulgarian claims"
+	desc = EVT_3436002_DESC #"Bulgaria is asking Skopje territory."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 45
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"Accept the request"
+		ai_chance = 100
+		command = { type = secedeprovince which = BUL value = 331 }
+		command = { type = secedeprovince which = BUL value = 328 }
+		command = { type = secedeprovince which = BUL value = 333 }
+		command = { type = secedeprovince which = BUL value = 363 }
+		command = { type = secedeprovince which = BUL value = 364 }
+		command = { type = secedeprovince which = BUL value = 370 }
+		command = { type = addcore which = 331 where = BUL }
+		command = { type = addcore which = 328 where = BUL }
+		command = { type = addcore which = 333 where = BUL }
+		command = { type = addcore which = 363 where = BUL }
+		command = { type = addcore which = 364 where = BUL }
+		command = { type = addcore which = 370 where = BUL }
+	}
+	action_b = {
+		name = ACTION_NAME_REFUSE #"Refuse the request"
+		ai_chance = 0
+		command = { type = relation which = BUL value = -100 }
+	}
+}
+event = { # Italian claims on Albania
+	id = 3436003
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = YUG }
+		alliance = { country = GER country = ITA }
+		OR = {
+			control = { province = 359 data = GER } # Tirana
+			control = { province = 360 data = GER } # Korce
+			control = { province = 361 data = GER } # Shkoder
+			control = { province = 362 data = GER } # Vlore
+		}
+	}
+	
+	name = EVT_3436003_NAME #"Italian claims on Albania"
+	desc = EVT_3436003_DESC #"Italy is asking control over Albania"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"Accept the request"
+		ai_chance = 100
+		command = { type = secedeprovince which = ITA value = 359 } # Tirana
+		command = { type = secedeprovince which = ITA value = 360 } # Korce
+		command = { type = secedeprovince which = ITA value = 361 } # Shkoder
+		command = { type = secedeprovince which = ITA value = 362 } # Vlore
+	}
+	action_b = {
+		name = ACTION_NAME_REFUSE #"Refuse the request"
+		ai_chance = 0
+		command = { type = relation which = ITA value = -100 }
+	}
+}
+event = { # Italian claims on Yugoslavia
+	id = 3436004
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = YUG }
+		alliance = { country = GER country = ITA }
+		OR = {
+			control = { province = 349 data = GER } # Ljubljiana
+			control = { province = 350 data = GER } # Split
+			control = { province = 343 data = GER } # Dubrovnik
+			control = { province = 332 data = GER } # Cetinje
+			control = { province = 335 data = GER } # Prijepolje
+			control = { province = 329 data = GER } # Pristina
+			control = { province = 334 data = GER } # Tetovo
+		}
+	}
+	
+	name = EVT_3436003_NAME #"Italian claims on Yugoslavia"
+	desc = EVT_3436004_DESC #"Italy is asking for Ljubljiana and Split"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"Accept the request"
+		ai_chance = 100
+		command = { type = secedeprovince which = ITA value = 349 } # Ljubljiana
+		command = { type = secedeprovince which = ITA value = 350 } # Split
+		command = { type = secedeprovince which = ITA value = 343 } # Dubrovnik
+		command = { type = secedeprovince which = ITA value = 332 } # Cetinje
+		command = { type = secedeprovince which = ITA value = 335 } # Prijepolje
+		command = { type = secedeprovince which = ITA value = 329 } # Pristina
+		command = { type = secedeprovince which = ITA value = 334 } # Tetovo
+	}
+	action_b = {
+		name = ACTION_NAME_REFUSE #"Refuse the request"
+		ai_chance = 0
+		command = { type = relation which = ITA value = -100 }
+	}
+}
+#########################################################################
+# Montenegro independence
+#########################################################################
+event = {
+	id = 3445001
+	random = no
+	country = ITA
+	
+	decision = {
+				OR = { 
+						war = { country = ITA country = YUG } 
+						NOT = { exists = YUG }
+						}
+				NOT = { exists = MTN }
+				}
+				
+	decision_trigger = { 
+						NOT = { exists = YUG }
+						control = { province = 332 data = ITA } # Cetinje
+						control = { province = 335 data = ITA } # Prijepolje
+						}
+
+	trigger = {
+		control = { province = 332 data = ITA } # Cetinje
+		control = { province = 335 data = ITA } # Prijepolje
+		NOT = { exists = MTN }
+		NOT = { exists = YUG }
+	}
+
+	name = EVT_3445001_NAME
+	desc = EVT_3445001_DESC
+	style = 2
+	picture = "ita_event_montenegro"
+	decision_picture = "ita_decision_montenegro"
+
+	date = { day = 8 month = october year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3445001A
+		command = { type = removeclaim which = 335 }
+		command = { type = independence which = MTN value = 1 }
+		command = { type = alliance which = MTN }
+		command = { type = make_puppet which = MTN }
+		command = { type = manpowerpool value = 20 } #Milizia Volontaria Anti Comunista, Chetniks
+		command = { trigger = { AI = ITA } type = dissent value = -5 }
+		command = { type = trigger which = 3445002 }		
+	}
+}
+event = { 
+	id = 3445002
+	random = no 
+	country = MTN
+
+	# triggered by ITA 3445001
+
+	name = EVT_3445002_NAME #"Montenegro joins the Axis"
+	desc = EVT_3445002_DESC #"A government loyal to Italy has been installed in Montenegro." 
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3445002A #"Montenegro becomes an italian puppet"
+		command = { type = add_corps which = "Armate d'occupazione"                 value = land     where = 332 }  
+		command = { type = add_division which = "Divisione da occupazione 'Emilia'" value = garrison when  = 2   }
+		command = { trigger = { ai = yes } type = build_division which = militia    when = 1 } 
+		command = { type = manpowerpool value = 28 } # 38 (historical number) - 10 (units created above)
+	}
+}
+event = { 
+	id = 3445003
+	random = no
+	country = SER
+	
+	trigger = {
+		exists = MTN
+		exists = RSI
+                exists = SER
+	}
+	
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	date = { day = 0 month = january year = 1939 }
+        offset = 1
+        deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK #"Montenegro ceases to exist"
+		command = { type = inherit which = MTN }
+	}
+}
+#########################################################################
+# Croatia independence
+#########################################################################
+event = {
+	id = 3436005
+	random = no
+	country = GER
+
+	decision = {
+				OR = { 
+						war = { country = GER country = YUG } 
+						NOT = { exists = YUG }
+						}
+				NOT = { exists = CRO }
+				}
+				
+	decision_trigger = { 
+						NOT = { exists = YUG }
+						control = { province = 344 data = GER } # Osijek
+						control = { province = 347 data = GER } # Karlovac
+						control = { province = 337 data = GER } # Ruma
+						control = { province = 345 data = GER } # Bjelovar
+						control = { province = 352 data = GER } # Zagreb
+						control = { province = 353 data = GER } # Banja Luka
+						control = { province = 357 data = GER } # Bihac
+						control = { province = 358 data = GER } # Travnik
+						control = { province = 356 data = GER } # Mostar
+						control = { province = 355 data = GER } # Sarajevo
+						control = { province = 354 data = GER } # Tuzla
+						control = { province = 351 data = GER } # Knin						
+						}
+	trigger = {
+		NOT = { exists = YUG }
+		NOT = { exists = CRO }
+		OR =	{
+				ai = no
+				NOT = { exists = GRE }
+				alliance = { country = GER country = GRE }
+				AND =	{
+						exists = GRE
+						war = { country = SOV country = GER }
+						NOT = { war = { country = GER country = GRE } }
+						}
+				}
+		control = { province = 344 data = GER } # Osijek
+		control = { province = 347 data = GER } # Karlovac
+		control = { province = 337 data = GER } # Ruma
+		control = { province = 345 data = GER } # Bjelovar
+		control = { province = 352 data = GER } # Zagreb
+		control = { province = 353 data = GER } # Banja Luka
+		control = { province = 357 data = GER } # Bihac
+		control = { province = 358 data = GER } # Travnik
+		control = { province = 356 data = GER } # Mostar
+		control = { province = 355 data = GER } # Sarajevo
+		control = { province = 354 data = GER } # Tuzla
+		control = { province = 351 data = GER } # Knin
+	}
+
+	name = EVT_3436005_NAME
+	desc = EVT_3436005_DESC
+	style = 2
+	picture = "ger_event_croatia"
+	decision_picture = "ger_decision_croatia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 45
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3436005A
+		command = { type = addcore which = 346 } # Maribor, core added here since croatia independence is likely to happen even if yugoslavia is attacked without alliance
+		command = { type = independence which = CRO value = 1 when = 0 }
+		command = { type = alliance which = CRO }
+		command = { type = make_puppet which = CRO }
+		command = { type = secedeprovince which = CRO value = 347 } # Croatia and Bosnia, just in case...
+		command = { type = secedeprovince which = CRO value = 345 }
+		command = { type = secedeprovince which = CRO value = 352 }
+		command = { type = secedeprovince which = CRO value = 350 }
+		command = { type = secedeprovince which = CRO value = 351 }
+		command = { type = secedeprovince which = CRO value = 343 }
+		command = { type = secedeprovince which = CRO value = 344 }
+		command = { type = secedeprovince which = CRO value = 337 }
+		command = { type = secedeprovince which = CRO value = 357 }
+		command = { type = secedeprovince which = CRO value = 353 }
+		command = { type = secedeprovince which = CRO value = 358 }
+		command = { type = secedeprovince which = CRO value = 354 }
+		command = { type = secedeprovince which = CRO value = 355 }
+		command = { type = secedeprovince which = CRO value = 356 }	
+		command = { trigger = { AI = yes } type = dissent value = -5 }		
+		command = { type = trigger which = 2032 } # CRO
+	}
+}
+event = { 
+	id = 2032 # Referenced in AI files
+	random = no
+	country = CRO
+	
+	# Triggered by GER 3436005
+	
+	name = EVT_3436005_NAME
+	desc = EVT_3436005_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+#		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = headofstate which = 30001 } # Tomislav II
+ 		command = { type = headofgovernment which = 30002 } # Ante Pavelic
+ 		command = { type = foreignminister which = 30003 }
+ 		command = { type = armamentminister which = 30004 }
+ 		command = { type = ministerofsecurity which = 30005 }
+ 		command = { type = ministerofintelligence which = 30006 }
+ 		command = { type = chiefofstaff which = 30007 }
+ 		command = { type = chiefofarmy which = 30008 }
+ 		command = { type = chiefofnavy which = 30009 }
+ 		command = { type = chiefofair which = 30010 }
+		command = { type = waketeam which = 31012 } #Kriegsgeräte GmbH	
+		#army against partisan capital raid
+		command = { type = add_corps which = "Hrvatsko Domobranstvo"             value = land     where = 352 }  
+		command = { type = add_division which = "Hrvatsko Domobranstvo Divizija" value = garrison when  = 2   }
+		command = { type = add_division which = "Konjicka Pukovnija"             value = cavalry  when  = 3   }
+		command = { type = add_division which = "Ustaska Divizija"               value = d_02     when  = 2   }
+		command = { type = addclaim which = 337 } # Bosnia
+		command = { type = addclaim which = 357 }
+		command = { type = addclaim which = 353 }
+		command = { type = addclaim which = 358 }
+		command = { type = addclaim which = 354 }
+		command = { type = addclaim which = 355 }
+		command = { type = addclaim which = 356 }
+		command = { type = addclaim which = 351 }
+		command = { type = manpowerpool value = 176 } # 201 (historical number) - 25 (units created above)
+		command = { trigger = { ai = yes } type = build_division which = d_02        when = 4 }
+		command = { trigger = { ai = yes } type = build_division which = d_02        when = 4 } 
+		command = { trigger = { ai = yes } type = build_division which = bergsjaeger when = 2 } 
+# 		command = { type = trigger which = 3436006 } # GER
+	}
+}
+#event = { 
+#	id = 3436006
+#	random = no 
+#	country = GER
+#
+#	# triggered by CRO 3499000
+#		
+#	name = "Croatia joins the Axis"
+#	desc = "After supporting and installing fascist leaders the newly created Croatia became a puppet of Germany." 
+#	style = 0
+#
+#	action_a = {
+#		name = "New German puppet"
+#		command = { type = make_puppet which = CRO }
+#		command = { type = secedeprovince which = CRO value = 347 } # Croatia and Bosnia, just in case...
+#		command = { type = secedeprovince which = CRO value = 345 }
+#		command = { type = secedeprovince which = CRO value = 352 }
+#		command = { type = secedeprovince which = CRO value = 350 }
+#		command = { type = secedeprovince which = CRO value = 351 }
+#		command = { type = secedeprovince which = CRO value = 343 }
+#		command = { type = secedeprovince which = CRO value = 344 }
+#		command = { type = secedeprovince which = CRO value = 337 }
+#		command = { type = secedeprovince which = CRO value = 357 }
+#		command = { type = secedeprovince which = CRO value = 353 }
+#		command = { type = secedeprovince which = CRO value = 358 }
+#		command = { type = secedeprovince which = CRO value = 354 }
+#		command = { type = secedeprovince which = CRO value = 355 }
+#		command = { type = secedeprovince which = CRO value = 356 }
+#	}
+#}
+#########################################################################
+# Serbia independence
+#########################################################################
+
+event = {
+	id = 3436007
+	random = no
+	country = GER
+	
+	decision = {
+				OR = { 
+						war = { country = GER country = YUG } 
+						NOT = { exists = YUG }
+						}
+				NOT = { exists = SER }
+				exists = CRO # Germany will decide on Serbia after Croatia
+				event = 3436005
+				}
+				
+	decision_trigger = { 
+						NOT = { exists = YUG }
+						control = { province = 327 data = GER } # Krusevac
+						control = { province = 342 data = GER } # Uzice
+						#control = { province = 335 data = GER } # Prijepolje
+						control = { province = 340 data = GER } # Sabac
+						control = { province = 338 data = GER } # Belgrade
+						}
+
+	trigger = {
+		NOT = { exists = YUG }
+		NOT = { exists = SER }
+		exists = CRO # Germany will decide on Serbia after Croatia
+		event = 3436005
+		NOT = { event = 3436007 }
+		control = { province = 327 data = GER } # Krusevac
+		control = { province = 342 data = GER } # Uzice
+		#control = { province = 335 data = GER } # Prijepolje
+		control = { province = 340 data = GER } # Sabac
+		control = { province = 338 data = GER } # Belgrade
+	}
+
+	name = EVT_3436007_NAME
+	desc = EVT_3436007_DESC
+	style = 2
+	picture = "ger_event_serbia"
+	decision_picture = "ger_decision_serbia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3436007A
+		command = { type = independence which = SER value = 1 }
+		command = { type = alliance which = SER }
+		command = { type = make_puppet which = SER }
+		command = { trigger = { AI = yes } type = dissent value = -5 }
+		command = { type = trigger which = 3499001 } # SER
+	}
+}
+event = { 
+	id = 3499001
+	random = no
+	country = SER
+	
+	# Triggered by GER 3436007
+	
+	name = EVT_3436007_NAME
+	desc = EVT_3436007_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTION_NAME_HURRAH
+#		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = headofstate which = 547001 } # Milutin Nedic
+ 		command = { type = headofgovernment which = 547002 } # Dragisa Cvetkovic
+ 		command = { type = foreignminister which = 547003 }
+ 		command = { type = armamentminister which = 547004 }
+ 		command = { type = ministerofsecurity which = 547005 }
+ 		command = { type = ministerofintelligence which = 547006 }
+ 		command = { type = chiefofstaff which = 547007 }
+ 		command = { type = chiefofarmy which = 547008 }
+ 		command = { type = chiefofnavy which = 547009 }
+ 		command = { type = chiefofair which = 547010 }
+# 		command = { type = trigger which = 3436008 } # GER
+		command = { type = add_corps which = "Srpska drzavna straza" value = land where = 338 }  #army against partisan capital raid
+		command = { type = add_division which = "Crn Cetnici Brigada" value = garrison when = 2 }
+		command = { type = manpowerpool value = 56 } # 66 (historical number) - 10 (units created above)
+		command = { trigger = { ai = yes } type = build_division which = d_02        when = 3 }
+		command = { trigger = { ai = yes } type = build_division which = militia     when = 2 } 			
+		command = { type = removecore which = 335 } # anything but Belgrade
+		command = { type = removecore which = 340 }
+		command = { type = removecore which = 342 }
+		command = { type = removecore which = 327 }
+		command = { type = removecore which = 336 }
+		command = { type = removecore which = 339 }
+		command = { type = removecore which = 330 }
+		command = { type = removecore which = 337 }
+		command = { type = removecore which = 341 }
+		command = { type = removecore which = 329 }
+		command = { type = addclaim which = 335 } # anything but Belgrade
+		command = { type = addclaim which = 340 }
+		command = { type = addclaim which = 342 }
+		command = { type = addclaim which = 327 }
+		command = { type = addclaim which = 336 }
+		command = { type = addclaim which = 339 }
+		command = { type = addclaim which = 330 }
+		command = { type = addclaim which = 337 }
+		command = { type = addclaim which = 341 }
+		command = { type = addclaim which = 329 }
+		
+	}
+}
+#event = {
+#	id = 3436008
+#	random = no 
+#	country = GER
+#
+#	# triggered by SER 3499000
+#		
+#	name = "Serbia joins the Axis"
+#	desc = "After supporting and installing fascist leaders the newly created Serbia became a puppet of Germany." 
+#	style = 0
+#
+#	action_a = {
+#		name = "New German puppet"
+#		command = { type = make_puppet which = SER }
+#	}
+#}
+
+#########################################################################
+# Partisans in Yugoslavia
+#########################################################################
+
+event = {
+	id = 3436011
+	random = no
+	country = CRO
+	
+	persistent = yes
+
+	trigger = {
+		AI = CRO
+		#NOT = { AI = GER }
+		NOT = { exists = YUG }
+		puppet = { country = CRO country = GER }
+		event = 3436005
+		OR = {
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 25
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 30
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1949 }
+	
+	action_a = {
+		command = { type = province_revoltrisk which = 337 value = 5 } # Bosnia
+		command = { type = province_revoltrisk which = 357 value = 5 }
+		command = { type = province_revoltrisk which = 353 value = 5 }
+		command = { type = province_revoltrisk which = 358 value = 5 }
+		command = { type = province_revoltrisk which = 354 value = 5 }
+		command = { type = province_revoltrisk which = 355 value = 5 }
+		command = { type = province_revoltrisk which = 356 value = 5 }
+		command = { type = province_revoltrisk which = 351 value = 5 }
+		command = { type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+	}
+}
+
+event = {
+	id = 3436012
+	random = no
+	country = SER
+	
+	persistent = yes
+
+	trigger = {
+		AI = SER
+		#NOT = { AI = GER }
+		NOT = { exists = YUG }
+		puppet = { country = SER country = GER }
+		event = 3436007
+		OR = {
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 25
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 30
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1949 }
+	
+	action_a = {
+		command = { type = province_revoltrisk which = 335 value = 5 } # anything but Belgrade
+		command = { type = province_revoltrisk which = 340 value = 5 }
+		command = { type = province_revoltrisk which = 342 value = 5 }
+		command = { type = province_revoltrisk which = 327 value = 5 }
+		command = { type = province_revoltrisk which = 336 value = 5 }
+		command = { type = province_revoltrisk which = 339 value = 5 }
+		command = { type = province_revoltrisk which = 330 value = 5 }
+		command = { type = province_revoltrisk which = 337 value = 5 }
+		command = { type = province_revoltrisk which = 341 value = 5 }
+		command = { type = province_revoltrisk which = 329 value = 5 }
+		command = { type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+	}
+}
+
+event = {
+	id = 3436013
+	random = no
+	country = YUG
+	
+	persistent = yes
+
+	trigger = {
+		AI = YUG
+		#OR = {
+		#		NOT = { AI = GER }
+		#		NOT = { AI = ITA }
+		#		}
+		OR = {
+				puppet = { country = YUG country = GER }
+				puppet = { country = YUG country = ITA }
+				}
+		OR = {
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 25
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 30
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1949 }
+	
+	action_a = {
+		command = { type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+	}
+}
+
+event = {
+	id = 3436014
+	random = no
+	country = GRE
+	
+	persistent = yes
+
+	trigger = {
+		AI = GRE
+		#OR = {
+		#		NOT = { AI = GER }
+		#		NOT = { AI = ITA }
+		#		}
+		OR = {
+				puppet = { country = GRE country = GER }
+				puppet = { country = GRE country = ITA }
+				}
+		OR = {
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 25
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 30
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1949 }
+	
+	action_a = {
+		command = { type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1943 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = GER } year = 1945 } type = revolt which = -2 }	# creates a partisan division # [which = -2] - selects a random owned and controlled province; "when" setting is ignored
+	}
+}

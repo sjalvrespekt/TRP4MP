@@ -1,0 +1,206 @@
+# Soviet AI switches to upgrading and aircraft if only few manpower is left
+# by DerStudti
+
+upgrading = 0.40
+reinforcement = 0.25
+use_offensive_supply = yes
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.20
+
+	AA_batteries = yes
+	max_AA_level = 3
+	AA_provs = {
+		553 # Leningrad
+		572 # Moscow
+		617 # Kiev
+		632 # Dnepropetrovsk
+		663 # Stalingrad
+		636 # Kharkov
+		588 # Bryansk
+		1132 # Chelyabinsk
+		1191 # Vladivostock
+	} 
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = {
+		553 # Leningrad
+	} 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = yes
+	max_air_base = 2
+	air_base_provs = { }
+
+	naval_base = no 
+	max_naval_base = 5 
+	naval_base_provs = { } 
+
+	land_fort = no
+	max_land_level = 1
+	fort_borders = { } 
+	fort_provs	= {
+		560 # Novgorod
+		561 # Staraya Russa
+		567 # Serpukhov
+		568 # Solnechnogorsk
+		570 # Zagorsk
+		571 # Orekhovo-Zuyevo
+		617 # Kiev
+		644 # Rostov
+		636 # Kharkov
+		604 # Kursk
+		576 # Kaluga
+		626 # Odessa
+		678 # Vladimir
+		547 # Vyazma
+	}
+
+	ic_at_war = no 
+	force_ic_until = 1939
+	ic_end_year = 1939
+	IC_provs = {
+		663 # Stalingrad
+		680 # Gorki
+		572 # Moscow
+		681 # Kostroma
+		677 # Yaroslavl
+		553 # Leningrad
+		687 # Osa
+		686 # Kudymkar
+		1152 # Irkutsk
+		1148 # Tomsk
+		1140 # Barnaul
+		1142 # Novosibirsk
+		498 # Pavlodar
+		1138 # Omsk
+		1156 # Krasnoyarsk
+		1147 # Achinsk
+		1130 # Berezniki
+		1131 # Ufa
+		1113 # Gurjev
+		1128 # Serov
+		1151 # Sverdlovsk
+		1132 # Ghelyabinsk
+		1137 # Kurgan
+		1133 # Orsk
+		1115 # Petropavlovsk
+		1136 # Tyumen
+		669 # Saratov
+		668 # Syzran
+		666 # Balakov
+		664 # Naberezhnye Chelny c
+	} 
+}
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 180 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 35
+	d_02		= 5 # will transmute into garrisons as long as no territory has been lost
+	militia 	= 0	
+	cavalry 	= 0
+	motorized 	= 0
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 10
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 2
+	garrison	= 0
+    	hq 		= 4
+
+#				56 %
+	interceptor 	= 10
+	multi_role 	= 0
+	cas 		= 10
+	strategic_bomber= 0
+	tactical_bomber = 10
+	naval_bomber 	= 0
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				30 %
+	battleship 	= 0
+	carrier 	= 0
+	escort_carrier	= 0
+	destroyer 	= 3
+	light_cruiser 	= 3
+	heavy_cruiser 	= 1
+	battlecruiser 	= 0
+	submarine 	= 4
+	nuclear_submarine = 1
+	d_09 = 0
+	d_08 = 0
+	transports 	= 2
+#				14 %
+
+###################################################################################################################################
+# Brigade building scheme for high tech & high IC countries
+# note: numbers don't have to add up to 100%; building probability is path-dependent, i.e. the engine checks this list top-down
+# probabilities and complementary probabilities multiply along this path; brigades not buildable are left aside
+#
+# desired brigade coverage: 100%
+###################################################################################################################################
+artillery				=	44 # 44% eff. (n.ar.)
+sp_artillery			=	31 # 31% eff. (mot.) & 31% eff. (ar.)
+rocket_artillery		=	0 # western countries mustn't build rocket artillery at all; too late in game for AI
+sp_rct_artillery		=	0 # western countries mustn't build rocket artillery at all; too late in game for AI
+anti_tank				=	27 # 15% eff. (n.ar.)
+tank_destroyer			=	29 # 20% eff. (mot.) & 20% eff. (ar.)
+light_armor_brigade		=	7 # 3% eff. (n.ar.) & 1.5% eff. (mot.)
+heavy_armor				=	51 # 25% eff. (ar.)
+super_heavy_armor		=	41 # 10% eff. (ar.)
+armored_car				=	8 # 3% eff. (n.ar.) & 4% eff. (mot.)
+anti_air				=	57 # 20% eff. (n.ar.)
+police					=	20 # 3% eff. (n.ar.) & 8% eff. (mot.)
+engineer				=	100 # all the rest
+sp_anti_air				=	0 # there are better brigades for AI built spearhead units
+						# n.ar.: 88% + engineer => 100%
+						# mot.: 64.5% + engineer => 100%
+						# ar.: 86% + engineer => 100%
+
+#	#### Brigades
+#	artillery 		= 26
+#	sp_artillery 		= 5
+#	rocket_artillery	= 4 
+#	sp_rct_artillery 	= 4
+#	anti_tank 		= 15
+#	tank_destroyer 		= 10
+#	light_armor_brigade = 15
+#	heavy_armor 		= 8
+#	super_heavy_armor 	= 0
+#	armored_car 		= 0
+#	anti_air 		= 6
+#	sp_anti_air		= 2
+#	police 			= 0
+#	engineer 		= 5 
+
+	cag = 100.000 
+	 light_cag = 100.000 
+	 escort = 100.000 
+	
+
+    naval_asw			= 2
+    naval_anti_air_s	= 12
+    naval_radar_s		= 9
+    naval_fire_controll_s = 9
+    naval_improved_hull_s = 9
+    naval_torpedoes_s	= 12
+    naval_anti_air_l	= 9
+    naval_radar_l		= 9
+    naval_fire_controll_l = 9
+    naval_improved_hull_l = 9
+    naval_torpedoes_l	= 11
+}

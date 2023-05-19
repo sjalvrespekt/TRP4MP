@@ -1,0 +1,887 @@
+# converted to DH, Kane, July 22 2011
+# Last Update 05-June-2007
+#########################
+
+###############################################################################################
+# 3128000 - 3128999	Denmark political events
+###############################################################################################
+
+##################################################
+# Denmark invasion (was 1002002, 8300000) modified by Luxor
+##################################################
+event = { 
+	id = 3128000
+	random = no
+	country = DEN
+	
+	trigger = {
+				OR = {
+						AND = {
+								event = 29
+								war = { country = ENG country = GER }
+								NOT = {	
+										alliance = { country = DEN country = GER }
+										alliance = { country = DEN country = ENG }
+										alliance = { country = DEN country = SOV }
+										}
+								}
+						AND = {
+								war = { country = GER country = DEN }
+								lost_national = { country = DEN value = 1 }
+								}
+						}
+				}
+
+	name = EVT_3128000_NAME # Denmark invasion
+	desc = EVT_3128000_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1940 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128000A # Accept German control
+		ai_chance = 100
+		
+		command = { type = demobilize which = land when = 0 where = 0 value = 0 } # disbands all land units and returns MP to the pool
+		command = { type = demobilize which = air  when = 1 where = 0 value = 0 } # disbands all air units but 5 and returns MP to the pool
+		#command = { type = demobilize which = naval when = 1 where = 0 value = 30 } # disbands all naval units but 30 and returns MP to the pool
+		
+		command = { type = relation which = GER value = -25 }
+		command = { type = secedeprovince which = GER value = 220 } # Aarhus
+		command = { type = secedeprovince which = GER value = 216 } # Kolding
+		command = { type = secedeprovince which = GER value = 217 } #Aalborg
+		command = { type = secedeprovince which = GER value = 218 } # Frederikshavn
+		command = { type = removecore which = 220 }
+		command = { type = removecore which = 216 }
+		command = { type = removecore which = 217 }
+		command = { type = removecore which = 218 }
+		command = { type = access which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }		
+		command = { type = add_corps which = "" value = land where = 294 } #Copenhagen
+		command = { type = add_division which = "" value = garrison when = 1 where = anti_air }
+
+		command = { type = trigger which = 3136039 } # GER Denmark invasion
+	}
+	action_b = {
+		name = ACTIONNAME3128000B # Join the Allies and fight for independence
+		ai_chance = 0
+		command = { type = alliance which = ENG }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+event = {
+	id = 3128015
+	random = no
+	country = DEN
+	
+	trigger = { event = 3136039 }
+	# triggered by GER 3136039 - German Invasion of Denmark
+	
+	name = EVT_3128015_NAME # A Prisoner King
+	desc = EVT_3128015_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3128015A # ok
+		command = { type = headofstate which = 16001 }
+		command = { type = headofgovernment which = 16002 } # Stauning
+		command = { type = ministerofsecurity which = 16078 } #Petersen
+	}
+}
+
+###############################################
+# Danish Neutrality Agreement (was 1002028,8300009 by Ghost_dk)
+###############################################
+event = {
+	id = 3128009
+	random = no
+	country = DEN
+	
+	trigger = {
+		event = 3136039
+		puppet = { country = DEN country = GER }
+	}
+
+	name = EVT_3128009_NAME # Government stays
+	desc = EVT_3128009_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3128009A # Ok
+		command = { type = relation which = GER value = -125 }
+		command = { type = domestic which = democratic value = 5 }
+		command = { type = domestic which = political_left value = 3 }
+		command = { type = domestic which = free_market value = 5 }
+		command = { type = domestic which = freedom value = 5 }
+		command = { type = domestic which = professional_army value = -8 }
+		command = { type = domestic which = defense_lobby value = -8 }
+		command = { type = domestic which = interventionism value = -8 }
+		command = { type = headofstate            which = 16001 } # Christian X
+		command = { type = headofgovernment       which = 16002 } # Thorvald Stauning
+		command = { type = foreignminister        which = 16054 } # Axel Christian Hartel
+		command = { type = armamentminister       which = 16004 } # Alsing Andersen
+		command = { type = ministerofsecurity     which = 16005 } # Karl Kristian Steincke
+		command = { type = ministerofintelligence which = 16006 } # Erik Mertz
+		command = { type = chiefofstaff           which = 16007 } # Wilhelm W. Prior
+		command = { type = chiefofarmy            which = 16008 } # Erik With
+		command = { type = chiefofnavy            which = 16009 } # Hjalmar Rechnitzer
+		command = { type = chiefofair             which = 16010 } # K.W. Essemann
+
+	}
+}
+
+###########################################################################
+# Scavenius as new Foreign Minister (by Luxor)
+###########################################################################
+event = {
+	id = 3128001
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3136039 # Denmark invasion
+		event = 3136033 # Fall of France
+		event = 313624000 # GER occupation policy
+		NOT = { war = { country = DEN country = GER } }
+	}
+	
+	name = EVT_3128001_NAME # New Foreign Minister
+	desc = EVT_3128001_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3128001A # Appoint Scavenius
+		command = { type = headofgovernment which = 16002 } # Stauning
+		command = { type = foreignminister which = 16048 } # Scavenius
+	}
+}
+###########################################################################
+# Denmark public declaration (by Luxor)
+###########################################################################
+event = {
+	id = 3128002
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3128001
+		NOT = { war = { country = DEN country = GER } }
+	}
+	
+	name = EVT_3128002_NAME # Denmark public declaration
+	desc = EVT_3128002_DESC
+	style = 0
+
+	date = { day = 0 month = october year = 1940 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128002A # Ok
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 5 }
+		command = { type = money value = 1 }
+	}
+}
+###########################################################################
+# Moeller resigns (by Luxor)
+###########################################################################
+event = {
+	id = 3128003
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3128001
+		NOT = { war = { country = DEN country = GER } }
+	}
+	
+	name = EVT_3128003_NAME # Moeller resigns
+	desc = EVT_3128003_DESC
+	style = 0
+	
+	date = { day = 0 month = october year = 1940 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128003A # Ok
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 2 }
+	}
+}
+###########################################################################
+# Hederslev disorders (by Luxor)
+###########################################################################
+event = {
+	id = 3128004
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3136039 # German invasion
+		NOT = { war = { country = DEN country = GER } }
+	}
+	
+	name = EVT_3128004_NAME # Hederslev disorders
+	desc = EVT_3128004_DESC
+	style = 0
+	
+	date = { day = 8 month = december year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128004A # Arrest the Nazis
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = -1 }
+                command = { type = relation which = GER value = -25 }
+	}
+	action_b = {
+		name = ACTIONNAME3128004B  # Release them
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 1 }
+	}
+}
+###############################################
+# We need Denmark torpedoboats (was 1002023, 8300004 by Ghost_dk)
+###############################################
+event = {
+	id = 3128005
+	random = no
+	country = DEN
+
+	# triggered by GER 3136042
+
+	name = EVT_3128005_NAME # Rechnitzer resigns
+	desc = EVT_3128005_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3128005A # Rechnitzer resigns
+		command = { type = chiefofnavy which = 16119 } # Aage H. Vedel
+	}
+}
+###############################################
+# Hold or Fold (was 1002024, 8300005 by Ghost_dk)
+###############################################
+event = {
+	id = 3128006
+	random = no
+	country = DEN 
+
+	trigger = {
+		event = 3136042 # GER
+		event = 3128005 # DEN
+	}
+
+	name = EVT_3128006_NAME # Hold or Fold
+	desc = EVT_3128006_DESC
+	style = 0
+
+	date = { day = 4 month = february year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3128006A # We will 'loan' Germany the ships
+		command = { type = trigger which = 3136043 }
+		command = { type = dissent value = 2 }
+		command = { type = sleepevent which = 3136044 }
+	}
+	action_b = {
+		name = ACTIONNAME3128006B # No, we will not. We have an agreement!
+		command = { type = trigger which = 3136044 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = -2 } 
+		command = { type = sleepevent which = 3136043 }
+	}
+}
+
+###############################################
+# Petersen removal (by Luxor)
+###############################################
+event = {
+	id = 3128008
+	random = no
+	country = DEN 
+
+	trigger = { 
+		event = 3136039
+		NOT = { war = { country = DEN country = GER } }
+	}
+
+	name = EVT_3128008_NAME # Petersen removal
+	desc = EVT_3128008_DESC
+	style = 0
+
+	date = { day = 21 month = june year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3128008A # Appoint Jacobsen
+		command = { type = ministerofsecurity which = 16076 } #Jacobsen
+ 		command = { type = sleepminister which = 16078 } # Petersen
+ 		command = { type = sleepminister which = 16097 } # Eigil Larsen
+ 		command = { type = sleepminister which = 16034 } # Christian X
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME3128008B # No, leave Petersen in charge
+ 		command = { type = ministerofsecurity which = 16097 } # Eigil Larsen
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+
+###########################################################################
+# Anti-Comintern Pact (by Luxor)
+###########################################################################
+event = {
+	id = 3128010
+	random = no
+	country = DEN
+	
+	# Triggered by GER 3136047
+	
+	name = EVT_3128010_NAME # Anti-Comintern Pact
+	desc = EVT_3128010_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3128010A # Sign the Pact 
+		command = { type = headofstate which = 16001 } # Christian X
+		command = { type = money value = 5 }
+		command = { type = dissent value = -3 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3136048 }  			# German effects
+	}
+	action_b = {
+		name = ACTIONNAME3128010B # No, we dare not provoke the USSR
+		command = { type = money value = -1 } 
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+###########################################################################
+# Stauning death (by Luxor)
+###########################################################################
+event = {
+	id = 3128011
+	random = no
+	country = DEN
+	
+	trigger = {
+		OR = {
+			minister = 16002
+			minister = 16072
+		}
+	}
+	
+	name = EVT_3128011_NAME # Stauning's death
+	desc = EVT_3128011_DESC
+	style = 0
+
+	date = { day = 2 month = may year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3128011A # Appoint Buhl
+		command = { type = headofgovernment which = 16039 } # Buhl
+		command = { type = headofstate which = 16001 } # Christian X
+		command = { type = sleepminister which = 16002 } # Stauning
+		command = { type = sleepminister which = 16072 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+###########################################################################
+# Danish disorders (by Luxor)
+###########################################################################
+event = {
+	id = 3128012
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3136039 # German invasion
+		event = 3128011 # Stauning is dead
+	}
+	
+	name = EVT_3128012_NAME # Autumn disorders
+	desc = EVT_3128012_DESC
+	style = 0
+
+	date = { day = 0 month = september year = 1942 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128012A # People is not happy
+		command = { type = headofstate which = 16001 } # Christian X
+		command = { type = dissent value = 5 }
+        command = { type = relation which = GER value = -25 }
+	}
+}
+###########################################################################
+# Scavenius new Prime Minister (by Luxor)
+###########################################################################
+event = {
+	id = 3128013
+	random = no
+	country = DEN
+	
+	trigger = { 
+		event = 3128011 # Stauning is dead
+		event = 3128012 # Autumn 1942 disorders
+	}
+	
+	name = EVT_3128013_NAME # Scavenius new Prime Minister
+	desc = EVT_3128013_DESC
+	style = 0
+
+	date = { day = 0 month = october year = 1942 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME3128013A # We have no choice
+		command = { type = headofgovernment which = 16040 }
+		command = { type = headofstate which = 16001 } # Christian X
+		command = { type = dissent value = 2 }
+	}
+}
+###########################################################################
+# End of Denmark (by Luxor)
+###########################################################################
+event = {
+	id = 3128014
+	random = no
+	country = DEN
+	
+	trigger = { event = 3128013 } # Scavenius new Prime Minister
+	
+	name = EVT_3128014_NAME # End of Denmark
+	desc = EVT_3128014_DESC
+	style = 0
+
+	date = { day = 28 month = august year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME3128014A # End of independence
+		command = { type = leave_alliance }
+		command = { type = trigger which = 3136049 }
+	}
+}
+
+
+###############################################
+# Germany invades Denmark
+###############################################
+event = {
+	id = 3128007
+	random = no
+	country = DEN
+	
+	one_action = yes
+
+	# triggered by GER 3136049
+	
+	name = EVT_3128007_NAME # Operation Safari - German army tried to capture our navy!
+	Desc = EVT_3128007_DESC
+	style = 2
+	picture = "ger_event_operation_safari_defeat"
+
+	action_a = { #historical development
+	  ai_chance = 80
+		name = ACTIONNAME3128007A # historical situation	
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent  value = 15 }
+		command = { type = trigger    which = 3136045 }
+		command = { type = sleepevent which = 3136046 }
+		command = { type = sleepevent which = 312624001 }
+        command = { type = relation which = GER value = -25 }
+	}
+	
+	action_b = {
+	  ai_chance = 5 
+		name = ACTIONNAME3128007A # The germans were successful!	
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 15 }
+		command = { type = trigger which = 312624001  }
+		command = { type = sleepevent which = 3136046 }
+		command = { type = sleepevent which = 3136045 }
+        command = { type = relation which = GER value = -25 }
+	}
+	
+	action_c = {
+	  ai_chance = 15
+		name = ACTIONNAME3128007B # Our armed forces were destroyed!
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 15 }
+		command = { type = trigger which = 3136046 }
+		command = { type = sleepevent which = 3136045 }
+		command = { type = sleepevent which = 312624001 }
+        command = { type = relation which = GER value = -25 }	
+		command = { type = demobilize which = land  when = 0 where = 0 value = 0 } # disbands all land units and returns MP to the pool
+		command = { type = demobilize which = air   when = 1 where = 0 value = 0 } # disbands all air units but 5 and returns MP to the pool
+		command = { type = demobilize which = naval when = 1 where = 0 value = 0 } # disbands all naval units but 30 and returns MP to the pool
+	}
+}
+
+
+###########################################################################
+#  	8300000 - 8399999
+###########################################################################
+
+###############################
+# Was 1002003 British seize Iceland
+###############################
+event = { 
+	id = 8300001
+	random = no
+	country = DEN
+	
+	# Triggered by ENG 3131045
+
+	name = EVT_8300001_NAME # British Marines seize Iceland
+	desc = EVT_8300001_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8300001A # Protest against this outrage
+		command = { type = secedeprovince which = ENG value = 1 } # Reykjavik
+		command = { type = secedeprovince which = ENG value = 3 } # Hofn
+		command = { type = secedeprovince which = ENG value = 2 } # Torshavn
+		command = { type = secedeprovince which = ENG value = 1783 } # Greenland
+	}
+}
+
+###############################################
+# Was 1002026 - (DEN) Germany takes control of AA-guns (by Ghost_dk)
+###############################################
+event = {
+	id = 8300007
+	random = no
+	country = DEN 
+
+	#triggered by GER 172109
+
+	name = EVT_8300007_NAME # Germany takes control of Danish AA guns.
+	desc = EVT_8300007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8300007A # Take them
+		command = { type = supplies value = -5 }
+	}
+}
+
+
+###############################################
+# Was 1002029 - (DEN) The King rides through Copenhagen (by Ghost_dk)
+###############################################
+event = {
+	id = 8300010
+	random = no
+	country = DEN
+
+	trigger = {
+		random = 20
+		event = 3136039
+		puppet = { country = DEN country = GER }
+	}
+
+	name = EVT_8300010_NAME # The king rides through Copenhagen
+	desc = EVT_8300010_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8300010A # The King rides
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+
+########################################
+# Was 1002090 (DEN)Foreign labour camp established (by Ghost_dk)
+########################################
+event = {
+	id = 8300012
+	random = no
+	country = DEN
+
+	trigger = { 
+		random = 20
+		atwar = no
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			puppet = { country = DEN country = GER }
+			alliance = { country = DEN country = GER }
+		}
+	}
+
+	name = EVT_8300012_NAME # Foreign labour camp
+	desc = EVT_8300012_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8300012A # Establish labour camp
+		command = { type = trigger which = 1002089 }
+		command = { type = money value = 2 }
+	}
+	action_b = {
+		name = ACTIONNAME8300012B # Don't establish camp
+		command = { type = sleepevent which = 8300013 }
+		command = { type = sleepevent which = 1002089 }
+		command = { type = sleepevent which = 1002092 }
+		command = { type = money value = -2 }
+	}
+}
+##################################
+# Was 1002091 (DEN)workers sign up for Finland (by Ghost_dk)
+##################################
+event = {
+	id = 8300013
+	random = no
+	country = DEN
+
+	trigger = { 
+		random = 20
+		atwar = no
+		event = 8300012
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			alliance = { country = DEN country = GER }
+			puppet = { country = DEN country = GER }
+		}
+	}
+
+	name = EVT_8300013_NAME # Ship Workers
+	desc = EVT_8300013_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8300013A # Send them
+		command = { type = manpowerpool value = -10 }
+		command = { type = trigger which = 1002092 }
+	}
+}
+###################################
+# Was 1002108 (DEN)Scandinavian policy on military aid to Finland (by Ghost_dk)
+###################################
+event = { 
+	id = 8300014
+	random = no
+	country = DEN
+
+	# triggered by DEN 1002115
+
+	name = EVT_8300014_NAME # Finland military aid Policy
+	desc = EVT_8300014_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8300014A # Form common policy
+		command = { type = money value = -1 }
+	}
+}
+###################################
+# Was 1002113 (DEN)Scandinavian policy on military aid to Finland (by Ghost_dk)
+###################################
+event = { 
+	id = 8300015
+	random = no
+	country = DEN
+
+	# triggered by DEN 1002115
+
+	name = EVT_8300015_NAME # "Finland military aid policy"
+	desc = EVT_8300015_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8300015A # "Form common policy"
+		command = { type = money value = -1 }
+	}
+}
+###################################
+# Was 1002115 (DEN)Scandinavian policy on military aid to Finland (by Ghost_dk)
+###################################
+event = { 
+	id = 8300016
+	random = no
+	country = DEN
+
+	trigger = {
+		event = 3183024
+		event = 3131081
+		event = 3131095
+		war = { country = SOV country = FIN }
+		NOT = { 
+			event = 2628
+			war = { country = SOV country = DEN }
+			war = { country = SOV country = NOR }
+			war = { country = SOV country = SWE }
+			alliance = { country = SOV country = DEN }
+			alliance = { country = SOV country = NOR }
+			alliance = { country = SOV country = SWE }
+		}
+	}
+
+	name = EVT_8300016_NAME # "Finland military aid policy"
+	desc = EVT_8300016_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = { 
+		name = ACTIONNAME8300016A # "Form common policy"
+		command = { type = money value = -1 }
+		command = { type = trigger which = 8300015 }
+		command = { type = trigger which = 8300014 }
+		command = { type = trigger which = 1002100 }
+	}
+}
+############################################
+# Was 1002120 1943 Medicine
+############################################
+event = {
+	id = 8300017
+	random = no
+	country = DEN
+
+	trigger = {
+		exists = SWE 
+		exists = DEN
+		NOT = {
+			war = { country = SWE country = DEN }
+			ispuppet = DEN
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_8300017_NAME # 1943 Nobel Prize in Medicine
+	desc = EVT_8300017_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1943 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME8300017A # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 1002121 1944 Literature
+############################################
+event = {
+	id = 8300018
+	random = no
+	country = DEN
+
+	trigger = {
+		exists = SWE 
+		exists = DEN
+		NOT = {
+			war = { country = SWE country = DEN }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_8300018_NAME # 1944 Nobel Prize in Literature
+	desc = EVT_8300018_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME8300018A # "A proud moment for our nation"
+		command = { type = dissent value = -1 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 8300019
+	random = no
+	country = DEN
+
+	# triggered by 3182091
+
+	name = EVT_8300019_NAME # The Potsdam Conference
+	desc = EVT_8300019_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8300019A # Ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = {
+	id = 8300020
+	random = no
+	country = DEN
+
+	# triggered by 3182093
+
+
+	name = EVT_8300020_NAME # Form NATO
+	desc = EVT_8300020_DESC
+	style = 0
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME8300020A # Ok
+		command = { type = alliance which = ENG }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME8300020B # We do not care
+		command = { }
+	}
+}

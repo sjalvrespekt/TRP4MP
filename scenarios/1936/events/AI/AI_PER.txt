@@ -1,0 +1,183 @@
+# checked DH
+####################################
+# PERivia AI events 36800 - 36899 by Lothos
+####################################
+################
+# Minister of Security Section 36800 - 36809
+#############################################
+event = { # Mohammed Ali Foroughi takes power
+	id = 36800
+	random = no 
+	country = PER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 53015 # Mohammed Ali Foroughi
+		NOT = { InCabinet = 53015 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 53015 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Soleiman Mirza takes power
+	id = 36801
+	random = no 
+	country = PER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 53070 # Soleiman Mirza
+		NOT = { InCabinet = 53070 }
+		NOT = { minister = 53015 } # Mohammed Ali Foroughi
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 53070 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 36810 - 36819
+#############################################
+################
+# Head of Intelligence Section 36820 - 36829
+#############################################
+event = { # Dinshah Irani takes power
+	id = 36820
+	random = no 
+	country = PER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 53081 # Dinshah Irani
+		NOT = { InCabinet = 53081 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 53081 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 36830 - 36839
+#############################################
+################
+# Armament Minister Section 36840 - 36849
+#############################################
+event = { # Reza Mizani takes power
+	id = 36840
+	random = no 
+	country = PER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 53056 # Reza Mizani
+		NOT = { InCabinet = 53056 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 53056 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 36850 - 36859
+#############################################
+event = { # Sadegh Khan Koopal takes power
+	id = 36850
+	random = no 
+	country = PER
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 53106 # Sadegh Khan Koopal
+		NOT = { InCabinet = 53106 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 53106 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Navy Minister Section 36860 - 36869
+#############################################
+
+
+
+
+#############################################
+# Regular AI Events 36870 - 36899
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 36870
+	random = no 
+	country = PER
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = TUR
+			atwar = AFG
+			lost_national = { country = SOV value = 40 }
+			lost_national = { country = IRQ value = 2 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}

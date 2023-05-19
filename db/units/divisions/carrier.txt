@@ -1,0 +1,264 @@
+allowed_brigades = cag
+allowed_brigades = naval_radar_l
+allowed_brigades = naval_anti_air_l
+max_allowed_brigades = 3
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+# 0 - CV 1930 (HMS Courageous, Akagi, USS Lexington; 28000 to)
+model = {
+	cost						= 3
+	buildtime 					= 1325
+	defaultorganisation 		= 22
+	morale						= 32
+	manpower					= 1.8
+	maxspeed					= 29
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	visibility					= 14
+	seadefence					= 8
+	airdefence					= 3
+	seaattack					= 2
+	subattack					= 0.01
+	airattack					= 2 #1
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 3200 # 2000
+	supplyconsumption			= 2.208
+	fuelconsumption				= 2.8
+	distance					= 0.14
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1800 carrier = 1 }
+}
+# 1 - CV 1937 (HMS Ark Royal, HMS Illustrious, Graf Zeppelin, Aquila, Hiryu, USS Yorktown; 26750 to)
+model = {
+	cost						= 2.85
+	buildtime 					= 1325
+	defaultorganisation 		= 28
+	morale						= 38
+	manpower					= 1.8
+	maxspeed					= 31
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	visibility					= 13.375
+	seadefence					= 7
+	airdefence					= 6
+	seaattack					= 2
+	subattack					= 0.01
+	airattack					= 3 #1
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 4000 # 2500
+	supplyconsumption			= 2.098
+	fuelconsumption				= 2.675
+	distance					= 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 1800 carrier = 1 }
+}
+# 2 - CV 1939 (HMS Implacable, Shokaku, USS Essex; 35000 to)
+model = {
+	cost						= 3.73
+	buildtime 					= 1325
+	defaultorganisation 		= 34
+	morale						= 44
+	manpower					= 2.2
+	maxspeed					= 33
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	visibility					= 17.5
+	seadefence					= 8
+	airdefence					= 9
+	seaattack					= 2
+	subattack					= 0.01
+	airattack					= 4 #1
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 4800
+	supplyconsumption			= 2.746
+	fuelconsumption				= 3.5
+	distance					= 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 2200 carrier = 1 }
+}
+# 3 - CV 1941 (HMS Audacious, Taiho, Unryu, USS Ticonderoga; 37500 to)
+model = {
+	cost						= 4
+	buildtime 					= 1325
+	defaultorganisation 		= 40
+	morale						= 50
+	manpower					= 2.5
+	maxspeed					= 33
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	visibility					= 18.75
+	seadefence					= 8
+	airdefence					= 11
+	seaattack					= 3
+	subattack					= 0.01
+	airattack					= 5
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 5200
+	supplyconsumption			= 2.944
+	fuelconsumption				= 3.75
+	distance					= 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 2500 carrier = 1 }
+}
+# 4 - CV 1943 (HMS Malta, USS Midway, 45000 to)
+model = {
+	cost						= 4.8
+	buildtime 					= 1325
+	defaultorganisation 		= 46
+	morale						= 56
+	manpower					= 4
+	maxspeed					= 33
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	visibility					= 22.5
+	seadefence					= 10
+	airdefence					= 13
+	seaattack					= 3
+	subattack					= 0.01
+	airattack					= 5
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 5600
+	supplyconsumption			= 3.533
+	fuelconsumption				= 4.5
+	distance					= 0.17
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 4000 carrier = 1 }
+}
+# 5 - 1943 japanese heavy carrier Shinano (73000 to)
+model = {
+	cost						= 7.42
+	buildtime 					= 1390
+	defaultorganisation 		= 46
+	morale						= 56
+	manpower					= 2.75
+	maxspeed					= 27
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 5
+	subdetectioncapability		= 1
+	visibility					= 36.5
+	seadefence					= 12
+	airdefence					= 20
+	seaattack					= 3
+	subattack					= 0.01
+	airattack					= 7
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 5600
+	supplyconsumption			= 5.730
+	fuelconsumption				= 7.3
+	distance					= 0.2
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 2750 carrier = 1 }
+}
+# 6 - CV 1948 (HMS Eagle; 60000 to)
+model = {
+	cost						= 6.4
+	buildtime 					= 1325
+	defaultorganisation 		= 52
+	morale						= 62
+	manpower					= 2.9
+	maxspeed					= 33 #26
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 3
+	subdetectioncapability		= 1
+	visibility					= 30
+	seadefence					= 12
+	airdefence					= 25
+	seaattack					= 3
+	subattack					= 0.01
+	airattack					= 8 #2
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 6400 # 4000
+	supplyconsumption			= 4.711
+	fuelconsumption				= 6 #8
+	distance					= 0.18
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 2900 carrier = 1 }
+}
+# 7 - CV 1951 (USS Forrestal, USS Kitty Hawk; 80000 to)
+model = {
+	cost						= 8.53
+	buildtime 					= 1325
+	defaultorganisation 		= 58
+	morale						= 68
+	manpower					= 5.5
+	maxspeed					= 33
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 3
+	subdetectioncapability		= 1
+	visibility					= 40
+	seadefence					= 14
+	airdefence					= 30
+	seaattack					= 3
+	subattack					= 0.01
+	airattack					= 8
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 8000
+	supplyconsumption			= 6.279
+	fuelconsumption				= 8
+	distance					= 0.18
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 5500 carrier = 1 }
+}
+# 8 - Nuclear 1958 (95000 to)
+model = {
+	cost						= 9.65
+	buildtime 					= 1390
+	defaultorganisation 		= 58
+	morale						= 68
+	manpower					= 5.8
+	maxspeed					= 33
+	surfacedetectioncapability	= 1
+	airdetectioncapability		= 5
+	subdetectioncapability		= 1
+	visibility					= 47.5
+	seadefence					= 15
+	airdefence					= 30
+	seaattack					= 4
+	subattack					= 0.01
+	airattack					= 8
+	convoyattack				= 0
+	shorebombardment			= 0
+	transportcapability			= 0
+	range						= 12800 # 8000
+	supplyconsumption			= 6.178
+	fuelconsumption				= 0
+	distance					= 0.2
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 5800 carrier = 1 }
+}
+

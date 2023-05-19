@@ -1,0 +1,96 @@
+# converted to DH, Kane, July 23 2011
+#########################################################################
+# 3149000 - 3149999	Lithuania political events
+#########################################################################
+
+#########################################################################
+#  Germany claims Memel (was 2400)
+#########################################################################
+event = { 
+	id = 3149000
+	random = no
+	country = LIT
+	
+	# Triggered by GER 3136018
+	
+	name = EVT_3149000_NAME
+	desc = EVT_3149000_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3149000A
+		ai_chance = 100
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = SOV value = -5 }
+		command = { type = relation which = POL value = -10 }
+		command = { type = secedeprovince which = GER value = 261 } # Klaipeda
+		command = { type = trigger which = 3136019 }
+	}
+	action_b = {
+		name = ACTIONNAME3149000B
+		ai_chance = 0
+		command = { type = relation which = GER value = -15 }
+		command = { type = relation which = SOV value = 5 }
+		command = { type = relation which = POL value = 10 }
+		command = { type = trigger which = 3136020 }
+	}
+}
+#########################################################################
+# Lithuania into USSR sphere after Molotov-Ribbentrop
+#########################################################################
+event = {
+	id = 3149001
+	random = no
+	country = LIT
+	
+	# triggered by SOV 3183007
+	
+	name = EVT_3149001_NAME
+	desc = EVT_3149001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3149001A
+		command = { type = leave_alliance }
+		command = { type = access which = SOV }
+		command = { type = capital which = 258 } # Vilnius
+		command = { type = dissent value = -5 }
+		command = { type = construct which = land_fort where = 259 value = 1 }
+		command = { type = construct which = land_fort where = 263 value = 1 }
+		command = { type = supplies value = -200 }
+	}
+}
+#########################################################################
+# Lithuania leaves comintern before joining USSR
+#########################################################################
+event = {
+	id = 3149002
+	random = no
+	country = LIT
+	
+	# triggered by SOV 3183017
+	
+	name = EVT_3149002_NAME
+	desc = EVT_3149002_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3149002A
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+                command = { type = switch_allegiance which = -1 where = SOV }
+		command = { type = leave_alliance }
+		command = { type = trigger which = 3183018 }
+	}
+}

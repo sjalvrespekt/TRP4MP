@@ -1,0 +1,1749 @@
+####################################################################################
+# Barbarossa events with Ribbentrop-Schulenburg Plan
+####################################################################################
+
+########################################################################################
+# Victory in the East with Ribbentrop-Schulenburg plan
+########################################################################################
+event = { 
+	id = 3236034
+	random = no
+	country = GER
+
+	trigger = {
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan approved
+		lost_VP = { country = SOV value = 50 } # The USSR must have lost at least half of its VPs
+#		lost_IC = { country = SOV value = 50 } # The USSR must have lost at least half of its ICs
+		war = { country = GER country = SOV }
+		NOT = { control = { province = 55 data = FRA } } # Paris
+		OR = {
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 572 data = SOV } # Moscow
+			}
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 713 data = SOV } # Baku
+			}
+			NOT = {
+				control = { province = 553 data = SOV } # Leningrad
+				control = { province = 572 data = SOV } # Moscow
+				control = { province = 713 data = SOV } # Baku
+			}
+			NOT = {
+				control = { province = 663 data = SOV } # Stalingrad
+				control = { province = 572 data = SOV } # Moscow
+				control = { province = 713 data = SOV } # Baku
+			}
+		}
+	}
+
+	name = EVT_3236034_NAME
+	desc = EVT_3236034_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3236034A
+		ai_chance = 80
+		command = { type = trigger which = 3236010 } #Russian Civil War
+		command = { type = supplies value = -2000 }
+	}
+	action_b = {
+		name = ACTIONNAME3236034B
+		ai_chance = 20
+		command = { type = trigger which = 3236011 } #normal victory event; see NOE_Rosenberg.txt
+	}
+}
+#################################################
+# Russian Civil War
+#################################################
+event = { 
+	id = 3283032
+	random = no 
+	country = SOV
+
+	trigger = { flag = Russia_Civil_War }
+
+	name = EVT_3283032_NAME
+	desc = EVT_3283032_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3283032A
+		command = { type = civil_war which = RUS }
+		
+		# remove all soviet cores from RUS that are not native RUS cores => no mixed up provinces on release of further puppets
+		command = { type = removecore which = 498  where = RUS }
+		command = { type = removecore which = 499  where = RUS }
+		command = { type = removecore which = 500  where = RUS }
+		command = { type = removecore which = 501  where = RUS }
+		command = { type = removecore which = 502  where = RUS }
+		command = { type = removecore which = 503  where = RUS }
+		command = { type = removecore which = 504  where = RUS }
+		command = { type = removecore which = 505  where = RUS }
+		command = { type = removecore which = 506  where = RUS }
+		command = { type = removecore which = 507  where = RUS }
+		command = { type = removecore which = 591  where = RUS }
+		command = { type = removecore which = 592  where = RUS }
+		command = { type = removecore which = 594  where = RUS }
+		command = { type = removecore which = 595  where = RUS }
+		command = { type = removecore which = 596  where = RUS }
+		command = { type = removecore which = 597  where = RUS }
+		command = { type = removecore which = 598  where = RUS }
+		command = { type = removecore which = 599  where = RUS }
+		command = { type = removecore which = 600  where = RUS }
+		command = { type = removecore which = 601  where = RUS }
+		command = { type = removecore which = 603  where = RUS }
+		command = { type = removecore which = 605  where = RUS }
+		command = { type = removecore which = 606  where = RUS }
+		command = { type = removecore which = 607  where = RUS }
+		command = { type = removecore which = 608  where = RUS }
+		command = { type = removecore which = 609  where = RUS }
+		command = { type = removecore which = 610  where = RUS }
+		command = { type = removecore which = 611  where = RUS }
+		command = { type = removecore which = 612  where = RUS }
+		command = { type = removecore which = 613  where = RUS }
+		command = { type = removecore which = 614  where = RUS }
+		command = { type = removecore which = 615  where = RUS }
+		command = { type = removecore which = 616  where = RUS }
+		command = { type = removecore which = 617  where = RUS }
+		command = { type = removecore which = 618  where = RUS }
+		command = { type = removecore which = 619  where = RUS }
+		command = { type = removecore which = 620  where = RUS }
+		command = { type = removecore which = 621  where = RUS }
+		command = { type = removecore which = 622  where = RUS }
+		command = { type = removecore which = 623  where = RUS }
+		command = { type = removecore which = 624  where = RUS }
+		command = { type = removecore which = 625  where = RUS }
+		command = { type = removecore which = 626  where = RUS }
+		command = { type = removecore which = 627  where = RUS }
+		command = { type = removecore which = 628  where = RUS }
+		command = { type = removecore which = 629  where = RUS }
+		command = { type = removecore which = 630  where = RUS }
+		command = { type = removecore which = 631  where = RUS }
+		command = { type = removecore which = 632  where = RUS }
+		command = { type = removecore which = 633  where = RUS }
+		command = { type = removecore which = 634  where = RUS }
+		command = { type = removecore which = 635  where = RUS }
+		command = { type = removecore which = 636  where = RUS }
+		command = { type = removecore which = 704  where = RUS }
+		command = { type = removecore which = 707  where = RUS }
+		command = { type = removecore which = 708  where = RUS }
+		command = { type = removecore which = 709  where = RUS }
+		command = { type = removecore which = 710  where = RUS }
+		command = { type = removecore which = 711  where = RUS }
+		command = { type = removecore which = 712  where = RUS }
+		command = { type = removecore which = 713  where = RUS }
+		command = { type = removecore which = 714  where = RUS }
+		command = { type = removecore which = 1097 where = RUS }
+		command = { type = removecore which = 1098 where = RUS }
+		command = { type = removecore which = 1099 where = RUS }
+		command = { type = removecore which = 1100 where = RUS }
+		command = { type = removecore which = 1101 where = RUS }
+		command = { type = removecore which = 1102 where = RUS }
+		command = { type = removecore which = 1103 where = RUS }
+		command = { type = removecore which = 1104 where = RUS }
+		command = { type = removecore which = 1105 where = RUS }
+		command = { type = removecore which = 1106 where = RUS }
+		command = { type = removecore which = 1107 where = RUS }
+		command = { type = removecore which = 1108 where = RUS }
+		command = { type = removecore which = 1109 where = RUS }
+		command = { type = removecore which = 1110 where = RUS }
+		command = { type = removecore which = 1111 where = RUS }
+		command = { type = removecore which = 1112 where = RUS }
+		command = { type = removecore which = 1113 where = RUS }
+		command = { type = removecore which = 1114 where = RUS }
+		command = { type = removecore which = 1115 where = RUS }
+		command = { type = removecore which = 1116 where = RUS }
+		command = { type = removecore which = 1117 where = RUS }
+		command = { type = removecore which = 1118 where = RUS }
+		command = { type = removecore which = 1690 where = RUS }
+		command = { type = removecore which = 2173 where = RUS }
+		
+		command = { type = manpowerpool value = -1000 }
+		command = { type = independence which = SWE value = 1 when = 1 }
+		command = { type = independence which = FIN value = 1 when = 1 }
+		command = { type = independence which = NOR value = 1 when = 1 }
+		command = { type = dissent value = 40 }
+	}
+}
+event = { 
+	id = 3299004
+	random = no
+	country = RUS
+	
+	trigger = { event = 3283032 }
+	
+	name = EVT_3299004_NAME
+	desc = EVT_3283032_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3299004A
+		command = { type = alliance which = GER }
+		command = { type = manpowerpool value = 1000 }
+		command = { type = supplies value = 2000 }
+		command = { type = headofstate which = 4090 } # Andrei Vlassov
+		command = { type = headofgovernment which = 4093 } # Nikolai Yezhov
+		command = { type = secedeprovince which = FIN value = 152 } # Finland gets Petrozadovsk as war compensation
+		command = { type = removecore which = 152 }
+		command = { type = trigger which = 3236023 } # GER
+	}
+}
+event = { 
+	id = 3236023
+	random = no
+	country = GER
+	
+	# triggered by RUS 3299004
+	
+	name = EVT_3299004_NAME
+	desc = EVT_3236023_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236029A
+		command = { type = make_puppet which = RUS }
+	}
+}
+#########################################################
+# Liberation of the Baltic States
+#########################################################
+event = { 
+	id = 3236026
+	random = no 
+	country = GER 
+	
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		NOT = { exists = EST }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 274 data = GER } # 274	Narva, All of the Baltic States must be liberated 
+		control = { province = 270 data = GER } # 270	Tallinn
+		control = { province = 272 data = GER } # 272	Tartu
+		control = { province = 271 data = GER } # 271	Parnu
+		#control = { province = 275 data = GER } # 275	Kuressaare; removed from list because AI tends to flee there
+		control = { province = 273 data = GER } # 273	Voru
+		control = { province = 264 data = -3 } # 264	Riga
+		control = { province = 265 data = -3 } # 265	Valmiera
+		control = { province = 266 data = -3 } # 266	Daugavpils
+		control = { province = 267 data = -3 } # 267	Jekabpils
+		control = { province = 269 data = -3 } # 269	Jelgava
+		control = { province = 268 data = -3 } # 268	Liepaja
+		control = { province = 259 data = -3 } # 259	Siauliau
+		control = { province = 262 data = -3 } # 262	Kaunas
+		control = { province = 260 data = -3 } # 260	Panevezys
+		control = { province = 263 data = -3 } # 263	Alytus
+		control = { province = 258 data = -3 } # 258	Wilno
+		control = { province = 550 data = -3 } # 550	Kingisepp, Front must be beyond the Baltic States
+		control = { province = 552 data = -3 } # 552	Gdov
+		control = { province = 566 data = -3 } # 566	Pskov
+		control = { province = 564 data = -3 } # 564	Opochka
+		control = { province = 593 data = -3 } # 593	Polotsk
+		control = { province = 257 data = -3 } # 257	Glebokie
+		control = { province = 256 data = -3 } # 256	Molodeczno
+		control = { province = 251 data = -3 } # 251	Nowogrodek
+		control = { province = 255 data = -3 } # 255	Grodno
+		control = { province = 252 data = -3 } # 252	Suwalki
+	}
+
+	name = EVT_3236026_NAME
+	desc = EVT_3236026_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236026A
+		ai_chance = 100
+		command = { type = independence which = EST value = 1 }
+		command = { type = trigger which = 3236054 } # EST
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236026B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236054
+	random = no
+	country = EST
+	
+	# Triggered by GER 3236026
+	
+	name = EVT_3236054_NAME
+	desc = EVT_3236054_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236054A
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = trigger which = 3236029 } # GER
+	}
+}
+event = { 
+	id = 3236029
+	random = no 
+	country = GER
+ 
+	# Triggered by EST 3236054
+
+	name = EVT_3236029_NAME
+	desc = EVT_3236029_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236029A
+		command = { type = make_puppet which = EST }
+	}
+}
+event = { 
+	id = 3236055
+	random = no 
+	country = GER 
+	
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		NOT = { exists = LAT }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 274 data = -3 } # 274	Narva, All of the Baltic States must be liberated 
+		control = { province = 270 data = -3 } # 270	Tallinn
+		control = { province = 272 data = -3 } # 272	Tartu
+		control = { province = 271 data = -3 } # 271	Parnu
+		#control = { province = 275 data = -3 } # 275	Kuressaare; removed from list because AI tends to flee there
+		control = { province = 273 data = -3 } # 273	Voru
+		control = { province = 264 data = GER } # 264	Riga
+		control = { province = 265 data = GER } # 265	Valmiera
+		control = { province = 266 data = GER } # 266	Daugavpils
+		control = { province = 267 data = GER } # 267	Jekabpils
+		control = { province = 269 data = GER } # 269	Jelgava
+		control = { province = 268 data = GER } # 268	Liepaja
+		control = { province = 259 data = -3 } # 259	Siauliau
+		control = { province = 262 data = -3 } # 262	Kaunas
+		control = { province = 260 data = -3 } # 260	Panevezys
+		control = { province = 263 data = -3 } # 263	Alytus
+		control = { province = 258 data = -3 } # 258	Wilno
+		control = { province = 550 data = -3 } # 550	Kingisepp, Front must be beyond the Baltic States
+		control = { province = 552 data = -3 } # 552	Gdov
+		control = { province = 566 data = -3 } # 566	Pskov
+		control = { province = 564 data = -3 } # 564	Opochka
+		control = { province = 593 data = -3 } # 593	Polotsk
+		control = { province = 257 data = -3 } # 257	Glebokie
+		control = { province = 256 data = -3 } # 256	Molodeczno
+		control = { province = 251 data = -3 } # 251	Nowogrodek
+		control = { province = 255 data = -3 } # 255	Grodno
+		control = { province = 252 data = -3 } # 252	Suwalki
+	}
+
+	name = EVT_3236055_NAME
+	desc = EVT_3236055_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236055A
+		ai_chance = 100
+		command = { type = independence which = LAT value = 1 }
+		command = { type = trigger which = 3236056 } # LAT
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236055B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236056
+	random = no
+	country = LAT
+	
+	# Triggered by GER 3236055
+	
+	name = EVT_3236056_NAME
+	desc = EVT_3236056_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236056A
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = trigger which = 3236099 } # GER
+	}
+}
+event = { 
+	id = 3236099
+	random = no 
+	country = GER
+ 
+	# Triggered by LAT 3236056
+
+	name = EVT_3236099_NAME
+	desc = EVT_3236099_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236099A
+		command = { type = make_puppet which = LAT }
+	}
+}
+event = { 
+	id = 3236100
+	random = no 
+	country = GER 
+	
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		NOT = { exists = LIT }
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		control = { province = 274 data = -3 } # 274	Narva, All of the Baltic States must be liberated 
+		control = { province = 270 data = -3 } # 270	Tallinn
+		control = { province = 272 data = -3 } # 272	Tartu
+		control = { province = 271 data = -3 } # 271	Parnu
+		#control = { province = 275 data = -3 } # 275	Kuressaare; removed from list because AI tends to flee there
+		control = { province = 273 data = -3 } # 273	Voru
+		control = { province = 264 data = -3 } # 264	Riga
+		control = { province = 265 data = -3 } # 265	Valmiera
+		control = { province = 266 data = -3 } # 266	Daugavpils
+		control = { province = 267 data = -3 } # 267	Jekabpils
+		control = { province = 269 data = -3 } # 269	Jelgava
+		control = { province = 268 data = -3 } # 268	Liepaja
+		control = { province = 259 data = GER } # 259	Siauliau
+		control = { province = 262 data = GER } # 262	Kaunas
+		control = { province = 260 data = GER } # 260	Panevezys
+		control = { province = 263 data = GER } # 263	Alytus
+		control = { province = 258 data = GER } # 258	Wilno
+		control = { province = 550 data = -3 } # 550	Kingisepp, Front must be beyond the Baltic States
+		control = { province = 552 data = -3 } # 552	Gdov
+		control = { province = 566 data = -3 } # 566	Pskov
+		control = { province = 564 data = -3 } # 564	Opochka
+		control = { province = 593 data = -3 } # 593	Polotsk
+		control = { province = 257 data = -3 } # 257	Glebokie
+		control = { province = 256 data = -3 } # 256	Molodeczno
+		control = { province = 251 data = -3 } # 251	Nowogrodek
+		control = { province = 255 data = -3 } # 255	Grodno
+		control = { province = 252 data = -3 } # 252	Suwalki
+	}
+
+	name = EVT_3236100_NAME
+	desc = EVT_3236100_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3236100A
+		command = { type = independence which = LIT value = 1 }
+		command = { type = trigger which = 3236101 } # LIT
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236100B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236101
+	random = no
+	country = LIT
+	
+	# Triggered by GER 3236100
+	
+	name = EVT_3236101_NAME
+	desc = EVT_3236101_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236101A
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = trigger which = 3236102 } # GER
+	}
+}
+event = { 
+	id = 3236102
+	random = no 
+	country = GER
+ 
+	# Triggered by LIT 3236101
+
+	name = EVT_3236102_NAME
+	desc = EVT_3236102_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236102A
+		command = { type = make_puppet which = LIT }
+	}
+}
+###################################################
+# Liberation of Ukraine
+###################################################
+event = { 
+	id = 3236027
+	random = no 
+	country = GER 
+	
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		NOT = { exists = UKR } # Ukraine must not exists already
+		NOT = { 
+			control = { province = 611 data = SOV }
+			control = { province = 614 data = SOV }
+			control = { province = 612 data = SOV }
+			control = { province = 618 data = SOV }
+			control = { province = 619 data = SOV }
+			control = { province = 620 data = SOV }
+			control = { province = 621 data = SOV }
+			control = { province = 625 data = SOV }
+			control = { province = 626 data = SOV }
+			control = { province = 622 data = SOV }
+			control = { province = 609 data = SOV }
+			control = { province = 616 data = SOV }
+			control = { province = 633 data = SOV }
+			control = { province = 627 data = SOV }
+			control = { province = 628 data = SOV }
+			control = { province = 613 data = SOV }
+			control = { province = 615 data = SOV }
+			control = { province = 617 data = SOV }
+			control = { province = 608 data = SOV }
+			control = { province = 605 data = SOV }
+			control = { province = 606 data = SOV }
+			control = { province = 629 data = SOV }
+			control = { province = 630 data = SOV }
+			control = { province = 632 data = SOV }
+			control = { province = 603 data = SOV }
+			control = { province = 636 data = SOV }
+			control = { province = 631 data = SOV }
+			control = { province = 635 data = SOV }
+			control = { province = 623 data = SOV }
+			control = { province = 624 data = SOV }
+			control = { province = 607 data = SOV }
+			control = { province = 242 data = SOV }
+			control = { province = 238 data = SOV }
+			control = { province = 240 data = SOV }
+			control = { province = 244 data = SOV }
+			control = { province = 241 data = SOV }
+			control = { province = 637 data = SOV }
+			control = { province = 639 data = SOV }
+			control = { province = 640 data = SOV }
+			control = { province = 638 data = SOV }
+			control = { province = 641 data = SOV }
+			control = { province = 213 data = SOV }
+			control = { province = 245 data = SOV }
+			control = { province = 610 data = SOV }
+			control = { province = 634 data = SOV }
+			# frontline must have passed beyond this point
+			control = { province = 694 data = SOV }
+			control = { province = 644 data = SOV }
+			control = { province = 649 data = SOV }
+			control = { province = 648 data = SOV }
+			control = { province = 646 data = SOV }
+			control = { province = 647 data = SOV }
+			control = { province = 604 data = SOV }
+			control = { province = 602 data = SOV }
+			control = { province = 587 data = SOV }
+			control = { province = 601 data = SOV }
+			control = { province = 598 data = SOV }
+			control = { province = 595 data = SOV }
+			control = { province = 249 data = SOV }
+			control = { province = 247 data = SOV }
+			control = { province = 246 data = SOV }
+			control = { province = 239 data = SOV }
+		}
+	}
+
+	name = EVT_3236027_NAME
+	desc = EVT_3236027_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3236027A
+		command = { type = independence which = UKR value = 1 }
+		command = { type = trigger which = 3236103 } # UKR
+		command = { type = setflag which = UKR_liberation }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236027B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236103
+	random = no
+	country = UKR
+	
+	# Triggered by GER 3236027
+	
+	name = EVT_3236103_NAME
+	desc = EVT_3236103_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236103A
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = trigger which = 3236030 } # GER
+	}
+}
+event = { 
+	id = 3236030
+	random = no 
+	country = GER
+ 
+	# triggered by UKR 3236103
+
+	name = EVT_3236030_NAME
+	desc = EVT_3236030_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236030A
+		command = { type = make_puppet which = UKR }
+	}
+}
+###################################################
+# Liberation of Belarus
+###################################################
+event = { 
+	id = 3236028
+	random = no 
+	country = GER 
+
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		NOT = { exists = BLR } # Belarus must not exist already
+		NOT = { 
+			control = { province = 593 data = SOV } # 593	Polotsk, All of Belarus must be liberated
+			control = { province = 257 data = SOV } # 257	Glebokie
+			control = { province = 256 data = SOV } # 256	Molodeczno
+			control = { province = 599 data = SOV } # 599	Minsk
+			control = { province = 594 data = SOV } # 594	Bobruisk
+			control = { province = 596 data = SOV } # 596	Slutsk
+			control = { province = 595 data = SOV } # 595	Mozyr
+			control = { province = 251 data = SOV } # 251	Nowogrodek
+			control = { province = 255 data = SOV } # 255	Grodno
+			control = { province = 564 data = SOV } # 564	Opochka, The front must be beyond Belarus
+			control = { province = 593 data = SOV } # 593	Polotsk
+			control = { province = 590 data = SOV } # 590	Vitebsk
+			control = { province = 591 data = SOV } # 591	Orsha
+			control = { province = 592 data = SOV } # 592	Borisov
+			control = { province = 600 data = SOV } # 600	Mogilev
+			control = { province = 597 data = SOV } # 597	Luban
+			control = { province = 598 data = SOV } # 598	Rechytsa
+			control = { province = 609 data = SOV } # 609	Korosten
+			control = { province = 616 data = SOV } # 616	Novograd-Volynsky
+
+		}
+	}
+
+	name = EVT_3236028_NAME
+	desc = EVT_3236028_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3236028A
+		command = { type = independence which = BLR value = 1 }
+		command = { type = trigger which = 3236104 } # BLR
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236028B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236104
+	random = no
+	country = BLR
+	
+	# Triggered by GER 3236028
+	
+	name = EVT_3236104_NAME
+	desc = EVT_3236104_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236104A
+		command = { type = alliance which = GER }
+		command = { type = set_domestic which = political_left value = 0 }
+		command = { type = set_domestic which = democratic value = 0 }
+ 		command = { type = trigger which = 3236031 } # GER
+	}
+}
+event = { 
+	id = 3236031
+	random = no 
+	country = GER
+ 
+	# triggered by BLR 3236104
+
+	name = EVT_3236031_NAME
+	desc = EVT_3236031_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236031A
+		command = { type = make_puppet which = BLR }
+	}
+}
+######################################################
+# Liberation of the Caucasus
+######################################################
+event = { 
+	id = 3236032
+	random = no 
+	country = GER
+	
+	trigger = { 
+		OR = 	{
+				event = 3236034 # german victory
+				war = { country = GER country = SOV }
+				}
+		flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		OR = { 
+			NOT = { exists = ARM } # At least one of the caucasian republics must not exist
+			NOT = { exists = AZB }
+			NOT = { exists = GEO }
+		}		
+		NOT = { 
+			control = { province = 713 data = SOV } # 713	Baku
+			control = { province = 712 data = SOV } # 712	Stepanakert
+			control = { province = 711 data = SOV } # 711	Yerevan
+			control = { province = 714 data = SOV } # 714	Nakhchivan
+			control = { province = 704 data = SOV } # 704	Makhachkala
+			control = { province = 709 data = SOV } # 709	Tblisi
+			control = { province = 707 data = SOV } # 707	Tskhinvali
+			control = { province = 701 data = SOV } # 701	Nalchik
+			control = { province = 703 data = SOV } # 703	Vladikavkaz
+			control = { province = 708 data = SOV } # 708	Kutaisi
+			control = { province = 696 data = SOV } # 696	
+			control = { province = 695 data = SOV } # 695	Sochi
+			control = { province = 710 data = SOV } # 710	Sukhumi
+		}
+	}
+
+	name = EVT_3236032_NAME
+	desc = EVT_3236032_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3236032A
+		command = { type = independence which = GEO value = 1 }
+		command = { type = independence which = ARM value = 1 }
+		command = { type = independence which = AZB value = 1 }
+		command = { type = trigger which = 3236033 } # ARM
+		command = { type = trigger which = 3236106 } # AZB
+		command = { type = trigger which = 3236108 } # GEO
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3236032B
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3236033
+	random = no 
+	country = ARM
+ 
+	# triggered by GER 3236032
+
+	name = AI_EVENT
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283040A
+		command = { type = alliance which = GER }
+		command = { type = trigger which = 3236105 } # GER
+	}
+}
+event = { 
+	id = 3236105
+	random = no 
+	country = GER
+ 
+	# triggered by ARM 3236033
+
+	name = EVT_3236105_NAME
+	desc = EVT_3236105_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236105A
+		command = { type = make_puppet which = ARM }
+	}
+}
+event = { 
+	id = 3236106
+	random = no 
+	country = AZB
+ 
+	# triggered by GER 3236032
+
+	name = AI_EVENT
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283040A
+		command = { type = alliance which = GER }
+		command = { type = trigger which = 3236107 } # GER
+	}
+}
+event = { 
+	id = 3236107
+	random = no 
+	country = GER
+ 
+	# triggered by AZB 3236106
+
+	name = EVT_3236107_NAME
+	desc = EVT_3236107_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236107A
+		command = { type = make_puppet which = AZB }
+	}
+}
+event = { 
+	id = 3236108
+	random = no 
+	country = GEO
+ 
+	# triggered by GER 3236032
+
+	name = AI_EVENT
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283040A
+		command = { type = alliance which = GER }
+		command = { type = trigger which = 3236109 } # GER
+	}
+}
+event = { 
+	id = 3236109
+	random = no 
+	country = GER
+ 
+	# triggered by GEO 3236108
+
+	name = EVT_3236109_NAME
+	desc = EVT_3236109_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3236109A
+		command = { type = make_puppet which = GEO }
+	}
+}
+
+#################################################
+# Independence of Siberia
+#################################################
+event = {
+	id = 3236021
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = SOV }
+		control = { province = 1191 data = GER } # Vladivostok
+		NOT = { alliance = { country = GER country = JAP } }
+		OR = {
+			flag = NOE_Ros # Rosenberg plan chosen
+			flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		}
+	}
+	
+	name = EVT_3236021_NAME
+	desc = EVT_3236021_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236021A
+		command = { type = independence which = SIB value = 0 }
+#		command = { type = dissent value = -5 }
+		command = { type = trigger which = 3236022 }
+	}
+	action_b = {
+		name = ACTIONNAME3236021B
+		command = { }
+	}
+}
+event = {
+	id = 3236022
+	random = no
+	country = GER
+	
+	# triggered by GER 3236021, SOV 3283062, RUS 3299005
+	
+	name = EVT_3236022_NAME
+	desc = EVT_3236022_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236022A
+		command = { type = alliance which = SIB }
+		command = { type = make_puppet which = SIB }
+	}
+}
+#event = {
+#	id = 3283062
+#	random = no
+#	country = SOV
+#	
+#	trigger = {
+#		NOT = { war = { country = GER country = SOV } }
+#		control = { province = 1191 data = SOV } # Vladivostok
+#		NOT = { alliance = { country = GER country = JAP } }
+#		OR = {
+#			flag = NOE_Ros # Rosenberg plan chosen
+#			flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+#		}
+#		event = 3236011 # Rosenberg or Ribbentrop-Schulenburg peace offer
+#	}
+#	
+#	name = EVT_3236021_NAME
+#	desc = EVT_3283062_DESC
+#	style = 0
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 20
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3236021A
+#		command = { type = independence which = SIB value = 0 when = 1 }
+#		command = { type = dissent value = -5 }
+#		command = { type = trigger which = 3236022 }
+#	}
+#}
+event = {
+	id = 3299005
+	random = no
+	country = RUS
+	
+	trigger = {
+		NOT = { exists = SOV }
+		alliance = { country = GER country = RUS }
+		control = { province = 1191 data = RUS } # Vladivostok
+		NOT = { alliance = { country = GER country = JAP } }
+	}
+	
+	name = EVT_3236021_NAME
+	desc = EVT_3299005_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236021A
+		command = { type = independence which = SIB value = 0 }
+#		command = { type = dissent value = -5 }
+		command = { type = trigger which = 3236022 }
+	}
+}
+#################################################
+# Independence of Asian Republics
+#################################################
+event = {
+	id = 3236024
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { exists = SOV }
+		region = { region = "Kazakstan" }
+		region = { region = "Central Asia" }
+		OR = {
+			flag = NOE_Ros # Rosenberg plan chosen
+			flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		}
+	}
+	
+	name = EVT_3236024_NAME
+	desc = EVT_3236024_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236024A
+		command = { type = independence which = KAZ value = 0 } # Kazakhstan
+		command = { type = independence which = KYG value = 0 } # Kyrgistan
+		command = { type = independence which = TAJ value = 0 } # Tajikstan
+		command = { type = independence which = TRK value = 0 } # Turkmenistan
+		command = { type = independence which = UZB value = 0 } # Uzbekistan
+#		command = { type = dissent value = -25 }
+		command = { type = trigger which = 3236025 }
+	}
+	action_b = {
+		name = ACTIONNAME3236021B
+		command = { }
+	}
+}
+event = {
+	id = 3236025
+	random = no
+	country = GER
+	
+	# triggered by GER 3236024, SOV 3283039, RUS 3299006
+	
+	name = EVT_3236025_NAME
+	desc = EVT_3236025_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3236025A
+		command = { type = make_puppet which = KAZ }
+		command = { type = make_puppet which = KYG }
+		command = { type = make_puppet which = TAJ }
+		command = { type = make_puppet which = TRK }
+		command = { type = make_puppet which = UZB }
+		command = { type = alliance which = KAZ }
+		command = { type = alliance which = KYG }
+		command = { type = alliance which = TAJ }
+		command = { type = alliance which = TRK }
+		command = { type = alliance which = UZB }
+	}
+}
+event = {
+	id = 3283039
+	random = no
+	country = SOV
+	
+	trigger = {
+		NOT = { war = { country = GER country = SOV } }
+		region = { region = "Kazakstan" }
+		region = { region = "Central Asia" }
+		OR = {
+			flag = NOE_Ros # Rosenberg plan chosen
+			flag = NOE_RibSchu # Ribbentrop-Schulenburg plan chosen
+		}
+		event = 3236011 # Rosenberg or Ribbentrop-Schulenburg peace offer
+	}
+	
+	name = EVT_3236024_NAME
+	desc = EVT_3283039_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236024A
+		command = { type = independence which = KAZ value = 0 when = 1 } # Kazakhstan
+		command = { type = independence which = KYG value = 0 when = 1 } # Kyrgistan
+		command = { type = independence which = TAJ value = 0 when = 1 } # Tajikstan
+		command = { type = independence which = TRK value = 0 when = 1 } # Turkmenistan
+		command = { type = independence which = UZB value = 0 when = 1 } # Uzbekistan
+		command = { type = trigger which = 3236025 }
+	}
+}
+event = {
+	id = 3299006
+	random = no
+	country = RUS
+	
+	trigger = {
+		NOT = { exists = SOV }
+		region = { region = "Kazakstan" }
+		region = { region = "Central Asia" }
+		alliance = { country = GER country = RUS }
+	}
+	
+	name = EVT_3236024_NAME
+	desc = EVT_3299006_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236024A
+		command = { type = independence which = KAZ value = 0 } # Kazakhstan
+		command = { type = independence which = KYG value = 0 } # Kyrgistan
+		command = { type = independence which = TAJ value = 0 } # Tajikstan
+		command = { type = independence which = TRK value = 0 } # Turkmenistan
+		command = { type = independence which = UZB value = 0 } # Uzbekistan
+		command = { type = trigger which = 3236025 }
+	}
+}
+
+####################################################################
+# German arbitration events
+####################################################################
+
+####################################################################
+# Germany turns control of occupied Soviet areas to Russia
+####################################################################
+event = { 
+	id = 3236003
+	random = no
+	country = GER
+	
+	trigger = {
+		alliance = { country = GER country = RUS }
+		war = { country = GER country = SOV }
+	}
+	
+	name = EVT_3236003_NAME #"Germany turns control of occupied Soviet areas to Russia"
+	desc = EVT_3236003_DESC #"Any areas still under German control will be turned over to our Russian allies."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+
+		command = { type = control which = RUS value = 553 }
+		command = { type = control which = RUS value = 572 }
+		command = { type = control which = RUS value = 663 }
+		command = { type = control which = RUS value = 575 }
+		command = { type = control which = RUS value = 589 }
+		command = { type = control which = RUS value = 669 }
+		command = { type = control which = RUS value = 566 }
+		command = { type = control which = RUS value = 535 }
+		command = { type = control which = RUS value = 542 }
+		command = { type = control which = RUS value = 654 }
+		command = { type = control which = RUS value = 580 }
+		command = { type = control which = RUS value = 582 }
+		command = { type = control which = RUS value = 677 }
+		command = { type = control which = RUS value = 559 }
+		command = { type = control which = RUS value = 560 }
+		command = { type = control which = RUS value = 583 }
+		command = { type = control which = RUS value = 584 }
+		command = { type = control which = RUS value = 602 }
+		command = { type = control which = RUS value = 604 }
+		command = { type = control which = RUS value = 544 }
+		command = { type = control which = RUS value = 545 }
+		command = { type = control which = RUS value = 546 }
+		command = { type = control which = RUS value = 547 }
+		command = { type = control which = RUS value = 538 }
+		command = { type = control which = RUS value = 541 }
+		command = { type = control which = RUS value = 539 }
+		command = { type = control which = RUS value = 537 }
+		command = { type = control which = RUS value = 536 }
+		command = { type = control which = RUS value = 540 }
+		command = { type = control which = RUS value = 534 }
+		command = { type = control which = RUS value = 706 }
+		command = { type = control which = RUS value = 700 }
+		command = { type = control which = RUS value = 702 }
+		command = { type = control which = RUS value = 705 }
+		command = { type = control which = RUS value = 698 }
+		command = { type = control which = RUS value = 696 }
+		command = { type = control which = RUS value = 694 }
+		command = { type = control which = RUS value = 691 }
+		command = { type = control which = RUS value = 692 }
+		command = { type = control which = RUS value = 697 }
+		command = { type = control which = RUS value = 699 }
+		command = { type = control which = RUS value = 662 }
+		command = { type = control which = RUS value = 660 }
+		command = { type = control which = RUS value = 666 }
+		command = { type = control which = RUS value = 665 }
+		command = { type = control which = RUS value = 668 }
+		command = { type = control which = RUS value = 670 }
+		command = { type = control which = RUS value = 656 }
+		command = { type = control which = RUS value = 674 }
+		command = { type = control which = RUS value = 675 }
+		command = { type = control which = RUS value = 673 }
+		command = { type = control which = RUS value = 672 }
+		command = { type = control which = RUS value = 667 }
+		command = { type = control which = RUS value = 684 }
+		command = { type = control which = RUS value = 659 }
+		command = { type = control which = RUS value = 642 }
+		command = { type = control which = RUS value = 661 }
+		command = { type = control which = RUS value = 655 }
+		command = { type = control which = RUS value = 657 }
+		command = { type = control which = RUS value = 658 }
+		command = { type = control which = RUS value = 683 }
+		command = { type = control which = RUS value = 680 }
+		command = { type = control which = RUS value = 682 }
+		command = { type = control which = RUS value = 679 }
+		command = { type = control which = RUS value = 678 }
+		command = { type = control which = RUS value = 681 }
+		command = { type = control which = RUS value = 543 }
+		command = { type = control which = RUS value = 548 }
+		command = { type = control which = RUS value = 555 }
+		command = { type = control which = RUS value = 554 }
+		command = { type = control which = RUS value = 569 }
+		command = { type = control which = RUS value = 570 }
+		command = { type = control which = RUS value = 676 }
+		command = { type = control which = RUS value = 576 }
+		command = { type = control which = RUS value = 585 }
+		command = { type = control which = RUS value = 567 }
+		command = { type = control which = RUS value = 556 }
+		command = { type = control which = RUS value = 557 }
+		command = { type = control which = RUS value = 561 }
+		command = { type = control which = RUS value = 565 }
+		command = { type = control which = RUS value = 562 }
+		command = { type = control which = RUS value = 551 }
+		command = { type = control which = RUS value = 550 }
+		command = { type = control which = RUS value = 552 }
+		command = { type = control which = RUS value = 564 }
+		command = { type = control which = RUS value = 586 }
+		command = { type = control which = RUS value = 587 }
+		command = { type = control which = RUS value = 581 }
+		command = { type = control which = RUS value = 588 }
+		command = { type = control which = RUS value = 578 }
+		command = { type = control which = RUS value = 579 }
+		command = { type = control which = RUS value = 650 }
+		command = { type = control which = RUS value = 652 }
+		command = { type = control which = RUS value = 651 }
+		command = { type = control which = RUS value = 644 }
+		command = { type = control which = RUS value = 649 }
+		command = { type = control which = RUS value = 646 }
+		command = { type = control which = RUS value = 647 }
+		command = { type = control which = RUS value = 648 }
+		command = { type = control which = RUS value = 645 }
+		command = { type = control which = RUS value = 643 }
+		command = { type = control which = RUS value = 653 }
+		command = { type = control which = RUS value = 571 }
+		command = { type = control which = RUS value = 590 }
+		command = { type = control which = RUS value = 574 }
+		command = { type = control which = RUS value = 577 }
+		command = { type = control which = RUS value = 573 }
+		command = { type = control which = RUS value = 558 }
+		command = { type = control which = RUS value = 568 }
+		command = { type = control which = RUS value = 563 }
+		command = { type = control which = RUS value = 593 }
+		command = { type = control which = RUS value = 549 }
+		command = { type = control which = RUS value = 532 }
+		command = { type = control which = RUS value = 531 }
+		command = { type = control which = RUS value = 530 }
+		command = { type = control which = RUS value = 693 }
+		command = { type = control which = RUS value = 695 }
+		command = { type = control which = RUS value = 701 }
+		command = { type = control which = RUS value = 703 }
+		command = { type = control which = RUS value = 688 }
+		command = { type = control which = RUS value = 685 }
+		command = { type = control which = RUS value = 686 }
+		command = { type = control which = RUS value = 689 }
+		command = { type = control which = RUS value = 671 }
+		command = { type = control which = RUS value = 687 }
+		command = { type = control which = RUS value = 664 }
+		command = { type = control which = RUS value = 690 }
+		command = { type = control which = RUS value = 1157 }
+		command = { type = control which = RUS value = 1119 }
+		command = { type = control which = RUS value = 1174 }
+		command = { type = control which = RUS value = 1175 }
+		command = { type = control which = RUS value = 1176 }
+		command = { type = control which = RUS value = 1188 }
+		command = { type = control which = RUS value = 1191 }
+		command = { type = control which = RUS value = 1196 }
+		command = { type = control which = RUS value = 1193 }
+		command = { type = control which = RUS value = 1192 }
+		command = { type = control which = RUS value = 1194 }
+		command = { type = control which = RUS value = 1195 }
+		command = { type = control which = RUS value = 1190 }
+		command = { type = control which = RUS value = 1185 }
+		command = { type = control which = RUS value = 1187 }
+		command = { type = control which = RUS value = 1541 }
+		command = { type = control which = RUS value = 1542 }
+		command = { type = control which = RUS value = 1543 }
+		command = { type = control which = RUS value = 1189 }
+		command = { type = control which = RUS value = 1186 }
+		command = { type = control which = RUS value = 1181 }
+		command = { type = control which = RUS value = 1182 }
+		command = { type = control which = RUS value = 1183 }
+		command = { type = control which = RUS value = 1184 }
+		command = { type = control which = RUS value = 1134 }
+		command = { type = control which = RUS value = 1133 }
+		command = { type = control which = RUS value = 1131 }
+		command = { type = control which = RUS value = 1132 }
+		command = { type = control which = RUS value = 1137 }
+		command = { type = control which = RUS value = 1126 }
+		command = { type = control which = RUS value = 1127 }
+		command = { type = control which = RUS value = 1151 }
+		command = { type = control which = RUS value = 1130 }
+		command = { type = control which = RUS value = 1128 }
+		command = { type = control which = RUS value = 1153 }
+		command = { type = control which = RUS value = 1129 }
+		command = { type = control which = RUS value = 1152 }
+		command = { type = control which = RUS value = 1155 }
+		command = { type = control which = RUS value = 1141 }
+		command = { type = control which = RUS value = 1148 }
+		command = { type = control which = RUS value = 1149 }
+		command = { type = control which = RUS value = 1144 }
+		command = { type = control which = RUS value = 1145 }
+		command = { type = control which = RUS value = 1140 }
+		command = { type = control which = RUS value = 1146 }
+		command = { type = control which = RUS value = 1147 }
+		command = { type = control which = RUS value = 1156 }
+		command = { type = control which = RUS value = 1163 }
+		command = { type = control which = RUS value = 1070 }
+		command = { type = control which = RUS value = 1069 }
+		command = { type = control which = RUS value = 1162 }
+		command = { type = control which = RUS value = 1166 }
+		command = { type = control which = RUS value = 1158 }
+		command = { type = control which = RUS value = 1167 }
+		command = { type = control which = RUS value = 1161 }
+		command = { type = control which = RUS value = 1168 }
+		command = { type = control which = RUS value = 1169 }
+		command = { type = control which = RUS value = 1177 }
+		command = { type = control which = RUS value = 1164 }
+		command = { type = control which = RUS value = 1179 }
+		command = { type = control which = RUS value = 1165 }
+		command = { type = control which = RUS value = 1171 }
+		command = { type = control which = RUS value = 1170 }
+		command = { type = control which = RUS value = 1178 }
+		command = { type = control which = RUS value = 1180 }
+		command = { type = control which = RUS value = 1135 }
+		command = { type = control which = RUS value = 1154 }
+		command = { type = control which = RUS value = 1150 }
+		command = { type = control which = RUS value = 1136 }
+		command = { type = control which = RUS value = 1138 }
+		command = { type = control which = RUS value = 1139 }
+		command = { type = control which = RUS value = 1142 }
+		command = { type = control which = RUS value = 1143 }
+	}
+	action_b = {
+		name = ACTION_NAME_REFUSE #"Absolutely not"
+		command = { type = relation which = RUS value = -50 }
+	}
+}
+######################################################
+# Belarus requests Bialystok area
+######################################################
+event = { 
+	id = 3236004
+	random = no 
+	country = GER 
+	
+	trigger = {
+		exists = BLR
+		owned = { province = 254 data = GER } # Bialystok, Germany owns the Bialystok region
+		owned = { province = 253 data = GER } # Slonim
+	}
+
+	name = EVT_3236004_NAME #"Belarus requests Bialystok area"
+	desc = EVT_3236004_DESC #"The annexation of the Bialystok area by the German Reich embittered the Byelorussian nationalists, who considered it an ancestral part of western 'Belarus'. The Byelorussian Government made a formal plea to the Reich to transfer the Bialystok region to Belarus."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_REFUSE #"Absolutely not"
+		command = { type = relation which = BLR value = -10 }
+	}
+	action_b = {
+		name = "ACTION_NAME_OK"
+		command = { type = relation which = BLR value = 10 }
+		command = { type = secedeprovince which = BLR value = 254 }
+		command = { type = secedeprovince which = BLR value = 253 }
+	}
+}
+######################################################
+# Ukraine requests Galicia
+######################################################
+event = { 
+	id = 3236005
+	random = no 
+	country = GER 
+
+	trigger = {
+		exists = UKR
+		owned = { province = 238 data = GER } # Stanislawow, Germany owns Galicia (Lwow)
+		owned = { province = 241 data = GER } # Stryj
+		owned = { province = 242 data = GER } # Lwow
+		owned = { province = 240 data = GER } # Tarnopol
+	}
+
+	name = EVT_3236005_NAME #"Ukraine requests Galicia"
+	desc = EVT_3236005_DESC #"The area around Lwow also known as Galicia, was the very craddle of the Ukrainian nationalist movement. The annexation of this region by the Greater German Reich was intolerable to the OUN militants, and the Ukrainian Government soon sent a formal request for the region to be transfered to the Ukraine."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_REFUSE #"Absolutely not"
+		command = { type = relation which = UKR value = -10 }
+	}
+	action_b = {
+		name = "ACTION_NAME_OK"
+		command = { type = relation which = UKR value = 10 }
+		command = { type = secedeprovince which = UKR value = 238 }
+		command = { type = secedeprovince which = UKR value = 241 }
+		command = { type = secedeprovince which = UKR value = 242 }
+		command = { type = secedeprovince which = UKR value = 240 }
+	}
+}
+###############################################
+# German arbitration on Donbass and Crimea
+###############################################
+event = { 
+	id = 3236006
+	random = no 
+	country = GER 
+
+	trigger = {
+		alliance = { country = RUS country = GER }
+		alliance = { country = UKR country = GER }
+		NOT = { war = { country = SOV country = GER } }
+	}
+
+	name = EVT_3236006_NAME #"German arbitration on Donbass and Crimea"
+	desc = EVT_3236006_DESC #"Both Russia and Ukraine claimed the iron and coal rich region around the cities of Kharkov, Donetsk and Stalino, as well as Crimea. Both countries presented their case to Germany - while the Ukrainias could claim that eastern Ukraine was predominantly populated by Ukrainians, Russia could reply that the eastern Ukrainians were heavily Russianized and that the Crimea was not Ukrainian-inhabited at all. The Reich would have to settle the dispute."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236006A #"Rule in favour of Ukraine"
+		command = { type = relation which = RUS value = -10 }
+		command = { type = relation which = UKR value = 10 }
+		command = { type = trigger which = 3291000 }
+	}
+	action_b = {
+		name = ACTIONNAME3236006B #"Rule in favour of Russia"
+		command = { type = relation which = UKR value = -10 }
+		command = { type = relation which = RUS value = 10 }
+		command = { type = trigger which = 3299000 }
+	}
+}
+event = { 
+	id = 3291000
+	random = no 
+	country = RUS 
+
+	# triggered by GER 3236006
+
+	name = EVT_3291000_NAME #"Germany rules in favour of Ukraine"
+	desc = EVT_3236006_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 10 }
+		command = { type = secedeprovince which = UKR value = 641 } # Sevastopol
+		command = { type = secedeprovince which = UKR value = 638 } # Simferopol
+		command = { type = secedeprovince which = UKR value = 640 } # Kerch
+		command = { type = secedeprovince which = UKR value = 637 } # Yevpatoriya
+		command = { type = secedeprovince which = UKR value = 624 } # Kherson
+		command = { type = secedeprovince which = UKR value = 623 } # Melitopol
+		command = { type = secedeprovince which = UKR value = 635 } # Bakhmut
+		command = { type = secedeprovince which = UKR value = 631 } # Mariupol
+		command = { type = secedeprovince which = UKR value = 630 } # Zaporozhye
+		command = { type = secedeprovince which = UKR value = 632 } # Dnepropetrovsk
+		command = { type = secedeprovince which = UKR value = 363 } # Kharkov
+		command = { type = secedeprovince which = UKR value = 639 } # Dhzankoy
+	}
+}
+event = { 
+	id = 3299000
+	random = no 
+	country = UKR 
+
+	# triggered by GER 3236006
+
+	name = EVT_3291000_NAME #"Germany rules in favour of Russia"
+	desc = EVT_3236006_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 10 }
+		command = { type = secedeprovince which = RUS value = 641 } # Sevastopol
+		command = { type = secedeprovince which = RUS value = 638 } # Simferopol
+		command = { type = secedeprovince which = RUS value = 640 } # Kerch
+		command = { type = secedeprovince which = RUS value = 637 } # Yevpatoriya
+		command = { type = secedeprovince which = RUS value = 624 } # Kherson
+		command = { type = secedeprovince which = RUS value = 623 } # Melitopol
+		command = { type = secedeprovince which = RUS value = 635 } # Bakhmut
+		command = { type = secedeprovince which = RUS value = 631 } # Mariupol
+		command = { type = secedeprovince which = RUS value = 630 } # Zaporozhye
+		command = { type = secedeprovince which = RUS value = 632 } # Dnepropetrovsk
+		command = { type = secedeprovince which = RUS value = 363 } # Kharkov
+		command = { type = secedeprovince which = RUS value = 639 } # Dhzankoy
+	}
+}
+###############################################
+# German arbitration on Vitebsk and Smolensk
+###############################################
+event = { 
+	id = 3236007
+	random = no 
+	country = GER 
+
+	trigger = {
+		alliance = { country = RUS  country = GER }
+		alliance = { country = BLR  country = GER }
+		NOT = { war = { country = SOV country = GER } }
+	}
+
+	name = EVT_3236007_NAME #"German arbitration on Vitebsk and Smolensk"
+	desc = EVT_3236007_DESC #"Both Russia and Belarus claimed the region around the cities of Vitebsk and Smolensk. Both countries presented their case to Germany - The Byelorussians were intent on capitalizing on their cooperation with Germany, but could also claim that Vitebsk was a Byelrussian-ethnic city. The Russians were not ready to part with these lands and especially not the all Russian city of Smolensk. The Reich would have to settle the dispute."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3236007A #"Rule in favour of Belarus"
+		command = { type = relation which = RUS value = -10 }
+		command = { type = relation which = BLR value = 10 }
+		command = { type = trigger which = 3291001 }
+	}
+	action_b = {
+		name = ACTIONNAME3236007B #"Split the claim - Vitebsk to Belarus, Smolensk to Russia"
+		command = { type = relation which = RUS value = -5 }
+		command = { type = relation which = BLR value = -5 }
+		command = { type = trigger which = 3291002 }
+	}
+	action_c = {
+		name = ACTIONNAME3236007C #"Rule in favour of Russia"
+		command = { type = relation which = BLR value = -10 }
+		command = { type = relation which = RUS value = 10 }
+		command = { type = trigger which = 3299001 }
+	}
+}
+event = { 
+	id = 3291001
+	random = no 
+	country = RUS 
+
+	# triggered by GER 3236007
+
+	name = EVT_3291000_NAME #"Germany rules in favour of Belarus"
+	desc = EVT_3236007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_DAMN #"We dare not challenge the III Reich"
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 10 }
+		command = { type = secedeprovince which = BLR value = 600 } # Mogilev
+		command = { type = secedeprovince which = BLR value = 591 } # Orsha
+		command = { type = secedeprovince which = BLR value = 592 } # Borisov
+		command = { type = secedeprovince which = BLR value = 589 } # Smolensk
+		command = { type = secedeprovince which = BLR value = 575 } # Safonovo
+		command = { type = secedeprovince which = BLR value = 590 } # Vitebsk
+	}
+}
+event = { 
+	id = 3291002
+	random = no 
+	country = RUS 
+
+	# triggered by GER 3236007
+
+	name = EVT_3291002_NAME #"Germany rules for partitioning"
+	desc = EVT_3236007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_ACCEPT #"We can live with this"
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 5 }
+		command = { type = secedeprovince which = BLR value = 600 } # Mogilev
+		command = { type = secedeprovince which = BLR value = 591 } # Orsha
+		command = { type = secedeprovince which = BLR value = 592 } # Borisov
+		command = { type = secedeprovince which = BLR value = 589 } # Smolensk
+		command = { type = secedeprovince which = BLR value = 575 } # Safonovo
+	}
+}
+event = { 
+	id = 3299001
+	random = no 
+	country = BLR 
+
+	# triggered by GER 3236007
+
+	name = EVT_3291000_NAME #"Germany rules in favour of Russia"
+	desc = EVT_3236007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTION_NAME_DAMN #"We shall remember this"
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 10 }
+		command = { type = secedeprovince which = RUS value = 589 } # Smolensk
+		command = { type = secedeprovince which = RUS value = 575 } # Safonovo
+		command = { type = secedeprovince which = RUS value = 590 } # Vitebsk
+	}
+}
+#########################################################
+# Crimea events
+#########################################################
+event = {
+	id = 3283029
+	random = no
+	country = SOV
+	
+	trigger = {
+		control = { province = 637 data = SOV } # Yevpatoriya
+		control = { province = 641 data = SOV } # Sevastopol
+		control = { province = 638 data = SOV } # Simferopol
+		control = { province = 640 data = SOV } # Kerch
+#		OR = {
+			event = 2024 # Historic Bitter peace
+			#event = 3283051
+			#event = 3283052
+			#event = 3283053
+#			event = 3283060 # Rosenberg/Ribbentrop peace
+#			event = 3283061
+#		}
+	}
+		
+	name = EVT_3283029_NAME #"Crimea to Germany"
+	desc = EVT_3283029_DESC #"Germany asks us the control of Crimea."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = secedeprovince which = GER value = 637 }
+		command = { type = secedeprovince which = GER value = 641 }
+		command = { type = secedeprovince which = GER value = 638 }
+		command = { type = secedeprovince which = GER value = 640 }
+	}
+}
+event = {
+	id = 3299002
+	random = no
+	country = UKR
+	
+	trigger = {
+		control = { province = 637 data = UKR } # Yevpatoriya
+		control = { province = 641 data = UKR } # Sevastopol
+		control = { province = 638 data = UKR } # Simferopol
+		control = { province = 640 data = UKR } # Kerch
+		OR = {
+#			event = 3283032 # Russian civil war
+#			event = 3283060 # Rosenberg/Ribbentrop peace
+#			event = 3283061
+			flag = NOE_Ros
+			flag = NOE_Rib_Schu
+		}
+	}
+		
+	name = EVT_3283029_NAME #"Crimea to Germany"
+	desc = EVT_3283029_DESC #"Germany asks us the control of Crimea."
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december  year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = secedeprovince which = GER value = 637 }
+		command = { type = secedeprovince which = GER value = 641 }
+		command = { type = secedeprovince which = GER value = 638 }
+		command = { type = secedeprovince which = GER value = 640 }
+	}
+}
+#################################################################
+# Russia secedes Sakhalin and Commmodore Island to Japan 
+#################################################################
+event = { 
+	id = 3199003
+	random = no 
+	country = RUS 
+
+	trigger ={
+		alliance = { country = RUS country = GER }
+		alliance = { country = JAP country = GER }
+		NOT = { exists = SOV }
+		control = { province = 1541 data = RUS } # Okha
+	}
+
+	name = EVT_3199003_NAME #"Sakhalin and Commmodore Island to Japan"
+	desc = EVT_3199003_DESC #" "
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = secedeprovince which = JAP value = 1541 } # Northern Sakhalin
+	}
+}

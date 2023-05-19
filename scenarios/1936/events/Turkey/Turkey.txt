@@ -1,0 +1,619 @@
+# converted to DH, Kane, August 3 2011
+###########################################################################
+# 3180000 - 3180999	Turkey events
+###########################################################################
+
+##########################################################################
+# Was 902000 If Turkey become fascist, add new claims (by Generalisimo)
+#########################################################################
+event = { 
+	id = 3180000 # 3900000
+	random = no 
+	country = TUR
+
+	trigger = {
+		random = 50
+		war = { country = GER country = SOV }
+		headofstate = 12031 # Inönü
+		NOT = {
+			OR = {
+				alliance = { country = TUR country = SOV }
+				alliance = { country = TUR country = ENG }
+				alliance = { country = TUR country = USA }
+				alliance = { country = TUR country = GER }
+				ispuppet = GER
+				ispuppet = TUR
+				war = { country = GER country = TUR }
+			}
+		}
+	}
+
+	name = EVT_3180000_NAME
+	desc = EVT_3180000_DESC 
+	style = 0 
+
+	date = { day = 7 month = february year = 1941 } 
+	offset = 15 
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = { 
+		name = ACTIONNAME3180000A
+		command = { type = dissent value = 10 }	
+		command = { type = money value = 5 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	} 
+	action_b = { 
+		name = ACTIONNAME3180000B 
+		
+		#Cyprus
+		command =  { type = addcore which = 388  } #Lefcosia
+		command =  { type = addcore which = 387  } #Gazimagusa
+		#italian islands in the Aegean Sea
+		command =  { type = addcore which = 379  } #Rodos
+		command =  { type = addcore which = 378  } #Kalymnos 
+		#Syria
+		command =  { type = addcore which = 1015 } #El Qamisli
+		command =  { type = addcore which = 1014 } #Deir es Zor
+		command =  { type = addcore which = 1021 } #Aleppo
+		command =  { type = addcore which = 1017 } #Hims
+		command =  { type = addcore which = 1018 } #Trablos
+		command =  { type = addcore which = 1016 } #Damascus
+		command =  { type = addcore which = 1019 } #Beirut 
+		
+		command = { type = money value = -10 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = sleepevent which = 3180002 }
+	} 
+}
+#################################################################################
+# Was 902025 - (TUR) Turkey Passes The Varlik Vergisi (by OHgame)
+#################################################################################
+event = { 
+	id = 3180001 # 3900001
+	random = no
+	country = TUR
+
+	trigger = {
+		atwar = no
+		war = { country = ENG country = GER }
+		war = { country = GER country = SOV }
+		OR = {
+			control = { province = 641 data = GER } 
+			control = { province = 641 data = ROM } # Sebastopol under Axis control
+		} 
+	}
+
+	name = EVT_3180001_NAME
+	desc = EVT_3180001_DESC 
+	style = 0 
+
+	date = { day = 0 month = january year = 1942 } 
+	offset = 45
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3180001A
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = -1 } #-15
+		command = { type = construct which = ic where = 1075 value = 1 }
+#		command = { type = construct which = ic where = 409 value = 1 }
+#		command = { type = construct which = ic where = 1078 value = 1 }
+#		command = { type = construct which = ic where = 1077 value = 1 }
+#		command = { type = construct which = ic where = 1057 value = 1 }
+	}
+	action_b = { 
+		name = ACTIONNAME3180001B
+		command = { }
+	}
+}
+#########################################################################
+# Was 902026 - (TUR) Inonu Cracks Down on the Far Right (by OHgamer)
+#########################################################################
+event = {
+	id = 3180002 # 3900002
+	random = no
+	country = TUR
+
+	trigger = {
+		headofstate = 12031 # Inönü
+		atwar = no
+		war = { country = ENG country = GER }
+		war = { country = GER country = SOV }
+		control = { province = 617 data = SOV } # Kiev
+		control = { province = 613 data = SOV } # Kirovograd
+		control = { province = 750 data = ENG } # Tripoli
+		control = { province = 388 data = ENG } # Nicosia
+		control = { province = 900 data = ENG } # Suez
+		OR = {
+			control = { province = 421 data = ENG } 
+			control = { province = 421 data = NZL } 
+			control = { province = 421 data = SAF } 
+			control = { province = 421 data = AST } 
+			control = { province = 421 data = USA } # Napoli under Allied Control
+		}
+	}
+
+	name = EVT_3180002_NAME
+	desc = EVT_3180002_DESC
+	style = 0
+
+	date = { day = 0 month = may year = 1944 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = { 
+		name = ACTIONNAME3180002A
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 2 }
+		command = { type = sleepevent which = 3180000 } # The fascists are gaining more power
+	}
+	action_b = { 
+		name = ACTIONNAME3180002B
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 15 }
+	}
+} 
+###############################################
+# Was 902027 - (TUR) In Memoriam, President Mustafa Kemal Ataturk (by OHgamer)
+###############################################
+event = { 
+	id = 3180003 # 3900003
+	random = no
+	country = TUR
+
+	trigger = { headofstate = 12001 } # Ataturk still is in charge
+
+	name = EVT_3180003_NAME
+	desc = EVT_3180003_DESC 
+	style = 0 
+
+	date = { day = 22 month = november year = 1938 } 
+	offset = 1
+	deathdate = { day = 25 month = november year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME3180003A
+		command = { type = dissent value = -15 }
+		command = { type = headofstate which = 12031 } # Ismet Inonu
+		command = { type = sleepminister which = 12001 } # Ataturk dies 
+	}
+}
+###############################################
+# Army Reinforce Program - 1st act
+# by CCM von Hausser
+###############################################
+event = { 
+	id = 3180004
+	random = no
+	country = TUR
+
+	name = EVT_3180004_NAME
+	desc = EVT_3180004_DESC 
+	style = 0 
+
+	date = { day = 0 month = january year = 1939 } 
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3180004A
+		command = { type = manpowerpool value = 100 }
+		command = { type = dissent value = 2 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180004B
+		command = { }
+	}
+}
+
+###############################################
+# Army Reinforce Program - 2nd act
+# by CCM von Hausser
+###############################################
+event = { 
+	id = 3180005
+	random = no
+	country = TUR
+
+	trigger = { event = 3180004 }
+
+	name = EVT_3180005_NAME
+	desc = EVT_3180005_DESC 
+	style = 0 
+
+	date = { day = 0 month = january year = 1940 } 
+	offset = 7
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3180005A
+		command = { type = manpowerpool value = 200 }
+		command = { type = dissent value = 3 }
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180005B
+		command = { }
+	}
+}
+###############################################
+# Army Reinforce Program - 3rd act
+# by CCM von Hausser
+###############################################
+event = { 
+	id = 3180006
+	random = no
+	country = TUR
+
+	trigger = { event = 3180005 }
+
+	name = EVT_3180006_NAME
+	desc = EVT_3180006_DESC 
+	style = 0 
+
+	date = { day = 0 month = january year = 1941 } 
+	offset = 7
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3180006A
+		command = { type = manpowerpool value = 300 }
+		command = { type = dissent value = 5 }
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180006B
+		command = { }
+	}
+}
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3180007
+	random = no
+	country = TUR
+	
+	trigger = { 
+		NOT = { alliance = { country = TUR country = ENG } }
+		NOT = { alliance = { country = TUR country = GER } }
+		NOT = { alliance = { country = TUR country = ITA } }
+		NOT = { alliance = { country = TUR country = SOV } }
+		OR = {
+			alliance = { country = TUR country = YUG }
+			alliance = { country = TUR country = ROM }
+			alliance = { country = TUR country = GRE }
+		}
+		atwar = GER
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3180007A
+		command = { type = leave_alliance }
+		command = { type = embargo which = TUR where = CZE value = 0 }
+		command = { type = embargo which = TUR where = BUL value = 0 }
+		command = { type = embargo which = TUR where = YUG value = 0 }
+		command = { type = embargo which = TUR where = HUN value = 0 }
+		command = { type = embargo which = TUR where = ROM value = 0 }
+		command = { type = manpowerpool value = 200 }
+	}
+}
+
+########################################################## 
+# End of Balkan Entente 2
+########################################################## 
+event = { 
+	id = 3180010
+	random = no
+	country = TUR
+	
+	trigger = { 
+			NOT = { event = 3180007 }
+			alliance = { country = TUR country = GER }
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3180007A
+		command = { type = embargo which = TUR where = CZE value = 0 }
+		command = { type = embargo which = TUR where = BUL value = 0 }
+		command = { type = embargo which = TUR where = YUG value = 0 }
+		command = { type = embargo which = TUR where = HUN value = 0 }
+		command = { type = embargo which = TUR where = ROM value = 0 }
+		command = { type = manpowerpool value = 200 }
+	}
+}
+#################################################################
+# Reservists call						
+#################################################################
+event = {	
+	id = 3180008 
+	random = no
+	country = TUR
+	
+	trigger = { under_attack = TUR }
+	
+	name = EVT_3180008_NAME
+	desc = EVT_3180008_DESC  
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = january year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3180008A
+		command = { type = manpowerpool value = 150 }
+#		command = { type = dissent value = 5 }
+		
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180008B
+		command = { }
+	}
+}
+
+#################################################################
+# National Call for Mainland Defence				
+#################################################################
+event = {	
+	id = 3180009
+	random = no
+	country = TUR
+	
+	trigger = {
+		atwar = yes
+		lost_national = { country = TUR value = 10 }
+		  }
+	
+	name = EVT_3180009_NAME
+	desc = EVT_MOBDMEN_DEsc 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 0 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99					
+		name = ACTIONNAME3180009A
+		command = { type = manpowerpool value = 300 }	
+#		command = { type = dissent value = 5 }
+		
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180009B
+		command = { }
+	}
+}
+
+#################################################################
+# German–Turkish Non-Aggression Pact			
+#################################################################
+event = {	
+	id = 3180015
+	random = no
+	country = TUR
+	
+    #triggered by GER 3136237
+	
+	name = EVT_3136237_NAME
+	desc = EVT_3136237_DESC
+	picture = "ger_event_ger_tur_pact"
+	style = 2
+	
+	action_a = {
+		ai_chance = 99					
+		name = ACTIONNAME3180015A
+        command = { type = non_aggression which = TUR where = GER when = 1440 }
+		command = { type = dissent value = -1 }   
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3180015B
+		command = { type = dissent value = 1 }  
+        command = { type = sleepevent which = 3136237 }		
+	}
+}
+
+#################################################################
+# Claudius-Abkommen - the Claudius trade agreement		
+#################################################################
+event = {	
+	id = 3180016
+	random = no
+	country = TUR
+	
+    #triggered by GER 3136238
+	
+	name = EVT_3136237_NAME
+	desc = EVT_3136237_DESC
+	picture = "ger_event_ger_tur_pact_2"
+	style = 2
+	
+	action_a = {
+		ai_chance = 100					
+		name = ACTIONNAME3180015A
+        command = { type = tc_mod  value = 7.5 }
+		command = { type = trade   which = TUR where = GER  rare_materials = -15 when = 1440 value = 1 } #4 years of economic aid, can't be cancelled
+		command = { type = dissent value = -1 }   
+	}
+	
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3180015B
+		command = { type = dissent value = 1 }  
+        #command = { type = sleepevent which = 3136237 }		
+	}
+}
+
+#################################################################
+# GER weapons for TUR 	
+#################################################################
+event = {	
+	id = 3180017
+	random = no
+	country = TUR
+
+	trigger = {
+	  atwar = no
+	  trade = { country  = GER country = TUR } 	
+        NOT = { alliance = { country = ENG country = TUR } }
+		NOT = { alliance = { country = SOV country = TUR } }
+		NOT = { alliance = { country = USA country = TUR } }
+		NOT = { war      = { country = GER country = TUR } }
+		NOT = { war      = { country = ITA country = TUR } }
+		event  = 3180015
+		event  = 3180016
+		event  = 3136505 #GER Decision Kriegsgeräte GmbH
+	}		
+	
+	name = EVT_3180017_NAME
+	desc = EVT_3180017_DESC
+	picture = "tur_event_ger_armor"
+	style = 2
+	
+	date = { day = 0 month = march year = 1943 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1945 }	
+	
+	action_a = {
+		ai_chance = 100					
+		name = ACTIONNAME3180017A #We need tanks!
+        command = { type = trigger which = 3136239 } 
+	}
+	
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3180017B #we dont need tanks!
+		command = { type = dissent value = 1 }  
+        command = { type = sleepevent which = 3136239 }
+        command = { type = sleepevent which = 3180018 }		
+	}
+}
+
+event = {	
+	id = 3180018
+	random = no
+	country = TUR
+
+    #triggered by GER 3136239
+	
+	name = EVT_3180017_NAME
+	desc = EVT_3180017_DESC
+	picture = "tur_event_ger_armor"
+	style = 2
+	
+	action_a = {
+      	name = ACTIONNAME3180018A #We need tanks!
+		command = { type = supplies   value = 1250 }
+		#For DH 1.04
+        command = { type = add_brigade value = light_armor_brigade when = 6 }
+        command = { type = add_brigade value = light_armor_brigade when = 6 }		
+	}
+}
+#################################################################
+# UK tries to stop GER-TUR trade - TUR reaction
+#################################################################
+
+event = {	
+	id = 3180019
+	random = no
+	country = TUR
+
+    #triggered by ENG DEC 3131620
+	
+	name = EVT_3131620_NAME
+	desc = EVT_3131620_DESC
+	picture = "eng_event_uk_ger_tur_trade"
+	style = 2
+	
+	action_a = {
+      	name = ACTIONNAME3180019A #Deal!
+		ai_chance = 95	
+		command = { type = supplies value = 2500 }
+		command = { type = money    value = 1000 }  
+		command = { type = activate_division which = 11700 value = 500 when = 0 }
+		command = { type = activate_division which = 11700 value = 501 when = 0 }
+		command = { type = trade   which = TUR where = GER  rare_materials = -10 supplies = 2.5 when = 360 value = 1 }
+		command = { type = trade   which = TUR where = ENG  rare_materials = -10 money    = 2   when = 360 value = 1 }
+	}
+	
+	action_b = {
+      	name = ACTIONNAME3180019B #No deal!
+		ai_chance = 5
+		command = { type = relation which = ENG value = -75 }
+		command = { type = dissent  value = 1 }
+	}
+}	
+
+#################################################################
+# Formation of the Oriental Entente 
+#################################################################
+event = {	
+	id = 3131625
+	random = no
+	country = TUR
+
+	name = EVT_3131625_NAME
+	desc = EVT_3131625_DESC
+	picture = "tur_event_islamic_alliance"
+	style = 2
+	
+	date = { day = 9 month = july year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1937 }	
+		
+	action_a = {
+      	name = ACTIONNAME3131625A #
+		ai_chance = 99	
+		command = { type = supplies value = -500 }
+		command = { type = money    value = -20  }  
+        command = { type = relation which = AFG value = 25 }
+		command = { type = relation which = IRQ value = 25 }
+		command = { type = relation which = PER value = 25 }
+		command = { type = non_aggression which = TUR where = AFG  } 
+		command = { type = non_aggression which = TUR where = IRQ  } 
+		command = { type = non_aggression which = TUR where = PER  } 
+	}
+	
+	action_b = {
+      	name = ACTIONNAME3131625B #
+		ai_chance = 1
+	    command = { type = money    value = -150 }
+        command = { type = relation which = AFG value = -45 }
+		command = { type = relation which = IRQ value = -45 }
+		command = { type = relation which = PER value = -45 }
+		command = { type = dissent  value = 2 }
+	}
+}
+#################################################################

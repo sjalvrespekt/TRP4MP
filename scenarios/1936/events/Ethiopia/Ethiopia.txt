@@ -1,0 +1,326 @@
+# converted to DH, Kane, July 15 2011
+#########################################################################
+#  Creation of a Ethiopian Vassal state under Italian control (by Generalisimo)
+#########################################################################
+event = { 
+	id = 552004
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145013 B
+
+	name = EVT_552004_NAME # Creation of a Ethiopian Vassal
+	desc = EVT_552004_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552004A # Italy has taken control and installed a new government
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = set_domestic which = democratic value = 0 }
+		command = { type = headofstate which = 65001 }
+# 		command = { type = headofgovernment which = 65012 }
+# 		command = { type = foreignminister which = 65013 }
+# 		command = { type = armamentminister which = 65014 }
+# 		command = { type = ministerofsecurity which = 65015 }
+# 		command = { type = ministerofintelligence which = 65016 }
+# 		command = { type = chiefofstaff which = 65017 }
+# 		command = { type = chiefofarmy which = 65018 }
+# 		command = { type = chiefofnavy which = 65019 }
+# 		command = { type = chiefofair which = 65020 }
+		command = { type = dissent value = 5 }
+		command = { type = access which = ITA }
+		command = { type = alliance which = ITA }
+	}
+}
+
+#########################################################################
+#  Italian East Africa Conquered! (by Generalisimo)
+#########################################################################
+event = { 
+	id = 552006
+	random = no
+	country = ETH
+
+	trigger = {
+		NOT = { alliance = { country = ETH  country = ENG } }
+		war = { country = ETH  country = ITA }
+		control = { province = 834 data = ETH } # Gardo
+		control = { province = 836 data = ETH } # Mogadishu
+		control = { province = 817 data = ETH } # Asmara
+	}
+
+	name = EVT_552006_NAME # The Ethiopian defense against the Italian invasion
+ 	desc = EVT_552006_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME552006A # Demand peace and freedom
+		command = { type = trigger which = 3145014 }
+	}
+	action_b = {
+		name = ACTIONNAME552006B # Continue fighting the Fascists
+		command = {  }
+	}
+}
+#########################################################################
+#  Italian response to our offer of peace (by Generalisimo)
+#  552007 to 552010
+# modified by Luxor
+#########################################################################
+event = { 
+	id = 552007
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145014
+
+	name = EVT_552007_NAME # Italy agrees to Ethiopian demands
+	desc = EVT_552007_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552007A # Excellent, we are sovereign once again
+		command = { type = addcore which = 834 }
+		command = { type = addcore which = 835 }
+		command = { type = addcore which = 836 }
+		command = { type = addcore which = 837 }
+		command = { type = addcore which = 838 }
+		command = { type = addcore which = 815 }
+		command = { type = addcore which = 816 }
+		command = { type = addcore which = 817 }
+		command = { type = dissent value = -20 }
+	}
+}
+
+event = { 
+	id = 552008
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145014
+
+	name = EVT_552008_NAME # Italy offers Eritrea to Ethiopia
+	desc = EVT_552008_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552008A # Accept the offer, it is enough
+		command = { type = addcore which = 815 }
+		command = { type = addcore which = 816 }
+		command = { type = addcore which = 817 }
+		command = { type = dissent value = -20 }
+		command = { type = trigger which = 3145015 }
+	}
+	action_b = {
+		name = ACTIONNAME552008B # Refuse the offer, it is not enough
+		command = { type = trigger which = 3145016 }
+	}
+}
+
+event = { 
+	id = 552009
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145014
+
+	name = EVT_552009_NAME # Italy offers Somaliland to Ethiopia
+	desc = EVT_552009_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552009A # Accept the offer, it is enough
+		command = { type = addcore which = 834 }
+		command = { type = addcore which = 835 }
+		command = { type = addcore which = 836 }
+		command = { type = addcore which = 837 }
+		command = { type = addcore which = 838 }
+		command = { type = dissent value = -20 }
+		command = { type = trigger which = 3145017 }
+	}
+	action_b = {
+		name = ACTIONNAME552009B # Refuse the offer, it is not enough
+		command = { type = trigger which = 3145018 }
+	}
+}
+
+event = { 
+	id = 552010
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145014
+
+	name = EVT_552010_NAME # Italy refuses Ethiopian demands
+	desc = EVT_552010_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552010A # We will never surrender
+		command = {  }
+	}
+}
+#########################################################################
+#  Ethiopian demands Claims on Italian East Africa (by Generalisimo)
+#########################################################################
+event = { 
+	id = 552011
+	random = no
+	country = ETH
+
+	trigger = {
+		alliance = { country = ETH  country = ENG }
+		NOT = {	alliance = { country = ETH  country = ITA } }
+		NOT = {
+			OR = {
+				event = 552007 # ETH, All
+				event = 3145015 # ITA, Eritrea
+				event = 3145017 # ITA, Somaliland
+			}
+		}
+	}
+
+	name = EVT_552011_NAME # Ethiopia claims Italian East Africa
+	desc = EVT_552011_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME552011A # Send our demands to the British
+		command = { type = trigger which = 3131037 }
+	}
+}
+#########################################################################
+#  UK response to our claim (by Generalisimo)
+#  552012 to 552014
+#########################################################################
+event = { 
+	id = 552012
+	random = no
+	country = ETH
+
+	#triggered by ENG 3131037
+	
+	name = EVT_552012_NAME # Britain accepts the Ethiopian demands with conditions
+	desc = EVT_552012_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552012A # Accept the British offer
+		command = { type = addcore which = 834 }
+		command = { type = addcore which = 835 }
+		command = { type = addcore which = 836 }
+		command = { type = addcore which = 837 }
+		command = { type = addcore which = 838 }
+		command = { type = access which = ENG }
+		command = { type = trigger which = 3131039 }
+	}
+	action_b = {
+		name = ACTIONNAME552012B # Refuse the British offer
+		command = { type = trigger which = 3131038 }
+	}
+}
+
+event = { 
+	id = 552013
+	random = no
+	country = ETH
+
+	#triggered by ENG 3131037
+
+	name = EVT_552013_NAME # Britain accepts the Ethiopian demands unconditionally
+	desc = EVT_552013_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552013A # We are sovereign once again
+		command = { type = addcore which = 834 }
+		command = { type = addcore which = 835 }
+		command = { type = addcore which = 836 }
+		command = { type = addcore which = 837 }
+		command = { type = addcore which = 838 }
+	}
+}
+
+event = { 
+	id = 552014
+	random = no
+	country = ETH
+
+	#triggered by ENG 3131037
+
+	name = EVT_552014_NAME # Britain refuses Ethiopian demands
+	desc = EVT_552014_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552014A # We stand alone in our fight
+		command = {  } # none
+	}
+}
+#########################################################################
+#  552016 - Creation of a Ethiopian Vassal w/Haile Selassie (by Generalisimo)
+#########################################################################
+event = { 
+	id = 552016
+	random = no
+	country = ETH
+
+	# triggered by ITA 3145026
+
+	name = EVT_552016_NAME # Creation of a Ethiopian Vassal with Haile Selassie
+	desc = EVT_552016_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME552016A # We are now a mere puppet state of Italy
+		command = { type = set_domestic which = political_left value = 2 }
+		command = { type = set_domestic which = democratic value = 0 }
+		command = { type = headofstate which = 65001 } # Haile Selassie
+# 		command = { type = headofgovernment which = 65012 }
+# 		command = { type = foreignminister which = 65013 }
+# 		command = { type = armamentminister which = 65014 }
+# 		command = { type = ministerofsecurity which = 65015 }
+# 		command = { type = ministerofintelligence which = 65016 }
+# 		command = { type = chiefofstaff which = 65017 }
+# 		command = { type = chiefofarmy which = 65018 }
+# 		command = { type = chiefofnavy which = 65019 }
+# 		command = { type = chiefofair which = 65020 }
+		command = { type = dissent value = 0 }
+		command = { type = access which = ITA }
+	}
+}
+##############################################################################
+# Ethiopia declares war upon allies if Italy is at war with them (backup event)
+##############################################################################
+event = {
+	id = 552017
+	random = no
+	country = ETH
+	
+	trigger = {
+		puppet = { country = ETH country = ITA }
+		war = { country = ITA country = ENG }
+		NOT = { war = { country = ETH country = ENG } }
+	}
+	
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = war which = ENG }
+	}
+}

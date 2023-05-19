@@ -1,0 +1,142 @@
+# checked DH
+###########################################################################
+#	8900000 - 8999999
+###########################################################################
+##########################################################################
+# Was 602020 - (GUA) Guatemala express their solidarity (by Generalisimo)
+#########################################################################
+event = { 
+	id = 8900000
+	random = no 
+	country = GUA
+
+	trigger = {
+		war = { country = USA country = JAP } 
+		NOT = {
+			OR = {
+				ispuppet = GUA
+				alliance = { country = GUA country = ENG } 
+				alliance = { country = GUA country = USA } 
+				alliance = { country = GUA country = GER } 
+				alliance = { country = GUA country = SOV } 
+				atwar = GUA
+			}
+		}
+	}
+
+	name = EVT_8900000_NAME 
+	desc = EVT_8900000_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME8900000A 
+		command = { type = alliance which = USA }
+		command = { type = access which = USA }
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 10 }
+	} 
+	action_b = { 
+		name = ACTIONNAME8900000B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}
+##########################################################################
+# Was 602021 - (GUA) Guatemala express their solidarity II (by Generalisimo)
+#########################################################################
+event = { 
+	id = 8900001
+	random = no 
+	country = GUA
+
+	trigger = {
+		event = 8900000
+		war = { country = USA country = JAP } 
+		war = { country = GUA country = JAP } 
+		NOT = {
+			OR = {
+				ispuppet = GUA
+				alliance = { country = GUA country = ENG } 
+				alliance = { country = GUA country = USA } 
+				alliance = { country = GUA country = GER } 
+				alliance = { country = GUA country = SOV } 
+				atwar = GUA
+			}
+		}
+	}
+
+	name = EVT_8900001_NAME 
+	desc = EVT_8900001_DESC
+	style = 0 
+
+	date = { day = 11 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME8900001A 
+		command = { type = war which = GER }
+		command = { type = war which = ITA }
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 10 }
+	} 
+	action_b = { 
+		name = ACTIONNAME8900001B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}
+##########################################################################
+# Was 602022 - (GUA) Guatemala joins the allies (by Generalisimo)
+#########################################################################
+event = { 
+	id = 8900002
+	random = no 
+	country = GUA
+
+	trigger = {
+		event = 8900000
+		war = { country = USA country = JAP } 
+		war = { country = GUA country = JAP } 	
+		war = { country = GUA country = GER } 
+		war = { country = GUA country = ITA } 
+		alliance = { country = USA country = ENG } 
+		exists = ENG
+		NOT = {
+			OR = {
+				ispuppet = GUA
+				alliance = { country = GUA country = ENG } 
+				alliance = { country = GUA country = USA } 
+				alliance = { country = GUA country = GER } 
+				alliance = { country = GUA country = SOV } 
+			}
+		}
+	}
+
+	name = EVT_8900002_NAME 
+	desc = EVT_8900002_DESC
+	style = 0 
+
+	date = { day = 8 month = december year = 1941 } 
+	offset = 3
+	deathdate = { day = 29 month = december year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME8900002A 
+		command = { type = alliance which = ENG }
+		command = { type = dissent value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 5 }
+	} 
+	action_b = { 
+		name = ACTIONNAME8900002B 
+		command = { type = money value = -5 }
+		command = { type = domestic which = democratic value = -1 }
+	} 
+}

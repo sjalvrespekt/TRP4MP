@@ -1,0 +1,438 @@
+####################################
+# Finland AI events 32000 - 32099 by Lothos
+####################################
+# checked DH
+#
+# Behavior Flags
+#	FINHomeland		= Defend homeland only and try not to go any further
+#	FINNormal		= FINHomeland
+################
+# Minister of Security Section 32000 - 32009
+#############################################
+event = { # Richard Lorentz takes power
+	id = 32000
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29106 # Richard Lorentz
+		NOT = { InCabinet = 29106 }
+		NOT = { minister = 29114 } # Johan W. Rangell
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 29106 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Johan W. Rangell takes power
+	id = 32001
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29114 # Johan W. Rangell
+		NOT = { InCabinet = 29114 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 29114 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 32010 - 32019
+#############################################
+event = { # Hugo Österman takes power
+	id = 32010
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29136 # Hugo Österman
+		NOT = { InCabinet = 29136 }
+		atwar = no
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 29136 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Carl G. Mannerheim takes power
+	id = 32011
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29137 # Carl G. Mannerheim
+		NOT = { InCabinet = 29137 }
+		atwar = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 29137 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 32020 - 32029
+#############################################
+################
+# Chief of the Army Section 32030 - 32031
+#############################################
+event = { # Kaarle Voinonmaa takes power
+	id = 32030
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29140 # Kaarle Voinonmaa
+		NOT = { InCabinet = 29140 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 29145 } # Carl G. Mannerheim
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 29140 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Carl G. Mannerheim takes power
+	id = 32031
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 29145 # Carl G. Mannerheim
+		NOT = { InCabinet = 29145 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 29145 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 32040 - 32049
+#############################################
+event = { # Juho Niukkanen takes power
+	id = 32040
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29086 # Juho Niukkanen
+		NOT = { InCabinet = 29086 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 29086 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Arvi A. Oksala takes power
+	id = 32041
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29004 # Juho Niukkanen
+		NOT = { InCabinet = 29004 }
+		NOT = { minister = 29086 } # Arvi A. Oksala
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 29004 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 32050 - 32059
+#############################################
+event = { # Toivo Somerto takes power
+	id = 32050
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 29155 # Toivo Somerto
+		NOT = { InCabinet = 29155 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 29155 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# AI Events section 32060 - 32099
+#############################################
+
+################
+# Homeland Defense
+#############################################
+event = { 
+	id = 32060
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = FINHomeland }
+		war = { country = FIN country = SOV }
+		NOT = {	lost_national = { country = FIN value = 2 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = FINHomeland }
+		command = { type = local_clrflag which = FINNormal }
+		command = { type = ai which = "switch/FIN_Homeland.ai" }
+	}
+}
+event = { 
+	id = 32061
+	random = no 
+	country = FIN
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = FINNormal }
+		OR = {
+			NOT = { war = { country = FIN country = SOV } }
+			lost_national = { country = FIN value = 2 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = FINHomeland }
+		command = { type = local_setflag which = FINNormal }
+		command = { type = ai which = "switch/FIN_Normal.ai" }
+	}
+}
+################
+# Finland joins Germany because of Winter War Campaign and GER DOW SOV
+#############################################
+event = {
+	id = 32062
+	random = no 
+	country = FIN
+	
+	trigger = {
+		ai = yes
+		ai = GER
+		event = 3200 # Winter War
+		war = { country = GER country = SOV }
+		infantry = { country = FIN value = 7 }
+		NOT = { alliance = { country = FIN country = SOV } }
+		NOT = { alliance = { country = FIN country = ENG } }
+		NOT = { alliance = { country = FIN country = ITA } }
+		NOT = { alliance = { country = FIN country = GER } }
+		NOT = { alliance = { country = FIN country = TUR } }
+		atwar = no
+	}
+
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 13 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		#command = { type = alliance which = GER }
+		command = { type = ai which = "switch/FIN_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+		command = { type = local_setflag which = FINHomeland }
+		command = { type = local_clrflag which = FINNormal }
+		command = { type = ai which = "switch/FIN_Homeland.ai" }
+	}
+}
+################
+# Finland lowers neutrality to join Axis
+#############################################
+event = {
+	id = 32063
+	random = no 
+	country = FIN
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		event = 2620 # Winter War
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = { 
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = FINHomeland }
+		command = { type = local_clrflag which = FINNormal }
+		command = { type = ai which = "switch/FIN_Homeland.ai" }
+	}
+}
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 32064
+	random = no 
+	country = FIN
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = FIN_low_mp }
+		not = { manpower = 20 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/FIN_low_mp.ai" }
+		command = { type = local_setflag which = FIN_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 32065
+	random = no 
+	country = FIN
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = FIN_low_mp
+		manpower = 35
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/FIN_normal_mp.ai" }
+		command = { type = local_clrflag which = FIN_low_mp }
+	}
+}

@@ -1,0 +1,265 @@
+allowed_brigades =  escort
+
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# building costs increase at 4% per year
+
+# 0 - Naval Bomber 1930
+model = {
+	cost 						= 9.45 #14.18
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.5
+	maxspeed					= 200
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 0
+	surfacedefence				= 5
+	airdefence					= 6 #2
+	airattack					= 4 #1
+	strategicattack				= 0
+	softattack					= 5
+	hardattack					= 0
+	navalattack					= 6
+	range						= 800
+	supplyconsumption 			= 2.84
+	fuelconsumption				= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.6
+	equipment = { bomber = 100 manpower = 500 }
+}
+# 1 - Naval Bomber 1937
+model = {
+	cost 						= 12.44 #18.66
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.6
+	maxspeed					= 300
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 6
+	airdefence					= 7 #3
+	airattack					= 5 #2
+	strategicattack				= 1
+	softattack					= 6
+	hardattack					= 0
+	navalattack					= 9
+	range						= 1000
+	supplyconsumption 			= 3.73
+	fuelconsumption				= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { bomber = 100 manpower = 600 }
+}
+# 2 - Naval Bomber 1939
+model = {
+	cost 						= 13.45 #20.18
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.6
+	maxspeed					= 350
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 8
+	airdefence					= 8 #5
+	airattack					= 5 #3
+	strategicattack				= 1
+	softattack					= 7
+	hardattack					= 1
+	navalattack					= 9
+	range						= 1300
+	supplyconsumption 			= 4.04
+	fuelconsumption				= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { bomber = 100 manpower = 600 }
+}
+# 3 - Naval Bomber 1941
+model = {
+	cost 						= 14.55 #21.83
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.3
+	maxspeed					= 400
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 10
+	airdefence					= 9 #7
+	airattack					= 6 #4
+	strategicattack				= 2
+	softattack					= 8
+	hardattack					= 1
+	navalattack					= 14
+	range						= 1500
+	supplyconsumption 			= 4.37
+	fuelconsumption				= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { bomber = 100 manpower = 300 }
+}
+# 3 - Naval Bomber 1944
+model = {
+	cost 						= 16.37 #24.55
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.3
+	maxspeed					= 500
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 10
+	airdefence					= 11 #9
+	airattack					= 7 #4
+	strategicattack				= 2
+	softattack					= 9
+	hardattack					= 1
+	navalattack					= 18
+	range						= 1800
+	supplyconsumption 			= 4.91
+	fuelconsumption				= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { bomber = 100 manpower = 300 }
+}
+# 5 - Turbojet Naval Bomber 1945
+model = {
+	cost 						= 17.02 #25.53
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 800
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 25
+	airdefence					= 12 #13
+	airattack					= 8 #6
+	strategicattack				= 3
+	softattack					= 10
+	hardattack					= 1
+	navalattack					= 27
+	range						= 1000
+	supplyconsumption 			= 5.11
+	fuelconsumption				= 7.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.25
+	equipment = { bomber = 100 manpower = 400 }
+}
+# 6 - Turbojet Naval Bomber 1948
+model = {
+	cost 						= 19.15 #28.72
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 850
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 25
+	airdefence					= 14 #17
+	airattack					= 9 #8
+	strategicattack				= 3
+	softattack					= 11
+	hardattack					= 1
+	navalattack					= 27
+	range						= 1500
+	supplyconsumption 			= 5.75
+	fuelconsumption				= 7.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { bomber = 100 manpower = 400 }
+}
+# 7 - Turbojet Naval Bomber 1951
+model = {
+	cost 						= 21.54 #32.31
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 900
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 25
+	airdefence					= 16 #21
+	airattack					= 11 #9
+	strategicattack				= 3
+	softattack					= 13
+	hardattack					= 1
+	navalattack					= 41
+	range						= 1800
+	supplyconsumption 			= 6.46
+	fuelconsumption				= 7.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { bomber = 100 manpower = 400 }
+}
+# 8 - Turbojet Naval Bomber 1955
+model = {
+	cost 						= 25.2 #37.79
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 1000
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 25
+	airdefence					= 18 #26
+	airattack					= 12 #11
+	strategicattack				= 4
+	softattack					= 15
+	hardattack					= 2
+	navalattack					= 41
+	range						= 2000
+	supplyconsumption 			= 7.56
+	fuelconsumption				= 7.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { bomber = 100 manpower = 400 }
+}
+# 9 - Turbojet Naval Bomber 1960
+model = {
+	cost 						= 30.66 #45.98
+	buildtime					= 270 #180
+	defaultorganisation 		= 30
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 1200
+	surfacedetectioncapability	= 4
+	airdetectioncapability		= 1
+	surfacedefence				= 25
+	airdefence					= 21 #30
+	airattack					= 14 #13
+	strategicattack				= 4
+	softattack					= 18
+	hardattack					= 2
+	navalattack					= 41
+	range						= 2500
+	supplyconsumption 			= 9.2
+	fuelconsumption				= 7.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { bomber = 100 manpower = 400 }
+}

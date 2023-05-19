@@ -1,0 +1,134 @@
+# checked DH 
+###########################################################################
+#	4300000 - 4399999
+###########################################################################
+#######################################
+# Was 1052028 (ARG)Promise aid to Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 4300000
+	random = no
+	country = ARG
+
+	# triggered by SOV 222041
+
+	name = EVT_4300000_NAME # Promise aid to Finland
+	desc = EVT_4300000_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME4300000A # Promise aid
+		command = { type = money value = 2 }
+		command = { type = trigger which = 1002066 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4300000B # We wont help
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 1002066 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#######################################
+# Was 1052029 (ARG)send grain to Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 4300001
+	random = no
+	country = ARG
+
+	trigger = {
+		random = 20
+		event = 4300000
+		war = { country = FIN country = SOV }
+		NOT  = {
+			event = 2628
+			alliance = { country = SOV country = ARG }
+		}
+	}
+
+	name = EVT_4300001_NAME # Grain for Finland
+	desc = EVT_4300001_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME4300001A # Send Grain
+		command = { type = supplies value = -20 }
+		command = { type = trigger which = 8400018 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4300001B # We need it ourself
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 8400018 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+############################################
+# Was 1052038 1936 Nobel Peace Prize
+############################################
+event = {
+	id = 4300002
+	random = no
+	country = ARG
+
+	trigger = {
+		exists = SWE 
+		exists = ARG
+		NOT = {
+			war = { country = SWE country = ARG }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_4300002_NAME # 1936 Nobel Peace Prize
+	desc = EVT_4300002_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1936 }
+
+	action_a = {
+		name = "ACTIONNAME4300002A" # A proud moment for our nation
+		command = { type = dissent value = -1 }
+	}
+}
+############################################
+# Was 1052039 1947 Medicine
+############################################
+event = {
+	id = 4300003
+	random = no
+	country = ARG
+
+	trigger = {
+		exists = SWE 
+		exists = ARG
+		NOT = {
+			war = { country = SWE country = ARG }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_4300003_NAME # 1947 Nobel Prize in Medicine
+	desc = EVT_4300003_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1947 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = "ACTIONNAME4300003A" # 
+		command = { type = dissent value = -1 }
+	}
+}

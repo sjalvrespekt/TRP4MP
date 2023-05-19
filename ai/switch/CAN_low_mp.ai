@@ -1,0 +1,101 @@
+# Canada normal MP AI file
+
+upgrading = 0.50
+reinforcement = 0.30
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.750 
+
+	AA_batteries = no
+	max_AA_level = 2
+	AA_provs = { 
+		2113 # Pembrooke
+		2117 # Quebec
+	}
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = { } 
+
+	radar_station = no 
+	max_radar = 5 
+	radar_provs = { } 
+
+	air_base = no
+	max_air_base = 2 
+	air_base_provs = { } 
+
+	naval_base = no 
+	max_naval_base = 5 
+	naval_base_provs = { } 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { } 
+
+	ic_at_war = yes 
+	force_ic_until = 1939
+	ic_end_year = 1940
+	IC_provs = {
+		2113 # Pembrooke
+		2117 # Quebec
+		2111 # Toronto
+		2119 # Montreal
+		2106 # Winnipeg
+		2104 # Calgary
+		2089 # Vancouver
+	} 
+}
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 380 
+	max_batch_war 		= 280 
+	max_batch_home_front 	= 180
+
+	#### Divisions etc...
+	infantry 	= 0
+	d_02		= 0
+	militia 	= 0
+	cavalry 	= 0
+	motorized 	= 10
+	mechanized 	= 0
+	light_armor 	= 0
+	armor 		= 7
+	paratrooper 	= 0
+	marine 		= 0
+	bergsjaeger 	= 0
+	garrison	= 0
+    hq 			= 3
+
+#				20 %
+	interceptor 	= 12
+	multi_role 	= 10
+	cas 		= 0
+	strategic_bomber = 0
+	tactical_bomber = 3
+	naval_bomber 	= 5
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				30 %
+	battleship 	= 0
+	carrier 	= 0
+	light_carrier = 5
+	escort_carrier	= 5
+	destroyer 	= 20
+	light_cruiser 	= 10
+	heavy_cruiser 	= 5
+	battlecruiser 	= 0
+	submarine 	= 0
+	nuclear_submarine = 0
+	d_09 = 0
+	d_08 = 0
+	transports 	= 5
+#				50 %
+
+}

@@ -1,0 +1,73 @@
+# Converted to DH by Dendro 2011-May-30
+
+###########################################################################
+###Netherlands move capital to the Dutch West Indies when at war
+###########################################################################
+
+event = {
+	id = 25066
+	random = no
+	country = HOL
+
+	trigger = { 
+                AI = yes
+		war = { country = GER country = HOL } 
+                lost_national = { country = HOL value = 4 }
+	}
+
+	name = EVENT_25066_NAME
+	# desc = "AI_EVENT"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 0 month = december year = 1946 }
+
+	action_a = {
+		command = { type = capital which = 1762 } #Netherlands Antilles
+		command = { type = dissent value = 10 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 8001 }
+		command = { type = headofgovernment which = 8050 }
+		command = { type = foreignminister which = 8067 }
+		command = { type = armamentminister which = 8086 }
+		command = { type = ministerofsecurity which = 8117 }
+		command = { type = ministerofintelligence which = 8133 }
+		command = { type = delete_unit which = -1 }
+	}
+}
+################################################################
+###Belgium moves its capital to the Kongo when at war
+################################################################
+event = {
+	id = 25060
+	random = no
+	country = BEL
+
+	trigger = { 
+                AI = yes
+		war = { country = GER country = BEL } 
+                lost_national = { country = BEL value = 4 }
+	}
+
+	name = EVENT_25060_NAME
+	# desc = "AI_EVENT"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 0 month = december year = 1946 }
+
+	action_a = {
+		command = { type = capital which = 899 } #Léopoldville
+		command = { type = dissent value = 10 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate which = 15001 }
+		command = { type = headofgovernment which = 15037 }
+		command = { type = foreignminister which = 15044 }
+		command = { type = armamentminister which = 15059 }
+		command = { type = ministerofsecurity which = 15081 }
+		command = { type = ministerofintelligence which = 15093 }
+		command = { type = delete_unit which = -1 }
+	}
+}

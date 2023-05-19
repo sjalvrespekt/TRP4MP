@@ -1,0 +1,3400 @@
+technology =
+{ id          = 2
+  category    = armor
+  name        = TECH_ARMOR_NAME # Localized name
+  desc        = TECH_ARMOR_DESC # Localized description
+  label =
+  { tag      = TECH_CAT_lighttanks
+    position = { x = 142 y = 5 }
+  }
+  label =
+  { tag      = TECH_CAT_TANKDESTROYERS
+    position = { x = 570 y = 165 }
+  }
+  label =
+  { tag      = TECH_CAT_antitankart
+    position = { x = 433 y = 165 }
+  }
+  label =
+  { tag      = TECH_CAT_fieldart
+    position = { x = 433 y = 5 }
+  }
+  label =
+  { tag      = TECH_CAT_mediumtanks
+    position = { x = 10 y = 5 }
+  }
+  label =
+  { tag      = TECH_CAT_selfpropra
+    position = { x = 570 y = 339 }
+  }
+  label =
+  { tag      = TECH_CAT_rocketart
+    position = { x = 433 y = 297 }
+  }
+  label =
+  { tag      = TECH_CAT_heavytanks
+    position = { x = 10 y = 261 }
+  }
+  label =
+  { tag      = TECH_CAT_selfpropart
+    position = { x = 570 y = 5 }
+  }
+  label =
+  { tag      = TECH_CAT_antiair
+    position = { x = 297 y = 5 }
+  }
+  label =
+  { tag      = TECH_CAT_SPAA
+    position = { x = 297 y = 241 }
+  }
+  label =
+  { tag      = TECH_CAT_antiairbrig
+    position = { x = 297 y = 123 }
+  }
+  label =
+  { tag      = TECH_CAT_armouredcar
+    position = { x = 142 y = 261 }
+  }
+
+# moved to land doctrines
+  
+#  label =
+#  { tag      = TECH_CAT_ARMOR_1
+#    position = { x = 10 y = 261 }
+#  }
+#  
+#  #################################
+#  # Tank Divisions  
+#  #################################
+#  
+#  # Early Light Armored Division
+#  application =
+#  { id        = 2010
+#    name      = TECH_APP_ARMOR_1_NAME
+#    desc      = TECH_APP_ARMOR_1_DESC
+#    position  = { x = 9 y = 275 }
+#    year      = 1936
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2011 name = TECH_CMP_ARMOR_1_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2012 name = TECH_CMP_ARMOR_1_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2013 name = TECH_CMP_ARMOR_1_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2014 name = TECH_CMP_ARMOR_1_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Basic Infantry-Armor Cooperation
+#    component = { id = 2015 name = TECH_CMP_ARMOR_1_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { 	command = { type = new_model which = armor value = 0 }
+#		command = { type = new_model which = light_armor value = 0 }
+#		command = { type = scrap_model which = light_armor value = 0 }
+#    }
+#    required  = { 2630 }
+#  }
+#  # Basic Light Armored Division
+#  application =
+#  { id        = 2020
+#    name      = TECH_APP_ARMOR_2_NAME
+#    desc      = TECH_APP_ARMOR_2_DESC
+#    position  = { x = 9 y = 289 }
+#    year      = 1938
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2021 name = TECH_CMP_ARMOR_2_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2022 name = TECH_CMP_ARMOR_2_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2023 name = TECH_CMP_ARMOR_2_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2024 name = TECH_CMP_ARMOR_2_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Basic Infantry-Armor Cooperation
+#    component = { id = 2025 name = TECH_CMP_ARMOR_2_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 1 }
+#      command = { type = scrap_model which = armor value = 0 }
+#	  command = { type = new_model which = light_armor value = 1 }
+#	  command = { type = scrap_model which = light_armor value = 1 }
+#    }
+#    required  = { 2010 2650 }
+#  }
+#  # Advanced Light Armored Division
+#  application =
+#  { id        = 2030
+#    name      = TECH_APP_ARMOR_3_NAME
+#    desc      = TECH_APP_ARMOR_3_DESC
+#    position  = { x = 9 y = 303 }
+#    year      = 1940
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2031 name = TECH_CMP_ARMOR_3_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2032 name = TECH_CMP_ARMOR_3_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2033 name = TECH_CMP_ARMOR_3_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2034 name = TECH_CMP_ARMOR_3_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Basic Infantry-Armor Cooperation
+#    component = { id = 2035 name = TECH_CMP_ARMOR_3_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 2 }
+#      command = { type = scrap_model which = armor value = 1 }
+#	  command = { type = new_model which = light_armor value = 2 }
+#	  command = { type = scrap_model which = light_armor value = 2 }
+#    }
+#    required  = { 2020 2670 }
+#  }
+#  # Early Medium Armored Division
+#  application =
+#  { id        = 2040
+#    name      = TECH_APP_ARMOR_4_NAME
+#    desc      = TECH_APP_ARMOR_4_DESC
+#    position  = { x = 9 y = 317 }
+#    year      = 1942
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2041 name = TECH_CMP_ARMOR_4_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2042 name = TECH_CMP_ARMOR_4_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2043 name = TECH_CMP_ARMOR_4_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2044 name = TECH_CMP_ARMOR_4_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Improved Infantry-Armor Cooperation
+#    component = { id = 2045 name = TECH_CMP_ARMOR_4_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 3 }
+#      command = { type = scrap_model which = armor value = 2 }
+#	  command = { type = new_model which = light_armor value = 3 }
+#	  command = { type = scrap_model which = light_armor value = 3 }
+#    }
+#    required  = { 2030 2690 }
+#  }
+#  # Basic Medium Armored Division
+#  application =
+#  { id        = 2050
+#    name      = TECH_APP_ARMOR_5_NAME
+#    desc      = TECH_APP_ARMOR_5_DESC
+#    position  = { x = 9 y = 331 }
+#    year      = 1943
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2051 name = TECH_CMP_ARMOR_5_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2052 name = TECH_CMP_ARMOR_5_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2053 name = TECH_CMP_ARMOR_5_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2054 name = TECH_CMP_ARMOR_5_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Improved Infantry-Armor Cooperation
+#    component = { id = 2055 name = TECH_CMP_ARMOR_5_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 4 }
+#      command = { type = scrap_model which = armor value = 3 }
+#	  command = { type = new_model which = light_armor value = 4 }
+#	  command = { type = scrap_model which = light_armor value = 4 }
+#    }
+#    required  = { 2040 2730 }
+#  }
+#  # Improved Medium Armored Division
+#  application =
+#  { id        = 2060
+#    name      = TECH_APP_ARMOR_6_NAME
+#    desc      = TECH_APP_ARMOR_6_DESC
+#    position  = { x = 9 y = 345 }
+#    year      = 1944
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2061 name = TECH_CMP_ARMOR_6_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2062 name = TECH_CMP_ARMOR_6_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2063 name = TECH_CMP_ARMOR_6_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2064 name = TECH_CMP_ARMOR_6_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Improved Infantry-Armor Cooperation
+#    component = { id = 2065 name = TECH_CMP_ARMOR_6_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 5 }
+#      command = { type = scrap_model which = armor value = 4 }
+#	  command = { type = new_model which = light_armor value = 5 }
+#	  command = { type = scrap_model which = light_armor value = 5 }
+#    }
+#    required  = { 2050 2740 }
+#  }
+#  # Advanced Medium Armored Division
+#  application =
+#  { id        = 2070
+#    name      = TECH_APP_ARMOR_7_NAME
+#    desc      = TECH_APP_ARMOR_7_DESC
+#    position  = { x = 9 y = 359 }
+#    year      = 1945
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2071 name = TECH_CMP_ARMOR_7_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2072 name = TECH_CMP_ARMOR_7_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2073 name = TECH_CMP_ARMOR_7_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2074 name = TECH_CMP_ARMOR_7_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Improved Infantry-Armor Cooperation
+#    component = { id = 2075 name = TECH_CMP_ARMOR_7_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 6 }
+#      command = { type = scrap_model which = armor value = 5 }
+#	  command = { type = new_model which = light_armor value = 6 }
+#	  command = { type = scrap_model which = light_armor value = 6 }
+#    }
+#    required  = { 2060 2750 }
+#  }
+#  # Basic Heavy Armored Division
+#  application =
+#  { id        = 2080
+#    name      = TECH_APP_ARMOR_8_NAME
+#    desc      = TECH_APP_ARMOR_8_DESC
+#    position  = { x = 9 y = 373 }
+#    year      = 1946
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2081 name = TECH_CMP_ARMOR_8_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2082 name = TECH_CMP_ARMOR_8_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2083 name = TECH_CMP_ARMOR_8_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2084 name = TECH_CMP_ARMOR_8_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Advanced Infantry-Armor Cooperation
+#    component = { id = 2085 name = TECH_CMP_ARMOR_8_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 7 }
+#	  command = { type = scrap_model which = armor value = 6 }
+#	  command = { type = new_model which = light_armor value = 7 }
+#	  command = { type = scrap_model which = light_armor value = 7 }
+#    }
+#    required  = { 2070 2770 }
+#  }
+#  # Advanced Heavy Armored Division
+#  application =
+#  { id        = 2090
+#    name      = TECH_APP_ARMOR_9_NAME
+#    desc      = TECH_APP_ARMOR_9_DESC
+#    position  = { x = 9 y = 387 }
+#    year      = 1948
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2091 name = TECH_CMP_ARMOR_9_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2092 name = TECH_CMP_ARMOR_9_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2093 name = TECH_CMP_ARMOR_9_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2094 name = TECH_CMP_ARMOR_9_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Advanced Infantry-Armor Cooperation
+#    component = { id = 2095 name = TECH_CMP_ARMOR_9_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 8 }
+#      command = { type = scrap_model which = armor value = 7 }
+#	  command = { type = new_model which = light_armor value = 8 }
+#	  command = { type = scrap_model which = light_armor value = 8 }
+#    }
+#    required  = { 2080 2790 }
+#  }
+#  # Modern Heavy Armored Division
+#  application =
+#  { id        = 2760
+#    name      = TECH_APP_ARMOR_76_NAME
+#    desc      = TECH_APP_ARMOR_76_DESC
+#    position  = { x = 9 y = 401 }
+#    year      = 1950
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 2761 name = TECH_CMP_ARMOR_76_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 2762 name = TECH_CMP_ARMOR_76_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 2763 name = TECH_CMP_ARMOR_76_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 2764 name = TECH_CMP_ARMOR_76_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Advanced Infantry-Armor Cooperation
+#    component = { id = 2765 name = TECH_CMP_ARMOR_76_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 9 }
+#      command = { type = scrap_model which = armor value = 8 }
+#	  command = { type = new_model which = light_armor value = 9 }
+#	  command = { type = scrap_model which = light_armor value = 9 }
+#    }
+#    required  = { 2090 11470 }
+#  }
+#    # Cold War Armored Division
+#  application =
+#  { id        = 11580
+#    name      = TECH_APP_ARMOR_158_NAME
+#    desc      = TECH_APP_ARMOR_158_DESC
+#    position  = { x = 9 y = 415 }
+#    year      = 1953
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 11581 name = TECH_CMP_ARMOR_158_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 11582 name = TECH_CMP_ARMOR_158_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 11583 name = TECH_CMP_ARMOR_158_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 11584 name = TECH_CMP_ARMOR_158_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Advanced Infantry-Armor Cooperation
+#    component = { id = 11585 name = TECH_CMP_ARMOR_158_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 10 }
+#      command = { type = scrap_model which = armor value = 9 }
+#	  command = { type = new_model which = light_armor value = 10 }
+#	  command = { type = scrap_model which = light_armor value = 10 }
+#    }
+#    required  = { 2760 11480 }
+#  }
+#    # Mid Cold War Heavy Armored Division
+#  application =
+#  { id        = 11590
+#    name      = TECH_APP_ARMOR_159_NAME
+#    desc      = TECH_APP_ARMOR_159_DESC
+#    position  = { x = 9 y = 429 }
+#    year      = 1960
+#    # Infantry-Tank Combined Combat Theory
+#    component = { id = 11591 name = TECH_CMP_ARMOR_159_1_NAME type = combined_arms_focus difficulty = 4 }
+#    # Maneuver Discipline
+#    component = { id = 11592 name = TECH_CMP_ARMOR_159_2_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Mobility Theory
+#    component = { id = 11593 name = TECH_CMP_ARMOR_159_3_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Infantry-Tank Coordination
+#    component = { id = 11594 name = TECH_CMP_ARMOR_159_4_NAME type = BLITZKRIEG_TACTICS difficulty = 4 }
+#    # Advanced Infantry-Armor Cooperation
+#    component = { id = 11595 name = TECH_CMP_ARMOR_159_5_NAME type = training difficulty = 4 }
+#    effects =
+#    { command = { type = new_model which = armor value = 11 }
+#      command = { type = scrap_model which = armor value = 10 }
+#	  command = { type = new_model which = light_armor value = 11 }
+#	  command = { type = scrap_model which = light_armor value = 11 }
+#    }
+#    required  = { 11580 11500 }
+#  }
+#  
+#  
+  #################################
+  # Tank Brigades (light)  
+  #################################
+  
+ # Great War Tank
+  application =
+  { id        = 2550
+    name      = TECH_APP_ARMOR_55_NAME
+    desc      = TECH_APP_ARMOR_55_DESC
+    position  = { x = 141 y = 19 }
+    year      = 1928
+    # Great War Armor
+    component = { id = 2551 name = TECH_CMP_ARMOR_55_1_NAME type = mechanics difficulty = 5 }
+    # 7.92mm Machine Gun
+    component = { id = 2552 name = TECH_CMP_ARMOR_55_2_NAME type = artillery difficulty = 5 }
+    # Great War Engine
+    component = { id = 2553 name = TECH_CMP_ARMOR_55_3_NAME type = mechanics difficulty = 5 }
+    # Binoculars
+    component = { id = 2554 name = TECH_CMP_ARMOR_55_4_NAME type = rt_user_18 difficulty = 5 }
+    # Great War Tank Prototype Tests
+    component = { id = 2555 name = TECH_CMP_ARMOR_55_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = activate_unit_type which = light_armor_brigade }
+      command = { type = new_model which = light_armor_brigade value = 0 }
+    }
+  }
+  # Tankette
+  application =
+  { id        = 2560
+    name      = TECH_APP_ARMOR_56_NAME
+    desc      = TECH_APP_ARMOR_56_DESC
+    position  = { x = 141 y = 33 }
+    year      = 1936
+    # Tankette Armor
+    component = { id = 2561 name = TECH_CMP_ARMOR_56_1_NAME type = mechanics difficulty = 5 }
+    # 20mm Tank Gun
+    component = { id = 2562 name = TECH_CMP_ARMOR_56_2_NAME type = artillery difficulty = 5 }
+    # Tankette Engine
+    component = { id = 2563 name = TECH_CMP_ARMOR_56_3_NAME type = mechanics difficulty = 5 }
+    # Early Optical Sights
+    component = { id = 2564 name = TECH_CMP_ARMOR_56_4_NAME type = rt_user_18 difficulty = 5 }
+    # Tankette Prototype Tests
+    component = { id = 2565 name = TECH_CMP_ARMOR_56_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 1 }
+      command = { type = scrap_model which = light_armor_brigade value = 0 }
+    }
+    required  = { 2550 }
+  }
+  # Early Light Tank
+  application =
+  { id        = 2570
+    name      = TECH_APP_ARMOR_57_NAME
+    desc      = TECH_APP_ARMOR_57_DESC
+    position  = { x = 141 y = 47 }
+    year      = 1937
+    # Light Welded Armor
+    component = { id = 2571 name = TECH_CMP_ARMOR_57_1_NAME type = mechanics difficulty = 5 }
+    # 20mm KwK 38 L/55
+    component = { id = 2572 name = TECH_CMP_ARMOR_57_2_NAME type = artillery difficulty = 5 }
+    # Early Engine
+    component = { id = 2573 name = TECH_CMP_ARMOR_57_3_NAME type = mechanics difficulty = 5 }
+    # Basic Optical Sights
+    component = { id = 2574 name = TECH_CMP_ARMOR_57_4_NAME type = rt_user_18 difficulty = 5 }
+    # Early Light Tank Prototype Tests
+    component = { id = 2575 name = TECH_CMP_ARMOR_57_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 2 }
+      command = { type = scrap_model which = light_armor_brigade value = 1 }
+    }
+    required  = { 2560 }
+  }
+  # Basic Light Tank
+  application =
+  { id        = 2580
+    name      = TECH_APP_ARMOR_58_NAME
+    desc      = TECH_APP_ARMOR_58_DESC
+    position  = { x = 141 y = 61 }
+    year      = 1938
+    # Light Sloped Armor
+    component = { id = 2581 name = TECH_CMP_ARMOR_58_1_NAME type = mechanics difficulty = 5 }
+    # 37mm Tank Gun
+    component = { id = 2582 name = TECH_CMP_ARMOR_58_2_NAME type = artillery difficulty = 5 }
+    # Basic Engine
+    component = { id = 2583 name = TECH_CMP_ARMOR_58_3_NAME type = mechanics difficulty = 5 }
+    # Improved Optical Sights
+    component = { id = 2584 name = TECH_CMP_ARMOR_58_4_NAME type = rt_user_18 difficulty = 5 }
+    # Basic Light Tank Prototype Tests
+    component = { id = 2585 name = TECH_CMP_ARMOR_58_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 3 }
+      command = { type = scrap_model which = light_armor_brigade value = 2 }
+    }
+    required  = { 2570 }
+  }
+  # Improved Light Tank
+  application =
+  { id        = 2590
+    name      = TECH_APP_ARMOR_59_NAME
+    desc      = TECH_APP_ARMOR_59_DESC
+    position  = { x = 141 y = 75 }
+    year      = 1939
+    # 25mm Tank Armor
+    component = { id = 2591 name = TECH_CMP_ARMOR_59_1_NAME type = mechanics difficulty = 5 }
+    # 37mm KwK L/46.2
+    component = { id = 2592 name = TECH_CMP_ARMOR_59_2_NAME type = artillery difficulty = 5 }
+    # Improved Engine
+    component = { id = 2593 name = TECH_CMP_ARMOR_59_3_NAME type = mechanics difficulty = 5 }
+    # Improved Optical Sights
+    component = { id = 2594 name = TECH_CMP_ARMOR_59_4_NAME type = rt_user_18 difficulty = 5 }
+    # Improved Light Tank Prototype Tests
+    component = { id = 2595 name = TECH_CMP_ARMOR_59_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 4 }
+      command = { type = scrap_model which = light_armor_brigade value = 3 }
+	  command = { trigger = { technology = 12000 } type = activate_unit_type which = b_01 } 
+	  command = { trigger = { technology = 12000 } type = new_model which = b_01 value = 0 }
+    }
+    required  = { 2580 }
+  }
+  # Advanced Light Tank
+  application =
+  { id        = 2600
+    name      = TECH_APP_ARMOR_60_NAME
+    desc      = TECH_APP_ARMOR_60_DESC
+    position  = { x = 141 y = 89 }
+    year      = 1940
+    # 30mm Tank Armor
+    component = { id = 2601 name = TECH_CMP_ARMOR_60_1_NAME type = mechanics difficulty = 5 }
+    # 37mm KwK 38(t) L/47.8
+    component = { id = 2602 name = TECH_CMP_ARMOR_60_2_NAME type = artillery difficulty = 5 }
+    # Advanced Engine
+    component = { id = 2603 name = TECH_CMP_ARMOR_60_3_NAME type = mechanics difficulty = 5 }
+    # Improved Optical Sights
+    component = { id = 2604 name = TECH_CMP_ARMOR_60_4_NAME type = rt_user_18 difficulty = 5 }
+    # Advanced Light Tank Prototype Tests
+    component = { id = 2605 name = TECH_CMP_ARMOR_60_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 5 }
+      command = { type = scrap_model which = light_armor_brigade value = 4 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 1 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 0 }
+    }
+    required  = { 2590 }
+  }
+  # Semi-Modern Light Tank
+  application =
+  { id        = 2610
+    name      = TECH_APP_ARMOR_61_NAME
+    desc      = TECH_APP_ARMOR_61_DESC
+    position  = { x = 141 y = 103 }
+    year      = 1941
+    # 35mm Tank Armor
+    component = { id = 2611 name = TECH_CMP_ARMOR_61_1_NAME type = mechanics difficulty = 5 }
+    # 40mm Tank Gun
+    component = { id = 2612 name = TECH_CMP_ARMOR_61_2_NAME type = artillery difficulty = 5 }
+    # Semi-Modern Engine
+    component = { id = 2613 name = TECH_CMP_ARMOR_61_3_NAME type = mechanics difficulty = 5 }
+    # Improved Optical Sights
+    component = { id = 2614 name = TECH_CMP_ARMOR_61_4_NAME type = rt_user_18 difficulty = 5 }
+    # Semi-Modern Light Tank Prototype Tests
+    component = { id = 2615 name = TECH_CMP_ARMOR_61_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 6 }
+      command = { type = scrap_model which = light_armor_brigade value = 5 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 2 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 1 }	  
+    }
+    required  = { 2600 }
+  }
+  # Modern Light Tank
+  application =
+  { id        = 2620
+    name      = TECH_APP_ARMOR_62_NAME
+    desc      = TECH_APP_ARMOR_62_DESC
+    position  = { x = 141 y = 117 }
+    year      = 1942
+    # Light Advanced Sloped Armor
+    component = { id = 2621 name = TECH_CMP_ARMOR_62_1_NAME type = mechanics difficulty = 5 }
+    # 45mm Tank Gun
+    component = { id = 2622 name = TECH_CMP_ARMOR_62_2_NAME type = artillery difficulty = 5 }
+    # Modern Engine
+    component = { id = 2623 name = TECH_CMP_ARMOR_62_3_NAME type = mechanics difficulty = 5 }
+    # Advanced Optical Sights
+    component = { id = 2624 name = TECH_CMP_ARMOR_62_4_NAME type = rt_user_18 difficulty = 5 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 2625 name = TECH_CMP_ARMOR_62_5_NAME type = technical_efficiency difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 7 }
+      command = { type = scrap_model which = light_armor_brigade value = 6 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 3 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 2 }	  
+    }
+    required  = { 2610 }
+  }
+  # Modern Light Tank 1943
+  application =
+  { id        = 2980
+    name      = TECH_APP_ARMOR_98_NAME
+    desc      = TECH_APP_ARMOR_98_DESC
+    position  = { x = 141 y = 131 }
+    year      = 1943
+    # Light Advanced Sloped Armor
+    component = { id = 2981 name = TECH_CMP_ARMOR_98_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 2982 name = TECH_CMP_ARMOR_98_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 2983 name = TECH_CMP_ARMOR_98_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 2984 name = TECH_CMP_ARMOR_98_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 2985 name = TECH_CMP_ARMOR_98_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 8 }
+      command = { type = scrap_model which = light_armor_brigade value = 7 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 4 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 3 }
+    }
+    required  = { 2620 }
+  }
+  # Modern Light Tank 1944
+  application =
+  { id        = 2990
+    name      = TECH_APP_ARMOR_99_NAME
+    desc      = TECH_APP_ARMOR_99_DESC
+    position  = { x = 141 y = 145 }
+    year      = 1944
+    # Light Advanced Sloped Armor
+    component = { id = 2991 name = TECH_CMP_ARMOR_99_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 2992 name = TECH_CMP_ARMOR_99_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 2993 name = TECH_CMP_ARMOR_99_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 2994 name = TECH_CMP_ARMOR_99_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 2995 name = TECH_CMP_ARMOR_99_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 9 }
+      command = { type = scrap_model which = light_armor_brigade value = 8 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 5 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 4 }
+    }
+    required  = { 2980 }
+  }
+    # Light Tank 1945
+  application =
+  { id        = 11510
+    name      = TECH_APP_ARMOR_151_NAME
+    desc      = TECH_APP_ARMOR_151_DESC
+    position  = { x = 141 y = 159 }
+    year      = 1945
+    # Light Advanced Sloped Armor
+    component = { id = 11511 name = TECH_CMP_ARMOR_151_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11512 name = TECH_CMP_ARMOR_151_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11513 name = TECH_CMP_ARMOR_151_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11514 name = TECH_CMP_ARMOR_151_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11515 name = TECH_CMP_ARMOR_151_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 10 }
+      command = { type = scrap_model which = light_armor_brigade value = 9 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 6 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 5 }
+    }
+    required  = { 2990 }
+  }
+      # Light Tank 1947
+  application =
+  { id        = 11520
+    name      = TECH_APP_ARMOR_152_NAME
+    desc      = TECH_APP_ARMOR_152_DESC
+    position  = { x = 141 y = 173 }
+    year      = 1947
+    # Light Advanced Sloped Armor
+    component = { id = 11521 name = TECH_CMP_ARMOR_152_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11522 name = TECH_CMP_ARMOR_152_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11523 name = TECH_CMP_ARMOR_152_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11524 name = TECH_CMP_ARMOR_152_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11525 name = TECH_CMP_ARMOR_152_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 11 }
+      command = { type = scrap_model which = light_armor_brigade value = 10 }
+    }
+    required  = { 11510 }
+  }
+        # Light Tank 1948
+  application =
+  { id        = 11530
+    name      = TECH_APP_ARMOR_153_NAME
+    desc      = TECH_APP_ARMOR_153_DESC
+    position  = { x = 141 y = 187 }
+    year      = 1948
+    # Light Advanced Sloped Armor
+    component = { id = 11531 name = TECH_CMP_ARMOR_153_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11532 name = TECH_CMP_ARMOR_153_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11533 name = TECH_CMP_ARMOR_153_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11534 name = TECH_CMP_ARMOR_153_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11535 name = TECH_CMP_ARMOR_153_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 12 }
+      command = { type = scrap_model which = light_armor_brigade value = 11 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 7 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 6 }
+    }
+    required  = { 11520 }
+  }
+        # Light Tank 1950
+  application =
+  { id        = 11540
+    name      = TECH_APP_ARMOR_154_NAME
+    desc      = TECH_APP_ARMOR_154_DESC
+    position  = { x = 141 y = 201 }
+    year      = 1950
+    # Light Advanced Sloped Armor
+    component = { id = 11541 name = TECH_CMP_ARMOR_154_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11542 name = TECH_CMP_ARMOR_154_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11543 name = TECH_CMP_ARMOR_154_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11544 name = TECH_CMP_ARMOR_154_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11545 name = TECH_CMP_ARMOR_154_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 13 }
+      command = { type = scrap_model which = light_armor_brigade value = 12 }
+    }
+    required  = { 11530 }
+  }
+          # Light Tank 1953
+  application =
+  { id        = 11550
+    name      = TECH_APP_ARMOR_155_NAME
+    desc      = TECH_APP_ARMOR_155_DESC
+    position  = { x = 141 y = 215 }
+    year      = 1953
+    # Light Advanced Sloped Armor
+    component = { id = 11551 name = TECH_CMP_ARMOR_155_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11552 name = TECH_CMP_ARMOR_155_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11553 name = TECH_CMP_ARMOR_155_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11554 name = TECH_CMP_ARMOR_155_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11555 name = TECH_CMP_ARMOR_155_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 14 }
+      command = { type = scrap_model which = light_armor_brigade value = 13 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 8 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 7 }
+    }
+    required  = { 11540 }
+  }
+          # Light Tank 1956
+  application =
+  { id        = 11560
+    name      = TECH_APP_ARMOR_156_NAME
+    desc      = TECH_APP_ARMOR_156_DESC
+    position  = { x = 141 y = 229 }
+    year      = 1956
+    # Light Advanced Sloped Armor
+    component = { id = 11561 name = TECH_CMP_ARMOR_156_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11562 name = TECH_CMP_ARMOR_156_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11563 name = TECH_CMP_ARMOR_156_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11564 name = TECH_CMP_ARMOR_156_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11565 name = TECH_CMP_ARMOR_156_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 15 }
+      command = { type = scrap_model which = light_armor_brigade value = 14 }
+    }
+    required  = { 11550 }
+  }
+          # Light Tank 1960
+  application =
+  { id        = 11570
+    name      = TECH_APP_ARMOR_157_NAME
+    desc      = TECH_APP_ARMOR_157_DESC
+    position  = { x = 141 y = 243 }
+    year      = 1960
+    # Light Advanced Sloped Armor
+    component = { id = 11571 name = TECH_CMP_ARMOR_157_1_NAME type = mechanics difficulty = 6 }
+    # 45mm Tank Gun
+    component = { id = 11572 name = TECH_CMP_ARMOR_157_2_NAME type = artillery difficulty = 6 }
+    # Modern Engine
+    component = { id = 11573 name = TECH_CMP_ARMOR_157_3_NAME type = mechanics difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 11574 name = TECH_CMP_ARMOR_157_4_NAME type = rt_user_18 difficulty = 6 }
+    # Modern Light Tank Prototype Tests
+    component = { id = 11575 name = TECH_CMP_ARMOR_157_5_NAME type = technical_efficiency difficulty = 6 double_time = yes }
+    effects =
+    { command = { type = new_model which = light_armor_brigade value = 16 }
+      command = { type = scrap_model which = light_armor_brigade value = 15 }
+	  command = { trigger = { technology = 12000  } type = new_model which = b_01 value = 9 }
+      command = { trigger = { technology = 12000  } type = scrap_model which = b_01 value = 8 }
+    }
+    required  = { 11560 }
+  }
+  
+  #################################
+  # Tank Brigades (medium)  
+  #################################
+  
+  # Early Medium Tank 1936
+  application =
+  { id        = 2630
+    name      = TECH_APP_ARMOR_63_NAME
+    desc      = TECH_APP_ARMOR_63_DESC
+    position  = { x = 9 y = 19 }
+    year      = 1936
+    # Medium Welded Armor
+    component = { id = 2631 name = TECH_CMP_ARMOR_63_1_NAME type = mechanics difficulty = 7 }
+    # 50mm Tank Gun
+    component = { id = 2632 name = TECH_CMP_ARMOR_63_2_NAME type = artillery difficulty = 7 }
+    # Early Medium Engine
+    component = { id = 2633 name = TECH_CMP_ARMOR_63_3_NAME type = mechanics difficulty = 7 }
+    # Improved Optical Sights
+    component = { id = 2634 name = TECH_CMP_ARMOR_63_4_NAME type = rt_user_18 difficulty = 7 }
+    # Early Medium Tank Prototype Tests
+    component = { id = 2635 name = TECH_CMP_ARMOR_63_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = activate_unit_type which = heavy_armor }
+      command = { type = new_model which = heavy_armor value = 0 }
+	  #command = { type = new_model which = light_armor_brigade value = 1 }
+      #command = { type = scrap_model which = light_armor_brigade value = 0 }
+    }
+    required  = { 2550 }
+  }
+  # Basic Medium Tank 1937
+  application =
+  { id        = 2640
+    name      = TECH_APP_ARMOR_64_NAME
+    desc      = TECH_APP_ARMOR_64_DESC
+    position  = { x = 9 y = 33 }
+    year      = 1937
+    # Improved Armor Skirts
+    component = { id = 2641 name = TECH_CMP_ARMOR_64_1_NAME type = mechanics difficulty = 7 }
+    # 50mm KwK 38 L/42
+    component = { id = 2642 name = TECH_CMP_ARMOR_64_2_NAME type = artillery difficulty = 7 }
+    # Basic Medium Engine
+    component = { id = 2643 name = TECH_CMP_ARMOR_64_3_NAME type = mechanics difficulty = 7 }
+    # Improved Optical Sights
+    component = { id = 2644 name = TECH_CMP_ARMOR_64_4_NAME type = rt_user_18 difficulty = 7 }
+    # Basic Medium Tank Prototype Tests
+    component = { id = 2645 name = TECH_CMP_ARMOR_64_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 1 }
+      command = { type = scrap_model which = heavy_armor value = 0 }
+	  #command = { type = new_model which = light_armor_brigade value = 2 }
+      #command = { type = scrap_model which = light_armor_brigade value = 1 }
+    }
+    required  = { 2630 }
+  }
+  # Improved Medium Tank 1938
+  application =
+  { id        = 2650
+    name      = TECH_APP_ARMOR_65_NAME
+    desc      = TECH_APP_ARMOR_65_DESC
+    position  = { x = 9 y = 47 }
+    year      = 1938
+    # Medium Sloped Armor
+    component = { id = 2651 name = TECH_CMP_ARMOR_65_1_NAME type = mechanics difficulty = 7 }
+    # 50mm KwK 39 L/60
+    component = { id = 2652 name = TECH_CMP_ARMOR_65_2_NAME type = artillery difficulty = 7 }
+    # Improved Medium Engine
+    component = { id = 2653 name = TECH_CMP_ARMOR_65_3_NAME type = mechanics difficulty = 7 }
+    # Improved Optical Sights
+    component = { id = 2654 name = TECH_CMP_ARMOR_65_4_NAME type = rt_user_18 difficulty = 7 }
+    # Improved Medium Tank Prototype Tests
+    component = { id = 2655 name = TECH_CMP_ARMOR_65_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 2 }
+      command = { type = scrap_model which = heavy_armor value = 1 }
+	  #command = { type = new_model which = light_armor_brigade value = 3 }
+      #command = { type = scrap_model which = light_armor_brigade value = 2 }
+    }
+    required  = { 2640 }
+  }
+  # Improved Medium Tank 1939
+  application =
+  { id        = 2660
+    name      = TECH_APP_ARMOR_66_NAME
+    desc      = TECH_APP_ARMOR_66_DESC
+    position  = { x = 9 y = 61 }
+    year      = 1939
+    # 50mm Tank Armor
+    component = { id = 2661 name = TECH_CMP_ARMOR_66_1_NAME type = mechanics difficulty = 7 }
+    # 75mm Tank Gun
+    component = { id = 2662 name = TECH_CMP_ARMOR_66_2_NAME type = artillery difficulty = 7 }
+    # Improved Medium Engine
+    component = { id = 2663 name = TECH_CMP_ARMOR_66_3_NAME type = mechanics difficulty = 7 }
+    # Improved Optical Sights
+    component = { id = 2664 name = TECH_CMP_ARMOR_66_4_NAME type = rt_user_18 difficulty = 7 }
+    # Improved Medium Tank Prototype Tests
+    component = { id = 2665 name = TECH_CMP_ARMOR_66_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 3 }
+      command = { type = scrap_model which = heavy_armor value = 2 }
+	  #command = { type = new_model which = light_armor_brigade value = 4 }
+      #command = { type = scrap_model which = light_armor_brigade value = 3 }
+    }
+    required  = { 2650 }
+  }
+  # Advanced Medium Tank 1940
+  application =
+  { id        = 2670
+    name      = TECH_APP_ARMOR_67_NAME
+    desc      = TECH_APP_ARMOR_67_DESC
+    position  = { x = 9 y = 75 }
+    year      = 1940
+    # Medium Advanced Sloped Armor
+    component = { id = 2671 name = TECH_CMP_ARMOR_67_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK 40 L/48
+    component = { id = 2672 name = TECH_CMP_ARMOR_67_2_NAME type = artillery difficulty = 7 }
+    # Advanced Medium Engine
+    component = { id = 2673 name = TECH_CMP_ARMOR_67_3_NAME type = mechanics difficulty = 7 }
+    # Advanced Optical Sights
+    component = { id = 2674 name = TECH_CMP_ARMOR_67_4_NAME type = rt_user_18 difficulty = 7 }
+    # Advanced Medium Tank Prototype Tests
+    component = { id = 2675 name = TECH_CMP_ARMOR_67_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 4 }
+      command = { type = scrap_model which = heavy_armor value = 3 }
+	  #command = { type = new_model which = light_armor_brigade value = 5 }
+      #command = { type = scrap_model which = light_armor_brigade value = 4 }
+    }
+    required  = { 2660 }
+  }
+  # Semi-Modern Medium Tank 1941
+  application =
+  { id        = 2680
+    name      = TECH_APP_ARMOR_68_NAME
+    desc      = TECH_APP_ARMOR_68_DESC
+    position  = { x = 9 y = 89 }
+    year      = 1941
+    # 100mm Tank Armor
+    component = { id = 2681 name = TECH_CMP_ARMOR_68_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK 42 L/70
+    component = { id = 2682 name = TECH_CMP_ARMOR_68_2_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Medium Engine
+    component = { id = 2683 name = TECH_CMP_ARMOR_68_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2684 name = TECH_CMP_ARMOR_68_4_NAME type = rt_user_18 difficulty = 7 }
+    # Semi-Modern Medium Tank Prototype Tests
+    component = { id = 2685 name = TECH_CMP_ARMOR_68_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 5 }
+      command = { type = scrap_model which = heavy_armor value = 4 }
+	  #command = { type = new_model which = light_armor_brigade value = 6 }
+      #command = { type = scrap_model which = light_armor_brigade value = 5 }
+    }
+    required  = { 2670 }
+  }
+  # Modern Medium Tank 1942
+  application =
+  { id        = 2690
+    name      = TECH_APP_ARMOR_69_NAME
+    desc      = TECH_APP_ARMOR_69_DESC
+    position  = { x = 9 y = 103 }
+    year      = 1942
+    # 120mm Tank Armor
+    component = { id = 2691 name = TECH_CMP_ARMOR_69_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2692 name = TECH_CMP_ARMOR_69_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2693 name = TECH_CMP_ARMOR_69_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2694 name = TECH_CMP_ARMOR_69_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2695 name = TECH_CMP_ARMOR_69_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 6 }
+      command = { type = scrap_model which = heavy_armor value = 5 }
+	  #command = { type = new_model which = light_armor_brigade value = 7 }
+      #command = { type = scrap_model which = light_armor_brigade value = 6 }
+    }
+    required  = { 2680 }
+  }
+  #  Medium Tank 1943
+  application =
+  { id        = 2730
+    name      = TECH_APP_ARMOR_73_NAME
+    desc      = TECH_APP_ARMOR_73_DESC
+    position  = { x = 9 y = 117 }
+    year      = 1943
+    # 120mm Tank Armor
+    component = { id = 2731 name = TECH_CMP_ARMOR_73_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2732 name = TECH_CMP_ARMOR_73_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2733 name = TECH_CMP_ARMOR_73_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2734 name = TECH_CMP_ARMOR_73_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2735 name = TECH_CMP_ARMOR_73_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 7 }
+      command = { type = scrap_model which = heavy_armor value = 6 }
+	  #command = { type = new_model which = light_armor_brigade value = 8 }
+      #command = { type = scrap_model which = light_armor_brigade value = 7 }
+    }
+    required  = { 2690 }
+  }
+  #  Medium Tank 1944
+  application =
+  { id        = 2740
+    name      = TECH_APP_ARMOR_74_NAME
+    desc      = TECH_APP_ARMOR_74_DESC
+    position  = { x = 9 y = 131 }
+    year      = 1944
+    # 120mm Tank Armor
+    component = { id = 2741 name = TECH_CMP_ARMOR_74_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2742 name = TECH_CMP_ARMOR_74_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2743 name = TECH_CMP_ARMOR_74_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2744 name = TECH_CMP_ARMOR_74_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2745 name = TECH_CMP_ARMOR_74_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 8 }
+      command = { type = scrap_model which = heavy_armor value = 7 }
+	  #command = { type = new_model which = light_armor_brigade value = 9 }
+      #command = { type = scrap_model which = light_armor_brigade value = 8 }
+    }
+    required  = { 2730 }
+  }
+  #  Medium Tank 1945
+  application =
+  { id        = 2750
+    name      = TECH_APP_ARMOR_75_NAME
+    desc      = TECH_APP_ARMOR_75_DESC
+    position  = { x = 9 y = 145 }
+    year      = 1945
+    # 120mm Tank Armor
+    component = { id = 2751 name = TECH_CMP_ARMOR_75_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2752 name = TECH_CMP_ARMOR_75_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2753 name = TECH_CMP_ARMOR_75_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2754 name = TECH_CMP_ARMOR_75_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2755 name = TECH_CMP_ARMOR_75_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 9 }
+      command = { type = scrap_model which = heavy_armor value = 8 }
+    }
+    required  = { 2740 }
+  }
+  #  Medium Tank 1946
+  application =
+  { id        = 2770
+    name      = TECH_APP_ARMOR_77_NAME
+    desc      = TECH_APP_ARMOR_77_DESC
+    position  = { x = 9 y = 159 }
+    year      = 1946
+    # 120mm Tank Armor
+    component = { id = 2771 name = TECH_CMP_ARMOR_77_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2772 name = TECH_CMP_ARMOR_77_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2773 name = TECH_CMP_ARMOR_77_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2774 name = TECH_CMP_ARMOR_77_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2775 name = TECH_CMP_ARMOR_77_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 10 }
+      command = { type = scrap_model which = heavy_armor value = 9 }
+    }
+    required  = { 2750 }
+  }
+  #  Medium Tank 1947
+  application =
+  { id        = 2780
+    name      = TECH_APP_ARMOR_78_NAME
+    desc      = TECH_APP_ARMOR_78_DESC
+    position  = { x = 9 y = 173 }
+    year      = 1947
+    # 120mm Tank Armor
+    component = { id = 2781 name = TECH_CMP_ARMOR_78_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2782 name = TECH_CMP_ARMOR_78_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2783 name = TECH_CMP_ARMOR_78_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2784 name = TECH_CMP_ARMOR_78_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2785 name = TECH_CMP_ARMOR_78_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 11 }
+      command = { type = scrap_model which = heavy_armor value = 10 }
+    }
+    required  = { 2770 }
+  }
+  #  Medium Tank 1948
+  application =
+  { id        = 2790
+    name      = TECH_APP_ARMOR_79_NAME
+    desc      = TECH_APP_ARMOR_79_DESC
+    position  = { x = 9 y = 187 }
+    year      = 1948
+    # 120mm Tank Armor
+    component = { id = 2791 name = TECH_CMP_ARMOR_79_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 2792 name = TECH_CMP_ARMOR_79_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 2793 name = TECH_CMP_ARMOR_79_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2794 name = TECH_CMP_ARMOR_79_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 2795 name = TECH_CMP_ARMOR_79_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 12 }
+      command = { type = scrap_model which = heavy_armor value = 11 }
+    }
+    required  = { 2780 }
+  }
+    #  Medium Tank 1950
+  application =
+  { id        = 11470
+    name      = TECH_APP_ARMOR_147_NAME
+    desc      = TECH_APP_ARMOR_147_DESC
+    position  = { x = 9 y = 201 }
+    year      = 1950
+    # 120mm Tank Armor
+    component = { id = 11471 name = TECH_CMP_ARMOR_147_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 11472 name = TECH_CMP_ARMOR_147_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 11473 name = TECH_CMP_ARMOR_147_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 11474 name = TECH_CMP_ARMOR_147_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 11475 name = TECH_CMP_ARMOR_147_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 13 }
+      command = { type = scrap_model which = heavy_armor value = 12 }
+    }
+    required  = { 2790 }
+  }
+    #  Medium Tank 1953
+  application =
+  { id        = 11480
+    name      = TECH_APP_ARMOR_148_NAME
+    desc      = TECH_APP_ARMOR_148_DESC
+    position  = { x = 9 y = 215 }
+    year      = 1953
+    # 120mm Tank Armor
+    component = { id = 11481 name = TECH_CMP_ARMOR_148_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 11482 name = TECH_CMP_ARMOR_148_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 11483 name = TECH_CMP_ARMOR_148_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 11484 name = TECH_CMP_ARMOR_148_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 11485 name = TECH_CMP_ARMOR_148_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 14 }
+      command = { type = scrap_model which = heavy_armor value = 13 }
+    }
+    required  = { 11470 }
+  }
+    #  Medium Tank 1956
+  application =
+  { id        = 11490
+    name      = TECH_APP_ARMOR_149_NAME
+    desc      = TECH_APP_ARMOR_149_DESC
+    position  = { x = 9 y = 229 }
+    year      = 1956
+    # 120mm Tank Armor
+    component = { id = 11491 name = TECH_CMP_ARMOR_149_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 11492 name = TECH_CMP_ARMOR_149_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 11493 name = TECH_CMP_ARMOR_149_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 11494 name = TECH_CMP_ARMOR_149_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 11495 name = TECH_CMP_ARMOR_149_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 15 }
+      command = { type = scrap_model which = heavy_armor value = 14 }
+    }
+    required  = { 11480 }
+  }
+    #  Medium Tank 1960
+  application =
+  { id        = 11500
+    name      = TECH_APP_ARMOR_150_NAME
+    desc      = TECH_APP_ARMOR_150_DESC
+    position  = { x = 9 y = 243 }
+    year      = 1960
+    # 120mm Tank Armor
+    component = { id = 11501 name = TECH_CMP_ARMOR_150_1_NAME type = mechanics difficulty = 7 }
+    # 75mm KwK42/1 L/70
+    component = { id = 11502 name = TECH_CMP_ARMOR_150_2_NAME type = artillery difficulty = 7 }
+    # Modern Medium Engine
+    component = { id = 11503 name = TECH_CMP_ARMOR_150_3_NAME type = mechanics difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 11504 name = TECH_CMP_ARMOR_150_4_NAME type = rt_user_18 difficulty = 7 }
+    # Modern Medium Tank Prototype Tests
+    component = { id = 11505 name = TECH_CMP_ARMOR_150_5_NAME type = technical_efficiency difficulty = 7 double_time = yes }
+    effects =
+    { command = { type = new_model which = heavy_armor value = 16 }
+      command = { type = scrap_model which = heavy_armor value = 15 }
+    }
+    required  = { 11490 }
+  }
+ 
+  #################################
+  # Tank Brigades (heavy)
+  #################################
+  
+ 
+  # Basic Heavy Tank 1937
+  application =
+  { id        = 2900
+    name      = TECH_APP_ARMOR_90_NAME
+    desc      = TECH_APP_ARMOR_90_DESC
+    position  = { x = 9 y = 275 }
+    year      = 1937
+    # Advanced Armor Skirts
+    component = { id = 2901 name = TECH_CMP_ARMOR_90_1_NAME type = mechanics difficulty = 8 }
+    # 88mm Tank Gun
+    component = { id = 2902 name = TECH_CMP_ARMOR_90_2_NAME type = artillery difficulty = 8 }
+    # Basic Heavy Engine
+    component = { id = 2903 name = TECH_CMP_ARMOR_90_3_NAME type = mechanics difficulty = 8 }
+    # Advanced Optical Sights
+    component = { id = 2904 name = TECH_CMP_ARMOR_90_4_NAME type = rt_user_18 difficulty = 8 }
+    # Basic Heavy Tank Prototype Tests
+    component = { id = 2905 name = TECH_CMP_ARMOR_90_5_NAME type = technical_efficiency difficulty = 8 double_time = yes }
+    effects =
+    { command = { type = activate_unit_type which = super_heavy_armor }
+      command = { type = new_model which = super_heavy_armor value = 0 }
+    }
+    required  = { 2550 }
+  }
+  # Improved Heavy Tank 1939
+  application =
+  { id        = 2910
+    name      = TECH_APP_ARMOR_91_NAME
+    desc      = TECH_APP_ARMOR_91_DESC
+    position  = { x = 9 y = 289 }
+    year      = 1939
+    # Super Heavy Tank Armor
+    component = { id = 2911 name = TECH_CMP_ARMOR_91_1_NAME type = mechanics difficulty = 8 }
+    # 122mm Tank Gun
+    component = { id = 2912 name = TECH_CMP_ARMOR_91_2_NAME type = artillery difficulty = 8 }
+    # Improved Heavy Engine
+    component = { id = 2913 name = TECH_CMP_ARMOR_91_3_NAME type = mechanics difficulty = 8 }
+    # Infrared Optical Sights
+    component = { id = 2914 name = TECH_CMP_ARMOR_91_4_NAME type = rt_user_18 difficulty = 8 }
+    # Improved Heavy Tank Prototype Tests
+    component = { id = 2715 name = TECH_CMP_ARMOR_91_5_NAME type = technical_efficiency difficulty = 8 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 1 }
+      command = { type = scrap_model which = super_heavy_armor value = 0 }
+    }
+    required  = { 2900 }
+  }
+  # Advanced Heavy Tank 1941
+  application =
+  { id        = 2920
+    name      = TECH_APP_ARMOR_92_NAME
+    desc      = TECH_APP_ARMOR_92_DESC
+    position  = { x = 9 y = 303 }
+    year      = 1941
+    # Reactive Armor Plates
+    component = { id = 2921 name = TECH_CMP_ARMOR_92_1_NAME type = mechanics difficulty = 10 }
+    # 152mm Tank Gun
+    component = { id = 2922 name = TECH_CMP_ARMOR_92_2_NAME type = artillery difficulty = 10 }
+    # Advanced Heavy Engine
+    component = { id = 2923 name = TECH_CMP_ARMOR_92_3_NAME type = mechanics difficulty = 10 }
+    # Infrared Optical Sights
+    component = { id = 2924 name = TECH_CMP_ARMOR_92_4_NAME type = rt_user_18 difficulty = 10 }
+    # Advanced Heavy Tank Prototype Tests
+    component = { id = 2925 name = TECH_CMP_ARMOR_92_5_NAME type = technical_efficiency difficulty = 10 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 2 }
+      command = { type = scrap_model which = super_heavy_armor value = 1 }
+    }
+    required  = { 2910 }
+  }
+  # Heavy Tank 1943
+  application =
+  { id        = 2930
+    name      = TECH_APP_ARMOR_93_NAME
+    desc      = TECH_APP_ARMOR_93_DESC
+    position  = { x = 9 y = 317 }
+    year      = 1943
+    # Advanced Armor Skirts
+    component = { id = 2931 name = TECH_CMP_ARMOR_93_1_NAME type = mechanics difficulty = 8 }
+    # 88mm Tank Gun
+    component = { id = 2932 name = TECH_CMP_ARMOR_93_2_NAME type = artillery difficulty = 8 }
+    # Basic Heavy Engine
+    component = { id = 2933 name = TECH_CMP_ARMOR_93_3_NAME type = mechanics difficulty = 8 }
+    # Advanced Optical Sights
+    component = { id = 2934 name = TECH_CMP_ARMOR_93_4_NAME type = rt_user_18 difficulty = 8 }
+    # Basic Heavy Tank Prototype Tests
+    component = { id = 2935 name = TECH_CMP_ARMOR_93_5_NAME type = technical_efficiency difficulty = 8 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 3 }
+      command = { type = scrap_model which = super_heavy_armor value = 2 }
+    }
+    required  = { 2920 }
+  }
+  # Improved Heavy Tank
+  application =
+  { id        = 2940
+    name      = TECH_APP_ARMOR_94_NAME
+    desc      = TECH_APP_ARMOR_94_DESC
+    position  = { x = 9 y = 331 }
+    year      = 1944
+    # Super Heavy Tank Armor
+    component = { id = 2941 name = TECH_CMP_ARMOR_94_1_NAME type = mechanics difficulty = 8 }
+    # 122mm Tank Gun
+    component = { id = 2942 name = TECH_CMP_ARMOR_94_2_NAME type = artillery difficulty = 8 }
+    # Improved Heavy Engine
+    component = { id = 2943 name = TECH_CMP_ARMOR_94_3_NAME type = mechanics difficulty = 8 }
+    # Infrared Optical Sights
+    component = { id = 2944 name = TECH_CMP_ARMOR_94_4_NAME type = rt_user_18 difficulty = 8 }
+    # Improved Heavy Tank Prototype Tests
+    component = { id = 2945 name = TECH_CMP_ARMOR_94_5_NAME type = technical_efficiency difficulty = 8 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 4 }
+      command = { type = scrap_model which = super_heavy_armor value = 3 }
+    }
+    required  = { 2930 }
+  }
+  # Heavy Tank 1945
+  application =
+  { id        = 2950
+    name      = TECH_APP_ARMOR_95_NAME
+    desc      = TECH_APP_ARMOR_95_DESC
+    position  = { x = 9 y = 345 }
+    year      = 1945
+    # Reactive Armor Plates
+    component = { id = 2951 name = TECH_CMP_ARMOR_95_1_NAME type = mechanics difficulty = 10 }
+    # 152mm Tank Gun
+    component = { id = 2952 name = TECH_CMP_ARMOR_95_2_NAME type = artillery difficulty = 10 }
+    # Advanced Heavy Engine
+    component = { id = 2953 name = TECH_CMP_ARMOR_95_3_NAME type = mechanics difficulty = 10 }
+    # Infrared Optical Sights
+    component = { id = 2954 name = TECH_CMP_ARMOR_95_4_NAME type = rt_user_18 difficulty = 10 }
+    # Advanced Heavy Tank Prototype Tests
+    component = { id = 2955 name = TECH_CMP_ARMOR_95_5_NAME type = technical_efficiency difficulty = 10 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 5 }
+      command = { type = scrap_model which = super_heavy_armor value = 4 }
+    }
+    required  = { 2940 }
+  }
+  # 1947 Heavy Tank
+  application =
+  { id        = 2960
+    name      = TECH_APP_ARMOR_96_NAME
+    desc      = TECH_APP_ARMOR_96_DESC
+    position  = { x = 9 y = 359 }
+    year      = 1947
+    # Reactive Armor Plates
+    component = { id = 2961 name = TECH_CMP_ARMOR_96_1_NAME type = mechanics difficulty = 10 }
+    # 152mm Tank Gun
+    component = { id = 2962 name = TECH_CMP_ARMOR_96_2_NAME type = artillery difficulty = 10 }
+    # Advanced Heavy Engine
+    component = { id = 2963 name = TECH_CMP_ARMOR_96_3_NAME type = mechanics difficulty = 10 }
+    # Infrared Optical Sights
+    component = { id = 2964 name = TECH_CMP_ARMOR_96_4_NAME type = rt_user_18 difficulty = 10 }
+    # Advanced Heavy Tank Prototype Tests
+    component = { id = 2965 name = TECH_CMP_ARMOR_96_5_NAME type = technical_efficiency difficulty = 10 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 6 }
+      command = { type = scrap_model which = super_heavy_armor value = 5 }
+    }
+    required  = { 2950 }
+  }
+  # 1950 Heavy Tank
+  application =
+  { id        = 2970
+    name      = TECH_APP_ARMOR_97_NAME
+    desc      = TECH_APP_ARMOR_97_DESC
+    position  = { x = 9 y = 373 }
+    year      = 1950
+    # Reactive Armor Plates
+    component = { id = 2971 name = TECH_CMP_ARMOR_97_1_NAME type = mechanics difficulty = 10 }
+    # 152mm Tank Gun
+    component = { id = 2972 name = TECH_CMP_ARMOR_97_2_NAME type = artillery difficulty = 10 }
+    # Advanced Heavy Engine
+    component = { id = 2973 name = TECH_CMP_ARMOR_97_3_NAME type = mechanics difficulty = 10 }
+    # Infrared Optical Sights
+    component = { id = 2974 name = TECH_CMP_ARMOR_97_4_NAME type = rt_user_18 difficulty = 10 }
+    # Advanced Heavy Tank Prototype Tests
+    component = { id = 2975 name = TECH_CMP_ARMOR_97_5_NAME type = technical_efficiency difficulty = 10 double_time = yes }
+    effects =
+    { command = { type = new_model which = super_heavy_armor value = 7 }
+      command = { type = scrap_model which = super_heavy_armor value = 6 }
+    }
+    required  = { 2960 }
+  }
+  
+    
+  #################################
+  # Reconnaissance Brigade (armored car)
+  #################################
+  
+  
+  # Cavalry ( was Basic Armoured Car )
+  application =
+  { id        = 2800
+    name      = TECH_APP_ARMOR_80_NAME
+    desc      = TECH_APP_ARMOR_80_DESC
+    position  = { x = 141 y = 275 }
+    year      = 1918
+    # Light Armor Plating
+    component = { id = 2801 name = TECH_CMP_ARMOR_80_1_NAME type = mechanics difficulty = 3 }
+    # Light Machine Gun
+    component = { id = 2802 name = TECH_CMP_ARMOR_80_2_NAME type = artillery difficulty = 3 }
+    # Medium Tractor Engine
+    component = { id = 2803 name = TECH_CMP_ARMOR_80_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2804 name = TECH_CMP_ARMOR_80_4_NAME type = rt_user_17 difficulty = 3 }
+    # Basic Armoured Car Prototype Tests
+    component = { id = 2805 name = TECH_CMP_ARMOR_80_5_NAME type = technical_efficiency difficulty = 3 }
+    required = { 1190 }
+    effects =
+    { command = { type = activate_unit_type which = armored_car }
+      command = { type = new_model which = armored_car value = 0 }
+    }
+  }
+  # Motorcycle ( was Improved Armored Car )
+  application =
+  { id        = 2810
+    name      = TECH_APP_ARMOR_81_NAME
+    desc      = TECH_APP_ARMOR_81_DESC
+    position  = { x = 141 y = 289 }
+    year      = 1936
+    # Light Armor Plating
+    component = { id = 2811 name = TECH_CMP_ARMOR_81_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2812 name = TECH_CMP_ARMOR_81_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2813 name = TECH_CMP_ARMOR_81_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2814 name = TECH_CMP_ARMOR_81_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2815 name = TECH_CMP_ARMOR_81_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2800 }
+    effects =
+    { command = { type = new_model which = armored_car value = 1 }
+      command = { type = scrap_model which = armored_car value = 0 }
+    }
+  }
+  #  Armored Car 1939
+  application =
+  { id        = 2820
+    name      = TECH_APP_ARMOR_82_NAME
+    desc      = TECH_APP_ARMOR_82_DESC
+    position  = { x = 141 y = 303 }
+    year      = 1939
+    # Light Armor Plating
+    component = { id = 2821 name = TECH_CMP_ARMOR_82_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2822 name = TECH_CMP_ARMOR_82_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2823 name = TECH_CMP_ARMOR_82_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2824 name = TECH_CMP_ARMOR_82_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2825 name = TECH_CMP_ARMOR_82_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2810 }
+    effects =
+    { command = { type = new_model which = armored_car value = 2 }
+      command = { type = scrap_model which = armored_car value = 1 }
+    }
+  }
+  # Armored Car  1941
+  application =
+  { id        = 2830
+    name      = TECH_APP_ARMOR_83_NAME
+    desc      = TECH_APP_ARMOR_83_DESC
+    position  = { x = 141 y = 317 }
+    year      = 1941
+    # Light Armor Plating
+    component = { id = 2831 name = TECH_CMP_ARMOR_83_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2832 name = TECH_CMP_ARMOR_83_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2833 name = TECH_CMP_ARMOR_83_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2834 name = TECH_CMP_ARMOR_83_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2835 name = TECH_CMP_ARMOR_83_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2820 }
+    effects =
+    { command = { type = new_model which = armored_car value = 3 }
+      command = { type = scrap_model which = armored_car value = 2 }
+    }
+  }
+  # Armored Car 1943
+  application =
+  { id        = 2840
+    name      = TECH_APP_ARMOR_84_NAME
+    desc      = TECH_APP_ARMOR_84_DESC
+    position  = { x = 141 y = 331 }
+    year      = 1943
+    # Light Armor Plating
+    component = { id = 2841 name = TECH_CMP_ARMOR_84_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2842 name = TECH_CMP_ARMOR_84_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2843 name = TECH_CMP_ARMOR_84_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2844 name = TECH_CMP_ARMOR_84_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2845 name = TECH_CMP_ARMOR_84_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2830 }
+    effects =
+    { command = { type = new_model which = armored_car value = 4 }
+      command = { type = scrap_model which = armored_car value = 3 }
+    }
+  }
+  # Armored Car 1945
+  application =
+  { id        = 2850
+    name      = TECH_APP_ARMOR_85_NAME
+    desc      = TECH_APP_ARMOR_85_DESC
+    position  = { x = 141 y = 345 }
+    year      = 1945
+    # Light Armor Plating
+    component = { id = 2851 name = TECH_CMP_ARMOR_85_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2852 name = TECH_CMP_ARMOR_85_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2853 name = TECH_CMP_ARMOR_85_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2854 name = TECH_CMP_ARMOR_85_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2855 name = TECH_CMP_ARMOR_85_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2840 }
+    effects =
+    { command = { type = new_model which = armored_car value = 5 }
+      command = { type = scrap_model which = armored_car value = 4 }
+    }
+  }
+    # Armored Car 1952
+  application =
+  { id        = 2860
+    name      = TECH_APP_ARMOR_86_NAME
+    desc      = TECH_APP_ARMOR_86_DESC
+    position  = { x = 141 y = 359 }
+    year      = 1952
+    # Light Armor Plating
+    component = { id = 2861 name = TECH_CMP_ARMOR_86_1_NAME type = mechanics difficulty = 3 }
+    # Medium Machine Gun
+    component = { id = 2862 name = TECH_CMP_ARMOR_86_2_NAME type = artillery difficulty = 3 }
+    # Heavy Tractor Engine
+    component = { id = 2863 name = TECH_CMP_ARMOR_86_3_NAME type = mechanics difficulty = 3 }
+    # Mounted Field Glasses
+    component = { id = 2864 name = TECH_CMP_ARMOR_86_4_NAME type = rt_user_17 difficulty = 3 }
+    # Improved Armored Car Prototype Tests
+    component = { id = 2865 name = TECH_CMP_ARMOR_86_5_NAME type = technical_efficiency difficulty = 3 }
+    required  = { 2850 }
+    effects =
+    { command = { type = new_model which = armored_car value = 6 }
+      command = { type = scrap_model which = armored_car value = 5 }
+    }
+  }
+    
+  #################################
+  # Tank Destroyer brigade 
+  #################################
+  
+  # Experimental Tank Destroyer
+  application =
+  { id        = 11730
+    name      = TECH_APP_ARMOR_11730_NAME
+    desc      = TECH_APP_ARMOR_11730_DESC
+    position  = { x = 569 y = 179 }
+    year      = 1939
+    # Anti-Tank Gun experimental
+    component = { id = 11731 name = TECH_CMP_ARMOR_11730_1_NAME type = artillery difficulty = 2 }
+    # Experimental Tank Chassis
+    component = { id = 11732 name = TECH_CMP_ARMOR_11730_2_NAME type = mechanics difficulty = 2 }
+    # Solid Shell AP Ammo
+    component = { id = 11733 name = TECH_CMP_ARMOR_11730_3_NAME type = chemistry difficulty = 2 }
+    # Experimental Optical Sights
+    component = { id = 11734 name = TECH_CMP_ARMOR_11730_4_NAME type = rt_user_18 difficulty = 2 }
+    # Experimental Tank Destroyer Prototype Tests
+    component = { id = 11735 name = TECH_CMP_ARMOR_11730_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2410 }
+	or_required = { 2640 2570 }
+    effects =
+    { command = { type = activate_unit_type which = tank_destroyer }
+      command = { type = new_model which = tank_destroyer value = 0 }
+    }
+  }
+  # Early Tank Destroyer
+  application =
+  { id        = 2170
+    name      = TECH_APP_ARMOR_17_NAME
+    desc      = TECH_APP_ARMOR_17_DESC
+    position  = { x = 569 y = 193 }
+    year      = 1940
+    # Anti-Tank Gun 50mm
+    component = { id = 2171 name = TECH_CMP_ARMOR_17_1_NAME type = artillery difficulty = 2 }
+    # Early Tank Chassis
+    component = { id = 2172 name = TECH_CMP_ARMOR_17_2_NAME type = mechanics difficulty = 2 }
+    # Solid Shell AP Ammo
+    component = { id = 2173 name = TECH_CMP_ARMOR_17_3_NAME type = chemistry difficulty = 2 }
+    # Early Optical Sights
+    component = { id = 2174 name = TECH_CMP_ARMOR_17_4_NAME type = rt_user_18 difficulty = 2 }
+    # Early Tank Destroyer Prototype Tests
+    component = { id = 2175 name = TECH_CMP_ARMOR_17_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11730 2410 }
+	or_required = { 2650 2580 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 1 }
+	  command = { type = scrap_model which = tank_destroyer value = 0 }
+    }
+  }
+  # Basic Tank Destroyer
+  application =
+  { id        = 2180
+    name      = TECH_APP_ARMOR_18_NAME
+    desc      = TECH_APP_ARMOR_18_DESC
+    position  = { x = 569 y = 207 }
+    year      = 1941
+    # Anti-Tank Gun 75mm
+    component = { id = 2181 name = TECH_CMP_ARMOR_18_1_NAME type = artillery difficulty = 2 }
+    # Basic Light Tank Chassis
+    component = { id = 2182 name = TECH_CMP_ARMOR_18_2_NAME type = mechanics difficulty = 2 }
+    # Shaped Charge Shell HEAT Ammo
+    component = { id = 2183 name = TECH_CMP_ARMOR_18_3_NAME type = chemistry difficulty = 2 }
+    # Basic Optical Sights
+    component = { id = 2184 name = TECH_CMP_ARMOR_18_4_NAME type = rt_user_18 difficulty = 2 }
+    # Basic Tank Destroyer Prototype Tests
+    component = { id = 2185 name = TECH_CMP_ARMOR_18_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2170 2420 }
+	or_required = { 2590 2660 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 2 }
+	  command = { type = scrap_model which = tank_destroyer value = 1 }
+    }
+  }
+  # Improved Tank Destroyer
+  application =
+  { id        = 2190
+    name      = TECH_APP_ARMOR_19_NAME
+    desc      = TECH_APP_ARMOR_19_DESC
+    position  = { x = 569 y = 221 }
+    year      = 1942
+    # Anti-Tank Gun 88mm
+    component = { id = 2191 name = TECH_CMP_ARMOR_19_1_NAME type = artillery difficulty = 2 }
+    # Improved Light Tank Chassis
+    component = { id = 2192 name = TECH_CMP_ARMOR_19_2_NAME type = mechanics difficulty = 2 }
+    # Core Shell HEAT Ammo
+    component = { id = 2193 name = TECH_CMP_ARMOR_19_3_NAME type = chemistry difficulty = 2 }
+    # Improved Optical Sights
+    component = { id = 2194 name = TECH_CMP_ARMOR_19_4_NAME type = rt_user_18 difficulty = 2 }
+    # Improved Tank Destroyer Prototype Tests
+    component = { id = 2195 name = TECH_CMP_ARMOR_19_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2180 2420 }
+	or_required = { 2600 2670 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 3 }
+      command = { type = scrap_model which = tank_destroyer value = 2 }
+    }
+  }
+  # Advanced Tank Destroyer
+  application =
+  { id        = 2200
+    name      = TECH_APP_ARMOR_20_NAME
+    desc      = TECH_APP_ARMOR_20_DESC
+    position  = { x = 569 y = 235 }
+    year      = 1943
+    # Anti-Tank Gun 105mm
+    component = { id = 2201 name = TECH_CMP_ARMOR_20_1_NAME type = artillery difficulty = 2 }
+    # Basic Medium Tank Chassis
+    component = { id = 2202 name = TECH_CMP_ARMOR_20_2_NAME type = mechanics difficulty = 2 }
+    # Sabot Shell HEAT Ammo
+    component = { id = 2203 name = TECH_CMP_ARMOR_20_3_NAME type = chemistry difficulty = 2 }
+    # Advanced Optical Sights
+    component = { id = 2204 name = TECH_CMP_ARMOR_20_4_NAME type = rt_user_18 difficulty = 2 }
+    # Advanced Tank Destroyer Prototype Tests
+    component = { id = 2205 name = TECH_CMP_ARMOR_20_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2190 2430 }
+	or_required = { 2610 2680 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 4 }
+      command = { type = scrap_model which = tank_destroyer value = 3 }
+    }
+  }
+  # Semi-Modern Tank Destroyer
+  application =
+  { id        = 2210
+    name      = TECH_APP_ARMOR_21_NAME
+    desc      = TECH_APP_ARMOR_21_DESC
+    position  = { x = 569 y = 249 }
+    year      = 1944
+    # Anti-Tank Gun 120mm
+    component = { id = 2211 name = TECH_CMP_ARMOR_21_1_NAME type = artillery difficulty = 2 }
+    # Improved Medium Tank Chassis
+    component = { id = 2212 name = TECH_CMP_ARMOR_21_2_NAME type = mechanics difficulty = 2 }
+    # Capped Shell AP Ammo
+    component = { id = 2213 name = TECH_CMP_ARMOR_21_3_NAME type = chemistry difficulty = 2 }
+    # Infrared Optical Sights
+    component = { id = 2214 name = TECH_CMP_ARMOR_21_4_NAME type = rt_user_18 difficulty = 2 }
+    # Semi-Modern Tank Destroyer Prototype Tests
+    component = { id = 2215 name = TECH_CMP_ARMOR_21_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2200 2430 }
+	or_required = { 2620 2690 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 5 }
+      command = { type = scrap_model which = tank_destroyer value = 4 }
+    }
+  }
+  # Late World War Tank Destroyer
+  application =
+  { id        = 11020
+    name      = TECH_APP_ARMOR_102_NAME
+    desc      = TECH_APP_ARMOR_102_DESC
+    position  = { x = 569 y = 263 }
+    year      = 1945
+    # ?
+    component = { id = 11021 name = TECH_CMP_ARMOR_102_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11022 name = TECH_CMP_ARMOR_102_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11023 name = TECH_CMP_ARMOR_102_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11024 name = TECH_CMP_ARMOR_102_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11025 name = TECH_CMP_ARMOR_102_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2210 2440 }
+	or_required = { 2980 2730 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 6 }
+      command = { type = scrap_model which = tank_destroyer value = 5 }
+    }
+  }
+    # Modern Tank Destroyer
+  application =
+  { id        = 11400
+    name      = TECH_APP_ARMOR_140_NAME
+    desc      = TECH_APP_ARMOR_140_DESC
+    position  = { x = 569 y = 277 }
+    year      = 1946
+    # ?
+    component = { id = 11401 name = TECH_CMP_ARMOR_140_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11402 name = TECH_CMP_ARMOR_140_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11403 name = TECH_CMP_ARMOR_140_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11404 name = TECH_CMP_ARMOR_140_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11405 name = TECH_CMP_ARMOR_140_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11020 2440 }
+	or_required = { 2990 2740 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 7 }
+      command = { type = scrap_model which = tank_destroyer value = 6 }
+    }
+  }
+    # Modern Tank Destroyer II
+  application =
+  { id        = 11740
+    name      = TECH_APP_ARMOR_11740_NAME
+    desc      = TECH_APP_ARMOR_11740_DESC
+    position  = { x = 569 y = 291 }
+    year      = 1950
+    # ?
+    component = { id = 11741 name = TECH_CMP_ARMOR_11740_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11742 name = TECH_CMP_ARMOR_11740_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11743 name = TECH_CMP_ARMOR_11740_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11744 name = TECH_CMP_ARMOR_11740_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11745 name = TECH_CMP_ARMOR_11740_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11400 11070 }
+	or_required = { 11520 2780 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 8 }
+      command = { type = scrap_model which = tank_destroyer value = 7 }
+    }
+  }
+  
+    # Cold War Tank Destroyer
+  application =
+  { id        = 11410
+    name      = TECH_APP_ARMOR_141_NAME
+    desc      = TECH_APP_ARMOR_141_DESC
+    position  = { x = 569 y = 305 }
+    year      = 1954
+    # ?
+    component = { id = 11411 name = TECH_CMP_ARMOR_141_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11412 name = TECH_CMP_ARMOR_141_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11413 name = TECH_CMP_ARMOR_141_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11414 name = TECH_CMP_ARMOR_141_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11415 name = TECH_CMP_ARMOR_141_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11740 11380 }
+	or_required = { 11470 11540 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 9 }
+      command = { type = scrap_model which = tank_destroyer value = 8 }
+    }
+  }
+    # Mid Cold War Tank Destroyer
+  application =
+  { id        = 11420
+    name      = TECH_APP_ARMOR_142_NAME
+    desc      = TECH_APP_ARMOR_142_DESC
+    position  = { x = 569 y = 319 }
+    year      = 1960
+    # ?
+    component = { id = 11421 name = TECH_CMP_ARMOR_142_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11422 name = TECH_CMP_ARMOR_142_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11423 name = TECH_CMP_ARMOR_142_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11424 name = TECH_CMP_ARMOR_142_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11425 name = TECH_CMP_ARMOR_142_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11410 11390 }
+	or_required = { 11550 11480 }
+    effects =
+    { command = { type = new_model which = tank_destroyer value = 10 }
+      command = { type = scrap_model which = tank_destroyer value = 9 }
+    }
+  }
+	
+  #################################
+  # Self-propelled artillery brigade  
+  #################################
+  
+  # Experimental Self-Propelled Artillery
+  application =
+  { id        = 11720
+    name      = TECH_APP_ARMOR_11720_NAME
+    desc      = TECH_APP_ARMOR_11720_DESC
+    position  = { x = 569 y = 19 }
+    year      = 1939
+    # Experimental Light Assault Gun
+    component = { id = 11721 name = TECH_CMP_ARMOR_11720_1_NAME type = artillery difficulty = 2 }
+    # Early Tank Chassis
+    component = { id = 11722 name = TECH_CMP_ARMOR_11720_2_NAME type = mechanics difficulty = 2 }
+    # Fragmentation Shells
+    component = { id = 11723 name = TECH_CMP_ARMOR_11720_3_NAME type = chemistry difficulty = 2 }
+    # Basic Fire Control
+    component = { id = 11724 name = TECH_CMP_ARMOR_11720_4_NAME type = rt_user_18 difficulty = 2 }
+    # Early Assault Gun Prototype Tests
+    component = { id = 11725 name = TECH_CMP_ARMOR_11720_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2320 }
+	or_required = { 2570 2640 } 
+    effects =
+    { command = { type = activate_unit_type which = sp_artillery }
+      command = { type = new_model which = sp_artillery value = 0 }
+    }
+  }
+  
+  # Early Self-Propelled Artillery
+  application =
+  { id        = 2220
+    name      = TECH_APP_ARMOR_22_NAME
+    desc      = TECH_APP_ARMOR_22_DESC
+    position  = { x = 569 y = 33 }
+    year      = 1940
+    # Light Assault Gun 50mm
+    component = { id = 2221 name = TECH_CMP_ARMOR_22_1_NAME type = artillery difficulty = 2 }
+    # Early Tank Chassis
+    component = { id = 2222 name = TECH_CMP_ARMOR_22_2_NAME type = mechanics difficulty = 2 }
+    # Fragmentation Shells
+    component = { id = 2223 name = TECH_CMP_ARMOR_22_3_NAME type = chemistry difficulty = 2 }
+    # Basic Fire Control
+    component = { id = 2224 name = TECH_CMP_ARMOR_22_4_NAME type = rt_user_18 difficulty = 2 }
+    # Early Assault Gun Prototype Tests
+    component = { id = 2225 name = TECH_CMP_ARMOR_22_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11720 2330 }
+	or_required = { 2580 2650 } 
+    effects =
+    { command = { type = new_model which = sp_artillery value = 1 }
+	  command = { type = scrap_model which = sp_artillery value = 0 }
+    }
+  }
+  # Basic Self-Propelled Artillery
+  application =
+  { id        = 2230
+    name      = TECH_APP_ARMOR_23_NAME
+    desc      = TECH_APP_ARMOR_23_DESC
+    position  = { x = 569 y = 47 }
+    year      = 1942
+    # Medium Assault Gun 75mm
+    component = { id = 2231 name = TECH_CMP_ARMOR_23_1_NAME type = artillery difficulty = 2 }
+    # Basic Light Tank Chassis
+    component = { id = 2232 name = TECH_CMP_ARMOR_23_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive Squash-Head (HESH) Shells
+    component = { id = 2233 name = TECH_CMP_ARMOR_23_3_NAME type = chemistry difficulty = 2 }
+    # Improved Fire Control
+    component = { id = 2234 name = TECH_CMP_ARMOR_23_4_NAME type = rt_user_18 difficulty = 2 }
+    # Basic Assault Gun Prototype Tests
+    component = { id = 2235 name = TECH_CMP_ARMOR_23_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2220 2330 }
+	or_required = { 2600 2670 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 2 }
+	  command = { type = scrap_model which = sp_artillery value = 1 }
+    }
+  }
+  # Improved Self-Propelled Artillery
+  application =
+  { id        = 2240
+    name      = TECH_APP_ARMOR_24_NAME
+    desc      = TECH_APP_ARMOR_24_DESC
+    position  = { x = 569 y = 61 }
+    year      = 1943
+    # Heavy Assault Gun 105mm
+    component = { id = 2241 name = TECH_CMP_ARMOR_24_1_NAME type = artillery difficulty = 2 }
+    # Improved Light Tank Chassis
+    component = { id = 2242 name = TECH_CMP_ARMOR_24_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive Fragmentation (HEF) Shells
+    component = { id = 2243 name = TECH_CMP_ARMOR_24_3_NAME type = chemistry difficulty = 2 }
+    # Basic Counter-Battery Radar
+    component = { id = 2244 name = TECH_CMP_ARMOR_24_4_NAME type = rt_user_18 difficulty = 2 }
+    # Improved Assault Gun Prototype Tests
+    component = { id = 2245 name = TECH_CMP_ARMOR_24_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2230 2340 }
+	or_required = { 2610 2680 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 3 }
+      command = { type = scrap_model which = sp_artillery value = 2 }
+    }
+  }
+  # Advanced Self-Propelled Artillery
+  application =
+  { id        = 2250
+    name      = TECH_APP_ARMOR_25_NAME
+    desc      = TECH_APP_ARMOR_25_DESC
+    position  = { x = 569 y = 75 }
+    year      = 1944
+    # Heavy Assault Gun 150mm
+    component = { id = 2251 name = TECH_CMP_ARMOR_25_1_NAME type = artillery difficulty = 2 }
+    # Basic Medium Tank Chassis
+    component = { id = 2252 name = TECH_CMP_ARMOR_25_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive Anti-Tank (HEAT) Shells
+    component = { id = 2253 name = TECH_CMP_ARMOR_25_3_NAME type = chemistry difficulty = 2 }
+    # Improved Counter-Battery Radar
+    component = { id = 2254 name = TECH_CMP_ARMOR_25_4_NAME type = rt_user_18 difficulty = 2 }
+    # Advanced Assault Gun Prototype Tests
+    component = { id = 2255 name = TECH_CMP_ARMOR_25_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2240 2340 }
+	or_required = { 2620 2690 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 4 }
+      command = { type = scrap_model which = sp_artillery value = 3 }
+    }
+  }
+  # Semi modern Self-Propelled Artillery
+  application =
+  { id        = 11030
+    name      = TECH_APP_ARMOR_103_NAME
+    desc      = TECH_APP_ARMOR_103_DESC
+    position  = { x = 569 y = 89 }
+    year      = 1945
+    # ?
+    component = { id = 11031 name = TECH_CMP_ARMOR_103_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11032 name = TECH_CMP_ARMOR_103_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11033 name = TECH_CMP_ARMOR_103_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11034 name = TECH_CMP_ARMOR_103_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11035 name = TECH_CMP_ARMOR_103_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2250 2350 }
+	or_required = { 2980 2730 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 5 }
+      command = { type = scrap_model which = sp_artillery value = 4 }
+    }
+  }
+  # modern Self-Propelled Artillery
+  application =
+  { id        = 11040
+    name      = TECH_APP_ARMOR_104_NAME
+    desc      = TECH_APP_ARMOR_104_DESC
+    position  = { x = 569 y = 103 }
+    year      = 1946
+    # ?
+    component = { id = 11041 name = TECH_CMP_ARMOR_104_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11042 name = TECH_CMP_ARMOR_104_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11043 name = TECH_CMP_ARMOR_104_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11044 name = TECH_CMP_ARMOR_104_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11045 name = TECH_CMP_ARMOR_104_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11030 2350 }
+	or_required = { 2990 2740 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 6 }
+      command = { type = scrap_model which = sp_artillery value = 5 }
+    }
+  }
+  # modern Self-Propelled Artillery II
+  application =
+  { id        = 11350
+    name      = TECH_APP_ARMOR_135_NAME
+    desc      = TECH_APP_ARMOR_135_DESC
+    position  = { x = 569 y = 117 }
+    year      = 1950
+    # ?
+    component = { id = 11351 name = TECH_CMP_ARMOR_135_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11352 name = TECH_CMP_ARMOR_135_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11353 name = TECH_CMP_ARMOR_135_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11354 name = TECH_CMP_ARMOR_135_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11355 name = TECH_CMP_ARMOR_135_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11040 2360 }
+	or_required = { 11520 2780 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 7 }
+      command = { type = scrap_model which = sp_artillery value = 6 }
+    }
+  }
+    # Cold War Self-Propelled Artillery
+  application =
+  { id        = 11360
+    name      = TECH_APP_ARMOR_136_NAME
+    desc      = TECH_APP_ARMOR_136_DESC
+    position  = { x = 569 y = 131 }
+    year      = 1954
+    # ?
+    component = { id = 11361 name = TECH_CMP_ARMOR_136_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11362 name = TECH_CMP_ARMOR_136_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11363 name = TECH_CMP_ARMOR_136_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11364 name = TECH_CMP_ARMOR_136_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11365 name = TECH_CMP_ARMOR_136_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11350 11290 }
+	or_required = { 11470 11540 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 8 }
+      command = { type = scrap_model which = sp_artillery value = 7 }
+    }
+  }
+    # Mid Cold War Self-Propelled Artillery
+  application =
+  { id        = 11370
+    name      = TECH_APP_ARMOR_137_NAME
+    desc      = TECH_APP_ARMOR_137_DESC
+    position  = { x = 569 y = 145 }
+    year      = 1960
+    # ?
+    component = { id = 11371 name = TECH_CMP_ARMOR_137_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11372 name = TECH_CMP_ARMOR_137_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11373 name = TECH_CMP_ARMOR_137_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11374 name = TECH_CMP_ARMOR_137_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11375 name = TECH_CMP_ARMOR_137_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11360 11300 }
+	or_required = { 11550 11480 }
+    effects =
+    { command = { type = new_model which = sp_artillery value = 9 }
+      command = { type = scrap_model which = sp_artillery value = 8 }
+    }
+  }
+  
+    
+  #################################
+  # self-propelled rocket artillery
+  #################################
+  
+  
+  # Basic SP Rocket Artillery
+  application =
+  { id        = 2260
+    name      = TECH_APP_ARMOR_26_NAME
+    desc      = TECH_APP_ARMOR_26_DESC
+    position  = { x = 569 y = 353 }
+    year      = 1941
+    # Self-Propelled Rocket Artillery 100mm
+    component = { id = 2261 name = TECH_CMP_ARMOR_26_1_NAME type = artillery difficulty = 2 }
+    # Basic Medium Tank Chassis
+    component = { id = 2262 name = TECH_CMP_ARMOR_26_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive (HE) Shells
+    component = { id = 2263 name = TECH_CMP_ARMOR_26_3_NAME type = chemistry difficulty = 2 }
+    # Velocity Control System
+    component = { id = 2264 name = TECH_CMP_ARMOR_26_4_NAME type = rt_user_18 difficulty = 2 }
+    # Basic SP Rocket Art Prototype Tests
+    component = { id = 2265 name = TECH_CMP_ARMOR_26_5_NAME type = technical_efficiency difficulty = 2 }
+    OR_required = { 2590 2660 1230 }
+    required  = { 2380 }
+    effects =
+    { command = { type = activate_unit_type which = sp_rct_artillery }
+      command = { type = new_model which = sp_rct_artillery value = 0 }
+    }
+  }
+  # Improved SP Rocket Artillery
+  application =
+  { id        = 2270
+    name      = TECH_APP_ARMOR_27_NAME
+    desc      = TECH_APP_ARMOR_27_DESC
+    position  = { x = 569 y = 367 }
+    year      = 1942
+    # Self-Propelled Rocket Artillery 200mm
+    component = { id = 2271 name = TECH_CMP_ARMOR_27_1_NAME type = artillery difficulty = 2 }
+    # Improved Medium Tank Chassis
+    component = { id = 2272 name = TECH_CMP_ARMOR_27_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive Fragmentation (HEF) Shells
+    component = { id = 2273 name = TECH_CMP_ARMOR_27_3_NAME type = chemistry difficulty = 2 }
+    # Trajectory Control System
+    component = { id = 2274 name = TECH_CMP_ARMOR_27_4_NAME type = rt_user_18 difficulty = 2 }
+    # Improved SP Rocket Art Prototype Tests
+    component = { id = 2275 name = TECH_CMP_ARMOR_27_5_NAME type = technical_efficiency difficulty = 2 }
+    OR_required = { 2670 2600 1230 }
+    required  = { 2390 2260 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 1 }
+	  command = { type = scrap_model which = sp_rct_artillery value = 0 }
+    }
+  }
+  # Advanced SP Rocket Artillery
+  application =
+  { id        = 2280
+    name      = TECH_APP_ARMOR_28_NAME
+    desc      = TECH_APP_ARMOR_28_DESC
+    position  = { x = 569 y = 381 }
+    year      = 1943
+    # Self-Propelled Rocket Artillery 300mm
+    component = { id = 2281 name = TECH_CMP_ARMOR_28_1_NAME type = artillery difficulty = 2 }
+    # Improved Medium Tank Chassis
+    component = { id = 2282 name = TECH_CMP_ARMOR_28_2_NAME type = mechanics difficulty = 2 }
+    # High Explosive Incendiary (HEI) Shells
+    component = { id = 2283 name = TECH_CMP_ARMOR_28_3_NAME type = chemistry difficulty = 2 }
+    # Humidity Control System
+    component = { id = 2284 name = TECH_CMP_ARMOR_28_4_NAME type = rt_user_18 difficulty = 2 }
+    # Advanced SP Rocket Art Prototype Tests
+    component = { id = 2285 name = TECH_CMP_ARMOR_28_5_NAME type = technical_efficiency difficulty = 2 }
+    OR_required = { 2680 2610 1240 1260 }
+    required  = { 11310 2270 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 2 }
+      command = { type = scrap_model which = sp_rct_artillery value = 1 }
+    }
+  }
+  # Semi modern SP Rocket Artillery
+  application =
+  { id        = 11050
+    name      = TECH_APP_ARMOR_105_NAME
+    desc      = TECH_APP_ARMOR_105_DESC
+    position  = { x = 569 y = 395 }
+    year      = 1944
+    # ?
+    component = { id = 11051 name = TECH_CMP_ARMOR_105_1_NAME type = rocketry difficulty = 2 }
+    # ?
+    component = { id = 11052 name = TECH_CMP_ARMOR_105_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11053 name = TECH_CMP_ARMOR_105_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11054 name = TECH_CMP_ARMOR_105_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11055 name = TECH_CMP_ARMOR_105_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2280 11320 }
+	OR_required = { 2690 2620 1240 1260 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 3 }
+      command = { type = scrap_model which = sp_rct_artillery value = 2 }
+    }
+  }
+  # modern SP Rocket Artillery
+  application =
+  { id        = 11060
+    name      = TECH_APP_ARMOR_106_NAME
+    desc      = TECH_APP_ARMOR_106_DESC
+    position  = { x = 569 y = 409 }
+    year      = 1945
+    # ?
+    component = { id = 11061 name = TECH_CMP_ARMOR_106_1_NAME type = rocketry difficulty = 2 }
+    # ?
+    component = { id = 11062 name = TECH_CMP_ARMOR_106_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11063 name = TECH_CMP_ARMOR_106_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11064 name = TECH_CMP_ARMOR_106_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11065 name = TECH_CMP_ARMOR_106_5_NAME type = technical_efficiency difficulty = 2 }
+	OR_required = { 2730 2980 1250 1270 }
+    required  = { 11050 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 4 }
+      command = { type = scrap_model which = sp_rct_artillery value = 3 }
+    }
+  }
+    # Cold War SP Rocket Artillery
+  application =
+  { id        = 11330
+    name      = TECH_APP_ARMOR_133_NAME
+    desc      = TECH_APP_ARMOR_133_DESC
+    position  = { x = 569 y = 423 }
+    year      = 1952
+    # ?
+    component = { id = 11331 name = TECH_CMP_ARMOR_133_1_NAME type = rocketry difficulty = 2 }
+    # ?
+    component = { id = 11332 name = TECH_CMP_ARMOR_133_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11333 name = TECH_CMP_ARMOR_133_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11334 name = TECH_CMP_ARMOR_133_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11335 name = TECH_CMP_ARMOR_133_5_NAME type = technical_efficiency difficulty = 2 }
+    OR_required = { 2790 11530 10080 1290 }
+    required  = { 11060 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 5 }
+      command = { type = scrap_model which = sp_rct_artillery value = 4 }
+    }
+  }
+    # Mid Cold War SP Rocket Artillery
+  application =
+  { id        = 11340
+    name      = TECH_APP_ARMOR_134_NAME
+    desc      = TECH_APP_ARMOR_134_DESC
+    position  = { x = 569 y = 437 }
+    year      = 1961
+    # ?
+    component = { id = 11341 name = TECH_CMP_ARMOR_134_1_NAME type = rocketry difficulty = 2 }
+    # ?
+    component = { id = 11342 name = TECH_CMP_ARMOR_134_2_NAME type = mechanics difficulty = 2 }
+    # ?
+    component = { id = 11343 name = TECH_CMP_ARMOR_134_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11344 name = TECH_CMP_ARMOR_134_4_NAME type = rt_user_18 difficulty = 2 }
+    # ?
+    component = { id = 11345 name = TECH_CMP_ARMOR_134_5_NAME type = technical_efficiency difficulty = 2 }
+    OR_required = { 11490 11560 11680 11700 }
+    required  = { 11330 }
+    effects =
+    { command = { type = new_model which = sp_rct_artillery value = 6 }
+      command = { type = scrap_model which = sp_rct_artillery value = 5 }
+    }
+  }
+  
+    
+  #################################
+  # Artillery
+  #################################
+  
+  
+  # Great War Field Artillery
+  application =
+  { id        = 2290
+    name      = TECH_APP_ARMOR_29_NAME
+    desc      = TECH_APP_ARMOR_29_DESC
+    position  = { x = 432 y = 19 }
+    year      = 1918
+    # Great War Field Artillery Gun
+    component = { id = 2291 name = TECH_CMP_ARMOR_29_1_NAME type = artillery difficulty = 5 }
+    # Great War Gun Carrier
+    component = { id = 2292 name = TECH_CMP_ARMOR_29_2_NAME type = mechanics difficulty = 5 }
+    # Old-type High Explosive (HE) Shells
+    component = { id = 2293 name = TECH_CMP_ARMOR_29_3_NAME type = chemistry difficulty = 5 }
+    # Frontline Observers
+    component = { id = 2294 name = TECH_CMP_ARMOR_29_4_NAME type = electronics difficulty = 5 }
+    # Sheaf Fire Training
+    component = { id = 2295 name = TECH_CMP_ARMOR_29_5_NAME type = training difficulty = 5 double_time = yes }
+    effects =
+    { command = { type = activate_unit_type which = artillery }
+      command = { type = new_model which = artillery value = 0 }
+    }
+  }
+  
+  # Early Field Artillery
+  application =
+  { id        = 2300
+    name      = TECH_APP_ARMOR_30_NAME
+    desc      = TECH_APP_ARMOR_30_DESC
+    position  = { x = 432 y = 33 }
+    year      = 1932
+    # Great War Field Artillery Gun 150mm
+    component = { id = 2301 name = TECH_CMP_ARMOR_30_1_NAME type = artillery difficulty = 5 }
+    # Great War Gun Carrier
+    component = { id = 2302 name = TECH_CMP_ARMOR_30_2_NAME type = mechanics difficulty = 5 }
+    # Old-type High Explosive (HE) Shells
+    component = { id = 2303 name = TECH_CMP_ARMOR_30_3_NAME type = chemistry difficulty = 5 }
+    # Forward Observer Group
+    component = { id = 2304 name = TECH_CMP_ARMOR_30_4_NAME type = electronics difficulty = 5 }
+    # Concentrated Fire Training
+    component = { id = 2305 name = TECH_CMP_ARMOR_30_5_NAME type = training difficulty = 5 double_time = yes }
+    required  = { 2290 }
+    effects =
+    { command = { type = new_model which = artillery value = 1 }
+	  command = { type = scrap_model which = artillery value = 0 }
+    }
+  }
+  # Basic Field Artillery
+  application =
+  { id        = 2310
+    name      = TECH_APP_ARMOR_31_NAME
+    desc      = TECH_APP_ARMOR_31_DESC
+    position  = { x = 432 y = 47 }
+    year      = 1936
+    # Great War Heavy Artillery Gun 240mm
+    component = { id = 2311 name = TECH_CMP_ARMOR_31_1_NAME type = artillery difficulty = 5 }
+    # High-Elevation Gun Carriage
+    component = { id = 2312 name = TECH_CMP_ARMOR_31_2_NAME type = mechanics difficulty = 5 }
+    # Old-type High Explosive (HE) Shells
+    component = { id = 2313 name = TECH_CMP_ARMOR_31_3_NAME type = chemistry difficulty = 5 }
+    # Optical Rangefinder
+    component = { id = 2314 name = TECH_CMP_ARMOR_31_4_NAME type = electronics difficulty = 5 }
+    # Multilevel Fire Concert Training
+    component = { id = 2315 name = TECH_CMP_ARMOR_31_5_NAME type = training difficulty = 5 double_time = yes }
+    required  = { 2300 }
+    effects =
+    { command = { type = new_model which = artillery value = 2 }
+      command = { type = scrap_model which = artillery value = 1 }
+    }
+  }
+  # Improved Field Artillery
+  application =
+  { id        = 2320
+    name      = TECH_APP_ARMOR_32_NAME
+    desc      = TECH_APP_ARMOR_32_DESC
+    position  = { x = 432 y = 61 }
+    year      = 1938
+    # Field Artillery Gun 75mm
+    component = { id = 2321 name = TECH_CMP_ARMOR_32_1_NAME type = artillery difficulty = 5 }
+    # Early Gun Carriage
+    component = { id = 2322 name = TECH_CMP_ARMOR_32_2_NAME type = mechanics difficulty = 5 }
+    # High Explosive (HE) Shells
+    component = { id = 2323 name = TECH_CMP_ARMOR_32_3_NAME type = chemistry difficulty = 5 }
+    # Rangefinder Radar
+    component = { id = 2324 name = TECH_CMP_ARMOR_32_4_NAME type = electronics difficulty = 5 }
+    # Basic Crawling Fire Training
+    component = { id = 2325 name = TECH_CMP_ARMOR_32_5_NAME type = training difficulty = 5 }
+    required  = { 2310 }
+    effects =
+    { command = { type = new_model which = artillery value = 3 }
+      command = { type = scrap_model which = artillery value = 2 }
+    }
+  }
+  # Developed Field Artillery
+  application =
+  { id        = 2330
+    name      = TECH_APP_ARMOR_33_NAME
+    desc      = TECH_APP_ARMOR_33_DESC
+    position  = { x = 432 y = 75 }
+    year      = 1940
+    # Field Artillery Gun 105mm
+    component = { id = 2331 name = TECH_CMP_ARMOR_33_1_NAME type = artillery difficulty = 5 }
+    # Basic Gun Carriage
+    component = { id = 2332 name = TECH_CMP_ARMOR_33_2_NAME type = mechanics difficulty = 5 }
+    # Fragmentation Shells
+    component = { id = 2333 name = TECH_CMP_ARMOR_33_3_NAME type = chemistry difficulty = 5 }
+    # Basic Fire Control
+    component = { id = 2334 name = TECH_CMP_ARMOR_33_4_NAME type = electronics difficulty = 5 }
+    # Rapid Crawling Fire Training
+    component = { id = 2335 name = TECH_CMP_ARMOR_33_5_NAME type = training difficulty = 5 }
+    required  = { 2320 }
+    effects =
+    { command = { type = new_model which = artillery value = 4 }
+      command = { type = scrap_model which = artillery value = 3 }
+    }
+  }
+  # Advanced Field Artillery
+  application =
+  { id        = 2340
+    name      = TECH_APP_ARMOR_34_NAME
+    desc      = TECH_APP_ARMOR_34_DESC
+    position  = { x = 432 y = 89 }
+    year      = 1943
+    # Field Artillery Gun 120mm
+    component = { id = 2341 name = TECH_CMP_ARMOR_34_1_NAME type = artillery difficulty = 5 }
+    # Improved Gun Carriage
+    component = { id = 2342 name = TECH_CMP_ARMOR_34_2_NAME type = mechanics difficulty = 5 }
+    # High Explosive Squash-Head (HESH) Shells
+    component = { id = 2343 name = TECH_CMP_ARMOR_34_3_NAME type = chemistry difficulty = 5 }
+    # Improved Fire Control
+    component = { id = 2344 name = TECH_CMP_ARMOR_34_4_NAME type = electronics difficulty = 5 }
+    # Rapid Target Switch Training
+    component = { id = 2345 name = TECH_CMP_ARMOR_34_5_NAME type = training difficulty = 5 }
+    required  = { 2330 }
+    effects =
+    { command = { type = new_model which = artillery value = 5 }
+      command = { type = scrap_model which = artillery value = 4 }
+    }
+  }
+  # Semi-Modern Field Artillery
+  application =
+  { id        = 2350
+    name      = TECH_APP_ARMOR_35_NAME
+    desc      = TECH_APP_ARMOR_35_DESC
+    position  = { x = 432 y = 103 }
+    year      = 1945
+    # Field Artillery Gun 150mm
+    component = { id = 2351 name = TECH_CMP_ARMOR_35_1_NAME type = artillery difficulty = 6 }
+    # Advanced Gun Carriage
+    component = { id = 2352 name = TECH_CMP_ARMOR_35_2_NAME type = mechanics difficulty = 6 }
+    # High Explosive Fragmentation (HEF) Shells
+    component = { id = 2353 name = TECH_CMP_ARMOR_35_3_NAME type = chemistry difficulty = 6 }
+    # Basic Counter-Battery Radar
+    component = { id = 2354 name = TECH_CMP_ARMOR_35_4_NAME type = electronics difficulty = 6 }
+    # Moving Target Hit Training
+    component = { id = 2355 name = TECH_CMP_ARMOR_35_5_NAME type = training difficulty = 6 }
+    required  = { 2340 }
+    effects =
+    { command = { type = new_model which = artillery value = 6 }
+      command = { type = scrap_model which = artillery value = 5 }
+    }
+  }
+  # Modern Field Artillery
+  application =
+  { id        = 2360
+    name      = TECH_APP_ARMOR_36_NAME
+    desc      = TECH_APP_ARMOR_36_DESC
+    position  = { x = 432 y = 117 }
+    year      = 1948
+    # Field Artillery Gun 170mm
+    component = { id = 2361 name = TECH_CMP_ARMOR_36_1_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Gun Carriage
+    component = { id = 2362 name = TECH_CMP_ARMOR_36_2_NAME type = mechanics difficulty = 7 }
+    # High Explosive Anti-Tank (HEAT) Shells
+    component = { id = 2363 name = TECH_CMP_ARMOR_36_3_NAME type = chemistry difficulty = 7 }
+    # Improved Counter-Battery Radar
+    component = { id = 2364 name = TECH_CMP_ARMOR_36_4_NAME type = electronics difficulty = 7 }
+    # Land-Air Combined Barrage Training
+    component = { id = 2365 name = TECH_CMP_ARMOR_36_5_NAME type = training difficulty = 7 }
+    required  = { 2350 }
+    effects =
+    { command = { type = new_model which = artillery value = 7 }
+      command = { type = scrap_model which = artillery value = 6 }
+    }
+  }
+  
+    # Cold War Field Artillery
+  application =
+  { id        = 11290
+    name      = TECH_APP_ARMOR_129_NAME
+    desc      = TECH_APP_ARMOR_129_DESC
+    position  = { x = 432 y = 131 }
+    year      = 1953
+    # Field Artillery Gun 170mm
+    component = { id = 11291 name = TECH_CMP_ARMOR_129_1_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Gun Carriage
+    component = { id = 11292 name = TECH_CMP_ARMOR_129_2_NAME type = mechanics difficulty = 7 }
+    # High Explosive Anti-Tank (HEAT) Shells
+    component = { id = 11293 name = TECH_CMP_ARMOR_129_3_NAME type = chemistry difficulty = 7 }
+    # Improved Counter-Battery Radar
+    component = { id = 11294 name = TECH_CMP_ARMOR_129_4_NAME type = electronics difficulty = 7 }
+    # Land-Air Combined Barrage Training
+    component = { id = 11295 name = TECH_CMP_ARMOR_129_5_NAME type = training difficulty = 7 }
+    required  = { 2360 }
+    effects =
+    { command = { type = new_model which = artillery value = 8 }
+      command = { type = scrap_model which = artillery value = 7 }
+    }
+  }
+  
+      # Mid Cold War Field Artillery
+  application =
+  { id        = 11300
+    name      = TECH_APP_ARMOR_130_NAME
+    desc      = TECH_APP_ARMOR_130_DESC
+    position  = { x = 432 y = 145 }
+    year      = 1960
+    # Field Artillery Gun 170mm
+    component = { id = 11301 name = TECH_CMP_ARMOR_130_1_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Gun Carriage
+    component = { id = 11302 name = TECH_CMP_ARMOR_130_2_NAME type = mechanics difficulty = 7 }
+    # High Explosive Anti-Tank (HEAT) Shells
+    component = { id = 11303 name = TECH_CMP_ARMOR_130_3_NAME type = chemistry difficulty = 7 }
+    # Improved Counter-Battery Radar
+    component = { id = 11304 name = TECH_CMP_ARMOR_130_4_NAME type = electronics difficulty = 7 }
+    # Land-Air Combined Barrage Training
+    component = { id = 11305 name = TECH_CMP_ARMOR_130_5_NAME type = training difficulty = 7 }
+    required  = { 11290 }
+    effects =
+    { command = { type = new_model which = artillery value = 9 }
+      command = { type = scrap_model which = artillery value = 8 }
+    }
+  }
+  
+    
+  #################################
+  # Rocket artillery
+  #################################
+  
+  # Light mortars
+  application =
+  { id        = 17000
+    name      = TECH_APP_ARMOR_17000_NAME
+    desc      = TECH_APP_ARMOR_17000_DESC
+    position  = { x = 432 y = 311 }
+    year      = 1936
+    # light barrel, 82mm
+    component = { id = 17001 name = TECH_CMP_ARMOR_17000_1_NAME type = artillery difficulty = 4 }
+    # light mortar carriage
+    component = { id = 17002 name = TECH_CMP_ARMOR_17000_2_NAME type = mechanics difficulty = 4 }
+    # 82mm shells
+    component = { id = 17003 name = TECH_CMP_ARMOR_17000_3_NAME type = chemistry difficulty = 4 }
+    # Basic Fire Control
+    component = { id = 17004 name = TECH_CMP_ARMOR_17000_4_NAME type = electronics difficulty = 4 }
+    # Light Mortars, Training
+    component = { id = 17005 name = TECH_CMP_ARMOR_17000_5_NAME type = training difficulty = 4 }
+    required  = { 2300 }
+    effects =
+    { command = { type = activate_unit_type which = rocket_artillery }
+      command = { type = new_model which = rocket_artillery value = 0 }
+    }
+  }
+  
+  # Heavy Mortars
+  application =
+  { id        = 17010
+    name      = TECH_APP_ARMOR_17010_NAME
+    desc      = TECH_APP_ARMOR_17010_DESC
+    position  = { x = 432 y = 325 }
+    year      = 1938
+    # Heavy Mortar Barrel, 120mm
+    component = { id = 17011 name = TECH_CMP_ARMOR_17010_1_NAME type = artillery difficulty = 5 }
+    # Heavy Mortar Carriage
+    component = { id = 17012 name = TECH_CMP_ARMOR_17010_2_NAME type = mechanics difficulty = 5 }
+    # 120mm Shells
+    component = { id = 17013 name = TECH_CMP_ARMOR_17010_3_NAME type = chemistry difficulty = 5 }
+    # Advanced Fire Control
+    component = { id = 17014 name = TECH_CMP_ARMOR_17010_4_NAME type = electronics difficulty = 5 }
+    # Heavy Mortars, Training
+    component = { id = 17015 name = TECH_CMP_ARMOR_17010_5_NAME type = training difficulty = 5 }
+    required  = { 17000 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 1 }
+	  command = { type = scrap_model which = rocket_artillery value = 0 }
+    }
+  }
+  
+  # Basic Rocket Artillery
+  application =
+  { id        = 2370
+    name      = TECH_APP_ARMOR_37_NAME
+    desc      = TECH_APP_ARMOR_37_DESC
+    position  = { x = 432 y = 339 }
+    year      = 1940
+    # Rocket Artillery 100mm
+    component = { id = 2371 name = TECH_CMP_ARMOR_37_1_NAME type = artillery difficulty = 5 }
+    # Basic Broadbased Carriage
+    component = { id = 2372 name = TECH_CMP_ARMOR_37_2_NAME type = mechanics difficulty = 5 }
+    # High Explosive (HE) Shells
+    component = { id = 2373 name = TECH_CMP_ARMOR_37_3_NAME type = chemistry difficulty = 5 }
+    # Velocity Control System
+    component = { id = 2374 name = TECH_CMP_ARMOR_37_4_NAME type = electronics difficulty = 5 }
+    # Concentrated Barrage Training
+    component = { id = 2375 name = TECH_CMP_ARMOR_37_5_NAME type = training difficulty = 5 }
+    required  = { 17010 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 2 }
+	  command = { type = scrap_model which = rocket_artillery value = 1 }
+    }
+  }
+  # Improved Rocket Artillery
+  application =
+  { id        = 2380
+    name      = TECH_APP_ARMOR_38_NAME
+    desc      = TECH_APP_ARMOR_38_DESC
+    position  = { x = 432 y = 353 }
+    year      = 1941
+    # Rocket Artillery 200mm
+    component = { id = 2381 name = TECH_CMP_ARMOR_38_1_NAME type = artillery difficulty = 5 }
+    # Improved Broadbased Carriage
+    component = { id = 2382 name = TECH_CMP_ARMOR_38_2_NAME type = mechanics difficulty = 5 }
+    # High Explosive Fragmentation (HEF) Shells
+    component = { id = 2383 name = TECH_CMP_ARMOR_38_3_NAME type = chemistry difficulty = 5 }
+    # Trajectory Control System
+    component = { id = 2384 name = TECH_CMP_ARMOR_38_4_NAME type = electronics difficulty = 5 }
+    # Surgical Strike Training
+    component = { id = 2385 name = TECH_CMP_ARMOR_38_5_NAME type = training difficulty = 5 }
+    required  = { 2370 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 3 }
+	  command = { type = scrap_model which = rocket_artillery value = 2 }
+    }
+  }
+  # Advanced Rocket Artillery
+  application =
+  { id        = 2390
+    name      = TECH_APP_ARMOR_39_NAME
+    desc      = TECH_APP_ARMOR_39_DESC
+    position  = { x = 432 y = 367 }
+    year      = 1942
+    # Rocket Artillery 300mm
+    component = { id = 2391 name = TECH_CMP_ARMOR_39_1_NAME type = artillery difficulty = 6 }
+    # Advanced Broadbased Carriage
+    component = { id = 2392 name = TECH_CMP_ARMOR_39_2_NAME type = mechanics difficulty = 6 }
+    # High Explosive Incendiary (HEI) Shells
+    component = { id = 2393 name = TECH_CMP_ARMOR_39_3_NAME type = chemistry difficulty = 6 }
+    # Humidity Control System
+    component = { id = 2394 name = TECH_CMP_ARMOR_39_4_NAME type = electronics difficulty = 6 }
+    # Rapid Regroup Training
+    component = { id = 2395 name = TECH_CMP_ARMOR_39_5_NAME type = training difficulty = 6 }
+    required  = { 2380 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 4 }
+	  command = { type = scrap_model which = rocket_artillery value = 3 }
+    }
+  }
+    # Semi-Modern Rocket Artillery
+  application =
+  { id        = 11310
+    name      = TECH_APP_ARMOR_131_NAME
+    desc      = TECH_APP_ARMOR_131_DESC
+    position  = { x = 432 y = 381 }
+    year      = 1943
+    # Rocket Artillery 300mm
+    component = { id = 11311 name = TECH_CMP_ARMOR_131_1_NAME type = artillery difficulty = 6 }
+    # Advanced Broadbased Carriage
+    component = { id = 11312 name = TECH_CMP_ARMOR_131_2_NAME type = mechanics difficulty = 6 }
+    # High Explosive Incendiary (HEI) Shells
+    component = { id = 11313 name = TECH_CMP_ARMOR_131_3_NAME type = chemistry difficulty = 6 }
+    # Humidity Control System
+    component = { id = 11314 name = TECH_CMP_ARMOR_131_4_NAME type = electronics difficulty = 6 }
+    # Rapid Regroup Training
+    component = { id = 11315 name = TECH_CMP_ARMOR_131_5_NAME type = training difficulty = 6 }
+    required  = { 2390 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 5 }
+	  command = { type = scrap_model which = rocket_artillery value = 4 }
+    }
+  }
+    # Modern Rocket Artillery
+  application =
+  { id        = 11320
+    name      = TECH_APP_ARMOR_132_NAME
+    desc      = TECH_APP_ARMOR_132_DESC
+    position  = { x = 432 y = 395 }
+    year      = 1944
+    # Rocket Artillery 300mm
+    component = { id = 11321 name = TECH_CMP_ARMOR_132_1_NAME type = artillery difficulty = 6 }
+    # Advanced Broadbased Carriage
+    component = { id = 11322 name = TECH_CMP_ARMOR_132_2_NAME type = mechanics difficulty = 6 }
+    # High Explosive Incendiary (HEI) Shells
+    component = { id = 11323 name = TECH_CMP_ARMOR_132_3_NAME type = chemistry difficulty = 6 }
+    # Humidity Control System
+    component = { id = 11324 name = TECH_CMP_ARMOR_132_4_NAME type = electronics difficulty = 6 }
+    # Rapid Regroup Training
+    component = { id = 11325 name = TECH_CMP_ARMOR_132_5_NAME type = training difficulty = 6 }
+    required  = { 11310 }
+    effects =
+    { command = { type = new_model which = rocket_artillery value = 6 }
+	  command = { type = scrap_model which = rocket_artillery value = 5 }
+    }
+  }
+   
+    
+  #################################
+  # Anti-Tank artillery
+  #################################
+  
+  
+  # Early Anti-Tank Artillery
+  application =
+  { id        = 2400
+    name      = TECH_APP_ARMOR_40_NAME
+    desc      = TECH_APP_ARMOR_40_DESC
+    position  = { x = 432 y = 179 }
+    year      = 1937
+    # Anti-Tank Gun 50mm
+    component = { id = 2401 name = TECH_CMP_ARMOR_40_1_NAME type = artillery difficulty = 4 }
+    # Early Gun Carriage
+    component = { id = 2402 name = TECH_CMP_ARMOR_40_2_NAME type = mechanics difficulty = 4 }
+    # Solid Shell AP Ammo
+    component = { id = 2403 name = TECH_CMP_ARMOR_40_3_NAME type = chemistry difficulty = 4 }
+    # Early Optical Sights
+    component = { id = 2404 name = TECH_CMP_ARMOR_40_4_NAME type = electronics difficulty = 4 }
+    # Static Target Training
+    component = { id = 2405 name = TECH_CMP_ARMOR_40_5_NAME type = training difficulty = 4 }
+    required  = { 2310 }
+    effects =
+    { command = { type = activate_unit_type which = anti_tank }
+      command = { type = new_model which = anti_tank value = 0 }
+    }
+  }
+  # Basic Anti-Tank Artillery
+  application =
+  { id        = 2410
+    name      = TECH_APP_ARMOR_41_NAME
+    desc      = TECH_APP_ARMOR_41_DESC
+    position  = { x = 432 y = 193 }
+    year      = 1939
+    # Anti-Tank Gun 75mm
+    component = { id = 2411 name = TECH_CMP_ARMOR_41_1_NAME type = artillery difficulty = 5 }
+    # Basic Gun Carriage
+    component = { id = 2412 name = TECH_CMP_ARMOR_41_2_NAME type = mechanics difficulty = 5 }
+    # Shaped Charge Shell HEAT Ammo
+    component = { id = 2413 name = TECH_CMP_ARMOR_41_3_NAME type = chemistry difficulty = 5 }
+    # Basic Optical Sights
+    component = { id = 2414 name = TECH_CMP_ARMOR_41_4_NAME type = electronics difficulty = 5 }
+    # Moving Target Training
+    component = { id = 2415 name = TECH_CMP_ARMOR_41_5_NAME type = training difficulty = 5 }
+    required  = { 2400 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 1 }
+	  command = { type = scrap_model which = anti_tank value = 0 }
+    }
+  }
+  # Improved Anti-Tank Artillery
+  application =
+  { id        = 2420
+    name      = TECH_APP_ARMOR_42_NAME
+    desc      = TECH_APP_ARMOR_42_DESC
+    position  = { x = 432 y = 207 }
+    year      = 1941
+    # Anti-Tank Gun 88mm
+    component = { id = 2421 name = TECH_CMP_ARMOR_42_1_NAME type = artillery difficulty = 5 }
+    # Improved Gun Carriage
+    component = { id = 2422 name = TECH_CMP_ARMOR_42_2_NAME type = mechanics difficulty = 5 }
+    # Core Shell HEAT Ammo
+    component = { id = 2423 name = TECH_CMP_ARMOR_42_3_NAME type = chemistry difficulty = 5 }
+    # Improved Optical Sights
+    component = { id = 2424 name = TECH_CMP_ARMOR_42_4_NAME type = electronics difficulty = 5 }
+    # Multiple Targets Training
+    component = { id = 2425 name = TECH_CMP_ARMOR_42_5_NAME type = training difficulty = 5 }
+    required  = { 2410 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 2 }
+	  command = { type = scrap_model which = anti_tank value = 1 }
+    }
+  }
+  # Advanced Anti-Tank Artillery
+  application =
+  { id        = 2430
+    name      = TECH_APP_ARMOR_43_NAME
+    desc      = TECH_APP_ARMOR_43_DESC
+    position  = { x = 432 y = 221 }
+    year      = 1943
+    # Anti-Tank Gun 105mm
+    component = { id = 2431 name = TECH_CMP_ARMOR_43_1_NAME type = artillery difficulty = 6 }
+    # Advanced Gun Carriage
+    component = { id = 2432 name = TECH_CMP_ARMOR_43_2_NAME type = mechanics difficulty = 6 }
+    # Sabot Shell HEAT Ammo
+    component = { id = 2433 name = TECH_CMP_ARMOR_43_3_NAME type = chemistry difficulty = 6 }
+    # Advanced Optical Sights
+    component = { id = 2434 name = TECH_CMP_ARMOR_43_4_NAME type = electronics difficulty = 6 }
+    # Rapid Moving Target Training
+    component = { id = 2435 name = TECH_CMP_ARMOR_43_5_NAME type = training difficulty = 6 }
+    required  = { 2420 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 3 }
+      command = { type = scrap_model which = anti_tank value = 2 }
+    }
+  }
+  # Semi-Modern Anti-Tank Artillery
+  application =
+  { id        = 2440
+    name      = TECH_APP_ARMOR_44_NAME
+    desc      = TECH_APP_ARMOR_44_DESC
+    position  = { x = 432 y = 235 }
+    year      = 1945
+    # Anti-Tank Gun 120mm
+    component = { id = 2441 name = TECH_CMP_ARMOR_44_1_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Gun Carriage
+    component = { id = 2442 name = TECH_CMP_ARMOR_44_2_NAME type = mechanics difficulty = 7 }
+    # Capped Shell AP Ammo
+    component = { id = 2443 name = TECH_CMP_ARMOR_44_3_NAME type = chemistry difficulty = 7 }
+    # Infrared Optical Sights
+    component = { id = 2444 name = TECH_CMP_ARMOR_44_4_NAME type = electronics difficulty = 7 }
+    # Multiple Moving Targets Training
+    component = { id = 2445 name = TECH_CMP_ARMOR_44_5_NAME type = training difficulty = 7 }
+    required  = { 2430 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 4 }
+      command = { type = scrap_model which = anti_tank value = 3 }
+    }
+  }
+  # Modern Anti-Tank Artillery
+  application =
+  { id        = 11070
+    name      = TECH_APP_ARMOR_107_NAME
+    desc      = TECH_APP_ARMOR_107_DESC
+    position  = { x = 432 y = 249 }
+    year      = 1950
+    # ?
+    component = { id = 11071 name = TECH_CMP_ARMOR_44_1_NAME type = artillery difficulty = 7 }
+    # ?
+    component = { id = 11072 name = TECH_CMP_ARMOR_107_2_NAME type = mechanics difficulty = 7 }
+    # ?
+    component = { id = 11073 name = TECH_CMP_ARMOR_107_3_NAME type = chemistry difficulty = 7 }
+    # ?
+    component = { id = 11074 name = TECH_CMP_ARMOR_107_4_NAME type = electronics difficulty = 7 }
+    # ?
+    component = { id = 11075 name = TECH_CMP_ARMOR_107_5_NAME type = training difficulty = 7 }
+    required  = { 2440 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 5 }
+      command = { type = scrap_model which = anti_tank value = 4 }
+    }
+  }
+    # Cold War Anti-Tank Artillery
+  application =
+  { id        = 11380
+    name      = TECH_APP_ARMOR_138_NAME
+    desc      = TECH_APP_ARMOR_138_DESC
+    position  = { x = 432 y = 263 }
+    year      = 1953
+    # ?
+    component = { id = 11381 name = TECH_CMP_ARMOR_44_1_NAME type = artillery difficulty = 7 }
+    # ?
+    component = { id = 11382 name = TECH_CMP_ARMOR_138_2_NAME type = mechanics difficulty = 7 }
+    # ?
+    component = { id = 11383 name = TECH_CMP_ARMOR_138_3_NAME type = chemistry difficulty = 7 }
+    # ?
+    component = { id = 11384 name = TECH_CMP_ARMOR_138_4_NAME type = electronics difficulty = 7 }
+    # ?
+    component = { id = 11385 name = TECH_CMP_ARMOR_138_5_NAME type = training difficulty = 7 }
+    required  = { 11070 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 6 }
+      command = { type = scrap_model which = anti_tank value = 5 }
+    }
+  }
+    # Mid Cold War Anti-Tank Artillery
+  application =
+  { id        = 11390
+    name      = TECH_APP_ARMOR_139_NAME
+    desc      = TECH_APP_ARMOR_139_DESC
+    position  = { x = 432 y = 277 }
+    year      = 1960
+    # ?
+    component = { id = 11391 name = TECH_CMP_ARMOR_44_1_NAME type = artillery difficulty = 7 }
+    # ?
+    component = { id = 11392 name = TECH_CMP_ARMOR_139_2_NAME type = mechanics difficulty = 7 }
+    # ?
+    component = { id = 11393 name = TECH_CMP_ARMOR_139_3_NAME type = chemistry difficulty = 7 }
+    # ?
+    component = { id = 11394 name = TECH_CMP_ARMOR_139_4_NAME type = electronics difficulty = 7 }
+    # ?
+    component = { id = 11395 name = TECH_CMP_ARMOR_139_5_NAME type = training difficulty = 7 }
+    required  = { 11380 }
+    effects =
+    { command = { type = new_model which = anti_tank value = 7 }
+      command = { type = scrap_model which = anti_tank value = 6 }
+    }
+  }
+  
+    
+  #################################
+  # Provincial AA
+  #################################
+  
+  
+  # Great War Static Anti-Air Artillery
+  application =
+  { id        = 2450
+    name      = TECH_APP_ARMOR_45_NAME
+    desc      = TECH_APP_ARMOR_45_DESC
+    position  = { x = 296 y = 19 }
+    year      = 1918
+    # Elder Anti-Air Gun 75mm
+    component = { id = 2451 name = TECH_CMP_ARMOR_45_1_NAME type = artillery difficulty = 2 }
+    # Great War Gun Carriage
+    component = { id = 2452 name = TECH_CMP_ARMOR_45_2_NAME type = mechanics difficulty = 2 }
+    # Old-type High Explosive (HE) Shells
+    component = { id = 2453 name = TECH_CMP_ARMOR_45_3_NAME type = chemistry difficulty = 2 }
+    # Rangefinder Radar
+    component = { id = 2454 name = TECH_CMP_ARMOR_45_4_NAME type = electronics difficulty = 2 }
+    # Searchlight Training
+    component = { id = 2455 name = TECH_CMP_ARMOR_45_5_NAME type = training difficulty = 2 }
+    effects = {
+				command = { type = allow_building which = flak }
+				command = { type = AA_batteries value = 40 } # set to 50%
+				}
+  }
+  # Early Static Anti-Air Artillery
+  application =
+  { id        = 2460
+    name      = TECH_APP_ARMOR_46_NAME
+    desc      = TECH_APP_ARMOR_46_DESC
+    position  = { x = 296 y = 33 }
+    year      = 1936
+    # Anti-Air Gun 75mm
+    component = { id = 2461 name = TECH_CMP_ARMOR_46_1_NAME type = artillery difficulty = 3 }
+    # Early Gun Carriage
+    component = { id = 2462 name = TECH_CMP_ARMOR_46_2_NAME type = mechanics difficulty = 3 }
+    # High Explosive (HE) Shells
+    component = { id = 2463 name = TECH_CMP_ARMOR_46_3_NAME type = chemistry difficulty = 3 }
+    # Basic Decimetric Anti-Air Artillery Radar
+    component = { id = 2464 name = TECH_CMP_ARMOR_46_4_NAME type = electronics difficulty = 3 }
+    # Rapid Fire Training
+    component = { id = 2465 name = TECH_CMP_ARMOR_46_5_NAME type = training difficulty = 3 }
+    required  = { 2450 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 60%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  # Basic Static Anti-Air Artillery
+  application =
+  { id        = 2470
+    name      = TECH_APP_ARMOR_47_NAME
+    desc      = TECH_APP_ARMOR_47_DESC
+    position  = { x = 296 y = 47 }
+    year      = 1938
+    # Anti-Air Gun 88mm
+    component = { id = 2471 name = TECH_CMP_ARMOR_47_1_NAME type = artillery difficulty = 4 }
+    # Basic Gun Carriage
+    component = { id = 2472 name = TECH_CMP_ARMOR_47_2_NAME type = mechanics difficulty = 4 }
+    # Fragmentation Shells
+    component = { id = 2473 name = TECH_CMP_ARMOR_47_3_NAME type = chemistry difficulty = 4 }
+    # Improved Decimetric Anti-Air Artillery Radar
+    component = { id = 2474 name = TECH_CMP_ARMOR_47_4_NAME type = electronics difficulty = 4 }
+    # Rapid Readiness Training
+    component = { id = 2475 name = TECH_CMP_ARMOR_47_5_NAME type = training difficulty = 4 }
+    required  = { 2460 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 70%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  # Improved Static Anti-Air Artillery
+  application =
+  { id        = 2480
+    name      = TECH_APP_ARMOR_48_NAME
+    desc      = TECH_APP_ARMOR_48_DESC
+    position  = { x = 296 y = 61 }
+    year      = 1941
+    # Anti-Air Gun 105mm
+    component = { id = 2481 name = TECH_CMP_ARMOR_48_1_NAME type = artillery difficulty = 5 }
+    # Improved Gun Carriage
+    component = { id = 2482 name = TECH_CMP_ARMOR_48_2_NAME type = mechanics difficulty = 5 }
+    # Variable Time Fuse
+    component = { id = 2483 name = TECH_CMP_ARMOR_48_3_NAME type = chemistry difficulty = 5 }
+    # Basic Centimetric Anti-Air Artillery Radar
+    component = { id = 2484 name = TECH_CMP_ARMOR_48_4_NAME type = electronics difficulty = 5 }
+    # Box Barrages Training
+    component = { id = 2485 name = TECH_CMP_ARMOR_48_5_NAME type = training difficulty = 5 }
+    required  = { 2470 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 80%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  # Advanced Static Anti-Air Artillery
+  application =
+  { id        = 2490
+    name      = TECH_APP_ARMOR_49_NAME
+    desc      = TECH_APP_ARMOR_49_DESC
+    position  = { x = 296 y = 75 }
+    year      = 1943
+    # Anti-Air Gun 120mm
+    component = { id = 2491 name = TECH_CMP_ARMOR_49_1_NAME type = artillery difficulty = 6 }
+    # Advanced Gun Carriage
+    component = { id = 2492 name = TECH_CMP_ARMOR_49_2_NAME type = mechanics difficulty = 6 }
+    # Radar Proximity Fuse
+    component = { id = 2493 name = TECH_CMP_ARMOR_49_3_NAME type = chemistry difficulty = 6 }
+    # Improved Centimetric Anti-Air Artillery Radar
+    component = { id = 2494 name = TECH_CMP_ARMOR_49_4_NAME type = electronics difficulty = 6 }
+    # C3I Coordination Training
+    component = { id = 2495 name = TECH_CMP_ARMOR_49_5_NAME type = training difficulty = 6 }
+    required  = { 2480 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 90%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  # Semi-Modern Static Anti-Air Artillery
+  application =
+  { id        = 2500
+    name      = TECH_APP_ARMOR_50_NAME
+    desc      = TECH_APP_ARMOR_50_DESC
+    position  = { x = 296 y = 89 }
+    year      = 1945
+    # Anti-Air Gun 120mm Quick-Fire
+    component = { id = 2501 name = TECH_CMP_ARMOR_50_1_NAME type = artillery difficulty = 7 }
+    # Semi-Modern Gun Carriage
+    component = { id = 2502 name = TECH_CMP_ARMOR_50_2_NAME type = mechanics difficulty = 7 }
+    # Radar Proximity Fuse
+    component = { id = 2503 name = TECH_CMP_ARMOR_50_3_NAME type = chemistry difficulty = 7 }
+    # Advanced Centimetric Anti-Air Radar
+    component = { id = 2504 name = TECH_CMP_ARMOR_50_4_NAME type = electronics difficulty = 7 }
+    # Radar Target Plotting Training
+    component = { id = 2505 name = TECH_CMP_ARMOR_50_5_NAME type = training difficulty = 7 }
+    required  = { 2490 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 100%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  # Modern Static Anti-Air Artillery
+  application =
+  { id        = 11080
+    name      = TECH_APP_ARMOR_108_NAME
+    desc      = TECH_APP_ARMOR_108_DESC
+    position  = { x = 296 y = 103 }
+    year      = 1948
+    # ?
+    component = { id = 11081 name = TECH_CMP_ARMOR_108_1_NAME type = artillery difficulty = 7 }
+    # ?
+    component = { id = 11082 name = TECH_CMP_ARMOR_108_2_NAME type = mechanics difficulty = 7 }
+    # ?
+    component = { id = 11083 name = TECH_CMP_ARMOR_108_3_NAME type = chemistry difficulty = 7 }
+    # ?
+    component = { id = 11084 name = TECH_CMP_ARMOR_108_4_NAME type = electronics difficulty = 7 }
+    # ?
+    component = { id = 11085 name = TECH_CMP_ARMOR_108_5_NAME type = training difficulty = 7 }
+    required  = { 2500 }
+    effects = {
+				command = { type = AA_batteries value = 10 } # set to 110%
+				command = { type = building_prod_mod which = flak value = 5 }
+				}
+  }
+  
+    
+  #################################
+  # AA Brigade 
+  #################################
+  
+  
+  
+  # Basic Anti-Air Artillery Brigade
+  application =
+  { id        = 2510
+    name      = TECH_APP_ARMOR_51_NAME
+    desc      = TECH_APP_ARMOR_51_DESC
+    position  = { x = 296 y = 137 }
+    year      = 1935
+    # Anti-Air Gun 20mm
+    component = { id = 2511 name = TECH_CMP_ARMOR_51_1_NAME type = artillery difficulty = 2 }
+    # Anti-Air Gun 75mm
+    component = { id = 2512 name = TECH_CMP_ARMOR_51_2_NAME type = artillery difficulty = 2 }
+    # Fragmentation Shells
+    component = { id = 2513 name = TECH_CMP_ARMOR_51_3_NAME type = chemistry difficulty = 2 }
+    # Improved Decimetric Anti-Air Artillery Radar
+    component = { id = 2514 name = TECH_CMP_ARMOR_51_4_NAME type = electronics difficulty = 2 }
+    # Rapid Readiness Training
+    component = { id = 2515 name = TECH_CMP_ARMOR_51_5_NAME type = training difficulty = 2 }
+    required  = { 2450 }
+    effects =
+    { command = { type = activate_unit_type which = anti_air }
+      command = { type = new_model which = anti_air value = 0 }
+    }
+  }
+  # Improved Anti-Air Artillery Brigade
+  application =
+  { id        = 2520
+    name      = TECH_APP_ARMOR_52_NAME
+    desc      = TECH_APP_ARMOR_52_DESC
+    position  = { x = 296 y = 151 }
+    year      = 1937
+    # Anti-Air Gun 40mm
+    component = { id = 2521 name = TECH_CMP_ARMOR_52_1_NAME type = artillery difficulty = 2 }
+    # Anti-Air Gun 88mm
+    component = { id = 2522 name = TECH_CMP_ARMOR_52_2_NAME type = artillery difficulty = 2 }
+    # Variable Time Fuse
+    component = { id = 2523 name = TECH_CMP_ARMOR_52_3_NAME type = chemistry difficulty = 2 }
+    # Basic Centimetric Anti-Air Artillery Radar
+    component = { id = 2524 name = TECH_CMP_ARMOR_52_4_NAME type = electronics difficulty = 2 }
+    # Box Barrages Training
+    component = { id = 2525 name = TECH_CMP_ARMOR_52_5_NAME type = training difficulty = 2 }
+    required  = { 2510 2460 }
+    effects =
+    { command = { type = new_model which = anti_air value = 1 }
+	  command = { type = scrap_model which = anti_air value = 0 }
+    }
+  }
+  # Advanced Anti-Air Artillery Brigade
+  application =
+  { id        = 2530
+    name      = TECH_APP_ARMOR_53_NAME
+    desc      = TECH_APP_ARMOR_53_DESC
+    position  = { x = 296 y = 165 }
+    year      = 1939
+    # Anti-Air Gun 20mm Quad
+    component = { id = 2531 name = TECH_CMP_ARMOR_53_1_NAME type = artillery difficulty = 2 }
+    # Anti-Air Gun 105mm
+    component = { id = 2532 name = TECH_CMP_ARMOR_53_2_NAME type = artillery difficulty = 2 }
+    # Radar Proximity Fuse
+    component = { id = 2533 name = TECH_CMP_ARMOR_53_3_NAME type = chemistry difficulty = 2 }
+    # Improved Centimetric Anti-Air Artillery Radar
+    component = { id = 2534 name = TECH_CMP_ARMOR_53_4_NAME type = electronics difficulty = 2 }
+    # C3I Coordination Training
+    component = { id = 2535 name = TECH_CMP_ARMOR_53_5_NAME type = training difficulty = 2 }
+    required  = { 2520 2470 }
+    effects =
+    { command = { type = new_model which = anti_air value = 2 }
+      command = { type = scrap_model which = anti_air value = 1 }
+    }
+  }
+  # Semi-Modern Anti-Air Artillery Brigade
+  application =
+  { id        = 2540
+    name      = TECH_APP_ARMOR_54_NAME
+    desc      = TECH_APP_ARMOR_54_DESC
+    position  = { x = 296 y = 179 }
+    year      = 1941
+    # Anti-Air Gun 40mm Quad
+    component = { id = 2541 name = TECH_CMP_ARMOR_54_1_NAME type = artillery difficulty = 2 }
+    # Anti-Air Gun 128mm
+    component = { id = 2542 name = TECH_CMP_ARMOR_54_2_NAME type = artillery difficulty = 2 }
+    # Radar Proximity Fuse
+    component = { id = 2543 name = TECH_CMP_ARMOR_54_3_NAME type = chemistry difficulty = 2 }
+    # Advanced Centimetric Anti-Air Radar
+    component = { id = 2544 name = TECH_CMP_ARMOR_54_4_NAME type = electronics difficulty = 2 }
+    # Radar Target Plotting Training
+    component = { id = 2545 name = TECH_CMP_ARMOR_54_5_NAME type = training difficulty = 2 }
+    required  = { 2530 2480 }
+    effects =
+    { command = { type = new_model which = anti_air value = 3 }
+      command = { type = scrap_model which = anti_air value = 2 }
+    }
+  }
+  # Modern Anti-Air Artillery Brigade
+  application =
+  { id        = 11090
+    name      = TECH_APP_ARMOR_109_NAME
+    desc      = TECH_APP_ARMOR_109_DESC
+    position  = { x = 296 y = 193 }
+    year      = 1943
+    # ?
+    component = { id = 11091 name = TECH_CMP_ARMOR_109_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11092 name = TECH_CMP_ARMOR_109_2_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11093 name = TECH_CMP_ARMOR_109_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11094 name = TECH_CMP_ARMOR_109_4_NAME type = electronics difficulty = 2 }
+    # ?
+    component = { id = 11095 name = TECH_CMP_ARMOR_109_5_NAME type = training difficulty = 2 }
+    required  = { 2540 2490 }
+    effects =
+    { command = { type = new_model which = anti_air value = 4 }
+      command = { type = scrap_model which = anti_air value = 3 }
+    }
+  }
+
+   # Late War Anti-Air Artillery Brigade
+  application =
+  { id        = 11430
+    name      = TECH_APP_ARMOR_143_NAME
+    desc      = TECH_APP_ARMOR_143_DESC
+    position  = { x = 296 y = 207 }
+    year      = 1945
+    # ?
+    component = { id = 11431 name = TECH_CMP_ARMOR_143_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11432 name = TECH_CMP_ARMOR_143_2_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11433 name = TECH_CMP_ARMOR_143_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11434 name = TECH_CMP_ARMOR_143_4_NAME type = electronics difficulty = 2 }
+    # ?
+    component = { id = 11435 name = TECH_CMP_ARMOR_143_5_NAME type = training difficulty = 2 }
+    required  = { 11090 2500 }
+    effects =
+    { command = { type = new_model which = anti_air value = 5 }
+      command = { type = scrap_model which = anti_air value = 4 }
+    }
+  }
+  # Cold War Anti-Air Artillery Brigade
+  application =
+  { id        = 11440
+    name      = TECH_APP_ARMOR_144_NAME
+    desc      = TECH_APP_ARMOR_144_DESC
+    position  = { x = 296 y = 221 }
+    year      = 1950
+    # ?
+    component = { id = 11441 name = TECH_CMP_ARMOR_144_1_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11442 name = TECH_CMP_ARMOR_144_2_NAME type = artillery difficulty = 2 }
+    # ?
+    component = { id = 11443 name = TECH_CMP_ARMOR_144_3_NAME type = chemistry difficulty = 2 }
+    # ?
+    component = { id = 11444 name = TECH_CMP_ARMOR_144_4_NAME type = electronics difficulty = 2 }
+    # ?
+    component = { id = 11445 name = TECH_CMP_ARMOR_144_5_NAME type = training difficulty = 2 }
+    required  = { 11430 11080 }
+    effects =
+    { command = { type = new_model which = anti_air value = 6 }
+      command = { type = scrap_model which = anti_air value = 5 }
+    }
+  }
+
+  #################################
+  # Self-propelled AA Brigade 
+  #################################
+  
+  
+    # 1937 SPAA
+  application =
+  { id        = 11100
+    name      = TECH_APP_ARMOR_110_NAME
+    desc      = TECH_APP_ARMOR_110_DESC
+    position  = { x = 296 y = 255 }
+    year      = 1937
+    # 
+    component = { id = 11101 name = TECH_CMP_ARMOR_110_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11102 name = TECH_CMP_ARMOR_110_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11103 name = TECH_CMP_ARMOR_110_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11104 name = TECH_CMP_ARMOR_110_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11105 name = TECH_CMP_ARMOR_110_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 2520 }
+	or_required = { 2560 2630 }
+    effects =
+    { command = { type = activate_unit_type which = sp_anti_air }
+      command = { type = new_model which = sp_anti_air value = 0 }
+    }
+  }
+    
+    # 1939 SPAA
+  application =
+  { id        = 11110
+    name      = TECH_APP_ARMOR_111_NAME
+    desc      = TECH_APP_ARMOR_111_DESC
+    position  = { x = 296 y = 269 }
+    year      = 1939
+    # 
+    component = { id = 11111 name = TECH_CMP_ARMOR_111_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11112 name = TECH_CMP_ARMOR_111_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11113 name = TECH_CMP_ARMOR_111_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11114 name = TECH_CMP_ARMOR_111_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11115 name = TECH_CMP_ARMOR_111_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11100 2530 }
+	or_required = { 2640 2570 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 1 }
+	  command = { type = scrap_model which = sp_anti_air value = 0 }
+    }
+  }
+    
+    # 1941 SPAA
+  application =
+  { id        = 11120
+    name      = TECH_APP_ARMOR_112_NAME
+    desc      = TECH_APP_ARMOR_112_DESC
+    position  = { x = 296 y = 283 }
+    year      = 1941
+    # 
+    component = { id = 11121 name = TECH_CMP_ARMOR_112_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11122 name = TECH_CMP_ARMOR_112_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11123 name = TECH_CMP_ARMOR_112_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11124 name = TECH_CMP_ARMOR_112_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11125 name = TECH_CMP_ARMOR_112_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11110 2540 }
+	or_required = { 2660 2590 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 2 }
+	  command = { type = scrap_model which = sp_anti_air value = 1 }
+    }
+  }
+    
+    # 1943 SPAA
+  application =
+  { id        = 11130
+    name      = TECH_APP_ARMOR_113_NAME
+    desc      = TECH_APP_ARMOR_113_DESC
+    position  = { x = 296 y = 297 }
+    year      = 1943
+    # 
+    component = { id = 11131 name = TECH_CMP_ARMOR_113_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11132 name = TECH_CMP_ARMOR_113_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11133 name = TECH_CMP_ARMOR_113_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11134 name = TECH_CMP_ARMOR_113_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11135 name = TECH_CMP_ARMOR_113_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11120 11090 }
+	or_required = { 2680 2610 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 3 }
+	  command = { type = scrap_model which = sp_anti_air value = 2 }
+    }
+  }
+    
+    # 1945 SPAA
+  application =
+  { id        = 11140
+    name      = TECH_APP_ARMOR_114_NAME
+    desc      = TECH_APP_ARMOR_114_DESC
+    position  = { x = 296 y = 311 }
+    year      = 1945
+    # 
+    component = { id = 11141 name = TECH_CMP_ARMOR_114_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11142 name = TECH_CMP_ARMOR_114_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11143 name = TECH_CMP_ARMOR_114_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11144 name = TECH_CMP_ARMOR_114_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11145 name = TECH_CMP_ARMOR_114_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11130 11430 }
+	or_required = { 2730 2980 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 4 }
+	  command = { type = scrap_model which = sp_anti_air value = 3 }
+    }
+  }
+    
+    # 1947 SPAA
+  application =
+  { id        = 11150
+    name      = TECH_APP_ARMOR_115_NAME
+    desc      = TECH_APP_ARMOR_115_DESC
+    position  = { x = 296 y = 325 }
+    year      = 1947
+    # 
+    component = { id = 11151 name = TECH_CMP_ARMOR_115_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11152 name = TECH_CMP_ARMOR_115_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11153 name = TECH_CMP_ARMOR_115_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11154 name = TECH_CMP_ARMOR_115_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11155 name = TECH_CMP_ARMOR_115_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11140 2790 } #11080
+	or_required = { 2750 11510 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 5 }
+	  command = { type = scrap_model which = sp_anti_air value = 4 }
+    }
+  }
+  
+      # 1952 SPAA
+  application =
+  { id        = 11450
+    name      = TECH_APP_ARMOR_145_NAME
+    desc      = TECH_APP_ARMOR_145_DESC
+    position  = { x = 296 y = 339 }
+    year      = 1952
+    # 
+    component = { id = 11451 name = TECH_CMP_ARMOR_145_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11452 name = TECH_CMP_ARMOR_145_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11453 name = TECH_CMP_ARMOR_145_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11454 name = TECH_CMP_ARMOR_145_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11455 name = TECH_CMP_ARMOR_145_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11150 11440 }
+	or_required = { 2790 11530 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 6 }
+	  command = { type = scrap_model which = sp_anti_air value = 5 }
+    }
+  }
+  
+      # 1961 SPAA
+  application =
+  { id        = 11460
+    name      = TECH_APP_ARMOR_146_NAME
+    desc      = TECH_APP_ARMOR_146_DESC
+    position  = { x = 296 y = 353 }
+    year      = 1952
+    # 
+    component = { id = 11461 name = TECH_CMP_ARMOR_146_1_NAME type = artillery difficulty = 2 }
+    # 
+    component = { id = 11462 name = TECH_CMP_ARMOR_146_2_NAME type = mechanics difficulty = 2 }
+    # 
+    component = { id = 11463 name = TECH_CMP_ARMOR_146_3_NAME type = chemistry difficulty = 2 }
+    # 
+    component = { id = 11464 name = TECH_CMP_ARMOR_146_4_NAME type = rt_user_18 difficulty = 2 }
+    # 
+    component = { id = 11465 name = TECH_CMP_ARMOR_146_5_NAME type = technical_efficiency difficulty = 2 }
+    required  = { 11450 11440 }
+	or_required = { 11480 11550 }
+    effects =
+    { 
+      command = { type = new_model which = sp_anti_air value = 7 }
+	  command = { type = scrap_model which = sp_anti_air value = 6 }
+    }
+  }
+ 
+
+
+ 
+}

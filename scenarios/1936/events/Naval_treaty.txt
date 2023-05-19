@@ -1,0 +1,813 @@
+# Last Update 25-APR-2008
+# checked DH map IDs by DerStudti
+####################################
+# Naval Treaty Events 2600000 - 2699999 by Lothos
+####################################
+# 1936 Naval Conference
+
+################
+# For Democracies
+#############################################
+event = {
+	id = 2600000
+	random = no
+	tag = { USA ENG }
+	persistent = yes # for multiplayer games
+
+	trigger = { 
+		local_flag = NavalTreaty1930
+		government = democratic
+	}
+
+	date = { day = 0 month = january year = 1937 } # was: march 25, 1936
+	offset = 1
+	deathdate = { day = 2 month = february year = 1937 } # was: march 26, 1936
+
+	name = EVT_2600000_NAME
+	desc = EVT_2600000_DESC
+	style = 2
+	picture = "event_naval_conference"
+	
+	action_a = {
+		name = ACTIONNAME2600000A #"Ratify the 1936 Conference"
+		ai_chance = 90
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_setflag which = NavalTreaty1936 }
+	}
+	action_b = {
+		name = ACTIONNAME2600000B #"Do not sign"
+		ai_chance = 10
+		command = { type = relation which = USA value = -50 }
+		command = { type = relation which = GER value = -50 }
+		command = { type = relation which = FRA value = -50 }
+		command = { type = relation which = JAP value = -50 }
+		command = { type = relation which = ITA value = -50 }
+		command = { type = relation which = CAN value = -50 }
+		command = { type = relation which = NZL value = -50 }
+		command = { type = relation which = AST value = -50 }
+		command = { type = dissent value = 3 }
+		command = { type = domestic which = interventionism value = -3 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_clrflag which = NavalTreaty1936 }		
+	}
+}
+################
+# For Non-Democracies
+#############################################
+event = {
+	id = 2600001
+	random = no
+	tag = { USA ENG }
+	persistent = yes # for multiplayer games
+
+	trigger = { 
+		local_flag = NavalTreaty1930
+		NOT = { government = democratic }
+	}
+
+	date = { day = 0 month = january year = 1937 } # was: march 25, 1936
+	offset = 1
+	deathdate = { day = 2 month = february year = 1937 } # was: march 26, 1936
+
+	name = EVT_2600000_NAME
+	desc = EVT_2600000_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600000A #"Ratify the 1936 Conference"
+		ai_chance = 0
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_setflag which = NavalTreaty1936 }
+		command = { type = domestic which = interventionism value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME2600000B #"Do not sign"
+		ai_chance = 100
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = relation which = JAP value = -10 }
+		command = { type = relation which = ITA value = -10 }
+		command = { type = relation which = CAN value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_clrflag which = NavalTreaty1936 }
+	}
+}
+
+################
+# Japan leaves the treaty framework
+#############################################
+event = {
+	id = 2600017
+	random = no
+	country = JAP
+
+	trigger = { 
+		local_flag = NavalTreaty1930
+	}
+
+	date = { day = 0 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 2 month = february year = 1937 }
+
+	name = EVT_2600015_NAME
+	desc = EVT_2600015_DESC
+	style = 2
+	picture = "jap_event_naval_treaty_end"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = relation which = JAP value = -10 }
+		command = { type = relation which = ITA value = -10 }
+		command = { type = relation which = CAN value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_clrflag which = NavalTreaty1936 }
+		command = { type = setflag which = JAP_no_treaty }
+	}
+}
+
+################
+# Info event after Japan has abandoned the treaty
+#############################################
+
+event = {
+	id = 2600015
+	random = no
+	
+	tag = { USA ENG FRA GER ITA SOV CAN AST U02 }
+	
+	persistent = yes
+	
+	trigger = { 
+				ai = no
+				flag = JAP_no_treaty
+				not = { local_flag = JAP_no_treaty_info }
+				}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600015_NAME
+	desc = EVT_2600015_DESC
+	style = 2
+	picture = "jap_event_naval_treaty_end"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = local_setflag which = JAP_no_treaty_info }
+	}
+}
+
+#############################################
+# Sleep Naval Conference
+####################################
+event = {
+	id = 2600011
+	random = no
+
+	trigger = {
+		ai = yes
+	}
+
+	date = { day = 26 month = march year = 1936 }
+	offset = 1
+	deathdate = { day = 27 month = april year =  1936 }
+
+	name = AI_EVENT
+
+	action_a = {
+		command = { type = sleepevent which = 2600000 }
+		command = { type = sleepevent which = 2600001 }
+	}
+}
+
+
+#############################################
+# Special Event to sleep all the Naval Conference Events including the ones above
+####################################
+event = {
+	id = 2600002
+	random = no
+
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = GER
+			atwar = USA
+			atwar = ENG
+			atwar = FRA
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = AI_EVENT
+
+	action_a = {
+		command = { type = sleepevent which = 2600000 }
+		command = { type = sleepevent which = 2600001 }
+		command = { type = sleepevent which = 2600004 } # GER
+		command = { type = sleepevent which = 2600006 } # ENG
+		command = { type = sleepevent which = 2600008 } # USA
+		command = { type = sleepevent which = 2600010 } # JAP
+	}
+}
+
+##############################################
+# Enforcement of the Naval Conferences
+####################################
+# Germany
+####################################
+event = {
+	id = 2600004
+	random = no
+	country = GER
+	persistent = yes
+
+	trigger = {
+		ai = no
+		atwar = no
+		random = 25
+		local_flag = NavalTreaty1935
+		OR = {
+			# more than 6 (BB + BC)
+			AND = { 
+					battleship = { country = GER value = 7 }
+					battlecruiser = { country = GER value = 0 }
+					}
+			AND = { 
+					battleship = { country = GER value = 6 } 
+					battlecruiser = { country = GER value = 1 }
+					}
+			AND = { 
+					battleship = { country = GER value = 5 } 
+					battlecruiser = { country = GER value = 2 }
+					}
+			AND = { 
+					battleship = { country = GER value = 4 } 
+					battlecruiser = { country = GER value = 3 }
+					}
+			AND = { 
+					battleship = { country = GER value = 3 } 
+					battlecruiser = { country = GER value = 4 }
+					}
+			AND = { 
+					battleship = { country = GER value = 2 } 
+					battlecruiser = { country = GER value = 5 }
+					}
+			AND = { 
+					battleship = { country = GER value = 1 } 
+					battlecruiser = { country = GER value = 6 }
+					}
+			AND = { 
+					battleship = { country = GER value = 0 } 
+					battlecruiser = { country = GER value = 7 }
+					}
+					
+			# more than 10 (CA + CV + CVL), but at most 2 CV or CVL allowed
+			AND = {
+					heavy_cruiser = { country = GER value = 11 }
+					carrier = { country = GER value = 0 }
+					light_carrier = { country = GER value = 0 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 10 }
+					carrier = { country = GER value = 1 }
+					light_carrier = { country = GER value = 0 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 10 }
+					carrier = { country = GER value = 0 }
+					light_carrier = { country = GER value = 1 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 9 }
+					carrier = { country = GER value = 1 }
+					light_carrier = { country = GER value = 1 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 9 }
+					carrier = { country = GER value = 2 }
+					light_carrier = { country = GER value = 0 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 9 }
+					carrier = { country = GER value = 0 }
+					light_carrier = { country = GER value = 2 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 8 }
+					carrier = { country = GER value = 3 }
+					light_carrier = { country = GER value = 0 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 8 }
+					carrier = { country = GER value = 0 }
+					light_carrier = { country = GER value = 3 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 8 }
+					carrier = { country = GER value = 2 }
+					light_carrier = { country = GER value = 1 }
+					}
+			AND = {
+					heavy_cruiser = { country = GER value = 8 }
+					carrier = { country = GER value = 1 }
+					light_carrier = { country = GER value = 2 }
+					}
+			# pure carrier check (max. 2 allowed)
+			AND = {
+					carrier = { country = GER value = 1 }
+					light_carrier = { country = GER value = 2 }
+					}
+			AND = {
+					carrier = { country = GER value = 2 }
+					light_carrier = { country = GER value = 1 }
+					}
+			AND = {
+					carrier = { country = GER value = 3 }
+					light_carrier = { country = GER value = 0 }
+					}
+			AND = {
+					carrier = { country = GER value = 0 }
+					light_carrier = { country = GER value = 3 }
+					}
+		}
+	}
+
+	date = { day = 6 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_2600004_NAME
+	desc = EVT_2600004_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600004A #"Treaty Violation"
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = FRA value = -2 }
+		command = { type = dissent value = 1 }
+	}
+}
+
+####################################
+# England
+####################################
+################
+# Checks ship building caps
+#############################################
+event = {
+	id = 2600006
+	random = no
+	country = ENG
+	persistent = yes
+
+	trigger = {
+		ai = no
+		atwar = no
+		OR = {
+			local_flag = NavalTreaty1930
+			local_flag = NavalTreaty1936
+		}
+		random = 25
+		OR = {
+			battleship = { country = ENG value = 18 } # Greater than 17
+			battlecruiser = { country = ENG value = 4 } # Greater than 3
+			heavy_cruiser = { country = ENG value = 21 } # Greater than 20
+			AND = {
+					carrier = { country = ENG value = 9 }
+					light_carrier = { country = ENG value = 0 }
+					}
+			AND = {
+					carrier = { country = ENG value = 8 }
+					light_carrier = { country = ENG value = 1 }
+					}
+			AND = {
+					carrier = { country = ENG value = 7 }
+					light_carrier = { country = ENG value = 2 }
+					}
+			AND = {
+					carrier = { country = ENG value = 6 }
+					light_carrier = { country = ENG value = 3 }
+					}
+			AND = {
+					carrier = { country = ENG value = 5 }
+					light_carrier = { country = ENG value = 4 }
+					}
+			AND = {
+					carrier = { country = ENG value = 4 }
+					light_carrier = { country = ENG value = 5 }
+					}
+			AND = {
+					carrier = { country = ENG value = 3 }
+					light_carrier = { country = ENG value = 6 }
+					}
+			AND = {
+					carrier = { country = ENG value = 2 }
+					light_carrier = { country = ENG value = 7 }
+					}
+			AND = {
+					carrier = { country = ENG value = 1 }
+					light_carrier = { country = ENG value = 8 }
+					}
+			AND = {
+					carrier = { country = ENG value = 0 }
+					light_carrier = { country = ENG value = 9 }
+					}
+		}
+	}
+
+	date = { day = 6 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_2600006_NAME
+	desc = EVT_2600006_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600004A #"Treaty Violation"
+		command = { type = relation which = USA value = -5 }
+		command = { type = relation which = GER value = -5 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = relation which = JAP value = -2 }
+		command = { type = relation which = ITA value = -2 }
+		command = { type = dissent value = 1 }
+	}
+}
+
+################
+# Germany terminates the treaty
+#############################################
+
+event = {
+	id = 2600016
+	random = no
+	country = ENG
+	
+	# triggered by GER 2600003
+	# may cause GER 3136195 (Break of Versailles Treaty) to be triggered earlier
+
+	name = EVT_2600016_NAME
+	desc = EVT_2600016_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		# ENG naval restrictions lifted
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_clrflag which = NavalTreaty1936 }
+		# ENG naval building costs reduced
+		command = { trigger = { year = 1936 NOT = { year = 1937 } } type = build_cost which = naval when = on_upgrade value = -20 where = relative }
+		command = { trigger = { year = 1937 NOT = { year = 1938 } } type = build_cost which = naval when = on_upgrade value = -15 where = relative }
+		command = { trigger = { year = 1938 NOT = { year = 1939 } } type = build_cost which = naval when = on_upgrade value = -10 where = relative }
+		command = { trigger = { year = 1939 } type = build_cost which = naval when = on_upgrade value = -5 where = relative }
+	}
+}
+
+################
+# German threat rises; Appeasement has failed
+#############################################
+
+event = {
+	id = 2600014
+	random = no
+	country = ENG
+	
+	trigger = { event = 2040 } # end of CZE
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 3 month = january year = 1999 }
+
+	name = EVT_2600014_NAME
+	desc = EVT_2600014_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = local_clrflag which = NavalTreaty1930 }
+		command = { type = local_clrflag which = NavalTreaty1936 }
+	}
+}
+
+####################################
+# USA
+####################################
+################
+# Checks ship building caps
+#############################################
+event = {
+	id = 2600008
+	random = no
+	country = USA
+	persistent = yes
+
+	trigger = {
+		ai = no
+		atwar = no
+		OR = {
+			local_flag = NavalTreaty1930
+			local_flag = NavalTreaty1936
+		}
+		random = 25
+		OR = {
+			#more than 20 (BB + BC)
+			AND = { 
+					battleship = { country = USA value = 21 }
+					battlecruiser = { country = USA value = 0 }
+					}
+			AND = { 
+					battleship = { country = USA value = 20 }
+					battlecruiser = { country = USA value = 1 }
+					}
+			AND = { 
+					battleship = { country = USA value = 19 }
+					battlecruiser = { country = USA value = 2 }
+					}
+			AND = { 
+					battleship = { country = USA value = 18 }
+					battlecruiser = { country = USA value = 3 }
+					}
+			AND = { 
+					battleship = { country = USA value = 17 }
+					battlecruiser = { country = USA value = 4 }
+					}
+			AND = { 
+					battleship = { country = USA value = 16 }
+					battlecruiser = { country = USA value = 5 }
+					}
+			AND = { 
+					battleship = { country = USA value = 15 }
+					battlecruiser = { country = USA value = 6 }
+					}
+			AND = { 
+					battleship = { country = USA value = 14 }
+					battlecruiser = { country = USA value = 7 }
+					}
+			AND = { 
+					battleship = { country = USA value = 13 }
+					battlecruiser = { country = USA value = 8 }
+					}
+			AND = { 
+					battleship = { country = USA value = 12 }
+					battlecruiser = { country = USA value = 9 }
+					}
+			AND = { 
+					battleship = { country = USA value = 11 }
+					battlecruiser = { country = USA value = 10 }
+					}
+			AND = { 
+					battleship = { country = USA value = 10 }
+					battlecruiser = { country = USA value = 11 }
+					}
+			AND = { 
+					battleship = { country = USA value = 9 }
+					battlecruiser = { country = USA value = 12 }
+					}
+			AND = { 
+					battleship = { country = USA value = 8 }
+					battlecruiser = { country = USA value = 13 }
+					}
+			AND = { 
+					battleship = { country = USA value = 7 }
+					battlecruiser = { country = USA value = 14 }
+					}
+			AND = { 
+					battleship = { country = USA value = 6 }
+					battlecruiser = { country = USA value = 15 }
+					}
+			AND = { 
+					battleship = { country = USA value = 5 }
+					battlecruiser = { country = USA value = 16 }
+					}
+			AND = { 
+					battleship = { country = USA value = 4 }
+					battlecruiser = { country = USA value = 17 }
+					}
+			AND = { 
+					battleship = { country = USA value = 3 }
+					battlecruiser = { country = USA value = 18 }
+					}
+			AND = { 
+					battleship = { country = USA value = 2 }
+					battlecruiser = { country = USA value = 19 }
+					}
+			AND = { 
+					battleship = { country = USA value = 1 }
+					battlecruiser = { country = USA value = 20 }
+					}
+			AND = { 
+					battleship = { country = USA value = 0 }
+					battlecruiser = { country = USA value = 21 }
+					}
+			
+			
+			heavy_cruiser = { country = USA value = 21 } # Greater than 20
+			
+			
+			# Greater than 7 (Lexington, Saratoga, Ranger, Yorktown, Enterprise, Wasp, Hornet)
+			AND = {
+					carrier = { country = USA value = 8 }
+					light_carrier = { country = USA value = 0 }
+					}
+			AND = {
+					carrier = { country = USA value = 7 }
+					light_carrier = { country = USA value = 1 }
+					}
+			AND = {
+					carrier = { country = USA value = 6 }
+					light_carrier = { country = USA value = 2 }
+					}
+			AND = {
+					carrier = { country = USA value = 5 }
+					light_carrier = { country = USA value = 3 }
+					}
+			AND = {
+					carrier = { country = USA value = 4 }
+					light_carrier = { country = USA value = 4 }
+					}
+			AND = {
+					carrier = { country = USA value = 3 }
+					light_carrier = { country = USA value = 5 }
+					}
+			AND = {
+					carrier = { country = USA value = 2 }
+					light_carrier = { country = USA value = 6 }
+					}
+			AND = {
+					carrier = { country = USA value = 1 }
+					light_carrier = { country = USA value = 7 }
+					}
+			AND = {
+					carrier = { country = USA value = 0 }
+					light_carrier = { country = USA value = 8 }
+					}
+		}
+	}
+
+	date = { day = 6 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_2600008_NAME
+	desc = EVT_2600008_DESC
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600004A #"Treaty Violation"
+		command = { type = relation which = ENG value = -5 }
+		command = { type = relation which = GER value = -2 }
+		command = { type = relation which = FRA value = -5 }
+		command = { type = relation which = JAP value = -5 }
+		command = { type = relation which = ITA value = -2 }
+		command = { type = dissent value = 1 }
+	}
+}
+
+event = {
+	id = 2600012
+	random = no
+	country = USA
+
+	trigger = {
+			ai = no
+			not = { war = { country = JAP country = USA } }
+			war = { country = JAP country = ENG }
+			}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_2600012_NAME #"Japanese aggression"
+	desc = EVT_2600012_DESC #"Japan has cowardly attacked the already weakened British Empire. Soon, they will pose a viable threat to the interests of the United States in the Pacific region. Congress's approval of extensive naval buildup is at hand, but army recruitment will surely rise some dissent."
+
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600012A #"Just expand the Navy!"
+		#command = { type = sleepevent which = 2600008 }
+		#command = { type = local_clrflag which = NavalTreaty1930 }
+		#command = { type = local_clrflag which = NavalTreaty1936 }
+		command = { type = trigger which = 182032 } # Two-Ocean Navy Act
+	}
+	action_b = {
+		name = ACTIONNAME2600012A #"We also need a strong army!"
+		command = { type = dissent value = 5 }
+		command = { type = trigger which = 2600013 } # id used as trigger for unlocking land division types
+	}
+}
+
+event = {
+	id = 2600013
+	random = no
+	country = USA
+
+	name = EVT_2600013_NAME #"Army buildup forced through congress"
+	desc = EVT_2600013_DESC #"Soon, we will be able to raise new divisions!"
+
+	style = 2
+	picture = "event_naval_conference"
+	
+	action_a = {
+		name = ACTIONNAME2600013A #"We must prepare for war!"
+		#command = { type = sleepevent which = 2600008 }
+		#command = { type = local_clrflag which = NavalTreaty1930 }
+		#command = { type = local_clrflag which = NavalTreaty1936 }
+		command = { type = trigger which = 182032 } # Two-Ocean Navy Act
+	}
+}
+
+####################################
+# Japan
+####################################
+################
+# Checks ship building caps
+#############################################
+event = {
+	id = 2600010
+	random = no
+	country = JAP
+	persistent = yes
+
+	trigger = {
+		ai = no
+		atwar = no
+		OR = {
+			local_flag = NavalTreaty1930
+			local_flag = NavalTreaty1936
+		}
+		random = 25
+		OR = {
+			battleship = { country = JAP value = 9 } # Greater than 8
+			battlecruiser = { country = JAP value = 9 } # Greater than 8
+			heavy_cruiser = { country = JAP value = 15 } # Greater than 14
+			AND = {
+					carrier = { country = JAP value = 6 } # was: Greater than 4, but had to be changed to 5 due to '36 OOB
+					light_carrier = { country = JAP value = 0 }
+					}
+			AND = {
+					carrier = { country = JAP value = 5 }
+					light_carrier = { country = JAP value = 1 }
+					}
+			AND = {
+					carrier = { country = JAP value = 4 }
+					light_carrier = { country = JAP value = 2 }
+					}
+			AND = {
+					carrier = { country = JAP value = 3 }
+					light_carrier = { country = JAP value = 3 }
+					}
+			AND = {
+					carrier = { country = JAP value = 2 }
+					light_carrier = { country = JAP value = 4 }
+					}
+			AND = {
+					carrier = { country = JAP value = 1 }
+					light_carrier = { country = JAP value = 5 }
+					}
+			AND = {
+					carrier = { country = JAP value = 0 }
+					light_carrier = { country = JAP value = 6 }
+					}
+		}
+	}
+
+	date = { day = 6 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	name = EVT_2600010_NAME
+	desc = EVT_2600010_DESC
+	
+	style = 2
+	picture = "event_naval_conference"
+
+	action_a = {
+		name = ACTIONNAME2600004A #"Treaty Violation"
+		command = { type = relation which = ENG value = -2 }
+		command = { type = relation which = FRA value = -2 }
+		command = { type = relation which = USA value = -5 }
+		command = { type = dissent value = 1 }
+	}
+}

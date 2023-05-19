@@ -1,0 +1,1657 @@
+#########################################################################
+# Events about the end of the sino-japanese war and postwar China
+# ids 148000+
+#########################################################################
+
+#########################################################################
+# Japan and KWA get coastal garrisons in Korea
+# to avoid surrender event being triggered too early
+#########################################################################
+
+event = {
+	id = 148000
+	random = no
+	country = JAP
+
+	trigger = { 
+				AI = JAP
+				#event = 3146060 # JAP inherits KWA
+				OR = {					# will save supplies for AI and improve building behaviour
+						war = { country = JAP country = USA }
+						war = { country = JAP country = ENG }
+						war = { country = JAP country = SOV }
+						war = { country = JAP country = CHI }
+						war = { country = JAP country = CHC }
+						war = { country = JAP country = CAN }
+						war = { country = JAP country = AST }
+						war = { country = JAP country = U02 }
+						}
+				}
+		
+	name = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		command = { trigger = { owned = { province = 1217 data = JAP } } type = add_corps which = "Anshan Kaigan hozen" value = land where = 1217 } # Anshan
+		command = { trigger = { owned = { province = 1217 data = JAP } } type = activate_division which = 13016 value = 451148 where = 1217 }
+		command = { trigger = { owned = { province = 1217 data = JAP } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451149 where = 1217 }
+		command = { trigger = { owned = { province = 1219 data = JAP } } type = add_corps which = "Ryojun Kaigan hozen" value = land where = 1219 } # Port Arthur
+		command = { trigger = { owned = { province = 1219 data = JAP } } type = activate_division which = 13016 value = 451150 where = 1219 }
+		command = { trigger = { owned = { province = 1221 data = JAP } } type = add_corps which = "Pyeongyang Kaigan hozen" value = land where = 1221 } # Pyoengyang
+		command = { trigger = { owned = { province = 1221 data = JAP } } type = activate_division which = 13016 value = 451151 where = 1221 }
+		command = { trigger = { owned = { province = 1221 data = JAP } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451152 where = 1221 }
+		command = { trigger = { owned = { province = 1228 data = JAP } } type = add_corps which = "Seoul Kaigan hozen" value = land where = 1228 } # Seoul
+		command = { trigger = { owned = { province = 1228 data = JAP } } type = activate_division which = 13016 value = 451153 where = 1228 }
+		command = { trigger = { owned = { province = 1228 data = JAP } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451154 where = 1228 }
+		command = { trigger = { owned = { province = 1232 data = JAP } } type = add_corps which = "Busan Kaigan hozen" value = land where = 1232 } # Busan
+		command = { trigger = { owned = { province = 1232 data = JAP } } type = activate_division which = 13016 value = 451155 where = 1232 }
+		command = { trigger = { owned = { province = 1232 data = JAP } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451156 where = 1232 }
+		command = { trigger = { owned = { province = 1223 data = JAP } } type = add_corps which = "Wonsan Kaigan hozen" value = land where = 1223 } # Wonsan
+		command = { trigger = { owned = { province = 1223 data = JAP } } type = activate_division which = 13016 value = 451157 where = 1223 }
+	}
+}
+
+event = {
+	id = 148001
+	random = no
+	country = U00
+
+	trigger = { 
+				AI = U00
+				#event = 3146060 # JAP inherits KWA
+				OR = {					# will save supplies for AI and improve building behaviour
+						war = { country = JAP country = USA }
+						war = { country = JAP country = ENG }
+						war = { country = JAP country = SOV }
+						war = { country = JAP country = CHI }
+						war = { country = JAP country = CHC }
+						war = { country = JAP country = CAN }
+						war = { country = JAP country = AST }
+						war = { country = JAP country = U02 }
+						}
+				}
+
+	name = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+		command = { trigger = { owned = { province = 1217 data = U00 } } type = add_corps which = "Anshan Kaigan hozen" value = land where = 1217 } # Anshan
+		command = { trigger = { owned = { province = 1217 data = U00 } } type = activate_division which = 13016 value = 451248 where = 1217 }
+		command = { trigger = { owned = { province = 1217 data = U00 } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451249 where = 1217 }
+		command = { trigger = { owned = { province = 1219 data = U00 } } type = add_corps which = "Ryojun Kaigan hozen" value = land where = 1219 } # Port Arthur
+		command = { trigger = { owned = { province = 1219 data = U00 } } type = activate_division which = 13016 value = 451250 where = 1219 }
+		command = { trigger = { owned = { province = 1221 data = U00 } } type = add_corps which = "Pyeongyang Kaigan hozen" value = land where = 1221 } # Pyoengyang
+		command = { trigger = { owned = { province = 1221 data = U00 } } type = activate_division which = 13016 value = 451251 where = 1221 }
+		command = { trigger = { owned = { province = 1221 data = U00 } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451252 where = 1221 }
+		command = { trigger = { owned = { province = 1228 data = U00 } } type = add_corps which = "Seoul Kaigan hozen" value = land where = 1228 } # Seoul
+		command = { trigger = { owned = { province = 1228 data = U00 } } type = activate_division which = 13016 value = 451253 where = 1228 }
+		command = { trigger = { owned = { province = 1228 data = U00 } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451254 where = 1228 }
+		command = { trigger = { owned = { province = 1232 data = U00 } } type = add_corps which = "Busan Kaigan hozen" value = land where = 1232 } # Busan
+		command = { trigger = { owned = { province = 1232 data = U00 } } type = activate_division which = 13016 value = 451255 where = 1232 }
+		command = { trigger = { owned = { province = 1232 data = U00 } OR = { NOT = { AI = USA } NOT = { AI = ENG } NOT = { AI = SOV } NOT = { AI = CHI } NOT = { AI = CHC } NOT = { AI = CAN } NOT = { AI = AST } NOT = { AI = U02 } } } type = activate_division which = 13016 value = 451256 where = 1232 }
+		command = { trigger = { owned = { province = 1223 data = U00 } } type = add_corps which = "Wonsan Kaigan hozen" value = land where = 1223 } # Wonsan
+		command = { trigger = { owned = { province = 1223 data = U00 } } type = activate_division which = 13016 value = 451257 where = 1223 }
+	}
+}
+
+#########################################################################
+# Garrison removal for human player
+#########################################################################
+event = { 
+	id = 148002
+	random = no
+	country = JAP
+	
+	trigger = { 
+				event = 148000
+				ai = no
+			}
+
+	name = EVT_3131999_NAME 
+	desc = EVT_3131999_DESC 
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451148 } province = 1217 }} type = remove_division which = 13016 value = 451148 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451149 } province = 1217 }} type = remove_division which = 13016 value = 451149 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451150 } province = 1219 }} type = remove_division which = 13016 value = 451150 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451151 } province = 1221 }} type = remove_division which = 13016 value = 451151 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451152 } province = 1221 }} type = remove_division which = 13016 value = 451152 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451153 } province = 1228 }} type = remove_division which = 13016 value = 451153 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451154 } province = 1228 }} type = remove_division which = 13016 value = 451154 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451155 } province = 1232 }} type = remove_division which = 13016 value = 451155 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451156 } province = 1232 }} type = remove_division which = 13016 value = 451156 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451157 } province = 1223 }} type = remove_division which = 13016 value = 451157 }		
+	}
+}
+
+event = { 
+	id = 148003
+	random = no
+	country = U00
+	
+	trigger = { 
+				event = 148001
+				ai = no
+			}
+
+	name = EVT_3131999_NAME 
+	desc = EVT_3131999_DESC 
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451248 } province = 1217 }} type = remove_division which = 13016 value = 451248 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451249 } province = 1217 }} type = remove_division which = 13016 value = 451249 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451250 } province = 1219 }} type = remove_division which = 13016 value = 451250 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451251 } province = 1221 }} type = remove_division which = 13016 value = 451251 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451252 } province = 1221 }} type = remove_division which = 13016 value = 451252 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451253 } province = 1228 }} type = remove_division which = 13016 value = 451253 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451254 } province = 1228 }} type = remove_division which = 13016 value = 451254 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451255 } province = 1232 }} type = remove_division which = 13016 value = 451255 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451256 } province = 1232 }} type = remove_division which = 13016 value = 451256 }
+		command = { trigger = { division_in_province = { id = { type = 13016 id = 451257 } province = 1223 }} type = remove_division which = 13016 value = 451257 }		
+	}
+}
+
+#########################################################################
+#  Surrender events
+#  Japan surrenders to China
+#########################################################################
+
+#########################################################################
+#  Surrender events - Japan surrenders to China - chinese trigger
+#########################################################################
+
+event = {
+	id = 148004
+	random = no
+	tag = { CHI CHC }
+
+	name = EVT_3823_NAME
+	desc = EVT_3823_DESC
+	style = 2
+	picture = "chi_fading_sun"
+
+    
+	trigger = {
+		or = {
+			and = {
+				country = CHI
+				OR = {
+						war = { country = CHI country = JAP }
+						war = { country = CHI country = U00 }
+						}
+				region = { region = "China" country = CHI value = 55 }
+				NOT = {
+						OR = {
+								region = { region = "China" country = JAP value = 10 }
+								region = { region = "China" country = U00 value = 10 }
+								region = { region = "China" country = U87 value = 10 }
+								}
+						OR = {
+								region = { region = "Korea" country = JAP value = 5 }
+								region = { region = "Korea" country = U00 value = 5 }
+								}
+						}
+			}
+			and = {
+				country = CHC
+				OR = {
+						war = { country = CHC country = JAP }
+						war = { country = CHC country = U00 }
+						}
+				region = { region = "China" country = CHC value = 55 }
+				NOT = {
+						OR = {
+								region = { region = "China" country = JAP value = 10 }
+								region = { region = "China" country = U00 value = 10 }
+								region = { region = "China" country = U87 value = 10 }
+								}
+						OR = {
+								region = { region = "Korea" country = JAP value = 5 }
+								region = { region = "Korea" country = U00 value = 5 }
+								}
+						}
+			}
+		}
+		or = {
+			control = { province = 1207 data = CHI } # Jilin
+			control = { province = 1207 data = CHC } # Jilin
+			control = { province = 1207 data = REB } # Jilin
+			NOT = { exists = MAN }
+		}
+		or = {
+			control = { province = 1239 data = CHI } # Jining
+			control = { province = 1239 data = CHC } # Jining
+			control = { province = 1239 data = REB } # Jining
+			NOT = { exists = MEN }
+		}
+		or = {
+			control = { province = 1221 data = CHI } # Pyongyang
+			control = { province = 1221 data = CHC } # Pyongyang
+			control = { province = 1221 data = REB } # Pyongyang
+			control = { province = 1228 data = CHI } # Seoul
+			control = { province = 1228 data = CHC } # Seoul
+			control = { province = 1228 data = REB } # Seoul
+			control = { province = 1231 data = CHI } # Busan
+			control = { province = 1231 data = CHC } # Busan
+			control = { province = 1231 data = REB } # Busan
+		}
+		or = {
+			control = { province = 1337 data = CHI } # Nanjing
+			control = { province = 1337 data = CHC } # Nanjing
+			control = { province = 1337 data = REB } # Nanjing
+		}
+		or = {
+			control = { province = 1247 data = CHI } # Beijing
+			control = { province = 1247 data = CHC } # Beijing
+			control = { province = 1247 data = REB } # Beijing
+		}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+#		ai_chance = 100
+		name = EVT_148004_ACTA #Demand Manchuria back!
+		command = { type = dissent value = -20 }
+		command = { trigger = { exists = U87 alliance = { country = JAP country = U87 } } type = inherit which = U87 }
+		command = { trigger = { exists = U03 alliance = { country = JAP country = U03 } } type = inherit which = U03 }
+		command = { trigger = { exists = MEN alliance = { country = JAP country = MEN } } type = inherit which = MEN }
+		command = { trigger = { exists = MAN alliance = { country = JAP country = MAN } } type = inherit which = MAN }
+		command = { trigger = { exists = CGX alliance = { country = JAP country = CGX } } type = inherit which = CGX }
+		command = { trigger = { exists = CGX alliance = { country = JAP country = CSX } } type = inherit which = CSX }
+		command = { trigger = { exists = CYN alliance = { country = JAP country = CYN } } type = inherit which = CYN }
+		command = { trigger = { exists = CXB alliance = { country = JAP country = CXB } } type = inherit which = CXB }
+		command = { trigger = { exists = SIK alliance = { country = JAP country = SIK } } type = inherit which = SIK }
+		command = { trigger = { exists = TIB alliance = { country = JAP country = TIB } } type = inherit which = TIB }
+		command = { trigger = { country = CHC exists = CHI alliance = { country = JAP country = CHI } } type = inherit which = CHI }
+		command = { trigger = { country = CHI exists = CHC alliance = { country = JAP country = CHC } } type = inherit which = CHC }
+		command = { trigger = { country = CHI } type = setflag which = fs_kmt }
+		command = { trigger = { country = CHC } type = setflag which = fs_ccp }
+		
+		command = { trigger = { NOT = { flag = china_normal_combat } } type = ground_def_eff value = 0.025 when = 1 }
+		command = { trigger = { NOT = { flag = china_normal_combat } AI = JAP OR = { NOT = { AI = USA } NOT = { AI = CHI } } } type = ground_def_eff value = 0.025 when = 1 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = 4 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = 4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = 4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = 4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = 4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = 4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = 4 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = 4.4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = 4.4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = 4.4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = 4.4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = 4.4 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = 4.4 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = 4.8 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = 3 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = 3 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = 3.3 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = 3.3 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = 0.3 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = 0.3 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = 0.2 }
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = 0.2 } 
+		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = 0.2 }
+		
+		
+		command = { type = trigger which = 148005 }		
+	}
+
+#	action = {
+#		ai_chance = 0
+#		name = EVT_3823_ACTB #We push for total victory!
+#		command = { type = dissent value = 5 }
+#		command = { type = sleepevent which = 148005 }
+#	}
+}
+
+#########################################################################
+#  Surrender events - Japan surrenders to China - japanese decision
+#########################################################################
+event = {
+	id = 148005
+	random = no
+	country = JAP
+
+	name = EVT_3824_NAME
+	desc = EVT_3824_DESC
+	style = 2
+ 	picture = "jap_fading_sun"
+
+	#Triggered by CHI 148004
+
+	action_a = {
+		ai_chance = 100
+		name = EVT_3824_ACTA
+		
+		# clean up diplomatic relations and make peace
+		command = { trigger = { exists = U00 alliance = { country = JAP country = U00 } } type = inherit which = U00 }
+		command = { trigger = { exists = SIA alliance = { country = JAP country = SIA } puppet = { country = SIA country = JAP } } type = inherit which = SIA }
+		command = { trigger = { exists = KOR OR = { alliance = { country = CHI country = KOR } alliance = { country = CHC country = KOR } puppet = { country = KOR country = CHI } puppet = { country = KOR country = CHC } } } type = inherit which = KOR }
+		command = { trigger = { exists = PRK OR = { alliance = { country = CHI country = PRK } alliance = { country = CHC country = PRK } puppet = { country = PRK country = CHI } puppet = { country = PRK country = CHC } } } type = inherit which = PRK }
+		
+		command = { trigger = { war = { country = JAP country = CHI } NOT = { alliance = { country = GER country = JAP } } } type = peace which = CHI value = 1 }
+		command = { trigger = { war = { country = JAP country = CHC } NOT = { alliance = { country = GER country = JAP } } } type = peace which = CHC value = 1 }
+		command = { trigger = { OR = { war = { country = JAP country = CHI } war = { country = JAP country = CHC } } alliance = { country = GER country = JAP } } type = leave_alliance when = 1 }
+		
+		# Tojo regime falls
+		command = { type = domestic which = democratic value = 4 }
+		command = { type = domestic which = political_left value = 4 }
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = domestic which = defense_lobby value = -3 }
+		command = { type = domestic which = interventionism value = -3 }
+		command = { type = dissent value = 10 }
+
+		# remove Cores in Manchuria
+		command = { type = removecore which = 1202 } #Jiamusi->Jixi/Jiamusi
+ 		command = { type = removecore which = 1204 } #Jixi
+ 		command = { type = removecore which = 1212 } #Yanji->Jilin/Liaoyuan
+ 		command = { type = removecore which = 1205 } #Mudanjiang->Jilin/Mudanjiang
+ 		command = { type = removecore which = 1199 } #Harbin
+ 		command = { type = removecore which = 1203 } #Qiqihaer
+ 		command = { type = removecore which = 1200 } #Human->Mohe
+ 		command = { type = removecore which = 1206 } #Haila'er->Heilar
+ 		command = { type = removecore which = 1213 } #Baicheng->Ulan Hot
+ 		command = { type = removecore which = 1237 } #Ulayanqada->Xililnhot/Erenhot
+ 		command = { type = removecore which = 1220 } #Dandong->Dalian
+ 		command = { type = removecore which = 1218 } #Panjin->Jinxi
+ 		command = { type = removecore which = 1201 } #Heihe
+ 		command = { type = removecore which = 1208 } #Changchun->Mukden
+ 		command = { type = removecore which = 1209 } #Wulanhaote->Ulan Hot/Xilinhot
+ 		command = { type = removecore which = 1210 } #Tongliyao Hot->Chifeng
+ 		command = { type = removecore which = 1211 } #Hunjiang->Adong/Liaoyuan
+ 		command = { type = removecore which = 1215 } #Fushun->Adong
+ 		command = { type = removecore which = 1217 } #Anshan->Dalian
+ 		command = { type = removecore which = 1197 } #Hegang->Heihe
+ 		command = { type = removecore which = 1198 } #Butehaqi->Qiqihar
+ 		command = { type = removecore which = 1240 } #Sili-yin Qota->Xilinhot/Erenhot
+ 		command = { type = removecore which = 1236 } #Chengde->Changde
+ 		command = { type = removecore which = 1235 } #Fuxin->Changde
+ 		command = { type = removecore which = 1216 } #Jinzhou->Jinxi
+		command = { type = removecore which = 1214 } #Jilin
+		command = { type = removecore which = 1207 } #Shenyang
+		command = { type = removecore which = 1245 } #Tangshan
+		command = { type = removecore which = 1219 } #Port Arthur
+		
+		# secede Manchuria & conquered provinces to CHI or CHC
+		command = { trigger = { flag = fs_kmt } type = secederegion which = CHI value = "China" when = 1 }
+		command = { trigger = { flag = fs_ccp } type = secederegion which = CHC value = "China" when = 1 }
+
+		# avoid a succession war
+		command = { trigger = { exists = CHI } type = non_aggression which = JAP where = CHI }
+		command = { trigger = { exists = CHC } type = non_aggression which = JAP where = CHC }
+
+		# trigger follow-up events
+		command = { type = event which = 148006 where = CHI when = 0 }
+		command = { type = event which = 148007 where = CHC when = 0 }
+	}
+
+	action_b = {
+		ai_chance = 0
+		name = EVT_3824_ACTB
+		command = { type = dissent value = 20 }
+	}
+}
+
+#########################################################################
+#  Surrender events - Japan surrenders to China - CHI follow-up
+#########################################################################
+event = {
+	id = 148006
+	random = no
+	country = CHI
+
+	name = EVT_148006_NAME
+	desc = EVT_148006_DESC
+	style = 2
+	picture = "chi_jap_surrender"
+
+	#Triggered by JAP 148005
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = secederegion which = JAP value = Korea when = 1 }
+		command = { type = secederegion which = JAP value = Indochine when = 1 } 
+		
+		# balancing against AI JAP and U00; compensation for event 522025 if 522023 hasn't already been triggered
+		
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = 4 }
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = 4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = 4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = 4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = 4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = 4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = 4 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = 4.4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = 4.4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = 4.4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = 4.4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = 4.4 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = 4.4 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = 4.8 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = 3 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = 3 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = 3.3 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = 3.3 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = 0.3 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = 0.3 }
+
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = 0.2 }
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = 0.2 } 
+		command = { trigger = { NOT = { event = 522023 } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = 0.2 }
+		
+	}
+}
+
+#########################################################################
+#  Surrender events - Japan surrenders to China - CHC follow-up
+#########################################################################
+event = {
+	id = 148007
+	random = no
+	country = CHC
+
+	name = EVT_148006_NAME
+	desc = EVT_148006_DESC
+	style = 2
+	#picture = "ccip_fs"
+
+	#Triggered by JAP 148005
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = secederegion which = JAP value = "Korea" when = 1 }
+		command = { type = secederegion which = JAP value = Indochine when = 1 } 
+		
+		# no compensation for 522025 here because CHC hasn't been weakened before
+	}
+}
+
+#########################################################################
+#  AI flag event to mark JAP vs. SOV war
+#########################################################################
+event = {
+	id = 148008
+	random = no
+	tag = { PAR AFG BOL CHL PRU GUA PAN CUB NIC VEN COL } # countries likely to exist and to be AI controlled
+	
+	trigger = {
+				ai = yes
+				war = { country = SOV country = JAP }
+				NOT = { flag = war_sov_jap }
+				}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+
+	action = {
+		command = { type = setflag which = war_sov_jap }
+	}
+}
+
+#########################################################################
+# Second Chinese civil war - following victory over Japan
+# to be expanded by more events later on
+#########################################################################
+event = {
+	id = 148009
+	random = no
+	country = CHI
+	
+	trigger = {
+				OR = {
+						event = 148006
+						event = 3147011
+						}
+				NOT = { war = { country = CHI country = JAP } }
+				NOT = { alliance = { country = SOV country = CHC } }
+				NOT = { alliance = { country = ENG country = CHI } }
+				NOT = { alliance = { country = USA country = CHI } }
+				random = 10
+				}	
+	
+	name = EVT_148008_NAME
+	desc = EVT_148008_DESC
+	style = 2
+	picture = "chinese_civil_war"
+		
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }	
+	
+	action_a = {
+		name = ACTIONNAME148008A
+		
+		command = { type = leave_alliance when = 1 }
+		
+		command = { type = end_mastery which = CHC }
+		command = { trigger = { NOT = { exists = CHC } } type = independence which = CHC value = 0 }
+		
+		command = { trigger = { NOT = { war = { country = CHI country = CHC } } } type = war which = CHC }
+		
+		command = { trigger = { army = { size = 30 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 30 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 30 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 30 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 30 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 60 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 90 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 90 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 90 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 90 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 90 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 120 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 120 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 120 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 120 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 120 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 150 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 150 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 150 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 150 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 150 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 180 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 180 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 180 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 180 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 180 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 210 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 210 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 210 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 210 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 210 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 240 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 240 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 240 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 240 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 240 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 270 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 270 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 270 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 270 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 270 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { trigger = { army = { size = 300 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 300 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 300 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 300 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { army = { size = 300 type = 0 when = 0 where = 1 which = 1 country = CHI } } type = switch_allegiance which = -1 where = CHC }
+		
+		command = { type = dissent value = 50 }
+		command = { type = trigger which = 148010 }
+	}
+	}
+	
+event = {
+	id = 148010
+	random = no
+	country = CHC
+	
+	name = EVT_148008_NAME
+	desc = EVT_148008_DESC
+	style = 2
+	picture = "chinese_civil_war"
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = set_domestic which = democratic			value = 1  }
+		command = { type = set_domestic which = political_left		value = 10 }
+		command = { type = set_domestic which = free_market			value = 1  }
+		command = { type = set_domestic which = freedom				value = 2  }
+		command = { type = set_domestic which = professional_army	value = 3  }
+		command = { type = set_domestic which = defense_lobby		value = 10 }
+		command = { type = set_domestic which = interventionism		value = 5  }
+	}
+	}
+	
+#########################################################################
+#  Surrender events
+#  China surrenders to Japan
+#########################################################################
+#
+# 148011: Trigger für CHI nach Verlust von x Gebiet; KEINE Auswahloption, um Folgeevents sauber auszulösen
+#
+# 148012: Folgeevent SOV, Intervention in Sinkiang und Mongolei; Auswahl zwischen Intervention (=> Auslösung von 148013 & 148014, Trigger-abhängiger Coup in SIK) oder Nichteinmischung
+# 148013: Event SIK, Ausscheiden aus CHI-Allianz + Weißer Frieden mit Japan + Bündnis mit SOV
+# 148014: Event MON, Bündnis mit SOV
+# 
+# 148015: Folgeevent ENG, Intervention in Tibet + Bhutan + Nepal; Auswahl zwischen Intervention (=> Auslösung von 148016 & 148017 & 148018 mittels Flag) oder Nichteinmischung
+# 148016: Event TIB (Trigger: Existenz, kein Bündnis mit JAP oder SOV, Flag aus 148015); (Triggerabhängiges) Ausscheiden aus CHI-Allianz + (triggerabhängiger) Weißer Frieden mit Japan + Bündnis mit ENG
+# 148017: Event NEP (Trigger: Existenz, kein Bündnis mit JAP oder SOV, Flag aus 148015); (Triggerabhängiges) Ausscheiden aus CHI-Allianz + (triggerabhängiger) Weißer Frieden mit Japan + Bündnis mit ENG
+# 148018: Event BHU (Trigger: Existenz, kein Bündnis mit JAP oder SOV, Flag aus 148015); (Triggerabhängiges) Ausscheiden aus CHI-Allianz + (triggerabhängiger) Weißer Frieden mit Japan + Bündnis mit ENG
+#
+# 148019: Folgeevent JAP, Sieg über China (Trigger: 148011 + alle möglichen Flag/ID-Kombinationen); Annektion der noch verbliebenen Kriegsparteien in China, Unruheabbau
+# 148020: Folgeevent JAP, Erweiterung von Nanjing-China (Trigger: Nanjing-Decision, Nanjing-China hat noch nicht alle chinesischen Provinzen, Japan oder verbündete Nation besitzt noch irgendeine Anspruchsprovinz); Übergabe der Provinz (Einzelabfrage im command-Trigger) an Nanjing-China
+#
+# 148021: Partisanenevent Nanjing (Kopie Jugoslawien)
+# 148022 & 148023: Event für Nanjing zur Erweiterung der nationalen Provinzen (Kopie NOE)
+#
+# revolt.txt: Alle China-Staaten für Freilassung durch Japan/MEN/MAN/U00 sperren; Anspruchsprovinzen Nanjing-China erweitern
+# CHI Events anpassen, so dass Sinkiang nicht annektiert wird, wenn Gebiet verlorengeht
+#
+#########################################################################
+#  Surrender events - China surrenders to Japan - chinese trigger
+#########################################################################
+
+event = {
+	id = 148011
+	random = no
+	country = CHI
+
+	name = EVT_148011_NAME
+	desc = EVT_148011_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+    
+	trigger = {
+				OR = {
+						AND = {
+								war = { country = CHI country = JAP }
+								NOT = { lost_national = { country = JAP value = 5 } }
+								}
+						AND = {
+								war = { country = CHI country = U00 }
+								NOT = { lost_national = { country = U00 value = 1 } }
+								}
+						}
+				OR = {
+						NOT = { region = { region = "China" country = CHI value = 15 } }
+						AND = {
+								NOT = { control = { province = 1337 data = CHI } } # Nanjing
+								NOT = { control = { province = 1338 data = CHI } } # Shanghai
+								NOT = { control = { province = 1247 data = CHI } } # Beijing
+								NOT = { control = { province = 1369 data = CHI } } # Guangzhou
+								NOT = { control = { province = 1390 data = CHI } } # Kunming
+								NOT = { control = { province = 1258 data = CHI } } # Xi'An
+								NOT = { control = { province = 1317 data = CHI } } # Wuhan
+								NOT = { control = { province = 1299 data = CHI } } # Chongqing
+								NOT = { control = { province = 1261 data = CHI } } # Longnan
+								}
+						AND = { # all (completely controlled) areas of CHI 1936 with victory points
+								NOT = { event = 522023 }
+								NOT = { area = { area = Zhejiang } }
+								NOT = { area = { area = Jiangsu } }
+								NOT = { area = { area = Anhui } }
+								NOT = { area = { area = Jiangxi } }
+								NOT = { area = { area = Hunan } }
+								NOT = { area = { area = Guizhou } }
+								NOT = { area = { area = Hubei } }
+								}
+						AND = {
+								event = 522023
+								NOT = { area = { area = Zhejiang } }
+								NOT = { area = { area = Jiangsu } }
+								NOT = { area = { area = Anhui } }
+								NOT = { area = { area = Jiangxi } }
+								NOT = { area = { area = Hunan } }
+								NOT = { area = { area = Guizhou } }
+								NOT = { area = { area = Hubei } }
+								NOT = { area = { area = Shanxi } }
+								NOT = { area = { area = Shandong } }
+								NOT = { area = { area = Henan } }
+								NOT = { area = { area = Guangdong } }
+								NOT = { area = { area = Guangxi } }
+								NOT = { area = { area = Yunnan } }
+								}
+						AND = {
+								alliance = { country = CHI country = SIK }
+								lost_national = { country = SIK value = 1 }
+								NOT = { region = { region = "China" country = CHI value = 10 } }
+								}
+						AND = {
+								alliance = { country = CHI country = TIB }
+								lost_national = { country = TIB value = 1 }
+								NOT = { region = { region = "China" country = CHI value = 10 } }
+								}
+						}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = EVT_38_ACTA #Surrender
+		command = { type = dissent value = 20 }
+		command = { type = trigger which = 148012 } #SOV
+		command = { type = trigger which = 148015 } #ENG
+		
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } } type = switch_allegiance which = -1 where = CHC }
+
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+		command = { trigger = { exists = CHC war = { country = JAP country = CHC } OR = { NOT = { AI = JAP } NOT = { AI = U00 } } } type = switch_allegiance which = -1 where = CHC }
+	}
+	
+# activate in case of action_b (fight on)	
+#		command = { trigger = { NOT = { flag = china_normal_combat } } type = ground_def_eff value = 0.025 when = 1 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } AI = JAP OR = { NOT = { AI = USA } NOT = { AI = CHI } } } type = ground_def_eff value = 0.025 when = 1 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = infantry value = 4 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_02 value = 4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = militia value = 4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = cavalry value = 4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = motorized value = 4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = garrison value = 4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = hq value = 4 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_03 value = 4.4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = bergsjaeger value = 4.4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = marine value = 4.4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = paratrooper value = 4.4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_04 value = 4.4 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_05 value = 4.4 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_07 value = 4.8 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armor value = 3 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = mechanized value = 3 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = light_armor value = 3.3 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = d_06 value = 3.3 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = armored_car value = 0.3 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = super_heavy_armor value = 0.3 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = heavy_armor value = 0.2 }
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = tank_destroyer value = 0.2 } 
+#		command = { trigger = { NOT = { flag = china_normal_combat } event = 522025 AI = JAP OR = { NOT = { exists = U00 } AI = U00 } } type = max_organization which = engineer value = 0.2 }	
+	
+}
+
+#########################################################################
+#  Surrender events - China surrenders to Japan - SOV reaction
+#########################################################################
+
+event = {
+	id = 148012
+	random = no
+	country = SOV
+
+	name = EVT_148012_NAME
+	desc = EVT_148012_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		ai_chance = 99
+		name = EVT_148012_ACTA #Intervene in China
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = JAP value = -50 }
+		# still bugged, so atwar-trigger added
+		command = { trigger = { exists = SIK NOT = { atwar = SIK } NOT = { alliance = { country = SIK country = JAP } } NOT = { alliance = { country = SIK country = SOV } } } type = coup_nation which = SIK }
+		command = { trigger = { exists = MON NOT = { atwar = MON } NOT = { alliance = { country = MON country = JAP } } NOT = { alliance = { country = MON country = SOV } } } type = relation which = MON value = 100 }
+		command = { trigger = { exists = MON NOT = { atwar = MON } NOT = { alliance = { country = MON country = JAP } } NOT = { alliance = { country = MON country = SOV } } } type = coup_nation which = MON }
+		# if SIK/MON are at war: inherit & release to annul all wars and alliances
+		command = { trigger = { exists = SIK atwar = SIK NOT = { alliance = { country = SIK country = JAP } } NOT = { alliance = { country = SIK country = SOV } } } type = inherit which = SIK value = 1 }
+		command = { trigger = { NOT = { exists = SIK } area = { area = "Xinjiang" country = -1 data = 2 value = 1 } } type = independence which = SIK value = 0 }
+		command = { trigger = { exists = MON atwar = MON NOT = { alliance = { country = MON country = JAP } } NOT = { alliance = { country = MON country = SOV } } } type = inherit which = MON value = 1 }
+		command = { trigger = { NOT = { exists = MON } area = { area = "Mongolia" country = -1 data = 2 value = 1 } } type = independence which = MON value = 0 }
+		# general commands	
+		command = { type = relation which = SIK value = 100 }
+		command = { type = event which = 148013 where = SIK } #SIK
+		command = { type = relation which = MON value = 100 }
+		command = { type = event which = 148014 where = MON } #MON
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = EVT_148012_ACTB #Stay neutral
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = JAP value = 50 }
+		command = { trigger = { exists = SIK NOT = { alliance = { country = SIK country = JAP } } NOT = { alliance = { country = SIK country = SOV } } } type = relation which = SIK value = -100 }
+		command = { trigger = { exists = MON NOT = { alliance = { country = MON country = JAP } } NOT = { alliance = { country = MON country = SOV } } } type = relation which = MON value = -100 }
+	}
+}
+
+event = {
+	id = 148013
+	random = no
+	country = SIK
+
+	name = EVT_148013_NAME
+	desc = EVT_148013_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		name = ACTIONNAME_TOTALWAR_A #We have no choice
+		command = { trigger = { NOT = { alliance = { country = SOV country = SIK }}} type = alliance which = SOV }
+		command = { }
+	}
+}
+
+event = {
+	id = 148014
+	random = no
+	country = MON
+
+	name = EVT_148013_NAME
+	desc = EVT_148013_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		name = ACTIONNAME_TOTALWAR_A #We have no choice
+		command = { trigger = { NOT = { alliance = { country = SOV country = MON }}} type = alliance which = SOV }
+		command = { }
+	}
+}
+
+#########################################################################
+#  Surrender events - China surrenders to Japan - ENG reaction
+#########################################################################
+
+event = {
+	id = 148015
+	random = no
+	country = ENG
+
+	name = EVT_148012_NAME
+	desc = EVT_148015_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		ai_chance = 99
+		name = EVT_148015_ACTA #Intervene in China
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = JAP value = -50 }
+		command = { trigger = { exists = TIB NOT = { alliance = { country = TIB country = JAP } } NOT = { alliance = { country = TIB country = ENG } } } type = relation which = TIB value = 100 }
+		command = { trigger = { exists = TIB NOT = { alliance = { country = TIB country = JAP } } NOT = { alliance = { country = TIB country = ENG } } } type = guarantee which = ENG where = TIB }
+#		command = { trigger = { exists = TIB NOT = { alliance = { country = TIB country = JAP } } NOT = { alliance = { country = TIB country = ENG } } } type = trigger which = 148016 } #TIB
+		command = { trigger = { exists = NEP NOT = { alliance = { country = NEP country = JAP } } NOT = { alliance = { country = NEP country = ENG } } } type = relation which = NEP value = 100 }
+		command = { trigger = { exists = NEP NOT = { alliance = { country = NEP country = JAP } } NOT = { alliance = { country = NEP country = ENG } } } type = trigger which = 148017 } #NEP
+		command = { trigger = { exists = BHU NOT = { alliance = { country = BHU country = JAP } } NOT = { alliance = { country = BHU country = ENG } } } type = relation which = BHU value = 100 }
+		command = { trigger = { exists = BHU NOT = { alliance = { country = BHU country = JAP } } NOT = { alliance = { country = BHU country = ENG } } } type = trigger which = 148018 } #BHU
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = EVT_148012_ACTB #Stay neutral
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = JAP value = 50 }
+		command = { trigger = { exists = TIB NOT = { alliance = { country = TIB country = JAP } } NOT = { alliance = { country = TIB country = ENG } } } type = relation which = TIB value = -100 }
+		command = { trigger = { exists = NEP NOT = { alliance = { country = NEP country = JAP } } NOT = { alliance = { country = NEP country = ENG } } } type = relation which = NEP value = -100 }
+		command = { trigger = { exists = BHU NOT = { alliance = { country = BHU country = JAP } } NOT = { alliance = { country = BHU country = ENG } } } type = relation which = BHU value = -100 }
+	}
+}
+
+event = {
+	id = 148016
+	random = no
+	country = TIB
+	
+	trigger = {
+				event = 148015
+				war = { country = JAP country = TIB }
+				guarantee = { country = ENG }
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = EVT_148016_NAME
+	desc = EVT_148016_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		name = ACTIONNAME_TOTALWAR_A #We have no choice
+		command = { type = alliance which = ENG when = 2 }
+	}
+}
+
+event = {
+	id = 148017
+	random = no
+	country = NEP
+
+	name = EVT_148016_NAME
+	desc = EVT_148016_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		name = ACTIONNAME_TOTALWAR_A #We have no choice
+		command = { type = alliance which = ENG when = 2 }
+	}
+}
+
+event = {
+	id = 148018
+	random = no
+	country = BHU
+
+	name = EVT_148016_NAME
+	desc = EVT_148016_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+	action_a = {
+		name = ACTIONNAME_TOTALWAR_A #We have no choice
+		command = { type = alliance which = ENG when = 2 }
+	}
+}
+
+#########################################################################
+#  Surrender events - China surrenders to Japan - japanese victory event
+#########################################################################
+
+event = {
+	id = 148019
+	random = no
+	country = JAP
+
+	name = EVT_148019_NAME
+	desc = EVT_148019_DESC
+	style = 2
+	picture = "chi_event_lost_war"
+
+    
+	trigger = {
+				event = 148011
+				event = 148012
+				event = 148015
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME3336034A #Victory!
+		command = { type = dissent value = -5 }
+		command = { type = inherit which = CHI value = 0 }
+		command = { type = inherit which = CSX value = 0 }
+		command = { type = inherit which = CXB value = 0 }
+		command = { type = inherit which = CYN value = 0 }
+		command = { type = inherit which = CGX value = 0 }
+		command = { trigger = { war = { country = JAP country = SIK } NOT = { alliance = { country = SOV country = SIK } } NOT = { ispuppet = SIK } } type = inherit which = SIK }
+	}
+	
+}
+
+#########################################################################
+#  Surrender events - China surrenders to Japan - Nanjing China gets provinces
+#########################################################################
+
+event = {
+	id = 148020
+	random = no
+	country = JAP
+
+	name = EVT_148020_NAME
+	desc = EVT_148020_DESC
+	style = 2
+	picture = "event_chi_lost_war_2"
+
+    
+	trigger = {
+				event = 148019
+				NOT = { exists = CHI }
+				NOT = { exists = CHC }
+				NOT = { exists = CSX }
+				NOT = { exists = CGX }
+				NOT = { exists = CXB }
+				NOT = { exists = CYN }
+				alliance = { country = JAP country = U87 }
+				OR = {
+						AND = { owned = { province = 1241 data = -3 } NOT = { owned = { province = 1241 data = U87 }}}
+						AND = { owned = { province = 1247 data = -3 } NOT = { owned = { province = 1247 data = U87 }}}
+						AND = { owned = { province = 1249 data = -3 } NOT = { owned = { province = 1249 data = U87 }}}
+						AND = { owned = { province = 1250 data = -3 } NOT = { owned = { province = 1250 data = U87 }}}
+						AND = { owned = { province = 1251 data = -3 } NOT = { owned = { province = 1251 data = U87 }}}
+						AND = { owned = { province = 1252 data = -3 } NOT = { owned = { province = 1252 data = U87 }}}
+						AND = { owned = { province = 1242 data = -3 } NOT = { owned = { province = 1242 data = U87 }}}
+						AND = { owned = { province = 1243 data = -3 } NOT = { owned = { province = 1243 data = U87 }}}
+						AND = { owned = { province = 1244 data = -3 } NOT = { owned = { province = 1244 data = U87 }}}
+						AND = { owned = { province = 1327 data = -3 } NOT = { owned = { province = 1327 data = U87 }}}
+						AND = { owned = { province = 1329 data = -3 } NOT = { owned = { province = 1329 data = U87 }}}
+						AND = { owned = { province = 1330 data = -3 } NOT = { owned = { province = 1330 data = U87 }}}
+						AND = { owned = { province = 1331 data = -3 } NOT = { owned = { province = 1331 data = U87 }}}
+						AND = { owned = { province = 1332 data = -3 } NOT = { owned = { province = 1332 data = U87 }}}
+						AND = { owned = { province = 1311 data = -3 } NOT = { owned = { province = 1311 data = U87 }}}
+						AND = { owned = { province = 1319 data = -3 } NOT = { owned = { province = 1319 data = U87 }}}
+						AND = { owned = { province = 1323 data = -3 } NOT = { owned = { province = 1323 data = U87 }}}
+						AND = { owned = { province = 1333 data = -3 } NOT = { owned = { province = 1333 data = U87 }}}
+						AND = { owned = { province = 1334 data = -3 } NOT = { owned = { province = 1334 data = U87 }}}
+						AND = { owned = { province = 1335 data = -3 } NOT = { owned = { province = 1335 data = U87 }}}
+						AND = { owned = { province = 1336 data = -3 } NOT = { owned = { province = 1336 data = U87 }}}
+						AND = { owned = { province = 1339 data = -3 } NOT = { owned = { province = 1339 data = U87 }}}
+						AND = { owned = { province = 1340 data = -3 } NOT = { owned = { province = 1340 data = U87 }}}
+						AND = { owned = { province = 1341 data = -3 } NOT = { owned = { province = 1341 data = U87 }}}
+						AND = { owned = { province = 1342 data = -3 } NOT = { owned = { province = 1342 data = U87 }}}
+						AND = { owned = { province = 1343 data = -3 } NOT = { owned = { province = 1343 data = U87 }}}
+						AND = { owned = { province = 1344 data = -3 } NOT = { owned = { province = 1344 data = U87 }}}
+						AND = { owned = { province = 1345 data = -3 } NOT = { owned = { province = 1345 data = U87 }}}
+						AND = { owned = { province = 1346 data = -3 } NOT = { owned = { province = 1346 data = U87 }}}
+						AND = { owned = { province = 1347 data = -3 } NOT = { owned = { province = 1347 data = U87 }}}
+						AND = { owned = { province = 1348 data = -3 } NOT = { owned = { province = 1348 data = U87 }}}
+						AND = { owned = { province = 1349 data = -3 } NOT = { owned = { province = 1349 data = U87 }}}
+						AND = { owned = { province = 1350 data = -3 } NOT = { owned = { province = 1350 data = U87 }}}
+						AND = { owned = { province = 1351 data = -3 } NOT = { owned = { province = 1351 data = U87 }}}
+						AND = { owned = { province = 1352 data = -3 } NOT = { owned = { province = 1352 data = U87 }}}
+						AND = { owned = { province = 1353 data = -3 } NOT = { owned = { province = 1353 data = U87 }}}
+						AND = { owned = { province = 1354 data = -3 } NOT = { owned = { province = 1354 data = U87 }}}
+						AND = { owned = { province = 1355 data = -3 } NOT = { owned = { province = 1355 data = U87 }}}
+						AND = { owned = { province = 1356 data = -3 } NOT = { owned = { province = 1356 data = U87 }}}
+						AND = { owned = { province = 1357 data = -3 } NOT = { owned = { province = 1357 data = U87 }}}
+						AND = { owned = { province = 1358 data = -3 } NOT = { owned = { province = 1358 data = U87 }}}
+						AND = { owned = { province = 1359 data = -3 } NOT = { owned = { province = 1359 data = U87 }}}
+						AND = { owned = { province = 1360 data = -3 } NOT = { owned = { province = 1360 data = U87 }}}
+						AND = { owned = { province = 1367 data = -3 } NOT = { owned = { province = 1367 data = U87 }}}
+						AND = { owned = { province = 1368 data = -3 } NOT = { owned = { province = 1368 data = U87 }}}
+						AND = { owned = { province = 1369 data = -3 } NOT = { owned = { province = 1369 data = U87 }}}
+						AND = { owned = { province = 1370 data = -3 } NOT = { owned = { province = 1370 data = U87 }}}
+						AND = { owned = { province = 1373 data = -3 } NOT = { owned = { province = 1373 data = U87 }}}
+						AND = { owned = { province = 1375 data = -3 } NOT = { owned = { province = 1375 data = U87 }}}
+						AND = { owned = { province = 1377 data = -3 } NOT = { owned = { province = 1377 data = U87 }}}
+						AND = { owned = { province = 1248 data = -3 } NOT = { owned = { province = 1248 data = U87 }}}
+						AND = { owned = { province = 1254 data = -3 } NOT = { owned = { province = 1254 data = U87 }}}
+						AND = { owned = { province = 1253 data = -3 } NOT = { owned = { province = 1253 data = U87 }}}
+						AND = { owned = { province = 1256 data = -3 } NOT = { owned = { province = 1256 data = U87 }}}
+						AND = { owned = { province = 1257 data = -3 } NOT = { owned = { province = 1257 data = U87 }}}
+						AND = { owned = { province = 1258 data = -3 } NOT = { owned = { province = 1258 data = U87 }}}
+						AND = { owned = { province = 1262 data = -3 } NOT = { owned = { province = 1262 data = U87 }}}
+						AND = { owned = { province = 1267 data = -3 } NOT = { owned = { province = 1267 data = U87 }}}
+						AND = { owned = { province = 1291 data = -3 } NOT = { owned = { province = 1291 data = U87 }}}
+						AND = { owned = { province = 1292 data = -3 } NOT = { owned = { province = 1292 data = U87 }}}
+						AND = { owned = { province = 1293 data = -3 } NOT = { owned = { province = 1293 data = U87 }}}
+						AND = { owned = { province = 1296 data = -3 } NOT = { owned = { province = 1296 data = U87 }}}
+						AND = { owned = { province = 1297 data = -3 } NOT = { owned = { province = 1297 data = U87 }}}
+						AND = { owned = { province = 1298 data = -3 } NOT = { owned = { province = 1298 data = U87 }}}
+						AND = { owned = { province = 1299 data = -3 } NOT = { owned = { province = 1299 data = U87 }}}
+						AND = { owned = { province = 1300 data = -3 } NOT = { owned = { province = 1300 data = U87 }}}
+						AND = { owned = { province = 1301 data = -3 } NOT = { owned = { province = 1301 data = U87 }}}
+						AND = { owned = { province = 1302 data = -3 } NOT = { owned = { province = 1302 data = U87 }}}
+						AND = { owned = { province = 1303 data = -3 } NOT = { owned = { province = 1303 data = U87 }}}
+						AND = { owned = { province = 1304 data = -3 } NOT = { owned = { province = 1304 data = U87 }}}
+						AND = { owned = { province = 1305 data = -3 } NOT = { owned = { province = 1305 data = U87 }}}
+						AND = { owned = { province = 1306 data = -3 } NOT = { owned = { province = 1306 data = U87 }}}
+						AND = { owned = { province = 1307 data = -3 } NOT = { owned = { province = 1307 data = U87 }}}
+						AND = { owned = { province = 1308 data = -3 } NOT = { owned = { province = 1308 data = U87 }}}
+						AND = { owned = { province = 1309 data = -3 } NOT = { owned = { province = 1309 data = U87 }}}
+						AND = { owned = { province = 1310 data = -3 } NOT = { owned = { province = 1310 data = U87 }}}
+						AND = { owned = { province = 1312 data = -3 } NOT = { owned = { province = 1312 data = U87 }}}
+						AND = { owned = { province = 1313 data = -3 } NOT = { owned = { province = 1313 data = U87 }}}
+						AND = { owned = { province = 1314 data = -3 } NOT = { owned = { province = 1314 data = U87 }}}
+						AND = { owned = { province = 1315 data = -3 } NOT = { owned = { province = 1315 data = U87 }}}
+						AND = { owned = { province = 1316 data = -3 } NOT = { owned = { province = 1316 data = U87 }}}
+						AND = { owned = { province = 1317 data = -3 } NOT = { owned = { province = 1317 data = U87 }}}
+						AND = { owned = { province = 1318 data = -3 } NOT = { owned = { province = 1318 data = U87 }}}
+						AND = { owned = { province = 1320 data = -3 } NOT = { owned = { province = 1320 data = U87 }}}
+						AND = { owned = { province = 1321 data = -3 } NOT = { owned = { province = 1321 data = U87 }}}
+						AND = { owned = { province = 1322 data = -3 } NOT = { owned = { province = 1322 data = U87 }}}
+						AND = { owned = { province = 1324 data = -3 } NOT = { owned = { province = 1324 data = U87 }}}
+						AND = { owned = { province = 1325 data = -3 } NOT = { owned = { province = 1325 data = U87 }}}
+						AND = { owned = { province = 1326 data = -3 } NOT = { owned = { province = 1326 data = U87 }}}
+#						AND = { owned = { province = 1271 data = -3 } NOT = { owned = { province = 1271 data = U87 }}}
+						AND = { owned = { province = 1264 data = -3 } NOT = { owned = { province = 1264 data = U87 }}}
+						AND = { owned = { province = 1263 data = -3 } NOT = { owned = { province = 1263 data = U87 }}}
+						AND = { owned = { province = 1265 data = -3 } NOT = { owned = { province = 1265 data = U87 }}}
+						AND = { owned = { province = 1266 data = -3 } NOT = { owned = { province = 1266 data = U87 }}}
+						AND = { owned = { province = 1283 data = -3 } NOT = { owned = { province = 1283 data = U87 }}}
+						AND = { owned = { province = 1284 data = -3 } NOT = { owned = { province = 1284 data = U87 }}}
+						AND = { owned = { province = 1285 data = -3 } NOT = { owned = { province = 1285 data = U87 }}}
+						AND = { owned = { province = 1378 data = -3 } NOT = { owned = { province = 1378 data = U87 }}}
+						AND = { owned = { province = 1376 data = -3 } NOT = { owned = { province = 1376 data = U87 }}}
+						AND = { owned = { province = 1380 data = -3 } NOT = { owned = { province = 1380 data = U87 }}}
+						AND = { owned = { province = 1381 data = -3 } NOT = { owned = { province = 1381 data = U87 }}}
+						AND = { owned = { province = 1382 data = -3 } NOT = { owned = { province = 1382 data = U87 }}}
+						AND = { owned = { province = 1383 data = -3 } NOT = { owned = { province = 1383 data = U87 }}}
+						AND = { owned = { province = 1379 data = -3 } NOT = { owned = { province = 1379 data = U87 }}}
+						AND = { owned = { province = 1374 data = -3 } NOT = { owned = { province = 1374 data = U87 }}}
+						AND = { owned = { province = 1389 data = -3 } NOT = { owned = { province = 1389 data = U87 }}}
+						AND = { owned = { province = 1390 data = -3 } NOT = { owned = { province = 1390 data = U87 }}}
+						AND = { owned = { province = 1385 data = -3 } NOT = { owned = { province = 1385 data = U87 }}}
+						AND = { owned = { province = 1386 data = -3 } NOT = { owned = { province = 1386 data = U87 }}}
+						AND = { owned = { province = 1387 data = -3 } NOT = { owned = { province = 1387 data = U87 }}}
+						AND = { owned = { province = 1388 data = -3 } NOT = { owned = { province = 1388 data = U87 }}}
+						AND = { owned = { province = 1384 data = -3 } NOT = { owned = { province = 1384 data = U87 }}}
+						AND = { owned = { province = 1260 data = -3 } NOT = { owned = { province = 1260 data = U87 }}}
+						AND = { owned = { province = 1255 data = -3 } NOT = { owned = { province = 1255 data = U87 }}}
+						AND = { owned = { province = 1371 data = -3 } NOT = { owned = { province = 1371 data = U87 }}}
+						AND = { owned = { province = 1372 data = -3 } NOT = { owned = { province = 1372 data = U87 }}}
+						AND = { owned = { province = 1259 data = -3 } NOT = { owned = { province = 1259 data = U87 }}}
+						AND = { owned = { province = 1261 data = -3 } NOT = { owned = { province = 1261 data = U87 }}}
+						AND = { owned = { province = 1273 data = -3 } NOT = { owned = { province = 1273 data = U87 }}}
+						AND = { owned = { province = 1274 data = -3 } NOT = { owned = { province = 1274 data = U87 }}}
+						AND = { owned = { province = 1275 data = -3 } NOT = { owned = { province = 1275 data = U87 }}}
+						AND = { owned = { province = 1276 data = -3 } NOT = { owned = { province = 1276 data = U87 }}}
+						AND = { owned = { province = 1277 data = -3 } NOT = { owned = { province = 1277 data = U87 }}}
+						AND = { owned = { province = 1279 data = -3 } NOT = { owned = { province = 1279 data = U87 }}}
+						AND = { owned = { province = 1280 data = -3 } NOT = { owned = { province = 1280 data = U87 }}}
+						AND = { owned = { province = 1281 data = -3 } NOT = { owned = { province = 1281 data = U87 }}}
+						AND = { owned = { province = 1282 data = -3 } NOT = { owned = { province = 1282 data = U87 }}}
+						AND = { owned = { province = 1286 data = -3 } NOT = { owned = { province = 1286 data = U87 }}}
+						AND = { owned = { province = 1287 data = -3 } NOT = { owned = { province = 1287 data = U87 }}}
+						AND = { owned = { province = 1288 data = -3 } NOT = { owned = { province = 1288 data = U87 }}}
+						AND = { owned = { province = 1289 data = -3 } NOT = { owned = { province = 1289 data = U87 }}}
+						AND = { owned = { province = 1290 data = -3 } NOT = { owned = { province = 1290 data = U87 }}}
+						AND = { owned = { province = 1294 data = -3 } NOT = { owned = { province = 1294 data = U87 }}}
+						AND = { owned = { province = 1295 data = -3 } NOT = { owned = { province = 1295 data = U87 }}}
+						}
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { trigger = { owned = { province = 1241 data = -3 } NOT = { owned = { province = 1241 data = U87 }}} type = secedeprovince which = U87 value = 1241 when = 2 }
+		command = { trigger = { owned = { province = 1247 data = -3 } NOT = { owned = { province = 1247 data = U87 }}} type = secedeprovince which = U87 value = 1247 when = 2 }
+		command = { trigger = { owned = { province = 1249 data = -3 } NOT = { owned = { province = 1249 data = U87 }}} type = secedeprovince which = U87 value = 1249 when = 2 }
+		command = { trigger = { owned = { province = 1250 data = -3 } NOT = { owned = { province = 1250 data = U87 }}} type = secedeprovince which = U87 value = 1250 when = 2 }
+		command = { trigger = { owned = { province = 1251 data = -3 } NOT = { owned = { province = 1251 data = U87 }}} type = secedeprovince which = U87 value = 1251 when = 2 }
+		command = { trigger = { owned = { province = 1252 data = -3 } NOT = { owned = { province = 1252 data = U87 }}} type = secedeprovince which = U87 value = 1252 when = 2 }
+		command = { trigger = { owned = { province = 1242 data = -3 } NOT = { owned = { province = 1242 data = U87 }}} type = secedeprovince which = U87 value = 1242 when = 2 }
+		command = { trigger = { owned = { province = 1243 data = -3 } NOT = { owned = { province = 1243 data = U87 }}} type = secedeprovince which = U87 value = 1243 when = 2 }
+		command = { trigger = { owned = { province = 1244 data = -3 } NOT = { owned = { province = 1244 data = U87 }}} type = secedeprovince which = U87 value = 1244 when = 2 }
+		command = { trigger = { owned = { province = 1327 data = -3 } NOT = { owned = { province = 1327 data = U87 }}} type = secedeprovince which = U87 value = 1327 when = 2 }
+		command = { trigger = { owned = { province = 1329 data = -3 } NOT = { owned = { province = 1329 data = U87 }}} type = secedeprovince which = U87 value = 1329 when = 2 }
+		command = { trigger = { owned = { province = 1330 data = -3 } NOT = { owned = { province = 1330 data = U87 }}} type = secedeprovince which = U87 value = 1330 when = 2 }
+		command = { trigger = { owned = { province = 1331 data = -3 } NOT = { owned = { province = 1331 data = U87 }}} type = secedeprovince which = U87 value = 1331 when = 2 }
+		command = { trigger = { owned = { province = 1332 data = -3 } NOT = { owned = { province = 1332 data = U87 }}} type = secedeprovince which = U87 value = 1332 when = 2 }
+		command = { trigger = { owned = { province = 1311 data = -3 } NOT = { owned = { province = 1311 data = U87 }}} type = secedeprovince which = U87 value = 1311 when = 2 }
+		command = { trigger = { owned = { province = 1319 data = -3 } NOT = { owned = { province = 1319 data = U87 }}} type = secedeprovince which = U87 value = 1319 when = 2 }
+		command = { trigger = { owned = { province = 1323 data = -3 } NOT = { owned = { province = 1323 data = U87 }}} type = secedeprovince which = U87 value = 1323 when = 2 }
+		command = { trigger = { owned = { province = 1333 data = -3 } NOT = { owned = { province = 1333 data = U87 }}} type = secedeprovince which = U87 value = 1333 when = 2 }
+		command = { trigger = { owned = { province = 1334 data = -3 } NOT = { owned = { province = 1334 data = U87 }}} type = secedeprovince which = U87 value = 1334 when = 2 }
+		command = { trigger = { owned = { province = 1335 data = -3 } NOT = { owned = { province = 1335 data = U87 }}} type = secedeprovince which = U87 value = 1335 when = 2 }
+		command = { trigger = { owned = { province = 1336 data = -3 } NOT = { owned = { province = 1336 data = U87 }}} type = secedeprovince which = U87 value = 1336 when = 2 }
+		command = { trigger = { owned = { province = 1339 data = -3 } NOT = { owned = { province = 1339 data = U87 }}} type = secedeprovince which = U87 value = 1339 when = 2 }
+		command = { trigger = { owned = { province = 1340 data = -3 } NOT = { owned = { province = 1340 data = U87 }}} type = secedeprovince which = U87 value = 1340 when = 2 }
+		command = { trigger = { owned = { province = 1341 data = -3 } NOT = { owned = { province = 1341 data = U87 }}} type = secedeprovince which = U87 value = 1341 when = 2 }
+		command = { trigger = { owned = { province = 1342 data = -3 } NOT = { owned = { province = 1342 data = U87 }}} type = secedeprovince which = U87 value = 1342 when = 2 }
+		command = { trigger = { owned = { province = 1343 data = -3 } NOT = { owned = { province = 1343 data = U87 }}} type = secedeprovince which = U87 value = 1343 when = 2 }
+		command = { trigger = { owned = { province = 1344 data = -3 } NOT = { owned = { province = 1344 data = U87 }}} type = secedeprovince which = U87 value = 1344 when = 2 }
+		command = { trigger = { owned = { province = 1345 data = -3 } NOT = { owned = { province = 1345 data = U87 }}} type = secedeprovince which = U87 value = 1345 when = 2 }
+		command = { trigger = { owned = { province = 1346 data = -3 } NOT = { owned = { province = 1346 data = U87 }}} type = secedeprovince which = U87 value = 1346 when = 2 }
+		command = { trigger = { owned = { province = 1347 data = -3 } NOT = { owned = { province = 1347 data = U87 }}} type = secedeprovince which = U87 value = 1347 when = 2 }
+		command = { trigger = { owned = { province = 1348 data = -3 } NOT = { owned = { province = 1348 data = U87 }}} type = secedeprovince which = U87 value = 1348 when = 2 }
+		command = { trigger = { owned = { province = 1349 data = -3 } NOT = { owned = { province = 1349 data = U87 }}} type = secedeprovince which = U87 value = 1349 when = 2 }
+		command = { trigger = { owned = { province = 1350 data = -3 } NOT = { owned = { province = 1350 data = U87 }}} type = secedeprovince which = U87 value = 1350 when = 2 }
+		command = { trigger = { owned = { province = 1351 data = -3 } NOT = { owned = { province = 1351 data = U87 }}} type = secedeprovince which = U87 value = 1351 when = 2 }
+		command = { trigger = { owned = { province = 1352 data = -3 } NOT = { owned = { province = 1352 data = U87 }}} type = secedeprovince which = U87 value = 1352 when = 2 }
+		command = { trigger = { owned = { province = 1353 data = -3 } NOT = { owned = { province = 1353 data = U87 }}} type = secedeprovince which = U87 value = 1353 when = 2 }
+		command = { trigger = { owned = { province = 1354 data = -3 } NOT = { owned = { province = 1354 data = U87 }}} type = secedeprovince which = U87 value = 1354 when = 2 }
+		command = { trigger = { owned = { province = 1355 data = -3 } NOT = { owned = { province = 1355 data = U87 }}} type = secedeprovince which = U87 value = 1355 when = 2 }
+		command = { trigger = { owned = { province = 1356 data = -3 } NOT = { owned = { province = 1356 data = U87 }}} type = secedeprovince which = U87 value = 1356 when = 2 }
+		command = { trigger = { owned = { province = 1357 data = -3 } NOT = { owned = { province = 1357 data = U87 }}} type = secedeprovince which = U87 value = 1357 when = 2 }
+		command = { trigger = { owned = { province = 1358 data = -3 } NOT = { owned = { province = 1358 data = U87 }}} type = secedeprovince which = U87 value = 1358 when = 2 }
+		command = { trigger = { owned = { province = 1359 data = -3 } NOT = { owned = { province = 1359 data = U87 }}} type = secedeprovince which = U87 value = 1359 when = 2 }
+		command = { trigger = { owned = { province = 1360 data = -3 } NOT = { owned = { province = 1360 data = U87 }}} type = secedeprovince which = U87 value = 1360 when = 2 }
+		command = { trigger = { owned = { province = 1367 data = -3 } NOT = { owned = { province = 1367 data = U87 }}} type = secedeprovince which = U87 value = 1367 when = 2 }
+		command = { trigger = { owned = { province = 1368 data = -3 } NOT = { owned = { province = 1368 data = U87 }}} type = secedeprovince which = U87 value = 1368 when = 2 }
+		command = { trigger = { owned = { province = 1369 data = -3 } NOT = { owned = { province = 1369 data = U87 }}} type = secedeprovince which = U87 value = 1369 when = 2 }
+		command = { trigger = { owned = { province = 1370 data = -3 } NOT = { owned = { province = 1370 data = U87 }}} type = secedeprovince which = U87 value = 1370 when = 2 }
+		command = { trigger = { owned = { province = 1373 data = -3 } NOT = { owned = { province = 1373 data = U87 }}} type = secedeprovince which = U87 value = 1373 when = 2 }
+		command = { trigger = { owned = { province = 1375 data = -3 } NOT = { owned = { province = 1375 data = U87 }}} type = secedeprovince which = U87 value = 1375 when = 2 }
+		command = { trigger = { owned = { province = 1377 data = -3 } NOT = { owned = { province = 1377 data = U87 }}} type = secedeprovince which = U87 value = 1377 when = 2 }
+		command = { trigger = { owned = { province = 1248 data = -3 } NOT = { owned = { province = 1248 data = U87 }}} type = secedeprovince which = U87 value = 1248 when = 2 }
+		command = { trigger = { owned = { province = 1254 data = -3 } NOT = { owned = { province = 1254 data = U87 }}} type = secedeprovince which = U87 value = 1254 when = 2 }
+		command = { trigger = { owned = { province = 1253 data = -3 } NOT = { owned = { province = 1253 data = U87 }}} type = secedeprovince which = U87 value = 1253 when = 2 }
+		command = { trigger = { owned = { province = 1256 data = -3 } NOT = { owned = { province = 1256 data = U87 }}} type = secedeprovince which = U87 value = 1256 when = 2 }
+		command = { trigger = { owned = { province = 1257 data = -3 } NOT = { owned = { province = 1257 data = U87 }}} type = secedeprovince which = U87 value = 1257 when = 2 }
+		command = { trigger = { owned = { province = 1258 data = -3 } NOT = { owned = { province = 1258 data = U87 }}} type = secedeprovince which = U87 value = 1258 when = 2 }
+		command = { trigger = { owned = { province = 1262 data = -3 } NOT = { owned = { province = 1262 data = U87 }}} type = secedeprovince which = U87 value = 1262 when = 2 }
+		command = { trigger = { owned = { province = 1267 data = -3 } NOT = { owned = { province = 1267 data = U87 }}} type = secedeprovince which = U87 value = 1267 when = 2 }
+		command = { trigger = { owned = { province = 1291 data = -3 } NOT = { owned = { province = 1291 data = U87 }}} type = secedeprovince which = U87 value = 1291 when = 2 }
+		command = { trigger = { owned = { province = 1292 data = -3 } NOT = { owned = { province = 1292 data = U87 }}} type = secedeprovince which = U87 value = 1292 when = 2 }
+		command = { trigger = { owned = { province = 1293 data = -3 } NOT = { owned = { province = 1293 data = U87 }}} type = secedeprovince which = U87 value = 1293 when = 2 }
+		command = { trigger = { owned = { province = 1296 data = -3 } NOT = { owned = { province = 1296 data = U87 }}} type = secedeprovince which = U87 value = 1296 when = 2 }
+		command = { trigger = { owned = { province = 1297 data = -3 } NOT = { owned = { province = 1297 data = U87 }}} type = secedeprovince which = U87 value = 1297 when = 2 }
+		command = { trigger = { owned = { province = 1298 data = -3 } NOT = { owned = { province = 1298 data = U87 }}} type = secedeprovince which = U87 value = 1298 when = 2 }
+		command = { trigger = { owned = { province = 1299 data = -3 } NOT = { owned = { province = 1299 data = U87 }}} type = secedeprovince which = U87 value = 1299 when = 2 }
+		command = { trigger = { owned = { province = 1300 data = -3 } NOT = { owned = { province = 1300 data = U87 }}} type = secedeprovince which = U87 value = 1300 when = 2 }
+		command = { trigger = { owned = { province = 1301 data = -3 } NOT = { owned = { province = 1301 data = U87 }}} type = secedeprovince which = U87 value = 1301 when = 2 }
+		command = { trigger = { owned = { province = 1302 data = -3 } NOT = { owned = { province = 1302 data = U87 }}} type = secedeprovince which = U87 value = 1302 when = 2 }
+		command = { trigger = { owned = { province = 1303 data = -3 } NOT = { owned = { province = 1303 data = U87 }}} type = secedeprovince which = U87 value = 1303 when = 2 }
+		command = { trigger = { owned = { province = 1304 data = -3 } NOT = { owned = { province = 1304 data = U87 }}} type = secedeprovince which = U87 value = 1304 when = 2 }
+		command = { trigger = { owned = { province = 1305 data = -3 } NOT = { owned = { province = 1305 data = U87 }}} type = secedeprovince which = U87 value = 1305 when = 2 }
+		command = { trigger = { owned = { province = 1306 data = -3 } NOT = { owned = { province = 1306 data = U87 }}} type = secedeprovince which = U87 value = 1306 when = 2 }
+		command = { trigger = { owned = { province = 1307 data = -3 } NOT = { owned = { province = 1307 data = U87 }}} type = secedeprovince which = U87 value = 1307 when = 2 }
+		command = { trigger = { owned = { province = 1308 data = -3 } NOT = { owned = { province = 1308 data = U87 }}} type = secedeprovince which = U87 value = 1308 when = 2 }
+		command = { trigger = { owned = { province = 1309 data = -3 } NOT = { owned = { province = 1309 data = U87 }}} type = secedeprovince which = U87 value = 1309 when = 2 }
+		command = { trigger = { owned = { province = 1310 data = -3 } NOT = { owned = { province = 1310 data = U87 }}} type = secedeprovince which = U87 value = 1310 when = 2 }
+		command = { trigger = { owned = { province = 1312 data = -3 } NOT = { owned = { province = 1312 data = U87 }}} type = secedeprovince which = U87 value = 1312 when = 2 }
+		command = { trigger = { owned = { province = 1313 data = -3 } NOT = { owned = { province = 1313 data = U87 }}} type = secedeprovince which = U87 value = 1313 when = 2 }
+		command = { trigger = { owned = { province = 1314 data = -3 } NOT = { owned = { province = 1314 data = U87 }}} type = secedeprovince which = U87 value = 1314 when = 2 }
+		command = { trigger = { owned = { province = 1315 data = -3 } NOT = { owned = { province = 1315 data = U87 }}} type = secedeprovince which = U87 value = 1315 when = 2 }
+		command = { trigger = { owned = { province = 1316 data = -3 } NOT = { owned = { province = 1316 data = U87 }}} type = secedeprovince which = U87 value = 1316 when = 2 }
+		command = { trigger = { owned = { province = 1317 data = -3 } NOT = { owned = { province = 1317 data = U87 }}} type = secedeprovince which = U87 value = 1317 when = 2 }
+		command = { trigger = { owned = { province = 1318 data = -3 } NOT = { owned = { province = 1318 data = U87 }}} type = secedeprovince which = U87 value = 1318 when = 2 }
+		command = { trigger = { owned = { province = 1320 data = -3 } NOT = { owned = { province = 1320 data = U87 }}} type = secedeprovince which = U87 value = 1320 when = 2 }
+		command = { trigger = { owned = { province = 1321 data = -3 } NOT = { owned = { province = 1321 data = U87 }}} type = secedeprovince which = U87 value = 1321 when = 2 }
+		command = { trigger = { owned = { province = 1322 data = -3 } NOT = { owned = { province = 1322 data = U87 }}} type = secedeprovince which = U87 value = 1322 when = 2 }
+		command = { trigger = { owned = { province = 1324 data = -3 } NOT = { owned = { province = 1324 data = U87 }}} type = secedeprovince which = U87 value = 1324 when = 2 }
+		command = { trigger = { owned = { province = 1325 data = -3 } NOT = { owned = { province = 1325 data = U87 }}} type = secedeprovince which = U87 value = 1325 when = 2 }
+		command = { trigger = { owned = { province = 1326 data = -3 } NOT = { owned = { province = 1326 data = U87 }}} type = secedeprovince which = U87 value = 1326 when = 2 }
+#		command = { trigger = { owned = { province = 1271 data = -3 } NOT = { owned = { province = 1271 data = U87 }}} type = secedeprovince which = U87 value = 1271 when = 2 }
+		command = { trigger = { owned = { province = 1264 data = -3 } NOT = { owned = { province = 1264 data = U87 }}} type = secedeprovince which = U87 value = 1264 when = 2 }
+		command = { trigger = { owned = { province = 1263 data = -3 } NOT = { owned = { province = 1263 data = U87 }}} type = secedeprovince which = U87 value = 1263 when = 2 }
+		command = { trigger = { owned = { province = 1265 data = -3 } NOT = { owned = { province = 1265 data = U87 }}} type = secedeprovince which = U87 value = 1265 when = 2 }
+		command = { trigger = { owned = { province = 1266 data = -3 } NOT = { owned = { province = 1266 data = U87 }}} type = secedeprovince which = U87 value = 1266 when = 2 }
+		command = { trigger = { owned = { province = 1283 data = -3 } NOT = { owned = { province = 1283 data = U87 }}} type = secedeprovince which = U87 value = 1283 when = 2 }
+		command = { trigger = { owned = { province = 1284 data = -3 } NOT = { owned = { province = 1284 data = U87 }}} type = secedeprovince which = U87 value = 1284 when = 2 }
+		command = { trigger = { owned = { province = 1285 data = -3 } NOT = { owned = { province = 1285 data = U87 }}} type = secedeprovince which = U87 value = 1285 when = 2 }
+		command = { trigger = { owned = { province = 1378 data = -3 } NOT = { owned = { province = 1378 data = U87 }}} type = secedeprovince which = U87 value = 1378 when = 2 }
+		command = { trigger = { owned = { province = 1376 data = -3 } NOT = { owned = { province = 1376 data = U87 }}} type = secedeprovince which = U87 value = 1376 when = 2 }
+		command = { trigger = { owned = { province = 1380 data = -3 } NOT = { owned = { province = 1380 data = U87 }}} type = secedeprovince which = U87 value = 1380 when = 2 }
+		command = { trigger = { owned = { province = 1381 data = -3 } NOT = { owned = { province = 1381 data = U87 }}} type = secedeprovince which = U87 value = 1381 when = 2 }
+		command = { trigger = { owned = { province = 1382 data = -3 } NOT = { owned = { province = 1382 data = U87 }}} type = secedeprovince which = U87 value = 1382 when = 2 }
+		command = { trigger = { owned = { province = 1383 data = -3 } NOT = { owned = { province = 1383 data = U87 }}} type = secedeprovince which = U87 value = 1383 when = 2 }
+		command = { trigger = { owned = { province = 1379 data = -3 } NOT = { owned = { province = 1379 data = U87 }}} type = secedeprovince which = U87 value = 1379 when = 2 }
+		command = { trigger = { owned = { province = 1374 data = -3 } NOT = { owned = { province = 1374 data = U87 }}} type = secedeprovince which = U87 value = 1374 when = 2 }
+		command = { trigger = { owned = { province = 1389 data = -3 } NOT = { owned = { province = 1389 data = U87 }}} type = secedeprovince which = U87 value = 1389 when = 2 }
+		command = { trigger = { owned = { province = 1390 data = -3 } NOT = { owned = { province = 1390 data = U87 }}} type = secedeprovince which = U87 value = 1390 when = 2 }
+		command = { trigger = { owned = { province = 1385 data = -3 } NOT = { owned = { province = 1385 data = U87 }}} type = secedeprovince which = U87 value = 1385 when = 2 }
+		command = { trigger = { owned = { province = 1386 data = -3 } NOT = { owned = { province = 1386 data = U87 }}} type = secedeprovince which = U87 value = 1386 when = 2 }
+		command = { trigger = { owned = { province = 1387 data = -3 } NOT = { owned = { province = 1387 data = U87 }}} type = secedeprovince which = U87 value = 1387 when = 2 }
+		command = { trigger = { owned = { province = 1388 data = -3 } NOT = { owned = { province = 1388 data = U87 }}} type = secedeprovince which = U87 value = 1388 when = 2 }
+		command = { trigger = { owned = { province = 1384 data = -3 } NOT = { owned = { province = 1384 data = U87 }}} type = secedeprovince which = U87 value = 1384 when = 2 }
+		command = { trigger = { owned = { province = 1260 data = -3 } NOT = { owned = { province = 1260 data = U87 }}} type = secedeprovince which = U87 value = 1260 when = 2 }
+		command = { trigger = { owned = { province = 1255 data = -3 } NOT = { owned = { province = 1255 data = U87 }}} type = secedeprovince which = U87 value = 1255 when = 2 }
+		command = { trigger = { owned = { province = 1371 data = -3 } NOT = { owned = { province = 1371 data = U87 }}} type = secedeprovince which = U87 value = 1371 when = 2 }
+		command = { trigger = { owned = { province = 1372 data = -3 } NOT = { owned = { province = 1372 data = U87 }}} type = secedeprovince which = U87 value = 1372 when = 2 }
+		command = { trigger = { owned = { province = 1259 data = -3 } NOT = { owned = { province = 1259 data = U87 }}} type = secedeprovince which = U87 value = 1259 when = 2 }
+		command = { trigger = { owned = { province = 1261 data = -3 } NOT = { owned = { province = 1261 data = U87 }}} type = secedeprovince which = U87 value = 1261 when = 2 }
+		command = { trigger = { owned = { province = 1273 data = -3 } NOT = { owned = { province = 1273 data = U87 }}} type = secedeprovince which = U87 value = 1273 when = 2 }
+		command = { trigger = { owned = { province = 1274 data = -3 } NOT = { owned = { province = 1274 data = U87 }}} type = secedeprovince which = U87 value = 1274 when = 2 }
+		command = { trigger = { owned = { province = 1275 data = -3 } NOT = { owned = { province = 1275 data = U87 }}} type = secedeprovince which = U87 value = 1275 when = 2 }
+		command = { trigger = { owned = { province = 1276 data = -3 } NOT = { owned = { province = 1276 data = U87 }}} type = secedeprovince which = U87 value = 1276 when = 2 }
+		command = { trigger = { owned = { province = 1277 data = -3 } NOT = { owned = { province = 1277 data = U87 }}} type = secedeprovince which = U87 value = 1277 when = 2 }
+		command = { trigger = { owned = { province = 1279 data = -3 } NOT = { owned = { province = 1279 data = U87 }}} type = secedeprovince which = U87 value = 1279 when = 2 }
+		command = { trigger = { owned = { province = 1280 data = -3 } NOT = { owned = { province = 1280 data = U87 }}} type = secedeprovince which = U87 value = 1280 when = 2 }
+		command = { trigger = { owned = { province = 1281 data = -3 } NOT = { owned = { province = 1281 data = U87 }}} type = secedeprovince which = U87 value = 1281 when = 2 }
+		command = { trigger = { owned = { province = 1282 data = -3 } NOT = { owned = { province = 1282 data = U87 }}} type = secedeprovince which = U87 value = 1282 when = 2 }
+		command = { trigger = { owned = { province = 1286 data = -3 } NOT = { owned = { province = 1286 data = U87 }}} type = secedeprovince which = U87 value = 1286 when = 2 }
+		command = { trigger = { owned = { province = 1287 data = -3 } NOT = { owned = { province = 1287 data = U87 }}} type = secedeprovince which = U87 value = 1287 when = 2 }
+		command = { trigger = { owned = { province = 1288 data = -3 } NOT = { owned = { province = 1288 data = U87 }}} type = secedeprovince which = U87 value = 1288 when = 2 }
+		command = { trigger = { owned = { province = 1289 data = -3 } NOT = { owned = { province = 1289 data = U87 }}} type = secedeprovince which = U87 value = 1289 when = 2 }
+		command = { trigger = { owned = { province = 1290 data = -3 } NOT = { owned = { province = 1290 data = U87 }}} type = secedeprovince which = U87 value = 1290 when = 2 }
+		command = { trigger = { owned = { province = 1294 data = -3 } NOT = { owned = { province = 1294 data = U87 }}} type = secedeprovince which = U87 value = 1294 when = 2 }
+		command = { trigger = { owned = { province = 1295 data = -3 } NOT = { owned = { province = 1295 data = U87 }}} type = secedeprovince which = U87 value = 1295 when = 2 }
+	}
+	
+}
+
+####################################################
+# Nanjing China partisan activity
+####################################################
+
+event = {
+	id = 148021
+	random = no
+	tag = { U00 U87 }
+	
+	persistent = yes
+
+	trigger = {
+		AI = yes
+		alliance = { country = -1 country = JAP }
+		OR = {
+				AND = {
+						year = 1938
+						NOT = { year = 1939 }
+						random = 10
+						}
+				AND = {
+						year = 1939
+						NOT = { year = 1940 }
+						random = 10
+						}
+				AND = {
+						year = 1940
+						NOT = { year = 1941 }
+						random = 15
+						}
+				AND = {
+						year = 1941
+						NOT = { year = 1942 }
+						random = 15
+						}
+				AND = {
+						year = 1942
+						NOT = { year = 1943 }
+						random = 20
+						}
+				AND = {
+						year = 1943
+						NOT = { year = 1944 }
+						random = 20
+						}
+				AND = {
+						year = 1944
+						NOT = { year = 1945 }
+						random = 25
+						}
+				AND = {
+						year = 1945
+						NOT = { year = 1946 }
+						random = 25
+						}
+				AND = {
+						year = 1946
+						NOT = { year = 1947 }
+						random = 20
+						}
+				AND = {
+						year = 1947
+						NOT = { year = 1948 }
+						random = 15
+						}
+				AND = {
+						year = 1948
+						NOT = { year = 1949 }
+						random = 10
+						}
+				}
+	}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1959 }
+	
+	action_a = {
+ 		name = ACTION_NAME_OK
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = province_revoltrisk which = -1 value = 5 }
+		command = { type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = JAP } } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1942 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = JAP } year = 1943 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { year = 1944 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+		command = { trigger = { NOT = { AI = JAP } year = 1945 } type = revolt which = -1 }	# creates a partisan division # [which = -1] - selects a random owned and controlled non-national province; "when" setting is ignored
+	}
+}
+ event = { 
+ 	id = 148022 # event added so that national province - event may trigger even in case of a manual release
+ 	random = no 
+ 	country = U87
+ 	
+ 	save_date = yes
+  
+ 	trigger = { 
+ 				puppet = { country = -1 country = JAP }
+ 				}
+ 
+ 	name = AI_EVENT
+ 	# desc = AI_EVENT
+ 	style = 2
+ 	picture = "nanjing"
+ 
+ 	date = { day = 0 month = january year = 1936 }
+ 	offset = 1
+ 	deathdate = { day = 29 month = december year = 1999 }
+ 	
+ 	action_a = {
+ 		name = ACTION_NAME_OK
+ 		command = { }
+ 	}
+ }
+ 
+ event = { 
+ 	id = 148023
+ 	random = no 
+ 	country = U87
+  
+ 	trigger = { 
+ 				event = { id = 148022 days = 2520 }   #Nanjing China established 7 years ago
+ 				}
+ 
+ 	name = EVT_148023_NAME
+ 	desc = EVT_148023_DESC
+ 	style = 2
+ 	picture = "nanjing"
+ 
+ 	date = { day = 0 month = january year = 1936 }
+ 	offset = 1
+ 	deathdate = { day = 29 month = december year = 1999 }
+ 	
+ 	action_a = {
+ 				name = ACTION_NAME_HURRAH
+				command = { type = addcore which = 1241 }
+				command = { type = addcore which = 1247 }
+				command = { type = addcore which = 1249 }
+				command = { type = addcore which = 1250 }
+				command = { type = addcore which = 1251 }
+				command = { type = addcore which = 1252 }
+				command = { type = addcore which = 1242 }
+				command = { type = addcore which = 1243 }
+				command = { type = addcore which = 1244 }
+				command = { type = addcore which = 1327 }
+				command = { type = addcore which = 1329 }
+				command = { type = addcore which = 1330 }
+				command = { type = addcore which = 1331 }
+				command = { type = addcore which = 1332 }
+				command = { type = addcore which = 1311 }
+				command = { type = addcore which = 1319 }
+				command = { type = addcore which = 1323 }
+				command = { type = addcore which = 1333 }
+				command = { type = addcore which = 1334 }
+				command = { type = addcore which = 1335 }
+				command = { type = addcore which = 1336 }
+				command = { type = addcore which = 1339 }
+				command = { type = addcore which = 1340 }
+				command = { type = addcore which = 1341 }
+				command = { type = addcore which = 1342 }
+				command = { type = addcore which = 1343 }
+				command = { type = addcore which = 1344 }
+				command = { type = addcore which = 1345 }
+				command = { type = addcore which = 1346 }
+				command = { type = addcore which = 1347 }
+				command = { type = addcore which = 1348 }
+				command = { type = addcore which = 1349 }
+				command = { type = addcore which = 1350 }
+				command = { type = addcore which = 1351 }
+				command = { type = addcore which = 1352 }
+				command = { type = addcore which = 1353 }
+				command = { type = addcore which = 1354 }
+				command = { type = addcore which = 1355 }
+				command = { type = addcore which = 1356 }
+				command = { type = addcore which = 1357 }
+				command = { type = addcore which = 1358 }
+				command = { type = addcore which = 1359 }
+				command = { type = addcore which = 1360 }
+				command = { type = addcore which = 1367 }
+				command = { type = addcore which = 1368 }
+				command = { type = addcore which = 1369 }
+				command = { type = addcore which = 1370 }
+				command = { type = addcore which = 1373 }
+				command = { type = addcore which = 1375 }
+				command = { type = addcore which = 1377 }
+				command = { type = addcore which = 1248 }
+				command = { type = addcore which = 1254 }
+				command = { type = addcore which = 1253 }
+				command = { type = addcore which = 1256 }
+				command = { type = addcore which = 1257 }
+				command = { type = addcore which = 1258 }
+				command = { type = addcore which = 1262 }
+				command = { type = addcore which = 1267 }
+				command = { type = addcore which = 1291 }
+				command = { type = addcore which = 1292 }
+				command = { type = addcore which = 1293 }
+				command = { type = addcore which = 1296 }
+				command = { type = addcore which = 1297 }
+				command = { type = addcore which = 1298 }
+				command = { type = addcore which = 1299 }
+				command = { type = addcore which = 1300 }
+				command = { type = addcore which = 1301 }
+				command = { type = addcore which = 1302 }
+				command = { type = addcore which = 1303 }
+				command = { type = addcore which = 1304 }
+				command = { type = addcore which = 1305 }
+				command = { type = addcore which = 1306 }
+				command = { type = addcore which = 1307 }
+				command = { type = addcore which = 1308 }
+				command = { type = addcore which = 1309 }
+				command = { type = addcore which = 1310 }
+				command = { type = addcore which = 1312 }
+				command = { type = addcore which = 1313 }
+				command = { type = addcore which = 1314 }
+				command = { type = addcore which = 1315 }
+				command = { type = addcore which = 1316 }
+				command = { type = addcore which = 1317 }
+				command = { type = addcore which = 1318 }
+				command = { type = addcore which = 1320 }
+				command = { type = addcore which = 1321 }
+				command = { type = addcore which = 1322 }
+				command = { type = addcore which = 1324 }
+				command = { type = addcore which = 1325 }
+				command = { type = addcore which = 1326 }
+#				command = { type = addcore which = 1271 }
+				command = { type = addcore which = 1264 }
+				command = { type = addcore which = 1263 }
+				command = { type = addcore which = 1265 }
+				command = { type = addcore which = 1266 }
+				command = { type = addcore which = 1283 }
+				command = { type = addcore which = 1284 }
+				command = { type = addcore which = 1285 }
+				command = { type = addcore which = 1378 }
+				command = { type = addcore which = 1376 }
+				command = { type = addcore which = 1380 }
+				command = { type = addcore which = 1381 }
+				command = { type = addcore which = 1382 }
+				command = { type = addcore which = 1383 }
+				command = { type = addcore which = 1379 }
+				command = { type = addcore which = 1374 }
+				command = { type = addcore which = 1389 }
+				command = { type = addcore which = 1390 }
+				command = { type = addcore which = 1385 }
+				command = { type = addcore which = 1386 }
+				command = { type = addcore which = 1387 }
+				command = { type = addcore which = 1388 }
+				command = { type = addcore which = 1384 }
+				command = { type = addcore which = 1260 }
+				command = { type = addcore which = 1255 }
+				command = { type = addcore which = 1371 }
+				command = { type = addcore which = 1372 }
+				command = { type = addcore which = 1259 }
+				command = { type = addcore which = 1261 }
+				command = { type = addcore which = 1273 }
+				command = { type = addcore which = 1274 }
+				command = { type = addcore which = 1275 }
+				command = { type = addcore which = 1276 }
+				command = { type = addcore which = 1277 }
+				command = { type = addcore which = 1279 }
+				command = { type = addcore which = 1280 }
+				command = { type = addcore which = 1281 }
+				command = { type = addcore which = 1282 }
+				command = { type = addcore which = 1286 }
+				command = { type = addcore which = 1287 }
+				command = { type = addcore which = 1288 }
+				command = { type = addcore which = 1289 }
+				command = { type = addcore which = 1290 }
+				command = { type = addcore which = 1294 }
+				command = { type = addcore which = 1295 }
+				}
+	}

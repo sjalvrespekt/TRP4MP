@@ -1,0 +1,1703 @@
+# Last Update 05-NOV-2006
+#########################
+
+#########################################################
+# All events by Guinnessmonkey except
+# partitioning of Switzerland events by The Yogi
+#
+# Modified by Luxor V5.00
+# converted to DH map by DerStudti
+######################################################### 
+
+event = { 
+	id = 6380
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 # New Order West must be triggered
+			control = { province = 460 data = GER } # Madrid, Capitol must be German-held
+			NOT = {	
+				OR = {
+				exists = U01
+				exists = SPR
+				}
+			}
+		}
+
+	name = EVT_6380_NAME #"Independence for Spain"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Spain would regain its independence as a German client state." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6380A #"A New Order for Spain."
+		command = { type = independence which = U01 value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6500 }
+	}
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = U01 value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6381
+	random = no 
+	country = GER
+	
+	trigger = { 
+			event = 3336001 # New Order West must be triggered
+			control = { province = 294 data = GER } # Copenhagen, Capitol must be German-held
+			NOT = { exists = DEN }
+	}
+
+	name = EVT_6381_NAME #"Independence for Denmark"
+	desc = EVT_6381_DESC #"Now that victory has been secured in the West, German plans provided that Denmark would regain its independence as a German client state.  Schleswig will be annexed to the Reich." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6381A #"A New Order for Denmark."
+		command = { type = independence which = DEN value = 1 }
+		command = { type = addcore which = 216 } # Abenra
+		command = { type = trigger which = 6501 }
+		command = { type = trigger which = 6382 } #Denmark event	 
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = DEN value = 1 }
+		command = { type = dissent value = 2 } #Lot of disgruntled Nazis here...
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6382
+	random = no 
+	country = DEN
+	#Triggered by New Order for Denmark event
+
+	name = EVT_6382_NAME #"Schleswig to Germany."
+	desc = EVT_6382_DESC #"Germany demands we cede Schleswig to them as part of the terms of our independence." 
+
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME2800A #"We have no choice."
+		command = { type = secedeprovince which = GER value = 216 } # Abenra
+	 
+	}
+}
+
+event = { 
+	id = 6383
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 483 data = GER } # Oslo, Capitol must be German-held
+			NOT = {	
+			exists = NOR
+				}
+
+		}
+
+	name = EVT_6383_NAME #"Independence for Norway"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Norway would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6383A #"A New Order for Norway."
+		command = { type = independence which = NOR value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6502 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = NOR value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6384
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 2159 data = GER } # Stockholm, Capitol must be German-held
+			NOT = {	
+			exists = SWE
+				}
+
+		}
+
+	name = EVT_6384_NAME #"Independence for Sweden"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Sweden would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6384A #"A New Order for Sweden."
+		command = { type = independence which = SWE value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6503 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = SWE value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6385
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 525 data = GER } # Helsinki, Capitol must be German-held
+			NOT = {	
+			exists = FIN
+				}
+
+		}
+
+	name = EVT_6385_NAME #"Independence for Finland"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Finland would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6385A #"A New Order for Finland."
+		command = { type = independence which = FIN value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6504 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = FIN value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6386
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 316 data = GER } # Bucharest, Capitol must be German-held
+			NOT = {	
+			exists = ROM
+				}
+
+		}
+
+	name = EVT_6386_NAME #"Independence for Romania"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Romania would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6386A #"A New Order for Romania."
+		command = { type = independence which = ROM value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6505 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = ROM value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6387
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 321 data = GER } # Sofia, Capitol must be German-held
+			NOT = {	
+			exists = BUL
+				}
+
+		}
+
+	name = EVT_6387_NAME #"Independence for Bulgaria"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Bulgaria would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6387A #"A New Order for Bulgaria."
+		command = { type = independence which = BUL value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6506 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = BUL value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6388
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 476 data = GER } # Lissabon, Capitol must be German-held
+			NOT = {	
+			exists = POR
+				}
+
+		}
+
+	name = EVT_6388_NAME #"Independence for Portugal"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Portugal would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6388A #"A New Order for Portugal."
+		command = { type = independence which = POR value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6507 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = POR value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+
+event = { 
+	id = 6389
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 34 data = GER } # Dublin, Capitol must be German-held
+			NOT = {	
+			exists = IRE
+				}
+
+		}
+
+	name = EVT_6389_NAME #"Independence for Ireland"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Ireland would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6389A #"A New Order for Ireland."
+		command = { type = independence which = IRE value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6508 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = IRE value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+event = { 
+	id = 6390
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 1075 data = GER } # Ankara, Capitol must be German-held
+			NOT = {	
+			exists = TUR
+				}
+
+		}
+
+	name = EVT_6390_NAME #"Independence for Turkey"
+	desc = EVT_6380_DESC #"Now that victory has been secured in the West, German plans provided that Turkey would regain its independence as a German client state." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6390A #"A New Order for Turkey."
+		command = { type = independence which = TUR value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6509 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6380B #"Let's create genuine friends and allies."
+		command = { type = independence which = TUR value = 1 }
+	}
+	action_c = {
+		name = ACTIONNAME6380C #"No, they shall remain part of the Reich."
+		command = { }
+	}
+}
+#####################################################################################
+#Partition of Switzerland Events
+######################################################################################
+event = { 
+	id = 6391
+	random = no 
+	country = GER
+	trigger = { 
+			event = 3336001 #New Order West must be triggered
+			control = { province = 392 data = GER } # Bern, Capitol must be German-held
+			NOT = {	
+			exists = SCH
+				}
+
+		}
+
+	name = EVT_6391_NAME #"The Partition of Switzerland"
+	desc = EVT_6391_DESC #"Now that victory has been secured in the West, German plans provided that Switzerland would be partitioned among its allies, with the German speaking areas being annexed to the Reich." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6391A #"Partition Switzerland."
+		command = { type = addcore which = 392 } # Bern
+		command = { type = addcore which = 389 } # Zurich
+		command = { type = secedeprovince which = VIC value = 391 } # Geneva
+		command = { type = secedeprovince which = ITA value = 390 } # Lugano
+		command = {  type = trigger which = 6392 } #Vichy event
+		command = {  type = trigger which = 6393 } #Italian event		
+	}
+	action_b = {
+		name = ACTIONNAME6391B #"Keep all of Switzerland."
+		command = { type = addcore which = 392 } #Bern
+		command = { type = addcore which = 389 } #Zurich
+	}
+	action_c = {
+		name = ACTIONNAME6391C #"Create a Swiss puppet state."
+		command = { type = independence which = SCH value = 1 }
+		command = { type = dissent value = -1 }
+		command = { type = trigger which = 6510 }
+	}
+	action_d = {
+		name = ACTIONNAME6391D #"Recreate a fully independent Switzerland."
+		command = { type = independence which = SCH value = 1 }
+	}
+}
+
+event = { 
+	id = 6392
+	random = no 
+	country = VIC
+	#Triggered by Swiss partition event
+
+	name = EVT_6392_NAME #"The Partition of Switzerland: Geneva to Vichy France"
+	desc = EVT_6392_DESC #"Our German allies have partitioned Switzerland, granting the French-speaking areas to the French Government." 
+
+	style = 0
+
+
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+		command = { type = addcore which = 391 } # Geneva	
+	}
+
+}
+
+event = { 
+	id = 6393
+	random = no 
+	country = ITA
+	#Triggered by Swiss partition event
+
+	name = EVT_6393_NAME #"The Partition of Switzerland: Southern Switzerland to Italy"
+	desc = EVT_6393_DESC #"Our German allies have partitioned Switzerland, granting the Italian-speaking areas to the Italian Government." 
+
+	style = 0
+
+
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+		command = { type = addcore which = 390 } # Lugano
+	}
+
+}
+##############################################################################################
+#US colonial independence events
+##############################################################################################
+event = { 
+	id = 6408
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 727 data = USA } # Algiers, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = FRA }
+					alliance = { country = GER country = VIC }
+					}
+			NOT = {	
+			exists = ALG
+				}
+			NOT = { alliance = { country = USA country = U14 }}
+			NOT = { alliance = { country = USA country = FRA }}
+			NOT = { alliance = { country = USA country = VIC }}
+
+		}
+
+	name = EVT_6408_NAME #"Independence for Algeria"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = ALG value = 1 when = 1 }
+		command = { type = alliance which = ALG }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+#event = { # slept to allow for event 3131112
+#	id = 6409
+#	random = no 
+#	country = USA
+#	trigger = { 
+#			event = 3336001 #New Order West must have triggered
+#			
+#			control = { province = 1459 data = USA } # Delhi must be American-held
+#			war = { country = GER country = USA }
+#			OR = {
+#					alliance = { country = GER country = ENG }
+#					alliance = { country = GER country = U02 }
+#					}
+#			NOT = {	
+#			exists = IND
+#				}
+#			NOT = { alliance = { country = USA country = ENG }}
+#			NOT = { alliance = { country = USA country = U02 }}
+#			NOT = { alliance = { country = USA country = IND }}
+#		}
+#
+#	name = "Independence for India"
+#	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+#
+#	style = 0
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1999 }
+#
+#	action_a = {
+#		name = ACTIONNAME6408A #"Let us fight to make men free."
+#		command = { type = independence which = IND value = 1 when = 1 }
+#		command = { type = alliance which = IND }
+#	}
+#	action_b = {
+#		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+#		command = { type = dissent value = 1 } #Not a popular decision
+#	}
+#}
+event = { 
+	id = 6410
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			
+			control = { province = 1415 data = USA } # Rangoon, Capitol must be American-held
+			war = { country = GER country = USA }
+			alliance = { country = GER country = ENG }
+			NOT = {	
+			exists = BUR
+				}
+			NOT = { alliance = { country = USA country = ENG }}
+			NOT = { alliance = { country = USA country = BUR }}
+
+		}
+
+	name = EVT_6410_NAME #"Independence for Burma"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = BUR value = 1 when = 1 }
+		command = { type = alliance which = BUR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6411
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1399 data = USA } # Saigon, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = FRA }
+					alliance = { country = GER country = VIC }
+					}
+			NOT = {	
+			exists = IDC
+				}
+			NOT = { alliance = { country = USA country = U14 }}
+			NOT = { alliance = { country = USA country = FRA }}
+			NOT = { alliance = { country = USA country = VIC }}
+		}
+
+	name = EVT_6411_NAME #"Independence for Indochina"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = IDC value = 1 when = 1 }
+		command = { type = alliance which = IDC }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6412
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			
+			control = { province = 1647 data = USA } # Batavia, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = JAP country = U19 }
+					alliance = { country = GER country = U19 }
+					NOT = { exists = U19 }
+					}
+			NOT = {	exists = INO }
+			NOT = { alliance = { country = USA country = U19 }}
+		}
+
+	name = EVT_6412_NAME #"Independence for Indonesia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = INO value = 1 when = 1 }
+		command = { type = alliance which = INO }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6413
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			
+			control = { province = 1438 data = USA } # Kuala Lumpur, Capitol must be American-held
+			war = { country = GER country = USA }
+			alliance = { country = GER country = ENG }
+			NOT = {	
+			exists = MLY
+				}
+
+		}
+
+	name = EVT_6413_NAME #"Independence for Malaysia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = MLY value = 1 when = 1 }
+		command = { type = alliance which = MLY }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { # Modified by Luxor
+	id = 6414
+	random = no 
+	country = USA
+	
+	trigger = { 
+		event = 3336001 # New Order West must have triggered
+		OR = {
+			control = { province = 715 data = USA } # Tangiers
+			control = { province = 719 data = USA } # Tiznit
+			control = { province = 989 data = USA } # Villa Bens
+			control = { province = 720 data = USA } # Agadir
+			control = { province = 718 data = USA } # Casablanca
+			control = { province = 717 data = USA } # Rabat
+			control = { province = 722 data = USA } # Marrakech
+			control = { province = 721 data = USA } # Fes
+			control = { province = 723 data = USA } # Khenifra
+			control = { province = 724 data = USA } # Oujda
+			control = { province = 725 data = USA } # Ouarzazate
+			control = { province = 726 data = USA } # Er Rachidia
+		}
+		NOT = { exists = MOR }
+		war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = VIC }
+					alliance = { country = GER country = FRA }
+					}
+		NOT = { alliance = { country = USA country = U14 }}
+		NOT = { alliance = { country = USA country = FRA }}
+		NOT = { alliance = { country = USA country = VIC }}
+	}
+
+	name = EVT_6414_NAME #"Independence for Morocco"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = MOR value = 1 when = 1 }
+		command = { type = alliance which = MOR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } # Not a popular decision
+	}
+}
+event = { 
+	id = 6415
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 747 data = USA } # Tunis, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = FRA }
+					alliance = { country = GER country = VIC }
+					}
+			NOT = {	
+			exists = TUN
+				}
+			NOT = { alliance = { country = USA country = U14 }}
+			NOT = { alliance = { country = USA country = FRA }}
+			NOT = { alliance = { country = USA country = VIC }}
+
+		}
+
+	name = EVT_6415_NAME #"Independence for Tunisia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = TUN value = 1 when = 1 }
+		command = { type = alliance which = TUN }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6416
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			
+			control = { province = 750 data = USA } # Tripoli, Capitol must be American-held
+			NOT = {	
+			exists = LBY
+				}
+
+		}
+
+	name = EVT_6416_NAME #"Independence for Libya"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = LBY value = 1 when = 1 }
+		command = { type = alliance which = LBY }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6417
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 825 data = USA } # Addis Abeba, Capitol must be American-held
+			NOT = {	
+			exists = ETH
+				}
+
+		}
+
+	name = EVT_6417_NAME #"Independence for Ethiopia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = ETH value = 1 when = 1 }
+		command = { type = alliance which = ETH }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6418
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			
+			control = { province = 969 data = USA } # Monrovia, Capitol must be American-held
+			NOT = {	
+			exists = LIB
+				}
+
+		}
+
+	name = EVT_6418_NAME #"Independence for Liberia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = LIB value = 1 when = 1 }
+		command = { type = make_puppet which = LIB }
+		command = { type = alliance which = LIB }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6419
+	random = no 
+	country = USA
+	
+	trigger = { 
+		event = 3336001 # New Order West must have triggered
+		control = { province = 124 data = USA } # Groningen
+		control = { province = 119 data = USA } # Arnhem
+		control = { province = 118 data = USA } # Eindhoven
+		control = { province = 120 data = USA } # Nijmegen
+		control = { province = 121 data = USA } # Maastricht
+		control = { province = 122 data = USA } # Amsterdam
+		control = { province = 125 data = USA } # Rotterdam
+		control = { province = 123 data = USA } # Middelburg
+		control = { province = 114 data = USA } # Bruges ( Brügge )
+		control = { province = 115 data = USA } # Antwerp
+		control = { province = 117 data = USA } # Hasselt
+		control = { province = 113 data = USA } # Namur
+		NOT = { exists = HOL }
+	}
+
+	name = EVT_6419_NAME #"Independence for The Netherlands"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = HOL value = 1 when = 1 }
+		command = { type = alliance which = HOL }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } # Not a popular decision
+	}
+}
+
+event = { 
+	id = 6420
+	random = no 
+	country = USA
+	
+	trigger = { 
+		event = 3336001 # New Order West must have triggered
+		control = { province = 114 data = USA } # Bruges ( Brügge )
+		control = { province = 112 data = USA } # Mons
+		control = { province = 116 data = USA } # Brussels		
+		control = { province = 115 data = USA } # Antwerp
+		control = { province = 117 data = USA } # Hasselt
+		control = { province = 113 data = USA } # Namur
+		control = { province = 108 data = USA } # Liege
+		control = { province = 110 data = USA } # Eupen
+		control = { province = 111 data = USA } # Arlon
+		control = { province = 125 data = USA } # Rotterdam
+		control = { province = 123 data = USA } # Middelburg
+		control = { province = 118 data = USA } # Eindhoven
+		control = { province = 120 data = USA } # Nijmegen
+		control = { province = 121 data = USA } # Maastricht
+		control = { province = 126 data = USA } # Aachen
+		control = { province = 131 data = USA } # Cologne
+		control = { province = 129 data = USA } # Koblenz
+		control = { province = 109 data = USA } # Luxembourg
+		control = { province = 96 data = USA } # Longwy
+		control = { province = 99 data = USA } # Reims
+		control = { province = 100 data = USA } # Verdun
+		control = { province = 102 data = USA } # Sedan
+		control = { province = 101 data = USA } # Laon
+		control = { province = 103 data = USA } # Hirson
+		control = { province = 52 data = USA } # Lille
+		control = { province = 51 data = USA } # Dunkerque
+		NOT = { exists = BEL}
+	}
+
+	name = EVT_6420_NAME #"Independence for Belgium"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = BEL value = 1 when = 1 }
+		command = { type = alliance which = BEL }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } # Not a popular decision
+	}
+}
+event = { 
+	id = 6421
+	random = no 
+	country = USA
+	
+	trigger = { 
+		event = 3336001 # New Order West must have triggered
+		control = { province = 109 data = USA } # 109	Luxembourg
+		control = { province = 131 data = USA } # 131	Cologne
+		control = { province = 129 data = USA } # 129	Koblenz
+		control = { province = 127 data = USA } # 127	Saarbrücken
+		control = { province = 128 data = USA } # 128	Trier
+		control = { province = 130 data = USA } # 130	Mainz
+		control = { province = 107 data = USA } # 107	Strasbourg
+		control = { province = 104 data = USA } # 104	Metz
+		control = { province = 96 data = USA } # 96	Longwy
+		control = { province = 111 data = USA } # 111	Arlon
+		control = { province = 110 data = USA } # 110	Eupen
+		NOT = { exists = LUX }
+	}
+
+	name = EVT_6421_NAME #"Independence for Luxembourg"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = LUX value = 1 when = 1 }
+		command = { type = alliance which = LUX }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } # Not a popular decision
+	}
+}
+
+event = { 
+	id = 6422
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1565 data = USA } # Manila, Capitol must be American-held
+			NOT = {	
+			exists = PHI
+				}
+
+		}
+
+	name = EVT_6422_NAME #"Independence for The Philippines"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = PHI value = 1 when = 1 }
+	}
+
+	action_b = {
+		name = ACTIONNAME6422B #"Reestablish US control over the Philippines."
+		command = { type = independence which = PHI value = 1 when = 1 }
+		command = { type = make_puppet which = PHI }
+	}
+	action_c = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6423
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 359 data = USA } # Tirane
+			control = { province = 361 data = USA } # Shkoder
+			control = { province = 362 data = USA } # Vlore
+			control = { province = 360 data = USA } # Korce
+			NOT = {	
+			exists = ALB
+				}
+
+		}
+
+	name = EVT_6423_NAME #"Independence for Albania"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = ALB value = 1 when = 1 }
+		command = { type = alliance which = ALB }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6424
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 349 data = USA } # Ljubljana
+			NOT = {	
+			exists = SLV
+				}
+
+		}
+
+	name = EVT_6424_NAME #"Independence for Slovenia"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = SLV value = 1 when = 1 }
+		command = { type = alliance which = SLV }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6425
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1624 data = USA } # Kuching, Capitol must be American-held
+			war = { country = GER country = USA }
+			alliance = { country = GER country = ENG }
+			NOT = {	
+			exists = SAR
+				}
+
+		}
+
+	name = EVT_6425_NAME #"Independence for Sarawak"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = SAR value = 1 when = 1 }
+		command = { type = alliance which = SAR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6426
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 332 data = USA } # Cetinje, Capitol must be American-held
+			NOT = {	
+			exists = MTN
+				}
+
+		}
+
+	name = EVT_6426_NAME #"Independence for Montenegro"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = MTN value = 1 when = 1 }
+		command = { type = alliance which = MTN }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6427
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 377 data = USA } # Athens, Capitol must be American-held
+			NOT = {	
+			exists = GRE
+				}
+
+		}
+
+	name = EVT_6427_NAME #"Independence for Greece"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that victims of Axis aggression should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = GRE value = 1 when = 1 }
+		command = { type = alliance which = GRE }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6428
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1019 data = USA } # Beirut, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = FRA }
+					alliance = { country = GER country = VIC }
+					}
+			NOT = {	
+			exists = LEB
+				}
+
+		}
+
+	name = EVT_6428_NAME #"Independence for Lebanon"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = LEB value = 1 when = 1 }
+		command = { type = alliance which = LEB }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6429
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1172 data = USA } # Jerusalem, Capitol must be American-held
+			war = { country = GER country = USA }
+			alliance = { country = GER country = ENG }
+			NOT = {	
+			exists = PAL
+				}
+
+		}
+
+	name = EVT_6429_NAME #"Independence for Palestine"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = PAL value = 1 when = 1 }
+		command = { type = alliance which = PAL }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6430
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1016 data = USA } # Damascus, Capitol must be American-held
+			war = { country = GER country = USA }
+			OR = {
+					alliance = { country = GER country = FRA }
+					alliance = { country = GER country = VIC }
+					}
+			NOT = {	
+			exists = SYR
+				}
+
+		}
+
+	name = EVT_6430_NAME #"Independence for Syria"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = SYR value = 1 when = 1 }
+		command = { type = alliance which = SYR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6431
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1022 data = USA } # Amman, Capitol must be American-held
+			war = { country = GER country = USA }
+			alliance = { country = GER country = ENG }
+			NOT = {	
+			exists = JOR
+				}
+
+		}
+
+	name = EVT_6431_NAME #"Independence for Jordan"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that European colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = JOR value = 1 when = 1 }
+		command = { type = alliance which = JOR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6432
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1423 data = USA } # Bangkok, Capitol must be American-held
+			NOT = {	
+			exists = SIA
+				}
+
+		}
+
+	name = EVT_6432_NAME #"Independence for Siam"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that Axis colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = SIA value = 1 when = 1 }
+		command = { type = alliance which = SIA }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+event = { 
+	id = 6433
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			control = { province = 1228 data = USA } # Seoul, Capitol must be American-held
+			NOT = {	
+			exists = KOR
+				}
+
+		}
+
+	name = EVT_6433_NAME #"Independence for Korea"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that Axis colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = KOR value = 1 when = 1 }
+		command = { type = alliance which = KOR }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+event = { 
+	id = 6434
+	random = no 
+	country = USA
+	trigger = { 
+			event = 3336001 #New Order West must have triggered
+			OR = {
+				control = { province = 1338 data = USA } # Shanghai
+				control = { province = 1370 data = USA } # Lufeng
+				}
+			OR = {
+				control = { province = 1337 data = USA } # Nanjing
+				control = { province = 1247 data = USA } # Beiping
+				}
+			NOT = {	
+			exists = CHI
+				}
+
+		}
+
+	name = EVT_6434_NAME #"Independence for China"
+	desc = EVT_6408_DESC #"With the UK and France part of the Axis, the American Government has taken the position that Axis colonies should, whenever possible, be liberated to join the fight against Axis tyranny." 
+
+	style = 0
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME6408A #"Let us fight to make men free."
+		command = { type = independence which = CHI value = 1 when = 1 }
+		command = { type = alliance which = CHI }
+	}
+	action_b = {
+		name = ACTIONNAME6408B #"No, they shall remain under US occupation."
+		command = { type = dissent value = 1 } #Not a popular decision
+	}
+}
+
+
+event = { 
+	id = 6447
+	random = no
+	country = USA
+	
+	trigger = {
+		war = { country = USA country = GER }			
+		NOT = { exists = U14 }
+		#NOT = { exists = VIC }
+		control = { province = 55 data = USA } # Paris	
+	}
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_6447_NAME #"Liberation of France"
+	desc = EVT_6447_DESC #"After years of struggle, a bitter ensuing fight France is once again free. Flowers rain on our soldiers in blue and the tricolor is again hung on its right place over Paris."
+	style = 0
+	action_a = {
+		name = "ACTION_NAME_OK" # Vive la France!		
+		command = { type = independence which = FRA value = 1 when = 1 }
+		command = { type = alliance which = FRA }
+	}
+	action_b = {
+		name = ACTIONNAME6447B #"France will be liberated post-war"	
+		command = { type = dissent value = 1 } 
+	}
+}
+
+event = { 
+	id = 6448
+	random = no
+	country = ENG
+	
+	trigger = {
+
+		war = { country = ENG country = GER }			
+		NOT = { 
+			exists = U14
+		}
+		control = { province = 55 data = ENG } # Paris
+	}
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	name = EVT_6447_NAME #"Liberation of France"
+	desc = EVT_6447_DESC #"After years of struggle, a bitter ensuing fight France is once again free. Flowers rain on our soldiers in blue and the tricolor is again hung on its right place over Paris."
+	style = 0
+	action_a = {
+		name = "ACTION_NAME_OK" # Vive la France!		
+		command = { type = independence which = FRA value = 1 when = 1 }
+		command = { type = alliance which = FRA }
+	}
+	action_b = {
+		name = ACTIONNAME6447B #"France will be liberated post-war"	
+		command = { type = dissent value = 1 } 
+	}
+}
+
+
+
+
+event = { 
+	id = 6500
+	random = no 
+	country = GER
+	name = EVT_6500_NAME #"Spain joins the Axis"
+	desc = EVT_6500_DESC #"A government loyal to Germany has been installed in Spain." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = U01 }
+	}
+}
+
+event = { 
+	id = 6501
+	random = no 
+	country = GER
+	name = EVT_6501_NAME #"Denmark joins the Axis"
+	desc = EVT_6501_DESC #"A government loyal to Germany has been installed in Denmark." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = DEN }	 
+	}
+}
+
+
+event = { 
+	id = 6502
+	random = no 
+	country = GER
+	name = EVT_6502_NAME #"Norway joins the Axis"
+	desc = EVT_6502_DESC #"A government loyal to Germany has been installed in Norway." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = NOR }
+	}
+}
+
+event = { 
+	id = 6503
+	random = no 
+	country = GER
+	name = EVT_6503_NAME #"Sweden joins the Axis"
+	desc = EVT_6503_DESC #"A government loyal to Germany has been installed in Sweden."
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = SWE }
+	}
+}
+
+event = { 
+	id = 6504
+	random = no 
+	country = GER
+	name = EVT_6504_NAME #"Finland joins the Axis"
+	desc = EVT_6504_DESC #"A government loyal to Germany has been installed in Finland" 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = FIN }
+	}
+}
+
+event = { 
+	id = 6505
+	random = no 
+	country = GER
+	name = EVT_6505_NAME #"Romania joins the Axis"
+	desc = EVT_6505_DESC #"A government loyal to Germany has been installed in Romania." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = ROM }
+	}
+}
+
+event = { 
+	id = 6506
+	random = no 
+	country = GER
+	name = EVT_6506_NAME #"Bulgaria joins the Axis"
+	desc = EVT_6506_DESC #"A government loyal to Germany has been installed in Bulgaria." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = BUL }
+	}
+}
+
+event = { 
+	id = 6507
+	random = no 
+	country = GER
+	name = EVT_6507_NAME #"Portugal joins the Axis"
+	desc = EVT_6507_DESC #"A government loyal to Germany has been installed in Portugal." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = POR }
+	}
+}
+
+event = { 
+	id = 6508
+	random = no 
+	country = GER
+	name = EVT_6508_NAME #"Ireland joins the Axis"
+	desc = EVT_6508_DESC #"A government loyal to Germany has been installed in Ireland." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = IRE }
+	}
+}
+event = { 
+	id = 6509
+	random = no 
+	country = GER
+	name = EVT_6509_NAME #"Turkey joins the Axis"
+	desc = EVT_6509_DESC #"A government loyal to Germany has been installed in Turkey." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = TUR }
+	}
+}
+event = { 
+	id = 6510
+	random = no 
+	country = GER
+	name = EVT_6510_NAME #"Switzerland joins the Axis"
+	desc = EVT_6510_DESC #"A government loyal to Germany has been installed in Switzerland." 
+
+	style = 0
+	action_a = {
+		name = ACTIONNAME6500A #"We are the new masters of Europe."
+		command = { type = make_puppet which = SCH }
+	}
+}

@@ -1,0 +1,260 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+# range = 125% of escort fighters' range (same planes, but no need to waste fuel by staying close to the bombers)
+# airattack = interceptors' airattack
+# airdefence = multi role fighters' airdefence
+
+max_allowed_brigades = 0
+
+model = { # Long Range Fighter - 1930
+	cost 				= 7.76 #11.64
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 200
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 3
+	surfacedefence			= 3
+	airdefence			= 9 #3 #4
+	airattack			= 15 #5
+	strategicattack			= 0
+	softattack			= 3
+	hardattack			= 0
+	navalattack			= 2
+	range				= 500 #600
+	supplyconsumption 		= 2.33
+	fuelconsumption			= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.6
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Long Range Fighter - 1937
+	cost 				= 10.21 #15.31
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 360
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 6
+	surfacedefence			= 6
+	airdefence			= 11 #4 #6
+	airattack			= 18 #7
+	strategicattack			= 1
+	softattack			= 3
+	hardattack			= 0
+	navalattack			= 3
+	range				= 750 #800
+	supplyconsumption 		= 3.06
+	fuelconsumption			= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0 # 4 years or more since last model
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Long Range Fighter - 1940
+	cost 				= 11.48 #17.23
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 400
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 8
+	surfacedefence			= 10
+	airdefence			= 13 #7 #9
+	airattack			= 21 #11
+	strategicattack			= 1
+	softattack			= 4
+	hardattack			= 0
+	navalattack			= 4
+	range				= 825 #900
+	supplyconsumption 		= 3.44
+	fuelconsumption			= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75 # 3 years since last model
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Long Range Fighter - 1942
+	cost 				= 12.42 #18.63
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 450
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 9
+	surfacedefence			= 16
+	airdefence			= 14 #10 #13
+	airattack			= 24 #17
+	strategicattack			= 2
+	softattack			= 5
+	hardattack			= 0
+	navalattack			= 5
+	range				= 1000 #1400
+	supplyconsumption 		= 3.73
+	fuelconsumption			= 5.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5 # 2 years since last model
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+
+model = { # Long Range Fighter - 1944
+	cost 				= 13.43 #20.15
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 450
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 9
+	surfacedefence			= 17
+	airdefence			= 16 #14 #19
+	airattack			= 27 #23
+	strategicattack			= 2
+	softattack			= 5
+	hardattack			= 0
+	navalattack			= 6
+	range				= 1125 #1700
+	supplyconsumption 		= 4.03
+	fuelconsumption			= 6.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5 # 2 years since last model
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+
+model = { # Long Range Fighter - 1945
+	cost 				= 13.97 #20.96
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 650
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 10
+	surfacedefence			= 18
+	airdefence			= 18 #17 #23
+	airattack			= 30 #28
+	strategicattack			= 2
+	softattack			= 6
+	hardattack			= 0
+	navalattack			= 8
+	range				= 1250 #2000
+	supplyconsumption 		= 4.19
+	fuelconsumption			= 6.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.25
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Long Range Fighter - 1947
+	cost 				= 15.11 #22.67
+	buildtime	 		= 270 #180
+	defaultorganisation 		= 25
+	morale				= 125
+	manpower			= 0.4
+	maxspeed			= 700
+	surfacedetectioncapability	= 3
+	airdetectioncapability		= 10
+	surfacedefence			= 18
+	airdefence			= 20 #22 #29
+	airattack			= 34 #37
+	strategicattack			= 3
+	softattack			= 6
+	hardattack			= 0
+	navalattack			= 9
+	range				= 1375 #1600
+	supplyconsumption 		= 4.53
+	fuelconsumption			= 7.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Turbojet Long Range 1950 - 6
+	cost 						= 17 #25.5
+	buildtime	 				= 270 #180
+	defaultorganisation 		= 25
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 1000
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 8
+	surfacedefence				= 16
+	airdefence					= 23 #27 #36
+	airattack					= 38 #45
+	strategicattack				= 3
+	softattack					= 7
+	hardattack					= 0
+	navalattack					= 12
+	range						= 2250 #1600
+	supplyconsumption 			= 5.1
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Turbojet Long Range 1954 - 7
+	cost 						= 19.89 #29.83
+	buildtime	 				= 270 #180
+	defaultorganisation 		= 25
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 1200
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 9
+	surfacedefence				= 18
+	airdefence					= 27 #34 #45
+	airattack					= 45 #57
+	strategicattack				= 3
+	softattack					= 8
+	hardattack					= 0
+	navalattack					= 13
+	range						= 2500 #1800
+	supplyconsumption 			= 5.97
+	fuelconsumption				= 3.25
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}
+model = { # Turbojet Long Range 1959 - 8
+	cost 						= 24.2 #36.29
+	buildtime	 				= 270 #180
+	defaultorganisation 		= 25
+	morale						= 125
+	manpower					= 0.4
+	maxspeed					= 1400
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 10
+	surfacedefence				= 20
+	airdefence					= 31 #39 #52
+	airattack					= 52 #65
+	strategicattack				= 4
+	softattack					= 10
+	hardattack					= 0
+	navalattack					= 14
+	range						= 3125 #2000
+	supplyconsumption 			= 7.26
+	fuelconsumption				= 3.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { heavy_fighter = 120 manpower = 400 }
+}

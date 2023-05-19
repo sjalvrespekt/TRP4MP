@@ -1,0 +1,330 @@
+#########################################################################
+#  Spanish Civil War - The USSR controls the republican forces
+#########################################################################
+event = { 
+	id = 31743100
+	random = no
+	country = SOV
+	
+	decision = {
+		war = { country = U01 country = SPR }
+		NOT = {
+			OR = {
+				alliance = { country = SOV country = SPR }
+				alliance = { country = ENG country = SPR }
+				war = { country = SOV country = SPR }
+				war = { country = SOV country = GER }
+				war = { country = SOV country = ENG }
+				war = { country = SOV country = USA }
+				war = { country = SOV country = ITA }
+				war = { country = SOV country = FIN }
+				government = fascist
+			}
+		}
+	}
+			
+	decision_trigger = { 
+		event = 3183050 # soviet intervention
+		NOT = { military_control = { country = ENG country = SPR }}
+		NOT = { military_control = { country = FRA country = SPR }}
+		ai = U01
+		ai = SPR
+	}
+	
+			
+	trigger = {
+		ai = no
+	}
+	
+	name = "EVT_31743100_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+	decision_picture = "decision_rep_spa_control"
+	
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		ai_chance = 0
+		name = "ACTION_NAME_OK"
+		command = { type = belligerence which = SOV value = 1 }
+		command = { trigger = { ai = no } type = military_control which = SOV where = SPR value = 1 }
+		command	= { type = local_setflag which = military_control_SPR }
+	}
+}
+#########################################################################
+#  The USSR no longer controls Spanish army
+#########################################################################
+event = {
+	id = 31743101
+	random = no
+	country = SOV
+
+	trigger = {
+		military_control = { country = SPR }
+		local_flag = military_control_SPR
+		OR = { 
+			alliance = { country = ITA country = SPR } 
+			alliance = { country = ITA country = U01 } 
+			NOT = { war = { country = U01 country = SPR } } 
+			NOT = { ai = SPR }		
+		}
+	}
+
+	name = "EVT_31743101_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+
+	date = { day = 18 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command	= { trigger = { local_flag = military_control_SPR } type = military_control which = SOV where = SPR }
+		command	= { trigger = { local_flag = military_control_SPR } type = local_clrflag which = military_control_SPR }
+	}
+}
+#########################################################################
+#  Spanish Civil War - The UK controls the republican forces
+#########################################################################
+event = { 
+	id = 31743102
+	random = no
+	country = ENG
+	
+	decision = {
+		war = { country = U01 country = SPR }
+		NOT = {
+			OR = {
+			alliance = { country = FRA country = SPR }
+			alliance = { country = ENG country = SPR }
+			war = { country = ENG country = SPR }
+			war = { country = ENG country = GER }
+			war = { country = ENG country = U01 }
+			war = { country = ENG country = USA }
+			war = { country = ENG country = ITA }
+			war = { country = ENG country = FIN }
+			government = fascist
+			}
+		}
+	}
+	
+	decision_trigger = { 
+		flag = SCW_aid_ENG # british intervention
+		NOT = { military_control = { country = SOV country = SPR }}
+		NOT = { military_control = { country = FRA country = SPR }}
+		ai = U01
+		ai = SPR
+	}
+			
+	trigger = {
+		ai = no
+	}
+	
+	name = "EVT_31743102_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+	decision_picture = "decision_rep_spa_control"
+	
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = ENG where = SPR value = 1 }
+		command	= { type = local_setflag which = military_control_SPR }
+	}
+}
+#########################################################################
+#  The UK no longer controls Spanish army
+#########################################################################
+event = {
+	id = 31743103
+	random = no
+	country = ENG
+
+	trigger = {
+		military_control = { country = SPR }
+		local_flag = military_control_SPR
+		OR = { 
+			alliance = { country = ENG country = SPR } 
+			alliance = { country = ENG country = U01 } 
+			NOT = { war = { country = U01 country = SPR } } 
+			NOT = { ai = SPR }		
+		}
+	}
+
+	name = "EVT_31743103_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "SCW"
+
+	date = { day = 18 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { local_flag = military_control_SPR } type = military_control which = ENG where = SPR }
+		command	= { trigger = { local_flag = military_control_SPR } type = local_clrflag which = military_control_SPR }
+	}
+}
+#########################################################################
+#  Spanish Civil War - France controls the republican forces
+#########################################################################
+event = {
+	id = 31743104
+	random = no
+	country = FRA
+
+	decision = {
+		war = { country = U01 country = SPR }
+		NOT = {
+			OR = {
+			alliance = { country = FRA country = SPR }
+			alliance = { country = FRA country = SPR }
+			war = { country = FRA country = SPR }
+			war = { country = FRA country = GER }
+			war = { country = FRA country = ENG }
+			war = { country = FRA country = USA }
+			war = { country = FRA country = ITA }
+			war = { country = FRA country = FIN }
+			government = fascist
+			}
+		}
+	}
+	
+	decision_trigger = { 
+		flag = SCW_aid_FRA # french intervention
+		NOT = { military_control = { country = SOV country = SPR }}
+		NOT = { military_control = { country = ENG country = SPR }}
+		ai = U01
+		ai = SPR
+	}
+			
+	trigger = {
+		ai = no
+	}
+
+	name = "EVT_31743104_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+	decision_picture = "decision_rep_spa_control"
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+		action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = FRA where = SPR value = 1 }
+		command	= { type = local_setflag which = military_control_SPR }
+	}
+}
+#########################################################################
+#  France no longer controls Spanish army
+#########################################################################
+event = {
+	id = 31743105
+	random = no
+	country = FRA
+
+	trigger = {
+		military_control = { country = SPR }
+		local_flag = military_control_SPR
+		OR = { 
+			alliance = { country = FRA country = U01 } 
+			alliance = { country = FRA country = SPR } 
+			NOT = { war = { country = U01 country = SPR } } 
+			NOT = { ai = SPR }		
+		}
+	}
+	
+	name = "EVT_31743105_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "news_paper"	
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type =  military_control which = FRA where = SPR }
+		command	= { type = local_clrflag which = military_control_SPR }
+	}
+}
+
+#########################################################################
+#  Spanish armored reform
+#########################################################################
+# #	
+
+event = {
+	id = 3174049
+	random = no
+	country = SPR
+	
+	decision = { ai = no }
+	
+	decision_trigger = {
+		war = { country = U01 country = SPR }
+		NOT = {	government = fascist		}
+	    event  = 3174006
+        division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+	    war = { country = SPR country = U01 }
+	}	
+	
+	trigger = {			
+	    war = { country = U01 country = SPR }
+		NOT = {	government = fascist		}
+	    event  = 3174006
+        division_exists = { type = 27600 id = 11910 } #Soviet armored formation		
+	    war = { country = SPR country = U01 }	
+	}
+	
+	name = EVT_3174049_NAME # spanish armored reform
+	desc = EVT_3174049_DESC
+	style = 2
+	picture = "spa_rep_event_tank_units"
+	decision_picture = "spa_rep_decision_tank_units"
+	
+	date = { day = 12 month = march year = 1938 }
+	offset = 7
+	deathdate = { day = 21 month = june year = 1941 }	
+
+	action_a = {
+		name = ACTIONNAME3174049A # We need tanks brigades for the infantry!
+		ai_chance = 90
+		command = { type = add_brigade value = light_armor_brigade when = 2 }
+		command = { type = add_brigade value = light_armor_brigade when = 2 }
+		command = { type = remove_division which = 27600 value = 11910 } #soviet tank brig
+		command = { trigger = { ai = no } type = money value = -50 }
+	}
+	action_b = {
+		name = ACTIONNAME3174049B # We need tanks based on Col Sanchez Perales ideas
+		ai_chance = 9
+		command = { type = activate_division which = 27600 value = 11922 when = 0 }
+		command = { type = activate_division which = 27600 value = 11923 when = 0 }
+		command = { type = remove_division which = 27600 value = 11910 } #soviet tank brig
+		command = { trigger = { ai = no } type = money value = -100 }		
+	}
+	action_c = {
+		name = ACTIONNAME3174049C # We dont need tanks at all!
+		ai_chance = 1
+		command = { type = remove_division which = 27600 value = 11910 } #soviet tank brig
+		command = { type = money value = 150 }	
+        command = { type = supplies value = 1000 }		
+	}
+}
+###################################################
+
+			

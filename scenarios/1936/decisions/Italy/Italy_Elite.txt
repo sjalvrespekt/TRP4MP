@@ -1,0 +1,227 @@
+#####################################################################
+#  Bersaglieri
+#####################################################################
+#
+#event = {
+#	id = 40000003
+#	random = no
+#	country = ITA
+#	
+#	decision = { ai = no }
+#	decision_trigger = { 	
+#		atwar = yes
+#		energy = 3600
+#		metal = 1800
+#		rare_materials = 900
+#		manpower = 17
+#			}	
+#	
+#	trigger = {
+#		atwar = yes
+#		energy = 7200
+#		metal = 3600
+#		rare_materials = 1800
+#		manpower = 17
+#	}
+#	
+#	name = EVT_31364011_NAME # New Elite Division
+#	desc = EVT_31364020_DESC
+#	style = 0
+#	picture = "elitebersa-1"
+#	decision_picture = "decision_italian_elite"
+#	
+#	date = { day = 10 month = may year = 1940 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3136443A
+#		command = { type = activate_division which = 23500 value = 1502 when = 0 }
+#		command = { type = energypool value = -3600 }
+#		command = { type = metalpool value = -1800 }
+#		command = { type = rarematerialspool value = -900 }
+#		command = { type = manpowerpool value = -17 }
+#	}
+#}
+#
+#event = {
+#	id = 40000004
+#	random = no
+#	country = ITA
+#	
+#	decision = { ai = no }
+#	decision_trigger = { 	
+#		atwar = yes
+#		energy = 3600
+#		metal = 1800
+#		rare_materials = 900
+#		manpower = 17
+#			}	
+#	
+#	trigger = {
+#		atwar = yes
+#		energy = 7200
+#		metal = 3600
+#		rare_materials = 1800
+#		manpower = 17
+#	}
+#	
+#	name = EVT_31364011_NAME # New Elite Division
+#	desc = EVT_31364020_DESC
+#	style = 0
+#	picture = "elitebersa-2"
+#	decision_picture = "decision_italian_elite"
+#	
+#	date = { day = 5 month = june year = 1940 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3136444A
+#		command = { type = activate_division which = 23500 value = 1503 when = 0 }
+#		command = { type = energypool value = -3600 }
+#		command = { type = metalpool value = -1800 }
+#		command = { type = rarematerialspool value = -900 }
+#		command = { type = manpowerpool value = -17 }
+#	}
+#}
+#
+#event = {
+#	id = 40000005
+#	random = no
+#	country = ITA
+#	
+#	decision = { ai = no }
+#	decision_trigger = { 	
+#		atwar = yes
+#		energy = 3600
+#		metal = 1800
+#		rare_materials = 900
+#		manpower = 17
+#			}	
+#	
+#	trigger = {
+#		atwar = yes
+#		energy = 7200
+#		metal = 3600
+#		rare_materials = 1800
+#		manpower = 17
+#	}
+#	
+#	name = EVT_31364011_NAME # New Elite Division
+#	desc = EVT_31364020_DESC
+#	style = 0
+#	picture = "elitebersa-3"
+#	decision_picture = "decision_italian_elite"
+#	
+#	date = { day = 21 month = february year = 1941 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = ACTIONNAME3136445A
+#		command = { type = activate_division which = 23500 value = 1504 when = 0 }
+#		command = { type = energypool value = -3600 }
+#		command = { type = metalpool value = -1800 }
+#		command = { type = rarematerialspool value = -900 }
+#		command = { type = manpowerpool value = -17 }
+#	}
+#}
+#
+#
+#event = {
+#	id = 40000006
+#	random = no
+#	country = ITA
+#	
+#	decision = { ai = no }
+#	decision_trigger = { 	
+#		atwar = yes
+#		energy = 3600
+#		metal = 1800
+#		rare_materials = 900
+#		manpower = 17
+#			}
+#	
+#	trigger = {
+#		atwar = yes
+#		energy = 7200
+#		metal = 3600
+#		rare_materials = 1800
+#		manpower = 17
+#	}
+#	
+#	name = EVT_31364011_NAME # New Elite Division
+#	desc = EVT_31364020_DESC
+#	style = 0
+#	picture = "elitebersa-4"
+#	decision_picture = "decision_italian_elite"
+#	
+#	date = { day = 10 month = march year = 1941 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#               name = ACTIONNAME40000006A
+#	    command = { type = activate_division which = 23500 value = 1505 when = 0 }
+#		command = { type = energypool value = -3600 }
+#		command = { type = metalpool value = -1800 }
+#		command = { type = rarematerialspool value = -900 }
+#		command = { type = manpowerpool value = -17 }
+#	}
+#}
+#
+#
+# Notizen Rommel
+#1a Divisione Bersaglieri 'Cosenza'
+#2a Divisione Bersaglieri 'Legnano'
+#3a Divisione Bersaglieri 'Teulada'
+#4a Divisione Bersaglieri 'Trapani'
+#1a Divisione Bersaglieri 'Roma' - Republik Salo
+#EVT_31364020_DESC;- gilt für alle 4!
+#
+####################################################################
+# Aplini
+####################################################################
+
+event = {
+	id = 40000007
+	random = no
+	country = ITA
+	
+	decision = { ai = no }
+	decision_trigger = { 	
+		atwar = yes
+		energy = 5720
+		metal = 2360
+		rare_materials = 880
+		manpower = 9
+			}
+	
+	trigger = {
+		atwar = yes
+		energy = 11440
+		metal = 4720
+		rare_materials = 1760
+		manpower = 9
+	}
+	
+	name = EVT_31364011_NAME # New Elite Division
+	desc = EVT_40000007_DESC
+	style = 2
+	picture = "event_italian_elite_apini"
+	decision_picture = "decision_italian_elite_apini"
+	
+	date = { day = 13 month = november year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+        name = ACTIONNAME40000007A
+	    command = { type = activate_division which = 23500 value = 1507 when = 0 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes energy = 15000 } } }        type = energypool        value = -5720 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes metal = 10000 } } }         type = metalpool         value = -2360 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes rare_materials = 5000 } } } type = rarematerialspool value = -880 }
+		command = { trigger = { OR = { ai = no AND = { ai = yes manpower = 10 } } }         type = manpowerpool      value = -9 }
+	}
+}

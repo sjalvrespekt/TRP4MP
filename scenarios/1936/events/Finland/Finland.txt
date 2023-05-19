@@ -1,0 +1,3232 @@
+# converted to DH, Kane, July 15 2011
+###########################################################################
+# 3134000 - 3134999	Finland events
+###########################################################################
+
+#########################################################################
+#  The Winter War
+#########################################################################
+event = { 
+	id = 3200 # Referenced in AI files
+	random = no
+	country = FIN
+	
+	# Triggered by SOV 2620
+	
+	name = EVT_3200_NAME
+	desc = EVT_3200_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3200A # Let them come if they dare!
+		ai_chance = 99
+		command = { type = trigger which = 3183024 } # SOV
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = SWE value = 15 }
+		command = { type = relation which = NOR value = 15 }
+                command = { type = relation which = GER value = -50 } # how can GER let it come this far...
+		command = { type = chiefofstaff which = 29137 }
+		command = { type = chiefofarmy which = 29145 }
+	}
+	action_b = {
+		name = ACTIONNAME3200B # Fold to Russian Pressure
+		ai_chance = 1
+		command = { type = secedeprovince which = SOV value = 530 } #Terijoki
+		command = { type = secedeprovince which = SOV value = 531 } # Viipuri
+		command = { type = secedeprovince which = SOV value = 532 } # Sortavala
+		command = { type = trigger which = 2622 } # SOV
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = relation which = SOV value = -25 }
+		command = { type = relation which = GER value = -100 }
+		command = { type = relation which = SWE value = -10 }
+	}
+}
+#########################################################################
+# Volunteers for the Winter War
+# by CCM von Hausser
+#########################################################################
+event = { 
+	id = 3134000
+	random = no
+	country = FIN
+	
+	trigger = { war = { country = FIN country = SOV } }
+	
+	name = EVT_3134000_NAME # Volunteers for the Winter War
+	desc = EVT_3134000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3134000A
+		command = { trigger = { ai = no } type = manpowerpool value = 75 }
+		
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = d_02 when = 2 }
+		command = { trigger = { ai = yes } type = manpowerpool value = 5 }
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3134000B # We can win also without them!
+		command = { type = dissent value = -5 }
+		command = { }
+	}
+}
+#########################################################################
+#  Swedish Material Aid (was 3201)
+#########################################################################
+event = { 
+	id = 3134001
+	random = no
+	country = FIN
+	
+	# Triggered by SWE 3300 or 3301
+	
+	name = EVT_3201_NAME
+	desc = EVT_3201_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3134001A # OK
+		command = { type = add_division value = infantry }
+		command = { type = add_division value = garrison }
+		command = { type = add_division value = garrison }
+		command = { type = add_brigade  value = artillery when = 1 }
+		command = { type = supplies     value = 1000 }	
+	}
+}
+#########################################################################
+#  Swedish Intervention (was 3202)
+#########################################################################
+event = { 
+	id = 3134002
+	random = no
+	country = FIN
+	
+	# Triggered by SWE 3300 or 3301
+	
+	name = EVT_3202_NAME
+	desc = EVT_3202_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3134002A # ok
+		command = { type = access which = SWE }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+#########################################################################
+#  End of the Finnish Winter War (was 3203) modified by Luxor
+#########################################################################
+event = { 
+	id = 3134003
+	random = no
+	country = FIN
+	
+	# Triggered by SOV 3183026
+	
+	name = EVT_3203_NAME
+	desc = EVT_3203_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3134003A # Fold to Russian Demands
+		ai_chance = 100
+		command = { type = trigger which = 2628 } #SOV
+		command = { type = secedeprovince which = SOV value = 530 } #Terijoki
+		command = { type = secedeprovince which = SOV value = 531 } # Viipuri
+		command = { type = secedeprovince which = SOV value = 532 } # Sortavala
+		command = { type = secedeprovince which = SOV value = 519 } # Salla
+		command = { type = domestic which = freedom value = -1 }
+		command = { type = domestic which = interventionism value = -2 }
+		command = { type = armamentminister which = 29093 }
+		command = { type = ministerofsecurity which = 29113 }
+		command = { type = chiefofstaff which = 29137 }
+		command = { type = chiefofarmy which = 29145 }
+		command = { type = relation which = SOV value = -75 }
+		command = { type = relation which = GER value = -75 } #sets the value to +75 with GER
+		command = { type = peace which = SOV }
+#		command = { type = access which = SOV } # deactivated so that SOV units don't consume all of FINs supplies while leaving the country
+		command = { type = setflag which = FIN_endofwinterwar }
+		command = { type = dissent value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3134003B # We will never surrender!
+		ai_chance = 0
+		command = { type = trigger which = 3183028 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 2 }
+		command = { type = domestic which = freedom value = 2 }
+		command = { type = relation which = SOV value = -50 }
+		command = { type = relation which = GER value = 50 }
+	}
+}
+###########################################################################################
+# Finnish Continuation War
+###########################################################################################
+event = { 
+	id = 3234000
+	random = no
+	country = FIN
+
+	trigger = {
+		OR = { # Army Group North approaching Leningrad
+				NOT = { control = { province = 274 data = SOV } } # Narva
+				NOT = { control = { province = 552 data = SOV } } # Gdov
+				NOT = { control = { province = 565 data = SOV } } # Dno
+				NOT = { control = { province = 573 data = SOV } } # Velikije Luki
+				NOT = { control = { province = 575 data = SOV } } # Safonovo
+				NOT = { control = { province = 574 data = SOV } } # Vyazma
+				NOT = { control = { province = 550 data = SOV } } # Kingisepp
+				NOT = { control = { province = 549 data = SOV } } # Luga
+				NOT = { control = { province = 560 data = SOV } } # Novgorod
+				NOT = { control = { province = 561 data = SOV } } # Staraja Russa
+				NOT = { control = { province = 577 data = SOV } } # Nelidovo
+				NOT = { control = { province = 553 data = SOV } } # Leningrad
+				NOT = { control = { province = 551 data = SOV } } # Krasnogvadejsk
+				NOT = { control = { province = 559 data = SOV } } # Borovici
+				NOT = { control = { province = 562 data = SOV } } # Kirisi
+				random = 10
+				}
+		war = { country = SOV country = GER }
+		OR= {
+				event = 2628 # End of the Finnish Winter War - Finns accepts
+				event = 2622 # Finland gives in
+				}
+		NOT = { alliance = { country = SOV country = FIN } }
+		NOT = { ispuppet = FIN }
+		NOT = { atwar = FIN }
+		random = 30
+	}
+
+	name = EVT_3234000_NAME 
+	desc = EVT_3234000_DESC 
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3234000A # Declare war
+		ai_chance = 99
+		command = { type = war which = SOV }
+		command = { type = access which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = defense_lobby value = -3 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = professional_army value = 4 }
+		command = { type = chiefofarmy which = 29145 } # Mannerheim is appointed chief of the Army
+		command = { type = armamentminister which = 29093 }
+		command = { type = ministerofsecurity which = 29113 }
+		command = { type = chiefofstaff which = 29137 } # Mannerheim is appointed chief of the Staff
+		command = { type = addcore which = 519 } # claims on Salla
+		command = { trigger = { ai = yes } type = add_division value = infantry when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = infantry when = 2 }
+		command = { trigger = { ai = yes } type = add_division value = infantry when = 2 }
+	}
+	action_b = {
+		name = ACTIONNAME3234000B # We have seen enough war
+		ai_chance = 1
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+#################################################
+# Finland reintegrates Karelia
+#################################################
+event = { 
+	id = 3283006
+	random = no 
+	country = SOV
+	
+	trigger = {
+		NOT = {
+			control = { province = 519 data = SOV } # Salla
+			control = { province = 530 data = SOV } # Terijoki
+			control = { province = 531 data = SOV } # Viipuri
+			control = { province = 532 data = SOV } # Sortavala
+		}
+		OR = {
+				owned = { province = 519 data = -1 }
+				owned = { province = 530 data = -1 }
+				owned = { province = 531 data = -1 }
+                owned = { province = 532 data = -1 }
+				}
+		war = { country = GER country = SOV }
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_3283006_NAME
+	desc = EVT_3283006_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 5  
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3283006A
+		command = { trigger = { owned = { province = 519 data = -1 } } type = secedeprovince which = FIN value = 519 when = 1 }
+		command = { trigger = { owned = { province = 530 data = -1 } } type = secedeprovince which = FIN value = 530 when = 1 }
+		command = { trigger = { owned = { province = 531 data = -1 } } type = secedeprovince which = FIN value = 531 when = 1 }
+		command = { trigger = { owned = { province = 532 data = -1 } } type = secedeprovince which = FIN value = 532 when = 1 }
+	}
+}
+###########################################################################################
+# End of Finnish Continuation War - Finland won
+###########################################################################################
+event = { # trigger event
+	id = 3234008
+	random = no
+	country = FIN
+
+	trigger =	{
+			NOT = {
+					# finnish provinces lost in the Winter War
+					control = { province = 519 data = SOV } # Salla
+					control = { province = 530 data = SOV } # Terijoki
+					control = { province = 531 data = SOV } # Viipuri
+					control = { province = 532 data = SOV } # Sortavala
+					# soviet major cities in the North
+					control = { province = 553 data = SOV } # Leningrad
+					control = { province = 535 data = SOV } # Murmansk
+					# some provinces along the border
+					control = { province = 540 data = SOV } # Kestenga
+					control = { province = 538 data = SOV } # Segeza
+					control = { province = 536 data = SOV } # Kandalaksa
+					}
+					
+			NOT = { alliance = { country = GER country = FIN } } # separate war
+			
+			NOT = { war = { country = SOV country = ENG } }
+			NOT = { war = { country = SOV country = USA } }
+			
+			war = { country = SOV country = GER }
+			war = { country = SOV country = FIN }
+			
+			event = 3234000 # Finnish Continuation War
+			}
+	
+	name = EVT_3234008_NAME
+	desc = EVT_3234008_DESC
+	style = 2
+	picture = "fin_victory"
+
+	date = { day = 5 month = march year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3234008A # Ask the Germans if we may end our separate war
+		ai_chance = 99
+		command = { type = trigger which = 3234009 } # SOV
+	}
+	action_b = {
+		name = ACTIONNAME3234008B # We don't dare to mess it up with the Germans
+		ai_chance = 1
+		command = { }
+	}
+}
+
+event = { # GER asked for permission
+	id = 3234009
+	random = no
+	country = GER
+
+	name = EVT_3234009_NAME
+	desc = EVT_3234008_DESC
+	style = 2
+	picture = "fin_victory"
+
+	action_a = {
+		name = ACTIONNAME3234009A # Accept
+		ai_chance = 75
+		command = { type = trigger which = 3234010 } # SOV
+	}
+	action_b = {
+		name = ACTIONNAME3234009B # Tell Mannerheim that Finland will share the Reich's fate
+		ai_chance = 25
+		command = { type = trigger which = 3234011 } # FIN
+	}
+}
+
+event = { # FIN frustrated about GER's decision
+	id = 3234011
+	random = no
+	country = FIN
+
+	name = EVT_3234011_NAME
+	desc = EVT_3234011_DESC
+	style = 2
+	picture = "fin_embargo"
+
+	action_a = {
+		name = ACTIONNAME3234011A # We have no choice, but we'll remember that!
+		command = { type = relation which = GER value = -100 }
+		command = { type = embargo which = FIN where = GER value = 1 }
+		command = { type = trigger which = 3234012 } # GER info
+		command = { type = event which = 3234013 where = -1 when = 360 } # embargo revoked after 1 year
+	}
+}
+
+event = { # FIN frustrated about GER's decision
+	id = 3234012
+	random = no
+	country = GER
+
+	name = EVT_3234012_NAME
+	desc = EVT_3234012_DESC
+	style = 2
+	picture = "fin_embargo"
+
+	action_a = {
+		name = ACTIONNAME3234012A # Allies don't always have to be friends...
+		command = { type = relation which = FIN value = -50 }
+	}
+}
+
+event = { # FIN revokes trade embargo against GER
+	id = 3234013
+	random = no
+	country = FIN
+
+	name = EVT_3234013_NAME
+	desc = EVT_3234013_DESC
+	style = 2
+	picture = "fin_embargo"
+
+	action_a = {
+		name = ACTIONNAME3234013A # Enough punishment
+		command = { type = embargo which = FIN where = GER value = -1 }
+	}
+}
+
+event = { # SOV asked for separate peace
+	id = 3234010
+	random = no
+	country = SOV
+
+	name = EVT_3234008_NAME
+	desc = EVT_3234008_DESC
+	style = 2
+	picture = "fin_victory"
+
+	action_a = {
+		name = ACTIONNAME3234010A # Accept defeat and cede territories
+		ai_chance = 80
+		#clear finnish homeland as before Winter War
+		command = { trigger = { control = { province = 515 data = -1 } } type = control which = FIN value = 515 } # 515	Rovaniemi
+		command = { trigger = { control = { province = 511 data = -1 } } type = control which = FIN value = 511 } # 511	Enontekio
+		command = { trigger = { control = { province = 513 data = -1 } } type = control which = FIN value = 513 } # 513	Inari
+		command = { trigger = { control = { province = 516 data = -1 } } type = control which = FIN value = 516 } # 516	Tornio
+		command = { trigger = { control = { province = 520 data = -1 } } type = control which = FIN value = 520 } # 520	Oulu
+		command = { trigger = { control = { province = 523 data = -1 } } type = control which = FIN value = 523 } # 523	Kajaani
+		command = { trigger = { control = { province = 518 data = -1 } } type = control which = FIN value = 518 } # 518	Soumussalmi
+		command = { trigger = { control = { province = 519 data = -1 } } type = control which = FIN value = 519 } # 519	Salla
+		command = { trigger = { control = { province = 514 data = -1 } } type = control which = FIN value = 514 } # 514	Kemijarvi
+		command = { trigger = { control = { province = 522 data = -1 } } type = control which = FIN value = 522 } # 522	Kuopio
+		command = { trigger = { control = { province = 533 data = -1 } } type = control which = FIN value = 533 } # 533	Joensuu
+		command = { trigger = { control = { province = 528 data = -1 } } type = control which = FIN value = 528 } # 528	Mikkeli
+		command = { trigger = { control = { province = 522 data = -1 } } type = control which = FIN value = 522 } # 522	Kuopio
+		command = { trigger = { control = { province = 521 data = -1 } } type = control which = FIN value = 521 } # 521	Vaasa
+		command = { trigger = { control = { province = 512 data = -1 } } type = control which = FIN value = 512 } # 512	Pori
+		command = { trigger = { control = { province = 527 data = -1 } } type = control which = FIN value = 527 } # 527	Tampere
+		command = { trigger = { control = { province = 525 data = -1 } } type = control which = FIN value = 525 } # 525	Helsinki
+		command = { trigger = { control = { province = 529 data = -1 } } type = control which = FIN value = 529 } # 529	Kouvola
+		command = { trigger = { control = { province = 524 data = -1 } } type = control which = FIN value = 524 } # 524	Turku
+		command = { trigger = { control = { province = 526 data = -1 } } type = control which = FIN value = 526 } # 526	Ahvenanmaa
+		command = { trigger = { control = { province = 530 data = -1 } } type = control which = FIN value = 530 } # 530 Terijoki
+		command = { trigger = { control = { province = 530 data = -1 } } type = control which = FIN value = 531 } # 531 Viipuri
+		command = { trigger = { control = { province = 530 data = -1 } } type = control which = FIN value = 532 } # 532 Sortavala
+		command = { trigger = { control = { province = 517 data = -1 } } type = control which = FIN value = 517 } # 517 Petsamo
+		command = { trigger = { owned = { province = 515 data = -1 } } type = secedeprovince which = FIN value = 515 when = 1 } # 515	Rovaniemi
+		command = { trigger = { owned = { province = 511 data = -1 } } type = secedeprovince which = FIN value = 511 when = 1 } # 511	Enontekio
+		command = { trigger = { owned = { province = 513 data = -1 } } type = secedeprovince which = FIN value = 513 when = 1 } # 513	Inari
+		command = { trigger = { owned = { province = 516 data = -1 } } type = secedeprovince which = FIN value = 516 when = 1 } # 516	Tornio
+		command = { trigger = { owned = { province = 520 data = -1 } } type = secedeprovince which = FIN value = 520 when = 1 } # 520	Oulu
+		command = { trigger = { owned = { province = 523 data = -1 } } type = secedeprovince which = FIN value = 523 when = 1 } # 523	Kajaani
+		command = { trigger = { owned = { province = 518 data = -1 } } type = secedeprovince which = FIN value = 518 when = 1 } # 518	Soumussalmi
+		command = { trigger = { owned = { province = 519 data = -1 } } type = secedeprovince which = FIN value = 519 when = 1 } # 519	Salla
+		command = { trigger = { owned = { province = 514 data = -1 } } type = secedeprovince which = FIN value = 514 when = 1 } # 514	Kemijarvi
+		command = { trigger = { owned = { province = 522 data = -1 } } type = secedeprovince which = FIN value = 522 when = 1 } # 522	Kuopio
+		command = { trigger = { owned = { province = 533 data = -1 } } type = secedeprovince which = FIN value = 533 when = 1 } # 533	Joensuu
+		command = { trigger = { owned = { province = 528 data = -1 } } type = secedeprovince which = FIN value = 528 when = 1 } # 528	Mikkeli
+		command = { trigger = { owned = { province = 522 data = -1 } } type = secedeprovince which = FIN value = 522 when = 1 } # 522	Kuopio
+		command = { trigger = { owned = { province = 521 data = -1 } } type = secedeprovince which = FIN value = 521 when = 1 } # 521	Vaasa
+		command = { trigger = { owned = { province = 512 data = -1 } } type = secedeprovince which = FIN value = 512 when = 1 } # 512	Pori
+		command = { trigger = { owned = { province = 527 data = -1 } } type = secedeprovince which = FIN value = 527 when = 1 } # 527	Tampere
+		command = { trigger = { owned = { province = 525 data = -1 } } type = secedeprovince which = FIN value = 525 when = 1 } # 525	Helsinki
+		command = { trigger = { owned = { province = 529 data = -1 } } type = secedeprovince which = FIN value = 529 when = 1 } # 529	Kouvola
+		command = { trigger = { owned = { province = 524 data = -1 } } type = secedeprovince which = FIN value = 524 when = 1 } # 524	Turku
+		command = { trigger = { owned = { province = 526 data = -1 } } type = secedeprovince which = FIN value = 526 when = 1 } # 526	Ahvenanmaa
+		command = { trigger = { owned = { province = 530 data = -1 } } type = secedeprovince which = FIN value = 530 when = 1 } # 530  Terijoki
+		command = { trigger = { owned = { province = 530 data = -1 } } type = secedeprovince which = FIN value = 531 when = 1 } # 531  Viipuri
+		command = { trigger = { owned = { province = 530 data = -1 } } type = secedeprovince which = FIN value = 532 when = 1 } # 532  Sortavala
+		command = { trigger = { owned = { province = 517 data = -1 } } type = secedeprovince which = FIN value = 517 when = 1 } # 517	Petsamo
+		# give Murmansk and White Sea coastline to Finland just as in bitter peace event
+		command = { type = secedeprovince which = FIN value = 535 when = 1 } # Murmansk
+		command = { type = secedeprovince which = FIN value = 534 when = 1 } # Kola
+		command = { type = secedeprovince which = FIN value = 536 when = 1 } # Kandalaksa
+		command = { type = secedeprovince which = FIN value = 540 when = 1 } # Kestenga
+		command = { type = secedeprovince which = FIN value = 537 when = 1 } # Kem
+		command = { type = secedeprovince which = FIN value = 538 when = 1 } # Segeza
+		command = { type = secedeprovince which = FIN value = 539 when = 1 } # Petrozavodsk
+		command = { type = secedeprovince which = FIN value = 541 when = 1 } # Belomorsk
+		# diplomacy
+		command = { type = peace which = FIN value = 0 }
+		command = { type = non_aggression which = SOV where = FIN }
+		command = { type = dissent value = 5 }
+		command = { type = trigger which = 3234014 } # FIN victory event
+	}
+	action_b = {
+		name = ACTION_NAME_NEVER # Refuse
+		ai_chance = 20
+		command = { type = trigger which = 3234015 } # FIN what now?
+	}
+}
+
+event = { # FIN celebrates victory
+	id = 3234014
+	random = no
+	country = FIN
+
+	name = EVT_3234014_NAME
+	desc = EVT_3234014_DESC
+	style = 2
+	picture = "fin_victory2"
+
+	action_a = {
+		name = ACTION_NAME_HURRAH # Yeah!
+		command = { type = dissent value = -10 }
+		command = { type = access which = GER }
+		command = { type = addclaim which = 535 }
+		command = { type = addclaim which = 534 }
+		command = { type = addclaim which = 541 }
+	}
+}
+
+event = { # FIN's reaction of soviet refusal
+	id = 3234015
+	random = no
+	country = FIN
+
+	name = EVT_3234015_NAME
+	desc = EVT_3234015_DESC
+	style = 2
+	picture = "fin_victory_refuse"
+
+	# SOV doesn't want peace...
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3234015A # ...we need a strong partner...let's ask GER
+		command = { type = trigger which = 3234016 } # GER
+	}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3234015B # ...let's just hope for the very best
+		command = { }
+	}
+}
+event = { # FIN asks for alliance
+	id = 3234016
+	random = no
+	country = GER
+
+	name = EVT_3234016_NAME
+	desc = EVT_3234016_DESC
+	style = 2
+	picture = "fin_victory_refuse"
+
+	action_a = {
+		name = ACTION_NAME_AGREE # Welcome to the Axis...
+		ai_chance = 100
+		command = { type = alliance which = FIN } # GER
+		command = { type = relation which = FIN value = 50 }
+		command = { type = dissent value = -2 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3234016B # No need for any change
+		command = { }
+	}
+}
+###########################################################################################
+# End of Finnish Continuation War - Finland lost
+###########################################################################################
+event = { 
+	id = 3234001
+	random = no
+	country = FIN
+
+	trigger =	{
+			OR = {
+					AND = {
+							control = { province = 553 data = SOV } # Leningrad => Axis offensive stopped
+							lost_vp = { country = FIN value = 35 }
+							lost_national = { country = FIN value = 45 }
+							}
+					AND = {
+							NOT = { control = { province = 553 data = SOV } } # Leningrad
+							lost_vp = { country = FIN value = 35 }
+							lost_national = { country = FIN value = 65 }
+							}
+					NOT = { control = { province = 525 data = FIN } } # Helsinki	
+				 }
+			war = { country = SOV country = GER }
+			war = { country = SOV country = FIN }
+			event = 3234000 # Finnish Continuation War
+			}
+	
+	name = EVT_3234001_NAME
+	desc = EVT_3234001_DESC
+	style = 0
+
+	date = { day = 5 month = march year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3234001A # Offer peace based on pre-war border
+		ai_chance = 100
+		command = { type = trigger which = 3283007 } # SOV
+	}
+	action_b = {
+		name = ACTIONNAME3234001B # We'll never surrender
+		ai_chance = 0
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+event = { 
+	id = 3283007
+	random = no
+	country = SOV
+
+	# triggered by FIN 3234001
+
+	name = EVT_3283007_NAME
+	desc = EVT_3283007_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3283007A # Give us Petsamo and it's a deal
+		ai_chance = 99
+		command = { type = trigger which = 3234002 } #FIN
+	}
+	action_b = {
+		name = ACTIONNAME3283007B # Demand Finland go Communist
+		ai_chance = 1
+		command = { type = trigger which = 3234003 } #FIN
+	}
+}
+event = { 
+	id = 3234002
+	random = no
+	country = FIN
+
+	# triggered by SOV 3283007
+
+	name = EVT_3234002_NAME
+	desc = EVT_3234002_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3234002A # We agree
+                command = { type = leave_alliance }
+		command = { type = peace which = SOV value = 1 }
+                command = { type = peace which = ENG value = 1 }
+                command = { type = peace which = IRQ value = 1 }
+                command = { type = peace which = HOL value = 1 }
+                command = { type = peace which = NIC value = 1 }
+                command = { type = peace which = COL value = 1 }
+                command = { type = peace which = SWE value = 1 }
+                command = { type = peace which = USA value = 1 }
+                command = { type = peace which = LIB value = 1 }
+		command = { type = end_access which = GER }
+                command = { type = relation which = RUS value = 100 }
+                command = { type = relation which = GER value = -300 }
+		command = { type = access which = SOV }
+		command = { type = secedeprovince which = SOV  value = 530 } # Terijoki
+		command = { type = secedeprovince which = SOV  value = 531 } # Viipuri
+		command = { type = secedeprovince which = SOV  value = 532 } # Sortavaala
+		command = { type = secedeprovince which = SOV  value = 519 } # Salla
+		command = { type = secedeprovince which = SOV  value = 517 } # Petsamo
+		command = { type = removecore which = 530 } # Finland renounces all claims to the lost areas
+		command = { type = removecore which = 531 }
+		command = { type = removecore which = 532 }
+		command = { type = removecore which = 519 }
+		command = { type = removecore which = 517 }
+		command = { type = removecore which = 536 }
+		command = { type = removecore which = 537 }
+		command = { type = removecore which = 538 }
+		command = { type = removecore which = 519 }
+		command = { type = removecore which = 540 }
+		command = { type = removecore which = 539 }
+		command = { type = domestic which = political_left value = 2 }
+		command = { type = domestic which = democratic value = 3 }
+		command = { type = domestic which = freedom value = 2 }
+                command = { type = domestic which = interventionism value = -6 }
+                command = { type = headofstate which = 29177 } #Mannerheim
+		command = { type = embargo which = FIN where = SOV value = 0 }
+	}
+}
+event = { 
+	id = 3234004
+	random = no
+	country = SOV
+
+	trigger = {
+                event = 3234002
+		war = { country = SOV country = GER }
+	}
+
+	name = EVT_3234004_NAME
+	desc = EVT_3234004_DESC
+	style = 0
+
+	date = { day = 6 month = august year = 1936 }
+	offset = 90
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3234004A # Press for war with their old allies
+		ai_chance = 99
+                command = { type = trigger which = 3234005 }
+        }
+	action_b = {
+		name = ACTIONNAME3234004B # Leave Finland alone
+		ai_chance = 1
+		command = { type = dissent value = -3 }
+	}
+}
+event = { 
+	id = 3234005
+	random = no
+	country = FIN
+
+        # triggered by SOV 3234004
+
+	name = EVT_3234005_NAME
+	desc = EVT_3234005_DESC
+	style = 0
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3234005A # Just drive them out of the country!
+		command = { type = end_access which = GER }
+		command = { type = dissent value = -1 }
+	}
+	
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3234005B # We have no choice
+		command = { type = war which = GER }
+		command = { type = dissent value = 1 }
+	}
+}
+event = { 
+	id = 3234003
+	random = no
+	country = FIN
+
+	# triggered by SOV 3283007
+
+	name = EVT_3234003_NAME
+	desc = EVT_3234003_DESC
+	style = 0
+
+	action_a = {
+		ai_chance = 75
+		name = ACTIONNAME3234003A # To the last man, to the last bullet
+		command = { type = dissent value = -50 }
+		
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		command = { trigger = { AI = FIN NOT = { AI = SOV } } type = add_division which = "" value = militia when = 3 }
+		
+		command = { trigger = { war = { country = SOV country = GER } NOT = { alliance = { country = FIN country = GER } } } type = alliance which = GER }
+	}
+	action_b = {
+		ai_chance = 25
+		name = ACTIONNAME3234003B # Better Red than Dead
+		command = { type = set_domestic which = political_left value = 9 }
+		command = { type = set_domestic which = democratic value = 0 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = end_access which = GER }
+		command = { type = access which = SOV }
+		command = { type = secedeprovince which = SOV  value = 530 } # Terijoki
+		command = { type = secedeprovince which = SOV  value = 531 } # Viipuri
+		command = { type = secedeprovince which = SOV  value = 532 } # Sortavaala
+		command = { type = secedeprovince which = SOV  value = 519 } # Salla
+		command = { type = removecore which = 530 } # Finland renounces all claims to the lost areas
+		command = { type = removecore which = 531 }
+		command = { type = removecore which = 532 }
+		command = { type = removecore which = 519 }
+		command = { type = removecore which = 517 }
+		command = { type = removecore which = 536 }
+		command = { type = removecore which = 537 }
+		command = { type = removecore which = 538 }
+		command = { type = removecore which = 519 }
+		command = { type = removecore which = 540 }
+		command = { type = removecore which = 539 }
+	}
+}
+##################################################
+# Big Three conference partition of Europe
+# (was 3000000 by Lothos)
+##################################################
+event = { 
+	id = 3134008
+	random = no
+	country = FIN
+
+	# triggered by 3182091
+
+	name = EVT_3134008_NAME # Free Europe
+	desc = EVT_3134008_DESC 
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME3134008A # ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+################################################################
+# Finland remove access to USSR (by Luxor)
+################################################################
+event = { 
+	id = 3134009
+	random = no
+	country = FIN
+
+	trigger = { flag = FIN_endofwinterwar }
+
+	name = EVT_3134009_NAME # Finland remove access to USSR
+	desc = EVT_3134009_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 90
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = { 
+		name = ACTIONNAME3134009A # Ok
+		command = { type = end_access which = SOV }
+		command = { type = clrflag which = FIN_endofwinterwar }
+	}
+}
+###########################################################################
+# Winter Equipment
+###########################################################################
+#event = { 
+#	id = 3134010
+#	random = no
+#	country = FIN
+#	
+#	trigger = { 
+#                attack = SOV
+#		war = { country = SOV country = FIN }
+#                not = { AI = SOV }
+#	}
+#	
+#	name = EVT_3134010_NAME
+#	desc = EVT_3134010_DESC
+#	style = 0
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1999 }
+#	
+#	action_a = {
+#		name = "Good"
+#		command = { type = frozen_attack which = infantry value = 20 } # Infantry
+#		command = { type = frozen_defense which = infantry value = 30 }
+#		command = { type = snow_attack which = infantry value = 35 }
+#		command = { type = snow_defense which = infantry value = 35 }
+#		command = { type = blizzard_attack which = infantry value = 50 }
+#		command = { type = blizzard_defense which = infantry value = 35 }
+#		command = { type = frozen_attack which = garrison value = 35 } # Garrison
+#		command = { type = frozen_defense which = garrison value = 20 }
+#		command = { type = snow_attack which = garrison value = 25 }
+#		command = { type = snow_defense which = garrison value = 25 }
+#		command = { type = blizzard_attack which = garrison value = 20 }
+#		command = { type = blizzard_defense which = garrison value = 20 }
+#		command = { type = frozen_attack which = Motorized value = 20 } # Motorized 
+#		command = { type = frozen_defense which = Motorized value = 20 }
+#		command = { type = snow_attack which = Motorized value = 25 }
+#		command = { type = snow_defense which = Motorized value = 75 }
+#		command = { type = blizzard_attack which = Motorized value = 30 }
+#		command = { type = blizzard_defense which = Motorized value = 90 }
+#		command = { type = frozen_attack which = Mechanized value = 30 } # Mechanized 
+#		command = { type = frozen_defense which = Mechanized value = 40 }
+#		command = { type = snow_attack which = Mechanized value = 35 }
+#		command = { type = snow_defense which = Mechanized value = 45 }
+#		command = { type = blizzard_attack which = Mechanized value = 30 }
+#		command = { type = blizzard_defense which = Mechanized value = 40 }
+#		command = { type = frozen_attack which = militia value = 30 } # Elite Infantry 
+#		command = { type = frozen_defense which = militia value = 40 }
+#		command = { type = snow_attack which = militia value = 35 }
+#		command = { type = snow_defense which = militia value = 45 }
+#		command = { type = blizzard_attack which = militia value = 35 }
+#		command = { type = blizzard_defense which = militia value = 35 }
+#		command = { type = frozen_attack which = Bergsjaeger value = 40 } # Bergsjaeger 
+#		command = { type = snow_defense which = Bergsjaeger value = 50 }
+#		command = { type = blizzard_attack which = Bergsjaeger value = 40 }
+#		command = { type = blizzard_defense which = Bergsjaeger value = 55 }
+#		command = { type = frozen_attack which = paratrooper value = 30 } # Paratroop 
+#		command = { type = frozen_defense which = paratrooper value = 35 }
+#		command = { type = snow_attack which = paratrooper value = 35 }
+#		command = { type = snow_defense which = paratrooper value = 35 }
+#		command = { type = blizzard_attack which = paratrooper value = 30 }
+#		command = { type = blizzard_defense which = paratrooper value = 35 }
+#		command = { type = frozen_attack which = marine value = 35 } # Marine 
+#		command = { type = frozen_defense which = marine value = 35 }
+#		command = { type = snow_attack which = marine value = 25 }
+#		command = { type = snow_defense which = marine value = 25 }
+#		command = { type = blizzard_attack which = marine value = 25 }
+#		command = { type = blizzard_defense which = marine value = 25 }
+#		command = { type = frozen_attack which = armor value = 30 } # Armor 
+#		command = { type = frozen_defense which = armor value = 85 }
+#		command = { type = snow_attack which = armor value = 30 }
+#		command = { type = snow_defense which = armor value = 40 }
+#		command = { type = blizzard_attack which = armor value = 30 }
+#		command = { type = blizzard_defense which = armor value = 45 }
+#		command = { type = frozen_attack which = Light_armor value = 40 } # Elite Armor
+#		command = { type = frozen_defense which = Light_armor value = 50 }
+#		command = { type = snow_attack which = Light_armor value = 35 }
+#		command = { type = snow_defense which = Light_armor value = 45 }
+#		command = { type = blizzard_attack which = Light_armor value = 50 }
+#		command = { type = blizzard_defense which = Light_armor value = 45 }
+#	}
+#}
+#
+#
+
+################################################################
+# AI EVENT: Finland weakened if puppet
+################################################################
+event = { 
+	id = 3134011
+	random = no
+	country = FIN
+
+	trigger = { 
+				ispuppet = FIN
+				AI = FIN
+				}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = -0.15 when = 1 }
+		command = { type = event which = 3134012 where = FIN when = 360 }
+	}
+}
+
+event = { 
+	id = 3134012
+	random = no
+	country = FIN
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = 0.03 when = 1 }
+		command = { type = event which = 3134013 where = FIN when = 360 }
+	}
+}
+
+event = { 
+	id = 3134013
+	random = no
+	country = FIN
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = 0.03 when = 1 }
+		command = { type = event which = 3134014 where = FIN when = 360 }
+	}
+}
+
+event = { 
+	id = 3134014
+	random = no
+	country = FIN
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = 0.03 when = 1 }
+		command = { type = event which = 3134015 where = FIN when = 360 }
+	}
+}
+
+event = { 
+	id = 3134015
+	random = no
+	country = FIN
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = 0.03 when = 1 }
+		command = { type = event which = 3134016 where = FIN when = 360 }
+	}
+}
+
+event = { 
+	id = 3134016
+	random = no
+	country = FIN
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+	
+	action_a = { 
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = 0.03 when = 1 }
+	}
+}
+
+
+###########################################################################
+# 3034000 - 3034999	Finland specific events
+###########################################################################
+
+
+########################################################################
+# 1002018 - Finnish 20th Anniversary
+# by Burris
+########################################################################
+event = {
+id = 1002018 
+	random = no
+	country = FIN
+	trigger = {
+		random = 70
+		exists = GER
+		NOT = { war = { country = GER country = FIN } }
+	}
+
+	name = EVT_1002018_NAME # Finland Celebrates Independence
+	desc = EVT_1002018_DESC
+	style = 0
+
+	date = { day = 0 month = may year = 1937 }
+	offset = 15
+	deathdate = { day = 29 month = may year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME1002018A # Ok
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+############################################
+# 1945 Chemistry
+############################################
+event = {
+	id = 1002119
+	random = no
+	country = FIN
+
+	trigger = {
+		exists = SWE 
+		exists = FIN
+		NOT = {
+			war = { country = SWE country = FIN }
+			ispuppet = SWE
+			atwar = SWE
+		}
+	}
+
+	name = EVT_1002119_NAME # 1945 Nobel Prize in Chemistry
+	desc = EVT_1002119_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME1002119A
+		command = { type = dissent value = -1 }
+	}
+}
+#################################
+# Finish War children to Sweden(FIN) (by ghost_dk)
+#################################
+event = {
+	id = 1002035
+	random = no
+	country = FIN 
+
+	trigger = {
+		random = 15
+		event = 3183024 # Finish Winter war
+		war = { country = FIN country = SOV }
+		NOT = { event = 2628 }
+	}
+
+	name = EVT_1002035_NAME # Finnish war children to Sweden
+	desc = EVT_1002035_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1948 }
+
+	action_a = {
+		name = ACTIONNAME1002035A # Send the children to safety
+		command = { type = dissent value = -1 }
+		command = { type = manpowerpool value = 30 }
+		command = { type = trigger which = 8400015 }
+	}
+}
+#################################
+# Evacuation of lost territories(FIN) (by ghost_dk)
+#################################
+event = { 
+	id = 1002037
+	random = no 
+	country = FIN
+
+	# Triggered by SOV 2622
+
+	name = EVT_1002037_NAME # Evacuation of lost territories
+	Desc = EVT_1002037_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002037A # Relocate
+		command = { }
+	}
+}
+################################
+# Finnish Lotta Organization 1936(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002038
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME1002038A # More recruits
+		command = { type = manpowerpool value = 10 }
+	}
+}
+################################
+# Finnish Lotta Organization 1937(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002039
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1937 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 10 }
+	}
+}
+################################
+# Finnish Lotta Organization 1938(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002040
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1938 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 10 }
+	}
+}
+################################
+# Finnish Lotta Organization 1939(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002041
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1939 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 30 }
+	}
+}
+################################
+# Finnish Lotta Organization 1940(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002042
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1940 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 15 }
+	}
+}
+################################
+# Finnish Lotta Organization 1941(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002043
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1941 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1942 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 15 }
+	}
+}
+################################
+# Finnish Lotta Organization 1942(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002044
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1942 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 15 }
+	}
+}
+################################
+# Finnish Lotta Organization 1943(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002045
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1943 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 15 }
+	}
+}
+################################
+# Finnish Lotta Organization 1944(FIN) (by ghost_dk)
+################################
+event = {
+	id = 1002046
+	random = no
+	country = FIN
+
+	trigger = { NOT = { puppet = { country = FIN country = SOV } } }
+
+	name = EVT_1002038_NAME # More members for the Lotta Organization
+	desc = EVT_1002038_DESC
+	style = 0
+
+	date = { day = 0 month = february year = 1944 }
+	offset = 30
+	deathdate = { day = 0 month = january year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME1002038A
+		command = { type = manpowerpool value = 15 }
+	}
+}
+##############################################
+#  Finland Captures Soviet Equipment(FIN) (by ghost_dk)
+##############################################
+event = { 
+	id = 1002047
+	random = no
+	persistent = no
+	country = FIN
+	
+	trigger = {
+		random = 1
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_1002047_NAME # Captured equipment
+	desc = EVT_1002047_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002047A # Great
+		command = { type = steal_tech which = SOV } 
+		command = { type = supplies value = 500 } 
+		command = { type = dissent value = -1 }
+	}
+}
+##############################################
+#  Finland Captures Soviet Equipment(FIN) (by ghost_dk)
+##############################################
+event = { 
+	id = 1002048
+	random = no
+	persistent = no
+	country = FIN
+	
+	trigger = {
+		random = 1
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_1002047_NAME # Captured equipment
+	desc = EVT_1002047_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 20
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002047A # "Great!"
+		command = { type = steal_tech which = SOV } 
+		command = { type = supplies value = 650 } 
+		command = { type = dissent value = -1 }
+	}
+}
+##############################################
+#  Finland Captures Soviet Equipment(FIN) (by ghost_dk)
+##############################################
+event = { 
+	id = 1002049
+	random = no
+	persistent = no
+	country = FIN
+
+	trigger = {
+		random = 1
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_1002047_NAME # Captured equipment
+	desc = EVT_1002047_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 25
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002047A # "Great!"
+		command = { type = steal_tech which = SOV } 
+		command = { type = supplies value = 650 } 
+		command = { type = dissent value = -1 }
+	}
+}
+##############################################
+#  Finland Captures Soviet Equipment(FIN) (by ghost_dk)
+##############################################
+event = { 
+	id = 1002050
+	random = no
+	persistent = no
+	country = FIN
+
+	trigger = {
+		random = 1
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_1002050_NAME # captured equipment
+	desc = EVT_1002050_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002050A # "Great!"
+		command = { type = steal_tech which = SOV } 
+		command = { type = supplies value = 750 } 
+		command = { type = dissent value = -1 }
+		}
+}
+##############################################
+#  Finland Captures Soviet Equipment(FIN) (by ghost_dk)
+##############################################
+event = { 
+	id = 1002051
+	random = no
+	persistent = no
+	country = FIN
+
+	trigger = {
+		random = 1
+		war = { country = FIN country = SOV }
+	}
+
+	name = EVT_1002050_NAME # captured equipment
+	desc = EVT_1002050_DESC
+	style = 0
+
+	date = { day = 0 month = july year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002050A # "Great!"
+		command = { type = steal_tech which = SOV } 
+		command = { type = supplies value = 750 } 
+		command = { type = dissent value = -1 }
+	}
+}
+########################################## 
+# Hitler Visits Mannerheim(FIN) (by ghost_dk)
+##########################################
+event = {
+	id = 1002052
+	random = no
+	country = FIN
+
+	# triggered by GER 3136139
+
+	name = EVT_1002052_NAME # Adolf Hitler Visits Finland
+	desc = EVT_1002052_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002052A # Refuse german alliance offer
+		command = { type = trigger which = 3136140 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+                command = { type = relation which = GER value = -75 }
+		command = { type = domestic which = interventionism value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME1002052B # Join Axis
+		command = { type = trigger which = 3136141 }
+		command = { type = alliance which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#####################################
+# (FIN)Ryti Ribbentrop proposal (by ghost_dk)
+#####################################
+event = {
+	id = 1002053
+	random = no
+	country = FIN
+
+	# triggered by GER 3136142
+
+	name = EVT_1002053_NAME # Ryti-Ribbentrop pact
+	desc = EVT_1002053_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002053A # Sign Pact
+		command = { type = supplies value = 150 }
+		command = { type = money value = -5 }
+		command = { type = relation which = SOV value = -100 }
+		command = { type = trigger which = 3136143 }
+	}
+	action_b = {
+		name = ACTIONNAME1002053B # Don't sign
+		command = { type = relation which = SOV value = 50 }
+		command = { type = money value = -3 }
+		command = { type = trigger which = 3136144 }
+	}
+}
+
+#######################################
+# US grants loan
+#######################################
+event = {
+	id = 1002056
+	random = no
+	country = FIN
+
+	# triggered by USA 3182022
+
+	name = EVT_1002056_NAME # US grants loan
+	desc = EVT_1002056_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002056A # Buy supplies
+		command = { type = supplies value = 1000 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+########################################
+# Purchase US Fighter planes[FIN) (by ghost_dk)
+########################################
+event = {
+	id = 1002057
+	random = no
+	country = FIN
+
+	trigger = {
+		random = 20
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			alliance = { country = FIN country = GER }
+		}
+	}
+
+	name = EVT_1002057_NAME # Purchase US Fighters
+	desc = EVT_1002057_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002057A # Purchase planes
+		command = { type = add_division value = interceptor when = 2 }
+	}
+}
+##########################################
+# F. E. Sillanp‰‰ recieves Nobel Prize for literature(FIN) (by ghost_dk)
+##########################################
+event = { 
+	id = 1002058
+	random = no
+	country = FIN
+
+	trigger = {
+		war = { country = SOV country = FIN }
+		exists = FIN
+		NOT = { 
+			event = 2628
+		}
+	}
+
+	name = EVT_1002058_NAME # Sillanp‰‰ takes Nobel Prize
+	desc = EVT_1002058_DESC
+	style = 0
+
+	date = { day = 14 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 16 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME1002058A # Great
+		command = { type = dissent value = -1 }
+	}
+}
+##########################################
+# Finland pays/cant pay WWI war debts(FIN) (by ghost_dk)
+###########################################
+event = {
+	id = 1002059
+	random = no
+	country = FIN
+
+	trigger = { 
+		exists = FIN
+		war = { country = FIN country = SOV }
+		NOT = { 
+			event = 2628
+			alliance = { country = SOV country = USA }
+		}
+	}
+
+	name = EVT_1002059_NAME # Pay WWI war debts to the USA
+	desc = EVT_1002059_DESC
+	style = 0
+
+	date = { day = 15 month = december year = 1939 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1939 }
+
+	action_a = {
+		name = ACTIONNAME1002059A # Pay debts
+		command = { type = supplies value = -100 }
+		command = { type = money value = 15 }
+	}
+	action_b = {
+		name = ACTIONNAME1002059B # We can't pay
+		command = { type = money value = -3 }
+	}
+}
+##########################################
+# Request help from France and UK(FIN) (by ghost_dk)
+#########################################
+event = {
+	id = 1002060
+	random = no
+	country = FIN
+
+	trigger = {
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			alliance = { country = FIN country = GER }
+			alliance = { country = ENG country = SOV }
+		}
+	}
+
+	name = EVT_1002060_NAME # Request aid from France/UK
+	desc = EVT_1002060_DESC
+	Style = 0
+
+	action_a = {
+		name = ACTIONNAME1002060A # Request aid
+		command = { type = money value = -2 }
+		command = { type = trigger which = 432042 }
+		command = { type = trigger which = 3131073 }
+	}
+	action_b = {
+		name = ACTIONNAME1002060B # We don't need their help
+		command = { }
+	}
+}
+#########################################
+# request denied /France(FIN) (by ghost_dk)
+#########################################
+event = { 
+	id = 1002061
+	random = no
+	country = FIN
+
+	# triggered by FRA 432042
+
+	name = EVT_1002061_NAME # France won't help
+	desc = EVT_1002061_DESC
+	Style = 0
+
+	action_a = {
+		name = ACTIONNAME1002061A # Ok
+		command = { }
+	}
+}
+#########################################
+# request denied /UK(FIN) (by ghost_dk)
+#########################################
+event = { 
+	id = 1002062
+	random = no
+	country = FIN
+
+	# triggered by ENG 3131073
+
+	name = EVT_1002062_NAME # England won't help
+	desc = EVT_1002062_DESC
+	Style = 0
+
+	action_a = {
+		name = ACTIONNAME1002062A # Ok
+		command = { }
+	}
+}
+########################################
+# Request Granted/France(FIN) (by ghost_dk)
+########################################
+event = {
+	id = 1002063
+	random = no
+	country = FIN
+
+	# triggered by FRA 432042
+
+	name = EVT_1002063_NAME # France sends supplies and advisors
+	desc = EVT_1002063_DESC
+	Style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002063A # Great
+		command = { type = supplies value = 200 }
+		command = { type = add_brigade  value = artillery when = 1 }
+	}
+}
+#######################################
+# Request Granted/UK(FIN) (by ghost_dk)
+#######################################
+event = {
+	id = 1002064
+	random = no
+	country = FIN
+
+	# triggered by ENG 3131073
+
+	name = EVT_1002064_NAME # England sends supplies and advisors
+	desc = EVT_1002064_DESC
+	Style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002064A # Great
+		command = { type = supplies value = 200 }
+		command = { type = add_brigade  value = artillery when = 1 }
+	}
+}
+#######################################
+# (FIN)Ambulance and staff arrives from Sweden (by ghost_dk)
+#######################################
+event = { 
+	id = 1002065
+	random = no
+	country = FIN
+
+	# triggered by SWE 8400023
+
+	name = EVT_1002065_NAME # Ambulance with staff arrives from Sweden
+	desc = EVT_1002065_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002065A # Thank you
+		command = { type = supplies value = 50 }
+	}
+}
+#######################################
+# (FIN)Argentina Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002066
+	random = no
+	country = FIN
+
+	# triggered by ARG 4300000
+
+	name = EVT_1002066_NAME # Argentina promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A # Great
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)Ecuador Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002067
+	random = no
+	country = FIN
+
+	# triggered by ECU 4800009
+
+	name = EVT_1002067_NAME # Ecuador promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A # Great
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)Haiti Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002068
+	random = no
+	country = FIN
+
+	# triggered by HAI 8700002
+
+	name = EVT_1002068_NAME # Haiti promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A # Great
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)Bolivia Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002069
+	random = no
+	country = FIN
+
+	# triggered by BOL 4600006
+
+	name = EVT_1002069_NAME # Bolivia promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)Venezuela Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002070
+	random = no
+	country = FIN
+
+	# triggered by VEN 4000000
+
+	name = EVT_1002070_NAME # Venezuela promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)Mexico Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002071
+	random = no
+	country = FIN
+
+	# triggered by MEX 602019
+
+	name = EVT_1002071_NAME # Mexico promises aid
+	desc = EVT_1002066_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A
+		command = { type = dissent value = -1 }
+	}
+}
+#######################################
+# (FIN)private collections from sweden arrive(FIN)  (by ghost_dk)
+#######################################
+event = {
+	id = 1002073
+	random = no
+	country = FIN
+
+	# triggered by SWE 8400016
+
+	name = EVT_1002073_NAME # Private collections from Sweden
+	desc = EVT_1002073_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002073B # both
+		command = { type = supplies value = 50 }
+		command = { type = add_division value = infantry }
+	}
+	action_b = {
+		name = ACTIONNAME1002073A # Supply
+		command = { type = supplies value = 50 }
+	}
+	action_c = {
+		name = ACTIONNAME1002073C # Division
+		command = { type = add_division value = infantry }
+	}
+}
+#######################################
+# (FIN)Recieve food and clothes from Norway (by ghost_dk)
+#######################################
+event = { 
+	id = 1002075
+	random = no
+	country = FIN
+
+	# triggered by NOR 8200003
+
+	name = EVT_1002075_NAME # The backpack collection
+	desc = EVT_1002075_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002075A # Thank you
+		command = { type = dissent value = -1 }
+		command = { type = supplies value = 50 }
+	}
+}
+#######################################
+# (FIN)Danish trucks to Finland (by ghost_dk)
+#######################################
+event = { 
+	id = 1002076
+	random = no
+	country = FIN
+
+	trigger = {
+		random = 15 
+		event = 3183024
+		exists = DEN
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			war = { country = FIN country = DEN }
+			alliance = { country = DEN country = SOV }
+		}
+	}
+
+	name = EVT_1002076_NAME # Danish Trucks arrive
+	desc = EVT_1002076_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002076A # Ok
+		command = { type = supplies value = 15 }
+	}
+}
+#######################################
+# (FIN)US sends money (by ghost_dk)
+#######################################
+event = {
+	id = 1002079 
+	random = no
+	country = FIN
+
+	# triggered by USA 322054
+
+	name = EVT_1002079_NAME # US sends Money
+	desc = EVT_1002079_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002079A # Ok
+		command = { type = dissent value = -2 }
+	}
+}
+#######################################
+# (FIN)Recieve Grain from Argentina (by ghost_dk)
+#######################################
+event = {
+	id = 1002081
+	random = no
+	country = FIN
+
+	# triggered by ARG 4300001
+
+	name = EVT_1002081_NAME # Grain from Argentina
+	desc = EVT_1002081_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002081A # Ok
+		command = { type = supplies value = 20 }
+	}
+}
+#####################################
+# (FIN)Italy sends supplies (by Luxor)
+#####################################
+event = { 
+	id = 1002082
+	random = no
+	country = FIN
+
+	# triggered by GER 3136146, 3136145
+
+	name = EVT_1002082_NAME # Italian supplies arrive
+	desc = EVT_1002082_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002082A # Thank you
+		command = { type = supplies value = 500 }
+	}
+}
+########################################
+# (FIN)Brazilian coffee arrives (by ghost_dk)
+########################################
+event = { 
+	id = 1002083
+	random = no
+	country = FIN
+
+	# triggered by BRA 4100000
+
+	name = EVT_1002083_NAME # Brazil sends coffee
+	desc = EVT_1002083_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002083A # Thank you
+		command = { type = supplies value = 20 }
+	}
+}
+########################################
+# (FIN)aid from Swedish industry and business (by ghost_dk)
+########################################
+event = {
+	id = 1002085
+	random = no
+	persistent = no
+	country = FIN
+
+	trigger = { 
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			war = { country = FIN country = SWE }
+			alliance = { country = SWE country = SOV }
+			OR = {
+				event = 3183030
+				event = 2628
+			}
+		}
+	}
+
+	name = EVT_1002085_NAME # Aid from Swedish industry
+	desc = EVT_1002085_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002085A # Thank you
+		command = { type = supplies value = 40 }
+		command = { type = construct which = ic where = 524 value = 2 }
+	}
+}
+########################################
+# (FIN)Accept foreigners in the army (by ghost_dk)
+########################################
+event = {
+	id = 1002086
+	random = no
+	persistent = no
+	country = FIN
+
+	trigger = {
+		random = 15
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = {	event = 2628 }
+	}
+
+	name = EVT_1002086_NAME # Accept foreign volunteers
+	desc = EVT_1002086_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME1002086A # Accept foreigners
+		command = { type = manpowerpool value = 15 }
+	}
+}
+########################################
+# (FIN)British collection money arrive (by ghost_dk)
+########################################
+event = {
+	id = 1002087
+	random = no
+	country = FIN
+
+	# triggered by ENG 3131074
+
+	name = EVT_1002087_NAME # Donations from England
+	desc = EVT_1002087_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002087A # Thanks
+		command = { type = supplies value = 50 }
+	}
+}
+#####################################
+# (FIN)South Africa sends wine and liquor (by ghost_dk)
+#####################################
+event = {
+	id = 1002088
+	random = no
+	country = FIN
+
+	# triggered by SAF 3300005
+
+	name = EVT_1002088_NAME # South Africa sends supplies
+	desc = EVT_1002088_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002088A # Thank you
+		command = { type = supplies value = 5 }
+	}
+}
+######################################
+# (FIN)Foreign labout camp established (by ghost_dk)
+######################################
+event = {
+	id = 1002089
+	random = no
+	country = FIN
+
+	# triggered by DEN 8300012
+
+	name = EVT_1002089_NAME # Foreign labour recruited
+	desc = EVT_1002089_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002089A # Thank you
+		command = { }
+	}
+}
+#######################################
+# (FIN)Foreigh workers arrive  (by ghost_dk)
+#######################################
+event = {
+	id = 1002092
+	random = no
+	country = FIN
+
+	# triggered by DEN 8300013
+
+	name = EVT_1002092_NAME # Foreign workers arrive
+	desc = EVT_1002092_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002092A # Welcome, friends
+		command = { type = manpowerpool value = 15 }
+	}
+}
+########################################
+# (FIN)Request swedish units (by ghost_dk)
+########################################
+event = {
+	id = 1002093
+	random= no
+	country = FIN 
+
+	trigger = { 
+		random = 20
+		event = 3183024
+		event = 222044
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			event = 8300014
+			war = { country = FIN country = SWE }
+		}
+	}
+
+	name = EVT_1002093_NAME # Request transfer of Swedish units
+	desc = EVT_1002093_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME1002093A # Request military aid
+		command = { type = money value = -1 }
+		command = { type = trigger which = 8400024 }
+	}
+}
+######################################
+# (FIN)request denied (by ghost_dk)
+######################################
+event = {
+	id = 1002094
+	random = no
+	country = FIN
+
+	# triggered by SWE 8400024
+
+	name = EVT_1002094_NAME # Request Denied
+	desc = EVT_1002094_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002094A # OK
+		command = { type = sleepevent which = 1002095 }
+	}
+}
+#######################################
+# (FIN)Recieve units (by ghost_dk)
+#######################################
+event = {
+	id = 1002095
+	random= no
+	country = FIN
+
+	# triggered by SWE 8400024
+
+	name = EVT_1002095_NAME # Swedish units transferred
+	desc = EVT_1002095_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002095A # Great
+		command = { type = sleepevent which = 1002094 }
+	}
+}
+########################################
+# (FIN)Britain sens guns and ammunition (by ghost_dk)
+########################################
+event = {
+	id = 1002096
+	random = no
+	country = FIN
+
+	# triggered by ENG 3131075
+
+	name = EVT_1002096_NAME # England sends guns and ammo
+	desc = EVT_1002096_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002096A # Thank you
+		command = { type = supplies value = 75 }
+	}
+}
+########################################
+# (FIN)Foreign Volunters arrive (by ghost_dk)
+########################################
+event = {
+	id = 1002097
+	random = no
+	country = FIN
+
+	trigger = {
+		random = 20
+		event = 3183024
+		event = 1002086
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			war = { country = SWE country = FIN }
+		}
+	}
+
+	name = EVT_1002097_NAME # Foreign volunteers arrive
+	desc = EVT_1002097_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME1002097A # Welcome, volunteers
+		command = { type = add_division value = infantry }
+	}
+}
+###################################
+# (FIN)TASS denies bombings (by Ghost_dk)
+###################################
+event = {
+	id = 1002099
+	random = no
+	country = FIN
+
+	# triggered by SOV 222048
+
+	name = EVT_1002099_NAME # TASS denies bombings
+	desc = EVT_1002099_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002099A # Typical
+		command = { type = trigger which = 222047 }
+	}
+}
+###################################
+# (FIN)Scandinavian policy on military aid to Finland (by ghost_dk)
+###################################
+event = { 
+	id = 1002100
+	random = no
+	country = FIN
+
+	# triggered by DEN 8300016
+
+	name = EVT_1002100_NAME # Finland military aid Policy
+	desc = EVT_1002100_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002100A # Ok
+		command = { }
+	}
+}
+####################################
+# (FIN)Suggest Swedish -Finnish Defense treaty (by ghost_dk)
+####################################
+event = {
+	id = 1002101
+	random = no
+	country = FIN
+
+	trigger = { 
+		event = 3183024
+		war = { country = FIN country = SOV }
+		control = { province = 530 data = SOV } # Terijoki
+		control = { province = 531 data = SOV } # Viipuri
+		control = { province = 532 data = SOV } # Sortavala
+		control = { province = 517 data = SOV } # Petsamo
+		NOT = { 
+			event = 2628
+			alliance = { country = GER country = FIN }
+			war = { country = FIN country = SWE }
+		}
+	}
+
+	name = EVT_1002101_NAME # Suggest defense treaty
+	desc = EVT_1002101_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name= ACTIONNAME1002101A # Suggest treaty
+		command = { type = trigger which = 1002110 }
+		command = { type = money value = -3 }
+	}
+}
+###################################
+# (FIN)Sweden agrees (by ghost_dk)
+###################################
+event = {
+	id = 1002102
+	random = no
+	country = FIN
+
+	# triggered by SWE 1002110
+
+	name = EVT_1002102_NAME # Sweden agrees to Defense treaty
+	desc = EVT_1002102_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME1002102A # Great
+		command = { type = access which = SWE }
+	}
+}
+###################################
+# (FIN)Sweden wont (by ghost_dk)
+###################################
+event = {
+	id = 1002103
+	random = no
+	country = FIN
+
+	# triggered by SWE 1002110
+
+	name = EVT_1002103_NAME # Sweden rejects proposal
+	desc = EVT_1002103_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002103A # Oh no
+		command = { }
+	}
+}
+##################################
+# (FIN)Swedish protest to league of nations (by ghost_dk)
+##################################
+event = {
+	id = 1002104
+	random = no
+	country = FIN
+
+	trigger = { 
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = { event = 2628 }
+	}
+	
+	name = EVT_1002104_NAME # Protest to League of Nations
+	desc = EVT_1002104_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME1002104A # Protest
+		command = { type = money value = -1 }
+		command = { type = trigger which = 222048 }
+	}
+}
+##################################
+# (FIN)request aid from the allies (by ghost_dk)
+##################################
+event = {
+	id = 1002105 
+	random = no
+	country = FIN
+
+	trigger = {
+		random = 20
+		event = 3131078
+		war = { country = SOV country = FIN }
+		OR = {
+			control = { province = 530 data = SOV } # Terijoki
+			control = { province = 531 data = SOV } # Viipuri
+			control = { province = 532 data = SOV } # Sortavala
+			control = { province = 517 data = SOV } # Petsamo
+		}
+		NOT = {
+			event = 2628
+			alliance = { country = GER country = FIN }
+			atwar = ENG
+			atwar = FRA
+		}
+	}
+
+	name = EVT_1002105_NAME # Request aid from Allies
+	desc = EVT_1002105_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME1002105A # Hold for peace talks
+		command = { type = sleepevent which = 3131096 }
+	}
+	action_b = {
+		name = ACTIONNAME1002105B # Send Request
+		command = { type = money value = -3 }		
+	}
+}
+#######################################
+# (FIN)Canada sends volunteers (by ghost_dk)
+#######################################
+event = {
+	id = 1002106
+	random = no
+	country = FIN
+
+	# triggered by CAN 402010
+
+	name = EVT_1002106_NAME # Canadian volunteers arrive
+	desc = EVT_1002106_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002106A # Arm the Canadians
+		command = { type = supplies value = -50 }
+		command = { type = add_division value = infantry }
+	}
+}
+#######################################
+# (FIN)President Kallio dies of heart attack (by ghost_dk)
+#######################################
+event = { 
+	id = 1002107 
+	random = no
+	country = FIN
+
+	trigger = { 
+		random = 10
+		event = 2628
+		atwar = no
+	}
+
+	name = EVT_1002107_NAME # Kallio dies of heart attack.
+	desc = EVT_1002107_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = { 
+		name = ACTIONNAME1002107A # Ryti takes office
+		command = { type = headofstate which = 29039 }
+# 		command = { type = sleepminister which = 29011 }
+# 		command = { type = sleepminister which = 29026 }
+# 		command = { type = sleepminister which = 29027 }
+# 		command = { type = sleepminister which = 29073 }
+	}
+}
+#######################################
+# (FIN)UK promises aid and sends bombers (by ghost_dk)
+#######################################
+event = {
+	id = 1002109
+	random = no
+	country = FIN
+
+	# triggered by ENG 3131077
+
+	name = EVT_1002109_NAME # UK sends Bombers
+	desc = EVT_1002109_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002109A # "Great"
+		command = { type = supplies value = 500 }
+	}
+}
+###################################
+# (FIN)Finland Suggests defense treaty (by Ghost_dk)
+###################################
+event = {
+	id = 1002110
+	random = no
+	country = FIN
+
+	# triggered by FIN 1002101
+
+	name = EVT_1002110_NAME # Finland suggests treaty
+	desc = EVT_1002110_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002110A # Consider treaty
+		command = { type = trigger which = 1002103 }
+	}
+	action_b = {
+		name = ACTIONNAME1002110B # Refuse treaty
+		command = { type = trigger which = 1002102 }
+	}
+	action_c = {
+		name = ACTIONNAME1002110C # Enter treaty
+# 		command = { type = warentry value = 100 }
+		command = { type = war which = SOV }
+		command = { type = access which = SWE }
+		command = { type = trigger which = 3134002 }
+	}
+}
+#######################################
+# (FIN)Haiti Promises aid (by ghost_dk)
+#######################################
+event = {
+	id = 1002118
+	random = no
+	country = FIN
+
+	# triggered by URU 4200000
+
+	name = EVT_1002118_NAME # Uruguay promises aid
+	desc = EVT_1002066_DESC
+
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME1002066A
+		command = { type = dissent value = -1 }
+	}
+}
+
+############################################
+# Coastal garrison activation for AI
+############################################
+event = {
+	id = 1002120
+	random = no
+	country = FIN
+
+	trigger = { 
+				AI = FIN
+				OR = {					# will save supplies for AI and improve building behaviour
+						AND = {
+								NOT = { AI = SOV }
+								atwar = SOV
+								}
+						AND = {
+								NOT = { AI = GER }
+								war = { country = FIN country = GER }
+								}
+						}
+				}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1990 }
+
+	action_a = {
+	
+	# Helsinki garrison already active in OOB
+	
+		command = { type = add_corps which = "Vaasa Divisioona" value = land where = 521 } # Vaasa
+		command = { type = activate_division which = 32000 value = 20 where = 521 }
+	
+		command = { type = add_corps which = "Turku Divisioona" value = land where = 524 } # Turku
+		command = { type = activate_division which = 32000 value = 21 where = 524 }
+	
+		command = { type = add_corps which = "Viipuri Divisioona" value = land where = 531 } # Viipuri
+		command = { type = activate_division which = 32000 value = 22 where = 531 }
+	}
+}
+#########################################################################
+# Garrison removal for human player
+#########################################################################
+event = { 
+	id = 1002121
+	random = no
+	country = FIN
+	
+	trigger = { 
+				event = 1002120
+				ai = no
+			}
+
+	name = EVT_3131999_NAME 
+	desc = EVT_3131999_DESC 
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = remove_division which = 32000 value = 20 }
+		command = { type = remove_division which = 32000 value = 21 }
+		command = { type = remove_division which = 32000 value = 22 }
+		command = { type = manpowerpool value = -19.5 }
+	}
+}
+
+#########################################################################
+# Finnish air force armament program
+# 1st event: reducing IC in tampere. ENG and HOL event about sold blueprints.
+# 2nd event: In Mid 1939 event will create 2 air division. IC wont be rebuild
+#########################################################################
+event = { 
+	id = 1002122
+	random = no
+	country = FIN
+	
+	save_date = yes
+	
+	trigger = { 
+		random = 15
+	}
+
+	name = EVT_1002122_NAME 
+	desc = EVT_1002122_DESC 
+	style = 2
+	picture = "fin_state_aircraft_factory"
+
+	date = { day = 0 month = april year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = ACTIONNAME1002122A
+		ai_chance = 99
+        command = { type = supplies  value = -1500 }
+		command = { type = money     value = -50   }
+		command = { type = construct which = ic   where = 527 value = -1 } # Tampere
+		command = { type = gain_tech which = 4050  } 
+		command = { type = gain_tech which = 4060  } 
+		command = { type = gain_tech which = 4330  } 
+		command = { type = gain_tech which = 4340  } 
+		command = { type = trigger which = 1002123 } #HOL Fokker license
+		command = { type = trigger which = 1002124 } #ENG Blenhem license
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002122B
+		ai_chance = 1
+        command = { type = money      value = -10     }	
+		command = { type = dissent    value = 2       } 
+	    command = { type = sleepevent which = 1002123 } 
+		command = { type = sleepevent which = 1002124 } 
+		command = { type = sleepevent which = 1002125 } #New aircraft for the air force
+	}
+}	
+
+event = { 
+	id = 1002123
+	random = no
+	country = HOL
+	
+    # triggered by FIN 1002122
+
+	name = EVT_1002123_NAME 
+	desc = EVT_1002123_DESC 
+	style = 2
+	picture = "fin_state_aircraft_factory_holland"
+
+	date = { day = 0 month = april year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = money     value = 50   }
+	}
+}
+
+event = { 
+	id = 1002124
+	random = no
+	country = ENG
+	
+    # triggered by FIN 1002122
+
+	name = EVT_1002124_NAME 
+	desc = EVT_1002124_DESC 
+	style = 2
+	picture = "fin_state_aircraft_factory_england"
+
+	date = { day = 0 month = april year = 1937 }
+	offset = 1
+	deathdate = { day = 0 month = April year = 1990 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = money     value = 50   }
+	}
+}
+	
+############################################		
+		
+event = { 
+	id = 1002125
+	random = no
+	country = FIN
+	
+    trigger = {
+	    event = { id = 1002122 days = 480 }
+	}	
+
+	name = EVT_1002122_NAME 
+	desc = EVT_1002125_DESC 
+	style = 2
+	picture = "fin_state_aircraft_factory_2"		
+		
+	action_a = {
+		name = ACTIONNAME1002125A
+		command = { type = add_division which = "Lentorykmentti 2" value = interceptor     when = 1 }
+		command = { type = add_division which = "Lentorykmentti 4" value = tactical_bomber when = 1 }		
+	}
+}
+
+############################################
+# Finnland will buy more planes
+############################################		
+		
+event = { 
+	id = 1002126
+	random = no
+	country = FIN
+	
+	name = EVT_1002126_NAME 
+	desc = EVT_1002126_DESC 
+	style = 2
+	picture = "fin_french_aircraft_deal"		
+	
+	date = { day = 3 month = february year = 1940 }
+	offset = 1
+	deathdate = { day = 0 month = february year = 1941 }	
+		
+	action_a = {
+		name = ACTIONNAME1002126A
+		ai_chance = 100
+		command = { type = money   value = -50 }	
+		command = { type = trigger which = 1002127 } #FRA MS.406 aircraft
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002126B
+		ai_chance = 0
+		command = { type = money      value = 25 }	
+		command = { type = sleepevent which = 1002127 } 
+		command = { type = sleepevent which = 1002128 } 
+	}		
+}
+
+event = { 
+	id = 1002127
+	random = no
+	country = FRA
+	
+    # triggered by FIN 1002126
+
+	name = EVT_1002126_NAME 
+	desc = EVT_1002126_DESC 
+	style = 2
+	picture = "fin_french_aircraft_deal"
+
+	action_a = {
+		name = ACTIONNAME1002127A
+		ai_chance = 97
+		command = { type = money     value = 10    }
+		command = { type = supplies  value = -1500 }
+		command = { type = dissent   value = -1    } 
+		command = { type = construct which = ic where = 55 value = 1 } #Paris
+		command = { type = trigger   which = 1002128 } #FIN MS.406 aircraft
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002127B
+		ai_chance = 3
+		command = { type = money      value = 150     }
+		command = { type = relation   which = FIN value = -75 }
+		command = { type = dissent    value = 2       } 
+		command = { type = sleepevent which = 1002128 } 
+	}		
+}
+
+event = { 
+	id = 1002128
+	random = no
+	country = FIN
+	
+    trigger = {
+	    event = { id = 1002122 days = 480 }
+	}	
+
+	name = EVT_1002126_NAME 
+	desc = EVT_1002126_DESC 
+	style = 2
+	picture = "fin_french_aircraft_deal"		
+		
+	action_a = {
+		name = ACTIONNAME1002128A
+		command = { type = construct    which = ic where = 527 value = 1 } 
+		command = { type = add_division which = "Lentorykmentti 3" value = interceptor when = 2 }	
+		command = { type = gain_tech    which = 4100  } 
+	}
+}
+
+############################################
+# Finnish National Elections 1936
+############################################
+event = { 
+	id = 1002137
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC
+	style = 2
+	picture = "fin_event_election_1936"		
+	
+	date = { day = 6 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1936 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A # Kallio won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }	
+		command = { type = headofgovernment which = 29053 }
+		command = { type = foreignminister  which = 29071 }	
+		command = { type = armamentminister which = 29181 }		
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}		
+}	
+
+############################################
+# Finnish National Elections 1937
+############################################
+event = { 
+	id = 1002129
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC 
+	style = 2
+	picture = "fin_event_election_1937"		
+	
+	date = { day = 14 month = february year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = february year = 1937 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Aimo Cajander had won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }	
+		command = { type = headofstate      which = 29043 }
+		command = { type = headofgovernment which = 29054 }
+		command = { type = foreignminister  which = 29071 }	
+		command = { type = armamentminister which = 29086 }		
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}	
+}
+		
+############################################
+# Finnish National Elections 1939
+############################################
+event = { 
+	id = 1002130
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC
+	style = 2
+	picture = "fin_event_election_1939"		
+	
+	date = { day = 1 month = december year = 1939 }
+	offset = 1
+	deathdate = { day = 1 month = february year = 1940 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A # Ryti won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }	
+		command = { type = headofgovernment which = 29058 }
+		command = { type = foreignminister  which = 29068 }	
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}		
+}	
+
+############################################
+# Finnish National Elections 1940
+############################################
+event = { 
+	id = 1002131
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC
+	style = 2
+	picture = "fin_event_election_1940"		
+	
+	date = { day = 26 month = march year = 1940 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1940 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A # Ryti won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofstate      which = 29039 }
+		command = { type = headofgovernment which = 29058 }
+		command = { type = foreignminister  which = 29074 }	
+		command = { type = armamentminister which = 29098 }			
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}		
+}	
+
+############################################
+# Finnish National Elections 1941
+############################################
+event = { 
+	id = 1002132
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC
+	style = 2
+	picture = "fin_event_election_1941"		
+	
+	date = { day = 3 month = january year = 1941 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1941 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Rangell won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofgovernment which = 29059 }		
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}		
+}	
+
+############################################
+# Finnish National Elections 1943
+############################################
+event = { 
+	id = 1002133
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC 
+	style = 2
+	picture = "fin_event_election_1943"		
+	
+	date = { day = 4 month = march year = 1943 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1943 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Linkomies won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofgovernment which = 29063 }
+		command = { type = foreignminister  which = 29077 }			
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}	
+}	
+
+############################################
+# Finnish National Elections 1944
+############################################
+event = { 
+	id = 1002134
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC 
+	style = 2
+	picture = "fin_event_election_1944"		
+	
+	date = { day = 7 month = september  year = 1944 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1944 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Hackzell won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofgovernment which = 29060 }
+		command = { type = foreignminister  which = 29075 }			
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}	
+}	
+
+############################################
+# Finnish National Elections 1944/2
+############################################
+event = { 
+	id = 1002135
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC 
+	style = 2
+	picture = "fin_event_election_1944_2"		
+	
+	date = { day = 20 month = october year = 1944 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1944 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Urho CastrÈn won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofgovernment which = 29064 }
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}	
+}	
+
+############################################
+# Finnish National Elections 1944/3
+############################################
+event = { 
+	id = 1002136
+	random = no
+	country = FIN
+	
+	name = EVT_1002129_NAME 
+	desc = EVT_1002129_DESC 
+	style = 2
+	picture = "fin_event_election_1944_3"		
+	
+	date = { day = 16 month = november year = 1944 }
+	offset = 1
+	deathdate = { day = 1 month = december year = 1944 }	
+		
+	action_a = {
+		name = ACTIONNAME1002129A #Paasikivi won
+		ai_chance = 100
+		command = { type = dissent          value = -1    }
+		command = { type = headofgovernment which = 29061 }
+		command = { type = armamentminister which = 29089 }	
+	}
+	
+	action_b = {
+		name = ACTIONNAME1002129B
+		ai_chance = 0
+		command = { type = dissent value = 1 }  
+	}	
+}	
+
+### next ID = 1002138!!!

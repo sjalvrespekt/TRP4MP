@@ -1,0 +1,164 @@
+# converted to DH, Kane, July 12 2011
+###########################################################################
+#  	7900000 - 7999999
+###########################################################################
+
+#############################################
+# Was 752182 Marxist radicals rise up against King Zog I (ALB)
+#############################################
+event = { 
+	id = 7900000
+	random = no
+	country = ALB
+	
+	trigger = {
+                atwar = no
+		random = 20
+	}
+
+	name = EVT_7900000_NAME # Marxist radicals rise up against King Zog 
+	desc = EVT_7900000_DESC
+	style = 0
+
+        date = { day = 15 month = january year = 1937 }
+        offset = 20
+	deathdate = { day = 15 month = december year = 1938 }
+
+	action_a = {
+	  ai_chance = 95
+		name = ACTIONNAME7900000A # Execute the ringleaders and make minor reforms
+		command = { type = dissent value = -5 } # reforms undermine radical influence
+		command = { type = supplies value = -50 } # reform cost
+		command = { type = construct which = ic where = 359 value = 1 } # improved production in liberal society
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = sleepevent which = 7900001} # No serious uprising
+	}
+	action_b = {
+	  ai_chance = 4
+		name = ACTIONNAME7900000B # Crush the uprisings and suppress the Muslims
+		command = { type = add_division value = infantry when = 0 } # mobilize the army to suppress the radicals
+		command = { type = dissent value = 10 }  # strong dissent increase
+		command = { type = supplies value = -10 } # mobilisation cost
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = manpowerpool value = -50 } # no Muslim manpower
+		command = { type = sleepevent which = 7900001} # No serious uprising
+	}
+	action_c = {
+	  ai_chance = 1
+		name = ACTIONNAME7900000C # Ignore the radicals, they pose no threat
+		command = { type = dissent value = 5 } # growing discontent with Zog's rule
+	}
+}
+#############################################
+# Was 752184 Serious uprisings against King Zog I (ALB)
+#############################################
+event = { 
+	id = 7900001
+	random = no
+	country = ALB
+	
+	trigger = {
+                atwar = no
+		random = 10
+	}
+
+	name = EVT_7900001_NAME # Serious uprisings against King Zog I (ALB)
+	desc = EVT_7900001_DESC
+	style = 0
+
+        date = { day = 15 month = january year = 1937 }
+        offset = 20
+	deathdate = { day = 15 month = december year = 1939 }
+
+	action_a = {
+	  ai_chance = 55
+		name = ACTIONNAME7900001A # Communists seize power!
+		command = { type = set_domestic which = political_left value = 9 }
+		command = { type = set_domestic which = democratic value = 0 }
+		command = { type = headofstate which = 32049 } # Omer Nishani
+# 		command = { type = headofgovernment which = 32032 }
+# 		command = { type = foreignminister which = 32033 }
+# 		command = { type = armamentminister which = 32034 }
+# 		command = { type = ministerofsecurity which = 32035 }
+# 		command = { type = ministerofintelligence which = 32036 }
+# 		command = { type = chiefofstaff which = 32037 }
+# 		command = { type = chiefofarmy which = 32038 }
+# 		command = { type = chiefofnavy which = 32039 }
+# 		command = { type = chiefofair which = 32040 }
+		command = { type = dissent value = -25 }  # the people celebrate
+
+	}
+	action_b = {
+     ai_chance = 45
+		name = ACTIONNAME7900001B # Liberal reformers seize power!
+		command = { type = domestic which = democratic value = 1 } # liberal democratic coup
+		command = { type = headofstate which = 32044 } # Theofan Noli
+# 		command = { type = headofgovernment which = 32012 }
+# 		command = { type = foreignminister which = 32013 }
+# 		command = { type = armamentminister which = 32014 }
+# 		command = { type = ministerofsecurity which = 32015 }
+# 		command = { type = ministerofintelligence which = 32016 }
+# 		command = { type = chiefofstaff which = 32017 }
+# 		command = { type = chiefofarmy which = 32018 }
+# 		command = { type = chiefofnavy which = 32019 }
+# 		command = { type = chiefofair which = 32020 }
+		command = { type = dissent value = -25 } # the people celebrate
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 7900002
+	random = no
+	country = ALB 
+
+	# triggered by 5400017
+
+	name = EVT_7900002_NAME # The Potsdam Conference
+	desc = EVT_7900002_DESC # A new world order is formed!
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7900002A # Ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = secedeprovince which = YUG value = 329 }
+	}
+}
+#
+# HoI - Albania Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+#  Italian Ultimatum
+#########################################################################
+event = { 
+	id = 3500
+	random = no
+	country = ALB
+	
+	# Triggered by ITA 3145002
+	
+	name = EVT_3500_NAME
+	desc = EVT_3500_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3500A # Never!
+		ai_chance = 98
+		command = { type = trigger which = 3145003 }
+                command = { type = dissent value = 30 } # Albania at war, dissent
+	}
+	action_b = {
+		name = ACTIONNAME3500B # Very well. (Game Over)
+		ai_chance = 2
+		command = { type = trigger which = 3145004 }
+	}
+}

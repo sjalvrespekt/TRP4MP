@@ -1,0 +1,257 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+model = { # Escort Fighter 1930 - 0
+	cost 					= 3.88
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 1
+	airdefence				= 3 #1
+	airattack				= 5 #1
+	strategicattack			= 0
+	softattack				= 0 #1
+	hardattack				= 0
+	navalattack				= 0
+	range					= 400
+	supplyconsumption 		= 0.78
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.6
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+model = { # Escort Fighter 1937 - 1
+	cost 					= 5.1
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 2
+	airdefence				= 4 #2
+	airattack				= 6 #2
+	strategicattack			= 0
+	softattack				= 0 #1
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 600
+	supplyconsumption 		= 1.02
+	fuelconsumption			= 0.6
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+model = { # Escort Fighter 1940 - 2
+	cost 					= 5.74
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 3
+	airdefence				= 4 #3
+	airattack				= 7 #3
+	strategicattack			= 0
+	softattack				= 0 #1
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 650
+	supplyconsumption 		= 1.15
+	fuelconsumption			= 0.7
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+
+model = { # Escort Fighter 1942 - 3
+	cost 					= 6.21
+	buildtime	 			= 180
+	defaultorganisation 		= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 5
+	airdefence				= 5 #4
+	airattack				= 8 #4
+	strategicattack			= 0
+	softattack				= 0 #2
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 800
+	supplyconsumption 		= 1.24
+	fuelconsumption			= 0.8
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+
+model = { # Escort Fighter 1944 - 4
+	cost 					= 6.72
+	buildtime	 			= 180
+	defaultorganisation 		= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 6
+	airdefence				= 5 #5
+	airattack				= 9 #5
+	strategicattack			= 0
+	softattack				= 0 #2
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 900
+	supplyconsumption 		= 1.34
+	fuelconsumption			= 0.85
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+
+model = { # Escort Fighter 1945 - 5
+	cost 					= 7
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 6
+	airdefence				= 6 #6
+	airattack				= 10 #7
+	strategicattack			= 0
+	softattack				= 0 #2
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 1000
+	supplyconsumption 		= 1.4
+	fuelconsumption			= 0.9
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.25
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+
+model = { # Escort Fighter 1947 - 6
+	cost 					= 7.56
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 0
+	surfacedefence			= 6
+	airdefence				= 7 #8
+	airattack				= 11 #9
+	strategicattack			= 0
+	softattack				= 0 #2
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 1100
+	supplyconsumption 		= 1.51
+	fuelconsumption			= 1.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+model = { # Turbojet Escort Fighter 1950 - 7
+	cost 					= 8.5
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 2
+	surfacedefence			= 5
+	airdefence				= 8 #9
+	airattack				= 13 #12
+	strategicattack			= 0
+	softattack				= 0 #2
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 1800
+	supplyconsumption 		= 1.7
+	fuelconsumption			= 1.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+model = { # Turbojet Escort Fighter 1954 - 8
+	cost 					= 9.94
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 3
+	surfacedefence			= 6
+	airdefence				= 9 #12
+	airattack				= 15 #15
+	strategicattack			= 0
+	softattack				= 0 #3
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 2000
+	supplyconsumption 		= 1.99
+	fuelconsumption			= 1.0
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}
+model = { # Turbojet Escort Fighter 1959 - 9
+	cost 					= 12.1
+	buildtime	 			= 180
+	defaultorganisation 	= 0
+	morale					= 0
+	manpower				= 0.12
+	maxspeed				= 0
+	surfacedetectioncapability	= 0
+	airdetectioncapability	= 3
+	surfacedefence			= 7
+	airdefence				= 10 #13
+	airattack				= 17 #17
+	strategicattack			= 0
+	softattack				= 0 #3
+	hardattack				= 0
+	navalattack				= 0 #1
+	range					= 2500
+	supplyconsumption 		= 2.42
+	fuelconsumption			= 1.2
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { heavy_fighter = 40 manpower = 120 }
+}

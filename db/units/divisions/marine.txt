@@ -1,0 +1,217 @@
+#	marine				
+allowed_brigades =  artillery					
+allowed_brigades =  anti_tank					
+allowed_brigades =  anti_air					
+allowed_brigades =  rocket_artillery					
+#allowed_brigades =  sp_artillery					
+#allowed_brigades =  sp_rct_artillery					
+#allowed_brigades =  tank_destroyer					
+allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+#allowed_brigades =  sp_anti_air	
+allowed_brigades =  b_01				
+					
+# Early Marine Division (1937) - 0					
+model = {					
+	cost =				8.49
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				19
+	toughness =				20
+	softness =				100
+	suppression =				2
+	airdefence =				12
+	softattack =				16
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.51
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 12000 equipment = 304 artillery = 48 heavy_artillery = 19 anti_air = 5 anti_tank = 6 horses = 1500 trucks = 150                             }
+}					
+# Basic Marine Division (1940) - 1					
+model = {					
+	cost =				9.27
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				21
+	toughness =				22
+	softness =				100
+	suppression =				2
+	airdefence =				13
+	softattack =				18
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.65
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 280 artillery = 58 heavy_artillery = 10 anti_air = 10 anti_tank = 60 horses = 350 trucks = 1200 halftracks = 15  light_armor = 5                          }
+}					
+# Improved Marine Division (1943) - 2					
+model = {					
+	cost =				10.14
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				25
+	toughness =				27
+	softness =				100
+	suppression =				2
+	airdefence =				15
+	softattack =				22
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.8
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 172 artillery = 50 heavy_artillery = 10 anti_air = 10 anti_tank = 60 horses = 100 trucks = 1200 halftracks = 50  light_armor = 10                          }
+}					
+# Advanced Marine Division (1945) - 3					
+model = {					
+	cost =				10.75
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				28
+	toughness =				30
+	softness =				100
+	suppression =				2
+	airdefence =				17
+	softattack =				24
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.91
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 12000 equipment = 200 artillery = 50 heavy_artillery = 10 anti_air = 15 anti_tank = 60  trucks = 1200 halftracks = 75  light_armor = 15                          }
+}					
+# Semimodern Marine Division (1948) - 4					
+model = {					
+	cost =				11.63
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				33
+	toughness =				35
+	softness =				100
+	suppression =				2
+	airdefence =				20
+	softattack =				29
+	hardattack =				2
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.07
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 208 artillery = 50 heavy_artillery = 19 anti_air = 15 anti_tank = 60  trucks = 1300 halftracks = 75  light_armor = 15                          }
+}					
+# Modern Marine Division (1952) - 5					
+model = {					
+	cost =				12.59
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				40
+	toughness =				43
+	softness =				100
+	suppression =				2
+	airdefence =				25
+	softattack =				35
+	hardattack =				4
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.24
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 220 artillery = 50 heavy_artillery = 19 anti_air = 20 anti_tank = 48  trucks = 1350 halftracks = 100  light_armor = 20                          }
+}					
+# Elite Marine Division (1956) - 6					
+model = {					
+	cost =				13.63
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				47
+	toughness =				50
+	softness =				100
+	suppression =				2
+	airdefence =				29
+	softattack =				41
+	hardattack =				5
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.42
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 244 artillery = 58 heavy_artillery = 19 anti_air = 20 anti_tank = 30  trucks = 1400 halftracks = 125  light_armor = 20                          }
+}					
+# Elite Marine Division (1961) - 7					
+model = {					
+	cost =				15.05
+	buildtime =			 	160
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				33
+	morale =				20
+	defensiveness =				58
+	toughness =				61
+	softness =				100
+	suppression =				2
+	airdefence =				35
+	softattack =				50
+	hardattack =				7
+	airattack =				3
+	transportweight =				10
+	supplyconsumption =				2.68
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 244 artillery = 58 heavy_artillery = 19 anti_air = 20 anti_tank = 24  trucks = 1600 halftracks = 150  light_armor = 25           helicopter = 3               }
+}					

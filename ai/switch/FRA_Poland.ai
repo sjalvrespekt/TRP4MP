@@ -1,0 +1,134 @@
+# converted to DH, Kane, June 11 2011
+# France 1936 AI File by Lothos
+
+upgrading = 0.15
+reinforcement = 0.25
+
+max_garrison_prop = 0.90
+min_garrison_prop = 0.87
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	home_peace_cap 		= 100
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.0
+	overseas_multiplier = 0.0
+
+	beach			= 0		# Beach level 2
+	capital			= 60	# Our capital
+	human_border	= 10	# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 0		# bonus for provinces just behind a frontline.
+
+	opposing_alliance	= 0	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	province_priorities = {
+		51 = 150 # Dunkerque
+		52 = 150 # Lille
+		103 = 150 # Hirson
+		99 = 150 # Reims
+		100 = 150 # Verdun
+		102 = 150 # Sedan
+		96 = 150  # Longwy
+		104 = 150  # Metz
+		107 = 150 # Strasbourg
+		105 = 100 # Colmar
+		101 = 60 # Laon
+		50 = 60 # Amiens
+		106 = 60 # Nancy
+		527 = 60 # Grenoble
+		366 = 60 # Nice
+		364 = 50 # Marseille
+		32 = 50  # Brest
+		38 = 50  # Cherbourg
+		325 = 50 # Bordeaux
+
+		# Africa
+		747 = 15 # Tunis
+		727 = 15 # Algiers
+		728 = 15 # Oran
+		718 = 15 # Casablanca
+		978 = 10 # Dakar
+		
+		# Middle East
+		1019 = 15 # Beirut
+		
+		# Asia
+		1395 = 10 # Hanoi
+		1399 = 10 # Saigon
+	}
+	area_multiplier = {
+		51 = 3.0 # Dunkerque
+		52 = 3.0 # Lille
+		103 = 3.0 # Valenciennes
+		99 = 3.0 # Reims
+		104 = 1.0 # Metz
+		107 = 1.7 # Strasbourg
+		105 = 1.0 # Colmar
+
+		# Africa
+		747 = 0.1 # Tunis
+		727 = 0.1 # Algiers
+		728 = 0.1 # Oran
+		718 = 0.1 # Casablanca
+		978 = 0.1 # Dakar
+		
+		# Middle East
+		1019 = 0.1 # Beirut
+		
+		# Asia
+		1395 = 0.1 # Hanoi
+		1399 = 0.1 # Saigon
+	}
+	ignore = {
+	}
+}
+front = { 
+	distrib_vs_ai 		= even
+	distrib_vs_human 	= even
+
+	panic_ratio_vs_ai	= 10.0
+	panic_ratio_vs_human	= 10.0
+
+   	enemy_handicap = {
+		GER = 300
+	} 
+   	passivity = {
+		GER = 100
+	}
+	province_priorities = {
+		#Maginot Line
+		105 = 1.0 	# Colmar
+		107 = 1.0	# Strasbourg
+	}
+} 
+###################################
+# Invasions and Naval
+###################################
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 98    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 80 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	ignore = {
+		"Southeast Northsea"
+		"kattegat"
+		"Bothnian Bay"
+		"northern baltic"
+		"southern baltic"
+		"East North Sea"
+		"Norwegian Sea"
+	}
+	target = { 2697 = 200 }
+	core = {
+		2698
+		2700
+		2699
+		2701
+		}
+}

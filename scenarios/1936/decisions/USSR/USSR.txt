@@ -1,0 +1,1526 @@
+######################################
+# USSR decisions
+# id: 3183500+
+######################################
+
+######################################
+# SOV capital move
+######################################
+
+event = {
+	id = 3183500
+	random = no
+	country = SOV
+	
+	persistent = yes
+	
+	decision = {
+				atwar = yes
+				ai = no
+				# two provinces from capital
+				OR = {
+						AND = { 
+								capital = { province = 572 data = SOV } # Moscow
+								OR = {
+										NOT = { control = { province = 579  data = SOV }}
+										NOT = { control = { province = 584  data = SOV }}
+										NOT = { control = { province = 576  data = SOV }}
+										NOT = { control = { province = 574  data = SOV }}
+										NOT = { control = { province = 577  data = SOV }}
+										NOT = { control = { province = 558  data = SOV }}
+										NOT = { control = { province = 569  data = SOV }}
+										NOT = { control = { province = 554  data = SOV }}
+										NOT = { control = { province = 677  data = SOV }}
+										NOT = { control = { province = 682  data = SOV }}
+										NOT = { control = { province = 679  data = SOV }}
+										}
+								}
+						AND = {
+								capital = { province = 668 data = SOV } # Kuybyshev
+								OR = {		
+										NOT = { control = { province = 669  data = SOV }}
+										NOT = { control = { province = 657  data = SOV }}
+										NOT = { control = { province = 658  data = SOV }}
+										NOT = { control = { province = 670  data = SOV }}
+										NOT = { control = { province = 675  data = SOV }}
+										NOT = { control = { province = 674  data = SOV }}
+										NOT = { control = { province = 664  data = SOV }}
+										NOT = { control = { province = 1134 data = SOV }}
+										NOT = { control = { province = 666  data = SOV }}
+										}
+								}
+						AND = {
+								capital = { province = 1151 data = SOV } # Sverdlovsk
+								OR = {	
+										NOT = { control = { province = 1126 data = SOV }}
+										NOT = { control = { province = 1130 data = SOV }}
+										NOT = { control = { province = 1129 data = SOV }}
+										NOT = { control = { province = 1136 data = SOV }}
+										NOT = { control = { province = 1137 data = SOV }}
+										NOT = { control = { province = 1132 data = SOV }}
+										NOT = { control = { province = 1153 data = SOV }}
+										}
+								}
+						}			
+				}
+		
+	decision_trigger = {
+						# one province from capital
+						OR = {
+								AND = {
+										capital = { province = 572 data = SOV } # Moscow
+										OR = { 
+												NOT  = { control = { province = 558 data = SOV } }
+												NOT  = { control = { province = 568 data = SOV } }
+												NOT  = { control = { province = 567 data = SOV } }
+												NOT  = { control = { province = 571 data = SOV } }
+												NOT  = { control = { province = 678 data = SOV } }
+												NOT  = { control = { province = 570 data = SOV } }
+												}
+										OR = {
+												control = { province = 668 data = SOV } # Kuybyshev
+												control = { province = 1151 data = SOV } # Sverdlovsk
+												control = { province = 1138 data = SOV } # Omsk
+												}
+										}
+								AND = {
+										capital = { province = 668 data = SOV } # Kuybyshev
+										OR = { 
+												NOT  = { control = { province = 656 data = SOV } }
+												NOT  = { control = { province = 665 data = SOV } }
+												NOT  = { control = { province = 667 data = SOV } }
+										}
+										OR = {
+												control = { province = 1151 data = SOV } # Sverdlovsk
+												control = { province = 1138 data = SOV } # Omsk
+												}
+										}
+								AND = {
+										capital = { province = 1151 data = SOV } # Sverdlovsk
+										OR = {
+												NOT = { control = { province = 1132 data = SOV }}
+												NOT = { control = { province = 1136 data = SOV }}
+												NOT = { control = { province = 1137 data = SOV }}
+												NOT = { control = { province = 1153 data = SOV }}
+												NOT = { control = { province = 1128 data = SOV }}
+												NOT = { control = { province = 1127 data = SOV }}
+										}
+										control = { province = 1138 data = SOV } # Omsk
+										}
+								}
+							}
+
+	trigger = {
+				ai = no
+				}
+
+	name = EVT_3183500_NAME
+	desc = EVT_3183500_DESC
+	style = 2
+	decision_picture = "decision_sov_capital"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = { 
+				name = "ACTIONNAME3183500A"
+				trigger = { control = { province = 668 data = SOV }} #Kuybyshev
+				command = { type = capital which = 668 } 
+				command = { trigger = { NOT = { capital = { province = 572 }}} type = dissent value = 2 } 
+				}
+	action = {
+				name = "ACTIONNAME3183500B"
+				trigger = { control = { province = 1151 data = SOV }} # Sverdlovsk
+				command = { type = capital which = 1151 }
+				command = { trigger = { NOT = { capital = { province = 668 }}} type = dissent value = 4 } 
+				}
+	action = { 
+				name = "ACTIONNAME3183500C"
+				trigger = { control = { province = 1138 data = SOV }} # Omsk
+				command = { type = capital which = 1138 }
+				command = { trigger = { NOT = { capital = { province = 1151 }}} type = dissent value = 6 } 
+				}
+}
+
+#####################################################################################
+# Moscow recaptured
+#####################################################################################
+event = { 
+	id = 3183501
+	random = no
+	country = SOV
+
+	decision = { 
+				NOT = { capital = { province = 572 data = SOV }}
+				owned = { province = 572 data = SOV } # Moscow
+				control = { province = 572 data = SOV }				
+				}
+				
+	decision_trigger = {
+							# area two provinces around Moscow
+							control = { province = 579 data = SOV }
+							control = { province = 584 data = SOV }
+							control = { province = 576 data = SOV }
+							control = { province = 574 data = SOV }
+							control = { province = 577 data = SOV }
+							control = { province = 558 data = SOV }
+							control = { province = 569 data = SOV }
+							control = { province = 554 data = SOV }
+							control = { province = 677 data = SOV }
+							control = { province = 682 data = SOV }
+							control = { province = 679 data = SOV }
+							control = { province = 558 data = SOV } 
+							control = { province = 568 data = SOV } 
+							control = { province = 567 data = SOV } 
+							control = { province = 571 data = SOV } 
+							control = { province = 678 data = SOV } 
+							control = { province = 570 data = SOV } 
+						}
+						
+	trigger= { 
+		NOT = { capital = { province = 572 data = SOV }}
+		owned = { province = 572 data = SOV } # Moscow
+		control = { province = 572 data = SOV }
+		
+		# area two provinces around Moscow
+		control = { province = 579 data = SOV }
+		control = { province = 584 data = SOV }
+		control = { province = 576 data = SOV }
+		control = { province = 574 data = SOV }
+		control = { province = 577 data = SOV }
+		control = { province = 558 data = SOV }
+		control = { province = 569 data = SOV }
+		control = { province = 554 data = SOV }
+		control = { province = 677 data = SOV }
+		control = { province = 682 data = SOV }
+		control = { province = 679 data = SOV }
+		control = { province = 558 data = SOV } 
+		control = { province = 568 data = SOV } 
+		control = { province = 567 data = SOV } 
+		control = { province = 571 data = SOV } 
+		control = { province = 678 data = SOV } 
+		control = { province = 570 data = SOV } 
+	}
+
+	name = EVT_3183501_NAME
+	desc = EVT_3183501_DESC
+	style = 2
+	decision_picture = "decision_sov_capital"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = capital which = 572 }
+		command = { type = dissent value = -2 }
+	}
+}
+
+#####################################################################################
+# August Storm (war with Japan)
+#####################################################################################
+event = { 
+	id = 3183502
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 3182089 # SOV accepts Yalta conference results
+				NOT = { war = { country = SOV country = JAP } }
+				NOT = { war = { country = SOV country = U00 } }
+				NOT = { event = 3182067 } # Japan considers surrender
+				OR = {
+						war = { country = JAP country = USA }
+						war = { country = JAP country = ENG }
+						war = { country = U00 country = USA }
+						war = { country = U00 country = ENG }
+						}
+				}
+				
+	decision_trigger = {
+						NOT = { war = { country = SOV country = GER } }		
+						}
+						
+	trigger= { 
+				event = 3182089 # SOV accepts Yalta conference results
+				NOT = { war = { country = SOV country = JAP } }
+				NOT = { war = { country = SOV country = U01 } }
+				NOT = { event = 3182067 } # Japan considers surrender
+				OR = {
+						war = { country = JAP country = USA }
+						war = { country = JAP country = ENG }
+						war = { country = U00 country = USA }
+						war = { country = U00 country = ENG }
+						}
+				NOT = { war = { country = SOV country = GER } }
+				random = 2 #offset 1 will result in about 97% chance of war 180 days after the war has ended in Europe
+				}
+
+	name = EVT_3183502_NAME
+	desc = EVT_3183502_DESC
+	style = 2
+	decision_picture = "decision_august_storm_2"
+	picture = "sov_summerstorm"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTIONNAME3183502A"
+		command = { trigger = { OR = { war = { country = JAP country = USA } war = { country = JAP country = ENG } } } type = war which = JAP }
+		command = { trigger = { OR = { war = { country = U00 country = USA } war = { country = U00 country = ENG } } } type = war which = U00 }
+		command = { trigger = { OR = { war = { country = MAN country = USA } war = { country = MAN country = ENG } } } type = war which = MAN }
+		command = { trigger = { OR = { war = { country = MEN country = USA } war = { country = MEN country = ENG } } } type = war which = MEN }
+		command = { trigger = { OR = { war = { country = U87 country = USA } war = { country = U87 country = ENG } } } type = war which = U87 }
+		command = { trigger = { OR = { war = { country = SIA country = USA } war = { country = SIA country = ENG } } } type = war which = SIA }
+	}
+}
+
+#####################################################################################
+# SOV diplomatic offensive
+#####################################################################################
+event = { 
+	id = 3183503
+	random = no
+	country = SOV
+
+	decision = { 
+				NOT = { flag = SOV_diplomatic_offensive }
+				NOT = { alliance = { country = SOV country = MON } } #expand for additional nations using neutrality event 552211 and SOV
+				OR = {
+						AND = {
+								war = { country = SOV country = GER }
+								lost_national = { country = GER value = 35 }
+								}
+						NOT = { exists = GER }
+						war = { country = SOV country = JAP }
+						war = { country = SOV country = USA }
+						war = { country = SOV country = ENG }
+						}	
+				}
+				
+	decision_trigger = {
+						NOT = { alliance = { country = SOV country = MON } } #hint for player
+						}
+						
+	trigger = { 
+				NOT = { flag = SOV_diplomatic_offensive }
+				NOT = { alliance = { country = SOV country = MON } }
+				OR = {
+						AND = {
+								war = { country = SOV country = GER }
+								lost_national = { country = GER value = 35 }
+								}
+						NOT = { exists = GER }
+						war = { country = SOV country = JAP }
+						war = { country = SOV country = USA }
+						war = { country = SOV country = ENG }
+						}
+				}
+
+	name = EVT_3183503_NAME
+	desc = EVT_3183503_DESC
+	style = 2
+	decision_picture = "decision_diplomatic_offensive"
+	picture = "event_diplomatic_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = "ACTIONNAME3183503A"
+		command = { type = setflag which = SOV_diplomatic_offensive }
+	}
+}
+
+#####################################################################################
+# Moving industrial base to Siberia
+# sub-devided into 3 parts (areas more or less close to Germany)
+# max. IC movable: 13/15, 28/36, 26/38 => 67/89 (~75%)
+# switched from trigger event 3183077 (war with Germany) to event 3183516 (first province lost) for balancing reasons (offensive SOV in MP games)
+#####################################################################################
+
+event = { 
+	id = 3183504 # Info event
+	random = no
+	tag = { GER ROM FIN HUN ITA U01 SOV }
+	persistent = yes
+				
+	trigger = { 
+				NOT = { local_flag = TRP_info_IC_Barbarossa }
+				NOT = { local_flag = sleep_trp_notes }
+				AI = no
+				OR = { # player shall be informed some time before Barbarossa starts
+						war = { country = GER country = SOV } #backup trigger
+						year = 1941
+						exists = VIC
+						}
+				}
+
+	name = EVT_3183504_NAME
+	desc = EVT_3183504_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = local_setflag which = TRP_info_IC_Barbarossa }
+	}
+}
+
+event = { 
+	id = 3183516 # Trigger event
+	random = no
+	country = SOV
+	
+	save_date = yes
+				
+	trigger = { 
+				war = { country = GER country = SOV }
+				OR = {
+						lost_national = { value = 1 }
+						NOT = { region = { region = "Ukraine"				 country = -3 } } 
+						NOT = { region = { region = "Belarus"				 country = -3 } } 
+						NOT = { region = { region = "Western Russia"		 country = -3 } } 
+						NOT = { region = { region = "Kaukasus"				 country = -3 } } 
+						NOT = { region = { region = "Russia"				 country = -3 } } 
+						NOT = { region = { region = "Northern Russia"		 country = -3 } } 
+						NOT = { region = { region = "White Sea Tundra"		 country = -3 } } 
+						AND = {
+								OR = {
+										NOT = { exists = EST }
+										alliance = { country = SOV country = EST }
+										}
+								NOT = { area = { area = "Estonia" country = -3 } }
+								}
+						AND = {
+								OR = {
+										NOT = { exists = LAT }
+										alliance = { country = SOV country = LAT }
+										}
+								NOT = { area = { area = "Latvia" country = -3 } }
+								}
+						AND = {
+								OR = {
+										NOT = { exists = LIT }
+										alliance = { country = SOV country = LIT }
+										}
+								NOT = { area = { area = "Lithuania" country = -3 } }
+								}
+						AND = {
+								event = 3183020 # Romania secedes Bessarabia
+								NOT = { area = { area = "Bessarabia" country = -3 } }
+								}
+						AND = {
+								event = 2018 # Eastern Poland to SOV
+								OR = {
+										NOT = { area = { area = "Grodno"		 country = -3 } }
+										NOT = { area = { area = "Lvov"			 country = -3 } }
+										NOT = { area = { area = "Brest Litovsk"	 country = -3 } }
+										NOT = { area = { area = "Polotsk"		 country = -3 } }
+										}
+								}
+						AND = {
+								event = 2628 # End of Finnish Winter War
+								NOT = { area = { area = "Karelia" country = -3 } }
+								}
+						}
+				}
+
+	name = EVT_3183516_NAME
+	desc = EVT_3183516_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { }
+	}
+}
+
+#####################################################################################
+# Industry relocation to Siberia: Lithuania, Eastern Poland, Transnistria
+# max.: 13 IC out of 15
+#####################################################################################
+
+event = { 
+	id = 3183505
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 3183077
+				war = { country = GER country = SOV }
+				}
+				
+	decision_trigger = {
+						OR = {
+								AND = {
+										local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+										event = { id = 3183516 days = 35  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = morale_gerai_sovh # GER AI vs human SOV
+										event = { id = 3183516 days = 50  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = gerh_sovai # human GER vs SOV AI
+										event = { id = 3183516 days = 20  } # war with Germany, first province lost
+										}
+								}
+						OR = {
+								control = { province = 263 data = SOV }  # Alytus
+								control = { province = 262 data = SOV }  # Kaunas
+								control = { province = 258 data = SOV }  # Wilno
+								control = { province = 254 data = SOV }  # Bialystok
+								control = { province = 251 data = SOV }  # Novogorodek
+								control = { province = 249 data = SOV }  # Sarny
+								control = { province = 244 data = SOV }  # Rowne
+								control = { province = 242 data = SOV }  # Lvov
+								control = { province = 240 data = SOV }  # Tarnopol
+								control = { province = 238 data = SOV }  # Stanislawow
+								control = { province = 303 data = SOV }  # Balti
+								control = { province = 304 data = SOV }  # Chisinau
+								control = { province = 306 data = SOV }  # Ismail
+								}
+						 }
+						
+	trigger = { 
+				war = { country = GER country = SOV }
+				OR = {
+						AND = {
+								local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+								event = { id = 3183516 days = 35  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = morale_gerai_sovh # GER AI vs human SOV
+								event = { id = 3183516 days = 50  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = gerh_sovai # human GER vs SOV AI
+								event = { id = 3183516 days = 20  } # war with Germany, first province lost
+								}
+						}
+				OR = {
+						control = { province = 263 data = SOV }  # Alytus
+						control = { province = 262 data = SOV }  # Kaunas
+						control = { province = 258 data = SOV }  # Wilno
+						control = { province = 254 data = SOV }  # Bialystok
+						control = { province = 251 data = SOV }  # Novogorodek
+						control = { province = 249 data = SOV }  # Sarny
+						control = { province = 244 data = SOV }  # Rowne
+						control = { province = 242 data = SOV }  # Lvov
+						control = { province = 240 data = SOV }  # Tarnopol
+						control = { province = 238 data = SOV }  # Stanislawow
+						control = { province = 303 data = SOV }  # Balti
+						control = { province = 304 data = SOV }  # Chisinau
+						control = { province = 306 data = SOV }  # Ismail
+						}
+				}
+
+	name = EVT_3183505_NAME
+	desc = EVT_3183505_DESC
+	style = 2
+	decision_picture = "decision_sov_industry_to_siberia_1"
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3183038A # Let's move our industrial base to Siberia
+		
+		command = { trigger = { control = { province = 263 data = SOV } } type = construct which = ic where = 263 value = -1 }  # Alytus
+		command = { trigger = { control = { province = 262 data = SOV } } type = construct which = ic where = 262 value = -1 }  # Kaunas
+		command = { trigger = { control = { province = 258 data = SOV } } type = construct which = ic where = 258 value = -1 }  # Wilno
+		command = { trigger = { control = { province = 254 data = SOV } } type = construct which = ic where = 254 value = -1 }  # Bialystok
+		command = { trigger = { control = { province = 251 data = SOV } } type = construct which = ic where = 251 value = -1 }  # Novogorodek #2
+		command = { trigger = { control = { province = 249 data = SOV } } type = construct which = ic where = 249 value = -1 }  # Sarny
+		command = { trigger = { control = { province = 244 data = SOV } } type = construct which = ic where = 244 value = -1 }  # Rowne #2
+		command = { trigger = { control = { province = 242 data = SOV } } type = construct which = ic where = 242 value = -1 }  # Lvov
+		command = { trigger = { control = { province = 240 data = SOV } } type = construct which = ic where = 240 value = -1 }  # Tarnopol
+		command = { trigger = { control = { province = 238 data = SOV } } type = construct which = ic where = 238 value = -1 }  # Stanislawow
+		command = { trigger = { control = { province = 303 data = SOV } } type = construct which = ic where = 303 value = -1 }  # Balti
+		command = { trigger = { control = { province = 304 data = SOV } } type = construct which = ic where = 304 value = -1 }  # Chisinau
+		command = { trigger = { control = { province = 306 data = SOV } } type = construct which = ic where = 306 value = -1 }  # Ismail
+		
+		command = { trigger = { control = { province = 263 data = SOV } } type = local_setflag which = IC_Alytus      }
+		command = { trigger = { control = { province = 262 data = SOV } } type = local_setflag which = IC_Kaunas      }
+		command = { trigger = { control = { province = 258 data = SOV } } type = local_setflag which = IC_Wilno       }
+		command = { trigger = { control = { province = 254 data = SOV } } type = local_setflag which = IC_Bialystok   }
+		command = { trigger = { control = { province = 251 data = SOV } } type = local_setflag which = IC_Novogorodek }
+		command = { trigger = { control = { province = 249 data = SOV } } type = local_setflag which = IC_Sarny       }
+		command = { trigger = { control = { province = 244 data = SOV } } type = local_setflag which = IC_Rowne       }
+		command = { trigger = { control = { province = 242 data = SOV } } type = local_setflag which = IC_Lvov        }
+		command = { trigger = { control = { province = 240 data = SOV } } type = local_setflag which = IC_Tarnopol    }
+		command = { trigger = { control = { province = 238 data = SOV } } type = local_setflag which = IC_Stanislawow }
+		command = { trigger = { control = { province = 303 data = SOV } } type = local_setflag which = IC_Balti       }
+		command = { trigger = { control = { province = 304 data = SOV } } type = local_setflag which = IC_Chisinau    }
+		command = { trigger = { control = { province = 306 data = SOV } } type = local_setflag which = IC_Ismail	  } 
+		
+		command = { trigger = { local_flag = morale_aiai_hh } type = event which = 3183506 where = -1 when = 210 } # relocation finished
+		command = { trigger = { local_flag = morale_gerai_sovh } type = event which = 3183506 where = -1 when = 270 } # relocation finished
+		command = { trigger = { local_flag = morale_gerh_sovai } type = event which = 3183506 where = -1 when = 150 } # relocation finished
+		
+		command = { type = sleepevent which = 3183507 } # relocation failed completely
+	}
+}
+
+event = { 
+	id = 3183506
+	random = no
+	country = SOV
+
+	name = EVT_3183506_NAME
+	desc = EVT_3183506_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+		command = { trigger = { control = { province = 1131 data = SOV } local_flag = IC_Alytus      } type = construct which = ic where = 1131 value = 1 }  # Ufa
+		command = { trigger = { control = { province = 1131 data = SOV } local_flag = IC_Kaunas      } type = construct which = ic where = 1131 value = 1 }  # 
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Wilno       } type = construct which = ic where = 1134 value = 1 }  # Orenburg
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Bialystok   } type = construct which = ic where = 1134 value = 1 }  # 
+		command = { trigger = { control = { province = 1137 data = SOV } local_flag = IC_Novogorodek } type = construct which = ic where = 1137 value = 1 }  # Kurgan #2
+		command = { trigger = { control = { province = 1115 data = SOV } local_flag = IC_Sarny       } type = construct which = ic where = 1115 value = 1 }  # Kostonai
+		command = { trigger = { control = { province = 1115 data = SOV } local_flag = IC_Rowne       } type = construct which = ic where = 1115 value = 1 }  # #2
+		command = { trigger = { control = { province = 1136 data = SOV } local_flag = IC_Lvov        } type = construct which = ic where = 1136 value = 1 }  # Tyumen
+		command = { trigger = { control = { province = 1136 data = SOV } local_flag = IC_Tarnopol    } type = construct which = ic where = 1136 value = 1 }  # 
+		command = { trigger = { control = { province = 1151 data = SOV } local_flag = IC_Stanislawow } type = construct which = ic where = 1151 value = 1 }  # Sverdlovsk
+		command = { trigger = { control = { province = 1151 data = SOV } local_flag = IC_Balti       } type = construct which = ic where = 1151 value = 1 }  # 
+		command = { trigger = { control = { province = 1132 data = SOV } local_flag = IC_Chisinau    } type = construct which = ic where = 1132 value = 1 }  # Chelyabinsk
+		command = { trigger = { control = { province = 1132 data = SOV } local_flag = IC_Ismail	     } type = construct which = ic where = 1132 value = 1 }  # 
+	}
+}
+
+event = { 
+	id = 3183507
+	random = no
+	country = SOV
+
+	trigger= { 
+				war = { country = GER country = SOV }
+				OR = {
+						AND = {
+								local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+								event = { id = 3183516 days = 35  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = morale_gerai_sovh # GER AI vs human SOV
+								event = { id = 3183516 days = 50  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = gerh_sovai # human GER vs SOV AI
+								event = { id = 3183516 days = 20  } # war with Germany, first province lost
+								}
+						}
+				NOT = { 
+						OR = {
+								control = { province = 263 data = SOV }  # Alytus
+								control = { province = 262 data = SOV }  # Kaunas
+								control = { province = 258 data = SOV }  # Wilno
+								control = { province = 254 data = SOV }  # Bialystok
+								control = { province = 251 data = SOV }  # Novogorodek
+								control = { province = 249 data = SOV }  # Sarny
+								control = { province = 244 data = SOV }  # Rowne
+								control = { province = 242 data = SOV }  # Lvov
+								control = { province = 240 data = SOV }  # Tarnopol
+								control = { province = 238 data = SOV }  # Stanislawow
+								control = { province = 303 data = SOV }  # Balti
+								control = { province = 304 data = SOV }  # Chisinau
+								control = { province = 306 data = SOV }  # Ismail
+								}
+						}
+				NOT = {
+						OR = {
+								local_flag = IC_Alytus      
+								local_flag = IC_Kaunas      
+								local_flag = IC_Wilno       
+								local_flag = IC_Bialystok   
+								local_flag = IC_Novogorodek 
+								local_flag = IC_Sarny       
+								local_flag = IC_Rowne       
+								local_flag = IC_Lvov        
+								local_flag = IC_Tarnopol    
+								local_flag = IC_Stanislawow 
+								local_flag = IC_Balti       
+								local_flag = IC_Chisinau    
+								local_flag = IC_Ismail
+								}
+						}
+				}
+
+	name = EVT_3183507_NAME # relocation has failed completely
+	desc = EVT_3183507_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { trigger = { NOT = { AI = SOV } AI = GER } type = dissent value = 5 }
+		command = { trigger = { NOT = { AI = SOV } NOT = { AI = GER } } type = dissent value = 3 }
+		command = { type = sleepevent which = 3183505 }
+		command = { type = sleepevent which = 3183506 }
+	}
+}
+#####################################################################################
+# Industry relocation to Siberia: Latvia, eastern Belarus, western Ukraine
+# max.: 28 IC out of 36
+#####################################################################################
+
+event = { 
+	id = 3183508
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 3183077
+				war = { country = GER country = SOV }
+				}
+				
+	decision_trigger = {
+						OR = {
+								AND = {
+										local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+										event = { id = 3183516 days = 60  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = morale_gerai_sovh # GER AI vs human SOV
+										event = { id = 3183516 days = 85  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = gerh_sovai # human GER vs SOV AI
+										event = { id = 3183516 days = 35  } # war with Germany, first province lost
+										}
+								}
+						OR = {
+								control = { province = 268 data = SOV }  # Liepaja
+								control = { province = 269 data = SOV }  # Jelgeva
+								control = { province = 264 data = SOV }  # Riga
+								control = { province = 265 data = SOV }  # Valmiera
+								control = { province = 266 data = SOV }  # Daugavpils
+								control = { province = 590 data = SOV }  # Vitebsk
+								control = { province = 599 data = SOV }  # Minsk
+								control = { province = 600 data = SOV }  # Mogilev
+								control = { province = 601 data = SOV }  # Gomel
+								control = { province = 595 data = SOV }  # Mozyr
+								control = { province = 617 data = SOV }  # Kiev
+								control = { province = 611 data = SOV }  # Zhitomir
+								control = { province = 612 data = SOV }  # Vinnitsa
+								control = { province = 618 data = SOV }  # Kamenets
+								control = { province = 626 data = SOV }  # Odessa
+								control = { province = 628 data = SOV }  # Kirovograd
+								control = { province = 622 data = SOV }  # Nikolayev
+								control = { province = 627 data = SOV }  # Krivoy Rog
+								}
+						 }
+						
+	trigger = { 
+				war = { country = GER country = SOV }
+				OR = {
+						AND = {
+								local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+								event = { id = 3183516 days = 60  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = morale_gerai_sovh # GER AI vs human SOV
+								event = { id = 3183516 days = 85  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = gerh_sovai # human GER vs SOV AI
+								event = { id = 3183516 days = 35  } # war with Germany, first province lost
+								}
+						}
+				OR = {
+						control = { province = 268 data = SOV }  # Liepaja
+						control = { province = 269 data = SOV }  # Jelgeva
+						control = { province = 264 data = SOV }  # Riga
+						control = { province = 265 data = SOV }  # Valmiera
+						control = { province = 266 data = SOV }  # Daugavpils
+						control = { province = 590 data = SOV }  # Vitebsk
+						control = { province = 599 data = SOV }  # Minsk
+						control = { province = 600 data = SOV }  # Mogilev
+						control = { province = 601 data = SOV }  # Gomel
+						control = { province = 595 data = SOV }  # Mozyr
+						control = { province = 617 data = SOV }  # Kiev
+						control = { province = 611 data = SOV }  # Zhitomir
+						control = { province = 612 data = SOV }  # Vinnitsa
+						control = { province = 618 data = SOV }  # Kamenets
+						control = { province = 626 data = SOV }  # Odessa
+						control = { province = 628 data = SOV }  # Kirovograd
+						control = { province = 622 data = SOV }  # Nikolayev
+						control = { province = 627 data = SOV }  # Krivoy
+						}
+				}
+
+	name = EVT_3183508_NAME
+	desc = EVT_3183508_DESC
+	style = 2
+	decision_picture = "decision_sov_industry_to_siberia_2"
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3183038A # Let's move our industrial base to Siberia
+		
+		command = { trigger = { control = { province = 268 data = SOV } } type = construct which = ic where = 268 value = -1 }  # Liepaja
+		command = { trigger = { control = { province = 269 data = SOV } } type = construct which = ic where = 269 value = -1 }  # Jelgeva
+		command = { trigger = { control = { province = 264 data = SOV } } type = construct which = ic where = 264 value = -1 }  # Riga #2
+		command = { trigger = { control = { province = 265 data = SOV } } type = construct which = ic where = 265 value = -1 }  # Valmiera
+		command = { trigger = { control = { province = 266 data = SOV } } type = construct which = ic where = 266 value = -1 }  # Daugavpils
+		command = { trigger = { control = { province = 590 data = SOV } } type = construct which = ic where = 590 value = -1 }  # Vitebsk #2
+		command = { trigger = { control = { province = 599 data = SOV } } type = construct which = ic where = 599 value = -2 }  # Minsk #3
+		command = { trigger = { control = { province = 600 data = SOV } } type = construct which = ic where = 600 value = -2 }  # Mogilev
+		command = { trigger = { control = { province = 601 data = SOV } } type = construct which = ic where = 601 value = -2 }  # Gomel
+		command = { trigger = { control = { province = 595 data = SOV } } type = construct which = ic where = 595 value = -1 }  # Mozyr
+		command = { trigger = { control = { province = 617 data = SOV } } type = construct which = ic where = 617 value = -2 }  # Kiev #3
+		command = { trigger = { control = { province = 611 data = SOV } } type = construct which = ic where = 611 value = -2 }  # Zhitomir
+		command = { trigger = { control = { province = 612 data = SOV } } type = construct which = ic where = 612 value = -4 }  # Vinnitsa #5
+		command = { trigger = { control = { province = 618 data = SOV } } type = construct which = ic where = 618 value = -2 }  # Kamenets
+		command = { trigger = { control = { province = 626 data = SOV } } type = construct which = ic where = 626 value = -2 }  # Odessa #3
+		command = { trigger = { control = { province = 628 data = SOV } } type = construct which = ic where = 628 value = -2 }  # Kirovograd
+		command = { trigger = { control = { province = 622 data = SOV } } type = construct which = ic where = 622 value = -1 }  # Nikolayev #2
+		command = { trigger = { control = { province = 627 data = SOV } } type = construct which = ic where = 627 value = -2 }  # Krivoy #3
+
+		command = { trigger = { control = { province = 268 data = SOV } } type = local_setflag which = IC_Liepaja    }
+		command = { trigger = { control = { province = 269 data = SOV } } type = local_setflag which = IC_Jelgeva    }
+		command = { trigger = { control = { province = 264 data = SOV } } type = local_setflag which = IC_Riga       }
+		command = { trigger = { control = { province = 265 data = SOV } } type = local_setflag which = IC_Valmiera   }
+		command = { trigger = { control = { province = 266 data = SOV } } type = local_setflag which = IC_Daugavpils }
+		command = { trigger = { control = { province = 590 data = SOV } } type = local_setflag which = IC_Vitebsk    }
+		command = { trigger = { control = { province = 599 data = SOV } } type = local_setflag which = IC_Minsk      }
+		command = { trigger = { control = { province = 600 data = SOV } } type = local_setflag which = IC_Mogilev    }
+		command = { trigger = { control = { province = 601 data = SOV } } type = local_setflag which = IC_Gomel      }
+		command = { trigger = { control = { province = 595 data = SOV } } type = local_setflag which = IC_Mozyr      }
+		command = { trigger = { control = { province = 617 data = SOV } } type = local_setflag which = IC_Kiev       }
+		command = { trigger = { control = { province = 611 data = SOV } } type = local_setflag which = IC_Zhitomir   }
+		command = { trigger = { control = { province = 612 data = SOV } } type = local_setflag which = IC_Vinnitsa   }
+		command = { trigger = { control = { province = 618 data = SOV } } type = local_setflag which = IC_Kamenets   }
+		command = { trigger = { control = { province = 626 data = SOV } } type = local_setflag which = IC_Odessa     }
+		command = { trigger = { control = { province = 628 data = SOV } } type = local_setflag which = IC_Kirovograd }
+		command = { trigger = { control = { province = 622 data = SOV } } type = local_setflag which = IC_Nikolayev  }
+		command = { trigger = { control = { province = 627 data = SOV } } type = local_setflag which = IC_Krivoy     }
+		
+		command = { trigger = { local_flag = morale_aiai_hh } type = event which = 3183509 where = -1 when = 210 } # relocation finished
+		command = { trigger = { local_flag = morale_gerai_sovh } type = event which = 3183509 where = -1 when = 270 } # relocation finished
+		command = { trigger = { local_flag = morale_gerh_sovai } type = event which = 3183509 where = -1 when = 150 } # relocation finished
+		
+		command = { type = sleepevent which = 3183510 } # relocation failed completely
+	}
+}
+
+event = { 
+	id = 3183509
+	random = no
+	country = SOV
+
+	name = EVT_3183506_NAME #use old string name
+	desc = EVT_3183506_DESC #use old string name
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+
+		command = { trigger = { control = { province = 1138 data = SOV } local_flag = IC_Liepaja    } type = construct which = ic where = 1138 value = 1 } # Omsk
+		command = { trigger = { control = { province = 668  data = SOV } local_flag = IC_Jelgeva    } type = construct which = ic where = 668  value = 1 } # area around Kuybyshev
+		command = { trigger = { control = { province = 656  data = SOV } local_flag = IC_Riga       } type = construct which = ic where = 656  value = 1 }
+		command = { trigger = { control = { province = 665  data = SOV } local_flag = IC_Valmiera   } type = construct which = ic where = 665  value = 1 }
+		command = { trigger = { control = { province = 667  data = SOV } local_flag = IC_Daugavpils } type = construct which = ic where = 667  value = 1 }
+		command = { trigger = { control = { province = 1151 data = SOV } local_flag = IC_Vitebsk    } type = construct which = ic where = 1151 value = 1 } # area around Sverdlovsk
+		command = { trigger = { control = { province = 1132 data = SOV } local_flag = IC_Minsk      } type = construct which = ic where = 1132 value = 2 }
+		command = { trigger = { control = { province = 1136 data = SOV } local_flag = IC_Mogilev    } type = construct which = ic where = 1136 value = 2 }
+		command = { trigger = { control = { province = 1137 data = SOV } local_flag = IC_Gomel      } type = construct which = ic where = 1137 value = 2 }
+		command = { trigger = { control = { province = 1153 data = SOV } local_flag = IC_Mozyr      } type = construct which = ic where = 1153 value = 1 }
+		command = { trigger = { control = { province = 1128 data = SOV } local_flag = IC_Kiev       } type = construct which = ic where = 1128 value = 2 }
+		command = { trigger = { control = { province = 1127 data = SOV } local_flag = IC_Zhitomir   } type = construct which = ic where = 1127 value = 2 }
+		command = { trigger = { control = { province = 1131 data = SOV } local_flag = IC_Vinnitsa   } type = construct which = ic where = 1131 value = 4 } # Ufa
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Kamenets   } type = construct which = ic where = 1134 value = 2 } # Orenburg
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Odessa     } type = construct which = ic where = 1134 value = 2 }
+		command = { trigger = { control = { province = 1115 data = SOV } local_flag = IC_Kirovograd } type = construct which = ic where = 1115 value = 2 } # Kostonai
+		command = { trigger = { control = { province = 1115 data = SOV } local_flag = IC_Nikolayev  } type = construct which = ic where = 1115 value = 1 }
+		command = { trigger = { control = { province = 1132 data = SOV } local_flag = IC_Krivoy     } type = construct which = ic where = 1132 value = 2 } # Chelyabinsk
+	}
+}
+
+event = { 
+	id = 3183510
+	random = no
+	country = SOV
+
+	trigger= { 
+				war = { country = GER country = SOV }
+				OR = {
+						AND = {
+								local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+								event = { id = 3183516 days = 60  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = morale_gerai_sovh # GER AI vs human SOV
+								event = { id = 3183516 days = 85  } # war with Germany, first province lost
+								}
+						AND = {
+								local_flag = gerh_sovai # human GER vs SOV AI
+								event = { id = 3183516 days = 35  } # war with Germany, first province lost
+								}
+						}
+				NOT = {
+						OR = {
+								control = { province = 268 data = SOV }  # Liepaja
+								control = { province = 269 data = SOV }  # Jelgeva
+								control = { province = 264 data = SOV }  # Riga
+								control = { province = 265 data = SOV }  # Valmiera
+								control = { province = 266 data = SOV }  # Daugavpils
+								control = { province = 590 data = SOV }  # Vitebsk
+								control = { province = 599 data = SOV }  # Minsk
+								control = { province = 600 data = SOV }  # Mogilev
+								control = { province = 601 data = SOV }  # Gomel
+								control = { province = 595 data = SOV }  # Mozyr
+								control = { province = 617 data = SOV }  # Kiev
+								control = { province = 611 data = SOV }  # Zhitomir
+								control = { province = 612 data = SOV }  # Vinnitsa
+								control = { province = 618 data = SOV }  # Kamenets
+								control = { province = 626 data = SOV }  # Odessa
+								control = { province = 628 data = SOV }  # Kirovograd
+								control = { province = 622 data = SOV }  # Nikolayev
+								control = { province = 627 data = SOV }  # Krivoy
+								}
+						}
+				NOT = {
+						OR = {
+								local_flag = IC_Liepaja    
+								local_flag = IC_Jelgeva    
+								local_flag = IC_Riga       
+								local_flag = IC_Valmiera   
+								local_flag = IC_Daugavpils 
+								local_flag = IC_Vitebsk    
+								local_flag = IC_Minsk      
+								local_flag = IC_Mogilev    
+								local_flag = IC_Gomel      
+								local_flag = IC_Mozyr      
+								local_flag = IC_Kiev       
+								local_flag = IC_Zhitomir   
+								local_flag = IC_Vinnitsa  
+								local_flag = IC_Kamenets   
+								local_flag = IC_Odessa     
+								local_flag = IC_Kirovograd 
+								local_flag = IC_Nikolayev  
+								local_flag = IC_Krivoy    
+								}
+						}
+				}
+
+	name = EVT_3183507_NAME # old string; relocation has failed completely
+	desc = EVT_3183510_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { trigger = { NOT = { AI = SOV } AI = GER } type = dissent value = 5 }
+		command = { trigger = { NOT = { AI = SOV } NOT = { AI = GER } } type = dissent value = 3 }
+		command = { type = sleepevent which = 3183508 }
+		command = { type = sleepevent which = 3183509 }
+	}
+}
+#####################################################################################
+# Industry relocation to Siberia: Estonia, western Russia (up to Leningrad and Moscow), eastern Ukraine (up to Rostov)
+# max.: 26 IC out of 38
+#####################################################################################
+
+event = { 
+	id = 3183511
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 3183077
+				war = { country = GER country = SOV }
+				}
+				
+	decision_trigger = {
+						OR = {
+								AND = {
+										local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+										event = { id = 3183516 days = 100  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = morale_gerai_sovh # GER AI vs human SOV
+										event = { id = 3183516 days = 140  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = gerh_sovai # human GER vs SOV AI
+										event = { id = 3183516 days = 60  } # war with Germany, first province lost
+										}
+								}
+						OR = {
+								control = { province = 271 data = SOV }  # Parnu
+								control = { province = 270 data = SOV }  # Tallinn
+								control = { province = 566 data = SOV }  # Pskov
+								control = { province = 589 data = SOV }  # Smolensk
+								control = { province = 576 data = SOV }  # Kaluga
+								control = { province = 584 data = SOV }  # Tula
+								control = { province = 588 data = SOV }  # Bryansk
+								control = { province = 581 data = SOV }  # Orel
+								control = { province = 604 data = SOV }  # Kursk
+								control = { province = 603 data = SOV }  # Belgorod
+								control = { province = 606 data = SOV }  # Sumy
+								control = { province = 629 data = SOV }  # Poltava
+								control = { province = 636 data = SOV }  # Kharkov
+								control = { province = 630 data = SOV }  # Zaporozhye
+								control = { province = 635 data = SOV }  # Bakhmut
+								control = { province = 644 data = SOV }  # Rostov
+								}
+						 }
+						
+	trigger = { 
+				war = { country = GER country = SOV }
+						OR = {
+								AND = {
+										local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+										event = { id = 3183516 days = 100  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = morale_gerai_sovh # GER AI vs human SOV
+										event = { id = 3183516 days = 140  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = gerh_sovai # human GER vs SOV AI
+										event = { id = 3183516 days = 60  } # war with Germany, first province lost
+										}
+								}
+						OR = {
+								control = { province = 271 data = SOV }  # Parnu
+								control = { province = 270 data = SOV }  # Tallinn
+								control = { province = 566 data = SOV }  # Pskov
+								control = { province = 589 data = SOV }  # Smolensk
+								control = { province = 576 data = SOV }  # Kaluga
+								control = { province = 584 data = SOV }  # Tula
+								control = { province = 588 data = SOV }  # Bryansk
+								control = { province = 581 data = SOV }  # Orel
+								control = { province = 604 data = SOV }  # Kursk
+								control = { province = 603 data = SOV }  # Belgorod
+								control = { province = 606 data = SOV }  # Sumy
+								control = { province = 629 data = SOV }  # Poltava
+								control = { province = 636 data = SOV }  # Kharkov
+								control = { province = 630 data = SOV }  # Zaporozhye
+								control = { province = 635 data = SOV }  # Bakhmut
+								control = { province = 644 data = SOV }  # Rostov
+								}
+				}
+
+	name = EVT_3183511_NAME
+	desc = EVT_3183511_DESC
+	style = 2
+	decision_picture = "decision_sov_industry_to_siberia_3"
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3183038A # Let's move our industrial base to Siberia
+		
+		command = { trigger = { control = { province = 271 data = SOV } } type = construct which = ic where = 271 value = -1 } # Parnu
+		command = { trigger = { control = { province = 270 data = SOV } } type = construct which = ic where = 270 value = -1 } # Tallinn
+		command = { trigger = { control = { province = 566 data = SOV } } type = construct which = ic where = 566 value = -1 } # Pskov #2
+		command = { trigger = { control = { province = 589 data = SOV } } type = construct which = ic where = 589 value = -1 } # Smolensk #2
+		command = { trigger = { control = { province = 576 data = SOV } } type = construct which = ic where = 576 value = -1 } # Kaluga #2
+		command = { trigger = { control = { province = 584 data = SOV } } type = construct which = ic where = 584 value = -2 } # Tula
+		command = { trigger = { control = { province = 588 data = SOV } } type = construct which = ic where = 588 value = -2 } # Bryansk
+		command = { trigger = { control = { province = 581 data = SOV } } type = construct which = ic where = 581 value = -1 } # Orel #2
+		command = { trigger = { control = { province = 604 data = SOV } } type = construct which = ic where = 604 value = -1 } # Kursk #2
+		command = { trigger = { control = { province = 603 data = SOV } } type = construct which = ic where = 603 value = -2 } # Belgorod
+		command = { trigger = { control = { province = 606 data = SOV } } type = construct which = ic where = 606 value = -1 } # Sumy #2
+		command = { trigger = { control = { province = 629 data = SOV } } type = construct which = ic where = 629 value = -2 } # Poltava
+		command = { trigger = { control = { province = 636 data = SOV } } type = construct which = ic where = 636 value = -2 } # Kharkov #3
+		command = { trigger = { control = { province = 630 data = SOV } } type = construct which = ic where = 630 value = -1 } # Zaporozhye #2
+		command = { trigger = { control = { province = 635 data = SOV } } type = construct which = ic where = 635 value = -5 } # Bakhmut #8
+		command = { trigger = { control = { province = 644 data = SOV } } type = construct which = ic where = 644 value = -2 } # Rostov #3
+
+		command = { trigger = { control = { province = 271 data = SOV } } type = local_setflag which = IC_Parnu      }
+		command = { trigger = { control = { province = 270 data = SOV } } type = local_setflag which = IC_Tallinn    }
+		command = { trigger = { control = { province = 566 data = SOV } } type = local_setflag which = IC_Pskov      }
+		command = { trigger = { control = { province = 589 data = SOV } } type = local_setflag which = IC_Smolensk   }
+		command = { trigger = { control = { province = 576 data = SOV } } type = local_setflag which = IC_Kaluga     }
+		command = { trigger = { control = { province = 584 data = SOV } } type = local_setflag which = IC_Tula       }
+		command = { trigger = { control = { province = 588 data = SOV } } type = local_setflag which = IC_Bryansk    }
+		command = { trigger = { control = { province = 581 data = SOV } } type = local_setflag which = IC_Orel       }
+		command = { trigger = { control = { province = 604 data = SOV } } type = local_setflag which = IC_Kursk      }
+		command = { trigger = { control = { province = 603 data = SOV } } type = local_setflag which = IC_Belgorod   }
+		command = { trigger = { control = { province = 606 data = SOV } } type = local_setflag which = IC_Sumy       }
+		command = { trigger = { control = { province = 629 data = SOV } } type = local_setflag which = IC_Poltava    }
+		command = { trigger = { control = { province = 636 data = SOV } } type = local_setflag which = IC_Kharkov    }
+		command = { trigger = { control = { province = 630 data = SOV } } type = local_setflag which = IC_Zaporozhye }
+		command = { trigger = { control = { province = 635 data = SOV } } type = local_setflag which = IC_Bakhmut    }
+		command = { trigger = { control = { province = 644 data = SOV } } type = local_setflag which = IC_Rostov     }
+	
+		command = { trigger = { local_flag = morale_aiai_hh } type = event which = 3183512 where = -1 when = 210 } # relocation finished
+		command = { trigger = { local_flag = morale_gerai_sovh } type = event which = 3183512 where = -1 when = 270 } # relocation finished
+		command = { trigger = { local_flag = morale_gerh_sovai } type = event which = 3183512 where = -1 when = 150 } # relocation finished
+		
+		command = { type = sleepevent which = 3183513 } # relocation failed completely
+	}
+}
+
+event = { 
+	id = 3183512
+	random = no
+	country = SOV
+
+	name = EVT_3183506_NAME #use old string name
+	desc = EVT_3183506_DESC #use old string name
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+
+		command = { trigger = { control = { province = 1138 data = SOV } local_flag = IC_Parnu      } type = construct which = ic where = 1138 value = 1 } # Omsk
+		command = { trigger = { control = { province = 668  data = SOV } local_flag = IC_Tallinn    } type = construct which = ic where = 668  value = 1 } # area around Kuybyshev
+		command = { trigger = { control = { province = 656  data = SOV } local_flag = IC_Pskov      } type = construct which = ic where = 656  value = 1 } 
+		command = { trigger = { control = { province = 665  data = SOV } local_flag = IC_Smolensk   } type = construct which = ic where = 665  value = 1 } 
+		command = { trigger = { control = { province = 667  data = SOV } local_flag = IC_Kaluga     } type = construct which = ic where = 667  value = 1 } 
+		command = { trigger = { control = { province = 1151 data = SOV } local_flag = IC_Tula       } type = construct which = ic where = 1151 value = 2 } # area around Sverdlovsk
+		command = { trigger = { control = { province = 1132 data = SOV } local_flag = IC_Bryansk    } type = construct which = ic where = 1132 value = 2 } 
+		command = { trigger = { control = { province = 1136 data = SOV } local_flag = IC_Orel       } type = construct which = ic where = 1136 value = 1 } 
+		command = { trigger = { control = { province = 1137 data = SOV } local_flag = IC_Kursk      } type = construct which = ic where = 1137 value = 1 } 
+		command = { trigger = { control = { province = 1153 data = SOV } local_flag = IC_Belgorod   } type = construct which = ic where = 1153 value = 2 } 
+		command = { trigger = { control = { province = 1128 data = SOV } local_flag = IC_Sumy       } type = construct which = ic where = 1128 value = 1 } 
+		command = { trigger = { control = { province = 1127 data = SOV } local_flag = IC_Poltava    } type = construct which = ic where = 1127 value = 2 } 
+		command = { trigger = { control = { province = 1131 data = SOV } local_flag = IC_Kharkov    } type = construct which = ic where = 1131 value = 2 } # Ufa
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Zaporozhye } type = construct which = ic where = 1134 value = 1 } # Orenburg
+		command = { trigger = { control = { province = 1134 data = SOV } local_flag = IC_Bakhmut    } type = construct which = ic where = 1115 value = 5 } # Kostonai
+		command = { trigger = { control = { province = 1115 data = SOV } local_flag = IC_Rostov     } type = construct which = ic where = 1132 value = 2 } # Chelyabinsk
+	}
+}
+
+event = { 
+	id = 3183513
+	random = no
+	country = SOV
+
+	trigger= { 
+				war = { country = GER country = SOV }
+						OR = {
+								AND = {
+										local_flag = morale_aiai_hh # GER AI vs SOV AI or human GER vs human SOV
+										event = { id = 3183516 days = 100  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = morale_gerai_sovh # GER AI vs human SOV
+										event = { id = 3183516 days = 140  } # war with Germany, first province lost
+										}
+								AND = {
+										local_flag = gerh_sovai # human GER vs SOV AI
+										event = { id = 3183516 days = 60  } # war with Germany, first province lost
+										}
+								}
+						NOT = {
+								OR = {
+										control = { province = 271 data = SOV }  # Parnu
+										control = { province = 270 data = SOV }  # Tallinn
+										control = { province = 566 data = SOV }  # Pskov
+										control = { province = 589 data = SOV }  # Smolensk
+										control = { province = 576 data = SOV }  # Kaluga
+										control = { province = 584 data = SOV }  # Tula
+										control = { province = 588 data = SOV }  # Bryansk
+										control = { province = 581 data = SOV }  # Orel
+										control = { province = 604 data = SOV }  # Kursk
+										control = { province = 603 data = SOV }  # Belgorod
+										control = { province = 606 data = SOV }  # Sumy
+										control = { province = 629 data = SOV }  # Poltava
+										control = { province = 636 data = SOV }  # Kharkov
+										control = { province = 630 data = SOV }  # Zaporozhye
+										control = { province = 635 data = SOV }  # Bakhmut
+										control = { province = 644 data = SOV }  # Rostov
+										}
+								}
+						NOT = {
+								OR = {
+										local_flag = IC_Parnu      
+										local_flag = IC_Tallinn    
+										local_flag = IC_Pskov      
+										local_flag = IC_Smolensk   
+										local_flag = IC_Kaluga     
+										local_flag = IC_Tula       
+										local_flag = IC_Bryansk    
+										local_flag = IC_Orel       
+										local_flag = IC_Kursk      
+										local_flag = IC_Belgorod   
+										local_flag = IC_Sumy       
+										local_flag = IC_Poltava    
+										local_flag = IC_Kharkov   
+										local_flag = IC_Zaporozhye 
+										local_flag = IC_Bakhmut    
+										local_flag = IC_Rostov       
+										}
+						}
+				}
+
+	name = EVT_3183507_NAME # old string; relocation has failed completely
+	desc = EVT_3183513_DESC
+	style = 2
+	picture = "sov_industry_to_siberia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { trigger = { NOT = { AI = SOV } AI = GER } type = dissent value = 5 }
+		command = { trigger = { NOT = { AI = SOV } NOT = { AI = GER } } type = dissent value = 3 }
+		command = { type = sleepevent which = 3183511 }
+		command = { type = sleepevent which = 3183512 }
+	}
+}
+
+
+###########################################################
+# Polish army in the USSR - 1 by Rommel
+###########################################################
+
+event = { 
+	id = 222008
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 222011
+				event = 313600002
+				government = communist
+				}
+				
+	decision_trigger = {
+						war = { country = GER country = SOV }
+						#manpower = 58
+						supplies = 5000
+						energy = 5000
+						metal = 2500
+						}
+		
+	trigger = {
+				event = 222011
+				event = 313600002
+				government = communist
+				war = { country = GER country = SOV }
+				ai = yes
+				#manpower = 58
+				}
+
+	name = EVT_22200801_NAME 
+	desc = EVT_22200801_DESC
+	style = 2
+	picture = "decision_polish_army_in_the_ussr_b"
+	decision_picture = "decision_polish_army_in_the_ussr_a"
+
+	date = { day = 28 month = july year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME22200801A
+		command = { type = wakeleader which = 10523 } # Gen Berling
+		#command = { type = manpowerpool value = -58 }
+		command = { type = add_corps which = "Pierwsza Armia Wojska Polskiego" value = land where = 1133 when = 10523 } 
+		command = { type = activate_division which = 10848 value = 775 where = 1133 }
+		command = { type = activate_division which = 10848 value = 776 where = 1133 }
+		command = { type = activate_division which = 10848 value = 777 where = 1133 }
+		command = { type = activate_division which = 10848 value = 778 where = 1133 }
+		command = { type = activate_division which = 10848 value = 779 where = 1133 }
+		command = { type = activate_division which = 10848 value = 780 where = 1133 }
+		command = { trigger = { ai = no } type = energypool value = -5000 }
+		command = { trigger = { ai = no } type = metalpool value = -2500 }
+		command = { trigger = { ai = no } type = supplies value = -5000 }		
+	}
+}
+
+###########################################################
+# Polish army in the USSR - 2 by Rommel
+###########################################################
+
+event = { 
+	id = 222009
+	random = no
+	country = SOV
+
+	decision = { 
+				event = 222008
+				government = communist
+				}
+				
+	decision_trigger = {
+						war = { country = GER country = SOV }
+						#manpower = 67
+						supplies = 5000
+						energy = 5000
+						metal = 2500
+						}
+						
+	trigger = {
+				event = 222008
+				government = communist
+				war = { country = GER country = SOV }
+				ai = yes
+				#manpower = 67
+				}
+
+	name = EVT_22200901_NAME 
+	desc = EVT_22200901_DESC
+	style = 2
+	picture = "decision_polish_army_in_the_ussr_b"
+	decision_picture = "decision_polish_army_in_the_ussr_a"
+
+	date = { day = 01 month = january year = 1945 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME22200901A
+		command = { type = wakeleader which = 10524 } # Gen Swierczewski
+		#command = { type = manpowerpool value = -67 }
+		command = { type = add_corps which = "Druga Armia Wojska Polskiego" value = land where = 1133 when = 10524 } 
+		command = { type = activate_division which = 10848 value = 781 where = 1133 }
+		command = { type = activate_division which = 10848 value = 782 where = 1133 }
+		command = { type = activate_division which = 10848 value = 783 where = 1133 }
+		command = { type = activate_division which = 10848 value = 784 where = 1133 }
+		command = { type = activate_division which = 10848 value = 785 where = 1133 }
+		command = { type = activate_division which = 10848 value = 786 where = 1133 }
+		command = { type = activate_division which = 10848 value = 787 where = 1133 }
+		command = { trigger = { ai = no } type = energypool value = -5000 }
+		command = { trigger = { ai = no } type = metalpool value = -2500 }
+		command = { trigger = { ai = no } type = supplies value = -5000 }		
+	}
+}
+
+########################################################
+# Frunze
+########################################################
+event = { 
+	id = 3183514
+	random = no
+	country = SOV
+	
+	decision = {
+				ai = no
+	}
+	decision_trigger = {
+						OR = {
+								atwar = SOV # added for balancing reasons (easy decision in 1936, but rather hard in late 1939 during army buildup)
+								atwar = GER
+								atwar = ENG
+								atwar = USA
+								}
+						NOT = { year = 1941 }
+						supplies = 2000
+	}
+	trigger = {
+				OR = {
+						atwar = SOV # added for balancing reasons (easy decision in 1936, but rather hard in late 1939 during army buildup)
+						atwar = GER
+						atwar = ENG
+						atwar = USA
+						}
+				atwar = yes
+				random = 2
+	}
+       
+	name = EVT_3183514_NAME
+	desc = EVT_3183514_DESC
+	style = 2
+	decision_picture = "sov_decision_frunze"
+	picture = "sov_event_frunze"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1941 }
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		ai_chance = 1
+		command = { trigger = { ai = no } type = supplies value = -2000 }
+		command = { type = build_time which = carrier			when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = light_carrier		when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = escort_carrier	when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = battleship		when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = battlecruiser		when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = heavy_cruiser		when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = light_cruiser		when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = destroyer			when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = d_09				when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = d_08				when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = submarine			when = on_upgrade where = relative value = 100 }
+		command = { type = build_time which = nuclear_submarine	when = on_upgrade where = relative value = 100 }
+		command = { trigger = { AI = no } type = event which = 3183515 where = -1 when = 540 }
+		command = { trigger = { AI = yes } type = event which = 3183515 where = -1 when = 270 }		
+	}
+	
+	action_b = {
+		ai_chance = 99
+		name = ACTION_NAME_DECLINE
+		command = { type = sleepevent which = 3183514 }
+	}
+}
+
+event = { 
+	id = 3183515
+	random = no
+	country = SOV
+       
+	name = EVT_3183515_NAME
+	desc = EVT_3183515_DESC
+	style = 2
+	picture = "sov_event_frunze"
+
+	action_a = {
+		name = ACTION_NAME_GREAT
+		command = { type = activate_division which = 10848 value = 1730 where = 553 when = 0 } #Leningrad
+		command = { type = build_time which = carrier			when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = light_carrier		when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = escort_carrier	when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = battleship		when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = battlecruiser		when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = heavy_cruiser		when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = light_cruiser		when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = destroyer			when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = d_09				when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = d_08				when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = submarine			when = on_upgrade where = relative value = -100 }
+		command = { type = build_time which = nuclear_submarine	when = on_upgrade where = relative value = -100 }
+	}
+}
+
+########################################################
+# SOV support for polish home army in warwas uprising
+########################################################
+event = { 
+	id = 3183520
+	random = no
+	country = SOV
+	
+	decision = {
+				ai    = no
+                event = 3136233 #GER Event Warsaw uprising
+	}
+	decision_trigger = {
+	            event    = 3136233 
+				supplies = 4500
+				oil      = 550
+				money    = 1250	
+				atwar = yes
+				war   = { country = ENG country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+	trigger = {
+	            event    = 3136233 
+				ai       = yes
+				supplies = 4500
+				oil      = 550
+				money    = 1250	
+				atwar = yes
+				war   = { country = ENG country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+       
+	name = EVT_3183520_NAME
+	desc = EVT_3183520_DESC
+	style = 2
+	decision_picture = "sov_decision_ussr_help_for_warsaw"
+	picture          = "sov_event_ussr_help_for_warsaw"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+		name = ACTIONNAME3183520A	
+		command = { type = revolt which = 232 when = -1 } #Polish army could equip more soldiers for the battle
+		command = { type = revolt which = 232 when = -1 }
+		command = { type = revolt which = 232 when = -1 }
+		command = { trigger = { ai = no } type = supplies value = -4500 }
+		command = { trigger = { ai = no } type = oilpool  value = -550  }
+		command = { trigger = { ai = no } type = money    value = -1250 }
+		#command = { type = add_leader_skill which = 10236 value = 1     } #Marshall Rokossovsky
+		command = { type = dissent value = 8 }
+	}
+}
+
+###########################################################################
+# Czech army in SOV
+###########################################################################
+event = { 
+	id = 3183525
+	random = no
+	country = SOV
+
+	decision = { atwar = yes }
+				
+	decision_trigger = { 
+        war = { country = GER country = SOV }
+		NOT = { exists  = CZE }
+		atwar           = yes
+    }
+
+	trigger = { 
+        war = { country = GER country = SOV }
+		NOT = { exists  = CZE }
+		atwar           = yes
+	}
+
+	name = EVT_3183525_NAME
+	desc = EVT_3183525_DESC
+	style = 2
+	picture = "sov_event_cze_army_in_sov"
+	decision_picture = "sov_decision_cze_army_in_sov"
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME3183525A 
+        ai_chance = 100
+		command = { type = activate_division which = 10848 value = 791 when = 0 }
+		command = { type = dissent value = -1 }
+        command = { trigger = { ai = no } type = supplies value = -1500 }
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+########################################################

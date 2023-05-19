@@ -1,0 +1,53 @@
+# not used in TRP yet => vanilla values
+model = { # Basic Rocket Interceptor - 0
+	cost 				= 20
+	buildtime	 		= 210
+	defaultorganisation 		= 30
+	morale				= 35
+	manpower			= 0.75
+	maxspeed			= 1000
+	surfacedetectioncapability	= 5
+	airdetectioncapability		= 8
+	surfacedefence			= 4
+	airdefence			= 4
+	airattack			= 5
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	range				= 100
+	supplyconsumption 		= 1.3
+	fuelconsumption			= 2.2
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	#upgrade_time_factor 		= 0.6
+	#upgrade_cost_factor 		= 0.50
+	equipment = { fighter = 100 manpower = 750 }
+}
+
+model = { # Improved Rocket Interceptor - 1
+	cost 				= 20
+	buildtime	 		= 210
+	defaultorganisation 		= 30
+	morale				= 35
+	manpower			= 0.75
+	maxspeed			= 1200
+	surfacedetectioncapability	= 7
+	airdetectioncapability		= 8
+	surfacedefence			= 3
+	airdefence			= 3
+	airattack			= 6
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	range				= 250
+	supplyconsumption 		= 1.5
+	fuelconsumption			= 2.5
+#	interceptor			= 12
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.90
+	equipment = { fighter = 100 manpower = 750 }
+}

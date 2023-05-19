@@ -1,0 +1,164 @@
+#########################################################################
+#  The UK controls the polish forces
+#########################################################################
+event = { 
+	id = 31653100
+	random = no
+	country = ENG
+	
+	decision = {
+		war = { country = GER country = POL }
+		war = { country = GER country = ENG }
+		NOT = {
+			OR = {
+			alliance = { country = FRA country = POL }
+			alliance = { country = ENG country = POL }
+			war = { country = ENG country = POL }
+			government = fascist
+			}
+		}
+	}
+	
+	decision_trigger = { 
+		NOT = { military_control = { country = ENG country = POL } }
+		NOT = { event = 31653102 }
+		ai = POL
+	}
+			
+	trigger = {
+		ai = no
+	}
+	
+	name = "EVT_31653100_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+	decision_picture = "decision_poland_control"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = ENG where = POL value = 1 }
+		command	= { type = local_setflag which = military_control_POL }
+		command = { trigger = { ai = GER } type = dissent value = 5 }
+	}
+}
+#########################################################################
+#  The UK no longer controls the polish forces
+#########################################################################
+event = {
+	id = 31653101
+	random = no
+	country = ENG
+
+	trigger = {
+		military_control = { country = POL }
+		local_flag = military_control_POL
+		OR = { 
+			alliance = { country = ENG country = GER } 
+			alliance = { country = ENG country = POL } 
+			NOT = { war = { country = GER country = POL } } 
+			NOT = { ai = POL }		
+		}
+	}
+
+	name = "EVT_31653101_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "SCW"
+
+	date = { day = 18 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = military_control which = ENG where = POL }
+		command	= { type = local_clrflag which = military_control_POL }
+	}
+}
+#########################################################################
+# France controls the polish forces
+#########################################################################
+event = {
+	id = 31653102
+	random = no
+	country = FRA
+
+	decision = {
+		war = { country = GER country = POL }
+		war = { country = GER country = FRA }
+		NOT = {
+			OR = {
+			alliance = { country = FRA country = POL }
+			alliance = { country = ENG country = POL }
+			war = { country = FRA country = POL }
+			government = fascist
+			}
+		}
+	}
+	
+	decision_trigger = { 
+		NOT = { event = 31653100 }
+		NOT = { military_control = { country = FRA country = POL } }
+		ai = POL
+	}
+			
+	trigger = {
+		ai = no
+	}
+
+	name = "EVT_31653102_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "scw"
+	decision_picture = "decision_poland_control"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+		action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = FRA where = POL value = 1 }
+		command	= { type = local_setflag which = military_control_POL }
+		command = { trigger = { ai = GER } type = dissent value = 5 }
+	}
+}
+#########################################################################
+#  France no longer controls the polish forces
+#########################################################################
+event = {
+	id = 31653103
+	random = no
+	country = FRA
+
+	trigger = {
+		military_control = { country = POL }
+		local_flag = military_control
+		OR = { 
+			alliance = { country = ENG country = GER } 
+			alliance = { country = ENG country = POL } 
+			NOT = { war = { country = GER country = POL } } 
+			NOT = { ai = POL }		
+		}
+	}
+	
+	name = "EVT_31653103_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "news_paper"	
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = military_control which = FRA where = POL }
+		command	= { type = local_clrflag which = military_control_POL }
+	}
+}

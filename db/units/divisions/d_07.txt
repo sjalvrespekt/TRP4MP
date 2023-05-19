@@ -1,0 +1,217 @@
+#	elite bergsjaeger				
+allowed_brigades =  artillery					
+allowed_brigades =  anti_tank					
+allowed_brigades =  anti_air					
+allowed_brigades =  rocket_artillery					
+#allowed_brigades =  sp_artillery					
+#allowed_brigades =  sp_rct_artillery					
+#allowed_brigades =  tank_destroyer					
+#allowed_brigades =  light_armor_brigade					
+#allowed_brigades =  heavy_armor					
+#allowed_brigades =  super_heavy_armor					
+allowed_brigades =  armored_car					
+allowed_brigades =  engineer					
+allowed_brigades =  police					
+#allowed_brigades =  sp_anti_air	
+#allowed_brigades =  b_01				
+					
+# Early Elite Mountain Division (1937) - 0					
+model = {					
+	cost =				7.53
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				21
+	toughness =				22
+	softness =				100
+	suppression =				0
+	airdefence =				13
+	softattack =				18
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.51
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	#upgrade_time_factor =				0.6
+	#upgrade_cost_factor =				0
+	equipment =				{ manpower = 12000 equipment = 350 artillery = 55 heavy_artillery = 22 anti_air = 6 anti_tank = 7 horses = 6038 trucks = 173                             }
+}					
+# Basic Elite Mountain Division (1940) - 1					
+model = {					
+	cost =				8.23
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				23
+	toughness =				24
+	softness =				100
+	suppression =				0
+	airdefence =				14
+	softattack =				20
+	hardattack =				0
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.65
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 322 artillery = 67 heavy_artillery = 12 anti_air = 12 anti_tank = 69 horses = 6038 trucks = 1380                             }
+}					
+# Improved Elite Mountain Division (1943) - 2					
+model = {					
+	cost =				8.99
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				27
+	toughness =				29
+	softness =				100
+	suppression =				0
+	airdefence =				17
+	softattack =				24
+	hardattack =				1
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.8
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 198 artillery = 58 heavy_artillery = 12 anti_air = 12 anti_tank = 69 horses = 6038 trucks = 1380                             }
+}					
+# Advanced Elite Mountain Division (1945) - 3					
+model = {					
+	cost =				9.54
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				30
+	toughness =				32
+	softness =				100
+	suppression =				0
+	airdefence =				19
+	softattack =				27
+	hardattack =				2
+	airattack =				1
+	transportweight =				10
+	supplyconsumption =				1.91
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.47
+	equipment =				{ manpower = 12000 equipment = 230 artillery = 58 heavy_artillery = 12 anti_air = 17 anti_tank = 69 horses = 5750 trucks = 1380 halftracks = 29                            }
+}					
+# Semimodern Elite Mountain Division (1948) - 4					
+model = {					
+	cost =				10.32
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				36
+	toughness =				39
+	softness =				100
+	suppression =				0
+	airdefence =				22
+	softattack =				32
+	hardattack =				3
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.06
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.65
+	equipment =				{ manpower = 12000 equipment = 239 artillery = 58 heavy_artillery = 22 anti_air = 17 anti_tank = 69 horses = 5463 trucks = 1495 halftracks = 35                            }
+}					
+# Modern Elite Mountain Division (1952)- 5					
+model = {					
+	cost =				11.17
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				44
+	toughness =				47
+	softness =				100
+	suppression =				0
+	airdefence =				27
+	softattack =				38
+	hardattack =				4
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.23
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 253 artillery = 58 heavy_artillery = 22 anti_air = 23 anti_tank = 55 horses = 5405 trucks = 1553 halftracks = 35                            }
+}					
+# Elite Mountain Division (1956)- 6					
+model = {					
+	cost =				12.09
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				52
+	toughness =				55
+	softness =				100
+	suppression =				0
+	airdefence =				32
+	softattack =				45
+	hardattack =				5
+	airattack =				2
+	transportweight =				10
+	supplyconsumption =				2.42
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 281 artillery = 67 heavy_artillery = 22 anti_air = 23 anti_tank = 35 horses = 5290 trucks = 1610 halftracks = 40                            }
+}					
+# Elite Mountain Division (1961) - 7					
+model = {					
+	cost =				13.35
+	buildtime =			 	180
+	manpower =				12
+	maxspeed =				8
+	defaultorganisation =				36
+	morale =				20
+	defensiveness =				63
+	toughness =				67
+	softness =				100
+	suppression =				0
+	airdefence =				39
+	softattack =				55
+	hardattack =				8
+	airattack =				3
+	transportweight =				10
+	supplyconsumption =				2.67
+	fuelconsumption =				0
+	reinforce_time =				0.5
+	reinforce_cost =				1.4
+	upgrade_time_factor =				0.6
+	upgrade_cost_factor =				0.8
+	equipment =				{ manpower = 12000 equipment = 281 artillery = 67 heavy_artillery = 22 anti_air = 23 anti_tank = 28 horses = 5175 trucks = 1840 halftracks = 40             helicopter = 3               }
+}					

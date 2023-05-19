@@ -1,0 +1,993 @@
+##################################################################
+# Minor nations manpower & diplomacy events 552100+ by DerStudti
+##################################################################
+
+############
+# Guerilla
+############
+
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 552100
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		year = 1938 # give nations a chance to use their individual AI
+		NOT = { local_flag = guerilla_low_mp }
+		not = { manpower = 7 }
+		ai = yes
+		technology = 6500 # guerilla
+		NOT = { country = CHI
+				} # expand list for any guerilla nation having its own AI building switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_low_mp.ai" }
+		command = { type = local_setflag which = guerilla_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 552101
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		year = 1938 # give nations a chance to use their individual AI
+		local_flag = guerilla_low_mp
+		manpower = 10
+		ai = yes
+		technology = 6500 # guerilla
+		NOT = { country = CHI
+				} # expand list for any guerilla nation having its own AI building switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_normal_mp.ai" }
+		command = { type = local_clrflag which = guerilla_low_mp }
+	}
+}
+################
+# Switch to allies diplomacy scheme
+#############################################
+event = {
+	id = 552102
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		technology = 6500 # guerilla
+		NOT = { local_flag = guerilla_diplo_allies }
+		OR = {
+				alliance = { country = -1  country = ENG }
+				alliance = { country = -1  country = USA }
+				alliance = { country = -1  country = FRA }
+				alliance = { country = ENG country = -1 }
+				alliance = { country = USA country = -1 }
+				alliance = { country = FRA country = -1 }
+				puppet = { country = -1 country = ENG }	
+				puppet = { country = -1 country = USA }
+				puppet = { country = -1 country = FRA }
+				participant = { value = 1 } # allies
+			}
+		NOT = { country = CHI
+				country = CGX
+				country = CHC
+				country = CSX
+				country = CXB
+				country = CYN
+				} # expand list for any guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_allies.ai" }
+		command = { type = local_clrflag which = guerilla_diplo_neutral }
+		command = { type = local_setflag which = guerilla_diplo_allies }
+		command = { type = local_clrflag which = guerilla_diplo_axis }
+		command = { type = local_clrflag which = guerilla_diplo_comintern }
+	}
+}
+################
+# Switch to axis diplomacy scheme
+#############################################
+event = {
+	id = 552103
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		technology = 6500 # guerilla
+		NOT = { local_flag = guerilla_diplo_axis }
+		OR = {
+				alliance = { country = -1  country = ITA }
+				alliance = { country = -1  country = GER }
+				alliance = { country = -1  country = JAP }
+				alliance = { country = -1  country = U00 }
+				alliance = { country = ITA country = -1 }
+				alliance = { country = GER country = -1 }
+				alliance = { country = JAP country = -1 }
+				alliance = { country = U00 country = -1 }
+				puppet = { country = -1 country = ITA }	
+				puppet = { country = -1 country = GER }
+				puppet = { country = -1 country = JAP }
+				puppet = { country = -1 country = U00 }
+				participant = { value = 2 } # axis
+			}
+		NOT = { country = CHI
+				country = CGX
+				country = CHC
+				country = CSX
+				country = CXB
+				country = CYN
+				} # expand list for any guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_axis.ai" }
+		command = { type = local_clrflag which = guerilla_diplo_neutral }
+		command = { type = local_clrflag which = guerilla_diplo_allies }
+		command = { type = local_setflag which = guerilla_diplo_axis }
+		command = { type = local_clrflag which = guerilla_diplo_comintern }
+	}
+}
+################
+# Switch to comintern diplomacy scheme
+#############################################
+event = {
+	id = 552104
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		technology = 6500 # guerilla
+		NOT = { local_flag = guerilla_diplo_comintern }
+		OR = {
+				alliance = { country = -1  country = SOV }
+				alliance = { country = SOV country = -1 }
+				puppet = { country = -1 country = SOV }	
+				participant = { value = 3 } # comintern
+			}
+		NOT = { country = CHI
+				country = CGX
+				country = CHC
+				country = CSX
+				country = CXB
+				country = CYN
+				} # expand list for any guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_comintern.ai" }
+		command = { type = local_clrflag which = guerilla_diplo_neutral }
+		command = { type = local_clrflag which = guerilla_diplo_allies }
+		command = { type = local_clrflag which = guerilla_diplo_axis }
+		command = { type = local_setflag which = guerilla_diplo_comintern }
+	}
+}
+################
+# Switch back to neutral diplomacy scheme (after having been part of axis, allies or comintern)
+#############################################
+event = {
+	id = 552105
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		technology = 6500 # guerilla
+		OR = {
+				local_flag = guerilla_diplo_axis
+				local_flag = guerilla_diplo_allies
+				local_flag = guerilla_diplo_comintern
+				}
+		NOT = { local_flag = guerilla_diplo_neutral }
+		NOT = { alliance = { country = -1  country = ITA }}
+		NOT = { alliance = { country = -1  country = GER }}
+		NOT = { alliance = { country = -1  country = JAP }}
+		NOT = { alliance = { country = -1  country = U00 }}
+		NOT = { alliance = { country = ITA country = -1  }}
+		NOT = { alliance = { country = GER country = -1  }}
+		NOT = { alliance = { country = JAP country = -1  }}
+		NOT = { alliance = { country = U00 country = -1  }}		
+		NOT = { puppet = { country = -1 country = ITA }	}
+		NOT = { puppet = { country = -1 country = GER }}
+		NOT = { puppet = { country = -1 country = JAP }}
+		NOT = { puppet = { country = -1 country = U00 }}
+		NOT = { alliance = { country = -1  country = SOV }}
+		NOT = { alliance = { country = SOV  country = -1 }}
+		NOT = { puppet = { country = -1 country = SOV }	}
+		NOT = { alliance = { country = -1  country = ENG }}
+		NOT = { alliance = { country = -1  country = USA }}
+		NOT = { alliance = { country = -1  country = FRA }}
+		NOT = { alliance = { country = ENG country = -1  }}
+		NOT = { alliance = { country = USA country = -1  }}
+		NOT = { alliance = { country = FRA country = -1  }}
+		NOT = { puppet = { country = -1 country = ENG }	}
+		NOT = { puppet = { country = -1 country = USA }}
+		NOT = { puppet = { country = -1 country = FRA }}
+		NOT = { participant = { value = 1 }} # allies
+		NOT = { participant = { value = 2 }} # axis
+		NOT = { participant = { value = 3 }} # comintern
+		NOT = { country = CHI }
+		NOT = { country = CGX }
+		NOT = { country = CHC }
+		NOT = { country = CSX }
+		NOT = { country = CXB }
+		NOT = { country = CYN }
+		# expand list for any guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_neutral.ai" }
+		command = { type = local_setflag which = guerilla_diplo_neutral }
+		command = { type = local_clrflag which = guerilla_diplo_allies }
+		command = { type = local_clrflag which = guerilla_diplo_axis }
+		command = { type = local_clrflag which = guerilla_diplo_comintern }
+	}
+}
+
+#########################
+# 'conventional' minors
+#########################
+
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 552200
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = minor_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+		NOT = { technology = 6500 } # guerilla
+		NOT = { country = AST }
+		NOT = {	country = BUL }
+		NOT = {	country = CAN }
+		NOT = {	country = CZE }
+		NOT = {	country = ENG }
+		NOT = {	country = FIN }
+		NOT = {	country = FRA }
+		NOT = {	country = GER }
+		NOT = {	country = HOL }
+		NOT = {	country = HUN }
+		NOT = {	country = ITA }
+		NOT = {	country = JAP }
+		NOT = {	country = NOR }
+		NOT = {	country = POL }
+		NOT = {	country = ROM }
+		NOT = {	country = SOV }
+		NOT = {	country = U01 }
+		NOT = {	country = SPR }
+		NOT = {	country = U00 }
+		NOT = {	country = USA }
+		NOT = {	country = YUG }
+		NOT = {	country = U02 }
+		# expand list for any non-guerilla nation having its own AI building switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 } # give nations a chance to use their individual AI
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/minor_low_mp.ai" }
+		command = { type = local_setflag which = minor_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 552201
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = minor_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1939 } # give nations a chance to use their individual AI
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/minor_normal_mp.ai" }
+		command = { type = local_clrflag which = minor_low_mp }
+	}
+}
+################
+# Switch to allies diplomacy scheme
+#############################################
+event = {
+	id = 552202
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { technology = 6500 } # guerilla
+		NOT = { local_flag = minor_diplo_allies }
+		OR = {
+				alliance = { country = -1  country = ENG }
+				alliance = { country = -1  country = USA }
+				alliance = { country = -1  country = FRA }
+				alliance = { country = ENG country = -1 }
+				alliance = { country = USA country = -1 }
+				alliance = { country = FRA country = -1 }
+				puppet = { country = -1 country = ENG }	
+				puppet = { country = -1 country = USA }
+				puppet = { country = -1 country = FRA }
+				participant = { value = 1 } # allies
+			}
+		NOT = { 
+				country = AST
+				#country = BUL
+				country = CAN
+				#country = CZE
+				country = ENG
+				#country = FIN
+				country = FRA
+				#country = GER
+				country = HOL
+				#country = HUN
+				#country = ITA
+				#country = JAP
+				country = NOR
+				country = POL
+				#country = ROM
+				#country = SOV
+				#country = U01
+				#country = SPR
+				#country = U00
+				country = USA
+				country = YUG
+				country = U02
+				country = BEL
+				#country = POR
+				#country = SCH
+				#country = DEN
+				country = GRE
+				} # expand list for any non-guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_allies.ai" } # same file may be used
+		command = { type = local_clrflag which = minor_diplo_neutral }
+		command = { type = local_setflag which = minor_diplo_allies }
+		command = { type = local_clrflag which = minor_diplo_axis }
+		command = { type = local_clrflag which = minor_diplo_comintern }
+	}
+}
+################
+# Switch to axis diplomacy scheme
+#############################################
+event = {
+	id = 552203
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { technology = 6500 } # guerilla
+		NOT = { local_flag = minor_diplo_axis }
+		OR = {
+				alliance = { country = -1  country = ITA }
+				alliance = { country = -1  country = GER }
+				alliance = { country = -1  country = JAP }
+				alliance = { country = -1  country = U00 }
+				alliance = { country = ITA country = -1 }
+				alliance = { country = GER country = -1 }
+				alliance = { country = JAP country = -1 }
+				alliance = { country = U00 country = -1 }
+				puppet = { country = -1 country = ITA }	
+				puppet = { country = -1 country = GER }
+				puppet = { country = -1 country = JAP }
+				puppet = { country = -1 country = U00 }
+				participant = { value = 2 } # axis
+			}
+		NOT = { 
+				#country = AST
+				country = BUL
+				#country = CAN
+				#country = CZE
+				#country = ENG
+				#country = FIN
+				#country = FRA
+				country = GER
+				#country = HOL
+				country = HUN
+				country = ITA
+				country = JAP
+				#country = NOR
+				#country = POL
+				country = ROM
+				#country = SOV
+				country = U01
+				#country = SPR
+				country = U00
+				#country = USA
+				#country = YUG
+				#country = U02
+				#country = BEL
+				#country = POR
+				#country = SCH
+				#country = DEN
+				#country = GRE
+				} # expand list for any non-guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_axis.ai" } # same file may be used
+		command = { type = local_clrflag which = minor_diplo_neutral }
+		command = { type = local_clrflag which = minor_diplo_allies }
+		command = { type = local_setflag which = minor_diplo_axis }
+		command = { type = local_clrflag which = minor_diplo_comintern }
+	}
+}
+################
+# Switch to comintern diplomacy scheme
+#############################################
+event = {
+	id = 552204
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { technology = 6500 } # guerilla
+		NOT = { local_flag = minor_diplo_comintern }
+		OR = {
+				alliance = { country = -1  country = SOV }
+				alliance = { country = SOV country = -1 }
+				puppet = { country = -1 country = SOV }	
+				participant = { value = 3 } # comintern
+			}
+		NOT = { 
+				#country = AST
+				#country = BUL
+				#country = CAN
+				#country = CZE
+				#country = ENG
+				#country = FIN
+				#country = FRA
+				#country = GER
+				#country = HOL
+				#country = HUN
+				#country = ITA
+				#country = JAP
+				#country = NOR
+				#country = POL
+				#country = ROM
+				country = SOV
+				#country = U01
+				#country = SPR
+				#country = U00
+				#country = USA
+				#country = YUG
+				#country = U02
+				#country = BEL
+				#country = POR
+				#country = SCH
+				#country = DEN
+				#country = GRE
+				} # expand list for any non-guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_comintern.ai" } # same file may be used
+		command = { type = local_clrflag which = minor_diplo_neutral }
+		command = { type = local_clrflag which = minor_diplo_allies }
+		command = { type = local_clrflag which = minor_diplo_axis }
+		command = { type = local_setflag which = minor_diplo_comintern }
+	}
+}
+################
+# Switch back to neutral diplomacy scheme (after having been part of axis, allies or comintern)
+#############################################
+event = {
+	id = 552205
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { technology = 6500 } # guerilla
+		NOT = { local_flag = minor_diplo_neutral }
+		OR = {
+				local_flag = minor_diplo_axis
+				local_flag = minor_diplo_allies
+				local_flag = minor_diplo_comintern
+				}
+		NOT = { alliance = { country = -1  country = ITA }}
+		NOT = { alliance = { country = -1  country = GER }}
+		NOT = { alliance = { country = -1  country = JAP }}
+		NOT = { alliance = { country = -1  country = U00 }}
+		NOT = { alliance = { country = ITA country = -1  }}
+		NOT = { alliance = { country = GER country = -1  }}
+		NOT = { alliance = { country = JAP country = -1  }}
+		NOT = { alliance = { country = U00 country = -1  }}		
+		NOT = { puppet = { country = -1 country = ITA }	}
+		NOT = { puppet = { country = -1 country = GER }}
+		NOT = { puppet = { country = -1 country = JAP }}
+		NOT = { puppet = { country = -1 country = U00 }}
+		NOT = { alliance = { country = -1  country = SOV }}
+		NOT = { alliance = { country = SOV  country = -1 }}
+		NOT = { puppet = { country = -1 country = SOV }	}
+		NOT = { alliance = { country = -1  country = ENG }}
+		NOT = { alliance = { country = -1  country = USA }}
+		NOT = { alliance = { country = -1  country = FRA }}
+		NOT = { alliance = { country = ENG country = -1  }}
+		NOT = { alliance = { country = USA country = -1  }}
+		NOT = { alliance = { country = FRA country = -1  }}
+		NOT = { puppet = { country = -1 country = ENG }	}
+		NOT = { puppet = { country = -1 country = USA }}
+		NOT = { puppet = { country = -1 country = FRA }}
+		NOT = { participant = { value = 1 }} # allies
+		NOT = { participant = { value = 2 }} # axis
+		NOT = { participant = { value = 3 }} # comintern
+		NOT = { country = AST
+				country = BUL
+				country = CAN
+				country = CZE
+				country = ENG
+				country = FIN
+				country = FRA
+				country = GER
+				country = HOL
+				country = HUN
+				country = ITA
+				country = JAP
+				country = NOR
+				country = POL
+				country = ROM
+				country = SOV
+				country = U01
+				country = SPR
+				country = U00
+				country = USA
+				country = YUG
+				country = U02
+				country = BEL
+				country = POR
+				country = SCH
+				country = DEN
+				country = GRE
+				} # expand list for any non-guerilla nation having its own AI diplomacy switch events
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/guerilla_diplo_neutral.ai" } # same file may be used
+		command = { type = local_setflag which = minor_diplo_neutral }
+		command = { type = local_clrflag which = minor_diplo_allies }
+		command = { type = local_clrflag which = minor_diplo_axis }
+		command = { type = local_clrflag which = minor_diplo_comintern }
+	}
+}
+
+
+#############################################################################################################
+# Allied nations give and remove mutual expeditionary troops as to prevent 'anti partisan duty' superstacks
+#############################################################################################################
+event = {
+	id = 552206
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes	
+		atwar = yes
+		participant = { value = 1 } # allies		
+		NOT = { country = USA }
+		NOT = { local_flag = allies_exp_forces_on }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/allies_exp_forces_on.ai" }
+		command = { type = local_setflag which = allies_exp_forces_on }
+	}
+}
+
+event = {
+	id = 552207
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes	
+		local_flag = allies_exp_forces_on
+		NOT = { participant = { value = 1 } } # allies
+		NOT = { country = USA }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/allies_exp_forces_off.ai" }
+		command = { type = local_clrflag which = allies_exp_forces_on }
+	}
+}
+
+
+#############################################################################################################
+# Neutrality changes, both historic and ahistoric
+#############################################################################################################
+
+#############################################################################################################
+# Neutrality lowered if any major nation attacks a minor
+#############################################################################################################
+event = {
+	id = 552208
+	random = no 
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = neutrality_low }
+		OR = { 
+				#major nations
+				war = { country = -1 country = GER }
+				war = { country = -1 country = ITA }
+				war = { country = -1 country = JAP }
+				war = { country = -1 country = ENG }
+				war = { country = -1 country = FRA }
+				war = { country = -1 country = USA }
+				war = { country = -1 country = SOV }
+				#minors played often
+				war = { country = -1 country = U00 }
+				war = { country = -1 country = U01 }
+				war = { country = -1 country = U02 }
+				war = { country = -1 country = ROM }
+				war = { country = -1 country = HUN }
+				war = { country = -1 country = CAN }
+				war = { country = -1 country = AST }
+				war = { country = -1 country = NZL }
+				war = { country = -1 country = SAF }
+				war = { country = -1 country = CHI }
+				war = { country = -1 country = CHC }
+				war = { country = -1 country = SPR }
+				war = { country = -1 country = POL }
+				war = { country = -1 country = BRA }
+				war = { country = -1 country = ARG }
+				war = { country = -1 country = MEX }
+				war = { country = -1 country = HOL }
+				war = { country = -1 country = BEL }
+				}
+		major = no
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = neutrality_low }
+	}
+}
+
+#############################################################################################################
+# Neutrality lowered after Pearl Harbour for historic countries in Mid America
+#############################################################################################################
+event = {
+	id = 552209
+	random = no 
+	
+	tag = { COS GUA CUB PAN DOM SAL HON NIC } #joined a few days after Pearl Harbour: Costa Rica, Guatemala, Kuba, Panama, Dom. Rep., El Salvador, Honduras, Nicaragua
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = neutrality_low }
+		OR = {
+				war = { country = JAP country = USA }
+				war = { country = U00 country = USA }
+				war = { country = JAP country = ENG }
+				war = { country = U00 country = ENG }
+				}
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = neutrality_low }
+	}
+}
+
+############################################################################################################################################################
+# Neutrality lowered after Pearl Harbour for historic countries in South America; randomized to simulate effect of german submarines sinking merchant ships
+############################################################################################################################################################
+event = {
+	id = 552210
+	random = no 
+	
+	tag = { MEX BRA BOL COL }	#joined some months after Pearl Harbour:
+								#MEX: 22.05.42, 6 months
+								#BRA: 22.08.42, 9 months
+								#BOL: 07.04.43, 16 months
+								#COL: 27.11.43, 24 months
+
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = neutrality_low }
+		OR = {
+				war = { country = JAP country = USA }
+				war = { country = U00 country = USA }
+				war = { country = JAP country = ENG }
+				war = { country = U00 country = ENG }
+				}
+		ai = yes
+		OR = {
+				AND = {
+						country = MEX
+						random = 70 # 91% chance 6 months after PH
+						}
+				AND = {
+						country = BRA
+						random = 55 # 91% chance 9 months after PH
+						}
+				AND = {
+						country = BOL
+						random = 35 # 88% chance 15 months after PH
+						}
+				AND = {
+						country = COL
+						random = 25 # 90% chance 24 months after PH
+						}
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 90
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = neutrality_low }
+	}
+}
+
+############################################################################################################################################################
+# Neutrality lowered in South America after diplomatic decision in USA & in Mongolia (SOV)
+############################################################################################################################################################
+event = {
+	id = 552211
+	random = no 
+	
+	tag = { ECU PAR PER CHL VEN URU TUR SAU ARG MON }	#joined some months before the end of WW2 and after final USA pressure
+														#ECU: 02.02.45
+														#PAR: 08.02.45
+														#PER: 12.02.45
+														#CHL: 14.02.45
+														#VEN: 16.02.45
+														#URU: 23.02.45
+														#TUR: 23.02.45
+														#SAU: 28.02.45
+														#ARG: 27.03.45	
+														#joined after the end of WW2 in Europa and after final SOV pressure
+														#MON: 11.08.45
+	
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { local_flag = neutrality_low }
+		OR = {
+				AND = { 
+						flag = USA_diplomatic_offensive
+						OR = { 
+								country = ECU
+								country = PAR
+								country = PER
+								country = CHL
+								country = VEN
+								country = URU
+								country = TUR
+								country = SAU
+								country = ARG
+								}
+						}
+				AND = { 
+						flag = SOV_diplomatic_offensive
+						country = MON
+						}
+				}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = neutrality_low }
+	}
+}
+
+#######################################
+# Neutral AIs join AI Allies after neutrality has been lowered
+#######################################
+event = {
+	id = 552212
+	random = no
+	
+	tag = { ECU PAR PER CHL VEN URU ARG MEX BRA BOL COL COS GUA CUB PAN DOM SAL HON NIC } #TUR & SAU excluded for unpredictable frontline reasons
+	
+	persistent = yes
+
+	trigger = {
+				local_flag = neutrality_low
+				NOT = { participant = { value = 4 } } #part of any alliance
+				NOT = { ispuppet = yes }
+				NOT = { government = { type = fascist } }
+				NOT = { government = { type = communist } }
+				atwar = no
+				ai = yes
+				ai = ENG
+				ai = USA
+				OR = {
+						AND = { 
+								war = { country = USA country = JAP }
+								participant = { country = USA value = 1 } #part of Allies
+								}
+						AND = { 
+								war = { country = USA country = GER }
+								participant = { country = USA value = 1 }
+								}
+						AND = { 
+								war = { country = ENG country = JAP }
+								participant = { country = ENG value = 1 }
+								}
+						AND = { 
+								war = { country = ENG country = GER }
+								participant = { country = ENG value = 1 }
+								}
+						}
+				random = 5
+				}
+
+	name = AI_EVENT
+	# desc = AI_EVENT
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+				command = { trigger = { alliance_leader = { country = ENG value = 1 } } type = alliance which = ENG }
+				command = { trigger = { alliance_leader = { country = USA value = 1 } } type = alliance which = USA }
+				}
+}

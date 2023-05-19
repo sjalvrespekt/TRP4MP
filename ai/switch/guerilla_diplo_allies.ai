@@ -1,0 +1,231 @@
+# Guerilla diplomacy AI file (allied) by DerStudti
+
+# neutrality = 95
+exp_force_ratio = 0.5000
+exp_force_ratios = { ENG = 0.5 USA = 0.5 } 
+no_exp_forces_to = { }
+
+###################################
+# Diplomacy
+###################################
+combat = { }
+
+befriend = {
+	USA = 100
+	ENG = 100
+	FRA = 100
+	CAN = 50
+	AST = 50
+	SAF = 50
+	NZL = 50
+	BEL = 20
+	HOL = 20
+	NOR = 20
+	GRE = 20
+	LUX = 20
+	PHI = 20
+	LIB = 20
+	EGY = 20
+	U02 = 20
+	BUR = 20
+	U14 = 20
+	U19 = 20
+}
+protect = {
+	USA = 100
+	ENG = 100
+	FRA = 100
+	CAN = 50
+	AST = 50
+	SAF = 50
+	NZL = 50
+	BEL = 20
+	HOL = 20
+	NOR = 20
+	GRE = 20
+	LUX = 20
+	PHI = 20
+	LIB = 20
+	EGY = 20
+	U02 = 20
+	BUR = 20
+	U14 = 20
+	U19 = 20
+}
+
+claim_acceptance = 0
+
+demand_claims = { }
+
+# Special resistance against "influence" by the listed nations. Value range = [0 - 10]  
+resistance = { 
+	SOV = 8
+	CHC = 8
+	MON = 8
+	TAN = 8
+	GER = 8
+	ITA = 8
+	JAP = 8
+	HUN = 8
+	ROM = 8
+	BUL = 8
+	FIN = 8
+	MAN = 8
+	MEN = 8
+	U00 = 8
+	U01 = 8
+}
+
+target = { } 
+
+trade = {
+	cancel_deal_threshold = 2
+
+	energy 		= -1
+	rare_materials 	= -1
+	metal 		= -1
+	oil 		= -1
+	supplies 	= -1
+	money 		= -1
+
+	favored = { 
+	USA = 100
+	ENG = 100
+	FRA = 100
+	CAN = 50
+	AST = 50
+	SAF = 50
+	NZL = 50
+	BEL = 20
+	HOL = 20
+	NOR = 20
+	GRE = 20
+	LUX = 20
+	PHI = 20
+	LIB = 20
+	EGY = 20
+	U02 = 20
+	BUR = 20
+	U14 = 20
+	U19 = 20
+	}
+	embargo = { }
+}
+tech_sharing = {
+	favored = { 
+	USA = 100
+	ENG = 100
+	FRA = 100
+	CAN = 50
+	AST = 50
+	SAF = 50
+	NZL = 50
+	BEL = 20
+	HOL = 20
+	NOR = 20
+	GRE = 20
+	LUX = 20
+	PHI = 20
+	LIB = 20
+	EGY = 20
+	U02 = 20
+	BUR = 20
+	U14 = 20
+	U19 = 20
+	}
+	embargo = { }
+	not = { }
+	prioritized = {
+		# Agriculture
+		5020 = 100
+		5030 = 100
+		5040 = 100
+
+		# Inf support
+		1310 = 100
+		1320 = 100
+		1330 = 100
+		1340 = 100
+		1350 = 100
+		1360 = 100
+
+		# Production
+		5050 = 100
+		5060 = 100
+		5070 = 100
+		5080 = 100
+		5090 = 100
+		5100 = 100
+		5110 = 100
+		5120 = 100
+		5130 = 100
+		5150 = 100
+		5180 = 100
+
+		6440 = 100  # temperate warfare trp
+	}
+}
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 1.0
+	overseas_multiplier = 0.5
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 1.0
+
+	# PRIORITIES:
+	beach			= 20	# Beach level 2
+	capital			= 40	# Our capital
+	human_border		= 0	# Ignored for allied human players
+	war_target		= 50	# The next country targeted for attack by this AI
+	
+	opposing_alliance	= 50	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = { 
+	USA = -1
+	ENG = -1
+	FRA = -1
+	CAN = -1
+	AST = -1
+	SAF = -1
+	NZL = -1
+	BEL = -1
+	HOL = -1
+	NOR = -1
+	GRE = -1
+	LUX = -1
+	PHI = -1
+	LIB = -1
+	EGY = -1
+	U02 = -1
+	BUR = -1
+	U14 = -1
+	U19 = -1
+	
+	SOV = 5
+	CHC = 5
+	MON = 5
+	TAN = 5
+	
+	GER = 20
+	ITA = 20
+	JAP = 20
+	HUN = 20
+	ROM = 20
+	BUL = 20
+	FIN = 20
+	MAN = 20
+	MEN = 20
+	U00 = 20
+	U01 = 20
+	}
+	province_priorities = {	}
+	area_multiplier = { }
+}

@@ -1,0 +1,165 @@
+#########################################################################
+#  Spanish Civil War - Germany controls the nationalist forces
+#########################################################################
+event = {
+	id = 31733100
+	random = no
+	country = GER
+
+	decision = {
+		government = fascist
+		war = { country = U01 country = SPR }
+		NOT = {
+			OR = {
+				war = { country = GER country = U01 }
+				war = { country = GER country = SOV }
+				war = { country = GER country = ENG }
+				war = { country = GER country = USA }
+			}
+		}
+	}
+	decision_trigger = { 
+			event = 3136161 #Legion Condor
+			NOT = { military_control = { country = ITA country = U01 } }
+			ai = U01
+			ai = SPR
+	}
+	
+	trigger = {
+		ai = no
+	}
+
+	name = "EVT_31733100_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "legion_condor"
+	decision_picture = "decision_legion_condor"
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = { 
+		name = ACTION_NAME_OK
+		command = { type = belligerence which = GER value = 3 }
+		command = { type = military_control which = GER where = U01 value = 1 }
+		command	= { type = local_setflag which = military_control_U01 }
+	}
+}
+##########################################
+# Germany no longer controls Spanish army
+##########################################
+event = {
+	id = 31733101
+	random = no
+	country = GER
+
+	trigger = {
+		military_control = { country = U01 }
+		local_flag = military_control_U01
+		OR = { 
+			alliance = { country = GER country = U01 } 
+			alliance = { country = GER country = SPR } 
+			NOT = { war = { country = U01 country = SPR } } 
+			NOT = { ai = U01 }		
+		}
+	}
+	
+	name = "EVT_31733101_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "legion_condor"	
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type =  military_control which = GER where = U01 }
+		command	= { type = local_clrflag which = military_control_U01 }
+	}
+}
+#########################################################################
+#  Spanish Civil War - Italy controls the nationalist forces
+#########################################################################
+event = { 
+	id = 31733102
+	random = no
+	country = ITA
+	
+	decision = {
+		government = fascist
+		war = { country = U01 country = SPR }
+		NOT = {
+			OR = {
+			war = { country = ITA country = U01 }
+			war = { country = ITA country = SOV }
+			war = { country = ITA country = ENG }
+			war = { country = ITA country = USA }
+			}
+		}
+	}
+	decision_trigger = { 		
+			event = 3145036 # Corpo Volontarie
+			NOT = { military_control = { country = GER country = U01 } }
+			ai = U01
+			ai = SPR
+			}
+	trigger = {
+			ai = no
+	}
+	
+	name = "EVT_31733102_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "Corpo_truppe_Volontarie"
+	decision_picture = "decision_Corpo_truppe_Volontarie"
+
+	date = { day = 19 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action = { 
+		name = ACTION_NAME_OK
+		command = { type = belligerence which = ITA value = 3 }
+		command = { type = military_control which = ITA where = U01 value = 1 }
+		command	= { type = local_setflag which = military_control_U01 }
+	}
+	
+	
+}
+#########################################################################
+#  Italy no longer controls Spanish army
+#########################################################################
+event = {
+	id = 31733103
+	random = no
+	country = ITA
+
+	trigger = {
+		military_control = { country = U01 }
+		local_flag = military_control_U01
+		OR = { 
+			alliance = { country = ITA country = U01 } 
+			alliance = { country = ITA country = SPR } 
+			NOT = { war = { country = U01 country = SPR } } 
+			NOT = { ai = U01 }		
+		}
+	}
+
+	name = "EVT_31733103_NAME"
+	desc = "DEC_CONTROL_DESC"
+	style = 2
+	picture = "Corpo_truppe_Volontarie"
+
+	date = { day = 18 month = july year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK" # Great! 	
+		command	= { trigger = { local_flag = military_control } type = military_control which = ITA where = U01 }
+		command	= { trigger = { local_flag = military_control } type = local_clrflag which = military_control_U01 }
+	}
+}

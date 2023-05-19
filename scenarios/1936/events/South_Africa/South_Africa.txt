@@ -1,0 +1,415 @@
+# converted to Dh, Kane, August 3 2011
+###########################################################################
+#	3300000 - 3399999
+###########################################################################
+
+########################
+# Was 372001 African Mobilization #
+########################
+event = { 
+	id = 3300001
+	random = no
+	country = SAF
+
+	trigger = {
+		atwar = yes
+		ideology = market_liberal
+		random = 20
+	}
+
+	name = EVT_3300001_NAME	
+        desc = EVT_3300001_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 65	
+        deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME3300001A
+		command = { type = dissent value = -5 }
+	}
+	action_b = {
+		name = ACTIONNAME3300001B
+                ai_chance = 100
+		command = { type = manpowerpool value = 150 }
+		command = { type = dissent value = 2 }
+	}
+}
+########################
+# Was 372002 South Africa Neutral #
+########################
+event = { 
+	id = 3300002
+	random = no
+	country = SAF
+
+	trigger = {
+		atwar = GER
+		random = 20
+		alliance = { country = ENG  country = SAF }
+		war = { country = SAF country = GER }
+	}
+
+	name = EVT_3300002_NAME
+	desc = EVT_3300002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 50 # Event fires 1 year after war declared
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		ai_chance = 98
+		name = ACTIONNAME3300002A
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		ai_chance = 2
+		name = ACTIONNAME3300002B
+		command = { type = leave_alliance }
+		command = { type = peace which = GER value = 1 }
+	}	
+}
+###################################################################
+# Was 372011 - (SAF) Demand of ex-german colonies (by SykoNurse)
+###################################################################
+event = {
+	id = 3300003
+	random = no
+	country = SAF
+
+	# triggered by 3136126
+
+	name = EVT_3300003_NAME
+	desc = EVT_3300003_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3300003A
+		command = { } 
+	}
+}
+###################################################################
+# Was 372012 - (SAF) Return of Suedwestafrika (by SykoNurse)
+###################################################################
+event = { 
+	id = 3300004
+	random = no
+	country = SAF
+
+	trigger = {
+		ispuppet = VIC
+		ispuppet = ENG
+		ispuppet = SAF 
+ 		NOT = { exists = FRA }
+		event = 3300003 # GER demanded SAF land
+	}
+
+	name = EVT_3300004_NAME
+	desc = EVT_3300004_DESC
+	style = 0
+
+	date = { day = 29 month = january year = 1939 } 
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME3300004A
+		command = { type = secedeprovince which = GER value = 882 } # Swakopmund
+		command = { type = secedeprovince which = GER value = 886 } # Oshakati
+		command = { type = secedeprovince which = GER value = 885 } # Grootfontein
+		command = { type = secedeprovince which = GER value = 886 } # Grootfontein
+		command = { type = secedeprovince which = GER value = 883 } # Lüderitz
+		command = { type = secedeprovince which = GER value = 884 } # Windhoek
+	}
+}
+##################################
+# Was 372015 (SAF) Send wine and Liquor to Finland (by Ghost_dk)
+##################################
+event = {
+	id = 3300005
+	random = no
+	country = SAF
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = {
+			event = 2628
+			war = { country = FIN country = SAF }
+			alliance = { country = SAF country = SOV }
+			alliance = { country = SAF country = GER }
+		}
+	}
+
+	name = EVT_3300005_NAME
+	desc = EVT_3300005_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 } 
+
+	action_a = {
+		name = ACTIONNAME3300005A
+		command = { type = supplies value = -5 }
+		command = { type = money value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 1002088 }
+	}
+	action_b = {
+		name = ACTIONNAME3300005B
+		command = { type = money value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = sleepevent which = 1002088 }
+	}
+}
+###########################
+# Was 372019 UK Consults South Africa
+###########################
+event = {
+	id = 3300006
+	random = no
+	country = SAF
+
+	#triggered by 3131091-Abdication crisis
+
+	name = EVT_3300006_NAME
+ 	desc = EVT_402011_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3300006A 
+		command = { type = dissent value = -2 }
+	}
+}
+######################
+# Was 372026 Edward Abdicates-SAF
+######################
+event = {
+	id = 3300007
+	random = no
+	country = SAF
+
+	#triggered by 3131092
+
+	name = EVT_3300007_NAME
+ 	desc = EVT_402012_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3300007A
+		command = { type = dissent value = -2 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = money value = 2 }
+	}
+}
+########################
+# Was 372027 Simpson as consort-SAF
+########################
+event = {
+	id = 3300008
+	random = no
+	country = SAF
+
+	#triggered by 3131092
+
+	name = EVT_3300008_NAME
+ 	desc = EVT_402013_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3300008A
+		command = { type = dissent value = 2 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+######################
+# Was 372028 Simpson as queen-SAF
+######################
+event = {
+	id = 3300009
+	random = no
+	country = SAF
+
+	#triggered by 3131092
+
+	name = EVT_3300009_NAME
+ 	desc = EVT_402014_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3300009A
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = money value = -2 }
+	}
+}
+
+
+#################################################################################
+# Colonial power of the british empire - SA divisions
+#################################################################################
+event = {
+	id = 313111139
+	random = no
+	country = SAF
+	save_date = yes
+
+	trigger = {
+		#war = { country = ENG country = GER }
+		#war = { country = ENG country = ITA }
+		#war = { country = ENG country = U18 }
+		#war = { country = SAF country = GER }
+		#war = { country = SAF country = ITA }
+		#war = { country = SAF country = U18 }
+		#control = { province = 789 data = ENG }	#Alexandria
+		#control = { province = 810 data = ENG } #Khartoum
+		#control = { province = 841 data = ENG } #Nairobi
+		#alliance = { country = ENG country = SAF }
+		event    = { id = 313111138 days = 135 }
+	}
+
+	name = EVT_313111138_NAME
+	desc = EVT_313111138_DESC
+	picture = "eng_colonial_power_in_africa"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }
+
+	action_a = {
+	    name = ACTIONNAME313111139A
+		ai_chance = 100
+		command = { type = money     value = 200  }
+		command = { type = supplies  value = 3500 }
+		command = { type = add_corps which = "Southern Front" value = land where = 841 }
+		command = { type = activate_division which = 26600    value = 20   where = 841 }
+		command = { type = activate_division which = 26600    value = 21   where = 841 }
+		command = { type = add_corps which = "Northern Front" value = land where = 810 }
+		command = { type = activate_division which = 26600    value = 22   where = 810 }
+	}
+	
+	action_b = { 
+		name = ACTIONNAME313111138B
+        ai_chance = 0
+		command = { }
+	}		
+}
+
+#################################################################################
+# industrial events for SAF
+#################################################################################
+#Director general of war supplies
+event = {
+	id = 3300010
+	random = no
+	country = SAF
+
+	trigger = {
+				atwar = yes
+				war = { country = ENG country = GER }
+				war = { country = SAF country = GER }
+				alliance = { country = ENG country = SAF }
+				}	
+	
+	name = EVT_3300010_NAME
+ 	desc = EVT_3300010_DESC
+	picture = "saf_event_director_general_of_war_supplies"
+	style = 2
+	
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }	
+
+	action_a = {
+		name = ACTIONNAME3300010A
+        command = { trigger = { ai = yes } type = supplies value = 1500 }
+		command = { trigger = { ai = no  } type = supplies value = 250  }
+		command = { type = construct which = ic where = 876 value = 1   }
+	}
+}
+
+#Lend and lease for SAF
+event = {
+	id = 3300011
+	random = no
+	country = SAF
+
+	trigger = {
+				event = { id = 2982003 days = 90 } #US Leih und Pacht
+				flag = lend_lease				
+				atwar = yes
+				war = { country = ENG country = GER }
+				war = { country = USA country = GER }
+				war = { country = SAF country = GER }
+				alliance = { country = ENG country = SAF }
+				alliance = { country = ENG country = USA }
+				alliance = { country = USA country = SAF }
+				}	
+	
+	name = EVT_3300011_NAME
+ 	desc = EVT_3300011_DESC
+	picture = "saf_event_land_and_lease"
+	style = 2
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1999 }	
+
+	action_a = {
+		name = ACTIONNAME3300011A
+        command = { trigger = { ai = yes } type = supplies value = 1500 }
+		command = { trigger = { ai = no  } type = supplies value = 250  }
+		command = { type = construct which = ic where = 872 value = 1   } #should activate the 2nd tech team for SAF ai
+	}
+}
+
+#################################################################################
+# 6th SA armored division
+#################################################################################
+event = {
+	id = 3300012
+	random = no
+	country = SAF
+
+	trigger = {
+				event = 3300011
+				flag = lend_lease				
+				atwar = yes
+				war = { country = ENG country = GER }
+				war = { country = USA country = GER }
+				war = { country = SAF country = GER }
+				alliance = { country = ENG country = SAF }
+				alliance = { country = ENG country = USA }
+				alliance = { country = USA country = SAF }
+				}	
+	
+	name = EVT_3300012_NAME
+ 	desc = EVT_3300012_DESC
+	picture = "saf_event_6th_armoured_division"
+	style = 2
+	
+	date = { day = 0 month = february year = 1943 }
+	offset = 14
+	deathdate = { day = 0 month = december year = 1945 }	
+
+	action_a = {
+		name = ACTIONNAME3300012A
+		ai_chance = 100		
+        command = { trigger = { ai = no  }    type = supplies value = -1500 }
+		command = { trigger = { ai = yes }    type = supplies value = -250  }
+		command = { type = activate_division which = 26600 value = 23 when = 0 }		
+	}
+	action_b = {
+		name = ACTIONNAME3300012B
+		ai_chance = 0		
+        command = { trigger = { ai = no } type = dissent value = 2 }
+	}
+}

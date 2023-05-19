@@ -1,0 +1,123 @@
+# converted to DH, Kane, June 8 2011
+# Soviet Finland AI File by Lothos
+
+max_garrison_prop = 0.70   # was .8 
+min_garrison_prop = 0.60   # was .6
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 	= 1.0
+	overseas_multiplier	= 0.5
+	home_peace_cap 		= 20
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.3
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 50	# Our capital
+	human_border		= 0	# Ignored for allied human players
+	war_target		= 30	# The next country targeted for attack by this AI
+	reserves 		= 50	# bonus for provinces just behind a frontline.
+	
+	opposing_alliance	= 20	# For neutrals, all alliances are "opposing"
+	claim_threat		= 0	# If we are neutral, countries with claims on us get this
+	unstable_border		= 0	# Bordering countries at war with someone else get this
+
+	# Borders with specific countries
+	country_priorities = {
+		MON = -1
+		TAN = -1
+		SIK = -1
+		CHI = -1
+		AFG = -1
+		PER = 10
+		TUR = 20
+		FIN = 100
+		ROM = 120
+		POL = 70
+		GER = 100
+		ITA = 50
+		JAP = 5
+		MAN = 5
+		SWE = 20
+		NOR = 20
+		HUN = 45
+		SLO = 15
+		BUL = 15
+		LAT = 55
+		EST = 55
+		LIT = 55
+	}
+	province_priorities = {
+		553  = 120 # Leningrad
+		617  = 50 # Kiev
+		632  = 30 # Dnepropetrovsk
+		663  = 50 # Stalingrad
+		636  = 50 # Kharkov
+		588  = 30 # Bryansk
+		1191 = 20 # Vladivostock
+		535  = 20 # Murmansk
+		604 = 70 # Kursk
+		582 = 30 # Livny ( Orel )
+		641  = 30 # Sevastopol
+		600 = 60 # Mogilev
+		
+		# Winter war buildup
+		539 = 50 # Petrozavodsk
+		538 = 50 # Segezha
+		537 = 50 # Kem
+		536 = 50 # Kandalaksja
+
+		# behind the lines
+		623 = 40 # Melitopol
+		630 = 40 # Zaporozhye
+		629 = 40 # Poltava
+		608 = 40 # Priluki
+		601 = 40 # Gomel
+		217 = 80 # Vitebsk
+		589 = 80 # Smolensk
+		593 = 40 # Polotsk
+		603 = 50 # Belgorod 
+		586 = 50 # Roslavl
+		576 = 30 # Kaluga 
+		644 = 30 # Rostov
+		607 = 30 # Chernigov
+		633 = 30 # Kupyansk
+
+		572 = 120 #Moscow
+		571 = 30 # Orekhovo-Zuyevo
+		676 = 30 # Rybinsk
+		570 = 40 # Zagorsk 
+		558 = 50 # Rzhev
+
+		# north
+		264 = 30 # Riga
+		560 = 40 # Novgorod
+		563 = 30 # Torzhok
+		562 = 30 # Kirishi
+		542 = 30 # Archangelsk
+
+		# south
+		645 = 40 # Konstantinovsk
+		
+	}
+	ignore = {
+		268 # Liepaja (German Border easy surround hex)
+		1541 # Ocha (Bordering Japan, unimportant)
+                1184 # Petropavlovsk (USSR putting units here, don't know why, far east mountain)
+	}
+
+	area_multiplier = {
+		535 = 2.0 # Murmansk
+		553 = 2.0 # Leningrad
+		572 = 2.0 # Moscow
+		604 = 2.5 # Kursk
+		663 = 2.5 # Stalingrad
+		
+		
+	}
+}

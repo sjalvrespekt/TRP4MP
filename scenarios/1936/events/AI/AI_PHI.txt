@@ -1,0 +1,58 @@
+####################################
+# Philippines AI events 55300 - 55399
+####################################
+
+#################
+## Switch to low manpower building scheme
+##############################################
+#event = {
+#	id = 55300
+#	random = no 
+#	country = PHI
+#	
+#	trigger = {
+#		year = 1938 # give nations a chance to use their individual AI
+#		NOT = { local_flag = low_mp }
+#		not = { manpower = 7 }
+#		ai = yes
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = ai which = "switch/PHI_low_mp.ai" }
+#		command = { type = local_setflag which = low_mp }
+#	}
+#}
+#################
+## Switch to normal manpower building scheme
+##############################################
+#event = {
+#	id = 55301
+#	random = no 
+#	country = PHI
+#	
+#	trigger = {
+#		year = 1938 # give nations a chance to use their individual AI
+#		local_flag = low_mp
+#		manpower = 10
+#		ai = yes
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = ai which = "PHI_1936.ai" }
+#		command = { type = local_clrflag which = low_mp }
+#	}
+#}

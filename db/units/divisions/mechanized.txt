@@ -1,0 +1,220 @@
+#	mechanized				
+#allowed_brigades =  artillery																																						
+#allowed_brigades =  anti_tank																																						
+#allowed_brigades =  anti_air																																						
+#allowed_brigades =  rocket_artillery																																						
+allowed_brigades =  sp_artillery																																						
+allowed_brigades =  sp_rct_artillery																																						
+allowed_brigades =  tank_destroyer																																						
+#allowed_brigades =  light_armor_brigade																																						
+allowed_brigades =  heavy_armor																																						
+allowed_brigades =  super_heavy_armor																																						
+#allowed_brigades =  armored_car																																						
+allowed_brigades =  engineer																																						
+#allowed_brigades =  police																																						
+allowed_brigades =  sp_anti_air	
+#allowed_brigades =  b_01																																					
+																																						
+upgrade = { type = armor upgrade_time_factor = 0.7 upgrade_cost_factor = 0.9 }																																						
+																																						
+# Early Mechanized Division (1940) - 0																																						
+model = {																																						
+	cost =				12.73																														
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			38																																	
+	toughness =			40																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			18																																	
+	softattack =			33																																	
+	hardattack =			2																																	
+	airattack =			1																																	
+	transportweight =		30																																	
+	supplyconsumption =		3.39																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	#upgrade_time_factor =		0.6																																	
+	#upgrade_cost_factor =		0																																	
+	equipment =		{ manpower = 17000 equipment = 150 artillery = 36  anti_air = 56 anti_tank = 36  trucks = 2000 halftracks = 120 armored_car = 42 light_armor = 20   tank_destroyer = 20 sp_artillery = 30                      }																																	
+}																																						
+																																						
+# Basic Mechanized Division (1940) - 1																																						
+model = {																																						
+	cost =				13.91																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			45																																	
+	toughness =			48																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			22																																	
+	softattack =			39																																	
+	hardattack =			4																																	
+	airattack =			2																																	
+	transportweight =		30																																	
+	supplyconsumption =		3.71																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 161 artillery = 36  anti_air = 66 anti_tank = 36  trucks = 2030 halftracks = 120 armored_car = 42 light_armor = 10 medium_armor = 10  tank_destroyer = 24 sp_artillery = 36                      }																																	
+}																																						
+# Improved Mechanized Division (1943) - 2																																						
+model = {																																						
+	cost =				15.2																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			54																																	
+	toughness =			57																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			26																																	
+	softattack =			46																																	
+	hardattack =			6																																	
+	airattack =			2																																	
+	transportweight =		30																																	
+	supplyconsumption =		4.05																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 178 artillery = 36 heavy_artillery = 4 anti_air = 72 anti_tank = 36  trucks = 2060 halftracks = 120 armored_car = 49  medium_armor = 10  tank_destroyer = 34 sp_artillery = 42                      }																																	
+}																																						
+# Advanced Mechanized Division (1945) - 3																																						
+model = {																																						
+	cost =				16.13																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			61																																	
+	toughness =			64																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			29																																	
+	softattack =			52																																	
+	hardattack =			9																																	
+	airattack =			2																																	
+	transportweight =		30																																	
+	supplyconsumption =		4.3																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.47																																	
+	equipment =		{ manpower = 17000 equipment = 190 artillery = 36 heavy_artillery = 8 anti_air = 72 anti_tank = 30  trucks = 1530 halftracks = 240 armored_car = 49  medium_armor = 10  tank_destroyer = 36 sp_artillery = 48                      }																																	
+}																																						
+# Semi-Modern Mechanized Division (1948) - 4																																						
+model = {																																						
+	cost =				17.45																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			71																																	
+	toughness =			75																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			34																																	
+	softattack =			61																																	
+	hardattack =			13																																	
+	airattack =			3																																	
+	transportweight =		30																																	
+	supplyconsumption =		4.65																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.65																																	
+	equipment =		{ manpower = 17000 equipment = 210 artillery = 42 heavy_artillery = 8 anti_air = 54 anti_tank = 30  trucks = 1310 halftracks = 350 armored_car = 36  medium_armor = 10  tank_destroyer = 36 sp_artillery = 54                      }																																	
+}																																						
+# Modern Mechanized Division (1952) - 5																																						
+model = {																																						
+	cost =				18.89																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			83																																	
+	toughness =			87																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			40																																	
+	softattack =			71																																	
+	hardattack =			17																																	
+	airattack =			3																																	
+	transportweight =		30																																	
+	supplyconsumption =		5.04																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 230 artillery = 42 heavy_artillery = 12 anti_air = 54 anti_tank = 24  trucks = 1335 halftracks = 360 armored_car = 24  medium_armor = 10  tank_destroyer = 24 sp_artillery = 54                      }																																	
+}																																						
+# Elite Mechanized Division (1956) - 6																																						
+model = {																																						
+	cost =				20.45																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			97																																	
+	toughness =			102																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			46																																	
+	softattack =			83																																	
+	hardattack =			22																																	
+	airattack =			4																																	
+	transportweight =		30																																	
+	supplyconsumption =		5.45																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 275 artillery = 48 heavy_artillery = 12 anti_air = 48 anti_tank = 21  trucks = 1100 halftracks = 450 armored_car = 12  medium_armor = 10  tank_destroyer = 24 sp_artillery = 51                      }																																	
+}																																						
+# Elite Mechanized Division (1961) - 7																																						
+model = {																																						
+	cost =				22.58																																	
+	buildtime =			240																																	
+	manpower =			17																																	
+	maxspeed =			15																																	
+	defaultorganisation =		20																																	
+	morale =			20																																	
+	defensiveness =			118																																	
+	toughness =			124																																	
+	softness =			55																																	
+	suppression =			1																																	
+	airdefence =			56																																	
+	softattack =			101																																	
+	hardattack =			28																																	
+	airattack =			4																																	
+	transportweight =		30																																	
+	supplyconsumption =		6.02																																	
+	fuelconsumption =		5.625																																	
+	reinforce_time =		0.5																																	
+	reinforce_cost =		1.4																																	
+	upgrade_time_factor =		0.6																																	
+	upgrade_cost_factor =		0.8																																	
+	equipment =		{ manpower = 17000 equipment = 305 artillery = 48 heavy_artillery = 18 anti_air = 48 anti_tank = 18  trucks = 1100 halftracks = 480 armored_car = 3  medium_armor = 10  tank_destroyer = 24 sp_artillery = 48       helicopter = 3               }																																	
+}																																						

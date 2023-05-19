@@ -1,0 +1,30 @@
+# DDay EXP forces by Lothos
+
+
+exp_force_ratio = 0.75
+exp_force_ratios = {
+	USA = 1.0
+} 
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 0.0
+	overseas_multiplier  = 0.0
+	home_peace_cap 		= 0
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.0
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 10	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 10	
+
+	opposing_alliance	= 0		# For neutrals, all alliances are "opposing"
+	claim_threat		= 0		# If we are neutral, countries with claims on us get this
+	unstable_border		= 0		# Bordering countries at war with someone else get this
+}

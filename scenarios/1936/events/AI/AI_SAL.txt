@@ -1,0 +1,229 @@
+# checked DH
+####################################
+# El Salvador AI events 33300 - 33399 by Lothos
+####################################
+################
+# Minister of Security Section 33300 - 33309
+#############################################
+event = { # Pedro Jaime de Matheu takes power
+	id = 33300
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77048 # Pedro Jaime de Matheu
+		NOT = { InCabinet = 77048 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 77048 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # José Adán Parada takes power
+	id = 33301
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77047 # José Adán Parada
+		NOT = { InCabinet = 77047 }
+		NOT = { minister = 77048 } # Pedro Jaime de Matheu
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 77047 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 33310 - 33319
+#############################################
+event = { # Marco A. Molina takes power
+	id = 33310
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77007 # Marco A. Molina
+		NOT = { InCabinet = 77007 }
+		OR = {
+			atwar = no
+			NOT = { manpower = 200 }
+			AND = {
+				atwar = yes
+				NOT = { minister = 77007 } # Marco A. Molina
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 77007 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Andrés Ignacio Menéndez takes power
+	id = 33311
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		manpower = 200
+		minister = 77052 # Andrés Ignacio Menéndez
+		NOT = { InCabinet = 77052 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 77052 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33320 - 33329
+#############################################
+event = { # Oscar A. Bolaños takes power
+	id = 33320
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77006 # Oscar A. Bolaños
+		NOT = { InCabinet = 77006 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 77006 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 33330 - 33339
+#############################################
+################
+# Armament Minister Section 33340 - 33349
+#############################################
+event = { # Pio Romero Bosque takes power
+	id = 33340
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77042 # Pio Romero Bosque
+		NOT = { InCabinet = 77042 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 77042 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Pedro Jaime de Matheu takes power
+	id = 33341
+	random = no 
+	country = SAL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 77043 # Pedro Jaime de Matheu
+		NOT = { InCabinet = 77043 }
+		NOT = { minister = 77042 } # Pio Romero Bosque
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 77043 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+#############################################
+# Regular AI Events 33360 - 33399
+#############################################
+################
+# Will get involved in the war
+#############################################
+event = {
+	id = 33360
+	random = no 
+	country = SAL
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

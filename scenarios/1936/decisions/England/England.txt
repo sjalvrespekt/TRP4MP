@@ -1,0 +1,2060 @@
+##############################################################################
+#  USA Joins the allies it is time to attack North Africa => Operation Torch
+##############################################################################
+event = { 
+	id = 3131014
+	random = no
+#	country = ENG
+	tag = { ENG USA }
+
+	decision = {
+		not = { event = 432100 }
+		not = { event = 3131014 }
+		exists = VIC
+		alliance = { country = ENG country = USA }
+		war = { country = ENG country = GER }
+		NOT = { war = { country = ENG country = VIC } }
+		ai = no
+	}
+
+	decision_trigger = { 
+						OR = {
+						event = { id = 3182110 days = 300 } # USA, Unit activation => USA are at war, 10 months after
+						AND = {
+								event = { id = 3182110 days = 90 } # USA, Unit activation => USA are at war, 3 months after, at least historic date
+								year = 1943 # using 1942 and month = november caused event to trigger much too early
+								}
+								}
+						}
+	
+	trigger = {
+				ai = yes
+				OR = {
+						AND = {
+								country = ENG
+								AI = USA
+								}
+						AND = {
+								country = USA
+								AI = ENG
+								}
+						}
+				OR = {
+						event = { id = 3182110 days = 300 } # USA, Unit activation => USA are at war, 10 months after
+						AND = {
+								event = { id = 3182110 days = 90 } # USA, Unit activation => USA are at war, 3 months after, at least historic date
+								year = 1943 # using 1942 and month = november caused event to trigger much too early
+								}
+					}
+				exists = VIC
+				alliance = { country = ENG country = USA }
+				war = { country = ENG country = GER }
+				NOT = { war = { country = ENG country = VIC } }
+				}
+
+	name = EVT_3131014_NAME
+	desc = EVT_3131014_DESC
+	style = 2
+	decision_picture = "decision_torch"
+	
+	date = { day = 0 month = september year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3131014A
+		#ai_chance = 100
+		command = { type = trigger which = 432100 } # VIC
+		command = { type = dissent value = -1 }
+	}
+#	action_b = {
+#		name = ACTIONNAME3131014B
+#		ai_chance = 0
+#		command = { type = sleepevent which = 3131014 }
+#	}
+}
+
+#########################################################################
+# Reaction to ahistoric Middle East developments ENG
+#########################################################################
+event = { 
+	id = 3131600
+	random = no 
+	country = ENG
+
+	decision = {
+		NOT = { event = 3336000 } #NOW
+		atwar = yes
+		ai = no
+		OR = {
+				NOT = { AI = GER }
+				NOT = { AI = ITA }
+				NOT = { AI = HUN }
+				NOT = { AI = ROM }
+				NOT = { AI = U01 }
+				NOT = { AI = BUL }
+				NOT = { AI = FIN }
+				NOT = { AI = JAP }
+				}
+	}
+
+	decision_trigger = { 
+		OR = { 
+				AND = {
+					NOT = { flag = ENG_wartopersia }
+					NOT = { ispuppet = PER }
+					NOT = { 
+							OR = {
+									participant = { country = PER value = 2 }
+									participant = { country = PER value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = PER }
+					war = { country = ITA country = PER }
+					war = { country = HUN country = PER }
+					war = { country = ROM country = PER }
+					war = { country = U01 country = PER }
+					war = { country = BUL country = PER }
+					war = { country = FIN country = PER }
+					war = { country = JAP country = PER }
+						}
+						}
+				AND = {
+					NOT = { ispuppet = TUR }
+					NOT = { 
+							OR = {
+									participant = { country = TUR value = 2 }
+									participant = { country = TUR value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = TUR }
+					war = { country = ITA country = TUR }
+					war = { country = HUN country = TUR }
+					war = { country = ROM country = TUR }
+					war = { country = U01 country = TUR }
+					war = { country = BUL country = TUR }
+					war = { country = FIN country = TUR }
+					war = { country = JAP country = TUR }
+						}
+						}
+				AND = {
+					NOT = { ispuppet = IRQ }
+					NOT = { 
+							OR = {
+									participant = { country = IRQ value = 2 }
+									participant = { country = IRQ value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = IRQ }
+					war = { country = ITA country = IRQ }
+					war = { country = HUN country = IRQ }
+					war = { country = ROM country = IRQ }
+					war = { country = U01 country = IRQ }
+					war = { country = BUL country = IRQ }
+					war = { country = FIN country = IRQ }
+					war = { country = JAP country = IRQ }
+						}
+					# exclude events that cause IRQ to enter the war
+					NOT = { event = 3800000 }
+					NOT = { event = 3800001 }
+					NOT = { event = 3800006 }
+						}
+				}
+						}
+	
+	trigger = {
+		NOT = { event = 3336000 } #NOW
+		NOT = { event = 2024 } #Bitter Peace for SOV
+		atwar = yes
+		ai = yes
+		OR = {
+				NOT = { AI = GER }
+				NOT = { AI = ITA }
+				NOT = { AI = HUN }
+				NOT = { AI = ROM }
+				NOT = { AI = U01 }
+				NOT = { AI = BUL }
+				NOT = { AI = FIN }
+				NOT = { AI = JAP }
+				}
+		OR = { 
+				AND = {
+					NOT = { flag = ENG_wartopersia }
+					NOT = { ispuppet = PER }
+					NOT = { 
+							OR = {
+									participant = { country = PER value = 2 }
+									participant = { country = PER value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = PER }
+					war = { country = ITA country = PER }
+					war = { country = HUN country = PER }
+					war = { country = ROM country = PER }
+					war = { country = U01 country = PER }
+					war = { country = BUL country = PER }
+					war = { country = FIN country = PER }
+					war = { country = JAP country = PER }
+						}
+						}
+				AND = {
+					NOT = { ispuppet = TUR }
+					NOT = { 
+							OR = {
+									participant = { country = TUR value = 2 }
+									participant = { country = TUR value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = TUR }
+					war = { country = ITA country = TUR }
+					war = { country = HUN country = TUR }
+					war = { country = ROM country = TUR }
+					war = { country = U01 country = TUR }
+					war = { country = BUL country = TUR }
+					war = { country = FIN country = TUR }
+					war = { country = JAP country = TUR }
+						}
+						}
+				AND = {		
+					NOT = { ispuppet = IRQ }
+					NOT = { 
+							OR = {
+									participant = { country = IRQ value = 2 }
+									participant = { country = IRQ value = 3 }
+									}
+							}
+					OR = {
+					war = { country = GER country = IRQ }
+					war = { country = ITA country = IRQ }
+					war = { country = HUN country = IRQ }
+					war = { country = ROM country = IRQ }
+					war = { country = U01 country = IRQ }
+					war = { country = BUL country = IRQ }
+					war = { country = FIN country = IRQ }
+					war = { country = JAP country = IRQ }
+						}
+					# exclude events that cause IRQ to enter the war
+					NOT = { event = 3800000 }
+					NOT = { event = 3800001 }
+					NOT = { event = 3800006 }
+						}
+				}
+	}
+
+	name = EVT_3131600_NAME
+	desc = EVT_3131600_DESC
+	style = 0
+	decision_picture = "decision_russian_mobilization"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131600A #
+		command = { trigger = { NOT = { OR = { participant = { country = PER value = 2 } participant = { country = PER value = 3 } } } } type = trigger which = 3500001 } # Persia UK puppet => will trigger corridor event later
+		command = { trigger = { NOT = { OR = { participant = { country = IRQ value = 2 } participant = { country = IRQ value = 3 } } } } type = make_puppet which = IRQ } # IRQ not part of Axis or comintern
+		command = { trigger = { NOT = { OR = { participant = { country = IRQ value = 2 } participant = { country = IRQ value = 3 } } } } type = alliance which = IRQ }
+		command = { trigger = { NOT = { OR = { participant = { country = TUR value = 2 } participant = { country = TUR value = 3 } } } } type = make_puppet which = TUR } # TUR not part of Axis or comintern
+		command = { trigger = { NOT = { OR = { participant = { country = TUR value = 2 } participant = { country = TUR value = 3 } } } } type = alliance which = TUR }
+		command = { type = manpowerpool value = 300 } #help for ENG to compensate for new frontline
+	}
+}
+
+#########################################################################
+# Home Guard
+#########################################################################
+event = { 
+	id = 3131601
+	random = no 
+	country = ENG
+
+	decision = {
+		NOT = { event = 3336000 } #NOW
+		war = { country = GER country = ENG }
+#		OR = {
+#				AND = { AI = ENG AI = GER }
+#				AND = { AI = ENG NOT = { AI = GER } }
+#				AND = { NOT = { AI = ENG } NOT = { AI = GER } }
+#				}
+	}
+
+	decision_trigger = { 
+							OR =	{
+										NOT = { control = { province = 4 data = ENG }  } # British main island
+										NOT = { control = { province = 5 data = ENG }  }
+										NOT = { control = { province = 6 data = ENG }  }
+										NOT = { control = { province = 7 data = ENG }  }
+										NOT = { control = { province = 8 data = ENG }  }
+										NOT = { control = { province = 10 data = ENG } }
+										NOT = { control = { province = 11 data = ENG } }
+										NOT = { control = { province = 12 data = ENG } }
+										NOT = { control = { province = 13 data = ENG } }
+										NOT = { control = { province = 14 data = ENG } }
+										NOT = { control = { province = 15 data = ENG } }
+										NOT = { control = { province = 16 data = ENG } }
+										NOT = { control = { province = 17 data = ENG } }
+										NOT = { control = { province = 18 data = ENG } }
+										NOT = { control = { province = 19 data = ENG } }
+										NOT = { control = { province = 20 data = ENG } }
+										NOT = { control = { province = 21 data = ENG } }
+										NOT = { control = { province = 22 data = ENG } }
+										NOT = { control = { province = 23 data = ENG } }
+										NOT = { control = { province = 24 data = ENG } }
+										NOT = { control = { province = 25 data = ENG } }
+										NOT = { control = { province = 26 data = ENG } }
+										NOT = { control = { province = 27 data = ENG } }
+										NOT = { control = { province = 28 data = ENG } }
+										NOT = { control = { province = 29 data = ENG } }
+									}
+						}
+	
+	trigger = {
+				NOT = { event = 3336000 } #NOW
+				atwar = yes
+				OR =	{
+					NOT = { control = { province = 4 data = ENG }  } # British main island
+					NOT = { control = { province = 5 data = ENG }  }
+					NOT = { control = { province = 6 data = ENG }  }
+					NOT = { control = { province = 7 data = ENG }  }
+					NOT = { control = { province = 8 data = ENG }  }
+					NOT = { control = { province = 10 data = ENG } }
+					NOT = { control = { province = 11 data = ENG } }
+					NOT = { control = { province = 12 data = ENG } }
+					NOT = { control = { province = 13 data = ENG } }
+					NOT = { control = { province = 14 data = ENG } }
+					NOT = { control = { province = 15 data = ENG } }
+					NOT = { control = { province = 16 data = ENG } }
+					NOT = { control = { province = 17 data = ENG } }
+					NOT = { control = { province = 18 data = ENG } }
+					NOT = { control = { province = 19 data = ENG } }
+					NOT = { control = { province = 20 data = ENG } }
+					NOT = { control = { province = 21 data = ENG } }
+					NOT = { control = { province = 22 data = ENG } }
+					NOT = { control = { province = 23 data = ENG } }
+					NOT = { control = { province = 24 data = ENG } }
+					NOT = { control = { province = 25 data = ENG } }
+					NOT = { control = { province = 26 data = ENG } }
+					NOT = { control = { province = 27 data = ENG } }
+					NOT = { control = { province = 28 data = ENG } }
+					NOT = { control = { province = 29 data = ENG } }
+				}
+	}
+
+	name = EVT_3131601_NAME
+	desc = EVT_3131601_DESC
+	style = 2
+	picture = "homeguard_EV"
+	decision_picture = "decision_homeguard"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = {
+		trigger = { AI = ENG NOT = { AI = GER } }
+		name = ACTIONNAME3131601A #
+		command = { type = add_corps which = "1st London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451200 where = 29 }
+		command = { type = activate_division which = 12700 value = 451201 where = 29 }
+		command = { type = activate_division which = 12700 value = 451202 where = 29 }
+	
+		command = { type = add_corps which = "2nd London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451203 where = 29 }
+		command = { type = activate_division which = 12700 value = 451204 where = 29 }
+		command = { type = activate_division which = 12700 value = 451205 where = 29 }
+	
+		command = { type = add_corps which = "3rd London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451206 where = 29 }
+		command = { type = activate_division which = 12700 value = 451207 where = 29 }
+		command = { type = activate_division which = 12700 value = 451208 where = 29 }
+	
+		command = { type = add_corps which = "1st Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451209 where = 28 }
+		command = { type = activate_division which = 12700 value = 451210 where = 28 }
+		command = { type = activate_division which = 12700 value = 451211 where = 28 }
+	
+		command = { type = add_corps which = "2nd Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451212 where = 28 }
+		command = { type = activate_division which = 12700 value = 451213 where = 28 }
+		command = { type = activate_division which = 12700 value = 451214 where = 28 }
+	
+		command = { type = add_corps which = "3rd Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451215 where = 28 }
+		command = { type = activate_division which = 12700 value = 451216 where = 28 }
+		command = { type = activate_division which = 12700 value = 451217 where = 28 }
+	
+		command = { type = add_corps which = "1st Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451218 where = 24 }
+		command = { type = activate_division which = 12700 value = 451219 where = 24 }
+		command = { type = activate_division which = 12700 value = 451220 where = 24 }
+	
+		command = { type = add_corps which = "2nd Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451221 where = 24 }
+		command = { type = activate_division which = 12700 value = 451222 where = 24 }
+		command = { type = activate_division which = 12700 value = 451223 where = 24 }
+	
+		command = { type = add_corps which = "3rd Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451224 where = 24 }
+		command = { type = activate_division which = 12700 value = 451225 where = 24 }
+		command = { type = activate_division which = 12700 value = 451226 where = 24 }
+	
+		command = { type = add_corps which = "1st Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451227 where = 18 }
+		command = { type = activate_division which = 12700 value = 451228 where = 18 }
+		command = { type = activate_division which = 12700 value = 451229 where = 18 }
+	
+		command = { type = add_corps which = "2nd Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451230 where = 18 }
+		command = { type = activate_division which = 12700 value = 451231 where = 18 }
+		command = { type = activate_division which = 12700 value = 451232 where = 18 }
+	
+		command = { type = add_corps which = "3rd Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451233 where = 18 }
+		command = { type = activate_division which = 12700 value = 451234 where = 18 }
+		command = { type = activate_division which = 12700 value = 451235 where = 18 }
+		
+		command = { type = local_setflag which = HG_ENGAI_GERH }
+	}
+	
+	action = {
+		trigger = { AI = ENG AI = GER }
+		name = ACTIONNAME3131601A #
+		command = { type = add_corps which = "1st London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451200 where = 29 }
+		command = { type = activate_division which = 12700 value = 451201 where = 29 }
+		command = { type = activate_division which = 12700 value = 451202 where = 29 }
+	
+		command = { type = add_corps which = "2nd London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451203 where = 29 }
+		command = { type = activate_division which = 12700 value = 451204 where = 29 }
+		command = { type = activate_division which = 12700 value = 451205 where = 29 }
+	
+		command = { type = add_corps which = "1st Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451209 where = 28 }
+		command = { type = activate_division which = 12700 value = 451210 where = 28 }
+		command = { type = activate_division which = 12700 value = 451211 where = 28 }
+	
+		command = { type = add_corps which = "2nd Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451212 where = 28 }
+		command = { type = activate_division which = 12700 value = 451213 where = 28 }
+		command = { type = activate_division which = 12700 value = 451214 where = 28 }
+	
+		command = { type = add_corps which = "1st Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451218 where = 24 }
+		command = { type = activate_division which = 12700 value = 451219 where = 24 }
+		command = { type = activate_division which = 12700 value = 451220 where = 24 }
+	
+		command = { type = add_corps which = "2nd Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451221 where = 24 }
+		command = { type = activate_division which = 12700 value = 451222 where = 24 }
+		command = { type = activate_division which = 12700 value = 451223 where = 24 }
+	
+		command = { type = add_corps which = "1st Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451227 where = 18 }
+		command = { type = activate_division which = 12700 value = 451228 where = 18 }
+		command = { type = activate_division which = 12700 value = 451229 where = 18 }
+	
+		command = { type = add_corps which = "2nd Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451230 where = 18 }
+		command = { type = activate_division which = 12700 value = 451231 where = 18 }
+		command = { type = activate_division which = 12700 value = 451232 where = 18 }
+		
+		command = { type = local_setflag which = HG_ENGAI_GERAI }
+	}
+	
+	action = {
+		trigger = { NOT = { AI = ENG } NOT = { AI = GER } }
+		name = ACTIONNAME3131601A #
+		
+		command = { type = dissent value = 2 }
+		
+		command = { type = add_corps which = "1st London Home Guard" value = land where = 29 } # London
+		command = { type = activate_division which = 12700 value = 451200 where = 29 }
+		command = { type = activate_division which = 12700 value = 451201 where = 29 }
+		command = { type = activate_division which = 12700 value = 451202 where = 29 }
+	
+		command = { type = add_corps which = "1st Oxford Home Guard" value = land where = 28 } # Oxford
+		command = { type = activate_division which = 12700 value = 451209 where = 28 }
+		command = { type = activate_division which = 12700 value = 451210 where = 28 }
+		command = { type = activate_division which = 12700 value = 451211 where = 28 }
+	
+		command = { type = add_corps which = "1st Birmingham Home Guard" value = land where = 24 } # Birmingham
+		command = { type = activate_division which = 12700 value = 451218 where = 24 }
+		command = { type = activate_division which = 12700 value = 451219 where = 24 }
+		command = { type = activate_division which = 12700 value = 451220 where = 24 }
+	
+		command = { type = add_corps which = "1st Sheffield Home Guard" value = land where = 18 } # Sheffield
+		command = { type = activate_division which = 12700 value = 451227 where = 18 }
+		command = { type = activate_division which = 12700 value = 451228 where = 18 }
+		command = { type = activate_division which = 12700 value = 451229 where = 18 }
+		
+		command = { type = local_setflag which = HG_ENGH_GERH }
+	}
+	
+	action = {
+		trigger = { NOT = { AI = ENG } AI = GER }
+		name = ACTIONNAME3131601A #
+		
+		command = { type = dissent value = 2 }		
+		
+		command = { trigger = { NOT = { local_flag = activation_light_infantry } } type = activate_unit_type which = d_02 }
+		command = { trigger = { NOT = { local_flag = activation_light_infantry } } type = local_setflag which = activation_light_infantry }
+		
+		command = { trigger = { NOT = { local_flag = activation_militia } } type = activate_unit_type which = militia }
+		command = { trigger = { NOT = { local_flag = activation_militia } } type = local_setflag which = activation_militia }
+		
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 7 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 7 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 7 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 14 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 21 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 21 }
+		command = { type = build_division which = militia when = 1 cost = 1.2 name = "" where = 21 }
+	}
+}
+
+#########################################################################
+# Home Guard removal
+#########################################################################
+event = { 
+	id = 3131602
+	random = no 
+	country = ENG
+
+	decision = {
+		NOT = { event = 3336000 } #NOW
+		event = 3131601
+		OR = {
+				local_flag = HG_ENGAI_GERH
+				local_flag = HG_ENGAI_GERAI
+				local_flag = HG_ENGH_GERH
+				}
+		OR = {
+				division_exists = { type = 12700 id = 451200 }
+				division_exists = { type = 12700 id = 451201 }
+				division_exists = { type = 12700 id = 451202 }
+				division_exists = { type = 12700 id = 451203 }
+				division_exists = { type = 12700 id = 451204 }
+				division_exists = { type = 12700 id = 451205 }
+				division_exists = { type = 12700 id = 451206 }
+				division_exists = { type = 12700 id = 451207 }
+				division_exists = { type = 12700 id = 451208 }
+				division_exists = { type = 12700 id = 451209 }
+				division_exists = { type = 12700 id = 451210 }
+				division_exists = { type = 12700 id = 451211 }
+				division_exists = { type = 12700 id = 451212 }
+				division_exists = { type = 12700 id = 451213 }
+				division_exists = { type = 12700 id = 451214 }
+				division_exists = { type = 12700 id = 451215 }
+				division_exists = { type = 12700 id = 451216 }
+				division_exists = { type = 12700 id = 451217 }
+				division_exists = { type = 12700 id = 451218 }
+				division_exists = { type = 12700 id = 451219 }
+				division_exists = { type = 12700 id = 451220 }
+				division_exists = { type = 12700 id = 451221 }
+				division_exists = { type = 12700 id = 451222 }
+				division_exists = { type = 12700 id = 451223 }
+				division_exists = { type = 12700 id = 451224 }
+				division_exists = { type = 12700 id = 451225 }
+				division_exists = { type = 12700 id = 451226 }
+				division_exists = { type = 12700 id = 451227 }
+				division_exists = { type = 12700 id = 451228 }
+				division_exists = { type = 12700 id = 451229 }
+				division_exists = { type = 12700 id = 451230 }
+				division_exists = { type = 12700 id = 451231 }
+				division_exists = { type = 12700 id = 451232 }
+				division_exists = { type = 12700 id = 451233 }
+				division_exists = { type = 12700 id = 451234 }
+				division_exists = { type = 12700 id = 451235 }
+				}
+		control = { province = 4 data = ENG } # British main island
+		control = { province = 5 data = ENG } 
+		control = { province = 6 data = ENG } 
+		control = { province = 7 data = ENG } 
+		control = { province = 8 data = ENG } 
+		control = { province = 10 data = ENG }
+		control = { province = 11 data = ENG }
+		control = { province = 12 data = ENG }
+		control = { province = 13 data = ENG }
+		control = { province = 14 data = ENG }
+		control = { province = 15 data = ENG }
+		control = { province = 16 data = ENG }
+		control = { province = 17 data = ENG }
+		control = { province = 18 data = ENG }
+		control = { province = 19 data = ENG }
+		control = { province = 20 data = ENG }
+		control = { province = 21 data = ENG }
+		control = { province = 22 data = ENG }
+		control = { province = 23 data = ENG }
+		control = { province = 24 data = ENG }
+		control = { province = 25 data = ENG }
+		control = { province = 26 data = ENG }
+		control = { province = 27 data = ENG }
+		control = { province = 28 data = ENG }
+		control = { province = 29 data = ENG }
+	}
+
+	decision_trigger = { 
+							OR =	{
+										atwar = no
+										NOT = { control = { province = 163 data = GER } }
+									}
+						}
+	
+	trigger = {
+		NOT = { event = 3336000 } #NOW
+		event = 3131601
+		OR = {
+				division_exists = { type = 12700 id = 451200 }
+				division_exists = { type = 12700 id = 451201 }
+				division_exists = { type = 12700 id = 451202 }
+				division_exists = { type = 12700 id = 451203 }
+				division_exists = { type = 12700 id = 451204 }
+				division_exists = { type = 12700 id = 451205 }
+				division_exists = { type = 12700 id = 451206 }
+				division_exists = { type = 12700 id = 451207 }
+				division_exists = { type = 12700 id = 451208 }
+				division_exists = { type = 12700 id = 451209 }
+				division_exists = { type = 12700 id = 451210 }
+				division_exists = { type = 12700 id = 451211 }
+				division_exists = { type = 12700 id = 451212 }
+				division_exists = { type = 12700 id = 451213 }
+				division_exists = { type = 12700 id = 451214 }
+				division_exists = { type = 12700 id = 451215 }
+				division_exists = { type = 12700 id = 451216 }
+				division_exists = { type = 12700 id = 451217 }
+				division_exists = { type = 12700 id = 451218 }
+				division_exists = { type = 12700 id = 451219 }
+				division_exists = { type = 12700 id = 451220 }
+				division_exists = { type = 12700 id = 451221 }
+				division_exists = { type = 12700 id = 451222 }
+				division_exists = { type = 12700 id = 451223 }
+				division_exists = { type = 12700 id = 451224 }
+				division_exists = { type = 12700 id = 451225 }
+				division_exists = { type = 12700 id = 451226 }
+				division_exists = { type = 12700 id = 451227 }
+				division_exists = { type = 12700 id = 451228 }
+				division_exists = { type = 12700 id = 451229 }
+				division_exists = { type = 12700 id = 451230 }
+				division_exists = { type = 12700 id = 451231 }
+				division_exists = { type = 12700 id = 451232 }
+				division_exists = { type = 12700 id = 451233 }
+				division_exists = { type = 12700 id = 451234 }
+				division_exists = { type = 12700 id = 451235 }
+				}
+		control = { province = 4 data = ENG } # British main island
+		control = { province = 5 data = ENG } 
+		control = { province = 6 data = ENG } 
+		control = { province = 7 data = ENG } 
+		control = { province = 8 data = ENG } 
+		control = { province = 10 data = ENG }
+		control = { province = 11 data = ENG }
+		control = { province = 12 data = ENG }
+		control = { province = 13 data = ENG }
+		control = { province = 14 data = ENG }
+		control = { province = 15 data = ENG }
+		control = { province = 16 data = ENG }
+		control = { province = 17 data = ENG }
+		control = { province = 18 data = ENG }
+		control = { province = 19 data = ENG }
+		control = { province = 20 data = ENG }
+		control = { province = 21 data = ENG }
+		control = { province = 22 data = ENG }
+		control = { province = 23 data = ENG }
+		control = { province = 24 data = ENG }
+		control = { province = 25 data = ENG }
+		control = { province = 26 data = ENG }
+		control = { province = 27 data = ENG }
+		control = { province = 28 data = ENG }
+		control = { province = 29 data = ENG }
+		OR =	{
+					atwar = no
+					NOT = { control = { province = 163 data = GER } }
+				}
+	}
+
+	name = EVT_3131602_NAME
+	desc = EVT_3131602_DESC
+	style = 2
+	picture = "homeguard_EV"
+	decision_picture = "decision_homeguardend"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131602A #
+		command = { trigger = { division_exists = {	type = 12700 id = 451200 } } type = remove_division which = 12700 value = 451200 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451201 } } type = remove_division which = 12700 value = 451201 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451202 } } type = remove_division which = 12700 value = 451202 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451203 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451203 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451204 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451204 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451205 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451205 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451206 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451206 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451207 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451207 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451208 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451208 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451209 } } type = remove_division which = 12700 value = 451209 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451210 } } type = remove_division which = 12700 value = 451210 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451211 } } type = remove_division which = 12700 value = 451211 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451212 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451212 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451213 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451213 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451214 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451214 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451215 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451215 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451216 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451216 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451217 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451217 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451218 } } type = remove_division which = 12700 value = 451218 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451219 } } type = remove_division which = 12700 value = 451219 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451220 } } type = remove_division which = 12700 value = 451220 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451221 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451221 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451222 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451222 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451223 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451223 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451224 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451224 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451225 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451225 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451226 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451226 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451227 } } type = remove_division which = 12700 value = 451227 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451228 } } type = remove_division which = 12700 value = 451228 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451229 } } type = remove_division which = 12700 value = 451229 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451230 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451230 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451231 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451231 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451232 } OR = { local_flag = HG_ENGAI_GERH local_flag = HG_ENGAI_GERAI } } type = remove_division which = 12700 value = 451232 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451233 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451233 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451234 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451234 }
+		command = { trigger = { division_exists = {	type = 12700 id = 451235 } local_flag = HG_ENGAI_GERH} type = remove_division which = 12700 value = 451235 }
+		
+		#command = { trigger = { local_flag = HG_ENGAI_GERH } type = manpowerpool value = -324 }
+		#command = { trigger = { local_flag = HG_ENGAI_GERAI } type = manpowerpool value = -216 }
+		command = { trigger = { local_flag = HG_ENGH_GERH } type = manpowerpool value = -108 }
+	}
+}
+
+#########################
+# Operation Dynamo 
+#########################
+event = { 
+	id = 313600001
+	random = no
+	country = ENG
+
+	decision = { 
+				atwar = yes
+				headofgovernment = 1038 #Churchill
+				}
+				
+	decision_trigger = { 
+						convoypool       = 200
+						escortpool       = 15
+						OR = {
+								control          = { province = 114 data = -2 }
+								control          = { province = 116 data = -2 }
+								control          = { province = 112 data = -2 }
+								control          = { province = 102 data = -2 }
+								control          = { province = 99  data = -2 }
+								}
+						event            = 3115003 #BEL surrenders
+		           }
+
+	trigger = { 
+        atwar = yes
+		ai = yes
+		OR = {
+				exists = VIC
+				AND = {
+						war = { country = GER country = FRA }
+						alliance = { country = FRA country = ENG }
+						}
+				}
+        war = { country = GER country = ENG }
+        NOT = { alliance = { country = POL country = GER }}
+        NOT = { alliance = { country = FRA country = GER }}
+        NOT = { alliance = { country = ENG country = GER }}
+		control = { province = 51 data = -2 } #lost control of Dunkirk
+		  }
+
+	name = EVT_313600001_NAME
+	desc = EVT_313600001_DESC
+	style = 2
+	picture = "eng_operation_dynamo"
+	decision_picture = "eng_decision_operation_dynamo"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME313600001A 
+        ai_chance = 100
+		command = { type = convoypool  which = ENG value = -35 }
+		command = { type = escort_pool which = ENG value = -7 }
+        command = { type = supplies value = -2500 }
+		#command = { type = manpowerpool value = 200 } #-200 in event 3131997
+		command = { type = trigger which = 3131621 } #Dynamo success => Belgian Army is lost
+		command = { type = sleepleader which = 1028 } 
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+event = { 
+	id = 3131621
+	random = no
+	country = ENG
+	
+	#triggered by 313600001
+	
+	name = EVT_313600001_NAME
+	desc = EVT_3131621_DESC
+	style = 2
+	picture = "eng_operation_dynamo"
+	decision_picture = "eng_decision_operation_dynamo"
+	
+	action_a = { 
+		name = ACTIONNAME3131621A 
+		command = { type = manpowerpool value = 200 } #-200 in event 3131997
+	}
+}	
+
+#####################################
+# The polish army in the east / SOV
+#####################################
+
+event = { 
+	id = 313600002
+	random = no
+	country = SOV
+
+	decision = {
+				war = { country = GER country = SOV }
+				war = { country = GER country = ENG }
+				NOT = { exists = POL }
+				}
+				
+	decision_trigger = { 
+		OR = {
+				headofgovernment = 4002 #Stalin
+				headofgovernment = 4094 #Stalin, paranoid egomaniac in single player mode
+				}
+		event = 3162000 # Soviet and alliied acces to Persia
+		event = 222006  # Sikorski-Mayski agreement
+        NOT = { alliance = { country = SOV country = GER }}
+        NOT = { alliance = { country = ENG country = GER }}
+        NOT = { alliance = { country = PER country = GER }}
+        NOT = { alliance = { country = PER country = ITA }}
+		               }
+
+	trigger = { 
+				war = { country = GER country = SOV }
+				war = { country = GER country = ENG }
+				NOT = { exists = POL }
+				OR = {
+						headofgovernment = 4002 #Stalin
+						headofgovernment = 4094 #Stalin, paranoid egomaniac in single player mode
+						}
+				event = 3162000 # Soviet and alliied acces to Persia
+				event = 222006  # Sikorski-Mayski agreement
+				NOT = { alliance = { country = SOV country = GER }}
+				NOT = { alliance = { country = ENG country = GER }}
+				NOT = { alliance = { country = PER country = GER }}
+				NOT = { alliance = { country = PER country = ITA }}
+	}
+
+	name = "EVT_313600002_NAME"
+	desc = "EVT_313600002_DESC"
+	style = 2
+	picture = "sov_polish_army_in_the_east"
+	decision_picture = "sov_decision_polish_army_in_the_east"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = "ACTIONNAME313600002A"  
+        ai_chance = 100
+		command = { type = supplies value = 100 }
+	}
+	
+	action_b = { 
+		name = "ACTIONNAME313600002B"  
+        ai_chance = 0
+		command = { type = supplies value = -100 }
+		command = { type = sleepevent which = 222008 } # polish army ussr decision
+		command = { type = sleepevent which = 222009 } # polish army ussr decision
+		command = { type = sleepevent which = 313600004 } # polish army uk decision
+	}
+	
+}
+
+###################################################
+# polish army in ENG 
+###################################################
+# Event 222010 & 222012
+
+event = { 
+	id = 222010
+	random = no
+	country = ENG
+
+	decision = { atwar = yes }
+				
+	decision_trigger = { 
+        event = 222011
+		event = 313600002
+		event = 313600001
+		war = { country = GER country = SOV }
+		war = { country = GER country = ENG }
+			supplies = 1500
+			energy = 2500
+			metal = 1500
+		headofgovernment = 1038 #Churchill
+    }
+
+	trigger = { 
+        atwar = yes
+        war = { country = GER country = SOV }
+        war = { country = GER country = ENG }
+        NOT = { alliance = { country = POL country = GER }}
+        NOT = { alliance = { country = FRA country = GER }}
+        NOT = { alliance = { country = ENG country = GER }}
+		exists = ENG
+		NOT = { exists = POL }
+        event = 222011
+		event = 313600002
+		event = 313600001
+		ai = yes
+	}
+
+	name = "EVT_222010a_NAME"
+	desc = "EVT_222010a_DESC"
+	style = 2
+	picture = "eng_pol_army_west_1_dec"
+	decision_picture = "eng_pol_army_west_pic"
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME222010A #Activte the 1st corps
+		                
+		command = { type = wakeleader which = 1800 }
+		command = { type = wakeleader which = 1801 }
+		command = { type = wakeleader which = 1802 }
+		command = { type = wakeleader which = 1803 }
+		command = { type = wakeleader which = 1804 }
+		command = { type = wakeleader which = 1805 }
+		command = { type = wakeleader which = 1806 }
+		command = { type = wakeleader which = 1807 }
+		command = { type = wakeleader which = 1808 }
+		command = { type = wakeleader which = 1809 }
+		command = { type = wakeleader which = 1810 }
+		command = { type = wakeleader which = 1811 }
+		command = { type = wakeleader which = 1812 }
+		command = { type = wakeleader which = 1813 }
+		command = { type = wakeleader which = 1814 }
+		command = { type = wakeleader which = 1815 }
+		command = { type = wakeleader which = 1816 }
+
+		command = { type = add_corps which = "Polish I Corps" value = land where = 7 when = 1801 } 
+		command = { type = activate_division which = 12700 value = 1505 where = 7 }
+		command = { type = activate_division which = 12700 value = 1506 where = 7 }
+		command = { trigger = { ai = no } type = energypool value = -2500 }
+		command = { trigger = { ai = no } type = metalpool  value = -1500 }
+		command = { trigger = { ai = no } type = supplies   value = -1500 }		
+	}
+}
+
+event = { 
+	id = 222012
+	random = no
+	country = ENG
+
+	decision = { atwar = yes }
+				
+	decision_trigger = { 
+		event = 222010
+		war = { country = GER country = SOV }
+		war = { country = GER country = ENG }
+			supplies = 3000
+			energy = 5000
+			metal = 2500
+			control = { province = 789 }
+		headofgovernment = 1038 #Churchill
+    }
+
+	trigger = { 
+        atwar = yes
+        war = { country = GER country = SOV }
+        war = { country = GER country = ENG }
+        NOT = { alliance = { country = POL country = GER }}
+        NOT = { alliance = { country = FRA country = GER }}
+        NOT = { alliance = { country = ENG country = GER }}
+		exists = ENG
+		NOT = { exists = POL }
+		event = 222010
+		ai = yes
+	}
+
+	name = "EVT_222012_NAME"
+	desc = "EVT_222012_DESC"
+	style = 2
+	picture = "eng_pol_army_west_2_dec"
+	decision_picture = "eng_pol_army_west_pic"
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME222012A #Activate the 2nd corps
+		command = { type = add_corps which = "Polish II Corps" value = land where = 789 when = 1800 } 
+		command = { type = activate_division which = 12700 value = 1507 where = 789 when = 0 }
+		command = { type = activate_division which = 12700 value = 1508 where = 789 when = 0 }
+		command = { type = activate_division which = 12700 value = 1509 where = 789 when = 0 }
+		command = { trigger = { ai = no } type = energypool value = -5000 }
+		command = { trigger = { ai = no } type = metalpool  value = -2500 }
+		command = { trigger = { ai = no } type = supplies   value = -3000 }		
+	}
+}
+
+########################################################
+# The navy's last stand
+########################################################
+event = { 
+	id = 3131604
+	random = no
+	country = ENG
+	
+	decision = {
+				ai = no
+				atwar = yes
+				NOT = { battleship = { country = ENG value = 2 } }
+	}
+	decision_trigger = {
+						supplies = 1000
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				NOT = { battleship = { country = ENG value = 2 } }	
+				random = 2
+	}
+       
+	name = EVT_3146074_NAME
+	desc = EVT_3131604_DESC
+	style = 2
+	decision_picture = "eng_decision_last_stand"
+	picture = "eng_event_last_stand"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { trigger = { ai = no } type = supplies value = -1000 }
+		command = { type = activate_division which = 12700 value = 1236 where = 5 when = 0 }
+	}
+}
+
+########################################################
+# The Chain Home system - step 1 - 1936
+########################################################
+event = { 
+	id = 3131610
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 100
+	}
+	
+	trigger = {
+		ai = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -100  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.1  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 5  value = 1 } #Scapa Flow
+		command = { type = construct which = radar_station where = 26 value = 1 } #Dover
+		command = { type = construct which = radar_station where = 25 value = 1 } #Norwich
+	}
+}
+
+########################################################
+# The Chain Home system - step 2 - 1937
+########################################################
+event = { 
+	id = 3131611
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+		event          = { id = 3131610 days = 90 }
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 200
+	}
+	
+	trigger = {
+	    event          = 3131610
+		ai             = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1937 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -200  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.1  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 27 value = 1 } #Portsmouth
+		command = { type = construct which = radar_station where = 15 value = 1 } #Hull
+		command = { type = construct which = radar_station where = 13 value = 1 } #Sunderland
+	}
+}
+
+########################################################
+# The Chain Home system - step 3 - 1938
+########################################################
+event = { 
+	id = 3131612
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+		event          = { id = 3131611 days = 90 }
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 250
+	}
+	
+	trigger = {
+	    event          = 3131611
+		ai             = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1938 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -250  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.3  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 12 value = 1 } #Edinbourgh
+		command = { type = construct which = radar_station where = 26 value = 1 } #Dover
+		command = { type = construct which = radar_station where = 16 value = 1 } #Lincoln
+	}
+}
+
+########################################################
+# The Chain Home system - step 4 - 1939
+########################################################
+event = { 
+	id = 3131613
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+		event          = { id = 3131612 days = 90 }
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 250
+	}
+	
+	trigger = {
+	    event          = 3131612
+		ai             = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1939 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -250  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.1  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 6  value = 1 } #Inverness
+		command = { type = construct which = radar_station where = 5  value = 1 } #Scapa Flow
+		command = { type = construct which = radar_station where = 29 value = 1 } #London
+	}
+}
+
+########################################################
+# The Chain Home system - step 5 - 1940
+########################################################
+event = { 
+	id = 3131614
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+		event          = { id = 3131613 days = 90 }
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 250
+	}
+	
+	trigger = {
+	    event          = 3131613
+		ai             = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1940 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -250  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.1  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 7  value = 1 } #Aberdeen
+		command = { type = construct which = radar_station where = 26 value = 1 } #Dover
+		command = { type = construct which = radar_station where = 25 value = 1 } #Norwich
+	}
+}
+
+########################################################
+# The Chain Home system - step 6 After Vichy
+########################################################
+event = { 
+	id = 3131615
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+	
+	decision_trigger = {
+	    event          = 3135001  #Vichy France
+		event          = { id = 3131614 days = 90 }
+		supplies       = 2500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 500
+	}
+	
+	trigger = {
+	    event          = 3135001  #Vichy France
+	    event          = 3131614
+		ai             = yes
+		supplies       = 650
+		energy         = 1750
+		metal          = 1750
+		rare_materials = 350
+	}
+       
+	name = EVT_3131610_NAME
+	desc = EVT_3131610_DESC
+	style = 2
+	decision_picture = "eng_decision_chain_home"
+	picture = "eng_event_chain_home"
+
+	date = { day = 0 month = january year = 1940 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTIONNAME3131610A
+		command = { trigger = { ai = no } type = money             value = -500  }
+		command = { trigger = { ai = no } type = supplies          value = -2500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -0.3  }
+		
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -500  }		
+		
+		command = { type = construct which = radar_station where = 23 value = 2 } #Plymouth
+		command = { type = construct which = radar_station where = 20 value = 1 } #Exeter
+		command = { type = construct which = radar_station where = 36 value = 1 } #Belfast
+		command = { type = construct which = radar_station where = 17 value = 1 } #Manchaster
+		command = { type = construct which = radar_station where = 22 value = 1 } #Cardiff
+	}
+}
+
+########################################################
+# Power Jets (Research and Development) Ltd.
+########################################################
+event = { 
+	id = 3131616
+	random = no
+	save_date = yes
+	country = ENG
+	
+	decision = {
+				ai   = no
+	}
+
+	decision_trigger = {
+	    event          = 3131400  #Power jets
+		supplies       = 500
+		money          = 500
+	}
+	
+	trigger = {
+	    event          = 3131400  #Power jets
+		supplies       = 500
+		money          = 500
+	}
+       
+	name = EVT_3131616_NAME
+	desc = EVT_3131616_DESC
+	style = 2
+	decision_picture = "eng_decision_power_jets"
+	picture =          "eng_event_power_jets"
+
+	date = { day = 0 month = march year = 1944 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131616A
+		ai_chance = 90
+		command = { trigger = { ai = no } type = money    value = -500 }
+		command = { trigger = { ai = no } type = supplies value = -500 }
+	}
+	
+	action_b = {
+		name = ACTIONNAME3131616B
+		ai_chance = 10
+		command = { type = sleepevent which = 3131617 }
+	}	
+}
+
+########################################################
+# Frank Whittle and the first british jet fighter
+########################################################
+event = { 
+	id = 3131617
+	random = no
+	country = ENG
+	
+	decision = {
+				ai = no
+	}
+
+	decision_trigger = {
+	    event          = 3131616  #Power jets
+		supplies       = 4500
+		money          = 500
+		technology     = 4200
+		technology     = 5570
+	}
+	
+	trigger = {
+	    event          = 3131616  #Power jets
+		supplies       = 4500
+		money          = 500
+		technology     = 4200
+		technology     = 5570
+	}
+       
+	name = EVT_3131617_NAME
+	desc = EVT_3131617_DESC
+	style = 2
+	decision_picture = "eng_decision_power_jets_meteor"
+	picture =          "eng_event_power_jets_meteor"
+
+	date = { day = 0 month = march year = 1945 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131617A
+		command = { trigger = { ai = no } type = supplies value = -4500 }
+		command = { trigger = { ai = no } type = money    value = -500  }
+		command = { type = add_division which = "Tactical Flight" value = multi_role when = 5 }
+	}
+
+}
+
+########################################################
+# UK support for polish home army in warwas uprising
+########################################################
+event = { 
+	id = 3131618
+	random = no
+	country = ENG
+	
+	decision = {
+				ai    = no
+                event = 3136233 #GER Event Warsaw uprising
+	}
+	decision_trigger = {
+	            event    = 3136233 
+				supplies = 500
+				oil      = 250
+				money    = 250	
+				atwar = yes
+				war   = { country = ENG country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+	trigger = {
+	            event    = 3136233 
+				ai       = yes
+				supplies = 500
+				oil      = 250
+				money    = 250	
+				atwar = yes
+				war   = { country = ENG country = GER }	
+				war   = { country = SOV country = GER }	
+				NOT   = { exists  = POL }
+	}
+       
+	name = EVT_3131618_NAME
+	desc = EVT_3131618_DESC
+	style = 2
+	decision_picture = "eng_decision_uk_help_for_warsaw"
+	picture          = "eng_event_uk_help_for_warsaw"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+	
+    action_a = {
+		name = ACTIONNAME3131618A	
+		command = { type = revolt which = 232 when = -1 }
+		command = { trigger = { ai = no } type = supplies value = -500 }
+		command = { trigger = { ai = no } type = oilpool  value = -250 }
+		command = { trigger = { ai = no } type = money    value = -250 }
+		command = { type = dissent value = 3 }
+	}
+}
+
+########################################################
+# UK tries to stop GER-TUR trade
+########################################################
+event = { 
+	id = 3131620
+	random = no
+	country = ENG
+	
+	decision = {
+				ai    = no	
+	}
+	decision_trigger = {
+	            trade = { country = GER country = TUR } 
+	OR = {
+             	event    = 3180016 
+                event    = 3180018	
+	}
+				supplies = 5000
+				money    = 1500	
+				atwar = yes
+				war   = { country = ENG country = GER }
+    NOT = {				
+				war      = { country = TUR country = ENG }	
+				alliance = { country = TUR country = GER }	
+				alliance = { country = TUR country = ENG }	
+		}
+	}
+	trigger = {
+	            trade = { country = GER country = TUR } 
+	OR = {
+             	event    = 3180016 
+                event    = 3180018	
+	}
+				ai       = yes
+				supplies = 5000
+				money    = 1500	
+				atwar = yes
+			    war   = { country = ENG country = GER }
+    NOT = {				
+				war      = { country = TUR country = ENG }	
+				alliance = { country = TUR country = GER }	
+				alliance = { country = TUR country = ENG }	
+		}
+	}
+       
+	name = EVT_3131620_NAME
+	desc = EVT_3131620_DESC
+	style = 2
+	decision_picture = "eng_decision_uk_ger_tur_trade"
+	picture          = "eng_event_uk_ger_tur_trade"
+	
+    action_a = {
+		name = ACTIONNAME3131620A	
+		command = { type = trigger which = 3180019 } #TUR deal
+		command = { type = trigger which = 3182163 } #USA deal 
+		command = { type = dissent value = 1 }
+		command = { trigger = { ai = no } type = money    value = -1500 }   
+		command = { trigger = { ai = no } type = supplies value = -5000 }			
+		command = { type = end_trades which = GER where = TUR }
+	}
+	
+    action_b = {
+		name = ACTIONNAME3131620B
+        command = { type = sleepevent which = 3180020 } #
+	}
+}	
+
+#############################################################################
+# Operation Alacrity
+# Allies take control over Azores...
+# ...if Portugal joins the Allies (ENG cares about supplies)
+# ...if the Axis take control over Spain
+# ...if Portugal denies the request (events 1941 & 1943)
+#############################################################################
+
+event = {
+	id = 3131015
+	random = no
+	country = ENG
+
+	decision = {
+				OR = {
+						event = 3136033 #Vichy
+						NOT = { control = { province = 55 data = FRA } } # Paris
+						AND = {
+								atwar = U01
+								NOT = { exists = SPR }
+								}
+						AND = {
+								atwar = SPR
+								NOT = { exists = U01 }
+								}
+						}
+				war = { country = ENG country = GER }
+				NOT = { war = { country = POR country = ENG }}
+				owned = { province = 995 data = POR }			
+	}
+	
+	decision_trigger = {
+				OR = {
+						war = { country = SPR country = GER }
+						war = { country = U01 country = GER }
+						war = { country = SPR country = ITA }
+						war = { country = U01 country = ITA }
+						participant = { country = SPR value = 2 }    # Axis
+						participant = { country = U01 value = 2 }    # Axis
+						participant = { country = POR value = 1 }    # Allies
+						event = 802065 # POR decision on basing rights
+						}
+	}
+	
+	trigger = {
+				OR = {
+						war = { country = SPR country = GER }
+						war = { country = U01 country = GER }
+						war = { country = SPR country = ITA }
+						war = { country = U01 country = ITA }
+						participant = { country = SPR value = 2 }    # Axis
+						participant = { country = U01 value = 2 }    # Axis
+						participant = { country = POR value = 1 }    # Allies
+						event = 802065 # POR decision on basing rights
+						}
+				NOT = { war = { country = POR country = ENG }}
+				owned = { province = 995 data = POR }
+				war = { country = ENG country = GER }
+	}
+
+	name = EVT_3131015_NAME
+	desc = EVT_3131015_DESC
+	style = 2
+	picture = "eng_event_Alacrity"
+	decision_picture = "eng_decision_Alacrity"
+	
+	date =  { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate =  { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3131014A # same as in Torch decision
+		command = { type = trigger which = 3131016 } # POR secedes provinces
+		command = { trigger = { NOT = { participant = { country = POR value = 1 } } } type = relation which = POR value = -150 }
+	}
+}
+
+event = {
+	id = 3131016
+	random = no
+	country = POR
+
+	name = EVT_3131015_NAME
+	desc = EVT_3131015_DESC
+	style = 2
+	picture = "eng_event_Alacrity"
+
+	action_a = {
+		name = ACTIONNAME2800A # We have no choice!
+		command = { type = removeclaim which = 995 }
+		command = { type = removecore which = 995 }
+		command = { type = secedeprovince which = ENG value = 995 }
+		command = { trigger = { NOT = { participant = { country = POR value = 1 } } } type = relation which = ENG value = -150 }
+	}
+}
+
+###########################################################################
+# Battle of Greek
+###########################################################################
+event = { 
+	id = 3131019
+	random = no
+	country = ENG
+
+	decision = { 
+				atwar = yes
+				OR = {
+						war = { country = GER country = GRE }
+						war = { country = ITA country = GRE }
+						}
+				headofgovernment = 1038 #Churchill
+				}
+				
+	decision_trigger = { 	
+						alliance = { country = ENG country = GRE }
+						AND = {
+								control          = { province = 377 data = -3 } # Athen
+								control          = { province = 365 data = -3 } # Thessaloniki
+								}
+						}
+
+	trigger = { 
+		ai = yes
+	  OR = {		
+        war = { country = GER country = GRE }
+		war = { country = ITA country = GRE }
+		}
+		atwar            = yes
+		headofgovernment = 1038 #Churchill
+		alliance = { country = ENG country = GRE }
+	  AND = {
+		control          = { province = 377 data = -3 } # Athen
+		control          = { province = 365 data = -3 } # Thessaloniki
+		}
+	}
+
+	name = EVT_3131019_NAME
+	desc = EVT_3131019_DESC
+	style = 2
+	picture = "eng_operation_w_force"
+	decision_picture = "eng_decision_operation_w_force"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME3131019A 
+        ai_chance = 100
+		command = { trigger = { ai = no } type = manpowerpool value = -60 }
+        command = { trigger = { ai = no } type = supplies     value = -1500 }
+		command = { type = add_corps which = "W Force" value = land when = 1315 where = 377 } #W force
+		command = { type = activate_division which = 12700 value = 1511 where = 377 }
+		command = { type = activate_division which = 12700 value = 1512 where = 377 }		
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+###########################################################################
+# Evacuation of Empire forces - Battle of Greek
+###########################################################################
+event = { 
+	id = 3131017
+	random = no
+	country = ENG
+
+	decision = { 
+				atwar = yes 
+				event = 3131019
+				headofgovernment = 1038 #Churchill
+				OR = {
+						war = { country = GER country = GRE }
+						war = { country = ITA country = GRE }
+						}
+				}
+				
+	decision_trigger = {    
+						alliance = { country = ENG country = GRE }
+						AND = {
+								control          = { province = 377 data = -2 } # Athen
+								control          = { province = 365 data = -2 } # Thessaloniki
+								}
+						}
+
+	trigger = { 
+	    event = 3131019
+		ai = yes
+	  OR = {		
+        war = { country = GER country = GRE }
+		war = { country = ITA country = GRE }
+		}
+		atwar            = yes
+		headofgovernment = 1038 #Churchill
+		alliance = { country = ENG country = GRE }
+	  AND = {
+		control          = { province = 377 data = -2 } # Athen
+		control          = { province = 365 data = -2 } # Thessaloniki
+		}
+	}
+
+	name = EVT_3131017A_NAME
+	desc = EVT_3131017A_DESC
+	style = 2
+	picture = "eng_operation_greece"
+	decision_picture = "eng_decision_operation_dynamo"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME3131017AA 
+        ai_chance = 100
+		command = { trigger = { ai = no } type = convoypool  which = ENG value = -20 }
+		command = { trigger = { ai = no } type = escort_pool which = ENG value = -2 }
+		command = { trigger = { ai = no } type = dissent value = 1 }
+        command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { type = remove_division which = 12700 value = 1511 }
+		command = { type = remove_division which = 12700 value = 1512 }
+		command = { type = trigger which = 3131018 } #success
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+event = { 
+	id = 3131018
+	random = no
+	country = ENG
+	
+	#triggered by 313600001
+	
+	name = EVT_3131017A_NAME
+	desc = EVT_3131018_DESC
+	style = 2
+	picture = "eng_operation_greece"
+	
+	action_a = { 
+		name = ACTIONNAME3131018AA 
+		command = { type = manpowerpool value = 42 }
+	}
+}	
+
+###########################################################################
+# Czech army in the UK
+###########################################################################
+event = { 
+	id = 3131219
+	random = no
+	country = ENG
+
+	decision = { 
+				atwar = yes
+				war = { country = GER country = ENG }
+				headofgovernment = 1038 #Churchill
+				}
+				
+	decision_trigger = { 
+						event = 3135605 # CZE army in FRA
+						NOT = { exists = FRA }
+						NOT = { exists = CZE }
+						}
+
+	trigger = { 
+	    event = 3135605 # CZE army in FRA
+        war = { country = GER country = ENG }
+		NOT = { exists = FRA }
+		NOT = { exists = CZE }
+		atwar            = yes
+		headofgovernment = 1038 #Churchill
+	}
+
+	name = EVT_3131219_NAME
+	desc = EVT_3131219_DESC
+	style = 2
+	picture = "eng_event_cze_army_in_eng"
+	decision_picture = "eng_decision_cze_army_in_eng"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME3131219A 
+        ai_chance = 100
+		command = { type = activate_division which = 12700 value = 1516 when = 0 }
+		command = { type = dissent value = -1 }
+        command = { trigger = { ai = no } type = supplies value = -500 }
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+event = { 
+	id = 3131220
+	random = no
+	country = ENG
+
+	decision = { atwar = yes }
+				
+	decision_trigger = { 
+	    event = 3131219 # CZE army in ENG
+		division_exists = { type = 12700 id = 1516 }	
+        war = { country = GER country = ENG }
+		NOT = { exists = FRA }
+		NOT = { exists = CZE }
+		atwar            = yes
+		headofgovernment = 1038 #Churchill
+    }
+
+	trigger = { 
+	    event = 3131219 # CZE army in ENG
+		division_exists = { type = 12700 id = 1516 }			
+        war = { country = GER country = ENG }
+		NOT = { exists = FRA }
+		NOT = { exists = CZE }
+		atwar            = yes
+		headofgovernment = 1038 #Churchill
+	}
+
+	name = EVT_3131219_NAME
+	desc = EVT_3131220_DESC
+	style = 2
+	picture = "eng_event_cze_army_in_eng_2"
+	decision_picture = "eng_decision_cze_army_in_eng"
+
+	date = { day = 0 month = september year = 1943 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action_a = { 
+		name = ACTIONNAME3131220A 
+        ai_chance = 100
+		command = { type = remove_division   which = 12700 value = 1516 }		
+		command = { type = activate_division which = 12700 value = 1517 when = 0 }
+		command = { type = dissent value = -1 }
+        command = { trigger = { ai = no } type = supplies value = -2500 }
+	}
+
+#	action_b = { 
+#		name = ACTIONNAME3131604B  
+#		command = { } 
+#	}
+
+}
+
+###########################################################################
+# Arcadia Conference (USA become leader of Western Allies)
+###########################################################################
+event = { 
+	id = 3131221
+	random = no
+	country = ENG
+
+	decision = {
+				atwar = yes
+				alliance = { country = ENG country = USA }
+				}
+				
+	decision_trigger = { 
+						alliance_leader = { country = ENG value = 1 }
+						NOT = { alliance_leader = { country = USA value = 1 } } #1 is Allies here
+						}
+
+	trigger = { 
+				atwar = yes
+				alliance = { country = ENG country = USA }
+				alliance_leader = { country = ENG value = 1 }
+				NOT = { alliance_leader = { country = USA value = 1 } } #1 is Allies here
+				random = 10
+				}
+
+	name = EVT_3131221_NAME
+	desc = EVT_3131221_DESC
+	style = 2
+	picture = "eng_event_arcadia"
+	decision_picture = "eng_decision_arcadia"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1999 }
+
+	action = { 
+				ai_chance = 100
+				name = ACTIONNAME3131221A 
+				command = { type = alliance_leader which = USA where = 2 } #according to event_commands.txt, now 2 is Allies???
+				}
+	action = { 
+				ai_chance = 0
+				name = ACTIONNAME3131221B 
+				command = { }
+				}
+}

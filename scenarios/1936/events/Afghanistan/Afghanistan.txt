@@ -1,0 +1,183 @@
+# provinceadjustment DH, Kane, 25.1.2011
+###########################################################################
+#  	7600000 - 7699999
+###########################################################################
+
+#########################################################################
+# Was 1102000 - The Afghan Bank Founded (by Burris)
+#########################################################################
+event = {
+        id = 7600000 
+        random = no
+        country = AFG
+
+	trigger = { atwar = no }
+
+        name = EVT_7600000_NAME
+        desc = EVT_7600000_DESC
+
+	style = 0
+
+        date = { day = 24 month = march year = 1938 }
+        offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+        action_a = { 
+                name = ACTIONNAME7600000A # found the bank
+		command = { type = construct which = ic where = 2171 value = 1 } # Kabul
+#		command = { type = construct which = ic where = 2172 value = 1 } # Herat
+#		command = { type = construct which = ic where = 2169 value = 1 } # Kandahar
+#		command = { type = construct which = ic where = 2168 value = 1 } # Kondoz
+#		command = { type = construct which = ic where = 2170 value = 1 } # Jalalabad                
+		command = { type = dissent value = 1 }
+	}
+        action_b = {
+                name = ACTIONNAME7600000B # we don't need that kind of stuff
+                command = { type = dissent value = -10 }
+	}
+}
+
+########################################################################
+# Was 1102001 - German Aid to Afghanistan? (by Burris)
+#########################################################################
+event = {
+	id = 7600001
+	random = no
+	country = AFG
+
+	# triggered by GER 3136127
+
+	name = EVT_7600001_NAME # Sending aid to Afghanistan
+	desc = EVT_7600001_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME7600001A # Excellent
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = delete_unit which = -1 }
+		command = { type = supplies value = 300 }
+		command = { type = add_division value = infantry when = 0 }
+#		command = { type = add_division value = infantry when = 0 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+# Was 1102004 - (AFG) Amanullah Uprising (by Burris)
+#########################################################################
+event = {
+	id = 7600002
+	random = no
+	country = AFG
+
+	trigger = {
+		NOT = { headofstate = 54001 }
+		random = 20
+	}
+	
+	name = EVT_7600002_NAME # Amanullah Uprising
+	desc = EVT_7600002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = february year = 1939 }
+
+	action_a = { 
+		name = ACTIONNAME7600002A # Deal with the Rebels!
+		command = { type = dissent value = -5 }
+		command = { type = supplies value = -75 }
+	}
+	action_b = {
+		name = ACTIONNAME7600002B # Allow some Amanullah Kahn reforms to take place
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+
+###############################################
+# Was 1102009 - (AFG) Afghanistan Neutrality (by Burris)
+###############################################
+event = { 
+	id = 7600007
+	random = no
+	country = AFG
+
+	trigger = {
+		NOT = { atwar = AFG }
+		war = { country = ENG country = GER }
+		war = { country = FRA country = GER }
+	}
+
+	name = EVT_7600007_NAME # Zahir Shah announces Afghan Neutrality
+	desc = EVT_7600007_DESC
+	style = 0 
+
+	action_a = {
+		name = ACTIONNAME7600007A # A Neutral Policy
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME7600007B # Never! Down with Britain!
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+###############################################
+# Was 1102010 - (AFG) Rebellion in Afghanistan (by Burris)
+###############################################
+event = { 
+	id = 7600008
+	random = no
+	country = AFG
+
+	trigger = { random = 30 }
+
+	name = EVT_7600008_NAME # Sulaiman Khel rebellion
+	desc = EVT_7600008_DESC
+	style = 0 
+
+	date = { day = 0 month = july year = 1937 } 
+	offset = 3
+	deathdate = { day = 29 month = september year = 1937 }
+
+	action_a = {
+		name = ACTIONNAME7600008A # They will be crushed!
+		command = { type = domestic which = democratic value = 1 }#slipped this in
+		command = { type = dissent value = -2 }
+		command = { type = supplies value = -50 }
+	}
+}
+###############################################
+# Was 1102011 - (AFG) Afghanistan Meetings with Britain (by Burris)
+##############################################
+event = { 
+	id = 7600009
+	random = no
+	country = AFG
+	trigger = {
+		random = 75
+		NOT = {
+			war = { country = ENG country = AFG }
+			alliance = { country = GER country = AFG } # AFG NOT AXIS
+			alliance = { country = SOV country = AFG } # AFG NOT COMMUNIST
+		}
+	}
+
+	name = EVT_7600009_NAME # British Meet with Afghan officials.
+	desc = EVT_7600009_DESC
+	style = 0 
+
+	date = { day = 6 month = october year = 1938 } 
+	offset = 1
+	deathdate = { day = 29 month = october year = 1938 }
+
+	action_a = {
+		name = "ACTIONNAME7600009A" # Very good news.
+		command = { type = domestic which = democratic value = 1 }#Relations with britain improved
+		command = { type = dissent value = -2 }
+	}
+}

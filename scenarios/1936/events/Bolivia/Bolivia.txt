@@ -1,0 +1,140 @@
+# converted to DH, Kane, July 12 2011
+###########################################################################
+#	4600000 - 4699999
+###########################################################################
+
+
+##########################################################
+## Was 1052013 BOL: The definitive peace with Paraguay
+##########################################################
+event = {
+	id = 4600003
+	random = no
+	country = BOL
+
+	trigger = {
+		NOT = { owned = { province = 837 data = -1 } } 
+	}
+
+	name = EVT_4600003_NAME # Bolivian peace with Paraguay
+	desc = EVT_4600003_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1938 }
+	offset = 240
+	deathdate = { day = 0 month = march year = 1939 }
+
+	action_a = { name = ACTIONNAME4600003A # Give up our territorial claims
+		 command = { type = removecore which = 837 }
+		 command = { type = dissent value = 5 }
+		 command = { type = construct which = infrastructure where = -1 value = 3 }
+		 command = { type = construct which = infrastructure where = -1 value = 2 }
+		 command = { type = money value = 1 }
+	}
+	action_b = { name = ACTIONNAME4600003B # Do not sign peace agreements with Paraguay
+		 command = { type = dissent value = -3 }
+	}
+}
+##########################################################
+# Was 1052020 (BOL) - Navy (fluvial) modernization (by mfigueras)
+##########################################################
+event = {
+	id = 4600004
+	random = no
+	country = BOL
+
+	trigger = { random = 60 }
+
+	name = EVT_4600004_NAME # The Bolivian Navy
+	desc = EVT_4600004_DESC
+	style = 0
+
+	date = { day = 0 month = march year = 1939 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1939 }
+
+	action_a = { name = ACTIONNAME4600004A # Yes, we need a good fluvial army
+		 command = { type = construct which = infrastructure where = -1 value = 8 }
+#		 command = { type = construct which = ic where = -3 value = -1 }
+		 command = { type = construct which = infrastructure where = -1 value = 5 }
+#		 command = { type = construct which = ic where = -3 value = -1 }
+		 command = { type = construct which = infrastructure where = -1 value = 5 }
+		 command = { type = manpowerpool value = -10 }
+		 command = { type = supplies value = -50 }
+		 command = { type = add_division value = infantry when = 0 }
+	}
+	action_b = { name = ACTIONNAME4600004B # A navy in the middle of the Andes ?
+		 command = { type = construct which = ic where = -1 value = 2 }
+# 		 command = { type = leader_loyalty which = -1 value = -1 }
+# 		 command = { type = leader_loyalty which = -1 value = -1 }
+	}
+}
+#######################################
+# Was 1052024 (BOL)Protest Soviet attack on Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 4600005
+	random = no
+	country = BOL
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 2628
+			alliance = { country = BOL country = SOV }
+			war = { country = BOL country = FIN }
+		}
+	}
+
+	name = EVT_4600005_NAME # Protest against Soviet attack on Finland
+	desc = EVT_4600005_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 2 
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME4600005A # Protest
+		command = { type = trigger which = 222051 }
+		command = { type = money value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4600005B # Condone attack
+		command = { type = sleepevent which = 222051 }
+		command = { type = money value = -2 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#######################################
+# Was 1052025 (BOL)Promise aid to Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 4600006
+	random = no
+	country = BOL
+
+	# triggered by SOV 222041
+
+	name = EVT_4600006_NAME # Promise aid to Finland
+	desc = EVT_4600006_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME4600006A # Promise aid
+		command = { type = money value = 2 }
+		command = { type = trigger which = 1002069 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME4600006B # We cant help
+		command = { type = money value = -1 }
+		command = { type = sleepevent which = 1002069 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}

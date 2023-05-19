@@ -1,0 +1,59 @@
+# England Land Prio Build by Lothos
+# Converted to DH by Dendro 2011-July-06
+
+###################################
+# Construction and Tech Research
+###################################
+#Default values
+construction = { 
+	max_factor = 0.03
+}
+
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 	= 360 
+	max_batch_war 		= 360 
+	max_batch_home_front = 360
+
+	#### Divisions etc...
+	infantry 		= 30
+	d_02			= 2 # will transmute into garrisons as long as no territory has been lost
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 10
+	mechanized 		= 0
+	light_armor 	= 0
+	armor 			= 10
+	paratrooper 	= 0
+	marine 			= 0
+	bergsjaeger 	= 0
+	garrison		= 0
+    hq	 			= 2
+
+#				54 %
+	interceptor 		= 9
+	multi_role 		= 7
+	d_01			= 3
+	cas 			= 0
+	strategic_bomber = 4
+	tactical_bomber = 6
+	naval_bomber 	= 7
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				36 %
+	battleship 		= 0
+	carrier 		= 0
+	light_carrier	= 0
+	escort_carrier	= 0
+	destroyer 		= 5
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 		= 1
+	nuclear_submarine = 1
+	d_09 = 3
+	d_08 = 0
+	transports 		= 0
+#				10 %
+}

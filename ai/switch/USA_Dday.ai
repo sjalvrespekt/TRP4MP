@@ -1,0 +1,292 @@
+# USA D-Day AI File by Lothos
+
+max_garrison_prop = 0.30
+min_garrison_prop = 0.20
+
+max_front_ratios = {
+	GER = 4.0
+	ITA = 4.0
+	VIC = 4.0
+}
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = yes
+	home_multiplier 	= 0.0
+	overseas_multiplier  = 1.5
+	home_peace_cap 		= 0
+	war_zone_odds 		= 1.001
+	key_point_prio_mult	= 0.0
+	revolt_risk_mult	= 0.1
+
+	# PRIORITIES:
+	beach			= 10	# Beach level 2
+	capital			= 10	# Our capital
+	human_border	= 0		# Ignored for allied human players
+	war_target		= 0		# The next country targeted for attack by this AI
+	reserves 		= 10	
+
+	opposing_alliance	= 0		# For neutrals, all alliances are "opposing"
+	claim_threat		= 0		# If we are neutral, countries with claims on us get this
+	unstable_border		= 0		# Bordering countries at war with someone else get this
+
+	province_priorities = {	}
+	area_multiplier = {	}	
+}
+front = { 
+	recklessness 		= 2 # 0-3
+	distrib_vs_ai 		= offensive
+	distrib_vs_human 	= offensive
+
+	max_attack_odds		= 5.0
+	
+  	enemy_handicap = { } 
+   	passivity = { } 
+	province_priorities = { }
+} 
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+	invasion		= yes
+ 	base			= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random			= 5.0	#How big a random range.  (1.0 = 1%)
+	coastal			= 0.0	#increase to avoid coastal forts more.
+	beach			= 0.0	#higher, avoid worst beaches.
+	distance		= 0.1	#higher = avoid long distance.
+	max_distance  	= 150.0  #About the distance from Washington to Morocco
+	max_staging_distance = 5.0	# How far should the staging area be from the target invasion point
+	pocket			= 0.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island			= 0.0	#prioritise taking pure islands.
+	enemy			= 0.0	#higher = much more vary of troops in province.
+	adjacentenemy 	= 0.0	#higher = much more vary of troops nearby
+	air_base		= 0.0 
+    naval_base 		= 0.0 
+    air_support 	= 0.0 
+    redirect 		= nearest
+	ignore			= no
+	help_allies 	= no
+      
+	staging_province = {
+	#	27  # Portsmouth 
+		1795 # New York
+		1953 # Miami
+		1889 # San Francisco
+	}
+	target = {
+		#England
+		26 = 6000 # Dover
+		25 = 6000 # Norwich
+		27 = 6000 # Portsmouth
+		23 = 6000 # Plymouth
+		36 = 6000 # Belfast
+		20 = 6000 # Exeter
+		19 = 6000 # Bristol
+		17 = 6000 # Manchester
+		16 = 6000 # Lincoln
+		15 = 6000 # Hull
+		14 = 6000 # Carlisle
+		13 = 6000 # Sunderland
+		12 = 6000 # Edinburgh
+		11 = 6000 # Glasgow
+		10 = 6000 # Dumfries
+
+		# Atlantic Wall
+		217 = 700 # Aalborg
+		216 = 700 # Abenra
+		218 = 700 # Frederikshavn
+		220 = 700 # Arhus
+		152 = 700 # Kiel
+		
+		122  = 1750 # Amsterdam
+		123  = 1750 # Middleburg
+		125  = 1750 # Rotterdam
+		114  = 1750 # Bruges
+				
+		49  = 2950 # Calais
+		53  = 2900 # Dieppe
+		51  = 2900 # Dunkerque
+		45 = 2000 # Le Havre
+		
+		44  = 3000 # Caen
+		46  = 3000 # Bayeux
+		
+		38 = 2800 # Rennes
+		41 = 2800 # St. Brieux
+		37 = 2800 # Brest
+		39 = 2800 # Lorient
+		
+		57  = -1 	# Nantes
+		68 = 2800 	# Bordeaux
+		67 = 2800 	# Mons-de-Marsan
+
+		#Norway DH
+		483 = -1 # Oslo
+		485 = -1 # Kristiansan
+		495 = -1 # Narvik
+		491 = -1 # Alesund
+		493 = -1 # Trondheim
+		487 = -1 # Stavanger
+		488 = -1 # Bergen
+		490 = -1 # Andalsnes
+		494 = -1 # Bodo
+		
+		# MEDITERRANEAN SEA
+		# -----------------
+		# Greece
+		370 = -1
+		364 = -1
+		366 = -1
+		374 = -1
+		377 = -1 # Athens
+		372 = -1
+		371 = -1
+		# Greek Islands
+		382 = -1 # Irakleio
+		379 = -1 # Rhodes		
+		# Albania
+		359 = -1
+		# Yugoslavia
+		343 = -1
+		350 = -1
+		347 = -1
+		#Italy, Adriatic coast
+		400 = -1
+		411 = -1
+		420 = -1
+		426 = -1
+		#Italy, southern and western coastline + Sardinia + Sicily
+		422 = -1 # Taranto
+		432 = -1 # Catania
+		433 = -1 # Siracuse
+		430 = -1 # Palermo
+		431 = -1 # Messina
+		427 = -1 # Salerno
+		421 = -1
+		418 = -1 # Gaeta
+		416 = -1 # Anzio
+		410 = -1
+		434 = -1 # Cagliari
+		435 = -1 # Sassari
+		#France
+		87  = 1000
+		86  = 1000
+		89  = 1000
+		82  = 2000
+		79  = 2000
+		80  = 1000
+	}
+} 
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 98    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 60 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 80 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	#Which provinces to use as bases..
+	base = {
+		1734 # Pearl harbour
+	    1889 # San Francisco 
+		1673 #wake
+     	1812 # Norfolk 
+     	1953 # Miami 
+     	1795 # New York 
+     	1789 # Boston 
+		1726 # Rabaul
+		1399 # Saigon
+		1432 # Singapore
+		1647 # Batavia
+		1565 # Manila
+		1683 # Guam
+		747 # Tunis
+		750 # Tripoli
+		348 # Gibraltar
+		17 # Liverpool/Manchester 
+		5	# Scapa Flow
+       	429 #Malta
+		1661 #Iwo Jima
+		1559
+		1 # Reykjavik
+		718 # Casablanca
+	}
+	target = {
+		2475 = 1000
+		2489 = 500
+		2476 = 500
+		2491 = 500
+		2490 = 500
+		2424 = 500
+		2425 = 500
+		2429 = 500
+		2470 = 500
+		2471 = 500
+		2473 = 500
+		2485 = 300
+		2486 = 300
+		2555 = 300
+		
+		# Mediterranean; fight the italian Navy
+		2175 = 50
+		2176 = 50
+		2177 = 50
+		2178 = 50
+		2179 = 100
+		2180 = 100
+		2181 = 100
+		2182 = 100
+		2183 = 100
+		2184 = 100
+		2185 = 100
+		2186 = 100
+		2187 = 25
+		2188 = 25
+		2189 = 25
+		2190 = 25
+		2191 = 25
+		2192 = 25
+		2193 = 25
+		2194 = 25
+		2195 = 25
+		2196 = 25
+		
+		2740 = 100 # Eastern Mediterranean
+		
+		2710 = 500 # Channel & Biscaya
+		2704 = 500
+		2700 = 500
+		2698 = 500
+		2699 = 500
+		2701 = 500
+		2709 = 500
+		2702 = 500
+		
+		2686 = 150 # North Sea to Northern Atlantic
+		2690 = 150
+		
+	} 
+	core = {
+		2388 
+		2389 
+		2339 
+		2338 
+		2336 
+		2316 
+		2315 
+		2321 
+		2323 
+		2325 
+		#Panama/guantanamo
+		2346 
+		2575 
+		#Pearl
+		2631
+		2636
+		2637
+		2639
+		2475
+		
+			
+	} 
+} 

@@ -1,0 +1,436 @@
+# converted to DH, Kane, July 1 2011
+####################################
+# Holland (Netherlands East Indies) AI events 37000 - 37099 by Lothos
+####################################
+# Behavior Flags
+#	HOLDDay		= Load DDay AI
+
+# Embargo Flags (must be a democracy)
+#	HOLEmbargoGER		= Embargo against German
+#	HOLEmbargoITA		= Embargo against Italy
+#	HOLEmbargoJAP		= Embargo against Japan
+#	HOLEmbargoGER_ITA	= Embargo both Germany and Italy
+#	HOLEmbargoGER_JAP	= Embargo both Germany and Japan
+#	HOLEmbargoITA_JAP	= Embargo both Italy and Japan
+#	HOLEmbargoGER_ITA_JAP	= Embargo Germany, Italy and Japan
+
+################
+# Minister of Security Section 37000 - 37009
+#############################################
+################
+# Chief of Staff Section 37010 - 37019
+#############################################
+################
+# Head of Intelligence Section 37020 - 37029
+#############################################
+################
+# Chief of the Army Section 37030 - 37039
+#############################################
+################
+# Armament Minister Section 37040 - 37049
+#############################################
+
+
+
+
+
+
+
+#############################################
+# Regular AI Events 37060 - 37099
+#############################################
+################
+# Load D-Day AI
+#############################################
+event = {
+	id = 37060
+	random = no 
+	country = HOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		flag = DDay
+		NOT = { local_flag = HOLDDay }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HOLDDay }
+		command = { type = ai which = "switch/Minor_DDay_ENG.ai" }
+	}
+}
+event = {
+	id = 37061
+	random = no 
+	country = HOL
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		NOT = { flag = DDay }
+		local_flag = HOLDDay
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = BELDDay }
+		command = { type = ai which = "switch/Minor_DDay_Retrack.ai" }
+	}
+}
+################
+# HOL does Embargos
+#############################################
+event = {
+	id = 37062
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoGER }
+		NOT = { alliance = { country = HOL country = GER } }
+		OR = {
+			war = { country = BEL country = GER }
+			war = { country = LUX country = GER }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HOLEmbargoGER }
+		command = { type = ai which = "switch/USA_Embargo_GER.ai" }
+		command = { type = end_trades which = HOL where = GER }
+	}
+}
+event = {
+	id = 37063
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoJAP }
+		NOT = { alliance = { country = HOL country = JAP } }
+		OR = {
+			event = 3800 # Oil Embargo
+			war = { country = FRA country = JAP }
+			war = { country = ENG country = JAP }
+			war = { country = HOL country = JAP }
+			war = { country = PHI country = JAP }
+			war = { country = VIC country = JAP }
+			war = { country = AST country = JAP }
+			war = { country = NZL country = JAP }
+			war = { country = POR country = JAP }
+			war = { country = SIA country = JAP }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HOLEmbargoJAP }
+		command = { type = ai which = "switch/USA_Embargo_JAP.ai" }
+		command = { type = end_trades which = HOL where = JAP }
+	}
+}
+event = {
+	id = 37064
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoITA }
+		NOT = { alliance = { country = HOL country = ITA } }
+		OR = {
+			war = { country = BEL country = ITA }
+			war = { country = LUX country = ITA }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HOLEmbargoITA }
+		command = { type = ai which = "switch/USA_Embargo_ITA.ai" }
+		command = { type = end_trades which = HOL where = ITA }
+	}
+}
+event = {
+	id = 37065
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoGER_ITA }
+		local_flag = HOLEmbargoGER
+		local_flag = HOLEmbargoITA
+		NOT = { local_flag = HOLEmbargoJAP }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = HOLEmbargoGER_ITA }
+		command = { type = local_clrflag which = HOLEmbargoGER_JAP }
+		command = { type = local_clrflag which = HOLEmbargoITA_JAP }
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_ITA.ai" }
+	}
+}
+event = {
+	id = 37066
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoGER_JAP }
+		local_flag = HOLEmbargoGER
+		NOT = { local_flag = HOLEmbargoITA }
+		local_flag = HOLEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA }
+		command = { type = local_setflag which = HOLEmbargoGER_JAP }
+		command = { type = local_clrflag which = HOLEmbargoITA_JAP }
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_JAP.ai" }
+	}
+}
+event = {
+	id = 37067
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoITA_JAP }
+		NOT = { local_flag = HOLEmbargoGER }
+		local_flag = HOLEmbargoITA
+		local_flag = HOLEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA }
+		command = { type = local_clrflag which = HOLEmbargoGER_JAP }
+		command = { type = local_setflag which = HOLEmbargoITA_JAP }
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_ITA_JAP.ai" }
+	}
+}
+event = {
+	id = 37068
+	random = no 
+	country = U19
+	
+	trigger = {
+		ai = yes
+		government = democratic
+		NOT = { local_flag = HOLEmbargoGER_ITA_JAP }
+		local_flag = HOLEmbargoGER
+		local_flag = HOLEmbargoITA
+		local_flag = HOLEmbargoJAP
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = HOLEmbargoGER_ITA }
+		command = { type = local_clrflag which = HOLEmbargoGER_JAP }
+		command = { type = local_clrflag which = HOLEmbargoITA_JAP }
+		command = { type = local_setflag which = HOLEmbargoGER_ITA_JAP }
+		command = { type = ai which = "switch/USA_Embargo_GER_ITA_JAP.ai" }
+	}
+}
+################
+# HOL moves their capital
+#############################################
+event = {
+	id = 37069
+	random = no
+	country = HOL
+
+	trigger = {
+		ai = yes
+		war = { country = GER country = HOL }
+		control = { province = 1762 data = -1 } # must control Netherlands Antilles
+		NOT = { 
+			control = { province = 109 data = HOL } # Arnheim
+			control = { province = 124 data = HOL } # Groningen
+		}
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = { 
+		command = { type = capital which = 1762 }
+		command = { type = set_domestic which = democratic value = 10 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = headofstate            which = 8001 }    #Wilhelmina
+		command = { type = headofgovernment       which = 8046 }    #Pieter Gerbrandy
+		command = { type = foreignminister        which = 8067 }    #Eelco van Kleffens
+		command = { type = armamentminister       which = 9792220 } #Hendrik van Boeijen - Minister van Defensie
+		command = { type = ministerofsecurity     which = 9792222 } #Johannes R. M. van Angeren - Minister van Justitie
+		command = { type = ministerofintelligence which = 8133 }    #G.J. Sas
+		command = { type = chiefofstaff           which = 8007 }    #Adriaan Dijxhoorn 
+		command = { type = chiefofarmy            which = 9792221 } #Adriaan Dijxhoorn 
+		command = { type = chiefofnavy            which = 8009 }    #Johannes Furstner
+		command = { type = chiefofair             which = 9792223 } #Otto C. A. van Lidth de Jeude
+		command = { type = ai which = "switch/HOL_exile.ai" }
+		command = { type = local_setflag which = HOL_exile }
+	}
+}
+################
+# HOL moves their capital back to Europe
+#############################################
+event = {
+	id = 37070
+	random = no
+	country = HOL
+
+	trigger = {
+		ai = yes
+		NOT = { war = { country = GER country = HOL }}
+		control = { province = 122 data = -1 } # must control Amsterdam
+	}
+
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = { 
+		command = { type = capital which = 122 }
+		command = { type = ai which = "HOL_1936.ai" }
+		command = { type = local_clrflag which = HOL_exile }
+	}
+}
+
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 37071
+	random = no 
+	country = HOL
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = HOL_low_mp }
+		NOT = { local_flag = HOL_exile }
+		not = { manpower = 15 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/HOL_low_mp.ai" }
+		command = { type = local_setflag which = HOL_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 37072
+	random = no 
+	country = HOL
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = HOL_low_mp
+		NOT = { local_flag = HOL_exile }
+		manpower = 30
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/HOL_normal_mp.ai" }
+		command = { type = local_clrflag which = HOL_low_mp }
+	}
+}

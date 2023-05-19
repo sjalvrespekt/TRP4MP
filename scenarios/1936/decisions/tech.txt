@@ -1,0 +1,197 @@
+# Battleship modernization
+
+event = {
+	id = 2700069
+	random = no
+
+	persistent = yes
+	
+	decision = {
+				NOT = { local_flag = activation_bb_upgrade }
+				battleship = { country = -1 value = 1 } # at least one battleship in service
+				AI = no
+				}
+				
+	decision_trigger = {
+						technology = 3550 #Pre-WW2 BB
+						}
+	
+	
+	trigger = {
+				NOT = { local_flag = activation_bb_upgrade }
+				technology = 3550 #Pre-WW2 BB
+				battleship = { country = -1 value = 1 } # at least one battleship in service
+				AI = yes
+				OR = { #some countries shall begin upgrades later (as soon as the AI is ordered to allocate IC to upgrades), maybe even after researching a better model (which saves upgrade time) or industry techs
+						AND = {
+								OR = {
+										#country = JAP
+										country = USA
+										country = SOV
+										}
+								year = 1939
+								}
+						AND = {
+								OR = {
+										country = FRA
+										country = ENG
+										}
+								year = 1937
+								}
+						NOT = {
+								OR = {
+										#country = JAP
+										country = USA
+										country = SOV
+										country = FRA
+										country = ENG
+										}
+								}
+						}
+				}
+
+	name = EVT_2700069_NAME
+	desc = EVT_2700069_DESC
+	style = 2
+	picture = "event_bb_upgrade"
+	decision_picture = "decision_bb_upgrade"
+
+	date = { hour = 0 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = {
+		trigger = { OR = { country = ITA country = JAP } }
+		ai_chance = 100
+		name = ACTIONNAME2700069A
+		command = { type = local_setflag which = activation_bb_upgrade }
+		command = { type = new_model which = battleship value = 6 }
+		command = { type = scrap_model which = battleship value = 6 }
+		command = { type = new_model which = battleship value = 7 }
+		command = { type = scrap_model which = battleship value = 7 }
+		command = { type = new_model which = battleship value = 8 }
+		command = { type = scrap_model which = battleship value = 8 }
+	}
+	action = {
+		trigger = { NOT = { OR = { country = ITA country = JAP } } }
+		ai_chance = 50
+		name = ACTIONNAME2700069A
+		command = { type = local_setflag which = activation_bb_upgrade }
+		command = { type = new_model which = battleship value = 6 }
+		command = { type = scrap_model which = battleship value = 6 }
+		command = { type = new_model which = battleship value = 7 }
+		command = { type = scrap_model which = battleship value = 7 }
+		command = { type = new_model which = battleship value = 8 }
+		command = { type = scrap_model which = battleship value = 8 }
+	}
+	
+	action = {
+		trigger = { OR = { country = ITA country = JAP } }
+		ai_chance = 0 
+		name = ACTIONNAME2700069B
+		command = { type = local_setflag which = activation_bb_upgrade }
+	}
+	action = {
+		trigger = { NOT = { OR = { country = ITA country = JAP } } }
+		ai_chance = 50 
+		name = ACTIONNAME2700069B
+		command = { type = local_setflag which = activation_bb_upgrade }
+	}
+}
+
+# Battlecruiser modernization
+
+event = {
+	id = 2700070
+	random = no
+
+	persistent = yes
+	
+	decision = {
+				NOT = { local_flag = activation_bc_upgrade }
+				battlecruiser = { country = -1 value = 1 } # at least one battleship in service
+				AI = no
+				}
+				
+	decision_trigger = {
+						technology = 15100 #Pre-WW2 Capital Design
+						}
+	
+	
+	trigger = {
+				NOT = { local_flag = activation_bc_upgrade }
+				technology = 15100 #Pre-WW2 Capital Design
+				battlecruiser = { country = -1 value = 1 } # at least one battleship in service
+				AI = yes
+				OR = { #some countries shall begin upgrades later (as soon as the AI is ordered to allocate IC to upgrades), maybe even after researching a better model (which saves upgrade time) or industry techs
+						AND = {
+								OR = {
+										#country = JAP
+										country = USA
+										country = SOV
+										}
+								year = 1939
+								}
+						AND = {
+								OR = {
+										country = FRA
+										country = ENG
+										}
+								year = 1937
+								}
+						NOT = {
+								OR = {
+										#country = JAP
+										country = USA
+										country = SOV
+										country = FRA
+										country = ENG
+										}
+								}
+						}
+				}
+
+	name = EVT_2700070_NAME
+	desc = EVT_2700070_DESC
+	style = 2
+	picture = "event_bc_upgrade"
+	decision_picture = "decision_bc_upgrade"
+
+	date = { hour = 0 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action = {
+		trigger = { country = JAP }
+		ai_chance = 100
+		name = ACTIONNAME2700069A
+		command = { type = local_setflag which = activation_bc_upgrade }
+		command = { type = new_model which = battlecruiser value = 6 }
+		command = { type = scrap_model which = battlecruiser value = 6 }
+		command = { type = new_model which = battlecruiser value = 7 }
+		command = { type = scrap_model which = battlecruiser value = 7 }
+	}
+	action = {
+		trigger = { NOT = { country = JAP } }
+		ai_chance = 50
+		name = ACTIONNAME2700069A
+		command = { type = local_setflag which = activation_bc_upgrade }
+		command = { type = new_model which = battlecruiser value = 6 }
+		command = { type = scrap_model which = battlecruiser value = 6 }
+		command = { type = new_model which = battlecruiser value = 7 }
+		command = { type = scrap_model which = battlecruiser value = 7 }
+	}
+	
+	action = {
+		trigger = { country = JAP }
+		ai_chance = 0
+		name = ACTIONNAME2700069B
+		command = { type = local_setflag which = activation_bc_upgrade }
+	}
+	action = {
+		trigger = { NOT = { country = JAP } }
+		ai_chance = 50
+		name = ACTIONNAME2700069B
+		command = { type = local_setflag which = activation_bc_upgrade }
+	}
+}

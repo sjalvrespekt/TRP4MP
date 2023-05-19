@@ -1,0 +1,134 @@
+# Cruiser submarines
+
+allowed_brigades = floatplane #perhaps use own brigade later
+
+# cost = tonnage*4250 RM per ton / buildtime / 210526 RM per day * 7 IC = tonnage * 0,1413127119690679536019304028956/buildtime => one Infantry division costed about 20 mio RM and takes 7 IC + 90 days to be built in TRP; ship price adjusted accordingly
+# visibility = tonnage / 2000
+# detection values depend on ship heigth and special equipment
+# supply consumption = cost * buildtime * 0.05 * 4 supplies per IC-day / 360 days = cost*buildtime/1800
+# fuel consumption = tonnage/10000
+
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB, BC, CA, CL, DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB, BC, CA, CL, DD
+#sea attack/2 for carriers/CAG
+
+# 0 - WWI and early 1920s (2000 to) => 1925
+model = {
+	cost						= 0.39
+	buildtime					= 720
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.07
+	maxspeed					= 16
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 1
+	seadefence					= 5
+	airdefence					= 1
+	seaattack					= 2
+	subattack					= 2
+	airattack					= 0
+	convoyattack				= 7
+	shorebombardment			= 2
+	transportcapability			= 0
+	range						= 3500
+	supplyconsumption			= 0.156
+	fuelconsumption				= 0.2 #0.24
+	distance					= 0.16
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 70 submarine = 1 }
+}
+
+# 1 - Late 20s until beginning of WW2 (3500 to) => 1936
+model = {
+	cost						= 0.69
+	buildtime					= 720
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.11
+	maxspeed					= 18
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 1.75
+	seadefence					= 6
+	airdefence					= 2
+	seaattack					= 4
+	subattack					= 2
+	airattack					= 0
+	convoyattack				= 11
+	shorebombardment			= 3
+	transportcapability			= 0
+	range						= 5000
+	supplyconsumption			= 0.267
+	fuelconsumption				= 0.35 #0.36
+	distance					= 0.18
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 110 submarine = 1 }
+}
+
+# 2 - Late WW2 (4500 to) => 1943
+model = {
+	cost						= 0.88
+	buildtime					= 720
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.14
+	maxspeed					= 18
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 2.25
+	seadefence					= 8
+	airdefence					= 4
+	seaattack					= 5 #just slightly more because artillery gets less important
+	subattack					= 4
+	airattack					= 1
+	convoyattack				= 13 #just slightly more because artillery gets less important
+	shorebombardment			= 3 #no improvement because artillery gets less important
+	transportcapability			= 0
+	range						= 9000
+	supplyconsumption			= 0.352
+	fuelconsumption				= 0.45 #0.42
+	distance					= 0.2
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 140 submarine = 1 }
+}
+
+# 3 - SSBN (6000 to) => 1957
+model = {
+	cost						= 1.18
+	buildtime					= 720
+	defaultorganisation 		= 30
+	morale						= 30
+	manpower					= 0.13
+	maxspeed					= 25
+	surfacedetectioncapability	= 0.15
+	airdetectioncapability		= 0.0
+	subdetectioncapability		= 1
+	visibility					= 1.5 #lowered to tonnage/4000 because of new design
+	seadefence					= 12
+	airdefence					= 5
+	seaattack					= 8
+	subattack					= 8
+	airattack					= 1
+	convoyattack				= 19
+	shorebombardment			= 0 #no artillery left
+	transportcapability			= 0
+	range						= 13000
+	supplyconsumption			= 0.472
+	fuelconsumption				= 0
+	distance					= 0.21
+	reinforce_time = 0.2
+	reinforce_cost = 3.5
+	equipment 	= {  manpower = 130 submarine = 1 }
+}

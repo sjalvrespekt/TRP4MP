@@ -1,0 +1,2652 @@
+# converted to DH, Kane, August 4 2011
+# Last Update 25-NOV-2008
+#########################
+
+############################################################################f
+# Cash & Carry, Lend Lease events
+# events IDs 29xx000 - 29xx999
+# xx codes:
+# 82 USA
+# 83 USSR
+# 31 England 
+# 35 France
+# 23 China (Nationalist)
+############################################################################
+
+#########################################################################
+# Info event about Cash & Carry / Lend-Lease mechanics (using French ID)
+#########################################################################
+event = { 
+	id = 2982015
+	random = no
+	persistent = yes
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				NOT = { local_flag = Info_CC_LL }
+				participant = { value = 4 } # any alliance
+				atwar = yes
+				OR = {
+						flag = cash_carry
+						flag = lend_lease
+						}
+				}
+	
+	name = EVT_2982015_NAME
+	desc = EVT_2982015_DESC
+	style = 2
+	picture = "TRP"
+	
+	date = { day = 3 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = local_setflag which = Info_CC_LL }
+	}
+}
+
+#########################################################################
+# USA: The New 1939 Neutrality Act - initial event for cash & carry
+#########################################################################
+event = { 
+	id = 2982000
+	random = no
+	country = USA
+	
+	trigger = { 
+		OR = {
+			AND = {
+				NOT = { war = { country = USA country = ENG } }
+				war = { country = GER country = ENG }
+			}
+			AND = {
+				NOT = { war = { country = USA country = FRA } }
+				war = { country = GER country = FRA }
+			}
+		}
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+	}
+	
+	name = EVT_2982000_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 3 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2982000A # Sign the Law
+		ai_chance = 99
+		command = { type = setflag which = cash_carry }
+		command = { type = peacetime_ic_mod value = 2 }
+		command = { type = relation which = ENG value = 10 }
+		command = { type = relation which = FRA value = 10 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = ITA value = -10 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME2982000B # Remain Completely Neutral
+		ai_chance = 1
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = FRA value = -10 }
+		command = { type = relation which = GER value = 10 }
+		command = { type = relation which = ITA value = 10 }
+		command = { type = domestic which = interventionism value = -1 }
+	}
+}
+
+#########################################################################
+# Cash & Carry events
+# Cash & Carry grants ENG +10% and FRA +5% on industrial efficiency as long as the USA keep the convoys running
+#########################################################################
+
+#########################################################################
+# USA: Cash & Carry Convoy to England
+#########################################################################
+event = { 
+	id = 2982001
+	random = no
+	persistent = yes
+	country = USA
+	
+	trigger = {
+		day = 5
+		NOT = { day = 6 }
+		flag = cash_carry
+		NOT = { war = { country = USA country = ENG } }
+		war = { country = GER country = ENG }
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		OR = {
+			control = { province = 1789 data = USA } # East Coast Naval Bases
+			control = { province = 1795 data = USA }
+			control = { province = 1812 data = USA }
+			control = { province = 1953 data = USA }
+		}
+		OR = {
+			control = { province = 5 data = ENG } # UK Naval Bases
+			control = { province = 17 data = ENG }
+			control = { province = 23 data = ENG }
+			control = { province = 27 data = ENG }
+			control = { province = 26 data = ENG }
+			control = { province = 25 data = ENG }
+			control = { province = 18 data = ENG }
+		}
+	}
+	
+	name = EVT_2982001_NAME
+	desc = EVT_3182900_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = { 
+					OR = {
+					AI = yes
+					AND = {
+							AI = no
+							supplies = 1000
+							metal = 500
+							oil = 500
+							rare_materials = 100
+							}
+					}
+					}
+		name = ACTIONNAME2982001A # Sell resources
+		ai_chance = 99
+		command = { type = money value = 100 }
+		command = { type = supplies value = -1000 }
+		command = { type = metalpool value = -500 }
+		command = { type = oilpool value = -500 }
+		command = { type = rarematerialspool value = -100 }
+		command = { type = trigger which = 2931000 } # ENG
+	}
+	action = {
+		trigger = { 
+					OR = {
+					AI = yes
+					AND = {
+							AI = no
+							supplies = 1000
+							metal = 500
+							oil = 500
+							rare_materials = 100
+							}
+					}
+					}
+		name = ACTIONNAME2982001B # Do not sell this time
+		ai_chance = 1
+		command = { type = relation which = ENG value = -10 }
+		command = { type = trigger which = 2931003 } # ENG
+	}
+	action = {
+		trigger = { 
+					AI = no
+					NOT = { supplies = 1000      }
+					NOT = { metal = 500          }
+					NOT = { oil = 500            }
+					NOT = { rare_materials = 100 }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = ENG value = -10 }
+		command = { type = trigger which = 2931003 } # ENG
+	}
+}
+
+#########################################################################
+# ENG: Cash & Carry shipment arrives in England
+#########################################################################
+event = { 
+	id = 2931000
+	random = no
+	persistent = yes
+	country = ENG
+	
+	# triggered by USA 2982001
+	
+	name = EVT_2931000_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTIONNAME2931000A # Thank the Yankee
+		command = { type = money value = -100 }
+		# difference in value = upkeep for improved IC efficiency
+		command = { type = supplies value = 250 }
+		command = { type = metalpool value = 125 }
+		command = { type = oilpool value = 125 }
+		command = { type = rarematerialspool value = 25 }
+		
+		command = { trigger = { NOT = { local_flag = CC_England }} type = industrial_modifier which = total value = 10 }
+		command = { trigger = { NOT = { local_flag = CC_England }} type = local_setflag which = CC_England }
+		
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { convoypool = 1000 } ai = yes } type = transport_pool which = -1 value = 50 }
+		command = { trigger = { NOT = { escortpool = 250 } ai = yes } type = escort_pool which = -1 value = 5 }
+	}
+}
+
+#########################################################################
+# ENG: Cash & Carry shipments interrupted
+#########################################################################
+event = { 
+	id = 2931003
+	random = no
+	persistent = yes
+	country = ENG
+	
+	# triggered by USA 2982001
+	
+	name = EVT_2931003_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = CC_England } type = industrial_modifier which = total value = -10 }
+		command = { trigger = { local_flag = CC_England } type = local_clrflag which = CC_England }
+	}
+}
+
+#########################################################################
+# USA: Cash & Carry Convoy to France
+#########################################################################
+event = { 
+	id = 2982002
+	random = no
+	persistent = yes
+	country = USA
+	
+	trigger = {
+		day = 5
+		NOT = { day = 6 }
+		flag = cash_carry
+		NOT = { war = { country = USA country = FRA } }
+		war = { country = GER country = FRA }
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		OR = {
+			control = { province = 1789 data = USA } # East Coast Naval Bases
+			control = { province = 1795 data = USA }
+			control = { province = 1812 data = USA }
+			control = { province = 1953 data = USA }
+		}
+		control = { province = 55 data = FRA }
+	}
+	
+	name = EVT_2982002_NAME
+	desc = EVT_3182900_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 0 month = january year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 500
+									metal = 250
+									oil = 250
+									rare_materials = 50
+									}
+							}
+					}
+		name = ACTIONNAME2982002A # Sell resources
+		ai_chance = 99
+		command = { type = money value = 50 }
+		command = { type = supplies value = -500 }
+		command = { type = metalpool value = -250 }
+		command = { type = oilpool value = -250 }
+		command = { type = rarematerialspool value = -50 }
+		command = { type = trigger which = 2935000 } # FRA
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 500
+									metal = 250
+									oil = 250
+									rare_materials = 50
+									}
+							}
+					}
+		name = ACTIONNAME2982002B # Do not sell this time
+		ai_chance = 1
+		command = { type = relation which = FRA value = -10 }
+		command = { type = trigger which = 2935002 } # FRA
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 500      }
+					NOT = { metal = 250         }
+					NOT = { oil = 250           }
+					NOT = { rare_materials = 50 }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = FRA value = -10 }
+		command = { type = trigger which = 2935002 } # FRA
+	}
+}
+
+#########################################################################
+# FRA: Cash & Carry shipment arrives in France
+#########################################################################
+event = { 
+	id = 2935000
+	random = no
+	persistent = yes
+	country = FRA
+	
+	# triggered by USA 2982002
+	
+	name = EVT_2935000_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTIONNAME2935000A # Thank the Yankee
+		# difference in value = upkeep for improved IC efficiency		
+		command = { type = money value = -50 }
+		command = { type = supplies value = 125 }
+		command = { type = metalpool value = 85 }
+		command = { type = oilpool value = 85 }
+		command = { type = rarematerialspool value = 15 }
+		
+		command = { trigger = { NOT = { local_flag = CC_France }} type = industrial_modifier which = total value = 5 }
+		command = { trigger = { NOT = { local_flag = CC_France }} type = local_setflag which = CC_France }
+	}
+}
+
+#########################################################################
+# FRA: Cash & Carry shipments interrupted
+#########################################################################
+event = { 
+	id = 2935002
+	random = no
+	persistent = yes
+	country = FRA
+	
+	# triggered by USA 2982002
+	
+	name = EVT_2935002_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = CC_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France } type = local_clrflag which = CC_France }
+	}
+}
+
+#########################################################################
+#  USA: France C&C redirected to ENG
+#########################################################################
+event = { 
+	id = 2982013
+	random = no
+	country = USA
+	
+	persistent = yes
+		
+	trigger = {
+		flag = cash_carry
+		day = 5
+		NOT = { day = 6 }
+		NOT = { war = { country = ENG country = USA } }
+		war = { country = ENG country = GER }
+		government = democratic
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		event = 3136033 # Vichy event
+	}
+	          	           
+	name = EVT_2982013_NAME
+	desc = EVT_2982013_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 4 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 500
+									metal = 250
+									oil = 250
+									rare_materials = 50
+									}
+							}
+					}
+		name = ACTIONNAME2982013A # Send these resources to Great Britain
+		ai_chance = 99
+		command = { type = supplies value = -500 }
+		command = { type = oilpool value = -250 }
+		command = { type = metalpool value = -250 }
+		command = { type = rarematerialspool value = -50 }
+		command = { type = relation which = ENG value = 10 }
+		command = { type = relation which = GER value = -15 }
+		command = { type = relation which = ITA value = -10 }
+		command = { type = trigger which = 2931002 } # ENG
+		command = { type = money value = 5 }		
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 500
+									metal = 250
+									oil = 250
+									rare_materials = 50
+									}
+							}
+					}
+		name = ACTIONNAME2982013B # Return the convoys
+		ai_chance = 1
+		command = { type = relation which = ENG value = -7 }
+		command = { type = relation which = GER value = 2 }
+		command = { type = relation which = ITA value = 2 }
+		command = { type = trigger which = 2931004 } # ENG
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 500      }
+					NOT = { metal = 250         }
+					NOT = { oil = 250           }
+					NOT = { rare_materials = 50 }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = ENG value = -7 }
+		command = { type = relation which = GER value = 2 }
+		command = { type = relation which = ITA value = 2 }
+		command = { type = trigger which = 2931004 } # ENG
+	}
+}
+
+#########################################################################
+#  ENG: France C&C redirected to ENG, shipment arrives
+#########################################################################
+event = { 
+	id = 2931002
+	random = no
+	country = ENG
+	
+	# Triggered by USA 2982013
+	
+	name = EVT_2931002_NAME
+	desc = EVT_2931002_DESC
+	style = 2
+	picture = "lend_lease"
+	
+	action_a = {
+		name = ACTIONNAME2931002A # Thank the Yankee
+		# difference in value = upkeep for improved IC efficiency		
+		command = { type = money value = -50 }
+		command = { type = supplies value = 125 }
+		command = { type = metalpool value = 85 }
+		command = { type = oilpool value = 85 }
+		command = { type = rarematerialspool value = 15 }
+		
+		command = { trigger = { NOT = { local_flag = CC_France_redirected }} type = industrial_modifier which = total value = 5 }
+		command = { trigger = { NOT = { local_flag = CC_France_redirected }} type = local_setflag which = CC_France_redirected }
+		
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 1 }
+		command = { trigger = { NOT = { convoypool = 1000 } ai = yes } type = transport_pool which = -1 value = 50 }
+		command = { trigger = { NOT = { escortpool = 250 } ai = yes } type = escort_pool which = -1 value = 5 }
+	}
+}
+
+#########################################################################
+# ENG: Cash & Carry shipments interrupted
+#########################################################################
+event = { 
+	id = 2931004
+	random = no
+	persistent = yes
+	country = ENG
+	
+	# triggered by USA 2982013
+	
+	name = EVT_2931003_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = CC_France_redirected } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France_redirected } type = local_clrflag which = CC_France_redirected }
+	}
+}
+
+#########################################################################
+# Cash & Carry shipments end completely
+#########################################################################
+event = { 
+	id = 2931005
+	random = no
+	persistent = yes
+	tag = { ENG FRA }
+	
+	trigger = {
+				OR = {
+						local_flag = CC_England
+						local_flag = CC_France
+						local_flag = CC_France_redirected
+						}
+				OR = {
+						AND = {
+								event = 2982003 # USA: Lend-Lease decision to stop all shipments
+								NOT = { flag = cash_carry }
+								}
+						AND = {
+								country = ENG
+								NOT = { war = { country = GER country = ENG } }
+								war = { country = USA country = ENG }
+								}
+						AND = {
+								country = FRA
+								war = { country = USA country = FRA }
+								}
+						}
+				}
+	
+	name = EVT_2931005_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = CC_England } type = industrial_modifier which = total value = -10 }
+		command = { trigger = { local_flag = CC_England } type = local_clrflag which = CC_England }
+		command = { trigger = { local_flag = CC_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France } type = local_clrflag which = CC_France }
+		command = { trigger = { local_flag = CC_France_redirected } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France_redirected } type = local_clrflag which = CC_France_redirected }
+		#command = { trigger = { flag = cash_carry } type = clrflag which = cash_carry } #removed so that defecting nation doesn't affect the other one
+	}
+}
+
+#########################################################################
+# ENG & FRA: Cash & Carry shipments interrupted (bases lost, too much enemy shipping)
+#########################################################################
+event = { 
+	id = 2931006
+	random = no
+	persistent = yes
+	tag = { ENG FRA }
+	
+	trigger = {
+				flag = cash_carry
+				OR = {
+						local_flag = CC_England
+						local_flag = CC_France
+						local_flag = CC_France_redirected
+						}
+				OR = {
+						# All naval bases lost
+						NOT = {
+								OR = {
+										control = { province = 1789 data = USA } # East Coast Naval Bases
+										control = { province = 1795 data = USA }
+										control = { province = 1812 data = USA }
+										control = { province = 1953 data = USA }
+										}
+								}
+						AND = {
+								country = ENG
+								NOT = {
+										OR = {
+												control = { province = 5 data = ENG } # UK Naval Bases
+												control = { province = 17 data = ENG }
+												control = { province = 23 data = ENG }
+												control = { province = 27 data = ENG }
+												control = { province = 26 data = ENG }
+												control = { province = 25 data = ENG }
+												control = { province = 18 data = ENG }
+											}
+										}
+								}
+						# Enemy shipping on North Atlantic convoy route
+						# [country = TAG/0/-1/-2/-3] : 0 – all countries, current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly countries (country = -3)
+						# area = 0/1/2/3 : 0 = (no) / 1 = area / 2 = region /3 = (yes) owner area
+						AND = {
+								garrison = { country = -2 province = 2710 type = naval size = 12 area = 2 } # Celtic Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2659 type = naval size = 12 area = 2 } # NE Atlantic
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2285 type = naval size = 12 area = 2 } # Iberian West Coast
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2653 type = naval size = 12 area = 2 } # Canadian Arctic Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2333 type = naval size = 12 area = 2 } # Grand Banks
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2276 type = naval size = 12 area = 2 } # Mid Atlantic Ridge
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2327 type = naval size = 12 area = 2 } # Coast of North America
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2313 type = naval size = 12 area = 2 } # Sargasso Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						}
+				}
+	
+	name = EVT_2931006_NAME
+	desc = EVT_3182021_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 10 month = march year = 1939 }
+	offset = 7
+	deathdate = { day = 10 month = april year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = CC_England } type = industrial_modifier which = total value = -10 }
+		command = { trigger = { local_flag = CC_England } type = local_clrflag which = CC_England }
+		command = { trigger = { local_flag = CC_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France } type = local_clrflag which = CC_France }
+		command = { trigger = { local_flag = CC_France_redirected } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = CC_France_redirected } type = local_clrflag which = CC_France_redirected }
+	}
+}
+
+#########################################################################
+# The Lend-Lease Act
+# L&L grants 20 (ENG)/5 (FRA) % of industrial efficiency as long as convoys are running
+#########################################################################
+
+#########################################################################
+#  The Lend-Lease Act - initial event
+#########################################################################
+event = { 
+	id = 2982003
+	random = no
+	country = USA
+	save_date = yes  
+	
+	trigger = {
+		OR = {
+			AND = {
+				NOT = { war = { country = USA country = ENG } }
+				war = { country = GER country = ENG }
+			}
+			AND = {
+				NOT = { war = { country = USA country = FRA } }
+				war = { country = GER country = FRA }
+			}
+			event = 3182053 # First Washington Conference
+		}
+		OR = {
+				headofstate = 6001
+				atwar = USA
+				}
+		government = democratic
+	}
+	
+	name = EVT_2982003_NAME
+	desc = EVT_2982003_DESC
+	style = 2
+	picture = "lend_lease"
+	
+	date = { day = 10 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 10 month = april year = 1941 }
+		
+	action_a = {
+		name = ACTIONNAME2982003A # Pass the Act
+		ai_chance = 98
+		command = { type = clrflag which = cash_carry }
+		command = { type = setflag which = lend_lease }
+		command = { type = peacetime_ic_mod value = 2 }			
+		command = { type = relation which = ENG value = 15 }
+		command = { type = relation which = FRA value = 15 }
+		command = { type = relation which = CHI value = 15 }
+		command = { type = relation which = SOV value = 10 }
+		command = { type = relation which = GER value = -15 }
+		command = { type = relation which = ITA value = -15 }
+		command = { type = relation which = JAP value = -15 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME2982003B # The actual Cash & Carry Act is enough
+		ai_chance = 1
+		command = { type = relation which = ENG value = 7 }
+		command = { type = relation which = FRA value = 7 }
+		command = { type = relation which = GER value = -10 }
+		command = { type = relation which = ITA value = -10 }
+	}
+	action_c = {
+		name = ACTIONNAME2982003C # Remain Completely Neutral and suspend all shipments
+		ai_chance = 1
+		command = { type = clrflag which = cash_carry }
+		command = { type = relation which = ENG value = -15 }
+		command = { type = relation which = FRA value = -15 }
+		command = { type = relation which = CHI value = -15 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = GER value = 15 }
+		command = { type = relation which = ITA value = 15 }
+		command = { type = relation which = JAP value = 15 }
+		command = { type = domestic which = interventionism value = -1 }
+	}
+}
+#########################################################################
+#  Lend-Lease Convoy to England
+#########################################################################
+event = { 
+	id = 2982004 # 3182940
+	random = no
+	persistent = yes
+	country = USA
+	
+	trigger = {
+		day = 5
+		NOT = { day = 6 }
+		flag = lend_lease
+		NOT = { war = { country = USA country = ENG } }
+		war = { country = GER country = ENG }
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		OR = {
+			control = { province = 1789 data = USA } # East Coast Naval Bases
+			control = { province = 1795 data = USA }
+			control = { province = 1812 data = USA }
+			control = { province = 1953 data = USA }
+		}
+		OR = {
+			control = { province = 5 data = ENG } # UK Naval Bases
+			control = { province = 17 data = ENG }
+			control = { province = 23 data = ENG }
+			control = { province = 27 data = ENG }
+			control = { province = 26 data = ENG }
+			control = { province = 25 data = ENG }
+			control = { province = 18 data = ENG }
+		}
+	}
+	
+	name = EVT_2982004_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "lend_lease"
+
+	date = { day = 11 month = march year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+						AI = yes
+						AND = {
+								AI = no
+								supplies = 1500
+								metal = 750
+								oil = 750
+								rare_materials = 250
+								}
+						}
+					}
+		name = ACTIONNAME2982004A # Send more supplies
+		ai_chance = 99
+		command = { type = supplies value = -1500 }
+		command = { type = oilpool value = -750 }
+		command = { type = metalpool value = -750 }
+		command = { type = rarematerialspool value = -250 }		
+		command = { type = relation which = ENG value = 4 }
+		command = { type = trigger which = 2931001 } # ENG
+	}
+	action = {
+		trigger = {
+					OR = {
+						AI = yes
+						AND = {
+								AI = no
+								supplies = 1500
+								metal = 750
+								oil = 750
+								rare_materials = 250
+								}
+						}
+					}
+		name = ACTIONNAME2982004B # Not this time
+		ai_chance = 1
+		command = { type = relation which = ENG value = -15 }
+		command = { type = trigger which = 2931007 } # ENG
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 1500      }
+					NOT = { metal = 750          }
+					NOT = { oil = 750            }
+					NOT = { rare_materials = 250 }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = ENG value = -15 }
+		command = { type = trigger which = 2931007 } # ENG
+	}
+}
+
+#########################################################################
+#  ENG: A Lend-Lease Shipment Arrives from the USA 
+#########################################################################
+event = { 
+	id = 2931001
+	random = no
+	country = ENG
+	persistent = yes
+	
+	# Triggered by USA 2982004
+	
+	name = EVT_2931001_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "lend_lease"
+	
+	action_a = {
+		name = ACTIONNAME2931001A # Thank the Yanks
+		command = { type = supplies value = 375 }
+		command = { type = oilpool value = 185 }
+		command = { type = metalpool value = 185 }
+		command = { type = rarematerialspool value = 65 }	
+
+		command = { trigger = { NOT = { local_flag = LL_England }} type = industrial_modifier which = total value = 20 }
+		command = { trigger = { NOT = { local_flag = LL_England }} type = local_setflag which = LL_England }
+		
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 2 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 2 }
+		command = { trigger = { NOT = { transport = 50 } ai = yes } type = add_division which = "" value = transport when = 2 }
+		command = { trigger = { NOT = { convoypool = 1000 } ai = yes } type = transport_pool which = -1 value = 50 }
+		command = { trigger = { NOT = { escortpool = 250 } ai = yes } type = escort_pool which = -1 value = 5 }
+	}
+}
+
+#########################################################################
+# ENG: Lend-Lease shipments interrupted
+#########################################################################
+event = { 
+	id = 2931007
+	random = no
+	persistent = yes
+	country = ENG
+	
+	# triggered by USA 2982004
+	
+	name = EVT_2931007_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_England } type = industrial_modifier which = total value = -20 }
+		command = { trigger = { local_flag = LL_England } type = local_clrflag which = LL_England }
+	}
+}
+
+#########################################################################
+# Lend-Lease shipments end completely
+#########################################################################
+event = { 
+	id = 2931008
+	random = no
+	persistent = yes
+	tag = { ENG FRA }
+	
+	trigger = {
+				OR = {
+						local_flag = LL_England
+						local_flag = LL_France
+						}
+				OR = {
+						NOT = { flag = lend_lease }
+						AND = {
+								country = ENG
+								NOT = { war = { country = GER country = ENG } }
+								war = { country = USA country = ENG }
+								}
+						AND = {
+								country = FRA
+								war = { country = USA country = FRA }
+								}
+						}
+				}
+	
+	name = EVT_2931008_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_England } type = industrial_modifier which = total value = -20 }
+		command = { trigger = { local_flag = LL_England } type = local_clrflag which = LL_England }
+		command = { trigger = { local_flag = LL_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = LL_France } type = local_clrflag which = LL_France }
+		#command = { trigger = { flag = lend_lease } type = clrflag which = lend_lease }
+	}
+}
+
+#########################################################################
+# ENG & FRA: Cash & Carry shipments interrupted (bases lost, too much enemy shipping)
+#########################################################################
+event = { 
+	id = 2931009
+	random = no
+	persistent = yes
+	tag = { ENG FRA }
+	
+	trigger = {
+				flag = lend_lease
+				OR = {
+						local_flag = LL_England
+						local_flag = LL_France
+						}
+				OR = {
+						# All naval bases lost
+						NOT = {
+								OR = {
+										control = { province = 1789 data = USA } # East Coast Naval Bases
+										control = { province = 1795 data = USA }
+										control = { province = 1812 data = USA }
+										control = { province = 1953 data = USA }
+										}
+								}
+						AND = {
+								country = ENG
+								NOT = {
+										OR = {
+												control = { province = 5 data = ENG } # UK Naval Bases
+												control = { province = 17 data = ENG }
+												control = { province = 23 data = ENG }
+												control = { province = 27 data = ENG }
+												control = { province = 26 data = ENG }
+												control = { province = 25 data = ENG }
+												control = { province = 18 data = ENG }
+											}
+										}
+								}
+						# Enemy shipping on North Atlantic convoy route
+						# [country = TAG/0/-1/-2/-3] : 0 – all countries, current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly countries (country = -3)
+						# area = 0/1/2/3 : 0 = (no) / 1 = area / 2 = region /3 = (yes) owner area
+						AND = {
+								garrison = { country = -2 province = 2710 type = naval size = 12 area = 2 } # Celtic Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2659 type = naval size = 12 area = 2 } # NE Atlantic
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2285 type = naval size = 12 area = 2 } # Iberian West Coast
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2653 type = naval size = 12 area = 2 } # Canadian Arctic Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2333 type = naval size = 12 area = 2 } # Grand Banks
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2276 type = naval size = 12 area = 2 } # Mid Atlantic Ridge
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2327 type = naval size = 12 area = 2 } # Coast of North America
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						AND = {
+								garrison = { country = -2 province = 2313 type = naval size = 12 area = 2 } # Sargasso Sea
+								OR = {
+										AND = {
+												AI = GER
+												random = 15
+												}
+										AND = {
+												NOT = { AI = GER }
+												random = 10
+												}
+										}
+								}
+						}
+				}
+	
+	name = EVT_2931009_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	date = { day = 10 month = march year = 1939 }
+	offset = 7
+	deathdate = { day = 10 month = april year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_England } type = industrial_modifier which = total value = -20 }
+		command = { trigger = { local_flag = LL_England } type = local_clrflag which = LL_England }
+		command = { trigger = { local_flag = LL_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = LL_France } type = local_clrflag which = LL_France }
+	}
+}
+
+#########################################################################
+#  The Lend Lease Shipment for France (if continental France still exists)
+#########################################################################
+event = { 
+	id = 2982014
+	random = no
+	persistent = yes
+	country = USA
+	
+	trigger = {
+		day = 5
+		NOT = { day = 6 }
+		flag = lend_lease
+		NOT = { war = { country = USA country = FRA } }
+		war = { country = FRA country = GER }
+		control = { province = 55 data = FRA }
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		OR = {
+			control = { province = 1789 data = USA } # East Coast Naval Bases
+			control = { province = 1795 data = USA }
+			control = { province = 1812 data = USA }
+			control = { province = 1953 data = USA }
+		}
+	}
+	
+	name = EVT_2982014_NAME
+	desc = EVT_3182900_DESC
+	style = 2
+	picture = "lend_lease"
+
+	date = { day = 0 month = june year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 750
+									metal = 375
+									oil = 375
+									rare_materials = 75
+									}
+							}
+					}
+		name = ACTIONNAME2982014A # Send more supplies
+		ai_chance = 99
+		command = { type = supplies value = -750 }
+		command = { type = oilpool value = -375 }
+		command = { type = metalpool value = -375 }
+		command = { type = rarematerialspool value = -75 }		
+		command = { type = relation which = FRA value = 3 }
+		command = { type = trigger which = 2935001 } # FRA
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 750
+									metal = 375
+									oil = 375
+									rare_materials = 75
+									}
+							}
+					}
+		name = ACTIONNAME2982014B # Not this time
+		ai_chance = 1
+		command = { type = relation which = FRA value = -15 }
+		command = { type = trigger which = 2935003 } # FRA
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 750      }
+					NOT = { metal = 375         }
+					NOT = { oil = 375           }
+					NOT = { rare_materials = 75 }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		ai_chance = 1
+		command = { type = relation which = FRA value = -15 }
+		command = { type = trigger which = 2935003 } # FRA
+	}
+}
+
+#########################################################################
+#  FRA: A Lend-Lease Shipment Arrives from the USA
+#########################################################################
+event = { 
+	id = 2935001
+	random = no
+	persistent = yes
+	country = FRA
+	
+	# triggered by USA 2982014
+	
+	name = EVT_2935001_NAME
+	desc = EVT_3182900_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTIONNAME2935001A # Thank the Yanks
+		command = { type = supplies value = 185 }
+		command = { type = metalpool value = 95 }
+		command = { type = oilpool value = 95 }
+		command = { type = rarematerialspool value = 20 }
+		
+		command = { trigger = { NOT = { local_flag = LL_France }} type = industrial_modifier which = total value = 5 }
+		command = { trigger = { NOT = { local_flag = LL_France }} type = local_setflag which = LL_France }
+	}
+}
+
+#########################################################################
+# FRA: Lend-Lease shipments interrupted
+#########################################################################
+event = { 
+	id = 2935003
+	random = no
+	persistent = yes
+	country = FRA
+	
+	# triggered by USA 2982004
+	
+	name = EVT_2935003_NAME
+	desc = EVT_3182900_DESC
+	style = 2
+	picture = "Lend_Lease"
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_France } type = industrial_modifier which = total value = -5 }
+		command = { trigger = { local_flag = LL_France } type = local_clrflag which = LL_France }
+	}
+}
+
+
+#########################################################################
+#  Lend-Lease Shipments to the USSR
+#
+# 3 routes: North Atlantic, Persian Corridor, Pacific Route
+# each event transfers supplies and resources
+# initial event grants TC efficiency bonus for USSR (+ IC eff. for North Atlantic route)
+# TC bonus will be removed if shipment is paused and as soon as L&L ends
+#########################################################################
+
+#########################################################################
+#  Lend-Lease Shipment to the USSR - North Atlantic Route
+#########################################################################
+event = { 
+	id = 2982005
+	random = no
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		day = 15
+		NOT = { day = 16 }
+		flag = lend_lease
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		war = { country = SOV country = GER }
+		event = 3283018 #great patriotic war sov
+		NOT = { war = { country = SOV country = USA } }
+		
+		# SOV target harbors
+		OR = {
+				AND = {
+						control = { province = 535 data = SOV } # Murmansk 
+						control = { province = 536 data = SOV } # Kandalaksa
+						control = { province = 537 data = SOV } # Kem
+						OR = {
+								control = { province = 541 data = SOV } # Belomorsk
+								control = { province = 538 data = SOV } # Segeza
+								}
+						}
+				control = { province = 542 data = SOV } # Archangelsk
+              }
+		# convoys assemble in Iceland
+		OR = {
+				control = { province = 1 data = -3 } # Reykjavik
+				AND = { 
+						control = { province = 1 data = ENG } # Reykjavik
+						NOT = { war = { country = ENG country = USA } }
+						war = { country = ENG country = GER }
+						}
+				}
+						
+		# USA East Coast Naval Bases
+		OR = {
+			control = { province = 1789 data = -3 } 
+			control = { province = 1795 data = -3 }
+			control = { province = 1812 data = -3 }
+			control = { province = 1953 data = -3 }
+		}
+	}
+	
+	name = EVT_2982005_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Atlantic"
+	
+	date = { day = 0 month = october year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 2000
+									oil = 1000
+									}
+							}
+					}
+		name = ACTIONNAME2982005A # Send more supplies
+		ai_chance = 99
+		command = { type = oilpool value = -1000 }
+		command = { type = supplies value = -2000 }
+		command = { type = relation which = SOV value = 1 }
+		command = { type = trigger which = 2983005 } # A Lend-Lease Shipment for USSR - Atlantic Route
+
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 2000
+									oil = 1000
+									}
+							}
+					}
+		name = ACTIONNAME2982005B # Not this time
+		ai_chance = 1
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983006 } # A Lend-Lease Shipment for USSR - North Atlantic Route - Partial Stop
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 2000 }
+					NOT = { oil = 1000      }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983006 } # A Lend-Lease Shipment for USSR - North Atlantic Route - Partial Stop
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - North Atlantic Route
+#########################################################################
+event = {  
+	id = 2983005
+	random = no
+	persistent = yes
+	country = SOV
+	
+	one_action = yes # If set show just one (random) action to the player. The action is chosen based on AI chances (if present), else it is random using the same rules as for the AI (set in misc.txt).
+	
+	# About event AI chances calculation
+	# - Sum of AI chances of all valid actions could be any positive number (removed fixed sum = 100 prerequisite)
+	# - Invalid actions are skipped in AI chances calculations
+	# - Actions without specified AI chances are ignored by the AI if there is at least one valid action with AI chance set
+	# - If no AI chance is set for valid action, random action is chosen from all valid actions (removed increased chance to pick 1st action)
+
+	# Triggered by USA 2982005
+
+	name = EVT_2983005_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Atlantic"
+           
+	action = {
+		ai_chance = 65
+		# always available
+		name = ACTIONNAME2983005A # Thank the USA, complete convoy arrives
+		command = { type = oilpool value = 750 }
+		command = { type = supplies value = 1500 }
+		# difference in resources is upkeep for extra tc
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_100 } } type = extra_tc value = 150 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_100 } } type = industrial_modifier which = total value = 6 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_100 } } type = local_setflag which = LL_Atlantic_100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = industrial_modifier which = total value = -4 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = local_clrflag which = LL_Atlantic_66 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = extra_tc value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = industrial_modifier which = total value = -2 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = local_clrflag which = LL_Atlantic_33 }
+	}
+	
+	action = { 
+		ai_chance = 20
+		# just available if Axis controls either Narvik or Bergen
+		trigger = {
+					OR = {
+							control = { province = 495 data = -2 } # Narvik
+							control = { province = 488 data = -2 } # Bergen
+							}
+					}
+		name = ACTIONNAME2983005B # just 66% of the convoys make it through
+		command = { type = oilpool value = 500 }
+		command = { type = supplies value = 1000 }
+		# difference in resources is upkeep for extra tc
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = extra_tc value = -150 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = industrial_modifier which = total value = -6 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = local_clrflag which = LL_Atlantic_100 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_66 } } type = extra_tc value = 100 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_66 } } type = industrial_modifier which = total value = 4 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_66 } } type = local_setflag which = LL_Atlantic_66 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = extra_tc value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = industrial_modifier which = total value = -2 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = local_clrflag which = LL_Atlantic_33 }
+	}
+	
+	action = { 
+		ai_chance = 15
+		# just available if Axis controls both Narvik and Bergen
+		trigger = {
+					control = { province = 495 data = -2 } # Narvik
+					control = { province = 488 data = -2 } # Bergen
+					}
+		name = ACTIONNAME2983005C # just 33% of the convoys make it through
+		command = { type = oilpool value = 250 }
+		command = { type = supplies value = 500 }
+		# difference in resources is upkeep for extra tc
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = extra_tc value = -150 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = industrial_modifier which = total value = -6 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = local_clrflag which = LL_Atlantic_100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = industrial_modifier which = total value = -4 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = local_clrflag which = LL_Atlantic_66 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_33 } } type = extra_tc value = 50 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_33 } } type = industrial_modifier which = total value = 2 }
+		command = { trigger = { NOT = { local_flag = LL_Atlantic_33 } } type = local_setflag which = LL_Atlantic_33 }
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - North Atlantic Route - Partial Stop
+#########################################################################
+event = {  
+	id = 2983006
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA
+
+	name = EVT_2983000_NAME
+	desc = EVT_2983000_DESC
+	style = 2
+	picture = "sov_ll_Atlantic"
+           
+	action_a = { 
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = extra_tc value = -150 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = industrial_modifier which = total value = -6 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = local_clrflag which = LL_Atlantic_100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = industrial_modifier which = total value = -4 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = local_clrflag which = LL_Atlantic_66 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = extra_tc value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = industrial_modifier which = total value = -2 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = local_clrflag which = LL_Atlantic_33 }
+	}
+}
+
+
+#########################################################################
+#  Lend-Lease Shipment to the USSR - Pacific Route
+#########################################################################
+event = { 
+	id = 2982006
+	random = no
+	country = USA
+	persistent = yes
+	
+	trigger = {
+		day = 25
+		NOT = { day = 26 }
+		flag = lend_lease
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		war = { country = SOV country = GER }
+		event = 3283018 #great patriotic war sov
+		NOT = { war = { country = SOV country = USA } }
+		control = { province = 1191 data = SOV } # Vladivostok
+		OR = {
+			control = { province = 2174 data = -3 } # Aleutine Islands
+			control = { province = 2150 data = -3 }
+			control = { province = 2151 data = -3 }
+		}
+		OR = {
+			control = { province = 1886 data = -3 } # Bases
+			control = { province = 1887 data = -3 }
+			control = { province = 1889 data = -3 }
+			control = { province = 1874 data = -3 }
+			control = { province = 2142 data = -3 }
+		}
+	}
+	
+	name = EVT_2982009_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Pacific"
+	
+	date = { day = 0 month = october year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 1500
+									oil = 750
+									}
+							}
+					}
+		name = ACTIONNAME2982009A # Send more supplies
+		ai_chance = 99
+		command = { type = oilpool value = -750 }
+		command = { type = supplies value = -1500 }
+		command = { type = relation which = SOV value = 1 }
+		command = { type = trigger which = 2983007 } # A Lend-Lease Shipment for USSR - Pacific Route
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 1500
+									oil = 750
+									}
+							}
+					}
+		name = ACTIONNAME2982009B # Not this time
+		ai_chance = 1
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983008 } # A Lend-Lease Shipment for USSR - Pacific Route - Partial Stop
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 1500 }
+					NOT = { oil = 750       }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983008 } # A Lend-Lease Shipment for USSR - Pacific Route - Partial Stop
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - Pacific Route
+#########################################################################
+event = {  
+	id = 2983007
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA 2982009
+
+	name = EVT_2983009_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Pacific"
+           
+	action_a = { 
+		name = ACTIONNAME2983009A # Thank the USA
+		command = { type = oilpool value = 500 }
+		command = { type = supplies value = 1000 }
+		# difference in resources is upkeep for extra tc
+		command = { trigger = { NOT = { local_flag = LL_Pacific } } type = extra_tc value = 100 }
+		command = { trigger = { NOT = { local_flag = LL_Pacific } } type = local_setflag which = LL_Pacific }
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - Pacific Route - Partial Stop
+#########################################################################
+event = {  
+	id = 2983008
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA
+
+	name = EVT_2983000_NAME
+	desc = EVT_2983000_DESC
+	style = 2
+	picture = "sov_ll_Pacific"
+           
+	action_a = { 
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_Pacific } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Pacific } type = local_clrflag which = LL_Pacific }
+	}
+}
+
+#########################################################################
+#  Lend-Lease Shipment to the USSR - Persian Corridor
+#########################################################################
+event = { 
+	id = 2982007
+	random = no
+	country = USA
+	persistent = yes
+	
+	trigger = {
+	
+		day = 15
+		NOT = { day = 16 }
+		
+		flag = lend_lease
+		event = 3283018 #great patriotic war sov
+		
+		OR = {
+				headofstate = 6001
+				war = { country = GER country = USA }
+				}
+		war = { country = SOV country = GER }
+		NOT = { war = { country = SOV country = USA } }
+		
+		# way around Africa to Persia
+		NOT = { war = { country = SAF country = USA } }
+		control = { province = 880 data = -3 } # Cape Town		
+        OR = {
+				AND = { #Allies forced Persian corridor through war
+						OR = {	participant = { country = PER value = 1 }
+								event = 3131003 # Persian corridor
+								}
+						# harbors in Persian Gulf
+						OR = {
+								control = { province = 1090 data = -3 } # Busehr
+								control = { province = 1032 data = -3 } # Basra
+								control = { province = 1090 data = SOV } # Busehr
+								control = { province = 1032 data = SOV } # Basra
+								}
+						# provinces transferred to SOV to simulate corridor => german advance here will stop shipments
+						OR = {
+								control = { province = 1080 data = -3 } # Sari
+								control = { province = 1081 data = -3 } # Rast
+								control = { province = 1080 data = SOV } # Sari
+								control = { province = 1081 data = SOV } # Rast
+								}
+						}
+				AND = {
+						# PER grants access, no war
+						event = 3162000 #Gaining Allied Access To Persia : Persia's Response to Allied Demands
+						NOT = { event = 3131002 } #Gaining Allied Access To Persia : Persia rejects Allied Demands
+						# harbors in Persian Gulf
+						OR = {
+								control = { province = 1090 data = -3 } # Busehr
+								control = { province = 1032 data = -3 } # Basra
+								control = { province = 1090 data = PER } # Busehr
+								control = { province = 1032 data = PER } # Basra
+								}					
+						}
+				}
+				
+		# target provinces in SOV, mostly ports at Caspian Sea
+        OR = {
+				control = { province = 713 data = SOV } # Baku
+				control = { province = 704 data = SOV } # Mahackala
+				control = { province = 706 data = SOV } # Astrakhan; Volga estuary
+						}
+						
+		# USA East Coast Naval Bases
+		OR = {
+			control = { province = 1789 data = -3 } 
+			control = { province = 1795 data = -3 }
+			control = { province = 1812 data = -3 }
+			control = { province = 1953 data = -3 }
+		}
+	}
+	
+	name = EVT_2982007_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Persia"
+	
+	date = { day = 0 month = october year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1999 }
+	
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 1000
+									oil = 500
+									}
+							}
+					}
+		name = ACTIONNAME2982005A # Send more supplies
+		ai_chance = 99
+		command = { type = oilpool value = -500 }
+		command = { type = supplies value = -1000 }
+		command = { type = relation which = SOV value = 1 }
+		command = { type = trigger which = 2983009 } # A Lend-Lease Shipment for USSR - Persian Corridor
+
+	}
+	action = {
+		trigger = {
+					OR = {
+							AI = yes
+							AND = {
+									AI = no
+									supplies = 1000
+									oil = 500
+									}
+							}
+					}
+		name = ACTIONNAME2982005B # Not this time
+		ai_chance = 1
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983010 } # A Lend-Lease Shipment for USSR - Persian Corridor - Partial Stop
+	}
+	action = {
+		trigger = {
+					AI = no
+					NOT = { supplies = 1000 }
+					NOT = { oil = 500       }
+					}
+		name = ACTIONNAME2982001C # We don't have the resources
+		command = { type = relation which = SOV value = -15 }
+		command = { type = trigger which = 2983010 } # A Lend-Lease Shipment for USSR - Persian Corridor - Partial Stop
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - Persian Corridor
+#########################################################################
+event = {  
+	id = 2983009
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA 2982005
+
+	name = EVT_2982007_NAME
+	desc = EVT_2982005_DESC
+	style = 2
+	picture = "sov_ll_Persia"
+           
+	action_a = { 
+		name = ACTIONNAME2983005A # Thank the USA
+		command = { type = oilpool value = 375 }
+		command = { type = supplies value = 750 }
+		# difference in resources is upkeep for extra tc
+		command = { trigger = { NOT = { local_flag = LL_Persia } } type = extra_tc value = 75 }
+		command = { trigger = { NOT = { local_flag = LL_Persia } } type = local_setflag which = LL_Persia }
+	}
+}
+#########################################################################
+# A Lend-Lease Shipment for USSR - Persian Corridor - Partial Stop
+#########################################################################
+event = {  
+	id = 2983010
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA
+
+	name = EVT_2983000_NAME
+	desc = EVT_2983000_DESC
+	style = 2
+	picture = "sov_ll_Persia"
+           
+	action_a = { 
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -1 }
+		command = { trigger = { local_flag = LL_Persia } type = extra_tc value = -75 }
+		command = { trigger = { local_flag = LL_Persia } type = local_clrflag which = LL_Persia }
+	}
+}
+
+#########################################################################
+# Lend-Lease Shipments for USSR - shipments interrupted
+# yeah baby, i really tried to put all three paths into one single event!
+# (enemy shipping will just interrupt Atlantic convoys because of possible japanese non-combatant Axis membership in scenarios)
+#########################################################################
+event = {  
+	id = 2983011
+	random = no
+	country = SOV
+	
+	persistent = yes
+
+	trigger = {
+				OR = {
+						AND = {
+								OR = {
+										local_flag = LL_Atlantic_100
+										local_flag = LL_Atlantic_66
+										local_flag = LL_Atlantic_33
+										}
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										AND = {
+												control = { province = 1 data = ENG } # Reykjavik
+												OR = {
+														war = { country = ENG country = USA }
+														NOT = { war = { country = ENG country = GER }}
+														}
+												}
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+										# Enemy shipping on North Atlantic convoy route
+										# [country = TAG/0/-1/-2/-3] : 0 – all countries, current country (country = -1 or no country), enemy countries (country = -2) or allied/friendly countries (country = -3)
+										# area = 0/1/2/3 : 0 = (no) / 1 = area / 2 = region /3 = (yes) owner area
+										AND = {
+												garrison = { country = -2 province = 2710 type = naval size = 12 area = 2 } # Celtic Sea
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2659 type = naval size = 12 area = 2 } # NE Atlantic
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2285 type = naval size = 12 area = 2 } # Iberian West Coast
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2653 type = naval size = 12 area = 2 } # Canadian Arctic Sea
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2333 type = naval size = 12 area = 2 } # Grand Banks
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2276 type = naval size = 12 area = 2 } # Mid Atlantic Ridge
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2327 type = naval size = 12 area = 2 } # Coast of North America
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+										AND = {
+												garrison = { country = -2 province = 2313 type = naval size = 12 area = 2 } # Sargasso Sea
+												OR = {
+														AND = {
+																AI = GER
+																random = 15
+																}
+														AND = {
+																NOT = { AI = GER }
+																random = 10
+																}
+														}
+												}
+		
+										}
+								AND = {
+										local_flag = LL_Pacific
+										OR = {
+												# soviet harbors in Pacific
+												control = { province = 1191 data = -2 } # Vladivostok
+												# Aleutian Islands
+												AND = {
+														control = { province = 2174 data = -2 } 
+														control = { province = 2150 data = -2 } 
+														control = { province = 2151 data = -2 } 
+														}
+												# USA West Coast Naval Bases
+												AND = {
+													control = { province = 1886 data = -2 } 
+													control = { province = 1887 data = -2 }
+													control = { province = 1889 data = -2 }
+													control = { province = 1874 data = -2 }
+													control = { province = 2142 data = -2 }
+												}
+											}
+										}
+								AND = {
+										local_flag = LL_Persia
+										# way around Africa to Persia
+										OR = {
+												war = { country = SAF country = USA }
+												control = { province = 880 data = -2 } # Cape Town
+												NOT = { alliance = { country = PER country = USA } }
+												
+												# harbors in Persian Gulf
+												AND = {
+														control = { province = 1090 data = -2 } # Busehr
+														control = { province = 1032 data = -2 } # Basra
+														}
+												# provinces transferred to SOV to simulate corridor => german advance here will stop shipments
+												AND = {
+														control = { province = 1080 data = -2 } # Sari
+														control = { province = 1081 data = -2 } # Rast
+														}
+												# target provinces in SOV, mostly ports at Caspian Sea
+												AND = {
+														control = { province = 713 data = -2 } # Baku
+														control = { province = 704 data = -2 } # Mahackala
+														control = { province = 706 data = -2 } # Astrakhan; Volga estuary
+														}
+												# USA East Coast Naval Bases
+												AND = {
+													control = { province = 1789 data = -2 } 
+													control = { province = 1795 data = -2 }
+													control = { province = 1812 data = -2 }
+													control = { province = 1953 data = -2 }
+												}
+											}
+										}
+						}
+				}
+
+	name = EVT_2983011_NAME
+	desc = EVT_2983011_DESC
+	style = 2
+	picture = "Lend_Lease"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+           
+	action_a = { 
+		name = ACTION_NAME_DAMN
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_100
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = extra_tc value = -150		
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_100
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = industrial_modifier which = total value = -6				
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_100
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = local_clrflag which = LL_Atlantic_100 
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_66
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = extra_tc value = -100	
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_66
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = industrial_modifier which = total value = -4				
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_66
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = local_clrflag which = LL_Atlantic_66
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_33
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = extra_tc value = -50		
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_33
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = industrial_modifier which = total value = -2				
+					}
+		command = { 
+					trigger = {
+								AND = {
+								local_flag = LL_Atlantic_33
+								OR = {
+										# SOV target harbors
+										AND = {
+												control = { province = 535 data = -2 } # Murmansk 
+												control = { province = 536 data = -2 } # Kandalaksa
+												control = { province = 537 data = -2 } # Kem
+												OR = {
+														control = { province = 541 data = -2 } # Belomorsk
+														control = { province = 538 data = -2 } # Segeza
+														}
+												control = { province = 542 data = -2 } # Archangelsk
+												}
+										}
+										# convoys assemble in Iceland
+										control = { province = 1 data = -2 } # Reykjavik
+										# USA East Coast Naval Bases
+										AND = {
+											control = { province = 1789 data = -2 } 
+											control = { province = 1795 data = -2 }
+											control = { province = 1812 data = -2 }
+											control = { province = 1953 data = -2 }
+										}
+									}
+								}
+					type = local_clrflag which = LL_Atlantic_33
+					}
+		
+		command = { 
+					trigger = { 
+								AND = {
+								local_flag = LL_Pacific
+								OR = {
+										# soviet harbors in Pacific
+										control = { province = 1191 data = -2 } # Vladivostok
+										# Aleutian Islands
+										AND = {
+												control = { province = 2174 data = -2 } 
+												control = { province = 2150 data = -2 } 
+												control = { province = 2151 data = -2 } 
+												}
+										# USA West Coast Naval Bases
+										AND = {
+											control = { province = 1886 data = -2 } 
+											control = { province = 1887 data = -2 }
+											control = { province = 1889 data = -2 }
+											control = { province = 1874 data = -2 }
+											control = { province = 2142 data = -2 }
+										}
+									}
+								}
+								}
+					type = extra_tc value = -100 
+					}
+		command = { 
+					trigger = { 
+								AND = {
+								local_flag = LL_Pacific
+								OR = {
+										# soviet harbors in Pacific
+										control = { province = 1191 data = -2 } # Vladivostok
+										# Aleutian Islands
+										AND = {
+												control = { province = 2174 data = -2 } 
+												control = { province = 2150 data = -2 } 
+												control = { province = 2151 data = -2 } 
+												}
+										# USA West Coast Naval Bases
+										AND = {
+											control = { province = 1886 data = -2 } 
+											control = { province = 1887 data = -2 }
+											control = { province = 1889 data = -2 }
+											control = { province = 1874 data = -2 }
+											control = { province = 2142 data = -2 }
+										}
+									}
+								}
+								}
+					type = local_clrflag which = LL_Pacific 
+					}
+					
+		command = { 
+					trigger = {
+								AND = {
+											local_flag = LL_Persia
+											# way around Africa to Persia
+											OR = {
+													war = { country = SAF country = USA }
+													control = { province = 880 data = -2 } # Cape Town
+													NOT = { alliance = { country = PER country = USA } }
+													
+													# harbors in Persian Gulf
+													AND = {
+															control = { province = 1090 data = -2 } # Busehr
+															control = { province = 1032 data = -2 } # Basra
+															}
+													# provinces transferred to SOV to simulate corridor => german advance here will stop shipments
+													AND = {
+															control = { province = 1080 data = -2 } # Sari
+															control = { province = 1081 data = -2 } # Rast
+															}
+													# target provinces in SOV, mostly ports at Caspian Sea
+													AND = {
+															control = { province = 713 data = -2 } # Baku
+															control = { province = 704 data = -2 } # Mahackala
+															control = { province = 706 data = -2 } # Astrakhan; Volga estuary
+															}
+													# USA East Coast Naval Bases
+													AND = {
+														control = { province = 1789 data = -2 } 
+														control = { province = 1795 data = -2 }
+														control = { province = 1812 data = -2 }
+														control = { province = 1953 data = -2 }
+													}
+												}
+											}
+									}
+					type = extra_tc value = -75 
+					}
+		command = { 
+					trigger = {
+								AND = {
+											local_flag = LL_Persia
+											# way around Africa to Persia
+											OR = {
+													war = { country = SAF country = USA }
+													control = { province = 880 data = -2 } # Cape Town
+													NOT = { alliance = { country = PER country = USA } }
+													
+													# harbors in Persian Gulf
+													AND = {
+															control = { province = 1090 data = -2 } # Busehr
+															control = { province = 1032 data = -2 } # Basra
+															}
+													# provinces transferred to SOV to simulate corridor => german advance here will stop shipments
+													AND = {
+															control = { province = 1080 data = -2 } # Sari
+															control = { province = 1081 data = -2 } # Rast
+															}
+													# target provinces in SOV, mostly ports at Caspian Sea
+													AND = {
+															control = { province = 713 data = -2 } # Baku
+															control = { province = 704 data = -2 } # Mahackala
+															control = { province = 706 data = -2 } # Astrakhan; Volga estuary
+															}
+													# USA East Coast Naval Bases
+													AND = {
+														control = { province = 1789 data = -2 } 
+														control = { province = 1795 data = -2 }
+														control = { province = 1812 data = -2 }
+														control = { province = 1953 data = -2 }
+													}
+												}
+											}
+									}
+					type = local_clrflag which = LL_Persia
+					}
+	}
+}
+
+
+
+#########################################################################
+# Lend-Lease Shipments for USSR - Complete Stop
+#########################################################################
+event = {  
+	id = 2983001
+	random = no
+	persistent = yes
+	country = SOV
+
+	# Triggered by USA # where???
+
+	name = EVT_2983001_NAME
+	desc = EVT_2983001_DESC
+	style = 2
+	picture = "Lend_Lease"
+           
+	action_a = { 
+		name = ACTION_NAME_DAMN
+		command = { type = relation which = USA value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = extra_tc value = -150 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = industrial_modifier which = total value = -6 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = local_clrflag which = LL_Atlantic_100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = industrial_modifier which = total value = -4 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = local_clrflag which = LL_Atlantic_66 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = extra_tc value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = industrial_modifier which = total value = -2 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = local_clrflag which = LL_Atlantic_33 }
+		command = { trigger = { local_flag = LL_Pacific } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Pacific } type = local_clrflag which = LL_Pacific }
+		command = { trigger = { local_flag = LL_Persia } type = extra_tc value = -75 }
+		command = { trigger = { local_flag = LL_Persia } type = local_clrflag which = LL_Persia }
+	}
+}
+#########################################################################
+# Lend-Lease Shipments for USSR - shipments end
+#########################################################################
+event = {  
+	id = 2983013
+	random = no
+	country = SOV
+
+	trigger = {
+				OR = {
+#						NOT = { war = { country = GER country = USA } } #doesn't work in 1941
+						event = 3336513 #USA surrenders to Axis
+						NOT = { war = { country = GER country = SOV } }
+						war = { country = USA country = SOV }
+						}
+				OR = {
+						local_flag = LL_Atlantic_100
+						local_flag = LL_Atlantic_66
+						local_flag = LL_Atlantic_33
+						local_flag = LL_Pacific
+						local_flag = LL_Persia
+						}
+					}
+
+	name = EVT_2983013_NAME # Reversal LL shipment
+	desc = EVT_2983013_DESC
+	style = 2
+	picture = "Lend_Lease"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+           
+	action_a = { 
+		name = ACTION_NAME_ACCEPT
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = extra_tc value = -150 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = industrial_modifier which = total value = -6 }
+		command = { trigger = { local_flag = LL_Atlantic_100 } type = local_clrflag which = LL_Atlantic_100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = industrial_modifier which = total value = -4 }
+		command = { trigger = { local_flag = LL_Atlantic_66 } type = local_clrflag which = LL_Atlantic_66 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = extra_tc value = -50 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = industrial_modifier which = total value = -2 }
+		command = { trigger = { local_flag = LL_Atlantic_33 } type = local_clrflag which = LL_Atlantic_33 }
+		command = { trigger = { local_flag = LL_Pacific } type = extra_tc value = -100 }
+		command = { trigger = { local_flag = LL_Pacific } type = local_clrflag which = LL_Pacific }
+		command = { trigger = { local_flag = LL_Persia } type = extra_tc value = -75 }
+		command = { trigger = { local_flag = LL_Persia } type = local_clrflag which = LL_Persia }
+	}
+}

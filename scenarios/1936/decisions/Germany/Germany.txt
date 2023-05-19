@@ -1,0 +1,2483 @@
+#########################
+# Operation Tannenbaum
+#########################
+event = { 
+	id = 31393108
+	random = no
+	country = GER
+
+	decision = {
+		event = 31393109
+		NOT = { non_aggression = { country = GER country = SCH } }
+		year = 1939
+		exists = SCH
+		NOT = { exists = FRA }
+		control = { province = 55 data = -3 } # Paris
+	}
+
+	decision_trigger = { alliance = { country = ITA } }
+
+	trigger = { 
+		ai = no
+		event = 31393109
+		NOT = { non_aggression = { country = GER country = SCH } }
+		year = 1939
+		exists = SCH
+		NOT = { exists = FRA }
+		control = { province = 55 data = -3 } # Paris
+	}
+
+	name = "EVT_31393108_NAME"
+	desc = "EVT_31393108_DESC"
+	style = 2
+	picture = "news_paper"
+	decision_picture = "decision_Rhineland"
+
+	date = { day = 0 month = january year = 1940 }
+	offset = 30
+	deathdate = { day = 12 month = march year = 1966 }
+
+	action = { 
+		name = "ACTIONNAME31393108"  
+		command = { type = war which = SCH } 
+	}
+}
+#######################
+# swiss forced trade
+#######################
+event = { 
+	id = 31393109
+	random = no
+	country = GER
+
+	decision = {
+		OR = {
+			trade = { country = GER country = SCH }
+			trade = { country = ITA country = SCH }
+		}
+		year = 1939
+		exists = SCH
+		NOT = { exists = FRA }
+		control = { province = 55 data = -3 } # Paris
+		}
+
+	decision_trigger = { alliance = { country = ITA } }
+
+	trigger = { 
+		OR = {
+			trade = { country = GER country = SCH }
+			trade = { country = ITA country = SCH }
+		}
+		year = 1939
+		exists = SCH
+		NOT = { exists = FRA }
+		control = { province = 55 data = -3 } # Paris
+		}
+
+	name = "EVT_31393109_NAME"
+	desc = "EVT_31393109_DESC"
+	style = 2
+	picture = "news_paper"
+	decision_picture = "decision_rapallo_conference"
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 1
+	deathdate = { day = 12 month = march year = 1966 }
+
+	action = { name = "ACTIONNAME31393109"  
+	ai_chance = 100
+	command = { type = belligerence which = GER value = 5 }
+	command = { type = belligerence which = ITA value = 2 }
+	command = { type = trade which = GER where = SCH  supplies = 8 value = 1 }
+	command = { type = trade which = ITA where = SCH  supplies = 4 value = 1 }	
+	command = { type = non_aggression which = GER where = SCH }
+	command = { type = non_aggression which = ITA where = SCH }
+	}
+}
+###############################################
+# Germany invades the low countries; Fall Gelb
+###############################################
+event = {
+   id = 31393045
+    random = no
+    country = GER
+	decision = {
+		exists = BEL
+		exists = HOL
+		control = { province = 232 data = -3 } # Warzaw
+		NOT = { control = { province = 108 data = -1 } }
+		OR = { 
+			NOT = { control = { province = 116 data = -1 } } # Brussels
+			NOT = { control = { province = 122 data = -1 } } # Amsterdam
+		}
+		NOT = { exists = POL }
+		NOT = { alliance = { country = GER country = BEL } }
+		NOT = { alliance = { country = GER country = HOL } }
+		war = { country = GER  country = FRA }
+		NOT = { war = { country = GER  country = HOL } }
+		NOT = { war = { country = GER  country = BEL } }
+	}
+	
+	decision_trigger = { 
+		NOT = { war = { country = GER  country = HOL } }
+		NOT = { war = { country = GER  country = BEL } }
+		NOT = { war = { country = GER  country = LUX } }
+	}
+	
+	trigger = {
+		ai = yes
+		OR = { 
+				war = { country = GER  country = HOL }
+				war = { country = GER  country = BEL }
+				war = { country = GER  country = LUX } 
+				}
+	}
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	name = "evt_31393045_name"
+	desc = "evt_31393045_desc"
+	style = 2
+	picture = "fall_gelb"
+	decision_picture = "decision_fall_gelb"
+	
+	action = {
+		trigger = { OR = { AI = yes year = 1940 } }
+		name = "evt_31393045a"
+		command = { trigger = { NOT = { war = { country = GER country = HOL }} NOT = { alliance = { country = GER country = HOL } } } type = war which = HOL }
+		command = { trigger = { NOT = { war = { country = GER country = BEL }} NOT = { alliance = { country = GER country = BEL } } } type = war which = BEL }
+		command = { trigger = { NOT = { war = { country = GER country = LUX }} NOT = { alliance = { country = GER country = LUX } } } type = war which = LUX }
+		
+		command = { type = relation which = HOL value = -50 }
+		command = { type = relation which = BEL value = -50 }
+		command = { type = relation which = LUX value = -50 }
+		
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = morale which = land value = 24 } 
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = attack value = 0.75 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Air_superiority value = 		0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Air_scramble value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Ground_attack value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = interdiction value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = convoy_air_raiding value = 	0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Naval_strike value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Strategic_bombardment value = 	0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Logistical_strike value = 		0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Air_supply value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Port_strike value = 			0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Installation_strike value = 	0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = task_efficiency which = Runway_cratering value = 		0.2 }
+		command = { trigger = { AI = GER NOT = { AI = FRA } } type = event which = 31393047 where = GER when = 120 } 
+		
+		command = { trigger = { AI = GER AI = FRA } type = morale which = land value = 12 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = attack value = 0.50 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Air_superiority value = 			0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Air_scramble value = 			0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Ground_attack value = 			0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = interdiction value = 			0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = convoy_air_raiding value = 		0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Naval_strike value = 			0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Strategic_bombardment value = 	0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Logistical_strike value = 		0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Air_supply value = 				0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Port_strike value = 				0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Installation_strike value = 		0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = task_efficiency which = Runway_cratering value = 		0.1 }
+		command = { trigger = { AI = GER AI = FRA } type = event which = 31393048 where = GER when = 90 }
+		
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = morale which = land value = 6 } 
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_superiority value = 			0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_scramble value = 			0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Ground_attack value = 			0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = interdiction value = 			0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = convoy_air_raiding value = 		0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Naval_strike value = 			0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Strategic_bombardment value = 	0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Logistical_strike value = 		0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_supply value = 				0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Port_strike value = 				0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Installation_strike value = 		0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Runway_cratering value = 		0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = event which = 31393049 where = GER when = 30 } 
+		
+		command = { trigger = { NOT = { AI = GER } AI = FRA } type = morale which = land value = 6 } 
+		command = { trigger = { NOT = { AI = GER } AI = FRA } type = event which = 31393049 where = GER when = 21 } 
+		
+	}
+	
+	action = {
+		trigger = { AI = no NOT = { year = 1940 } }
+		name = "evt_31393045b"
+		command = { trigger = { NOT = { war = { country = GER country = HOL }} NOT = { alliance = { country = GER country = HOL } } } type = war which = HOL }
+		command = { trigger = { NOT = { war = { country = GER country = BEL }} NOT = { alliance = { country = GER country = BEL } } } type = war which = BEL }
+		command = { trigger = { NOT = { war = { country = GER country = LUX }} NOT = { alliance = { country = GER country = LUX } } } type = war which = LUX }
+		
+		command = { type = relation which = HOL value = -50 }
+		command = { type = relation which = BEL value = -50 }
+		command = { type = relation which = LUX value = -50 }	
+	}
+}
+
+################################
+# Fall Gelb offensive chit over
+################################
+
+event = {
+	id = 31393047
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = morale which = land value = -24 } 
+		command = { type = task_efficiency which = attack value = -0.75 }
+		command = { type = task_efficiency which = Air_superiority value = 			-0.2 }
+		command = { type = task_efficiency which = Air_scramble value = 			-0.2 }
+		command = { type = task_efficiency which = Ground_attack value = 			-0.2 }
+		command = { type = task_efficiency which = interdiction value = 			-0.2 }
+		command = { type = task_efficiency which = convoy_air_raiding value = 		-0.2 }
+		command = { type = task_efficiency which = Naval_strike value = 			-0.2 }
+		command = { type = task_efficiency which = Strategic_bombardment value = 	-0.2 }
+		command = { type = task_efficiency which = Logistical_strike value = 		-0.2 }
+		command = { type = task_efficiency which = Air_supply value = 				-0.2 }
+		command = { type = task_efficiency which = Port_strike value = 				-0.2 }
+		command = { type = task_efficiency which = Installation_strike value = 		-0.2 }
+		command = { type = task_efficiency which = Runway_cratering value = 		-0.2 }
+	}
+}
+
+event = {
+	id = 31393048
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = morale which = land value = -12 } 
+		command = { type = task_efficiency which = attack value = -0.50 }
+		command = { type = task_efficiency which = Air_superiority value = 			-0.1 }
+		command = { type = task_efficiency which = Air_scramble value = 			-0.1 }
+		command = { type = task_efficiency which = Ground_attack value = 			-0.1 }
+		command = { type = task_efficiency which = interdiction value = 			-0.1 }
+		command = { type = task_efficiency which = convoy_air_raiding value = 		-0.1 }
+		command = { type = task_efficiency which = Naval_strike value = 			-0.1 }
+		command = { type = task_efficiency which = Strategic_bombardment value = 	-0.1 }
+		command = { type = task_efficiency which = Logistical_strike value = 		-0.1 }
+		command = { type = task_efficiency which = Air_supply value = 				-0.1 }
+		command = { type = task_efficiency which = Port_strike value = 				-0.1 }
+		command = { type = task_efficiency which = Installation_strike value = 		-0.1 }
+		command = { type = task_efficiency which = Runway_cratering value = 		-0.1 }	
+	}
+}
+
+event = {
+	id = 31393049
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = morale which = land value = -6 } 
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_superiority value = 			-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_scramble value = 			-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Ground_attack value = 			-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = interdiction value = 			-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = convoy_air_raiding value = 		-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Naval_strike value = 			-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Strategic_bombardment value = 	-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Logistical_strike value = 		-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Air_supply value = 				-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Port_strike value = 				-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Installation_strike value = 		-0.1 }
+		command = { trigger = { NOT = { AI = GER } NOT = { AI = FRA } } type = task_efficiency which = Runway_cratering value = 		-0.1 }
+	}
+}
+
+###########################
+# Unternehmen Barbarossa
+###########################
+event = { 
+	id = 31393046
+	random = no 
+	country = GER
+	decision = {
+		control = { province = 232 data = -3 } # Warzaw
+		control = { province = 163 data = -3 } # Berlin
+		NOT = { exists = POL }
+#		NOT = {	war = { country = GER country = SOV }} # deactivated so that GER may still use the decision if SOV declares war; MP balancing
+		NOT = {
+				event = 2024 # bitter peace without Japan
+#				event = 3283059 # bitter peace with Japan
+#				event = 3283060 # The not so bitter peace - Japan is not Axis
+#				event = 3283061 # The not so bitter peace - Japan is in the Axis
+				}
+	}
+	
+	decision_trigger = {
+			control = { province = 55 data = -3 } # Paris
+			NOT = { non_aggression = { country = GER country = SOV } } 
+	}
+	
+	trigger = {
+       	ai = yes
+		war = { country = GER country = SOV }
+	}
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+	name = "evt_31393046_name"
+	desc = "evt_31393046_desc"
+	style = 2
+	picture = "barbarossa"
+	decision_picture = "decision_barbarossa"
+	
+	action = {
+		name = "evt_31393045a"
+		trigger = { OR = { AI = yes year = 1941 } }
+		command = { trigger = { NOT = { war = { country = GER country = SOV } } } type = war which = SOV }
+		
+		command = { trigger = { AI = GER NOT = { AI = SOV } } type = ground_def_eff value = 0.020 when = 1 }
+		command = { trigger = { AI = GER NOT = { AI = SOV } } type = morale which = land value = 15 } 
+		command = { trigger = { AI = GER NOT = { AI = SOV } } type = task_efficiency which = attack value = 0.75 }
+		command = { trigger = { AI = GER NOT = { AI = SOV } } type = event which = 31393050 where = GER when = 900 } 
+		
+		command = { trigger = { AI = GER AI = SOV } type = ground_def_eff value = 0.015 when = 1 }
+		command = { trigger = { AI = GER AI = SOV } type = morale which = land value = 10 }
+		command = { trigger = { AI = GER AI = SOV } type = task_efficiency which = attack value = 0.50 }
+		command = { trigger = { AI = GER AI = SOV } type = event which = 31393051 where = GER when = 360 } #270
+		
+#		command = { trigger = { NOT = { AI = GER } } type = morale which = land value = 5 } 
+		command = { trigger = { NOT = { AI = GER } } type = task_efficiency which = attack value = 0.10 }
+		command = { trigger = { NOT = { AI = GER } } type = event which = 31393052 where = GER when = 180 } #90 #45
+		
+		# no air force offensive chit here => soviet air force weakened by purges event
+	}
+	
+	action = {
+		name = "evt_31393045b"
+		trigger = { AI = no NOT = { year = 1941 } }
+		command = { trigger = { NOT = { war = { country = GER country = SOV } } } type = war which = SOV }
+	}
+}
+
+#################################
+# Barbarossa offensive chit over
+#################################
+
+event = {
+	id = 31393050
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = -0.020 when = 1 }
+		command = { type = morale which = land value = -15 } 
+		command = { type = task_efficiency which = attack value = -0.75 }
+	}
+}
+
+event = {
+	id = 31393051
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = -0.015 when = 1 }
+		command = { type = morale which = land value = -10 } 
+		command = { type = task_efficiency which = attack value = -0.50 }
+	}
+}
+
+event = {
+	id = 31393052
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+#		command = { type = morale which = land value = -5 }
+		command = { type = task_efficiency which = attack value = -0.10 }		
+	}
+}
+
+########################################
+# Operation Marita event chain
+########################################
+event = {
+	id = 31393056
+	random = no
+	country = GER
+
+	decision = {
+		event = 3136033 # Vichy
+		exists = YUG
+		war = { country = GER country = ENG }
+		NOT = { alliance = { country = YUG country = GER } }
+		NOT = { alliance = { country = YUG country = SOV } }
+		NOT = { war = { country = YUG country = GER } }
+		NOT = { war = { country = YUG country = ITA } }
+		NOT = { war = { country = YUG country = SOV } }
+	}
+
+	decision_trigger = {
+		garrison = { province = 190 type = land size = 9 area = 1 }  # Graz, Austria Area
+	}
+
+	trigger = { # There's an AI event for Operation Marita, but this decision is used as a backup.
+		ai = yes
+		event = 3136033 # Vichy
+		exists = YUG
+		war = { country = GER country = ENG }
+		NOT = { alliance = { country = YUG country = GER } }
+		NOT = { alliance = { country = YUG country = SOV } }
+		NOT = { war = { country = YUG country = GER } }
+		NOT = { war = { country = YUG country = ITA } }
+		NOT = { war = { country = YUG country = SOV } }
+		year = 1941
+		month = march # historic date: April 6th 1941; 1 month bonus for AI
+		OR = {
+				war = { country = GER country = GRE }
+				NOT = { exists = GRE }
+				alliance = { country = GER country = GRE }
+				}
+	}
+
+	name = evt_31393056_name
+	desc = evt_31393056_desc
+  	style = 2
+  	picture = "news_paper"
+	decision_picture = "decision_CZE_End"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = evt_31393056_acta
+		ai_chance = 100
+		command = { type = trigger which = 31861001 }
+	}
+}
+event = {
+	id = 31861001
+	random = no
+	country = YUG
+
+	name = evt_31393056_name
+	desc = evt_31393056_desc
+  	style = 2
+  	picture = "news_paper"
+
+
+	action_a = {
+		name = evt_31861001_acta
+		ai_chance = 100
+		#command = { type = alliance which = GER }
+		command = { type = relation which = GER value = 100 }
+		command = { type = event which = 31861002 where = -1 when = 3 }
+	}
+	action = {
+		name = evt_31861001_actb
+		ai_chance = 0
+		command = { }
+	}
+}
+# Coup d'état
+event = {
+	id = 31861002
+	random = no
+	country = YUG
+
+#	trigger = {
+#		war = { country = GER country = ENG }
+#		alliance = { country = YUG country = GER }
+#		NOT = { puppet = { country = YUG country = GER } }
+#		random = 50
+#	}
+
+	name = evt_31861002_name
+	desc = evt_31861002_desc
+	style = 2
+  	picture = "news_paper"
+
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 3
+#	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = EVT_31861002_ACTB
+		ai_chance = 1
+		command = { type = dissent value = 10 }
+		command = { type = domestic which = democratic value = -2 }
+		command = { type = domestic which = political_left value = -2 }
+		command = { type = domestic which = freedom value = -2 }
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = relation which = GER value = 200 } #allows for an alliance
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+		command = { type = local_setflag which = neutrality_low }
+	}
+	action = {
+		name = EVT_31861002_ACTA
+		ai_chance = 99
+		command = { type = dissent value = -5 }
+		command = { type = leave_alliance }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = peace which = USA value = 1 }
+		command = { type = peace which = GRE value = 1 }
+		command = { type = set_domestic which = democratic value = 6 }
+		command = { type = set_domestic which = political_left value = 3 }
+		command = { type = domestic which = freedom value = 1 }
+#		command = { type = headofstate which = 100069 }
+#		command = { type = headofgovernment which = 100013 }
+#		command = { type = foreignminister which = 100020 }
+#		command = { type = armamentminister which = 100030 }
+#		command = { type = ministerofsecurity which = 100037 }
+#		command = { type = ministerofintelligence which = 100044 }
+#		command = { type = chiefofstaff which = 100050 }
+#		command = { type = chiefofarmy which = 100056 }
+#		command = { type = chiefofnavy which = 100061 }
+#		command = { type = chiefofair which = 100010 }
+		command = { type = relation which = GER value = -150 }
+		command = { type = relation which = ITA value = -100 }
+		command = { type = relation which = HUN value = -100 }
+		command = { type = relation which = ROM value = -100 }
+		command = { type = relation which = BUL value = -100 }
+		command = { type = trigger which = 31393057 }
+	}
+}
+event = {
+	id = 31393057
+	random = no
+	country = GER
+
+	name = EVT_3_NAME
+	desc = EVT_3_DESC
+	style = 2
+  	picture = "news_paper"
+
+	action = {
+		name = EVT_3_ACTA
+		ai_chance = 100
+		command = { type = relation which = YUG value = -100 }
+		command = { type = addcore which = 346 } #Maribor
+	}
+	
+	action = {
+		name = EVT_3_ACTB
+		ai_chance = 0
+		command = { type = dissent value = 2 }
+		command = { type = relation which = BUL value = -5 }
+		command = { type = relation which = ROM value = -5 }
+		command = { type = relation which = HUN value = -5 }
+		command = { type = relation which = ITA value = -5 }
+		command = { type = sleepevent which = 31393058 }
+	}
+}
+
+# Invasion of Yugoslavia
+event = {
+	id = 31393058
+	random = no
+	country = GER
+
+	decision = {
+		exists = YUG
+		event = 31393057
+		NOT = { ispuppet = GER }
+		NOT = {
+			war = { country = GER country = SOV } # NOT if Barbarossa started
+		}
+	}
+	
+	decision_trigger = {
+		exists = YUG
+		event = 31393057
+		garrison = { country = -3 province = 190  type = land size = 9 area = 1 } # Graz, Austria Area
+		NOT = { ispuppet = GER }
+		NOT = {
+			war = { country = GER country = SOV } # NOT if Barbarossa started
+		}
+	}
+	
+	trigger = {
+				ai = GER
+				OR = {
+						war = { country = GER country = YUG }
+						AND = {
+								exists = YUG
+								event = 31393057
+								NOT = { ispuppet = GER }
+								NOT = {
+										war = { country = GER country = SOV } # NOT if Barbarossa started
+										}
+								}
+						}
+				}
+
+	name = EVT_4_NAME
+	desc = EVT_4_DESC
+	style = 2
+  	picture = "news_paper"
+	decision_picture = "decision_grand_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action = {
+		name = EVT_4_ACTA
+		ai_chance = 100
+		command = { type = war which = YUG }
+		command = { trigger = { AI = GER } type = ai which = "switch/GER_Yugoslavia.ai" }
+		command = { trigger = { AI = GER } type = clrflag which = InvYugoslavia }
+		command = { trigger = { AI = GER } type = local_clrflag which = GERInvadeYugoslavia }
+		command = { trigger = { AI = GER } type = local_clrflag which = GERStandardFront }
+		command = { trigger = { AI = GER } type = sleepevent which = 20006 }
+		command = { trigger = { exists = ALB NOT = { ispuppet = ALB } NOT = { war = { country = GER country = ALB } } } type = war which = ALB } # correct italian AI failing to invade Albania and making peace
+		command = { type = belligerence which = GER value = 10 }
+		
+		command = { trigger = { AI = GER NOT = { AI = YUG } } type = morale which = land value = 30 } 
+		command = { trigger = { AI = GER NOT = { AI = YUG } } type = task_efficiency which = attack value = 1.00 }
+		command = { trigger = { AI = GER NOT = { AI = YUG } } type = event which = 31393053 where = GER when = 90 } 
+		
+		command = { trigger = { AI = GER AI = YUG } type = morale which = land value = 20 }
+		command = { trigger = { AI = GER AI = YUG } type = task_efficiency which = attack value = 0.75 }
+		command = { trigger = { AI = GER AI = YUG } type = event which = 31393054 where = GER when = 60 }
+		
+		#no air force offensive chit here => contemporary fights against ENG
+	}
+}
+
+#################################
+# Marita offensive chit over
+#################################
+
+event = {
+	id = 31393053
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = morale which = land value = -30 } 
+		command = { type = task_efficiency which = attack value = -1.00 }
+	}
+}
+
+event = {
+	id = 31393054
+	random = no
+	country = GER
+
+	name = "GrandOffensiveOverName"
+	desc = "GrandOffensiveDesc" 
+	style = 2
+	picture = "Wehrmacht"
+
+	action = {
+		name = ACTION_NAME_OK
+		command = { type = morale which = land value = -20 } 
+		command = { type = task_efficiency which = attack value = -0.75 }
+	}
+}
+
+
+#########################################################################
+# Finland chain
+#########################################################################
+# Barbarossa: Support for Finland (Germany aligns with Finland)
+#########################################################################
+event = {
+	id = 3136203
+	random = no
+	country = GER
+	
+	save_date = yes
+	
+	decision = {
+					NOT = { war = { country = GER country = FIN } }
+					ai = no
+					NOT = {
+							event = 2024 # bitter peace without Japan
+#							event = 3283059 # bitter peace with Japan
+#							event = 3283060 # The not so bitter peace - Japan is not Axis
+#							event = 3283061 # The not so bitter peace - Japan is in the Axis
+							}
+				}
+					
+	decision_trigger = {
+						OR = {	event = 2628 # End of the Finnish Winter War - Finns accepts
+						AND = {	
+								war = { country = SOV country = FIN }
+								event = 2620 # Winter War begins
+								NOT = { event = 3183026 } # End of the Finnish Winter War...in case they are still at war
+								}
+							}
+						manpower = 121.5
+						supplies = 8000
+						metal = 6000
+						energy = 12000
+						rare_materials = 3000
+	}
+
+	trigger = {
+				NOT = { war = { country = GER country = FIN } }
+				OR = {	event = 2628 # End of the Finnish Winter War - Finns accepts
+						AND = {	
+								war = { country = SOV country = FIN }
+								event = 2620 # Winter War begins
+								NOT = { event = 3183026 } # End of the Finnish Winter War...in case they are still at war
+								}
+					}
+				manpower = 121.5
+				supplies = 4000 # 50% less for AI
+				metal = 3000
+				energy = 6000
+				rare_materials = 1500
+				random = 20 # 20% chance every 14 days for AI
+				 }
+
+	name = EVT_3136203_NAME # Germany aligns with Finland
+	desc = EVT_3136203_DESC
+	style = 2
+	decision_picture = "decision_silverfox"
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3136203A # Prepare Operation Silberfuchs
+		command = { type = setflag which = GER_aid_FIN }
+		command = { type = manpowerpool value = -121.5 } #
+		command = { trigger = { ai = yes } type = metalpool value = -3000 }
+		command = { trigger = { ai = no } type = metalpool value = -6000 }
+		command = { trigger = { ai = yes } type = energypool value = -6000 }
+		command = { trigger = { ai = no } type = energypool value = -12000 }
+		command = { trigger = { ai = yes } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -3000 }		
+		command = { trigger = { ai = yes } type = supplies value = -4000 }
+		command = { trigger = { ai = no } type = supplies value = -8000 }	
+		
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3136203B # Mannerheim needs no aid
+		command = { type = setflag which = GER_NO_aid_FIN }
+	}
+}
+#########################################################################
+# Operation Silver Fox
+#########################################################################
+event = {
+	id = 3136204
+	random = no
+	country = GER
+
+	trigger = {
+		flag = GER_aid_FIN
+		event = { id = 3136203 }
+		war = { country = GER country = SOV } # ahistoric condition, but necessary to avoid callback events before Barbarossa
+	}
+
+	name = EVT_3136204_NAME # Operation Silberfuchs
+	desc = EVT_3136204_DESC
+	style = 2
+	picture = "Silver_Fox"
+	decision_picture = "decision_silverfox"
+
+	date = { day = 27 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3136204A # Initiate Operation Silver Fox
+		command = { type = relation which = SOV value = -20 }
+		command = { type = relation which = FIN value = 100 }
+		command = { type = belligerence which = GER value = 1 }
+		command = { type = trigger which = 3136205 } # FIN
+	}
+}
+#########################################################################
+#  Operation Silberfuchs - German troops arrive
+#########################################################################
+event = { 
+	id = 3136205
+	random = no
+	country = FIN
+	
+	save_date = yes
+	
+	# Triggered by GER 3136204
+	
+	name = EVT_3136205_NAME
+	desc = EVT_3136205_DESC
+	style = 0
+	picture = "Silver_Fox"
+	
+	action_a = {
+		name = ACTIONNAME3136205A
+		command = { type = add_corps which = "XXXVI AK" value = land where = 514 }
+		command = { type = activate_division which = 32000 value = 13 where = 514 when = 1 } # 169. Inf.
+		command = { type = activate_division which = 32000 value = 15 where = 514 when = 1 } # 6. GJ Nord
+		command = { type = add_corps which = "Gebirgs AK Norwegen" value = land where = 517 }
+		command = { type = activate_division which = 32000 value = 16 where = 517 when = 1 } # 2. GJ
+		command = { type = activate_division which = 32000 value = 17 where = 517 when = 1 } # 3. GJ
+		command = { type = add_corps which = "XXXVII AK" value = land where = 518 }
+		command = { type = activate_division which = 32000 value = 14 where = 518 when = 1 } # 163. Inf.
+		command = { type = activate_division which = 32000 value = 18 where = 518 when = 1 } # 7. GJ
+		command = { type = add_corps which = "AOK Norwegen" value = land where = 521 }
+		command = { type = activate_division which = 32000 value = 19 where = 521 when = 1 } # garrison
+		command = { type = access which = GER } # just in case 
+   }
+}
+#########################################################################
+# German soldiers return home from Finland victorious
+#########################################################################
+event = {
+	id = 3136206
+	random = no
+	country = GER
+
+decision =	{
+			flag = GER_aid_FIN
+			event = { id = 3136205 }
+#			OR = {	
+				event = 2024 # bitter peace without Japan
+				event = 3234014 # FIN wins the continuation war
+#				event = 3283059 # bitter peace with Japan
+#				event = 3283060 # The not so bitter peace - Japan is not Axis
+#				event = 3283061 # The not so bitter peace - Japan is in the Axis
+#					}
+			NOT = {	event = 3136208
+					event = 3136210
+					}
+			}
+
+decision_trigger =	{
+					NOT = { war = { country = GER country = SOV } }
+					NOT = { war = { country = FIN country = SOV } }
+					}
+
+trigger = {
+			flag = GER_aid_FIN
+			event = { id = 3136205 days = 360 }
+#			OR = {	
+				event = 2024 # bitter peace without Japan
+				event = 3234014 # FIN wins the continuation war
+#				event = 3283059 # bitter peace with Japan
+#				event = 3283060 # The not so bitter peace - Japan is not Axis
+#				event = 3283061 # The not so bitter peace - Japan is in the Axis
+#					}
+			NOT = { war = { country = GER country = SOV } }
+			NOT = { war = { country = FIN country = SOV } }
+			NOT = {	event = 3136208
+					event = 3136210
+					}
+			}
+					
+	name = EVT_3136206_NAME # German soldiers return home from Finland victorious
+	desc = EVT_3136206_DESC
+	style = 2
+	decision_picture = "decision_silverfox"
+	
+	date = { day = 27 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136206A 
+		command = { type = dissent value = -3 }
+		command = { type = add_corps which = "Expeditionskorps Finnland" value = land where = 163 } #Berlin
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = activate_division which = 14500 value = 300 where = 163 when = 1 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = activate_division which = 14500 value = 302 where = 163 when = 1 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = activate_division which = 14500 value = 303 where = 163 when = 1 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = activate_division which = 14500 value = 304 where = 163 when = 1 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = activate_division which = 14500 value = 301 where = 163 when = 1 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = activate_division which = 14500 value = 305 where = 163 when = 1 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = activate_division which = 14500 value = 306 where = 163 when = 1 } # garrison
+		
+		# return provinces that might have come under german control during the campaign
+		command = { trigger = { control = { province = 526 data = GER } owned = { province = 526 data = FIN } } type = control which = FIN value = 526 }
+		command = { trigger = { control = { province = 524 data = GER } owned = { province = 524 data = FIN } } type = control which = FIN value = 524 }
+		command = { trigger = { control = { province = 525 data = GER } owned = { province = 525 data = FIN } } type = control which = FIN value = 525 }
+		command = { trigger = { control = { province = 529 data = GER } owned = { province = 529 data = FIN } } type = control which = FIN value = 529 }
+		command = { trigger = { control = { province = 512 data = GER } owned = { province = 512 data = FIN } } type = control which = FIN value = 512 }
+		command = { trigger = { control = { province = 527 data = GER } owned = { province = 527 data = FIN } } type = control which = FIN value = 527 }
+		command = { trigger = { control = { province = 521 data = GER } owned = { province = 521 data = FIN } } type = control which = FIN value = 521 }
+		command = { trigger = { control = { province = 520 data = GER } owned = { province = 520 data = FIN } } type = control which = FIN value = 520 }
+		command = { trigger = { control = { province = 516 data = GER } owned = { province = 516 data = FIN } } type = control which = FIN value = 516 }
+		command = { trigger = { control = { province = 511 data = GER } owned = { province = 511 data = FIN } } type = control which = FIN value = 511 }
+		command = { trigger = { control = { province = 513 data = GER } owned = { province = 513 data = FIN } } type = control which = FIN value = 513 }
+		command = { trigger = { control = { province = 515 data = GER } owned = { province = 515 data = FIN } } type = control which = FIN value = 515 }
+		command = { trigger = { control = { province = 517 data = GER } owned = { province = 517 data = FIN } } type = control which = FIN value = 517 }
+		command = { trigger = { control = { province = 514 data = GER } owned = { province = 514 data = FIN } } type = control which = FIN value = 514 }
+		command = { trigger = { control = { province = 518 data = GER } owned = { province = 518 data = FIN } } type = control which = FIN value = 518 }
+		command = { trigger = { control = { province = 519 data = GER } owned = { province = 519 data = FIN } } type = control which = FIN value = 519 }
+		command = { trigger = { control = { province = 523 data = GER } owned = { province = 523 data = FIN } } type = control which = FIN value = 523 }
+		command = { trigger = { control = { province = 522 data = GER } owned = { province = 522 data = FIN } } type = control which = FIN value = 522 }
+		command = { trigger = { control = { province = 528 data = GER } owned = { province = 528 data = FIN } } type = control which = FIN value = 528 }
+		command = { trigger = { control = { province = 533 data = GER } owned = { province = 533 data = FIN } } type = control which = FIN value = 533 }
+		command = { trigger = { control = { province = 530 data = GER } owned = { province = 530 data = FIN } } type = control which = FIN value = 530 }
+		command = { trigger = { control = { province = 531 data = GER } owned = { province = 531 data = FIN } } type = control which = FIN value = 531 }
+		command = { trigger = { control = { province = 532 data = GER } owned = { province = 532 data = FIN } } type = control which = FIN value = 532 }
+		command = { trigger = { control = { province = 539 data = GER } owned = { province = 539 data = FIN } } type = control which = FIN value = 539 }
+		command = { trigger = { control = { province = 537 data = GER } owned = { province = 537 data = FIN } } type = control which = FIN value = 537 }
+		command = { trigger = { control = { province = 540 data = GER } owned = { province = 540 data = FIN } } type = control which = FIN value = 540 }
+		command = { trigger = { control = { province = 538 data = GER } owned = { province = 538 data = FIN } } type = control which = FIN value = 538 }
+		command = { trigger = { control = { province = 536 data = GER } owned = { province = 536 data = FIN } } type = control which = FIN value = 536 }
+		
+		command = { type = trigger which = 3136207 } # FIN
+	}
+}
+#########################################################################
+#  Operation Silberfuchs - German troops return victorious
+#########################################################################
+event = { 
+	id = 3136207
+	random = no
+	country = FIN
+	
+	# Triggered by GER 3136206
+	
+	name = EVT_3136207_NAME
+	desc = EVT_3136207_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3136207A
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = remove_division which = 32000 value = 13 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = remove_division which = 32000 value = 15 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = remove_division which = 32000 value = 16 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = remove_division which = 32000 value = 17 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = remove_division which = 32000 value = 14 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = remove_division which = 32000 value = 18 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = remove_division which = 32000 value = 19 } # garrison
+		}
+	}
+#########################################################################
+# German soldiers return home from Finland defeated
+#########################################################################
+event = {
+	id = 3136208
+	random = no
+	country = GER
+
+decision =	{
+			flag = GER_aid_FIN
+			event = { id = 3136205 }
+			NOT = {	
+					OR = {
+							event = 2024 # bitter peace without Japan
+							event = 3234014 # FIN wins the continuation war
+#							event = 3283059 # bitter peace with Japan
+#							event = 3283060 # The not so bitter peace - Japan is not Axis
+#							event = 3283061 # The not so bitter peace - Japan is in the Axis
+							}
+					}
+			NOT = { war = { country = FIN country = SOV } }	
+			NOT = {	event = 3136210
+					event = 3136206
+					}			
+			}
+
+decision_trigger =	{
+			war = { country = GER country = SOV }
+					}
+
+trigger = {
+			flag = GER_aid_FIN
+			event = { id = 3136205 days = 360 }
+			NOT = {	
+					OR = {
+							event = 2024 # bitter peace without Japan
+							event = 3234014 # FIN wins the continuation war
+#							event = 3283059 # bitter peace with Japan
+#							event = 3283060 # The not so bitter peace - Japan is not Axis
+#							event = 3283061 # The not so bitter peace - Japan is in the Axis
+							}
+					}
+			NOT = { war = { country = FIN country = SOV } }	
+			war = { country = GER country = SOV }
+			NOT = {	event = 3136210
+					event = 3136206
+					}
+			}
+					
+	name = EVT_3136208_NAME # German soldiers return home from Finland victorious
+	desc = EVT_3136208_DESC
+	style = 2
+	decision_picture = "decision_silverfox"
+	
+	date = { day = 27 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136208A 
+		command = { type = dissent value = 2 }
+		command = { type = add_corps which = "Expeditionskorps Finnland" value = land where = 163 } #Berlin
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = activate_division which = 14500 value = 307 where = 163 when = 1 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = activate_division which = 14500 value = 309 where = 163 when = 1 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = activate_division which = 14500 value = 310 where = 163 when = 1 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = activate_division which = 14500 value = 311 where = 163 when = 1 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = activate_division which = 14500 value = 308 where = 163 when = 1 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = activate_division which = 14500 value = 312 where = 163 when = 1 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = activate_division which = 14500 value = 313 where = 163 when = 1 } # garrison
+		
+		# return provinces that might have come under german control during the campaign
+		command = { trigger = { control = { province = 526 data = GER } owned = { province = 526 data = FIN } } type = control which = FIN value = 526 }
+		command = { trigger = { control = { province = 524 data = GER } owned = { province = 524 data = FIN } } type = control which = FIN value = 524 }
+		command = { trigger = { control = { province = 525 data = GER } owned = { province = 525 data = FIN } } type = control which = FIN value = 525 }
+		command = { trigger = { control = { province = 529 data = GER } owned = { province = 529 data = FIN } } type = control which = FIN value = 529 }
+		command = { trigger = { control = { province = 512 data = GER } owned = { province = 512 data = FIN } } type = control which = FIN value = 512 }
+		command = { trigger = { control = { province = 527 data = GER } owned = { province = 527 data = FIN } } type = control which = FIN value = 527 }
+		command = { trigger = { control = { province = 521 data = GER } owned = { province = 521 data = FIN } } type = control which = FIN value = 521 }
+		command = { trigger = { control = { province = 520 data = GER } owned = { province = 520 data = FIN } } type = control which = FIN value = 520 }
+		command = { trigger = { control = { province = 516 data = GER } owned = { province = 516 data = FIN } } type = control which = FIN value = 516 }
+		command = { trigger = { control = { province = 511 data = GER } owned = { province = 511 data = FIN } } type = control which = FIN value = 511 }
+		command = { trigger = { control = { province = 513 data = GER } owned = { province = 513 data = FIN } } type = control which = FIN value = 513 }
+		command = { trigger = { control = { province = 515 data = GER } owned = { province = 515 data = FIN } } type = control which = FIN value = 515 }
+		command = { trigger = { control = { province = 517 data = GER } owned = { province = 517 data = FIN } } type = control which = FIN value = 517 }
+		command = { trigger = { control = { province = 514 data = GER } owned = { province = 514 data = FIN } } type = control which = FIN value = 514 }
+		command = { trigger = { control = { province = 518 data = GER } owned = { province = 518 data = FIN } } type = control which = FIN value = 518 }
+		command = { trigger = { control = { province = 519 data = GER } owned = { province = 519 data = FIN } } type = control which = FIN value = 519 }
+		command = { trigger = { control = { province = 523 data = GER } owned = { province = 523 data = FIN } } type = control which = FIN value = 523 }
+		command = { trigger = { control = { province = 522 data = GER } owned = { province = 522 data = FIN } } type = control which = FIN value = 522 }
+		command = { trigger = { control = { province = 528 data = GER } owned = { province = 528 data = FIN } } type = control which = FIN value = 528 }
+		command = { trigger = { control = { province = 533 data = GER } owned = { province = 533 data = FIN } } type = control which = FIN value = 533 }
+		command = { trigger = { control = { province = 530 data = GER } owned = { province = 530 data = FIN } } type = control which = FIN value = 530 }
+		command = { trigger = { control = { province = 531 data = GER } owned = { province = 531 data = FIN } } type = control which = FIN value = 531 }
+		command = { trigger = { control = { province = 532 data = GER } owned = { province = 532 data = FIN } } type = control which = FIN value = 532 }
+		command = { trigger = { control = { province = 539 data = GER } owned = { province = 539 data = FIN } } type = control which = FIN value = 539 }
+		command = { trigger = { control = { province = 537 data = GER } owned = { province = 537 data = FIN } } type = control which = FIN value = 537 }
+		command = { trigger = { control = { province = 540 data = GER } owned = { province = 540 data = FIN } } type = control which = FIN value = 540 }
+		command = { trigger = { control = { province = 538 data = GER } owned = { province = 538 data = FIN } } type = control which = FIN value = 538 }
+		command = { trigger = { control = { province = 536 data = GER } owned = { province = 536 data = FIN } } type = control which = FIN value = 536 }
+		
+		command = { type = trigger which = 3136209 } # FIN
+	}
+}
+#########################################################################
+#  Operation Silberfuchs - German troops return defeated
+#########################################################################
+event = { 
+	id = 3136209
+	random = no
+	country = FIN
+	
+	# Triggered by GER 3136208
+	
+	name = EVT_3136209_NAME
+	desc = EVT_3136209_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3136209A # There were large losses
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = remove_division which = 32000 value = 13 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = remove_division which = 32000 value = 15 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = remove_division which = 32000 value = 16 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = remove_division which = 32000 value = 17 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = remove_division which = 32000 value = 14 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = remove_division which = 32000 value = 18 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = remove_division which = 32000 value = 19 } # garrison
+   }
+}
+#########################################################################
+# German soldiers return home from Finland prematurely
+#########################################################################
+event = {
+	id = 3136210
+	random = no
+	country = GER
+
+decision =	{
+			flag = GER_aid_FIN
+			event = { id = 3136205 }
+			NOT = {	
+					OR = {
+							event = 2024 # bitter peace without Japan
+							event = 3234014 # FIN wins the continuation war
+#							event = 3283059 # bitter peace with Japan
+#							event = 3283060 # The not so bitter peace - Japan is not Axis
+#							event = 3283061 # The not so bitter peace - Japan is in the Axis
+							}
+					}
+			war = { country = FIN country = SOV }	
+			war = { country = GER country = SOV }
+			NOT = {	event = 3136208
+					event = 3136206
+					}
+			}
+
+decision_trigger =	{
+					ai = no
+					}
+
+trigger = {
+			lost_national = { country = GER value = 5 } # GER calls back its men for homeland defense
+			flag = GER_aid_FIN
+			event = { id = 3136205 days = 360 }
+			NOT = {	
+					OR = {
+							event = 2024 # bitter peace without Japan
+							event = 3234014 # FIN wins the continuation war
+#							event = 3283059 # bitter peace with Japan
+#							event = 3283060 # The not so bitter peace - Japan is not Axis
+#							event = 3283061 # The not so bitter peace - Japan is in the Axis
+							}
+					}
+			NOT = { war = { country = FIN country = SOV } }	
+			war = { country = GER country = SOV }
+			NOT = {	event = 3136208
+					event = 3136206
+					}
+			}
+					
+	name = EVT_3136210_NAME # German soldiers return home from Finland prematurely
+	desc = EVT_3136210_DESC
+	style = 2
+	decision_picture = "decision_silverfox"
+	
+	date = { day = 27 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136210A 
+		command = { type = dissent value = 1 }
+		command = { type = relation which = FIN value = -100 }
+		command = { type = add_corps which = "Expeditionskorps Finnland" value = land where = 163 } #Berlin
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = activate_division which = 14500 value = 314 where = 163 when = 1 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = activate_division which = 14500 value = 316 where = 163 when = 1 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = activate_division which = 14500 value = 317 where = 163 when = 1 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = activate_division which = 14500 value = 318 where = 163 when = 1 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = activate_division which = 14500 value = 315 where = 163 when = 1 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = activate_division which = 14500 value = 319 where = 163 when = 1 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = activate_division which = 14500 value = 320 where = 163 when = 1 } # garrison
+		
+		# return provinces that might have come under german control during the campaign
+		command = { trigger = { control = { province = 526 data = GER } owned = { province = 526 data = FIN } } type = control which = FIN value = 526 }
+		command = { trigger = { control = { province = 524 data = GER } owned = { province = 524 data = FIN } } type = control which = FIN value = 524 }
+		command = { trigger = { control = { province = 525 data = GER } owned = { province = 525 data = FIN } } type = control which = FIN value = 525 }
+		command = { trigger = { control = { province = 529 data = GER } owned = { province = 529 data = FIN } } type = control which = FIN value = 529 }
+		command = { trigger = { control = { province = 512 data = GER } owned = { province = 512 data = FIN } } type = control which = FIN value = 512 }
+		command = { trigger = { control = { province = 527 data = GER } owned = { province = 527 data = FIN } } type = control which = FIN value = 527 }
+		command = { trigger = { control = { province = 521 data = GER } owned = { province = 521 data = FIN } } type = control which = FIN value = 521 }
+		command = { trigger = { control = { province = 520 data = GER } owned = { province = 520 data = FIN } } type = control which = FIN value = 520 }
+		command = { trigger = { control = { province = 516 data = GER } owned = { province = 516 data = FIN } } type = control which = FIN value = 516 }
+		command = { trigger = { control = { province = 511 data = GER } owned = { province = 511 data = FIN } } type = control which = FIN value = 511 }
+		command = { trigger = { control = { province = 513 data = GER } owned = { province = 513 data = FIN } } type = control which = FIN value = 513 }
+		command = { trigger = { control = { province = 515 data = GER } owned = { province = 515 data = FIN } } type = control which = FIN value = 515 }
+		command = { trigger = { control = { province = 517 data = GER } owned = { province = 517 data = FIN } } type = control which = FIN value = 517 }
+		command = { trigger = { control = { province = 514 data = GER } owned = { province = 514 data = FIN } } type = control which = FIN value = 514 }
+		command = { trigger = { control = { province = 518 data = GER } owned = { province = 518 data = FIN } } type = control which = FIN value = 518 }
+		command = { trigger = { control = { province = 519 data = GER } owned = { province = 519 data = FIN } } type = control which = FIN value = 519 }
+		command = { trigger = { control = { province = 523 data = GER } owned = { province = 523 data = FIN } } type = control which = FIN value = 523 }
+		command = { trigger = { control = { province = 522 data = GER } owned = { province = 522 data = FIN } } type = control which = FIN value = 522 }
+		command = { trigger = { control = { province = 528 data = GER } owned = { province = 528 data = FIN } } type = control which = FIN value = 528 }
+		command = { trigger = { control = { province = 533 data = GER } owned = { province = 533 data = FIN } } type = control which = FIN value = 533 }
+		command = { trigger = { control = { province = 530 data = GER } owned = { province = 530 data = FIN } } type = control which = FIN value = 530 }
+		command = { trigger = { control = { province = 531 data = GER } owned = { province = 531 data = FIN } } type = control which = FIN value = 531 }
+		command = { trigger = { control = { province = 532 data = GER } owned = { province = 532 data = FIN } } type = control which = FIN value = 532 }
+		command = { trigger = { control = { province = 539 data = GER } owned = { province = 539 data = FIN } } type = control which = FIN value = 539 }
+		command = { trigger = { control = { province = 537 data = GER } owned = { province = 537 data = FIN } } type = control which = FIN value = 537 }
+		command = { trigger = { control = { province = 540 data = GER } owned = { province = 540 data = FIN } } type = control which = FIN value = 540 }
+		command = { trigger = { control = { province = 538 data = GER } owned = { province = 538 data = FIN } } type = control which = FIN value = 538 }
+		command = { trigger = { control = { province = 536 data = GER } owned = { province = 536 data = FIN } } type = control which = FIN value = 536 }
+		
+		command = { type = trigger which = 3136211 } # FIN
+	}
+}
+#########################################################################
+#  Operation Silberfuchs - German troops return prematurely
+#########################################################################
+event = { 
+	id = 3136211
+	random = no
+	country = FIN
+	
+	# Triggered by GER 3136210
+	
+	name = EVT_3136211_NAME
+	desc = EVT_3136211_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3136211A # There were some losses during the retreat
+		command = { trigger = { division_exists = { type = 32000 id = 13 }} type = remove_division which = 32000 value = 13 } # 169. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 15 }} type = remove_division which = 32000 value = 15 } # 6. GJ Nord
+		command = { trigger = { division_exists = { type = 32000 id = 16 }} type = remove_division which = 32000 value = 16 } # 2. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 17 }} type = remove_division which = 32000 value = 17 } # 3. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 14 }} type = remove_division which = 32000 value = 14 } # 163. Inf
+		command = { trigger = { division_exists = { type = 32000 id = 18 }} type = remove_division which = 32000 value = 18 } # 7. GJ
+		command = { trigger = { division_exists = { type = 32000 id = 19 }} type = remove_division which = 32000 value = 19 } # garrison
+		}
+}
+#########################################################################
+# Reaction to ahistoric Middle East developments GER 1
+#########################################################################
+event = { 
+	id = 3136212
+	random = no 
+	country = GER
+
+	decision = {
+		ai = no
+		atwar = yes
+		OR = {
+				NOT = { ai = ENG }
+				NOT = { ai = USA }
+				}
+	}
+
+	decision_trigger = { 
+		OR = { 
+				war = { country = ENG country = GER }
+				war = { country = USA country = GER }
+				}
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 3 } }
+					NOT = { ispuppet = TUR }
+					OR = {
+					war = { country = ENG country = TUR }
+					war = { country = USA country = TUR }
+						}
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 3 } }
+					NOT = { ispuppet = PER }
+					NOT = { event = 3131000 }
+					OR = {
+					war = { country = ENG country = PER }
+					war = { country = USA country = PER }
+						}
+						}
+				}
+						}
+	
+	trigger = {
+		ai = yes
+		OR = { 
+				war = { country = ENG country = GER }
+				war = { country = USA country = GER }
+				}
+		OR = {
+				NOT = { ai = ENG }
+				NOT = { ai = USA }
+				}
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 3 } }
+					NOT = { ispuppet = TUR }
+					OR = {
+					war = { country = ENG country = TUR }
+					war = { country = USA country = TUR }
+						}
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 3 } }
+					NOT = { event = 3131000 }
+					NOT = { ispuppet = PER }
+					OR = {
+					war = { country = ENG country = PER }
+					war = { country = USA country = PER }
+						}
+						}
+				}
+	}
+
+	name = EVT_3136212_NAME
+	desc = EVT_3136212_DESC
+	style = 0
+	decision_picture = "decision_grand_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136212A #
+		command = { trigger = { NOT = { participant = { country = GRE value = 4 } atwar = GRE } } type = alliance which = GRE }
+		command = { trigger = { NOT = { participant = { country = BUL value = 4 } atwar = BUL } } type = alliance which = BUL }
+		command = { trigger = { NOT = { participant = { country = ROM value = 4 } atwar = ROM } } type = alliance which = ROM }
+		command = { trigger = { NOT = { participant = { country = HUN value = 4 } atwar = HUN } } type = alliance which = HUN }
+		command = { trigger = { NOT = { participant = { country = IRQ value = 4 } atwar = IRQ } } type = alliance which = IRQ }
+		command = { trigger = { NOT = { participant = { country = TUR value = 4 } } } type = alliance which = TUR }
+		command = { trigger = { NOT = { participant = { country = PER value = 4 } } } type = alliance which = PER }
+	}
+}
+#########################################################################
+# Reaction to ahistoric Middle East developments GER 2
+#########################################################################
+event = { 
+	id = 3136213
+	random = no 
+	country = GER
+
+	decision = {
+		ai = no
+		atwar = yes
+		NOT = { ai = SOV }
+	}
+
+	decision_trigger = { 
+		war = { country = SOV country = GER }
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 1 } }
+					NOT = { ispuppet = TUR }
+					war = { country = SOV country = TUR }
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 1 } }
+					NOT = { ispuppet = PER }
+					NOT = { event = 3131000 }
+					war = { country = SOV country = PER }
+						}
+				}
+						}
+	
+	trigger = {
+		ai = yes
+		war = { country = SOV country = GER }
+		NOT = { ai = SOV }
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 1 } }
+					NOT = { ispuppet = TUR }
+					war = { country = SOV country = TUR }
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 1 } }
+					NOT = { ispuppet = PER }
+					NOT = { event = 3131000 }
+					war = { country = SOV country = PER }
+						}
+				}
+	}
+
+	name = EVT_3136213_NAME
+	desc = EVT_3136213_DESC
+	style = 0
+	decision_picture = "decision_grand_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3136213A #
+		command = { trigger = { NOT = { participant = { country = GRE value = 4 } atwar = GRE } } type = alliance which = GRE }
+		command = { trigger = { NOT = { participant = { country = BUL value = 4 } atwar = BUL } } type = alliance which = BUL }
+		command = { trigger = { NOT = { participant = { country = ROM value = 4 } atwar = ROM } } type = alliance which = ROM }
+		command = { trigger = { NOT = { participant = { country = HUN value = 4 } atwar = HUN } } type = alliance which = HUN }
+		command = { trigger = { NOT = { participant = { country = IRQ value = 4 } atwar = IRQ } } type = alliance which = IRQ }
+		command = { trigger = { NOT = { participant = { country = TUR value = 4 } } } type = alliance which = TUR }
+		command = { trigger = { NOT = { participant = { country = PER value = 4 } } } type = alliance which = PER }
+	}
+}
+#########################################################################
+# Reaction to ahistoric Middle East developments GER 3
+#########################################################################
+event = { 
+	id = 3136214
+	random = no 
+	country = GER
+
+	decision = {
+		ai = no
+		atwar = yes
+		NOT = { ai = SOV }
+	}
+
+	decision_trigger = { 
+		NOT = { war = { country = SOV country = GER }}
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 1 } }
+					NOT = { ispuppet = TUR }
+					war = { country = SOV country = TUR }
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 1 } }
+					NOT = { ispuppet = PER }
+					NOT = { event = 3131000 }
+					war = { country = SOV country = PER }
+						}
+				}
+						}
+	
+	trigger = {
+		ai = yes
+		NOT = { war = { country = SOV country = GER }}
+		NOT = { ai = SOV }
+		OR = { 
+				AND = {
+					NOT = { participant = { country = TUR value = 1 } }
+					NOT = { ispuppet = TUR }
+					war = { country = SOV country = TUR }
+						}
+				AND = {
+					NOT = { participant = { country = PER value = 1 } }
+					NOT = { ispuppet = PER }
+					NOT = { event = 3131000 }
+					war = { country = SOV country = PER }
+						}
+				}
+	}
+
+	name = EVT_3136214_NAME
+	desc = EVT_3136214_DESC
+	style = 0
+	decision_picture = "decision_grand_offensive"
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 0
+		name = ACTIONNAME3136214A #
+		command = { trigger = { NOT = { participant = { country = GRE value = 4 } atwar = GRE } } type = alliance which = GRE }
+		command = { trigger = { NOT = { participant = { country = BUL value = 4 } atwar = BUL } } type = alliance which = BUL }
+		command = { trigger = { NOT = { participant = { country = ROM value = 4 } atwar = ROM } } type = alliance which = ROM }
+		command = { trigger = { NOT = { participant = { country = HUN value = 4 } atwar = HUN } } type = alliance which = HUN }
+		command = { trigger = { NOT = { participant = { country = IRQ value = 4 } atwar = IRQ } } type = alliance which = IRQ }
+		command = { trigger = { NOT = { participant = { country = TUR value = 4 } } } type = alliance which = TUR }
+		command = { trigger = { NOT = { participant = { country = PER value = 4 } } } type = alliance which = PER }
+	}
+	action_b = {
+		ai_chance = 100
+		name = ACTIONNAME3136214B #
+		command = { trigger = { NOT = { participant = { country = GRE value = 4 } atwar = GRE } } type = alliance which = GRE }
+		command = { trigger = { NOT = { participant = { country = BUL value = 4 } atwar = BUL } } type = alliance which = BUL }
+		command = { trigger = { NOT = { participant = { country = ROM value = 4 } atwar = ROM } } type = alliance which = ROM }
+		command = { trigger = { NOT = { participant = { country = HUN value = 4 } atwar = HUN } } type = alliance which = HUN }
+		command = { trigger = { NOT = { participant = { country = TUR value = 4 } } } type = inherit which = TUR }
+	}
+}
+
+
+#########################
+# The 30. Unterseebootsflottille
+#########################
+
+event = { 
+	id = 31362200
+	random = no 
+	country = GER
+	
+	save_date = yes
+
+	decision = {
+		ai = no
+		war = { country = GER country = SOV }
+	}
+
+	decision_trigger = { 
+		war      = { country = SOV country = GER }
+		control  = { province = 310 data = -3 } 
+		OR = {
+               control = { province = 626 data = SOV } 
+               control = { province = 625 data = SOV } 
+               control = { province = 622 data = SOV } 
+               control = { province = 624 data = SOV } 
+               control = { province = 639 data = SOV } 
+               control = { province = 637 data = SOV } 
+               control = { province = 641 data = SOV } 
+               control = { province = 638 data = SOV } 
+               control = { province = 640 data = SOV } 
+               control = { province = 623 data = SOV } 
+               control = { province = 630 data = SOV } 
+               control = { province = 631 data = SOV } 
+               control = { province = 644 data = SOV } 
+               control = { province = 692 data = SOV } 
+               control = { province = 691 data = SOV } 
+               control = { province = 694 data = SOV } 
+               control = { province = 695 data = SOV } 
+               control = { province = 710 data = SOV } 
+               control = { province = 708 data = SOV } 
+             }
+		energy = 730
+		metal = 315
+		rare_materials = 200
+		supplies = 1350
+		manpower = 1
+	}
+	
+	trigger = {
+		ai = yes
+		war      = { country = SOV country = GER }
+		control  = { province = 310 data = -3 } 
+		OR = {
+               control = { province = 626 data = SOV } 
+               control = { province = 625 data = SOV } 
+               control = { province = 622 data = SOV } 
+               control = { province = 624 data = SOV } 
+               control = { province = 639 data = SOV } 
+               control = { province = 637 data = SOV } 
+               control = { province = 641 data = SOV } 
+               control = { province = 638 data = SOV } 
+               control = { province = 640 data = SOV } 
+               control = { province = 623 data = SOV } 
+               control = { province = 630 data = SOV } 
+               control = { province = 631 data = SOV } 
+               control = { province = 644 data = SOV } 
+               control = { province = 692 data = SOV } 
+               control = { province = 691 data = SOV } 
+               control = { province = 694 data = SOV } 
+               control = { province = 695 data = SOV } 
+               control = { province = 710 data = SOV } 
+               control = { province = 708 data = SOV } 
+             }
+		random = 25
+	}
+
+	name = EVT_31362200_NAME
+	desc = EVT_31362200_DESC
+	style = 2
+	decision_picture = "ger_30flottille_dec"
+	picture = "ger_30flottille_evt"
+
+	date = { day = 0 month = october year = 1941 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME31362200A #
+		command = { trigger = { ai = no } type = energypool value = -730 }
+		command = { trigger = { ai = no } type = metalpool value = -315 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -200 }
+		command = { trigger = { ai = no } type = supplies value = -1350 }
+		command = { trigger = { ai = no } type = manpowerpool value = -1 }
+		command = { trigger = { ai = yes } type = energypool value = -1 } # added for testing purposes
+	}
+	action_b = {
+		ai_chance = 0
+		name = EVT_3835_ACTB # no need
+		command = { type = sleepevent which = 31362200 }
+	}
+}
+
+event = {
+	id = 31362201
+	random = no
+	country = GER
+	
+	trigger = {
+		NOT = { AI = GER }
+		event = { id = 31362200 days = 150 }
+		control  = { province = 310 data = -3 } 
+	}
+	
+	name = EVT_31362201_NAME
+	desc = EVT_31362201_DESC
+	style = 2
+	picture = "ger_30flottille_evt2"
+	
+	date = { day = 0 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		name = ACTIONNAME31362201 #
+        command = { type = add_corps    which = "30. U-Flottille" value = naval when = 998 where = 310 } #Rosenbaum
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		
+		command = { type = sleepevent which = 31362211 }
+	}
+}
+
+event = {
+	id = 31362211
+	random = no
+	country = ROM
+	
+	trigger = {
+		AI = GER
+		event = { id = 31362200 days = 150 }
+		control  = { province = 310 data = -3 } 
+	}
+	
+	name = EVT_31362201_NAME
+	desc = EVT_31362201_DESC
+	style = 2
+	picture = "ger_30flottille_evt2"
+	
+	date = { day = 0 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+		name = ACTIONNAME31362201 #
+        command = { type = add_corps    which = "30. U-Flottille" value = naval when = 998 where = 310 } #Rosenbaum
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		command = { type = add_division value = nuclear_submarine when = 2 }
+		
+		command = { type = sleepevent which = 31362201 }
+	}
+}
+
+#########################
+# Schleuderschiffe
+#########################
+
+event = { 
+	id = 3136230
+	random = no 
+	country = GER
+
+	decision = {
+		ai = no
+		atwar = GER
+	}
+
+	decision_trigger = { 
+		supplies = 3500
+	}
+	
+	trigger = {
+		ai = yes
+		atwar = GER
+		random = 25
+	}
+
+	name = EVT_3136230_NAME
+	desc = EVT_3136230_DESC
+	style = 2
+	decision_picture = "ger_decision_schleuderschiff"
+	picture = "ger_event_schleuderschiff"
+
+	date = { day = 20 month = january year = 1940 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3136230A #
+		command = { trigger = { ai = no } type = supplies value = -3500 }
+		command = { trigger = { ai = yes } type = energypool value = -1 } # added for testing purposes
+		
+		command = { type = activate_division which = 14500 value = 395 where = 153 when = 0 }
+		command = { type = activate_division which = 14500 value = 396 where = 153 when = 0 }
+		command = { type = activate_division which = 14500 value = 397 where = 153 when = 0 }
+	}
+	action_b = {
+		ai_chance = 0
+		name = EVT_3835_ACTB # no need
+		command = { type = sleepevent which = 3136230 }
+	}
+}
+
+########################################################
+# The navy's last stand
+########################################################
+event = { 
+	id = 3136231
+	random = no
+	country = GER
+	
+	decision = {
+				ai = no
+				atwar = yes
+				NOT = { battleship = { country = GER value = 1 } }				
+	}
+	decision_trigger = {
+						supplies = 250
+	}
+	trigger = {
+				ai = yes
+				atwar = yes
+				NOT = { battleship = { country = GER value = 1 } }	
+				random = 2
+	}
+       
+	name = EVT_3146074_NAME
+	desc = EVT_3136231_DESC
+	style = 2
+	decision_picture = "ger_decision_last_stand"
+	picture = "ger_event_last_stand"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { trigger = { ai = no } type = supplies value = -250 }
+		command = { type = activate_division which = 14500 value = 399 when = 0 where = 147 }
+	}
+}
+
+########################################################
+# Luftwaffen-Feld-Division by Gerrit
+########################################################
+event = { 
+	id = 3182150
+	random = no
+	country = GER
+	
+	save_date = yes
+	
+	decision = {
+				ai = no
+				atwar = yes	
+                war = { country = GER country = SOV }				
+   }
+	
+	decision_trigger = {
+	            war = { country = GER country = SOV }
+			    #energy = 730
+		        #metal = 315
+		        #rare_materials = 200
+		        supplies = 2500
+		        #manpower = 250
+	}
+	
+	trigger = {
+				ai = yes
+				atwar = yes
+				random = 2
+	}
+      
+	name = EVT_3182150_NAME
+	desc = EVT_3182150_DESC
+	style = 2
+	decision_picture = "ger_decision_feld_division"
+	picture          = "ger_event_feld_division"
+
+	date = { day = 0 month = august year = 1942 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+   action_a = {
+	    name = ACTION3182150A
+		command = { trigger = { ai = no } type = morale which = tactical_bomber  value = -5 }
+		command = { trigger = { ai = no } type = morale which = naval_bomber     value = -5 }
+		command = { trigger = { ai = no } type = morale which = strategic_bomber value = -10 }
+		command = { trigger = { ai = no } type = morale which = cas              value = -5  }
+		
+		#command = { trigger = { ai = no } type = max_organization which = tactical_bomber  value = -2 }
+		#command = { trigger = { ai = no } type = max_organization which = naval_bomber     value = -3 }
+		command = { trigger = { ai = no } type = max_organization which = strategic_bomber value = -5 }
+		#command = { trigger = { ai = no } type = max_organization which = cas              value = -2 }		
+		
+		command = { trigger = { ai = no } type = build_time which = air value = 20 when = on_upgrade where = relative }
+		
+		command = { trigger = { ai = no } type = dissent value = 2 }
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+#		command = { type = activate_unit_type which = d_02 }
+        command = { type = build_division which = d_02    when = 7 cost = 2.88  name = "" where = 80 } #
+        command = { type = build_division which = d_02    when = 7 cost = 2.88  name = "" where = 80 } #
+        command = { type = build_division which = d_02    when = 7 cost = 2.88  name = "" where = 80 } #
+	}
+}
+
+########################################################
+# Volks-Grenadier-Division by Gerrit
+########################################################
+event = { 
+	id = 3182151
+	random = no
+	country = GER
+	
+	save_date = yes
+	
+	# trigger not final! First build. Need to be adjusted basing on new manpower system or special balance situations!
+	decision = {
+				ai = no
+				atwar = yes	
+                war = { country = GER country = SOV }		
+                war = { country = GER country = ENG }	
+                war = { country = GER country = USA }					
+	}
+	
+	decision_trigger = {
+	            war = { country = GER country = SOV }
+                war = { country = GER country = ENG }	
+                war = { country = GER country = USA }	
+			    #energy = 730
+		        #metal = 315
+		        #rare_materials = 200
+		        supplies = 2500
+		        #manpower = 250
+	}
+	
+	trigger = {
+				ai = yes
+				atwar = yes
+				random = 2
+	}
+       
+	name = EVT_3182151_NAME
+	desc = EVT_3182151_DESC
+	style = 2
+	decision_picture = "ger_decision_volks_division"
+	picture          = "ger_event_volks_division"
+
+	date = { day = 0 month = january year = 1944 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+    action_a = {
+		name = ACTION3182150A
+		command = { trigger = { ai = no } type = dissent value = 3 }
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { type = manpowerpool value = 150 }
+		command = { type = activate_unit_type which = d_02 }
+	}
+}
+########################################################
+# Volkssturm-Einheiten by Gerrit
+########################################################
+event = { 
+	id = 3182152
+	random = no
+	country = GER
+	
+	save_date = yes
+	
+	# trigger not final! First build. Need to be adjusted basing on new manpower system or special balance situations!
+	decision = {
+				ai = no
+				atwar = yes	
+                war = { country = GER country = SOV }
+                war = { country = GER country = USA }
+                war = { country = GER country = ENG }
+			    lost_national = { value = 1 }
+	}
+	
+	decision_trigger = {
+	            war = { country = GER country = SOV }
+				war = { country = GER country = USA }
+				war = { country = GER country = ENG }
+				lost_national = { value = 1 }
+			    #energy = 730
+		        #metal = 315
+		        #rare_materials = 200
+		        supplies = 2500
+		        #manpower = 250
+	}
+	
+	trigger = {
+				ai = yes
+				atwar = yes
+				random = 2
+	}
+	
+	name = EVT_3182152_NAME
+	desc = EVT_3182152_DESC
+	style = 2
+	decision_picture = "ger_decision_volkssturm"
+	picture          = "ger_event_volkssturm"
+
+	date = { day = 0 month = january year = 1942 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+    action_a = {
+		name = ACTION3182152A
+		command = { trigger = { ai = no } type = morale which = land value = -10 }
+		command = { trigger = { ai = no } type = speed  which = land value = -5  }
+		command = { type = max_organization             which = land value = 5   }
+		command = { trigger = { ai = no } type = supplies value = -2500 }
+		command = { trigger = { ai = no } type = dissent value = 5 }
+		command = { type = activate_unit_type which = militia }
+		command = { type = manpowerpool value = 150 }
+	}
+}
+
+########################################################
+# Versuchbsverband Me 262 by Gerrit
+########################################################
+ event = { 
+	id = 3136503
+	random = no
+	country = GER
+	
+	save_date = yes
+
+	decision = {
+				ai = no
+ 	}
+	
+	decision_trigger = {
+                atwar      = yes
+				event      = 3136502
+		        supplies   = 5000
+		        money      = 500
+				technology = 4200
+				technology = 5570
+	}
+	
+	trigger = {
+				ai         = yes
+				atwar      = yes
+				event      = 3136502
+		        supplies   = 5000
+		        money      = 500
+				technology = 4200
+				technology = 5570
+	}
+	
+	name = EVT_3136503_NAME
+	desc = EVT_3136503_DESC
+	style = 2
+	decision_picture = "ger_decision_turbos_me262_2"
+	picture          = "ger_event_turbos_me262_2"
+
+	date = { day = 0 month = september year = 1944 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1999 }
+
+    action_a = {
+		name = ACTION3136503A
+		command = { trigger = { ai = no } type = supplies  value = -5000 }
+		command = { trigger = { ai = no } type = money     value = -500  }
+		command = { type = activate_division which = 14500 value = 405 where = 163 when = 0 }
+		command = { type = gain_tech         which = 4240 } 
+	}
+}
+
+########################################################
+# Ausfuhrgesellschaft für Kriegsgeräte GmbH
+########################################################
+# event = { 
+#	id = 3136504
+#	random = no
+#	country = GER
+#
+#	decision = {
+#		ai = no
+# 	}
+#	
+#	decision_trigger = {
+#        NOT      = { atwar = yes }
+#        supplies = 5000
+#        money    = 250
+# 	     event    = 3136013
+#        NOT = { alliance = { country = GER country = HUN }}
+#		NOT = { alliance = { country = GER country = BUL }}
+#		NOT = { alliance = { country = GER country = ROM }}
+#	}
+#	
+#	trigger = {
+#		ai       = yes
+#       NOT      = { atwar = yes }
+#        supplies = 5000
+#	    money    = 250
+#		event    = 3136013
+#        NOT = { alliance = { country = GER country = HUN }}
+#		NOT = { alliance = { country = GER country = BUL }}
+#		NOT = { alliance = { country = GER country = ROM }}
+#	}
+#	
+#	name = EVT_3136504_NAME
+#	desc = EVT_3136504_DESC
+#	style = 2
+#	decision_picture = "ger_decision_kriegsgerate_gmbh_1"
+#	picture          = "ger_event_kriegsgerate_gmbh_2"
+#
+#	date = { day = 20 month = march year = 1939 } 
+#	offset = 1
+#	deathdate = { day = 0 month = january year = 1942 }
+#
+#    action_a = {
+#		name = ACTIONNAME3136504A
+#		ai_chance = 100
+#		command = { trigger = { ai = no }  type = supplies value = -5000 }
+#		command = { trigger = { ai = yes } type = supplies value = -500  }
+#		command = { trigger = { ai = no }  type = money    value = -250  }
+#        command = { trigger = { ai = no }  type = dissent  value = 1     }
+#		command = { type = trigger which = 3136505 } #	
+#	}
+#
+#    action_b = {
+#		name = ACTIONNAME3136504B
+#		ai_chance = 0
+#        command   = { type = sleepevent which = 3136505 } 
+#		command   = { type = construct which = ic where = 163 value = -2 } # Berlin - Wartungswerke für Ausfuhr werden geschlossen
+#		command   = { type = sleepteam which = 41 } #Skoda
+#	}	
+#}
+#
+#event = { 
+#	id = 3136505
+#	random = no
+#	country = GER
+#	
+#	name = EVT_3136504_NAME
+#	desc = EVT_3136505_DESC
+#	style = 2
+#	picture = "ger_event_kriegsgerate_gmbh_2"
+#	
+#	action = {
+#		name = ACTIONNAME3136505A # Event is needed for axis minors events
+#		command = { type = relation which = HUN value = 10 }
+#		command = { type = relation which = BUL value = 10 }
+#		command = { type = relation which = ROM value = 10 }
+#		command = { type = relation which = TUR value = 5  }
+#	}
+#
+#}
+#
+########################################################
+# Call for the Gneisenau units - Gneisenau-Aufruf
+########################################################
+ event = { 
+	id      = 3136506
+	random  = no
+	country = GER
+
+	decision = {
+        atwar = yes
+		ai    = no
+		lost_national = { value = 1 }
+ 	}
+	
+	decision_trigger = {
+        atwar    = yes
+        supplies = 2500
+	    money    = 75
+	    war = { country = GER country = SOV }
+		OR  = {
+			control = { province = 226 data = -2 } #Poland
+			control = { province = 222 data = -2 } #
+			control = { province = 231 data = -2 } #
+		}			
+		control = { province = 158 data = -1 } #Oder Front
+		control = { province = 159 data = -1 } #		
+	}
+	
+	trigger = {
+		ai       = yes
+        atwar    = yes
+        supplies = 50
+	    war = { country = GER country = SOV }
+		OR  = {
+			control = { province = 226 data = -2 } #Poland
+			control = { province = 222 data = -2 } #
+			control = { province = 231 data = -2 } #
+		}			
+		control = { province = 158 data = -1 } #Oder Front
+		control = { province = 159 data = -1 } #		
+	}
+	
+	name = EVT_3136506_NAME
+	desc = EVT_3136506_DESC
+	style = 2
+	decision_picture = "ger_decision_gneisenau_units"
+	picture          = "ger_event_gneisenau_units"
+
+	date = { day = 0 month = january year = 1942 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1970 }
+
+    action_a = {
+		name = ACTIONNAME3136506A
+		ai_chance = 100
+		command = { trigger = { ai = no }  type = supplies value = -2500 }
+		command = { trigger = { ai = yes } type = supplies value = -50   }
+		command = { trigger = { ai = no }  type = money    value = -75   }
+		command = { type = add_corps which = "Gneisenau-Korps Wehrkreis II"  value = land when = 758 where = 158 } #
+		command = { type = activate_division which = 14500 value = 424 where = 158 }
+		command = { type = activate_division which = 14500 value = 425 where = 158 }
+        command = { type = activate_division which = 14500 value = 426 where = 158 }
+		command = { type = add_corps which = "Gneisenau-Korps Wehrkreis III" value = land when = 819 where = 159 } #
+		command = { type = activate_division which = 14500 value = 427 where = 159 }
+		command = { type = activate_division which = 14500 value = 428 where = 159 }		
+		command = { type = activate_division which = 14500 value = 429 where = 159 }
+	}
+
+    action_b = {
+		name = ACTIONNAME3136506B
+		ai_chance = 0
+        command   = { type = sleepevent which = 3136506 } 
+	}	
+}
+
+########################################################
+# Kammhuber Linie - The western Flak Wall
+########################################################
+ event = { 
+	id      = 3136507
+	random  = no
+	country = GER
+
+	decision = {
+        atwar = yes
+		ai    = no
+ 	}
+	
+	decision_trigger = {
+        atwar    = yes
+		supplies       = 7500
+		energy         = 7500
+		metal          = 5500
+		rare_materials = 1500
+		money          = 450
+	    war = { country = GER country = ENG }
+		event = 3136033
+		event = 3136039
+			control = { province = 216 data = -3 } #Abenra
+			control = { province = 152 data = -3 } #Kiel
+			control = { province = 147 data = -3 } #Wilhelmshaven
+			control = { province = 141 data = -3 } #Münster
+			control = { province = 142 data = -3 } #Düsseldorf
+			control = { province = 131 data = -3 } #Köln
+			control = { province = 126 data = -3 } #Aachen
+			control = { province = 129 data = -3 } #Koblenz
+			control = { province = 128 data = -3 } #Trier
+			control = { province = 148 data = -3 } #Bremen
+			control = { province = 125 data = -3 } #Rotterdam
+			control = { province = 122 data = -3 } #Amsterdam
+			control = { province = 114 data = -3 } #Brügge/Middelkerk
+	}
+	
+	trigger = {
+		ai       = yes
+        atwar    = yes
+	    war = { country = GER country = ENG }
+		event = 3136033
+		event = 3136039
+			control = { province = 216 data = -3 } #Abenra
+			control = { province = 152 data = -3 } #Kiel
+			control = { province = 147 data = -3 } #Wilhelmshaven
+			control = { province = 141 data = -3 } #Münster
+			control = { province = 142 data = -3 } #Düsseldorf
+			control = { province = 131 data = -3 } #Köln
+			control = { province = 126 data = -3 } #Aachen
+			control = { province = 129 data = -3 } #Koblenz
+			control = { province = 128 data = -3 } #Trier
+			control = { province = 148 data = -3 } #Bremen
+			control = { province = 125 data = -3 } #Rotterdam
+			control = { province = 122 data = -3 } #Amsterdam
+			control = { province = 114 data = -3 } #Brügge/Middelkerk		
+	}
+	
+	name = EVT_3136507_NAME
+	desc = EVT_3136507_DESC
+	style = 2
+	decision_picture = "ger_decision_flak_wall"
+	picture          = "ger_event_flak_wall"
+
+	date = { day = 18 month = july year = 1940 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1970 }
+	
+    action_a = {
+		name = ACTIONNAME3136507A
+		ai_chance = 100
+		command = { trigger = { ai = no } type = money             value = -450  }
+		command = { trigger = { ai = no } type = supplies          value = -7500 }
+		command = { trigger = { ai = no } type = energypool        value = -7500 }
+		command = { trigger = { ai = no } type = metalpool         value = -5500 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -4    }
+		command = { trigger = { ai = no } type = dissent           value = 3     }
+		#
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -1000 }
+		#
+        command = { type = construct which = radar_station where = 216 value = 1 } #
+		command = { type = construct which = radar_station where = 152 value = 1 } #
+		command = { type = construct which = radar_station where = 147 value = 1 } #
+		command = { type = construct which = radar_station where = 141 value = 1 } #
+		command = { type = construct which = radar_station where = 131 value = 1 } #
+		command = { type = construct which = radar_station where = 129 value = 1 } #
+		#
+		command = { type = construct which = flak          where = 216 value = 1 } #
+		command = { type = construct which = flak          where = 141 value = 1 } #
+		command = { type = construct which = flak          where = 126 value = 1 } #
+		command = { type = construct which = flak          where = 129 value = 1 } #
+		command = { type = construct which = flak          where = 128 value = 1 } #
+		command = { type = construct which = flak          where = 148 value = 1 } #
+		#
+		command = { type = add_corps         which = "1. Nachtjagddivision" value = air when  = 448 where = 142 }
+		command = { type = activate_division which = 14500                  value = 430 where = 142 when  = 1   }
+		command = { type = activate_division which = 14500                  value = 431 where = 142 when  = 1   }
+		#
+		command = { type = add_leader_skill which = 448 value = 1 } #General Kammhuber, General der Nachtjagd
+	}
+
+    action_b = {
+		name = ACTIONNAME3136507B
+		ai_chance = 0
+        command   = { type = sleepevent which = 3136507 } 
+	}	
+}	
+
+ event = { 
+	id      = 3136508
+	random  = no
+	country = GER
+
+	decision = {
+        atwar = yes
+		ai    = no
+ 	}
+	
+	decision_trigger = {
+        atwar    = yes
+		supplies       = 6500
+		energy         = 5000
+		metal          = 5000
+		rare_materials = 1500
+		money          = 550
+	    war = { country = GER country = ENG }
+		war = { country = GER country = SOV }
+		war = { country = GER country = USA }
+		event = 3136507
+			control = { province = 216 data = -3 } #Abenra
+			control = { province = 152 data = -3 } #Kiel
+			control = { province = 147 data = -3 } #Wilhelmshaven
+			control = { province = 141 data = -3 } #Münster
+			control = { province = 142 data = -3 } #Düsseldorf
+			control = { province = 131 data = -3 } #Köln
+			control = { province = 126 data = -3 } #Aachen
+			control = { province = 129 data = -3 } #Koblenz
+			control = { province = 128 data = -3 } #Trier
+			control = { province = 148 data = -3 } #Bremen
+			control = { province = 125 data = -3 } #Rotterdam
+			control = { province = 122 data = -3 } #Amsterdam
+			control = { province = 114 data = -3 } #Brügge/Middelkerk
+	}
+	
+	trigger = {
+		ai       = yes
+        atwar    = yes
+	    war = { country = GER country = ENG }
+		war = { country = GER country = SOV }
+		war = { country = GER country = USA }
+		event = 3136507
+			control = { province = 216 data = -3 } #Abenra
+			control = { province = 152 data = -3 } #Kiel
+			control = { province = 147 data = -3 } #Wilhelmshaven
+			control = { province = 141 data = -3 } #Münster
+			control = { province = 142 data = -3 } #Düsseldorf
+			control = { province = 131 data = -3 } #Köln
+			control = { province = 126 data = -3 } #Aachen
+			control = { province = 129 data = -3 } #Koblenz
+			control = { province = 128 data = -3 } #Trier
+			control = { province = 148 data = -3 } #Bremen
+			control = { province = 125 data = -3 } #Rotterdam
+			control = { province = 122 data = -3 } #Amsterdam
+			control = { province = 114 data = -3 } #Brügge/Middelkerk		
+	}
+	
+	name = EVT_3136507_NAME
+	desc = EVT_3136508_DESC
+	style = 2
+	decision_picture = "ger_decision_flak_wall"
+	picture          = "ger_event_flak_wall2"
+
+	date = { day = 6 month = march year = 1942 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1970 }
+	
+    action_a = {
+		name = ACTIONNAME3136508A
+		ai_chance = 100
+		command = { trigger = { ai = no } type = money             value = -550  }
+		command = { trigger = { ai = no } type = supplies          value = -6500 }
+		command = { trigger = { ai = no } type = energypool        value = -5000 }
+		command = { trigger = { ai = no } type = metalpool         value = -5000 }
+		command = { trigger = { ai = no } type = rarematerialspool value = -1500 }
+		command = { trigger = { ai = no } type = manpowerpool      value = -4    }
+		command = { trigger = { ai = no } type = dissent           value = 3     }
+		#
+		command = { trigger = { ai = yes } type = energypool value = -1000 }
+		command = { trigger = { ai = yes } type = metalpool  value = -1000 }
+		#
+        command = { type = construct which = radar_station where = 147 value = 1 } #
+		command = { type = construct which = radar_station where = 142 value = 1 } #
+		command = { type = construct which = radar_station where = 125 value = 1 } #
+		command = { type = construct which = radar_station where = 122 value = 1 } #
+		command = { type = construct which = radar_station where = 114 value = 2 } #
+		#
+		command = { type = construct which = flak          where = 152 value = 1 } #
+		command = { type = construct which = flak          where = 141 value = 1 } #
+		command = { type = construct which = flak          where = 126 value = 1 } #
+		command = { type = construct which = flak          where = 129 value = 1 } #
+		command = { type = construct which = flak          where = 128 value = 1 } #
+		command = { type = construct which = flak          where = 148 value = 1 } #
+		command = { type = construct which = flak          where = 114 value = 3 } #
+		command = { type = construct which = flak          where = 122 value = 1 } #
+		command = { type = construct which = flak          where = 125 value = 1 } #
+	}
+
+    action_b = {
+		name = ACTIONNAME3136508B
+		ai_chance = 0
+        command   = { type = sleepevent which = 3136508 } 
+	}	
+}
+
+########################################################
+# Fate of the Lufthansa
+########################################################
+
+ event = { 
+	id      = 3136510
+	random  = no
+	country = GER
+
+	decision = {
+				ai    = no
+				atwar = yes
+				}
+	
+	decision_trigger = {
+						NOT = { year = 1941 }
+						supplies       = 6500
+						oil            = 2500
+						money          = 1500
+						}
+	
+	trigger = {
+				atwar = yes
+				NOT = { year = 1941 }
+				supplies       = 1000
+				oil            = 500
+				}
+	
+	name = EVT_3136510_NAME
+	desc = EVT_3136510_DESC
+	style = 2
+	decision_picture = "ger_decision_lufthansa"
+	picture          = "ger_event_lufthansa"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1941 }
+	
+    action_a = {
+		name = ACTIONNAME3136510A
+		ai_chance = 100
+		command = { trigger = { ai = no } type = money             value = -1500 }
+		command = { trigger = { ai = no } type = supplies          value = -6500 }
+		command = { trigger = { ai = no } type = oilpool           value = -2500 }
+		command = { trigger = { ai = no } type = dissent           value = 1     }
+		#
+		command = { trigger = { ai = yes } type = supplies value = -1000 }
+		command = { trigger = { ai = yes } type = oilpool  value = -500  }
+		#
+        command = { type = activate_division which = 14500 value = 432 when = 0 }
+	}
+
+    action_b = {
+		name = ACTIONNAME3136510B
+		ai_chance = 0
+        command   = { type = sleepevent which = 3136510 } 
+	}	
+}
+
+########################################################
+# Kalmückisches Kavalleriekorps
+########################################################
+
+ event = { 
+	id      = 3136511
+	random  = no
+	country = GER
+
+	decision = {
+	            war = { country = GER country = SOV }
+				ai  = no
+				}
+	
+	decision_trigger = {
+	            war = { country = GER country = SOV }
+				control = { province = 699 data = -3 } # Elista - south of Stalingrad
+                supplies = 1000 
+						}
+	
+	trigger = {
+                war = { country = GER country = SOV }
+				control = { province = 699 data = -3 }
+				supplies = 1000
+				}
+	
+	name = EVT_3136511_NAME
+	desc = EVT_3136511_DESC
+	style = 2
+	decision_picture = "ger_decision_kalmuckisches_kavalleriekorps"
+	picture          = "ger_event_kalmuckisches_kavalleriekorps"
+
+	date = { day = 0 month = january year = 1936 } 
+	offset = 1
+	deathdate = { day = 0 month = january year = 1946 }
+	
+    action_a = {
+		name = ACTIONNAME3136511A
+		ai_chance = 100
+		command = { trigger = { ai = no }  type = money    value = -15   }
+		command = { trigger = { ai = no }  type = supplies value = -1000 }
+		command = { trigger = { ai = yes } type = supplies value = -100  }
+		#
+		command = { type = add_corps which = "Kalmückisches Kavalleriekorps" value = land where = 699 }
+        command = { type = activate_division which = 14500 value = 434 where = 699 when = 0 }
+	}
+
+    action_b = {
+		name = ACTIONNAME3136511B
+		ai_chance = 0
+        command   = { type = sleepevent which = 3136511 } 
+	}	
+}
+
+
+########################################################

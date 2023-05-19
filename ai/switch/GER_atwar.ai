@@ -1,0 +1,101 @@
+# Germany atwar construction AI
+
+###################################
+# Construction and Tech Research
+###################################
+construction = { 
+	max_factor = 0.05 #0.15
+
+	AA_batteries = yes
+	max_AA_level = 2
+	AA_provs = { 
+		152 	# Kiel
+		153	# Rostock
+		154 	# Hamburg
+		146 	# Hannover
+		147 	# Wilhelmshafen
+		141 	# Munster
+		137	# Kassel
+		140 	# Schweinfurt
+		144 	# Dortmund
+		145	# Essen
+		142	# Dusseldorf
+		126	# Aachen
+		131	# Cologne
+		127	# Saarbrucken
+		128	# Trier
+		130	# Mainz
+		109	# Luxembourg
+		138	# Frankfurt
+		139	# Darmstadt
+		134	# Suttgart
+		136	# Karlsruhe
+		177	# Nuremberg
+		179	# Munich
+		173	# Dresden
+		170	# Leipzig
+		163	# Berlin
+		169	# Magdeburg
+		195	# Vienna
+	}
+
+	coastal_fort = no
+	max_coastal_level = 3
+	coastal_fort_provs = {
+	} 
+
+	radar_station = yes
+	max_radar = 1
+	radar_provs = {
+		145 # Essen
+		142 # Dusseldorf
+		137 # Kassel
+		147 # Wilhemshafen
+		163 # Berlin
+		134 # Stutgart
+		152 # Kiel
+	} 
+
+	air_base = no #atwar
+	max_air_base = 3
+	air_base_provs = {
+		145 # Essen
+	} 
+
+	naval_base = no #yes 
+	max_naval_base = 5
+	naval_base_provs = { 
+		153 # Rostock
+	} 
+
+	land_fort = no
+	max_land_level = 2
+	fort_borders = { }
+	fort_provs	= {
+		127	# Saarbrucken
+		130	# Mainz
+		132	# Freiburg
+	}
+
+	ic_at_war = no
+	force_ic_until = 1938
+	ic_end_year = 1938
+	IC_provs = {
+		127	# Saarbrucken
+		179	# Munich
+		163	# Berlin
+		131	# Cologne
+		134	# Suttgart
+		146 	# Hannover
+		173	# Dresden
+		170	# Leipzig
+		171	# Erfurt
+		164	# Oppeln
+		167	# Breslau
+		168	# Gleiwitz
+	} 
+	
+	rocket_test = no
+	rocket_test_prov = 162   # Stralsund, Peenemünde
+	max_rocket = 0
+}

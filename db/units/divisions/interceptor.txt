@@ -1,0 +1,258 @@
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+model = { # Interceptor 1930 - 0
+	cost 						= 3.81 #5.72
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 300
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 2
+	surfacedefence				= 4
+	airdefence					= 12 #4
+	airattack					= 15 #5
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 250
+	supplyconsumption 			= 0.95
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Interceptor 1937 - 1
+	cost 						= 5.02 #7.53
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 450
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	surfacedefence				= 6
+	airdefence					= 14 #6
+	airattack					= 18 #7
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 300
+	supplyconsumption 			= 1.26
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Interceptor 1940 - 2
+	cost 						= 5.64 #8.47
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 500
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	surfacedefence				= 6
+	airdefence					= 17 #9
+	airattack					= 21 #11
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 400
+	supplyconsumption 			= 1.41
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Interceptor 1942 - 3
+	cost 						= 6.1 #9.16
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 700
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	surfacedefence				= 6
+	airdefence					= 19 #13
+	airattack					= 24 #17
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 450
+	supplyconsumption 			= 1.53
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+
+
+model = { # Interceptor 1944 - 4 - last piston engine
+	cost 						= 6.6 #9.90
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 700
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	surfacedefence				= 6
+	airdefence					= 22 #19
+	airattack					= 27 #23
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 475
+	supplyconsumption 			= 1.65
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 120 manpower = 180 }
+}
+
+
+model = { # Turbojet Interceptor 1945 - 5
+	cost 						= 6.87 #10.30
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 850
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	surfacedefence				= 10
+	airdefence					= 24 #23
+	airattack					= 30 #28
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 500
+	supplyconsumption 			= 1.72
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.25
+	equipment = { fighter = 120 manpower = 180 }
+}
+
+model = { # Turbojet Interceptor 1947 - 6
+	cost 						= 7.43 #11.14
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 950
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	surfacedefence				= 16
+	airdefence					= 27 #29
+	airattack					= 34 #37
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 800
+	supplyconsumption 			= 1.86
+	fuelconsumption				= 2.75
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Interceptor 1950 - 7
+	cost 						= 8.35 #12.53
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1200
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 6
+	surfacedefence				= 16
+	airdefence					= 30 #36
+	airattack					= 38 #45
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 1000
+	supplyconsumption 			= 2.09
+	fuelconsumption				= 3
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Interceptor 1954 - 8
+	cost 						= 9.77 #14.66
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1400
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 7
+	surfacedefence				= 16
+	airdefence					= 36 #45
+	airattack					= 45 #57
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 1200
+	supplyconsumption 			= 2.44
+	fuelconsumption				= 3.25
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}
+model = { # Turbojet Interceptor 1959 - 9
+	cost 						= 11.89 #14.84
+	buildtime	 				= 225 #150
+	defaultorganisation 		= 30
+	morale						= 150
+	manpower					= 0.18
+	maxspeed					= 1600
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 8
+	surfacedefence				= 20
+	airdefence					= 41 #52
+	airattack					= 52 #65
+	strategicattack				= 0
+	softattack					= 0
+	hardattack					= 0
+	navalattack					= 0
+	range						= 1400
+	supplyconsumption 			= 2.97
+	fuelconsumption				= 3.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 120 manpower = 180 }
+}

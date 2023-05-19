@@ -1,0 +1,38 @@
+####################################
+# Slovakia 29000 - 29099 by Lothos
+#
+# Converted to DH Map by Dendro 2011-May-18
+####################################
+################
+# Slovakia sends exp forces to Germany
+#############################################
+event = {
+	id = 29000
+	random = no 
+	country = SLO
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GER country = SLO }
+		OR = {
+			ai = GER
+			event = 20013
+			AND = {
+				war = { country = GER country = SOV }
+				war = { country = SLO country = SOV }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/EXP_Russia.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}

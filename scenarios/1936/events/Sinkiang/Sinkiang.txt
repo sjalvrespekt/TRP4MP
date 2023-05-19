@@ -1,0 +1,35 @@
+# converted to DH, Kane, August 3 2011
+###########################################################################
+# 5000000 - 5099999
+###########################################################################
+#############################################
+# Was 1102013 Unity in the face of external enemies (SIK)
+#############################################
+event = { 
+	id = 5000000 
+	random = no
+	country = SIK
+	
+	trigger = {
+		war = { country = CHI country = JAP }
+	}
+
+	name = EVT_5000000_NAME
+	desc = EVT_5000000_DESC
+	style = 0
+
+        date = { day = 10 month = february year = 1937 }
+        offset = 10
+	deathdate = { day = 25 month = october year = 1944 }
+
+	action_a = {
+		name = ACTIONNAME5000000A 
+		command = { type = trigger which = 522024 }		# Historical
+		command = { type = trigger which = 6300003 }		# ComChi
+		command = { type = dissent value = -2 } 		# a popular decision
+		command = { type = manpowerpool value = 100 } 
+#		command = { type = secedeprovince which = CHI value = 1279 } # Kashgar for IC relocation, deactivated because IC relocation in event 522012 has been removed
+		command = { type = peace which = CHI value = 0 }
+ 		command = { type = peace which = TIB value = 0 } #just in case
+	}
+}

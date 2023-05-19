@@ -1,0 +1,391 @@
+event = {
+	id = 7005
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CHC
+		OR = {
+			AND = {
+				lost_national = { country = CHC value = 40 }
+				NOT = { vp = 2 }
+			}
+			AND = {
+				owned = { province = 1259 data = CHC } # Yan'an
+				NOT = { control = { province = 1259 data = CHC } } # Yan'an
+				lost_national = { country = CHC value = 70 }
+			}
+			AND = {
+				owned = { province = 1259 data = CHC } # Yan'an
+				control = { province = 1259 data = CHC } # Yan'an
+				lost_national = { country = CHC value = 70 }
+			}
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CHC country = CHI }
+		}
+		NOT = { event = 3183076 } # SOV postwar Asia
+		NOT = { event = 148009 } # CHI second chinese civil war
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CHC value = 1 }
+	}
+}
+event = {
+	id = 7006
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CSX
+		OR = {
+			lost_national = { country = CSX value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CSX country = CHI }
+		}
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CSX value = 1 }
+	}
+}
+event = {
+	id = 7007
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CYN
+		OR = {
+			lost_national = { country = CYN value = 50 }
+			lost_VP = { country = CYN value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CYN country = CHI }
+		}
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CYN value = 1 }
+	}
+}
+event = {
+	id = 7008
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CXB
+		OR = {
+			lost_national = { country = CXB value = 50 }
+			lost_VP = { country = CXB value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CXB country = CHI }
+		}
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CXB value = 1 }
+	}
+}
+event = {
+	id = 7009
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = CGX
+		OR = {
+			lost_national = { country = CGX value = 50 }
+			lost_VP = { country = CGX value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CGX country = CHI }
+		}
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CGX value = 1 }
+	}
+}
+event = {
+	id = 7010
+	random = no
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		ai = SIK
+		OR = {
+			lost_national = { country = SIK value = 50 }
+			lost_VP = { country = SIK value = 30 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = SIK country = CHI }
+		}
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = SIK value = 1 }
+	}
+}
+
+##################################################################
+# CHC expands into Xibei San Ma to survive longer
+##################################################################
+
+event = {
+	id = 7011
+	random = no
+	country = CHC
+	
+	trigger = {
+		ai = yes
+		ai = CXB
+		OR = {
+			lost_national = { country = CHC value = 10 }
+			lost_VP = { country = CHC value = 10 }
+		}
+		OR = {
+			event = 91 #unified front
+			alliance = { country = CXB country = CHC }
+		}
+		war = { country = CHC country = JAP }
+		war = { country = CXB country = JAP }
+	}
+
+	name = ai_event
+	# desc = AI_EVENT
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = inherit which = CXB value = 1 }
+	}
+}
+
+################################################################################################
+# CHC inherits warlords if a human CHI choses to attack one of them before Marco Polo incident
+# intended to keep a human CHI as small as an AI CHI until mid '37
+################################################################################################
+
+event = {
+	id = 7012
+	random = no
+	country = CHC
+	
+	trigger = {
+		NOT = { event = 20 } # Marco Polo
+		NOT = { event = 91 } # United Front against JAP
+		AI = CHC
+		NOT = { AI = CHI }
+		AI = CXB
+		AI = CGX
+		AI = CYN
+		AI = SIK
+		AI = CSX
+		OR = {
+				AND = {
+						war = { country = CHI country = CHC }
+						event = 90 # Xi'an Incident
+						}
+				war = { country = CHI country = CXB }
+				AND = {
+						war = { country = CHI country = CGX }
+						event = 27009 # China offers Guangxi Clique peace
+						}
+				war = { country = CHI country = CYN }
+				war = { country = CHI country = SIK }
+				war = { country = CHI country = CSX }
+				}
+	}
+
+	name = EVT_7012_NAME
+	desc = EVT_7012_DESC
+	
+	picture = "chi_event_warlords"
+	style = 2
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME7012A
+		ai_chance = 65
+		command = { type = inherit which = CXB value = 1 }
+		command = { type = inherit which = CGX value = 1 }
+		command = { type = inherit which = CYN value = 1 }
+		command = { type = inherit which = SIK value = 1 }
+		command = { type = inherit which = CSX value = 1 }
+	}
+	action_b = {
+		trigger = {
+					NOT = {
+							OR = {
+									war = { country = CHI country = SIK }
+									war = { country = SOV country = SIK }
+									}
+							}
+					}
+		name = ACTIONNAME7012A
+		ai_chance = 20
+		command = { type = inherit which = CXB value = 1 }
+		command = { type = inherit which = CYN value = 1 }
+		command = { type = inherit which = CSX value = 1 }
+		command = { type = inherit which = CGX value = 1 }
+		command = { type = trigger which = 7014 } #SOV sets up a puppet regime in Sinkiang
+	}
+	action_c = {
+		trigger = {
+					NOT = {
+							OR = {
+									war = { country = CHI country = SIK }
+									war = { country = CHI country = CGX }
+									war = { country = CHI country = CSX }
+									war = { country = SOV country = SIK }
+									war = { country = JAP country = CGX }
+									war = { country = JAP country = CSX }
+									}
+							}
+					}
+		name = ACTIONNAME7012A
+		ai_chance = 15
+		command = { type = inherit which = CXB value = 1 }
+		command = { type = inherit which = CYN value = 1 }
+		command = { type = trigger which = 7014 } #SOV sets up a puppet regime in Sinkiang
+		command = { type = trigger which = 7015 } #JAP sets up a puppet regime in Shanxi and Guangxi
+	}
+}
+
+event = {
+	id = 7014
+	random = no
+	country = SOV
+	
+	name = EVT_7012_NAME
+	desc = EVT_7012_DESC
+	
+	picture = "chi_event_warlords"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME7012A
+		command = { type = coup_nation which = SIK }
+		command = { trigger = { NOT = { puppet = { country = SIK country = SOV } } } type = make_puppet which = SIK }
+		command = { trigger = { NOT = { alliance = { country = SIK country = SOV } } } type = alliance which = SIK }
+	}
+}
+
+event = {
+	id = 7015
+	random = no
+	country = JAP
+	
+	name = EVT_7012_NAME
+	desc = EVT_7012_DESC
+	
+	picture = "chi_event_warlords"
+	style = 2
+
+	action_a = {
+		name = ACTIONNAME7012A
+		command = { type = coup_nation which = CGX }
+		command = { trigger = { NOT = { puppet = { country = CGX country = SOV } } } type = make_puppet which = CGX }
+		command = { trigger = { NOT = { alliance = { country = CGX country = SOV } } } type = alliance which = CGX }
+		command = { type = coup_nation which = CSX }
+		command = { trigger = { NOT = { puppet = { country = CSX country = SOV } } } type = make_puppet which = CSX }
+		command = { trigger = { NOT = { alliance = { country = CSX country = SOV } } } type = alliance which = CSX }
+	}
+}
+
+event = { # warning event
+	id = 7013
+	random = no
+	country = CHI
+	
+	trigger = {
+				NOT = { AI = CHI }
+	}
+
+	name = EVT_7013_NAME
+	desc = EVT_7012_DESC
+	
+	picture = "chi_event_warlords"
+	style = 2
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME7013A
+		command = { }
+	}
+}

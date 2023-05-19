@@ -1,0 +1,398 @@
+# converted to DH, Kane, July 23 2011
+###########################################################################
+# 3137000 - 3137999	Greece events
+###########################################################################
+
+#########################################################################
+# Crete is given to UK
+# by Luxor
+#########################################################################
+event = {
+	id = 3137000
+	random = no
+	country = GRE
+	
+	trigger = {
+		ai = yes
+		alliance = { country = GRE country = ENG }
+		OR = {
+			war = { country = GRE country = GER }
+			war = { country = GRE country = ITA }
+		}
+		#alliance = { country = GRE country = ENG }
+		#NOT = { control = { province = 377 data = GRE } } # Athens
+		# GB took military control of Crete shortly after the war with Italy broke out
+		NOT = { alliance = { country = GRE country = GER } }
+		NOT = { alliance = { country = GRE country = ITA } }
+		control = { province = 382 data = GRE } # Irakleio
+	}
+	
+	name = EVT_3137000_NAME
+	desc = EVT_3137000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3137000A
+		command = { type = secedeprovince which = ENG value = 382 when = 1 }
+		command = { type = secedeprovince which = ENG value = 380 when = 1 }
+		command = { type = removecore which = 382 } # prevent AI from giving Crete back in diplomacy mode
+		command = { type = removecore which = 380 }
+		#merchant navy defecting to UK
+		command = { trigger = { AI = ENG } type = transport_pool which = ENG value = 200 }
+		command = { trigger = { NOT = { AI = ENG } } type = transport_pool which = ENG value = 100 }
+	}
+}
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3137001
+	random = no
+	country = GRE
+	
+	trigger = { 
+		NOT = { alliance = { country = GRE country = ENG } }
+		NOT = { alliance = { country = GRE country = GER } }
+		NOT = { alliance = { country = GRE country = ITA } }
+		NOT = { alliance = { country = GRE country = SOV } }
+		OR = {
+			alliance = { country = GRE country = YUG }
+			alliance = { country = GRE country = ROM }
+			alliance = { country = GRE country = TUR }
+		}
+		atwar = GER
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3137001A
+		command = { type = leave_alliance }
+		command = { type = embargo which = GRE where = CZE value = 0 }
+		command = { type = embargo which = GRE where = BUL value = 0 }
+		command = { type = embargo which = GRE where = YUG value = 0 }
+		command = { type = embargo which = GRE where = HUN value = 0 }
+		command = { type = embargo which = GRE where = ROM value = 0 }
+	}
+}
+########################################################## 
+# End of Balkan Entente 2
+########################################################## 
+event = { 
+	id = 3137002
+	random = no
+	country = GRE
+	
+	trigger = { 
+			NOT = { event = 3137001 }
+			alliance = { country = GRE country = GER }
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3137001A
+		command = { type = embargo which = GRE where = CZE value = 0 }
+		command = { type = embargo which = GRE where = BUL value = 0 }
+		command = { type = embargo which = GRE where = YUG value = 0 }
+		command = { type = embargo which = GRE where = HUN value = 0 }
+		command = { type = embargo which = GRE where = ROM value = 0 }
+	}
+}
+
+######################################################################################### 
+# Greece at war with Germany: Weakening the army to help the german AI if it's late
+#########################################################################################
+event = { 
+	id = 3137003
+	random = no
+	country = GRE
+	
+	trigger = { 
+			war = { country = GER country = GRE }
+			AI = GER
+	}
+       
+	name = AI_EVENT
+	# desc = AI_EVENT
+	
+	date = { day = 0 month = may year = 1941 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		name = ACTION_NAME_OK
+		command = { type = ground_def_eff value = -0.2 when = 1 }
+	}
+}
+
+######################################################################################### 
+# Greece isn't attacked during WW2 and moves closer to Allies as time goes by
+#########################################################################################
+event = { 
+	id = 3137004
+	random = no
+	country = GRE
+	
+	trigger = { 
+			
+			# Greece still independent and neutral
+			atwar = NO
+			NOT = { ispuppet = GRE }
+			NOT = { participant = { value = 1 } }
+			NOT = { participant = { value = 2 } }
+			NOT = { participant = { value = 3 } }
+			
+			# Axis at war on multiple fronts
+			OR = {
+					war = { country = SOV country = GER }
+					war = { country = SOV country = ITA }
+					}
+			OR = {
+					war = { country = ENG country = GER }
+					war = { country = ENG country = ITA }
+					}
+			OR = {
+					war = { country = USA country = GER }
+					war = { country = USA country = ITA }
+					}
+			
+			# Axis has lost some ground
+			OR = {
+					lost_national = { country = GER value = 1 }
+					lost_national = { country = ITA value = 1 }
+					NOT = {
+							OR = {
+									control = { province = 750 data = -1 } # Tripoli not controlled by Italy
+									control = { province = 765 data = -1 } # Tobruk not controlled by Italy
+									control = { province = 756 data = -1 } # Sirte not controlled by Italy
+								}
+							}
+					}
+					
+			random = 35
+	}
+       
+	name = EVT_3137004_NAME
+	desc = EVT_3137004_DESC
+	style = 2
+	picture = "gre_event_allies"
+	
+	date = { day = 0 month = may year = 1940 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3137004A # Ask Great Britain for help
+		ai_chance = 95
+		command = { type = trigger which = 3137005 } # ENG
+	}
+	
+	action_b = {
+		name = ACTIONNAME3137004B # Stay neutral
+		ai_chance = 5
+		command = { }
+	}
+}
+
+event = { 
+	id = 3137005
+	random = no
+	country = ENG
+       
+	name = EVT_3137004_NAME
+	desc = EVT_3137004_DESC
+	style = 2
+	picture = "gre_event_allies"
+	
+	action_a = {
+		name = ACTIONNAME3137004A # grant assistance
+		ai_chance = 95
+		command = { type = trigger which = 3137006 } # GRE
+		command = { type = money value = -1000 }
+		command = { type = supplies value = -2000 }
+	}
+	
+	action_b = {
+		name = ACTIONNAME3137005B # We can't help
+		ai_chance = 5
+		command = { }
+	}
+}
+
+event = { 
+	id = 3137006
+	random = no
+	country = GRE
+       
+	name = EVT_3137006_NAME
+	desc = EVT_3137006_DESC
+	style = 2
+	picture = "gre_event_allies"
+	
+	action_a = {
+		name = ACTION_NAME_EXCELLENT
+		command = { type = embargo which = -1 where = GER value = 3 }
+		command = { type = embargo which = -1 where = ITA value = 3 }
+		command = { type = embargo which = -1 where = ROM value = 3 }
+		command = { type = embargo which = -1 where = HUN value = 3 }
+		command = { type = embargo which = -1 where = FIN value = 3 }
+		command = { type = embargo which = -1 where = BUL value = 3 }
+		command = { type = embargo which = -1 where = U01 value = 3 }
+		command = { type = construct which = land_fort where = 366 value = 3 } # Kozani
+		command = { type = construct which = land_fort where = 367 value = 3 } # Ioannina
+		command = { type = construct which = land_fort where = 369 value = 3 } # Metsovo
+		command = { trigger = { AI = GRE } type = ai which = "switch/guerilla_diplo_allies.ai" }
+		command = { trigger = { AI = GRE } type = local_clrflag which = minor_diplo_neutral }
+		command = { trigger = { AI = GRE } type = local_setflag which = minor_diplo_allies }
+		command = { trigger = { AI = GRE } type = local_clrflag which = minor_diplo_axis }
+		command = { trigger = { AI = GRE } type = local_clrflag which = minor_diplo_comintern }
+		command = { type = sleepevent which = 31362204 } # ITA decision to attack GRE
+	}
+}
+
+#########################################################################
+# Info event Greece moving closer to the Allies if not invaded
+#########################################################################
+event = { 
+	id = 3137007
+	random = no
+	persistent = yes
+	
+	trigger = { 
+				NOT = { local_flag = sleep_trp_notes }
+				NOT = { local_flag = Info_Greece }
+				event = 3137006
+				participant = { value = 2 } # Axis
+				}
+	
+	name = EVT_3137007_NAME
+	desc = EVT_3137007_DESC
+	style = 2
+	picture = "TRP"
+	
+	date = { day = 3 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_DAMN
+		command = { type = local_setflag which = Info_Greece }
+	}
+}
+
+#########################################################################
+# Kilkis
+#########################################################################
+event = { 
+	id = 3137008
+	random = no
+	country = GRE
+	
+	trigger = { 
+				atwar = yes
+				}
+	
+	name = EVT_3137008_NAME
+	desc = EVT_3137008_DESC
+	style = 2
+	picture = "gre_event_kilkis"
+	
+	date = { day = 3 month = november year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTION_NAME_FIGHT
+		command = { type = add_corps which = "Salamina stolou" value = naval where = 377 } #Athens
+		command = { type = activate_division which = 15500 value = 116 where = 377 when = 0 } # BN Kilkis
+	}
+}
+
+#########################################################################
+# Was 752180 Guarantee Independence to Greece
+#########################################################################
+event = { 
+	id = 8000000 
+	random = no
+	country = GRE
+	
+	# Triggered by UK 272082
+	
+	name = EVT_8000000_NAME
+	desc = EVT_3401_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME8000000A
+		command = { type = dissent value = -3 }
+		command = { type = domestic  which = democratic value = 1 }
+#		command = { type = access  which = ENG }
+	}
+	action_b = {
+		name = ACTIONNAME8000000B
+		command = { type = dissent value = 2 }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 8000001
+	random = no
+	country = GRE 
+
+	# triggered by 3182091
+
+	name = EVT_8000001_NAME
+	desc = EVT_8000001_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8000001A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = secedeprovince which = YUG value = 413 }
+	}
+}
+event = { 
+	id = 8000002
+	random = no
+	country = GRE
+
+	# triggered by 3182093
+
+
+	name = EVT_8000002_NAME
+	desc = EVT_8000002_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 100
+		name = ACTIONNAME8000002A
+		command = { type = alliance which = ENG }
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME8000002B
+		command = { }
+	}
+}

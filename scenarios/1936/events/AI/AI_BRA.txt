@@ -1,0 +1,214 @@
+####################################
+# Brazil AI events 33000 - 33099 by Lothos
+#
+# converted to dh map by dendro 2011-may-23
+####################################
+################
+# Minister of Security Section 33000 - 33009
+#############################################
+event = { # Marcondes Filho takes power
+	id = 33000
+	random = no 
+	country = BRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 34005 # Marcondes Filho
+		NOT = { InCabinet = 34005 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 34005 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Chief of Staff Section 33010 - 33019
+#############################################
+event = { # Henrique Teixeira Lott takes power
+	id = 33010
+	random = no 
+	country = BRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 34153 # Henrique Teixeira Lott
+		NOT = { InCabinet = 34153 }
+		OR = {
+			atwar = no
+			AND = {
+				atwar = yes
+				NOT = { minister = 34007 } # Gaspar Dutra
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 34153 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Gaspar Dutra takes power
+	id = 33011
+	random = no 
+	country = BRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = yes
+		minister = 34007 # Gaspar Dutra
+		NOT = { InCabinet = 34007}
+		NOT = { minister = 34153 } # Henrique Teixeira Lott
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 34007 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Head of Intelligence Section 33020 - 33029
+#############################################
+################
+# Chief of the Army Section 33030 - 33039
+#############################################
+event = { # Henrique Teixeira Lott takes power
+	id = 33030
+	random = no 
+	country = BRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 34168 # Henrique Teixeira Lott
+		NOT = { InCabinet = 34168 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 34168 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 33040 - 33049
+#############################################
+event = { # Getulio Vargas takes power
+	id = 33040
+	random = no 
+	country = BRA
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 34095 # Getulio Vargas
+		NOT = { InCabinet = 34095 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 34095 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+
+
+
+#############################################
+# Regular AI Events 33060 - 33099
+#############################################
+################
+# Shift Production
+#############################################
+event = {
+	id = 33060
+	random = no 
+	country = BRA
+	
+	trigger = {
+		ai = yes
+		OR = {
+			atwar = yes
+			atwar = GER
+			atwar = ENG
+			atwar = FRA
+			atwar = USA
+			year = 1939
+			NOT = { ai = ARG }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Gear_Up.ai" }
+	}
+}
+################
+# Brazil will get involved in the war
+#############################################
+event = {
+	id = 33061
+	random = no 
+	country = BRA
+	
+	trigger = {
+		ai = yes
+		atwar = USA
+		random = 5
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		command = { type = ai which = "switch/Neutrality_Change.ai" }
+	}
+}

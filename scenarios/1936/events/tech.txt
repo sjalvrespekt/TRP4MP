@@ -1,0 +1,740 @@
+# Last Update 07-NOV-2006
+#########################
+#Rommel: Added ITA Bersaglieri
+#Rommel: Added ENG Guards Armor
+#Rommel: Added FRA Legion Etranger
+# checked DH map IDs by DerStudti
+########################################################################################
+# 2700000 - 2789999	technology events
+# Last used : 2700067
+########################################################################################
+
+##################################################
+# All Countries Units activation
+##################################################
+event = {
+	id = 2700061
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_infantry }
+		OR = {
+			technology = 6010
+			technology = 6100
+			technology = 6300
+			technology = 6600
+			IC = 40 # any nation may build infantry if its economy is strong enough
+			}
+		OR = {
+			technology = 1010 # Great War Infantry Division
+			technology = 1400 # Great War Infantry Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700061_NAME
+	desc = EVT_2700061_DESC
+	style = 2
+	picture = "tech_infantry"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = infantry }
+		#command = { type = activate_unit_type which = d_03 }
+		command = { type = local_setflag which = activation_infantry }
+	}
+}
+event = {
+	id = 2700062
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_airborne }
+		OR = {
+			technology = 1070 # Early Airborne Division
+			technology = 1470 # Early Airborne Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700062_NAME
+	desc = EVT_2700062_DESC
+	style = 2
+	picture = "tech_para"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = Paratrooper }
+		command = { type = local_setflag which = activation_airborne }
+	}
+}
+event = {
+	id = 2700063
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_mountain }
+		OR = {
+			technology = 1110 # Early Mountain Division
+			technology = 1460 # Early Mountain Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700063_NAME
+	desc = EVT_2700063_DESC
+	style = 2
+	picture = "tech_bergsjaeger"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = bergsjaeger }
+		command = { type = local_setflag which = activation_mountain }
+	}
+}
+event = {
+	id = 2700064
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_marine }
+		OR = {
+			technology = 1150 # Early Marine Division
+			technology = 1480 # Early Marine Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700064_NAME
+	desc = EVT_2700064_DESC
+	style = 2
+	picture = "tech_marines"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = Marine }
+		command = { type = local_setflag which = activation_marine }
+	}
+}
+event = {
+	id = 2700065
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_cavalry }
+		technology = 1190
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700065_NAME
+	desc = EVT_2700065_DESC
+	style = 2
+	picture = "tech_cavalry"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = Cavalry }
+		command = { type = local_setflag which = activation_cavalry }
+	}
+}
+event = {
+	id = 2700066
+	random = no
+
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_motorized }
+		OR = {
+			technology = 10110 # 1935 Motorized Division
+			technology = 1490 # Basic Motorized Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700066_NAME
+	desc = EVT_2700066_DESC
+	style = 2
+	picture = "tech_motorized"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = Motorized }
+		command = { type = local_setflag which = activation_motorized }
+	}
+}
+event = {
+	id = 2700067
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_mechanized }
+		technology = 11750 # Early Mechanized Division
+		# same prerequisites as armored division
+		OR = {
+			AND = {
+				country = GER
+				OR = {
+					event = 3136011
+					event = 3136013
+					event = 3136014
+					event = 3136016
+					war = { country = GER country = ITA }
+					war = { country = GER country = POL }
+					war = { country = GER country = SOV }
+					war = { country = GER country = ENG }
+					war = { country = GER country = FRA }
+					war = { country = GER country = USA }
+				}
+			}
+			AND = {
+				country = SOV
+				NOT = { flag = no_purges }
+				OR = {
+					war = { country = SOV country = ITA }
+					war = { country = SOV country = POL }
+					war = { country = SOV country = GER }
+					war = { country = SOV country = ENG }
+					war = { country = SOV country = FRA }
+					war = { country = SOV country = USA }
+				}
+			}
+			AND = {
+				country = USA
+				flag = HasArmorGlobal
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = { country = USA }
+				flag = HasArmorGlobal
+				OR = {
+					atwar = GER
+					atwar = SOV
+					year = 1940
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}	
+	
+	
+	
+	name = EVT_2700067_NAME
+	desc = EVT_2700067_DESC
+	style = 2
+	picture = "tech_mechanized"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = Mechanized }
+		command = { type = local_setflag which = activation_mechanized }
+	}
+}
+
+event = {
+	id = 2700072
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_light_infantry }
+		OR = {
+			technology = 6400 # light infantry doctrine
+			AND = {
+					technology = 6500 # guerilla doctrine
+					IC = 5
+					}
+			AND = {
+					OR = {
+							technology = 6010
+							technology = 6100
+							technology = 6300
+							technology = 6600
+							}
+					lost_national = { value = 5 } # developed nations consider cheaper units for homeland defense
+					}	
+			AND = {
+					country = SOV
+					AI = SOV
+					OR = {
+							war = { country = GER country = SOV }
+							AND = {
+									year = 1941
+									month = march
+									}
+							AND = { # early start against a human GER
+									NOT = { AI = GER }
+									year = 1940
+									month = march
+									}
+							#local_flag = purges # old condition
+							}
+					}
+			}
+		OR = {
+			technology = 1010 # Great War Infantry Division
+			technology = 1400 # Great War Infantry Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700072_NAME
+	desc = EVT_2700072_DESC
+	style = 2
+	picture = "tech_light_infantry_2"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = d_02 }
+		#command = { type = activate_unit_type which = d_03 }
+		command = { type = local_setflag which = activation_light_infantry }
+	}
+}
+
+event = {
+	id = 2700073
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_militia }
+		OR = {
+				technology = 6500 # Guerilla 
+				lost_national = { value = 20 } # any nation may build militia if homeland is in grave danger
+				# insert countries that shall always be able to build militia, even if released as puppets => will preserve AI building scheme
+				country = CHI
+				country = CHC
+				country = U87
+				country = U03
+				country = CGX
+				country = CSX
+				country = CYN
+				country = CXB
+				country = TIB
+				country = SIK
+			}
+		OR = {
+			technology = 1010 # Great War Infantry Division
+			technology = 1400 # Great War Infantry Division
+		}
+		OR = {
+			NOT = {	country = USA
+				country = U02
+				country = U04 }
+			AND = {
+				country = USA
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				country = U02
+				OR = {
+						atwar = yes
+						ai = yes # added to help U02 AI do a proper buildup with limited numbers of garrisons
+						}
+			}
+		}
+	}
+	
+	name = EVT_2700073_NAME
+	desc = EVT_2700073_DESC
+	style = 2
+	picture = "tech_militia_2"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = militia }
+		#command = { type = activate_unit_type which = d_03 }
+		command = { type = local_setflag which = activation_militia }
+	}
+}
+
+event = {
+	id = 2700074
+	random = no
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = activation_militia
+		NOT = { technology = 6500 } # Guerilla nations always keep their militia
+		NOT = { lost_national = { value = 1 } } # no threat to nation any more
+	}
+	
+	name = EVT_2700074_NAME
+	desc = EVT_2700074_DESC
+	style = 2
+	picture = "tech_militia_2"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = deactivate_unit_type which = militia }
+		command = { type = local_clrflag which = activation_militia }
+	}
+}
+
+event = {
+	id = 2700000
+	random = no
+
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = activation_armor }
+		technology = 2010
+		OR = {
+			AND = {
+				country = GER
+				OR = {
+					event = 3136011
+					event = 3136013
+					event = 3136014
+					event = 3136016
+					war = { country = GER country = ITA }
+					war = { country = GER country = POL }
+					war = { country = GER country = SOV }
+					war = { country = GER country = ENG }
+					war = { country = GER country = FRA }
+					war = { country = GER country = USA }
+				}
+			}
+			AND = {
+				country = SOV
+				NOT = { flag = no_purges }
+				OR = {
+					war = { country = SOV country = ITA }
+					war = { country = SOV country = POL }
+					war = { country = SOV country = GER }
+					war = { country = SOV country = ENG }
+					war = { country = SOV country = FRA }
+					war = { country = SOV country = USA }
+				}
+			}
+			AND = {
+				country = USA
+				flag = HasArmorGlobal
+				OR = {
+					ai = yes # added to help US AI do a proper buildup with limited numbers of garrisons
+					atwar = yes
+					event = 2600013
+					AND = {
+						year = 1942
+						OR = {
+							atwar = GER
+							atwar = SOV
+							atwar = ENG
+							atwar = JAP
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = { country = USA }
+				flag = HasArmorGlobal
+				OR = {
+					atwar = GER
+					atwar = SOV
+					year = 1940
+				}
+			}
+		}
+	}
+
+	name = EVT_2700068_NAME
+	desc = EVT_2700068_DESC
+	style = 2
+	picture = "tech_armor"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = armor }
+		#command = { type = activate_unit_type which = light_armor } # Elite
+		command = { type = setflag which = HasArmorGlobal }
+		command = { type = local_setflag which = activation_armor }
+	}
+}

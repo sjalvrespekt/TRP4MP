@@ -1,0 +1,997 @@
+# converted to DH, Kane, August 3 2011
+#LAST UPDATE 15-JAN-2006
+###########################################################################
+# 3176000 - 3176999	Sweden events
+###########################################################################
+
+#########################################################################
+# Swedish Winter War merges with Russo-German war
+# was 5161 modified by Luxor
+#########################################################################
+event = { 
+	id = 3176000
+	random = no
+	country = SWE
+	
+	trigger = {
+		war = { country = SWE country = SOV }
+		war = { country = GER country = SOV }
+		NOT = { war = { country = SWE country = GER } }		
+		NOT = { event = 3183029 } #Swedish winter war has not yet ended
+		NOT = { event = 3183026 } #Finnish winter war has not yet ended
+	}
+	
+	name = EVT_3176000_NAME
+	desc = EVT_3176000_DESC
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = alliance which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = sleepevent which = 3183029 } #End of the Swedish winter war can no longer happen
+	}
+}
+#########################################################################
+# Sweden reinforces the Army
+# by CCM von Hausser
+#########################################################################
+event = { 
+	id = 3176001
+	random = no
+	country = SWE
+
+	trigger = { atwar = GER }
+
+	name = EVT_3176001_NAME
+	desc = EVT_3176001_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1941 }
+	
+	action_a = {
+		ai_chance = 95
+		name = ACTIONNAME3176001A
+		command = { type = manpowerpool value = 200 }
+		command = { type = dissent value = 3 }
+	}
+	action_b = {
+		ai_chance = 5
+		name = ACTIONNAME3176001B
+		command = { }
+	}
+}
+###############################
+# Engelbrecht Transit
+###############################
+event = { 
+	id = 3176002
+	random = no
+	country = SWE
+	
+	trigger = {
+		#war = { country = GER country = SOV }
+		control = { province = 495 data = GER } # Narvik	
+		control = { province = 483 data = GER } # Oslo
+		#alliance = { country = FIN country = GER }
+		NOT = {	
+			war = { country = SWE country = GER }
+			alliance = { country = SWE country = ENG }
+			alliance = { country = SWE country = SOV }
+			alliance = { country = SWE country = GER }
+		}
+	}
+
+	name = EVT_3176002_NAME
+	desc = EVT_3176002_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1940 } # Historic date for request 23/6 1941
+	offset = 7
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME3176002A
+		ai_chance = 99
+		command = { type = access which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = 5 }
+	}
+	action_b = {
+		name = ACTIONNAME3176002B
+		ai_chance = 1
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 3 }
+	}
+}
+###############################
+# Engelbrecht Transit ends
+###############################
+event = { 
+	id = 3176003
+	random = no
+	country = SWE
+	
+	trigger = {
+		access = { country = SWE country = GER }
+		war = { country = GER country = SOV }
+		OR = {	
+			war = { country = SWE country = GER }
+			alliance = { country = SWE country = ENG }
+			alliance = { country = SWE country = SOV }
+			alliance = { country = SWE country = GER }
+			NOT = { lost_national = { country = SOV value = 15 }
+			lost_national = { country = GER value = 5 } # GER on the road to losing
+		}
+	}
+	}
+
+	name = EVT_3176003_NAME
+	desc = EVT_3176003_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1942 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		name = ACTIONNAME3176003A
+		ai_chance = 99
+		command = { type = end_access which = GER }
+	}
+	action_b = {
+		name = ACTIONNAME3176003B
+		ai_chance = 1
+		command = { }
+	}
+}
+
+###########################################################################
+#  	8400000 - 8499999
+###########################################################################
+###############################
+# Was 1002005 Germany invades Sweden
+###############################
+event = { 
+	id = 8400000
+	random = no
+	country = SWE
+
+	# Triggered by Germany 29
+
+	name = EVT_8400000_NAME
+	desc = EVT_8400000_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400000A
+		command = { type = alliance which = ENG }
+		command = { type = domestic which = democratic value = 1 }
+	}
+	action_B = {
+		name = ACTIONNAME8400000B
+		command = { type = peace which = GER value = 1 }
+		command = { type = alliance which = GER }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+
+###############################
+# Was 1002020 Saltsjöbadsavtalet
+###############################
+event = { 
+	id = 8400014
+	random = no
+	country = SWE
+	
+	trigger = {
+		random = 35
+		atwar = no
+	}
+
+	name = EVT_8400014_NAME
+	desc = EVT_8400014_DESC
+	style = 0
+
+        date = { day = 25 month = june year = 1938 }
+        offset = 50
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME8400014A
+#		command = { type = construct which = ic where = -1 value = 1 }
+#		command = { type = construct which = ic where = -1 value = 1 }
+#		command = { type = construct which = ic where = -1 value = 1 }
+#		command = { type = construct which = ic where = -1 value = 1 }
+#		command = { type = construct which = ic where = -1 value = 1 }
+#		command = { type = construct which = ic where = -1 value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = -3 }
+	}
+}
+#################################
+# Was 1002036 Finish War children to Sweden(SWE) (by ghost_dk)
+#################################
+event = {
+	id = 8400015
+	random = no
+	country = SWE
+
+	# triggered by FIN 1002035
+	
+	name = EVT_8400015_NAME
+	desc = EVT_8400015_DESC
+
+	action_a = {
+		name = ACTIONNAME8400015A
+		command = { }
+	}
+}
+#######################################
+# Was 1002072 (SWE)Private collections for Finland (by Ghost_dk)
+#######################################
+event = {
+	id = 8400016
+	random = no
+	country = SWE
+
+	trigger = {
+		random = 15
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = { 
+			event = 2628
+			war = { country = SWE country = FIN }
+			war = { country = SWE country = SOV }
+			alliance = { country = SWE country = SOV }
+		}
+	}
+
+	name = EVT_8400016_NAME
+	desc = EVT_8400016_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8400016A
+		command = { type = trigger which = 1002073 }
+	}
+}
+########################################
+# Was 1002077 (SWE)USSR protests (by Ghost_dk)
+########################################
+event = {
+	id = 8400017
+	random = no
+	country = SWE
+
+	# triggered by SOV 322042
+
+	name = EVT_8400017_NAME
+	desc = EVT_8400017_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400017A
+		command = { type = money value = -1 }
+	}
+}
+###################################
+# Was 1002080 (SWE)Protest against Sinking of Fenris (by Ghost_dk)
+###################################
+event = {
+	id = 8400018
+	random = no
+	country = SWE
+
+	trigger = {
+		random = 20
+		event = 8400015
+		war = { country = SOV country = FIN }
+		NOT = {
+			event = 3183030
+			war = { country = SOV country = SWE }
+			war = { country = SWE country = FIN }
+		}
+	}
+
+	name = EVT_8400018_NAME
+	desc = EVT_8400018_DESC
+
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8400018A
+		command = { type = money value = -1 }
+		command = { type = trigger which = 222043 }
+	}
+}
+###################################
+# Was 1002084 (SWE)Soviets bomb Gulf of Bothnia (by Ghost_dk)
+###################################
+event = {
+	id = 8400019
+	random = no
+	country = SWE
+
+	# triggered by SOV 222044
+
+	name = EVT_8400019_NAME
+	desc = EVT_8400019_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400019A
+		command = { type = money value = -1 }
+		command = { type = trigger which = 222045 }
+	}
+}
+###################################
+# Was 1002098 (SWE)Soviet bombs on Pajala
+# (by Ghost_dk) modified by Luxor
+###################################
+event = {
+	id = 8400020
+	random = no
+	country = SWE
+
+	trigger = { 
+		war = { country = SOV country = FIN }
+		NOT = { war = { country = SOV country = SWE } }
+		NOT = { ispuppet = SWE }
+		event = 222046
+		NOT = { alliance = { country = SWE country = ENG } }
+		NOT = { alliance = { country = SWE country = GER } }
+		NOT = { alliance = { country = SWE country = SOV } }
+	}
+
+	name = EVT_8400020_NAME
+	desc = EVT_8400020_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 15
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME8400020A
+		command = { type = money value = -1 }
+		command = { type = trigger which = 222047 }
+	}
+	action_b = {
+		name = ACTIONNAME8400020B
+# 		command = { type = warentry value = 100 }
+		command = { type = war which = SOV }
+		command = { type = access which = FIN }
+		command = { type = trigger which = 3134002 }
+	}
+}
+###################################
+# Was 1002111 (SWE)Allies Request Military access
+# By Luxor
+###################################
+event = { 
+	id = 8400021
+	random = no
+	country = SWE 
+
+	# triggered by ENG 3131079
+
+	name = EVT_8400021_NAME
+	desc = EVT_8400021_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8400021A
+		command = { type = trigger which = 3131081 }
+	}
+	action_b = {
+		name = ACTIONNAME8400021B
+		command = { type = access which = ENG }
+		command = { type = trigger which = 3131080 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+###################################
+# Was 1002112 (SWE)Soviet apologize for Bombings (by Ghost_dk)
+###################################
+event = {
+	id = 8400022
+	random = no
+	country = SWE
+
+	# triggered by SOV 222050
+
+	name = EVT_8400022_NAME
+	desc = EVT_8400022_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400022A
+		command = { }
+	}
+}
+########################################
+# Was 1002116 (SWE)Send ambulances and staff to Finland (by Ghost_dk)
+########################################
+event = {
+	id = 8400023
+	random = no
+	country = SWE
+
+	trigger = {
+		random = 20
+		event = 3183024
+		war = { country = FIN country = SOV }
+		NOT = { 
+			event = 2628
+			war = { country = SWE country = FIN }
+			war = { country = SWE country = SOV }
+			alliance = { country = SWE country = SOV }
+		}
+	}
+
+	name = EVT_8400023_NAME
+	desc = EVT_8400023_DESC
+	style = 0
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 8
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME8400023A
+		command = { type = supplies value = -20 }
+		command = { type = trigger which = 1002065 }
+	}
+	action_b = {
+		name = ACTIONNAME8400023B
+		command = { type = sleepevent which = 1002065 }
+		command = { type = money value = -2 }
+	}
+}
+###################################
+# Was 1002117 (SWE)Finland requests military units (by Ghost_dk)
+###################################
+event = {
+	id = 8400024
+	random = no
+	country = SWE
+
+	# triggered by FIN 1002093
+
+	name = EVT_8400024_NAME
+	desc = EVT_8400024_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400024A
+		command = { type = trigger which = 1002094 }
+	}
+	action_b = {
+		name = ACTIONNAME8400024B
+		command = { type = trigger which = 1002095 }
+		command = { type = switch_allegiance which = -1 where = FIN }
+		command = { type = switch_allegiance which = -1 where = FIN }
+		command = { type = switch_allegiance which = -1 where = FIN }
+	}
+}
+###################################
+# Sweden returns territories back to Finland after Winter War
+###################################
+event = {
+	id = 8400025
+	random = no
+	country = SWE
+
+	trigger = {
+		event = 3134002
+		event = 2628
+		NOT = { war = { country = SWE country = FIN } }
+	}
+
+	date = { day = 29 month = august year = 1939 }
+	offset = 8
+	deathdate = { day = 29 month = december year = 1947 }
+
+	name = EVT_8400025_NAME
+	desc = EVT_8400025_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME8400025A
+		command = { type = secedeprovince which = FIN value = 526 }
+		command = { type = secedeprovince which = FIN value = 524 }
+		command = { type = secedeprovince which = FIN value = 525 }
+		command = { type = secedeprovince which = FIN value = 529 }
+		command = { type = secedeprovince which = FIN value = 530 }
+		command = { type = secedeprovince which = FIN value = 531 }
+		command = { type = secedeprovince which = FIN value = 532 }
+		command = { type = secedeprovince which = FIN value = 533 }
+		command = { type = secedeprovince which = FIN value = 514 }
+		command = { type = secedeprovince which = FIN value = 518 }
+		command = { type = secedeprovince which = FIN value = 519 }
+		command = { type = secedeprovince which = FIN value = 523 }
+		command = { type = secedeprovince which = FIN value = 517 }
+		command = { type = secedeprovince which = FIN value = 528 }
+		command = { type = secedeprovince which = FIN value = 527 }
+		command = { type = secedeprovince which = FIN value = 512 }
+		command = { type = secedeprovince which = FIN value = 521 }
+		command = { type = secedeprovince which = FIN value = 522 }
+		command = { type = secedeprovince which = FIN value = 520 }
+		command = { type = secedeprovince which = FIN value = 516 }
+		command = { type = secedeprovince which = FIN value = 511 }
+		command = { type = secedeprovince which = FIN value = 513 }
+		command = { type = secedeprovince which = FIN value = 515 }
+		command = { type = control which = FIN value = 526 }
+		command = { type = control which = FIN value = 524 }
+		command = { type = control which = FIN value = 525 }
+		command = { type = control which = FIN value = 529 }
+		command = { type = control which = FIN value = 530 }
+		command = { type = control which = FIN value = 531 }
+		command = { type = control which = FIN value = 532 }
+		command = { type = control which = FIN value = 533 }
+		command = { type = control which = FIN value = 514 }
+		command = { type = control which = FIN value = 518 }
+		command = { type = control which = FIN value = 519 }
+		command = { type = control which = FIN value = 523 }
+		command = { type = control which = FIN value = 517 }
+		command = { type = control which = FIN value = 528 }
+		command = { type = control which = FIN value = 527 }
+		command = { type = control which = FIN value = 512 }
+		command = { type = control which = FIN value = 521 }
+		command = { type = control which = FIN value = 522 }
+		command = { type = control which = FIN value = 520 }
+		command = { type = control which = FIN value = 516 }
+		command = { type = control which = FIN value = 511 }
+		command = { type = control which = FIN value = 513 }
+		command = { type = control which = FIN value = 515 }
+		command = { type = leave_alliance }
+	}
+}
+###################################
+# The Potsdam Conference
+###################################
+event = { 
+	id = 8400026
+	random = no
+	country = SWE
+
+	# triggered by 3182091
+
+	name = EVT_8400026_NAME
+	desc = EVT_8400026_DESC
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME8400026A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+	}
+}
+event = { 
+	id = 8400027
+	random = no
+	country = SWE
+
+	# triggered by 3182093
+
+
+	name = EVT_8400027_NAME
+	desc = EVT_8400027_DESC
+	style = 0
+
+	action_a = { 
+		ai_chance = 0
+		name = ACTIONNAME8400027A
+		command = { type = alliance which = ENG }
+	}
+	action_b = {
+		ai_chance = 100
+		name = ACTIONNAME8400027B
+		command = { }
+	}
+}
+
+#################
+# Embargo against western Allies if Axis controls both Denmark and Norway
+#################
+
+event = {
+	id = 8400028
+	random = no
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+				OR = {
+						war = { country = GER country = ENG }
+						war = { country = GER country = USA }
+						war = { country = GER country = SOV }
+						}
+				NOT = { local_flag = EmbargoAllies }
+				flag = NarvikOK #Narvik under german control
+				OR = {
+						control = { province = 294 data = GER } # Copenhagen
+						AND = {
+								control = { province = 294 data = DEN }
+								alliance = { country = GER country = DEN }
+								}
+						}
+				}
+	
+	name = EVT_8400028_NAME
+	desc = EVT_8400028_DESC
+	style = 2
+	picture = "Narvik"
+	
+	date = { day = 2 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1960 }
+
+	action_a = {
+		name = ACTION_NAME_OK 
+		command = { type = embargo which = SWE where = ENG value = 1 }
+		command = { type = embargo which = SWE where = USA value = 1 }
+		command = { type = embargo which = SWE where = CAN value = 1 }
+		command = { type = embargo which = SWE where = AST value = 1 }
+		command = { type = embargo which = SWE where = NZL value = 1 }
+		command = { type = embargo which = SWE where = SAF value = 1 }		
+		command = { type = embargo which = SWE where = U02 value = 1 }
+		command = { type = embargo which = SWE where = BUR value = 1 }
+		command = { type = embargo which = SWE where = SOV value = 1 }
+		command = { type = embargo which = SWE where = HOL value = 1 }
+		command = { type = embargo which = SWE where = BEL value = 1 }
+		command = { type = embargo which = SWE where = U14 value = 1 }
+		command = { type = local_setflag which = EmbargoAllies }
+	}
+}
+
+event = {
+	id = 8400029
+	random = no
+	country = SWE
+	persistent = yes
+	
+	trigger = {
+				local_flag = EmbargoAllies
+				OR = {
+						NOT = {
+								OR = {
+										war = { country = GER country = ENG }
+										war = { country = GER country = USA }
+										war = { country = GER country = SOV }
+										}
+								}
+						flag = NarvikNO #Narvik not under german control
+						NOT = { 
+								OR = { 
+										control = { province = 294 data = GER } # Copenhagen
+										AND = {
+												control = { province = 294 data = DEN }
+												alliance = { country = GER country = DEN }
+												}
+										}
+								}
+						}
+				}
+	
+	name = EVT_8400029_NAME
+	desc = EVT_8400029_DESC
+	style = 2
+	picture = "Narvik"
+	
+	date = { day = 2 month = january year = 1936 }
+	offset = 2
+	deathdate = { day = 29 month = december year = 1960 }
+
+	action_a = {
+		name = ACTION_NAME_OK 
+		command = { type = embargo which = SWE where = ENG value = -1 }
+		command = { type = embargo which = SWE where = USA value = -1 }
+		command = { type = embargo which = SWE where = CAN value = -1 }
+		command = { type = embargo which = SWE where = AST value = -1 }
+		command = { type = embargo which = SWE where = NZL value = -1 }
+		command = { type = embargo which = SWE where = SAF value = -1 }		
+		command = { type = embargo which = SWE where = U02 value = -1 }
+		command = { type = embargo which = SWE where = BUR value = -1 }
+		command = { type = embargo which = SWE where = SOV value = -1 }
+		command = { type = embargo which = SWE where = HOL value = -1 }
+		command = { type = embargo which = SWE where = BEL value = -1 }
+		command = { type = embargo which = SWE where = U14 value = -1 }
+		command = { type = local_clrflag which = EmbargoAllies }
+	}
+}
+
+
+
+#
+# HoI - Sweden Events
+#
+#		written by Henrik Fåhraeus
+#
+
+#########################################################################
+# The Finnish Winter War - Swedish Direct Intervention
+# modified by Luxor
+#########################################################################
+event = { 
+	id = 3300
+	random = no
+	country = SWE
+	
+	trigger = {
+		war = { country = SOV country = FIN }
+		event = 3183024 # Finnish Winter War-Demands rejected
+		OR = {
+			ideology = social_conservative
+			ideology = paternal_autocrat
+			ideology = fascist
+			ideology = nazi
+		}
+		NOT = {
+			alliance = { country = FIN country = GER }
+			alliance = { country = SWE country = GER }
+			alliance = { country = SWE country = ENG }
+			alliance = { country = SWE country = SOV }
+		}
+		NOT = { ispuppet = SWE }
+	}
+	
+	name = "EVT_3300_NAME"
+	desc = "EVT_3300_DESC"
+	style = 0
+	picture = "sweden_helps_finland"
+	
+	date = { day = 17 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = "ACTIONNAME3300A" # Intervene for our brother people!
+		ai_chance = 90
+		command = { type = belligerence which = SWE value = 1 }
+		command = { type = alliance which = FIN }
+		command = { type = war which = SOV }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = FIN value = 25 }
+		command = { type = relation which = NOR value = 10 }
+		command = { type = trigger which = 3134002 } # FIN
+	}
+	action_b = {
+		name = "ACTIONNAME3300B" # Send volunteers and materiel
+		ai_chance = 10
+		command = { type = manpowerpool value = -10 }
+		command = { type = supplies value = -1000 }
+		command = { type = relation which = SOV value = -20 }
+		command = { type = relation which = FIN value = 10 }
+		command = { type = relation which = NOR value = 5 }
+		command = { type = trigger which = 3134001 } # FIN
+	}
+}
+
+#########################################################################
+#  The Finnish Winter War - Swedish Non-Intervention
+#########################################################################
+event = { 
+	id = 3301
+	random = no
+	country = SWE
+	
+	trigger = {
+		war = { country = SOV country = FIN }
+		event = 3183024 #Finnish Winter War-Demands rejected
+		atwar = no
+		NOT = {
+			OR = {
+				ideology = social_conservative
+				ideology = paternal_autocrat
+				ideology = fascist
+				ideology = nazi
+			}
+		}
+		NOT = { alliance = { country = FIN country = GER } }
+	}
+	
+	name = "EVT_3301_NAME"
+	desc = "EVT_3301_DESC"
+	style = 0
+	picture = "per_albin"
+	
+	date = { day = 17 month = july year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3301A
+		ai_chance = 98
+		command = { type = relation which = SOV value = -20 }
+		command = { type = relation which = FIN value = 10 }
+		command = { type = relation which = NOR value = 5 }
+		command = { type = manpowerpool value = -10 }
+		command = { type = supplies value = -1000 }
+		command = { type = trigger which = 3134001 } # FIN
+	}
+	action_b = {
+		name = ACTIONNAME3301B
+		ai_chance = 2
+		command = { type = belligerence which = SWE value = 1 }
+		command = { type = alliance which = FIN }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = relation which = FIN value = 25 }
+		command = { type = relation which = NOR value = 10 }
+		command = { type = access which = FIN }
+		command = { type = trigger which = 3134002 } # FIN
+	}
+}
+#########################################################################
+#  End of the Swedish Winter War
+#########################################################################
+event = { 
+	id = 3302
+	random = no
+	country = SWE
+	
+	# Triggered by SOV 3183029
+	
+	name = "EVT_3302_NAME"
+	desc = "EVT_3302_DESC"
+	style = 0
+	picture = "finland_sweden"
+	
+	action_a = {
+		name = ACTIONNAME3301A
+		command = { type = peace which = SOV value = 1 }
+		command = { type = relation which = SOV value = 10 }
+		command = { type = dissent value = -10 }
+		command = { type = trigger which = 3183030 } # SOV
+		command = { type = leave_alliance }
+	}
+}
+
+#########################################################################
+#  Försvarsbeslutet 1936 - Defense Plan 1936
+#########################################################################
+event = { 
+	id = 3305
+	random = no
+	country = SWE
+
+	trigger = { 
+	    atwar = no
+	}
+	
+	name = EVT_3305_NAME
+	desc = EVT_3305_DESC
+	style = 2
+	picture = "swe_event_forsvarsbeslutet1936"
+	
+	date = { day = 16 month = june year = 1936 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1936 }	
+	
+	action_a = {
+		name = ACTIONNAME3305A
+		ai_chance = 100
+		command = { trigger = { ai = no } type = dissent  value = 5 }
+		command = { trigger = { ai = no } type = money    value = -250 }
+		command = { trigger = { ai = no } type = supplies value = -1500 }
+		command = { type = waketeam which = 3206 } #Landsverk
+		command = { type = waketeam which = 3208 } #SAAB
+		command = { type = gain_tech which = 2640 } #medium armor
+		command = { type = gain_tech which = 2650 }
+		command = { type = gain_tech which = 2570 } #light armor
+		command = { type = gain_tech which = 2580 }
+	}
+	
+	action_b = {
+		name = ACTIONNAME3305B
+		ai_chance = 0
+		command = { trigger = { ai = no } type = dissent value = 1 }
+		command = { trigger = { ai = no } type = money   value = -150 }
+		command = { type = sleepevent which = 3304 } #New aircrafts for the air force
+		command = { type = sleepevent which = 3305 } #Defense Plan 1942
+	}	
+}
+
+#########################################################################
+#  Försvarsbeslutet 1936 - New Aircraft for the Air Force 
+#########################################################################
+event = { 
+	id = 3306
+	random = no
+	country = SWE
+
+	trigger = { 
+	    atwar = no
+		event = 3305
+		random = 10
+	}
+	
+	name = EVT_3306_NAME
+	desc = EVT_3306_DESC
+	style = 2
+	picture = "swe_event_forsvarsbeslutet1936_aircraft"
+	
+	date = { day = 1 month = august year = 1937 }
+	offset = 7
+	deathdate = { day = 0 month = december year = 1941 }	
+	
+	action_a = {
+		name = ACTIONNAME3306A
+		command = { trigger = { ai = no } type = money    value = -150 }
+		command = { trigger = { ai = no } type = supplies value = -1000 }
+        command = { type = add_division which = "F2 Flygflottilj" value = interceptor     when = 1 }
+		command = { type = add_division which = "B2 Flygflottilj" value = tactical_bomber when = 1 }
+	}
+}
+
+#########################################################################
+#  Försvarsbeslutet 1942 - Defense Plan 1942
+#########################################################################
+event = { 
+	id = 3307
+	random = no
+	country = SWE
+
+	trigger = { 
+	    event = 3305
+	    atwar = no
+	}
+	
+	name = EVT_3307_NAME
+	desc = EVT_3307_DESC
+	style = 2
+	picture = "swe_event_forsvarsbeslutet1942"
+	
+	date = { day = 16 month = june year = 1942 }
+	offset = 1
+	deathdate = { day = 0 month = december year = 1942 }	
+	
+	action_a = {
+		name = ACTIONNAME3307A
+		ai_chance = 99
+		command = { trigger = { ai = no } type = dissent  value = 5 }
+		command = { trigger = { ai = no } type = money    value = -450 }
+		command = { trigger = { ai = no } type = supplies value = -1500 }
+		command = { type = waketeam which = 3221 } #Tank school
+		command = { type = gain_tech which = 2660  } #armor and mech
+		command = { type = gain_tech which = 2590  }
+		command = { type = gain_tech which = 11750 }
+		command = { type = gain_tech which = 1260  }
+		command = { type = add_division which = "6. Arméfördelning" value = infantry     when = 2 }
+		command = { type = add_division which = "7. Arméfördelning" value = infantry     when = 2 }
+		#command = { type = add_division which = "Pansarfördelning"  value = armor        when = 2 } #Swedish P1, P2, P3 and P4 armored regiment combined in a single division
+		command = { type = add_brigade value = light_armor_brigade when = 3 } #Regiment P1
+		command = { type = add_brigade value = light_armor_brigade when = 3 } #Regiment P2
+		command = { type = add_brigade value = light_armor_brigade when = 3 } #Regiment P3
+		command = { type = add_brigade value = light_armor_brigade when = 3 } #Regiment P4
+	}
+	
+	action_b = {
+		name = ACTIONNAME3307B
+		ai_chance = 1
+		command = { trigger = { ai = no } type = dissent value = 10 }
+		command = { trigger = { ai = no } type = money   value = -250 }
+	}	
+}

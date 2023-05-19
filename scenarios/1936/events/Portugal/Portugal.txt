@@ -1,0 +1,1053 @@
+# converted to DH, Kane, July 24 2011
+###############################################################
+##    PORTUGUESE EVENT IDs
+###############################################################
+###########################
+# 802044 - (POR) The Tejo warship mutiny (by Gwalcmai)
+###########################
+event = {
+	id = 802044
+	random = no
+	country = POR
+
+	trigger = { 
+		exists = SPR
+		exists = U01
+		event = 3174000
+		NOT = { war = { country = POR country = U01 } }
+	}
+
+	name = EVT_802044_NAME
+ 	desc = EVT_802044_DESC
+	style = 2
+	picture = "por_event_tejo_munty"
+
+	date = { day = 17 month = september year = 1936 }
+
+	action_a = { # attack the ships
+		name = ACTIONNAME802044A # Bomb away!
+		command = { type = dissent value = 2 }
+		command = { type = sleepevent which = 802045 }
+		#command = { type = sleepevent which = 802046 }
+	}
+	action_b = { # negotiate
+		name = ACTIONNAME802044B # No, wait, we'll negotiate
+		command = { }
+	}
+}
+
+########################################################
+# 802045 - (POR) Negotiations (redone by Gerrit)
+########################################################
+
+event = {
+	id = 802045
+	random = no
+	country = POR
+
+	trigger = {
+		event = 802044
+		random = 50
+	}
+	
+	one_action = yes
+
+	name = EVT_802045_NAME
+	desc = EVT_802045_DESC
+	style = 2
+	picture = "por_event_tejo_munty"
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action = {
+	  ai_chance = 75
+		name = ACTIONNAME802045A # Start shooting
+		command = { type = dissent value = 5 }
+	}
+
+	action = {
+	  ai_chance = 25
+		name = ACTIONNAME802045B # Good, good
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}	
+}
+
+
+###################################################################
+# 802045 - (POR) Negotiations go poorly (by Gwalcmai)
+#event = {
+#
+#	id = 802045
+#	random = no
+#	country = POR
+#
+#	trigger = {
+#		event = 802044
+#		random = 50
+#		NOT = {
+#			event = 802046
+#		}
+#	}
+#
+#	name = EVT_802045_NAME
+#	desc = EVT_802045_DESC
+#	style = 0
+#
+#	date = { day = 17 month = september year = 1936 }
+#	offset = 2
+#	deathdate = { day = 29 month = september year = 1936 }
+#	action_a = {
+#		name = ACTIONNAME802045A # Start shooting
+#		command = { type = dissent value = 10 }
+#	}
+#}
+#
+# 802046 - (POR) Negotiations effective (by Gwalcmai)
+#event = {
+#	id = 802046
+#	random = no
+#	country = POR
+#
+#	trigger = {
+#		event = 802044
+#		random = 50
+#		NOT = {
+#			event = 802045
+#		}
+#	}
+#
+#
+#	name = EVT_802046_NAME
+#	desc = EVT_802046_DESC
+#	style = 0
+#
+#	date = { day = 17 month = september year = 1936 }
+#	offset = 3
+#	deathdate = { day = 29 month = september year = 1936 }
+#
+#	action_a = {
+#		name = ACTIONNAME802046A # Good, good
+#		command = { type = sleepevent which = 802045 }
+#		command = { type = domestic which = political_left value = 1 }
+#		command = { type = domestic which = democratic value = -1 }
+#	}
+#}
+# end mutiny event #
+#########################
+# 802047 - (POR) Salazar assassination (by Gwalcmai)
+#########################
+event = {
+	id = 802047
+	random = no
+	country = POR
+
+	trigger = {
+		headofgovernment = 9002
+	}
+
+	name = EVT_802047_NAME
+	desc = EVT_802047_DESC
+	style = 0
+
+	date = { day = 15 month = june year = 1937 }
+	offset = 50
+	deathdate = { day = 15 month = june year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME802047A # Blame the communists
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = dissent value = -2 }
+	}
+	action_b = {
+		name = ACTIONNAME802047B # Blame right-wing extremists
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 5 }
+	}
+}
+# end assassins event #
+
+  
+################
+# Iberian pact (by Gwalcmai)
+################
+### 802048 - (POR) The Iberian Pact (by Gwalcmai)
+
+event = {
+	id = 802048
+	random = no
+	country = POR
+
+	name = EVT_802048_NAME
+	desc = EVT_802048_DESC
+
+	action_a = {
+		name = ACTIONNAME802048A # Sign
+                command = { type = relation which = U01 value = 50 }
+	}
+}
+
+#### 802049 - (U01) The Iberian Pact (by Gwalcmai)
+
+event = {
+	id = 802049
+	random = no
+	country = U01
+
+	trigger = {
+		flag = SCW
+		NOT = { exists = SPR }
+		NOT = { war = { country = U01 country = POR } }
+	}
+
+	name = EVT_802048_NAME	#same stuff
+	desc = EVT_802048_DESC
+
+	date = { day = 0 month = january year = 1938 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME802048A # Sign
+		command = { type = trigger which = 802048 }
+	}
+}
+# end iberian pact events #
+
+
+##################
+# 802050 - (POR) Anti-Comintern (by Gwalcmai)
+##################
+event = {
+	id = 802050
+	random = no
+	country = POR
+
+	trigger = {
+		NOT = { 
+			alliance = { country = GER country = POR }
+			alliance = { country = POR country = SOV }
+			alliance = { country = POR country = ENG }
+		}
+		exists = GER
+		exists = ITA
+		exists = JAP
+		event = 3136157
+	}
+
+
+	name = EVT_802050_NAME
+	desc = EVT_802050_DESC
+	style = 0
+
+	date = { day = 0 month = april year = 1939 }
+	offset = 15
+	deathdate = { day = 0 month = april year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME802050A # Refuse to sign
+                command = { type = relation which = GER value = -100 }
+	}
+	action_b = {
+		name = ACTIONNAME802050B # Sign the agreement
+                command = { type = relation which = GER value = 25 }
+	}
+}
+# end anti-comintern #
+
+
+###################
+# 802051 - (POR) British support (by Gwalcmai)
+###################
+event = {
+	id = 802051
+	random = no
+	country = POR
+
+	name = EVT_802051_NAME
+	desc = EVT_802051_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME802051A # Thank you
+		command = { type = energypool value = 100 }
+		command = { type = metalpool value = 50 }
+		command = { type = rarematerialspool value = 50 }
+		command = { type = oilpool value = 10 }
+		command = { type = relation which = ENG value = 20 }
+	} #should also reduce ENG's pools, but...
+}
+
+### 802052 - (POR) British support for portuguese rearmament (by Gwalcmai)
+
+event = {
+	id = 802052
+	random = no
+	country = POR
+
+	name = EVT_802052_NAME
+	desc = EVT_802052_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME802052A # Thank you
+		command = { type = energypool value = 100 }
+		command = { type = metalpool value = 500 }
+		command = { type = rarematerialspool value = 500 }
+		command = { type = oilpool value = 10 }
+                command = { type = relation which = ENG value = 50 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = steal_tech which = ENG } 
+	}
+}
+
+### 272151 - (ENG) Offering Portugal help (by Gwalcmai)
+
+event = {
+	id = 272151
+	random = no
+	country = ENG
+
+	trigger = {
+		NOT = {
+			alliance = { country = GER country = POR }
+			alliance = { country = SOV country = POR }
+		}
+		atwar = no # will probably never fire... :)
+	}
+
+	name = EVT_272151_NAME
+	desc = EVT_272151_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1939 }
+	offset = 360
+	deathdate = { day = 0 month = january year = 1940 }
+
+	action_a = {
+		ai_chance = 75
+		name = ACTIONNAME272151A # Offer limited help
+		command = { type = money value = -30 }
+		command = { type = trigger which = 802051 }
+	}
+	action_b = {
+		ai_chance = 10
+		name = ACTIONNAME272151B # Leave them on their own
+		command = { }
+	}
+	action_c = {
+		ai_chance = 15
+		name = ACTIONNAME272151C # Offer big aid package
+		command = { type = money value = -300 }
+		command = { type = trigger which = 802052 }
+	}
+}
+# end brit support #
+
+
+##################
+# 802053 - (POR) Portugal world fair (by Gwalcmai)
+##################
+event = {
+	id = 802053
+	random = no
+	country = POR
+
+	trigger = { atwar = no }
+
+	name = EVT_802053_NAME
+	desc = EVT_802053_DESC
+	style = 0
+
+	date = { day = 23 month = june year = 1940 }
+	offset = 1
+	deathdate = { day = 25 month = june year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME802053A # Inaugurate exhibition
+		command = { type = dissent value = -10 }
+		command = { type = supplies value = -20 }
+	} #Any other effects? This is double 'parade in capital'
+}
+# end POR world fair #
+
+
+#################
+# 802054 - (POR) volfram trade (by Gwalcmai)
+#################
+event = {
+	id = 802054
+	random = no
+	country = POR
+
+	trigger = {
+		NOT = { alliance = { country = ENG country = POR } }
+		not = { alliance = { country = SOV country = POR } }
+		war = { country = GER country = SOV }
+		war = { country = ENG country = GER }
+		NOT = { war = { country = GER country = POR } }
+		atwar = no
+	}
+
+	name = EVT_802054_NAME
+ 	desc = EVT_802054_DESC
+	style = 0
+
+	date = { day = 3 month = january year = 1941 }
+	offset = 10
+	deathdate = { day = 0 month = may year = 1942 }
+
+	action_a = { 
+		name = ACTIONNAME802054A # Sign trade agreement
+		command = { type = metalpool value = 360 }
+		command = { type = energypool value = 720 }
+		command = { type = rarematerialspool value = 180 }
+		command = { type = construct which = ic where = -1 value = 1 } #1 IC and raws to keep it going for 1 year.
+		command = { type = construct which = infrastructure where = -1 value = 10 } #rail wagons and OPEL trucks
+		command = { type = steal_tech which = GER }
+		command = { type = steal_tech which = GER }
+		command = { type = trigger which = 172164 }
+	}
+}
+
+### 802055 - (POR) Germany renews the trade deals (by Gwalcmai)
+
+event = { 
+	id = 802055
+	random = no
+	country = POR
+
+	trigger = {
+		NOT = {
+			OR = { #checking neutrality
+			alliance = { country = SOV country = POR }
+			alliance = { country = ENG country = POR }
+			}
+		}
+		war = { country = GER country = SOV }
+		war = { country = ENG country = GER }
+		NOT = { war = { country = GER country = POR } }
+	}
+
+
+
+	name = EVT_802055_NAME
+	desc = EVT_802055_DESC
+	style = 0
+
+	date = { day = 2 month = december year = 1942 }
+	offset = 10
+	deathdate = { day = 0 month = january year = 1944 }
+
+	action_a = { 
+		name = ACTIONNAME802055A # Sign trade agreement
+		command = { type = metalpool value = 360 }
+		command = { type = energypool value = 720 }
+		command = { type = rarematerialspool value = 180 }
+		command = { type = construct which = infrastructure where = -1 value = 10 }
+		command = { type = construct which = ic where = -1 value = 1 }
+		command = { type = steal_tech which = GER }
+		command = { type = trigger which = 172164 } #trigger Tungsten trade GER.
+	}
+}
+
+### 802056 - (POR) Germany wishes to renew trade deals (by Gwalcmai)
+
+event = {
+	id = 802056
+	random = no
+	country = POR
+
+	trigger = {
+		event = 802055
+		NOT = {
+			OR = { #checking neutrality
+			alliance = { country = SOV country = POR }
+			alliance = { country = ENG country = POR }
+			}
+		}
+		war = { country = GER country = SOV }
+		war = { country = ENG country = GER }
+		NOT = { war = { country = GER country = POR } }
+	}
+
+
+
+	name = EVT_802056_NAME
+	desc = EVT_802056_DESC
+	style = 0
+
+	date = { day = 2 month = may year = 1944 }
+	offset = 10
+	deathdate = { day = 0 month = january year = 1946 }
+
+	action_a = { 
+		name = ACTIONNAME802056A # Sign trade agreement
+		command = { type = metalpool value = 300 }
+		command = { type = energypool value = 600 }
+		command = { type = construct which = infrastructure where = -1 value = 10 }
+		command = { type = steal_tech which = GER }
+		command = { type = steal_tech which = GER }
+		command = { type = construct which = ic where = -1 value = 1 }
+		command = { type = trigger which = 172164 } # trigger Tungsten trade GER.
+  }
+}
+
+### 172164 - (GER) A Tungsten Trade Deal (by Gwalcmai)
+
+event = {
+	id = 172164
+	country = GER
+	random = no
+	persistent = yes
+
+	name = EVT_172164_NAME
+	desc = EVT_172164_DESC
+	style = 0
+
+	date = { day = 2 month = may year = 1944 }	#actually triggered by 802054, 802055 and 802056
+	offset = 90
+	deathdate = { day = 0 month = january year = 1946 }
+
+	action_a = {
+		name = ACTIONNAME172164A # Sign the agreement
+		command = { type = rarematerialspool value = 1000 }
+	} #Germany will go through that rubber in a day or two, but POR or U01 are unlikely to have more, if they are to be deducted from them.
+}
+# end volfram trade #
+
+
+#########################
+# The spanish civil war #
+#########################
+# Over 8000 portuguese served in Franco's forces, and it was Salazar's
+# first intention to send an expeditionary force to help the rebels.
+# Portugal also loaned the nationalist government over 1 million pounds.
+
+### 802057 - (POR) The Spanish Federalist Menace (by Gwalcmai)
+event = {
+	id = 802057
+	random = no
+	country = POR
+
+	trigger = {
+		event = 3174004
+		exists = U01
+		exists = SPR
+		NOT = {
+			war = { country = POR country = U01 }
+		}
+	}
+
+
+	name = EVT_802057_NAME
+	desc = EVT_802057_DESC
+	# better desc required. This one is really crummy, sorry.
+	style = 0
+
+	date = { day = 0 month = august year = 1936 }
+	offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME802057A # We shall help fight the Red Menace
+		command = { type = access which = U01 }
+                command = { type = relation which = U01 value = 10 }
+		command = { type = trigger which = 802058 }
+	}
+}  
+
+### 802058 - (U01) Portuguese Volunteers (by Gwalcmai)
+
+event = {
+	id = 802058
+	country = U01
+	random = no
+
+	name = EVT_802058_NAME
+	desc = EVT_802058_DESC
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = manpowerpool value = 8 }
+	}
+}
+# end SCW #
+
+
+##################
+# Embargo events #
+##################
+### 802059 - (POR) British Demand Embargo (by Gwalcmai)
+event = {
+	id = 802059
+	random = no
+	country = POR
+
+	trigger = {
+	event = 802055
+	NOT = {
+			OR = {
+					alliance = { country = GER country = POR }
+					alliance = { country = SOV country = POR }
+					alliance = { country = ENG country = POR }
+					}
+			}
+	atwar = no
+	}
+
+
+	name = EVT_802059_NAME
+ 	desc = EVT_802059_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1944 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME802059A # Embargo the Axis
+		command = { type = sleepevent which = 802056 }
+  		command = { type = sleepevent which = 172164 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 172165 }
+	}
+	action_b = {
+		name = ACTIONNAME802059B # Refuse
+		command = { type = trigger which = 272152 }
+	}
+}
+
+### 802060 - (POR) Britain Repeat Demands (by Gwalcmai)
+
+event = {
+	id = 802060
+	random = no
+	country = POR
+
+	name = EVT_802060_NAME
+	desc = EVT_802060_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME802060A # Embargo the Axis
+		command = { type = sleepevent which = 802056 }
+  		command = { type = sleepevent which = 172164 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 172165 }
+	}
+	action_b = {
+		name = ACTIONNAME802060B # Refuse
+		command = { type = trigger which = 272153 }
+	}
+}
+
+### 802061 - (POR) Germany declares war (by Gwalcmai)
+
+event = {
+	id = 802061
+	random = no
+	country = POR
+
+	name = EVT_802061_NAME
+	desc = EVT_802061_DESC
+	style = 0
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = alliance which = ENG }
+		command = { type = domestic which = democratic value = 1 }
+	}
+}
+
+### 802062 - (POR) Allies declare war (by Gwalcmai)
+
+event = {
+	id = 802062
+	random = no
+	country = POR
+
+	name = EVT_802062_NAME
+	desc = EVT_802062_DESC
+	style = 0
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = trigger which = 172166 }
+	}
+}
+
+### 272152 - (ENG) Portuguese Refusal (by Gwalcmai)
+
+event = {
+	id = 272152
+	random = no
+	country = ENG
+
+	name = EVT_272152_NAME
+	desc = EVT_272152_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME272152A # Ignore them
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME272152B # Repeat demand
+		command = { type = trigger which = 802060 }
+	}
+	action_c = {
+		name = ACTIONNAME272152C # Make them pay for their stubbornness
+		command = { type = war which = POR }
+		command = { type = trigger which = 802062 }
+	}
+}
+
+### 272153 - (ENG) Portuguese Refusal (by Gwalcmai)
+
+event = {
+	id = 272153
+	random = no
+	country = ENG
+
+	name = EVT_272153_NAME
+	desc = EVT_272153_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME272153A # Ignore them
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME272153B # Make them pay for their stubbornness
+		command = { type = war which = POR }
+		command = { type = trigger which = 802062 }
+	}
+}
+
+### 172165 - (GER) Portuguese embargo (by Gwalcmai)
+
+event = {
+	id = 172165
+	random = no
+	country = GER
+
+	name = EVT_172165_NAME
+	desc = EVT_172165_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME172165A # Ignore them
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME172165B # We'll avenge this!
+		command = { type = war which = POR }
+		command = { type = trigger which = 802061 }
+	}
+}
+
+### 172166 - (GER) Portugal asks for help (by Gwalcmai)
+
+event = {
+	id = 172166
+	random = no
+	country = GER
+
+	name = EVT_172166_NAME
+	desc = EVT_172166_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME172166A # Bring them in
+# 		command = { type = alliance which = POR }
+		command = { }
+	}
+	action_b = {
+		name = ACTIONNAME172166B # We asked for nothing
+		command = { }
+  	}
+}
+
+################################################################################
+#                 HlvtnCndn's portuguese events
+################################################################################
+
+##############################################
+#802063 - (POR) Portuguese Neutrality (by HlvtnCndn)
+##############################################
+
+event = {
+	id = 802063
+	random = no
+	country = POR
+
+	trigger = {
+		government = fascist
+		war = { country = ENG country = GER }
+		#Don't trigger if Portugal is at war with Allies or Axis
+		NOT = { war = { country = GER country = POR } }
+		NOT = { war = { country = ENG country = POR } }
+		NOT = { war = { country = SOV country = POR } }
+		NOT = { war = { country = USA country = POR } }
+		
+	}
+
+	name = EVT_802063_NAME
+	desc = EVT_802063_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		name = ACTIONNAME802063A # Declare neutrality, and maintain your distance from both sides.
+		command = { type = domestic which = interventionism value = -5 }
+	}
+
+	action_b = {
+		name = ACTIONNAME802063B # Avoid explicitly declaring neutrality.
+		command = { }
+	}
+}
+
+##############################################
+#802064 - (POR) Azores Negotiations (by HlvtnCndn)
+##############################################
+
+event = {
+	id = 802064
+	random = no
+	country = POR
+
+	trigger = {
+		war = { country = ENG country = GER }
+		owned = { province = 995 }
+		#Don't trigger if Portugal is at war with Allies or Axis
+		NOT = { war = { country = GER country = POR } }
+		NOT = { war = { country = ENG country = POR } }
+		NOT = { war = { country = SOV country = POR } }
+		NOT = { war = { country = USA country = POR } }
+	}
+
+	name = EVT_802064_NAME
+	desc = EVT_802064_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 97
+		name = ACTIONNAME802064A # Begin negotiations
+		command = { type = domestic which = political_left value = 1 }
+        command = { type = relation which = ENG value = 25 }
+        command = { type = relation which = GER value = -25 }
+	}
+
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME802064B # Quickly reach an agreement to grant basing rights in the Azores to the Allies.
+		command = { type = secedeprovince which = ENG value = 995 } # Province seceded since one-province access is impossible
+		command = { type = sleepevent which = 802065 } # No need to trigger the other base-access event
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+	}
+
+	action_c = {
+		ai_chance = 1
+		name = ACTIONNAME802064C # Quickly reach an agreement to allow the Allies access to all bases in Portuguese territory.
+		command = { type = access which = ENG } # Represents bigger commitment than just the Azores bases
+		command = { type = sleepevent which = 802065 } # No need to trigger the other base-access event
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 5 } # Pro-fascist elements angered
+	}
+
+	action_d = {
+		ai_chance = 1
+		name = ACTIONNAME802064D # Do not risk upsetting the Axis powers.
+		command = { type = sleepevent which = 802065 } # Removes possibility of allowing basing rights
+		command = { type = dissent value = 10 } # Pro-British elements angered
+	}
+}
+
+##############################################
+#802065 - (POR) Azores Basing Rights (by HlvtnCndn)
+##############################################
+
+event = {
+	id = 802065
+	random = no
+	country = POR
+
+	trigger = {
+		war = { country = ENG country = GER }
+		owned = { province = 995 }
+		#Don't trigger if Portugal is at war with Allies or Axis
+		NOT = { war = { country = GER country = POR } }
+		NOT = { war = { country = ENG country = POR } }
+		NOT = { war = { country = SOV country = POR } }
+		NOT = { war = { country = USA country = POR } }
+	}
+
+
+	name = EVT_802065_NAME
+	desc = EVT_802065_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1943 }
+	offset = 10
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 98
+		name = ACTIONNAME802065A # Grant basing rights in the Azores to the Allies
+		command = { type = secedeprovince which = ENG value = 995 } # Province seceded since one-province access is impossible
+        command = { type = relation which = ENG value = 25 }
+        command = { type = relation which = GER value = -25 }
+        command = { type = relation which = ITA value = -25 }
+	}
+
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME802065B # Allow the Allies access to all bases in Portuguese territory
+		command = { type = access which = ENG } # Represents bigger commitment than just the Azores bases
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = dissent value = 5 } # Pro-fascist elements angered
+	}
+
+	action_c = {
+		ai_chance = 1
+		name = ACTIONNAME802065C # Deny the Allies any basing rights
+		command = { type = dissent value = 10 } # Pro-British elements angered
+	}
+}
+
+##############################################
+#802066 - (POR) Legiao Portuguesa
+##############################################
+event = {
+	id = 802066
+	random = no
+	country = POR
+
+	trigger = {
+        atwar = no
+		event = 802044
+		event = 3173000
+	}
+
+	name = EVT_802066_NAME
+	desc = EVT_802066_DESC
+	style = 2
+	picture = "por_event_legio_portuguesa"
+
+	date = { day = 29 month = september year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME802066A 	
+		command = { type = add_corps which = "Legiao Portuguesa" value = land where = 476 }
+		command = { type = activate_division which = 19600 value = 1099 where = 476 }
+		command = { type = dissent value = 1 } 
+		command = { type = manpowerpool value = -4 }
+	}
+	
+	action_b = {
+	    ai_chance = 0
+		name = ACTIONNAME802066B
+		command = { type = dissent value = -1  }
+		command = { type = money   value = -50 }
+	}
+}
+
+##############################################
+#802067 - (POR) Legiao Viriatos
+##############################################
+event = {
+	id = 802067
+	random = no
+	country = POR
+
+	trigger = {
+        atwar = no
+		event = 3173001
+	}
+
+	name = EVT_802067_NAME #Viriatos to spain
+	desc = EVT_802067_DESC
+	style = 2
+	picture = "por_event_legio_viriatos"
+
+	date = { day = 6 month = august year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME802067A 	
+		command = { type = dissent      value = 2  } 
+		command = { type = manpowerpool value = -8 }
+		command = { type = trigger      which = 3174042 } 
+		command = { type = trade        which = POR where = U01  oil = -1  supplies = -3  when = 1080 value = 1 } #3 years of economic aid, can't be cancelled
+	}
+	
+	action_b = {
+	    ai_chance = 1
+		name = ACTIONNAME802067B
+		command = { type = dissent    value = 3 }
+		command = { type = relation   which = U01 value = -50 }
+        command = { type = sleepevent which = 3174042 }
+		command = { type = sleepevent which = 802068 }
+		command = { type = sleepevent which = 802069 }
+	}
+}
+
+event = {
+	id = 802068
+	random = no
+	country = POR
+
+	# triggered by U01 3174043
+
+	name = EVT_802067_NAME # The Legion Return Home
+	desc = EVT_802068_DESC
+	style = 2
+	picture = "por_event_legio_viriatos"
+
+	action_a = {
+		name = ACTIONNAME802068A 
+		command = { type = manpowerpool value = 8 }
+		command = { type = dissent value = -1 }
+		command = { type = end_trades which = POR where = U01 }
+	}
+}
+
+event = {
+	id = 802069
+	random = no
+	country = POR
+
+	# triggered by SPR 3174018
+
+	name = EVT_802067_NAME # The Legion Return Home
+	desc = EVT_802069_DESC
+	style = 2
+	picture = "por_event_legio_viriatos"
+
+	action_a = {
+		name = ACTIONNAME802069A 
+		command = { type = manpowerpool value = 3 }
+		command = { type = end_trades which = POR where = U01 }
+	}
+}

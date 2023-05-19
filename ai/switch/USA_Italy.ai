@@ -1,0 +1,363 @@
+# USA Italy AI File by Lothos
+
+###################################
+# Diplomacy
+###################################
+combat = {
+	GER = 100
+	JAP = 130
+	ITA = 200
+	VIC = 80
+}
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+front = { 
+	recklessness 		= 1 # 0-3
+	distrib_vs_ai 		= reactive
+	distrib_vs_human 	= reactive
+
+	enemy_reinf_days	= 6
+	reserve_prop		= 0.0
+	panic_ratio_vs_ai	= 1.75
+	panic_ratio_vs_human	= 1.25
+	base_attack_odds	= 1.02
+	min_attack_odds		= 1.001
+	max_attack_odds		= 2.0
+	reinforce_odds		= 1.02
+	withdraw_odds		= 0.95
+
+  	enemy_handicap = { } 
+   	passivity = { } 
+} 
+###################################
+# Invasions and Naval
+###################################
+invasion = {
+	invasion		= yes
+ 	base			= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random			= 5.0	#How big a random range.  (1.0 = 1%)
+	coastal			= 1.1	#increase to avoid coastal forts more.
+	beach			= 5.1	#higher, avoid worst beaches.
+	distance		= 0.1	#higher = avoid long distance.
+	max_distance  		= 250.0  #About the distance from Japan to Batavia
+	max_staging_distance    = 25	# How far should the staging area be from the target invasion point
+	pocket			= 0.1	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island			= 5.1	#prioritise taking pure islands.
+	enemy			= 1.1	#higher = much more vary of troops in province.
+	adjacentenemy 		= 0.1	#higher = much more vary of troops nearby
+	air_base		= 1.5 
+    naval_base 			= 1.1 
+    air_support 		= 3.0 
+    redirect 			= priority
+	ignore			= no
+	help_allies 		= no
+      
+	staging_province = { 
+	1795 # New York
+	1953 # Miami
+	1889 # San Francisco
+	}
+
+	target = {
+		#England
+		26 = 9000 # Dover
+		25 = 9000 # Norwich
+		27 = 9000 # Portsmouth
+		23 = 9000 # Plymouth
+		36 = 9000 # Belfast
+		20 = 9000 # Exeter
+		19 = 9000 # Bristol
+		17 = 9000 # Manchester
+		16 = 9000 # Lincoln
+		15 = 9000 # Hull
+		14 = 9000 # Carlisle
+		13 = 9000 # Sunderland
+		12 = 9000 # Edinburgh
+		11 = 9000 # Glasgow
+		10 = 9000 # Dumfries
+
+		# PACIFIC OCEAN
+		# -------------
+		#Alaska
+		2151 = 2950	# Unimak Island
+		2150 = 2950	# Andrean Island
+
+		#Kurils
+		1543 = -1 	# Estorofu
+
+		#Central Pacific
+		1736 = 1000 #Hawai
+		1737 = 1000 #Maui
+		1735 = 1000 #Kawai
+		1739 = 3000 #Midway
+		1734 = 4000 #Pearl Harbour
+		1738 = 3000 #Johnson
+		1672 = 60 #Marcus
+		1673 = 60 #Wake
+		1661 = 180 #IwoJima
+		1674 = 180 #Bikini
+		1675 = 45 #Eniwetok
+		
+
+		#South Pacific
+		
+		1680 = 140 #Tarawa
+		1746 = 45 #Christmas isl.
+
+		#New Zealand
+		1721 = 3000 #Wellington
+		1720 = 3000 #Auckland
+
+		#Australia
+		1697 = 2750 # Darwin
+		1701 = 2750 # Cairns
+		1704 = 2750 # Brisbane
+		1703 = 2750 # Newcastle
+		1705 = 2750 # Sydney
+		1707 = 2750 # Canberra
+		1708 = 2750 # Melbourne
+		1709 = 2750 # Geelong
+		1713 = 2750 # Robe
+		1712 = 2750 # Adelaide
+		1711 = 2750 # Port Lincoln
+		1710 = 2750 # Tasmania
+		1693 = 2750 # Kalgoorlie
+		1691 = 2750 # Albany
+		1694 = 2750	
+		1690 = 2750 # Perth
+		1689 = 2750 # Northam
+		1692 = 2750 # Gerladton
+		1688 = 2750 # Carnarvon
+		1696 = 2750 # Katherine
+
+		#Coral Sea
+		
+		1592 = 140 #Santa Cruz
+		1590 = 180 #Guadalcanal
+		1726 = 180 #Rabaul
+		1607 = 185 #Port Moresby
+		
+		#Carolinese
+		
+		1667 = 185 #Truk
+		
+		#Philippines
+		1567 = 80 # Baguio
+		1566 = 80 # Cabanatuan
+		1568 = 80 # Legaspi
+		1579 = 80 # Davao
+		1577 = 80 # Jolo
+		1575 = 80 # Samar
+		1573 = 80 # Leyte
+		1574 = 80 # Bacolod
+		1576 = 80 # Panay
+		1565 = 80 # Manila
+		1571 = 80 # Mindoro
+		1572 = 80 # Palawan
+
+		#Indochina
+		
+		1423 = 10 #Bangkok
+		1399 = 10 #Saigon
+		1395 = 10 #Hanoi
+
+		#Kyushu
+		1561 = 20 #Kagoshima
+
+
+		#Canada - vancouver
+		2090 = 140 #Victoria
+		2089 = 140 #Vancouver
+
+		#USA-West Coast
+		1874 = 40 #Seattle
+		1889 = 40 #San Francisco
+
+		#Latin America
+		1980 = 5000 # Culiacan Rosales
+		1970 = 5000 # Oaxaca de Juarez
+		1968 = 5000 # Veracruz
+		2079 = 5000 # San Salvador
+		2080 = 5000 # Managua
+		2082 = 5000 # Bluefields
+		2040 = 5000 # Santiago de Guadayaquil 
+		2041 = 5000 # Galapagos Island
+
+
+		# ATLANTIC OCEAN
+		# -------------
+		#Islands in cold Water
+		2098 = 2750 #Baffin Bay
+		1783 = 2750 #Greenland
+		1   = 2750 #Reijavik
+		2   = 2750 #Thorshavn
+		2137 = 2750 #St.John's
+		2135 = 2750 #Saint-Pierre
+		2134 = 2750 #Glace Bay
+		2133 = 2750 #Charlottetown
+
+		#Bahamas and Bermuda
+		1773 = 3750 #Bermuda
+		1771 = 3750 #Grand Bahamas
+		1772 = 3750 #Turks and Caicos
+
+		#Mid Atlantic
+		2045  = 4750 #Falklands have substantial logistic facilities
+
+		# MEDITERRANEAN SEA
+		# -----------------
+		# Greece
+		370 = -1
+		364 = -1
+		366 = -1
+		374 = -1
+		377 = 1000 # Athens
+		372 = -1
+		371 = -1
+		# Greek Islands
+		382 = -1 # Irakleio
+		379 = -1 # Rhodes		
+		# Albania
+		359 = -1
+		# Yugoslavia
+		343 = -1
+		350 = -1
+		347 = -1
+		#Italy, Adriatic coast
+		400 = -1
+		411 = -1
+		420 = -1
+		426 = -1
+		#Italy, southern and western coastline + Sardinia + Sicily
+		422 = 3000 # Taranto
+		432 = 4000 # Catania
+		433 = 4000 # Siracuse
+		430 = 4000 # Palermo
+		431 = 4000 # Messina
+		427 = 3000 # Salerno
+		421 = -1
+		418 = 1500 # Gaeta
+		416 = 3000 # Anzio
+		410 = -1
+		434 = 5000 # Cagliari
+		435 = 4000 # Sassari
+		#France
+		87  = 2000
+		86  = 2000
+		89  = 2000
+		82  = 3000
+		79  = 3000
+		80  = 2000
+
+		#Temp Shut Down of Europe
+		#Norway
+		483 = -1 # Oslo
+		485 = -1 # Kristiansan
+		495 = -1 # Narvik
+		491 = -1 # Alesund
+		493 = -1 # Trondheim
+		487 = -1 # Stavanger
+		488 = -1 # Bergen
+		490 = -1 # Andalsnes
+		494 = -1 # Bodo
+
+		# Baltic States (in case of un-holy alliance)
+		531 = -1 # Viipuri
+		530 = -1 # Terijoki
+		553 = -1 # Leningrad
+		550 = -1 # Kingisepp
+		274 = -1 # Narva
+		270 = -1 # Tallinn
+		271 = -1 # Parnu
+		275 = -1 # Kuressaare
+		264 = -1 # Riga
+		265 = -1 # Valmiera
+		269 = -1 # Jelgava
+		268 = -1 # Liepaia
+		259 = -1 # Siauliai
+		261 = -1 # Klaipeda
+
+		# German DH
+		184 = -1 # Königsberg
+		183 = -1 # Elbing
+		182 = -1 # Tilsit
+		181 = -1 # Danzig
+		226 = -1 # Gdynia
+		155 = -1 # Stolp
+		158 = -1 # Stettin
+		162 = -1 # Stralsund
+		153 = -1 # Rostock
+		151 = -1 # Lubeck
+		152 = -1 # Kiel
+		150 = -1 # Flensburg
+	
+		# Atlantic Wall DH
+		217 = -1 # Aalborg
+		216 = -1 # Abenra
+		218 = -1 # Frederikshavn
+		220  = -1 # Arhus
+		122  = -1 # Amsterdam
+		123  = -1 # Middleburg
+		125  = -1 # Rotterdam
+		114  = -1 # Bruges
+		49  = -1 # Calais
+		51  = -1 # Dunquerque
+		53  = -1 # Dieppe
+		45 = -1 # Le Havre
+		44  = -1 # Caen
+		46  = -1 # Bayeux
+		38 = -1 # Rennes
+		41 = -1 # St. Brieux
+		37  = -1 # Brest
+		39  = -1 # Lorient
+		40  = -1 # St. Nazaire
+		68 = -1 # Bordeaux
+		67 = -1 # Mont-de-Marsan
+		57 = -1 # Nantes
+	} 
+}
+
+admiral = { 
+	min_org		= 100	# NEW: Percent of org gained back before the unit can leave port
+	min_dmg		= 90    # NEW: Percent of dmg gained back before the unit can leave port
+	return_org 	= 70 	# NEW: PERCENT OF ORG LOST BEFORE RETURNING TO PORT applies to all fleets/ships
+	return_dmg 	= 60 	# NEW: PERCENT OF DMG LOST BEFORE RETURNING TO PORT for repairs applies to all fleets/ships
+
+	#Which provinces to use as bases..
+	base = {
+		1734	# Pearl Harbor
+		1789	# Boston
+		1795	# New York
+		1808	# Baltimore
+		1805	# Philadelphia
+		1812	# Norfolk
+		1953	# Miami
+		1928	# Houston
+		
+		1886	# San Diego
+		1887	# Los Angeles
+		1889	# San Francisco
+		1874	# Seattle
+		
+		1667	# Truk
+		1726	# Rabaul
+		1399	# Saigon
+		1432	# Singapore
+		1647	# Batavia
+		1565	# Manila
+		
+		2174	# Attu
+		2142	# Anchorage
+		1673	# Wake
+		1683	# Guam
+		889		# Balboa
+		1778	# Guantanamo
+		1		# Reykjavik
+		1809	# Washington
+		
+		747    # Tunis
+		727    # alger
+	}
+} 

@@ -1,0 +1,1262 @@
+# converted to DH, Kane, July 23 2011
+# Last Update 01-MAY-2007
+#########################
+
+#########################################################################
+# 3141000 - 3141999	Hungary political event
+#########################################################################
+
+######################################################
+# Treaty of Trianon info
+######################################################
+event = {
+	id = 3141019
+	random = no
+	country = HUN
+	
+	trigger = { ai = no }
+	
+	name = EVT_3141019_NAME
+	desc = EVT_3141019_DESC
+	style = 1
+	picture = "Trianon"
+	
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME3000000A
+		command = { }
+	}
+}
+######################################################
+# Infantry activation
+######################################################
+event = {
+	id = 3141020
+	random = no
+	country = HUN
+	
+	trigger = {
+		NOT = { local_flag = activation_infantry }
+		OR = {	
+				atwar = yes
+				participant = { country = HUN value = 1 }
+				participant = { country = HUN value = 2 }
+				participant = { country = HUN value = 3 }
+			}
+	}
+	
+	name = EVT_2700061_NAME
+	desc = EVT_2700061_DESC
+	style = 2
+	picture = "hun_infantry"
+
+	date = { hour = 1 day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		name = ACTIONNAME2700061A
+		command = { type = activate_unit_type which = infantry }
+		command = { type = local_setflag which = activation_infantry }
+	}
+}
+
+#########################################################################
+# First Vienna Award
+#########################################################################
+event = {
+	id = 3141021
+	random = no
+	country = HUN
+	
+	#triggered by CZE 3127011
+	
+	name = EVT_3127011_NAME 
+	desc = EVT_3127011_DESC 
+	style = 0
+	
+	action_a = {
+		name = ACTION_NAME_GREAT
+		command = { type = dissent value = -1 }
+		command = { type = manpowerpool value = 5 }
+	}
+}
+
+#########################################################################
+#  The End of Czechoslovakia - Ruthenia ceded to Hungary (was 2500)
+#########################################################################
+event = { 
+	id = 3141000
+	random = no
+	country = HUN
+	
+	# Triggered by SLO 3187000 & GER 3136013
+	
+	name = EVT_3141000_NAME
+ 	desc = EVT_2500_DESC
+	style = 2
+	picture = "ruthenia_ceded"
+
+	action_a = {
+		name = ACTIONNAME3141000A
+		ai_chance = 97
+		command = { type = dissent value = -5 }
+		command = { type = addcore which = 213 }
+		command = { type = relation which = SLO value = 15 }
+		command = { type = relation which = GER value = 15 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = add_division value = infantry }
+		command = { type = add_division value = bergsjaeger when = 0 }
+		command = { type = trigger which = 3141018 }
+	}
+#	action_b = {
+#                name = ACTIONNAME3141000B
+#                ai_chance = 2
+#                command = { type = trigger which = 3136081 }# GER
+#        }
+#        action_c = {
+#                name = ACTIONNAME3141000C
+#                ai_chance = 1
+#				command = { type = war which = SLO }
+#                command = { type = trigger which = 3136082 } # GER
+#       }
+}
+#########################################################################
+#  The End of Czechoslovakia - Slovakia given to Hungary (was 2501)
+#########################################################################
+event = { 
+	id = 3141001
+	random = no
+	country = HUN
+	
+	# Triggered by CZE 3127002
+	
+	name = EVT_3141001_NAME
+ 	desc = EVT_3141001_DESC
+	style = 2
+	picture = "slovakia"
+
+	action_a = {
+		name = ACTIONNAME3141001A
+		command = { type = inherit which = SLO }
+		command = { type = addcore which = 208 } # Bratislava
+		command = { type = addcore which = 211 } # Baska Bystrica
+		command = { type = addcore which = 212 } # Zilina
+		command = { type = addcore which = 213 } # Chust
+		command = { type = addcore which = 214 } # Presov
+		command = { type = dissent value = -20 }
+		command = { type = relation which = GER value = 50 }
+		command = { type = domestic which = political_left value = -1 }
+	}
+}
+#########################################################################
+#  The End of Czechoslovakia - Czecho-Slovakia fight back! (was 2502)
+#########################################################################
+event = { 
+	id = 3141002
+	random = no
+	country = HUN
+	
+	# Triggered by CZE 3127002
+	
+	name = EVT_3141002_NAME
+ 	desc = EVT_2500_DESC
+	style = 2
+	picture = "slovakian_tank"
+
+	action_a = {
+		name = ACTIONNAME3141002A
+		command = { type = dissent value = 10 }
+		command = { type = relation which = CZE value = -15 }
+	}
+}
+#########################################################################
+#  The Vienna Diktat - Claim Transylvania with German blessing (was 2503)
+#########################################################################
+event = { 
+	id = 3141003
+	random = no
+	country = HUN
+		
+	trigger = {
+		exists = GER
+		exists = ROM
+		control = { province = 296 data = ROM } # Satu Mare
+		control = { province = 288 data = ROM } # Cluj
+		control = { province = 287 data = ROM } # Turda
+		control = { province = 299 data = ROM } # Bacau
+		control = { province = 292 data = ROM } # Bistrita
+		control = { province = 301 data = ROM } # Suceava
+		government = fascist
+		NOT = {
+			war = { country = HUN country = ROM  }
+			alliance = { country = ROM country = SOV }
+			alliance = { country = ROM country = ENG }
+			OR = {
+			control = { province = 296 data = -1 } # Satu Mare
+			control = { province = 288 data = -1 } # Cluj
+			control = { province = 287 data = -1 } # Turda
+			control = { province = 299 data = -1 } # Bacau
+			control = { province = 292 data = -1 } # Bistrita
+			control = { province = 301 data = -1 } # Suceava
+			}
+		}
+	}
+	
+	name = EVT_3141003_NAME
+	desc = EVT_3141003_DESC
+	style = 2
+	picture = "vienna_diktat"
+	
+	date = { day = 2 month = september year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1940 }
+	
+	action_a = {
+		name = ACTIONNAME3141003A
+		ai_chance = 98
+		command = { type = relation which = ROM value = -10 }
+		command = { type = trigger which = 3136035 } # GER
+	}
+	action_b = {
+		name = ACTIONNAME3141003B
+		ai_chance = 2
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = relation which = ROM value = 10 }
+	}
+}
+#########################################################################
+#  The Vienna Diktat - Germans rule in Romanian favor (was 2504)
+#########################################################################
+event = { 
+	id = 3141004
+	random = no
+	country = HUN
+	
+	# Triggered by GER 3136035
+	
+	name = EVT_2504_NAME
+	desc = EVT_2504_DESC
+	style = 2
+	picture = "vienna_diktat"
+
+	action_a = {
+		name = ACTIONNAME3141004A
+		ai_chance = 99
+		command = { type = dissent value = 5 }
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+	action_b = {
+		name = ACTIONNAME3141004B
+		ai_chance = 1
+		command = { type = war which = ROM }
+		command = { type = trigger which = 3136083 } # GER
+	}
+}
+#########################################################################
+#  The Vienna Diktat - Romania folds under German duress (was 2505)
+#########################################################################
+event = { 
+	id = 3141005
+	random = no
+	country = HUN
+	
+	# Triggered by ROM 3167001
+	
+	name = EVT_2505_NAME
+	desc = EVT_2505_DESC
+	style = 2
+	picture = "vienna_diktat"
+
+	action_a = {
+		name = ACTIONNAME3141005A
+		command = { type = dissent value = -10 }
+		command = { type = addcore which = 296 }
+		command = { type = addcore which = 293 }
+		command = { type = addcore which = 292 }
+		command = { type = addcore which = 288 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = relation which = GER value = 15 }
+	}
+}
+#########################################################################
+#  The Vienna Diktat - Romania refuses the demands! (was 2506)
+#########################################################################
+event = { 
+	id = 3141006
+	random = no
+	country = HUN
+	
+	# Triggered by ROM 3167001
+	
+	name = EVT_2506_NAME
+	desc = EVT_2506_DESC
+	style = 2
+	picture = "vienna_diktat"
+
+	action_a = {
+		name = ACTIONNAME3141006A
+		command = { type = dissent value = 5 }
+		command = { type = relation which = ROM value = -10 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+########################################################## 
+# Tripartite Pact Proposal
+# (was 702076 by Generalisimo) modified by Luxor
+########################################################## 
+event = { 
+	id = 3141007 # 7300005
+	random = no
+	country = HUN
+	
+	# Triggered by GER 3136066
+       
+	name = EVT_3141007_NAME
+	desc = EVT_3141007_DESC
+	style = 2
+	picture = "tripartite"
+	
+	action_a = {
+		name = ACTIONNAME3141007A
+		ai_chance = 98
+		command = { type = money value = 10 }
+		command = { type = domestic which = interventionism value = 1 }
+		command = { type = relation which = SOV value = -10 }
+		command = { type = relation which = USA value = -10 }
+		command = { type = relation which = ENG value = -10 }
+		command = { type = relation which = AST value = -10 }
+		command = { type = relation which = NZL value = -10 }
+		command = { type = relation which = GER value = 100 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = trigger which = 3136067 } # GER
+		command = { type = setflag which = HUN_tripartite }
+	}
+	action_b = {
+		name = ACTIONNAME3141007B
+		ai_chance = 2
+		command = { type = money value = -10 }
+		command = { type = domestic which = interventionism value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3136068 } # GER
+	}
+}
+####################################
+# Hungary - The Program of GYOR
+# By Samu
+####################################
+event = {
+        id = 3141009
+        random = no
+        country = HUN
+        
+        name = EVT_3141009_NAME
+        desc = EVT_3141009_DESC
+        style = 2
+        picture = "ruthenia_ceded"
+ 
+        date = { day = 4 month = march year = 1938 }
+        offset = 1
+        deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3141009A
+				command = { type = manpowerpool value = 140 } # transferred from INC at beginning: pool 97 mp, strength of units 42 MP, 1 MP as a gift to make it look better ;)
+                command = { type = construct which = ic where = 277 value = 2 }
+                command = { type = construct which = ic where = 284 value = 2 }
+                command = { type = construct which = ic where = 282 value = 2 }
+                command = { type = peacetime_ic_mod value = 10 }
+                command = { type = wakeminister which = 21187 }
+                command = { type = local_setflag which = gyor }
+        }
+}
+####################################
+# The Huba Project events
+# By Luxor & Samu
+####################################
+event = {
+        id = 3141010
+        random = no
+        country = HUN
+        
+        trigger = {
+        	local_flag = gyor
+        	atwar = yes
+        }
+        
+        name = EVT_3141010_NAME
+        desc = EVT_3141009_DESC
+        style = 2
+		picture = "hun_huba_gyor"
+ 
+        date = { day = 0 month = october year = 1941 }
+        offset = 7
+        deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3141009A
+                command = { type = construct which = IC where = -1 value = 2 }
+        }
+}
+event = {
+        id = 3141011
+        random = no
+        country = HUN
+        
+        trigger = {
+        	local_flag = gyor
+        	atwar = yes
+        }
+        
+        name = EVT_3141011_NAME
+        desc = EVT_3141009_DESC
+        style = 2
+		picture = "hun_huba_gyor"
+ 
+        date = { day = 0 month = december year = 1943 }
+        offset = 7
+        deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3141009A
+                command = { type = construct which = IC where = -1 value = 2 }
+        }
+}
+event = {
+        id = 3141012
+        random = no
+        country = HUN
+        
+        trigger = {
+        	local_flag = gyor
+        	atwar = yes
+        }
+        
+        name = EVT_3141012_NAME
+        desc = EVT_3141009_DESC
+        style = 2
+		picture = "hun_huba_gyor"
+ 
+        date = { day = 0 month = june year = 1945 }
+        offset = 7
+        deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+                name = ACTIONNAME3141009A
+                command = { type = construct which = IC where = -1 value = 1 }        
+        }
+}
+#########################################################################
+# Polish Refugees (by Generalisimo)
+#########################################################################
+event = {
+	id = 3141013
+	random = no
+	country = HUN
+
+	# triggered by POL 7400001 A
+
+	name = EVT_3141013_NAME
+	desc = EVT_3141013_DESC
+	style = 2
+	picture = "hun_polish_refugees"
+
+	action_a = {
+	    ai_chance = 99
+		name = ACTIONNAME3141013A
+		command = { type = supplies value = 100 }
+		command = { type = trigger which = 432001 } # FRA
+	}
+
+	action_b = {
+	    ai_chance = 1
+		name = ACTIONNAME3141013C
+		command = { type = supplies value = 100 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = sleepevent which = 432001 } # FRA Polish Refugees HUN
+	}
+}
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 3141014 # 7300008
+	random = no
+	country = HUN
+
+	# triggered by 3182091
+
+	name = EVT_3141014_NAME
+	desc = EVT_3141014_DESC
+	style = 2
+	picture = "hun_big_three"
+
+	action_a = { 
+		name = ACTIONNAME3141014A
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = secedeprovince which = YUG value = 341 }
+		command = { type = secedeprovince which = ROM value = 287 }
+		command = { type = secedeprovince which = ROM value = 288 }
+		command = { type = secedeprovince which = ROM value = 292 }
+		command = { type = secedeprovince which = ROM value = 299 }
+		command = { type = secedeprovince which = ROM value = 301 }
+		command = { type = secedeprovince which = ROM value = 296 }
+		command = { type = secedeprovince which = CZE value = 208 }
+		command = { type = secedeprovince which = CZE value = 210 }
+		command = { type = secedeprovince which = CZE value = 211 }
+		command = { type = secedeprovince which = CZE value = 212 }
+		command = { type = secedeprovince which = CZE value = 209 }
+		command = { type = secedeprovince which = CZE value = 214 }
+		command = { type = secedeprovince which = SOV value = 213 }
+		command = { type = secedeprovince which = SOV value = 215 }
+	}
+}
+#########################################################################
+# Bled Conference
+#########################################################################
+event = {
+	id = 3141015
+	random = no
+	country = HUN
+
+	trigger = {
+#		atwar = no
+		NOT = {
+			war = { country = HUN country = CZE }
+			war = { country = HUN country = ROM }
+			war = { country = HUN country = YUG }
+		}
+	}
+
+	name = EVT_3141015_NAME
+	desc = EVT_3141015_DESC
+	style = 2
+	picture = "hun_airforce"
+
+	date = { day = 22 month = august year = 1938 }
+        offset = 1
+        deathdate = { day = 29 month = december year = 1938 }
+        
+	action_a = {
+		name = ACTIONNAME3141015A
+		command = { type = peacetime_ic_mod value = 10 }
+		#command = { type = add_division value = interceptor when = 0 }
+		#command = { type = add_division value = tactical_bomber }
+		command = { type = waketeam which = 1618 } #MÁVAG Repülogép
+                command = { type = waketeam which = 1609 } #F. Littay
+		command = { type = non_aggression which = HUN where = CZE }
+		command = { type = non_aggression which = HUN where = ROM }
+		command = { type = non_aggression which = HUN where = YUG }
+	}
+}
+#########################################################################
+#  End of the Soviet-Hungarian War
+#########################################################################
+event = {
+	id = 23126534
+	random = no
+	country = SOV
+
+	trigger = {
+		war = { country = GER country = SOV }
+		war = { country = HUN country = SOV }
+                alliance = { country = HUN country = GER }
+		lost_national = { country = HUN value = 40 }
+		NOT = { alliance = { country = HUN country = SOV } }
+                NOT = { alliance = { country = HUN country = ENG } } 
+	}
+
+	name = EVT_23126534_NAME
+	desc = EVT_23126534_DESC
+	style = 2
+	picture = "hun_big_three"
+	
+	date = { day = 0 month = january year = 1941 }
+	offset = 1 # Check for trigger conditions every 1 days
+	deathdate = { day = 29 month = december year = 1953 }
+
+	action_a = {
+		name = ACTIONNAME23126534A
+		ai_chance = 99
+		command = { type = trigger which = 23126535 } # HUN
+	}
+	action_b = {
+		name = ACTIONNAME23126534B
+		ai_chance = 1
+                command = { type = dissent value = 5 }
+		command = { type = relation which = ROM value = -50 }
+		command = { type = relation which = HUN value = -50 }
+		command = { type = relation which = BUL value = -75 }
+		command = { type = relation which = GER value = -200 }
+		command = { type = relation which = FRA value = -50 }
+		command = { type = relation which = USA value = -50 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Hungarian War
+#########################################################################
+event = {
+	id = 23126535
+	random = no
+	country = HUN
+
+	# Triggered by SOV 23126534
+
+	name = EVT_23126534_NAME
+	desc = EVT_23126534_DESC
+	style = 2
+	picture = "hun_big_three"
+
+	action_a = {
+		name = ACTIONNAME23126535A
+		ai_chance = 99
+		command = { type = peace which = SOV value = 1 }
+                command = { type = peace which = ENG value = 1 }
+                command = { type = peace which = IRQ value = 1 }
+                command = { type = peace which = HOL value = 1 }
+                command = { type = peace which = NIC value = 1 }
+                command = { type = peace which = COL value = 1 }
+                command = { type = peace which = FIN value = 1 }
+				command = { type = leave_alliance }
+				command = { type = waketeam   which = 1602 }
+		        command = { type = sleepteam  which = 1627 }
+                command = { type = removecore which = 213 } # Chust
+				command = { type = removecore which = 210 } 
+				command = { type = removecore which = 209 } 
+                command = { type = removecore which = 215 } # Uzhorod
+				command = { type = removecore which = 208 } 
+				command = { type = removecore which = 212 } 
+				command = { type = removecore which = 211 } 
+				command = { type = removecore which = 288 } 
+				command = { type = removecore which = 214 } # Slovakia if annexed
+				command = { type = removecore which = 292 } # Viena dictat gains removed
+				command = { type = removecore which = 293 } # Viena dictat gains removed
+				command = { type = removecore which = 296 }
+                command = { type = removecore which = 341 } #Novi Sad
+				command = { type = removeclaim which = 213 } # Chust
+				command = { type = removeclaim which = 210 } 
+				command = { type = removeclaim which = 209 } 
+                command = { type = removeclaim which = 215 } # Uzhorod
+				command = { type = removeclaim which = 208 } 
+				command = { type = removeclaim which = 212 } 
+				command = { type = removeclaim which = 211 } 
+				command = { type = removeclaim which = 214 } # Slovakia if annexed
+				command = { type = removeclaim which = 292 } # Viena dictat gains removed
+				command = { type = removeclaim which = 293 } # Viena dictat gains removed
+				command = { type = removeclaim which = 296 }
+                command = { type = removeclaim which = 341 } #Novi Sad
+				command = { type = removeclaim which = 188 }
+				command = { type = removeclaim which = 288 }
+				command = { type = removeclaim which = 292 }
+				command = { type = removeclaim which = 285 }
+				command = { type = removeclaim which = 286 }
+				command = { type = removeclaim which = 287 }
+				command = { type = removeclaim which = 289 }
+				command = { type = removeclaim which = 291 }
+				command = { type = removeclaim which = 295 }
+				command = { type = secedeprovince which = SOV value = 208 }
+				command = { type = secedeprovince which = SOV value = 209 }
+				command = { type = secedeprovince which = SOV value = 210 }
+				command = { type = secedeprovince which = SOV value = 211 }
+				command = { type = secedeprovince which = SOV value = 212 }
+                command = { type = secedeprovince which = SOV value = 214 }
+				command = { type = secedeprovince which = SOV value = 341 }
+				command = { type = secedeprovince which = SOV value = 292 }
+				command = { type = secedeprovince which = SOV value = 293 }
+				command = { type = secedeprovince which = SOV value = 288 }
+				command = { type = secedeprovince which = SOV value = 296 }
+				command = { type = secedeprovince which = SOV value = 213 }
+                command = { type = secedeprovince which = SOV value = 215 }
+                command = { type = non_aggression which = HUN where = SOV }
+				command = { type = relation which = SOV value = 100 }
+				command = { type = relation which = GER value = -175 }
+				command = { type = dissent value = 20 }
+                command = { type = trigger which = 23126536 } #SOV
+	}
+	action_b = {
+		name = ACTIONNAME23126535B
+		ai_chance = 1
+		command = { type = trigger which = 23126537 } #SOV
+		command = { type = domestic which = political_left value = -2 }
+		command = { type = domestic which = democratic value = 2 }
+		command = { type = domestic which = freedom value = 2 }
+		command = { type = relation which = SOV value = -50 }
+		command = { type = relation which = GER value = 50 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Hungarian War - Hungary accepts
+#########################################################################
+event = {
+	id = 23126536
+	random = no
+	country = SOV
+
+	name = EVT_23126536_NAME
+	desc = EVT_23126536_DESC
+	style = 2
+	picture = "hun_big_three"
+
+	action_a = {
+		name = ACTIONNAME23126536A
+		command = { type = dissent value = -1 }
+                command = { type = make_puppet which = HUN }
+				command = { type = addcore which = 213 }
+				command = { type = addcore which = 215 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Hungarian War - Hungary refuses
+#########################################################################
+event = {
+	id = 23126537
+	random = no
+	country = SOV
+
+	name = EVT_23126537_NAME
+	desc = EVT_23126537_DESC
+	style = 2
+	picture = "hun_big_three"
+
+	action_a = {
+		name = ACTIONNAME23126537A
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+#########################################################################
+#  The Molotov-Ribbentrop Pact - Eastern Poland to Soviets
+#########################################################################
+event = {
+	id = 3141016
+	random = no
+	country = HUN
+
+	trigger = {
+				event = 2018
+				NOT = { event = 2024 } # Bitter Peace
+				alliance = { country = HUN country = GER }
+				NOT = { war = { country = HUN country = SOV } }
+				OR = {
+						area = { area = "Grodno" 				country = HUN data = 2 value = 1 }
+						area = { area = "Brest Litovsk" 		country = HUN data = 2 value = 1 }
+						area = { area = "Polotsk" 				country = HUN data = 2 value = 1 }
+						area = { area = "Lvov" 					country = HUN data = 2 value = 1 }
+						area = { area = "Estonia" 				country = HUN data = 2 value = 1 }
+						area = { area = "Latvia" 				country = HUN data = 2 value = 1 }
+						area = { area = "Lithuania" 			country = HUN data = 2 value = 1 }
+						region = { region = "Ukraine" 			country = HUN data = 2 value = 1 }
+						region = { region = "Belarus" 			country = HUN data = 2 value = 1 }
+						region = { region = "Western Russia" 	country = HUN data = 2 value = 1 }
+						}
+			}
+
+	name = EVT_2018_NAME # End of Poland
+	desc = EVT_2018_DESC
+	style = 2
+	picture = "E_Poland_Sov"
+
+	date = { day = 22 month = august year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME2018A
+		command = { type = secedearea which = SOV value = "Grodno" 			}
+		command = { type = secedearea which = SOV value = "Brest Litovsk" 	}
+		command = { type = secedearea which = SOV value = "Polotsk" 		}
+		command = { type = secedearea which = SOV value = "Lvov" 			}
+		command = { type = secedearea which = SOV value = "Estonia" 		}
+		command = { type = secedearea which = SOV value = "Latvia" 			}
+		command = { type = secedearea which = SOV value = "Lithuania" 		}
+		command = { type = secederegion which = SOV value = "Ukraine" 			}
+		command = { type = secederegion which = SOV value = "Belarus" 			}
+		command = { type = secederegion which = SOV value = "Western Russia" 	}
+		command = { type = secedeprovince which = GER value = 261 } # Memel
+		command = { type = secedeprovince which = GER value = 252 } # Suwalki
+	}
+}
+
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3141017
+	random = no
+	country = HUN
+	
+	trigger = { 
+		NOT = { alliance = { country = HUN country = ENG } }
+		NOT = { alliance = { country = HUN country = GER } }
+		NOT = { alliance = { country = HUN country = ITA } }
+		NOT = { alliance = { country = HUN country = SOV } }
+		OR = {
+				
+			alliance = { country = HUN country = YUG }
+			alliance = { country = HUN country = ROM }
+			alliance = { country = HUN country = TUR }
+			}
+		atwar = GER
+		}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 2
+	picture = "hun_entent"
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1939 }
+	
+	action_a = {
+		name = ACTIONNAME3137001A
+		command = { type = embargo which = HUN where = CZE value = 0 }
+		command = { type = embargo which = HUN where = BUL value = 0 }
+		command = { type = embargo which = HUN where = YUG value = 0 }
+		command = { type = embargo which = HUN where = GRE value = 0 }
+		command = { type = embargo which = HUN where = ROM value = 0 }
+		command = { type = embargo which = HUN where = TUR value = 0 }
+	}
+}
+########################################################## 
+# End of Czechoslovakia - Will Hungary demand more?
+########################################################## 
+event = { 
+	id = 3141018
+	random = no
+	country = HUN
+	  
+	name = EVT_3141018_NAME
+	desc = EVT_3141018_DESC
+	style = 2
+	picture = "hun_czechoslovakia"
+
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3141018A # It's not our people and Germany won't support us!
+		command = { type = relation which = SLO value = 50 }
+		}
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3141018B # We'll ask Germany to form Greater Hungary!
+		command = { type = trigger which = 3136201 } #German decision
+		}
+}
+
+########################################################## 
+# Hungary buys license for Toldi tanks
+########################################################## 
+event = { 
+	id = 3136454
+	random = no
+	country = HUN
+	  
+	name = EVT_3136454_NAME
+	desc = EVT_3136454_DESC
+	style = 2
+	picture = "hun_swe_tanks"
+
+	date = { day = 1 month = march year = 1938 }
+	offset = 30
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3136454A # We will produce the Landsverk tank
+		command = { type = relation  which = SWE value = 50 }
+		command = { type = gain_tech which = 2590           }
+		command = { type = gain_tech which = 2660           }
+		command = { type = construct which = ic where = 284 value = 1 }
+		command = { trigger = { AI = yes } type = money value = -25   }
+		command = { trigger = { AI = no }  type = money value = -125  }
+		}
+		
+	action_b = {
+		ai_chance = 1
+		name = ACTIONNAME3136454B # We dont need the Landsverk tank
+		command = { type = sleepevent which = 3136451 } #Hungary forms a tank division
+		}
+}	
+
+########################################################## 
+# Hungary buys license for Me 210 heavy fighter
+########################################################## 
+event = { 
+	id = 3136455
+	random = no
+	country = HUN
+	
+	trigger = {
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+	}
+	  
+	name = EVT_3136455_NAME
+	desc = EVT_3136455_DESC
+	style = 2
+	picture = "hun_ger_plane"
+
+	date = { day = 14 month = april year = 1943 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+	
+	action_a = {
+		ai_chance = 99
+		name = ACTIONNAME3136455A # We will produce the Me 210
+		command = { type = relation  which = GER value = 50 }
+		command = { type = gain_tech which = 4140           }
+		command = { type = gain_tech which = 4150           }
+		command = { type = gain_tech which = 4180           }
+		command = { type = construct which = ic where = 279 value = 1 }
+		command = { trigger = { AI = yes } type = money value = -25   }
+		command = { trigger = { AI = no }  type = money value = -125  }
+		}
+		
+	action_b = {
+		ai_chance = 1   
+		name = ACTIONNAME3136455B # We dont need the the Me 210
+		command = { type = sleepevent which = 3136452 } #Hungary forms an airforce unit
+		command = { type = sleepevent which = 3136453 } #Germany forms an airforce unit
+		}
+}
+
+#########################################################################
+#  Slovak Hungarian War 1939
+#########################################################################
+event = {
+	id = 3141030
+	random = no
+	country = HUN
+	
+	trigger = { 
+		NOT = { alliance = { country = HUN country = SLO } }
+		exists = SLO
+		atwar = no
+	}	
+	
+	name = EVT_3141030_NAME
+	desc = EVT_3141030_DESC
+	style = 2
+	picture = "hun_event_slo_hun_war"
+	
+	date = { day = 24 month = march year = 1939 }
+	offset = 1
+	deathdate = { day = 10 month = march year = 1947 }
+	
+	action_a = {
+		name = ACTIONNAME3141030A
+		ai_chance = 100
+		command = { trigger = { ai = no } type = supplies value = -250 }
+		command = { type = trigger which = 3187005 } #SLO event
+	}
+	
+	action_b = {
+		name = ACTIONNAME3141030B
+		command = { type = dissent value = 1 }
+	}
+}
+
+event = {
+	id = 3141031
+	random = no
+	country = HUN
+	
+	#triggered by SLO 3187006
+
+	name = EVT_3141031_NAME
+	desc = EVT_3141031_DESC
+	style = 2
+	picture = "hun_event_slo_hun_war_end"
+	
+	action_a = {
+		name = ACTIONNAME3187031A
+		command = { type = gain_tech which = 1030 } #Inf 1939
+		command = { type = gain_tech which = 9130 } #air offensive 40
+		command = { type = dissent value = -1 }
+	}
+}
+
+#########################################################################
+# Political development in Hungary
+#########################################################################
+#  Gyula Gömbös died
+#########################################################################
+# 1936 - 14.5.38      --- Kálmán Darányi
+# 14.5.38 - 16.2.1939 --- Béla Imrédy
+# 16.2.39 - 3.4.41    --- Pál Teleki
+# 3.4.41 - 7.3.42     --- László Bárdossy
+# 7.3.42 - 22.3.44    --- Miklós Kállay
+# 22.3.44 - 29.8.44   --- Döme Sztójay
+# 29.8.44 - putsch    --- Géza Lakatos
+#########################################################################
+
+event = {
+	id = 3141032
+	random = no
+	country = HUN
+	
+	trigger = { 
+		minister = 21002 #Gyula Gömbös
+		InCabinet = 21002
+	}	
+	
+	name = EVT_3141032_NAME
+	desc = EVT_3141032_DESC
+	style = 2
+	picture = "hun_event_gombos_died"
+	
+	date = { day = 5 month = october year = 1936 }
+	offset = 1
+	deathdate = { day = 10 month = december year = 1936 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { ai = no } type = dissent value = 1 }
+		command = { trigger = { ai = no } type = money value = -10 }	
+		command = { type = sleepminister      which = 21002 }
+		command = { type = sleepminister      which = 21006 }
+		command = { type = headofgovernment   which = 21053 } #Darányi
+		command = { type = foreignminister    which = 21185 } #Darányi
+		command = { type = ministerofsecurity which = 21098 } #Darányi
+		command = { type = chiefofstaff       which = 21135 } #Roder
+		command = { type = chiefofarmy        which = 21139 } #Ratz
+	}
+}
+
+#########################################################################
+
+event = {
+	id = 3141033
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141032
+		InCabinet = 21053
+	}	
+	
+	name = EVT_3141033_NAME
+	desc = EVT_3141033_DESC
+	style = 2
+	picture = "hun_event_minister_imredy"
+
+	date = { day = 15 month = may year = 1938 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1938 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 21054 } #Béla Imrédy
+		command = { type = sleepminister    which = 21053 } #
+	}
+}
+
+#########################################################################
+
+event = {
+	id = 3141034
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141033
+		InCabinet = 21054
+	}	
+	
+	name = EVT_3141034_NAME
+	desc = EVT_3141034_DESC
+	style = 2
+	picture = "hun_event_minister_teleki"
+
+	date = { day = 15 month = february year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1939 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 21055 } #Teleki
+		command = { type = sleepminister    which = 21054 } #
+	}
+}
+
+#########################################################################
+
+event = {
+	id = 3141035
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141034
+		InCabinet = 21055
+		OR = {
+		     war = { country = YUG country = GER } 
+			 AND = {
+			 	 day = 2			
+	             month = april
+	             year = 1941
+			 }
+		}
+	}	
+	
+	name = EVT_3141035_NAME
+	desc = EVT_3141035_DESC
+	style = 2
+	picture = "hun_event_minister_bardossy"
+
+	date = { day = 1 month = june year = 1939 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1942 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 21056 } #Bardossy
+		command = { type = sleepminister    which = 21055 } #
+	}
+}
+
+#########################################################################
+
+event = {
+	id = 3141036
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141035
+		InCabinet = 21056
+	}	
+	
+	name = EVT_3141036_NAME
+	desc = EVT_3141036_DESC
+	style = 2
+	picture = "hun_event_minister_kallay"
+
+	date = { day = 6 month = march year = 1942 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1942 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 21057 } #Kallay
+		command = { type = sleepminister    which = 21056 } #
+	}
+}
+
+#########################################################################
+# german invasion in early 44'
+#########################################################################
+
+event = {
+	id = 3141037
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141036
+	    alliance = { country = GER country = HUN }
+		InCabinet = 21057
+	}	
+	
+	name = EVT_3141037_NAME
+	desc = EVT_3141037_DESC
+	style = 2
+	picture = "hun_event_minister_sztojay"
+
+	date = { day = 21 month = march year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = june year = 1944 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment which = 21051 } #Sztojay
+		command = { type = sleepminister    which = 21057 } #
+	}
+}
+
+#########################################################################
+
+event = {
+	id = 3141038
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141037
+	    alliance = { country = GER country = HUN }
+		InCabinet = 21051
+	}	
+	
+	name = EVT_3141038_NAME
+	desc = EVT_3141038_DESC
+	style = 2
+	picture = "hun_event_minister_lakatos"
+
+	date = { day = 28 month = august year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = september year = 1944 }
+	
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { type = headofgovernment   which = 21058 } #Lakatos
+		command = { type = sleepminister      which = 21051 } #
+		}
+}
+		
+#########################################################################
+# arrow cross party takes the power
+#########################################################################
+#Prime minister: Ferenc Szálasi
+
+event = {
+	id = 3141039
+	random = no
+	country = HUN
+	
+	trigger = { 
+		event = 3141038
+		InCabinet = 21058
+		atwar = yes
+	    alliance = { country = GER country = HUN }
+		war = { country = HUN country = SOV } 
+		war = { country = GER country = SOV } 
+	}	
+	
+	name = EVT_3141039_NAME
+	desc = EVT_3141039_DESC
+	style = 2
+	picture = "hun_event_minister_szalasi"
+
+	date = { day = 14 month = september year = 1944 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1944 }	
+
+	action_a = {
+		name = "ACTION_NAME_OK"	
+		command = { type = sleepminister      which = 21058 } #
+		####
+		command = {                       type = domestic     which = political_left value = -4 }
+		command = {                       type = domestic     which = democratic     value = -3 }
+		command = { trigger = { ai = no } type = dissent      value = 12    }
+		command = { trigger = { ai = no } type = supplies     value = -1500 }
+		command = { trigger = { ai = no } type = money        value = -150  }
+		command = {                       type = manpowerpool value = 50    }
+		####
+		command = { type = headofstate        which = 21041 } #Ferenc Szálasi
+		command = { type = headofgovernment   which = 21186 } #Ferenc Szálasi
+		command = { type = foreignminister    which = 21067 } #Gábor Vajna
+		command = { type = armamentminister   which = 21084 } #Lajos Reményi-Schneller
+		command = { type = ministerofsecurity which = 21096 } #Gábor Vajna
+		command = { type = chiefofstaff       which = 21138 } #Beregfy
+		command = { type = chiefofarmy        which = 21140 } #Beregfy
+	}
+}

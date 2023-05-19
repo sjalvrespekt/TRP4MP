@@ -1,0 +1,123 @@
+# converted to DH, Kane, June 15 2011
+# Italy vs Greece AI File by Lothos
+
+###################################
+# Diplomacy
+###################################
+combat = {
+	GRE = 100
+	YUG = 20
+	ENG = 50
+}
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	province_priorities = {
+		400	= 10 # Venice
+		396 = 10 # Genoa
+		425 = 10 # Reggio
+		434 = 30 # Cagliari
+		379 = 30 # Rhodes
+		381 = 30 # Ermoupoli
+		
+		#Yugoslavia and ALbania
+		350 = 10 # Split
+		343 = 10 # Dubrovnik
+		359 = 10 # Tirana
+	
+		# North Africa
+		752 = 10 # Az Zawiyah
+		750 = 10 # Tripoli
+		761 = 10 # Benghazi
+		765 = 10 # Tobruk
+	}
+	area_multiplier = {
+		434 = 2.0 # Cagliari
+		379 = 1.0 # Rhodes
+		381 = 1.0 # Ermoupoli
+	
+		# North Africa
+		752 = 1.0 # Az Zawiyah
+		750 = 1.0 # Tripoli
+		761 = 1.0 # Benghazi
+		765 = 1.0 # Tobruk
+	}
+}
+###################################
+# Invasions and Naval
+###################################
+invasion = { 
+ 	base		= 0.1	#Relative modifier. (lower = specific targets much more important.)
+	random		= 8.0	#How big a random range.  (1.0 = 1%)
+	coastal		= 0.1	#increase to avoid coastal forts more.
+	beach		= 0.1	#higher, avoid worst beaches.
+	distance	= 0.1	#higher = avoid long distance.
+	max_distance    = 65.0  #About the distance from Rostock to Narvik
+	max_staging_distance 	= 35	# How far should the staging area be from the target invasion p
+	pocket		= 20.0	#prioritise pockets, ie provinces with no adjacent controlled by same.
+	island		= 18.1	#prioritise taking pure islands.
+	enemy		= 2.0	#higher = much more vary of troops in province.
+	adjacentenemy 	= 2.0	#higher = much more vary of troops nearby
+	air_base	= 1.5 
+	naval_base 	= 0.1 
+	air_support 	= 3.0 
+	redirect 	= priority
+	ignore		= no
+      
+	staging_province = {
+		523 # Taranto
+	}
+	target = { 
+		# Med Island Yugoslavia and Greece
+		359 = 400  	# Tirana
+		434 = 400	# Sardinia
+		429 = 400  	# Malta
+		388 = 300	# Nicosia
+		382 = 5000  	# Iraklion
+		343 = 3500  	# Dubrovnik
+		350 = 3500  	# Split
+		372 = 2500	# Patras
+
+		# Libya
+		752 = 220	# Az Zuwayah
+		765 = 220	# Tobruk
+		761 = 220	# Bengazi
+		750 = 220	# Tripoli
+		771 = 220 	# Bardia
+
+		# Egypt
+		900 = 2000	# Suez
+		789 = 2000	# Alexandria
+		
+		# Tunisia
+		747 = 200	# Tunis
+		748 = 200	# Bizerte
+		735 = 200	# Bona
+		745 = 200	# Sousse
+
+		# Algeria
+		727 = 200	# Algier
+		728 = 200	# Oran
+
+		# Morocco
+		717 = 200	# Rabat
+		718 = 200	# Casablanca
+
+		# Spain
+		475 = 200 # Palma de Mallorca
+		440 = 200 # Barcelona
+		464 = 200 # Valencia
+		463 = 200 # Murcia
+		462 = 200 # Alicante
+		436 = 200 # Tarragona
+		437 = 200 # Gerona
+
+		# Middle East
+		1008 = 400	# Tel Aviv
+		1004 = 300	# El Arish
+		1005 = 300	# Sharm el-Sheikh
+		1021 = 400 	# Aleppo
+	} 
+}

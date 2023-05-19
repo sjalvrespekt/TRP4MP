@@ -1,0 +1,142 @@
+allowed_brigades = escort
+max_allowed_brigades = 1
+
+# supply consumption = cost * buildtime * 0.1 * 4 supplies per IC-day / 360 days = cost*buildtime/900
+# building costs increase at 4% per year
+
+# 0 - Basic Transport 1937
+model = {
+	cost 				= 20.07 #30.11
+	buildtime			= 270 #180
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower			= 1.0
+	maxspeed			= 250
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 0.01
+	surfacedefence			= 4
+	airdefence			= 7 #2
+	airattack			= 0
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	transportcapability		= 1
+	range				= 300 #500
+	supplyconsumption 		= 6.02
+	fuelconsumption			= 5.5
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	#upgrade_time_factor 		= 0.6
+	#upgrade_cost_factor 		= 0.6
+	equipment = { transport_plane = 400 manpower = 1000 }
+}
+# 1 - Improved Transport 1939 
+model = {
+	cost 				= 20 #30.06
+	buildtime			= 293 #195
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower			= 1.0
+	maxspeed			= 300
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 0.01
+	surfacedefence			= 6
+	airdefence			= 8 #3
+	airattack			= 0
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	transportcapability		= 1
+	range				= 400 #800
+	supplyconsumption 		= 6.51
+	fuelconsumption			= 5.5
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.5 # 2 years since last model
+	equipment = { transport_plane = 400 manpower = 1000 }
+}
+# 2 - Advanced Transport 1941
+model = {
+	cost 				= 20.13 #30.19
+	buildtime			= 315 #210
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower			= 1.0
+	maxspeed			= 350
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 0.01
+	surfacedefence			= 8
+	airdefence			= 9 #4
+	airattack			= 0
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	transportcapability		= 1
+	range				= 550 #1000
+	supplyconsumption 		= 7.05
+	fuelconsumption			= 5.5
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.5
+	equipment = { transport_plane = 400 manpower = 1000 }
+}
+# 3 - Advanced Transport 1944
+model = {
+	cost 				= 19.81 #29.72
+	buildtime			= 360 #240
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower			= 1.0
+	maxspeed			= 450
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 0.01
+	surfacedefence			= 8
+	airdefence			= 11 #6
+	airattack			= 0
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	transportcapability		= 1
+	range				= 700 #660 #1200
+	supplyconsumption 		= 7.92
+	fuelconsumption			= 5.5
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 0.75 # 3 years since last model
+	equipment = { transport_plane = 400 manpower = 1000 }
+}
+
+# 4 - Advanced Transport 1948
+model = {
+	cost 				= 20.6 #30.9
+	buildtime			= 405 #270
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower			= 1.0
+	maxspeed			= 500
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 0.01
+	surfacedefence			= 8
+	airdefence			= 14 #11
+	airattack			= 0
+	strategicattack			= 0
+	softattack			= 0
+	hardattack			= 0
+	navalattack			= 0
+	transportcapability		= 1
+	range				= 850 #825 #1500
+	supplyconsumption 		= 9.27
+	fuelconsumption			= 5.5
+	reinforce_time 			= 0.5
+	reinforce_cost 			= 1.4
+	upgrade_time_factor 		= 0.6
+	upgrade_cost_factor 		= 1.0 # 4 years or more since last model
+	equipment = { transport_plane = 400 manpower = 1000 }
+}

@@ -1,0 +1,62 @@
+# checked DH
+# Japan Homeland defense AI File by Lothos
+
+###################################
+# Construction and Tech Research
+###################################
+military = { 
+	relative_build_scheme 	= no
+	max_batch_peace 		= 360 
+	max_batch_war 			= 180 
+	max_batch_home_front 	= 180
+	extra_convoys_war = 0.0500 
+	extra_convoys_peace = 0.0500 	
+
+	#### Divisions etc...
+	infantry 		= 30
+	d_02			= 20
+	militia 		= 0	
+	cavalry 		= 0
+	motorized 		= 0
+	mechanized 		= 0
+	light_armor 	= 0
+	armor 			= 0
+	paratrooper 	= 0
+	marine 			= 6
+	bergsjaeger 	= 0
+	garrison		= 10
+    hq 				= 0
+
+#				66 %
+	interceptor 	= 5
+	multi_role 		= 0
+	d_01			= 4
+	cas 			= 0
+	strategic_bomber = 0
+	tactical_bomber = 6
+	naval_bomber 	= 4
+	transport_plane = 0
+	flying_bomb 	= 0
+	flying_rocket 	= 0
+#				19 %
+	battleship 		= 0
+	carrier 		= 0
+	destroyer 		= 8
+	light_cruiser 	= 0
+	heavy_cruiser 	= 0
+	battlecruiser 	= 0
+	submarine 		= 0
+	d_09 = 2
+	d_08 = 0
+	transports 		= 5
+#				15 %
+}
+
+###################################
+# Ground Combat, Leaders and Garrisons
+###################################
+garrison = {
+	defend_overseas_beaches = no
+	home_multiplier 		= 1.5
+	overseas_multiplier 	= 0.5
+}

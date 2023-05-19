@@ -1,0 +1,1652 @@
+####################################
+# China and the Warlords 27000 - 27999 by Lothos
+#
+## Converted to DH by Dendro 2011-May-29
+####################################
+# Behavior Flags
+#	UPGPeace			= Upgrading of existing units flag
+#	ChinaBackoff		= Go on the attack or no in China
+
+# Request for Help Flags
+#	ChinaFeeder1	= 10% Exp force request for help
+#	ChinaFeeder2	= 20% Exp force request for help
+#	ChinaFeeder3	= 30% Exp force request for help
+#	ChinaFeeder4	= 40% Exp force request for help
+#	ChinaFeeder5	= 50% Exp force request for help
+#	ChinaFeeder6	= 60% Exp force request for help
+#	ChinaFeeder7	= 70% Exp force request for help
+
+################
+# China changes to defensive AI vs Japan
+#############################################
+event = {
+	id = 27000
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		OR = {
+			war = { country = JAP country = CHI }
+			AND = {
+				event = 27010
+				NOT = { exists = CHC }
+				NOT = { exists = CSX }
+				NOT = { exists = SIK }
+				NOT = { exists = CXB }
+				NOT = { exists = CYN }
+				NOT = { exists = CGX }
+				NOT = { exists = TIB }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 4
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Japan.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Backoff from Japan AI
+#############################################
+event = {
+	id = 27001
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		OR = {
+			event = 22001
+			event = 22002
+			lost_national = { country = CHI value = 35 }
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Backoff.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# Event 27002 deleted
+#############################################
+################
+# Event 27003 deleted
+#############################################
+################
+# Event 27004 deleted
+#############################################
+################
+# Do not use 27005 as it is in AI_CGX.txt
+#############################################
+################
+# Event 27006 deleted
+#############################################
+################
+# Do not use 27008 and 27009 as they are in nationalist_china.txt
+#############################################
+################
+# China alternate AI if Japan is atwar with someone else not China (part 1)
+#############################################
+event = {
+	id = 27010
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		NOT = { atwar = CHI }
+		OR = {
+			event = 522010 # JAP decided not to attack CHI in Marco Polo event
+			atwar = JAP
+			NOT = { exists = JAP }
+			ispuppet = JAP
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_WAR_Warlords.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# China alternate AI loaded to go after Japan (part 2)
+#############################################
+event = {
+	id = 27011
+	random = no
+	tag = { CHI CHC }
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+				AND = {
+						country = CHI
+						event = 27010
+						}
+				country = CHC
+				}
+		OR = {
+				country = CHC
+				NOT = { exists = CHC }
+				puppet = { country = CHC country = -1 }
+				}
+		OR = {
+				country = CHI
+				NOT = { exists = CHI }
+				puppet = { country = CHC country = -1 }
+				}
+		OR = {
+				NOT = { exists = CSX }
+				puppet = { country = CSX country = -1 }
+				}
+		OR = {
+				NOT = { exists = SIK }
+				puppet = { country = SIK country = -1 }
+				}
+		OR = {
+				NOT = { exists = CXB }
+				puppet = { country = CXB country = -1 }
+				}
+		OR = {
+				NOT = { exists = CYN }
+				puppet = { country = CYN country = -1 }
+				}
+		OR = {
+				NOT = { exists = CGX }
+				puppet = { country = CGX country = -1 }
+				}
+		OR = {
+				NOT = { exists = TIB }
+				puppet = { country = TIB country = -1 }
+				}
+		OR = {
+			exists = MAN
+			control = { province = 1207 data = JAP } # jilin
+			control = { province = 1207 data = U00 } # jilin
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_WAR_Japan.ai" }
+		command = { type = ai which = "Air_Naval.ai" }
+	}
+}
+################
+# China turns isolationlist
+#############################################
+event = {
+	id = 27012
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		event = 27010
+		NOT = { atwar = CHI }
+		NOT = { exists = CHC }
+		NOT = { exists = CSX }
+		NOT = { exists = SIK }
+		NOT = { exists = CXB }
+		NOT = { exists = CYN }
+		NOT = { exists = CGX }
+		NOT = { exists = TIB }
+		AND = {
+			NOT = { exists = MAN }
+			NOT = { control = { province = 1207 data = JAP } } # jilin
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_Isolationist.ai" }
+		command = { type = ai which = "Air_Ground.ai" }
+	}
+}
+################
+# China changes front ratio at Xi'An event
+#############################################
+event = {
+	id = 27013
+	random = no 
+	country = CHI
+	
+	trigger = {
+		ai = yes
+		event = 90
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = march year = 1937 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_ChangeFrontRatio.ai" }
+	}
+}
+################
+# China adjust his front for Indo China # deactivated because China hasn't got a land connection to Indochina any more
+#############################################
+#event = {
+#	id = 27014
+#	random = no
+#	country = CHI
+#	# persistent = yes
+#
+#	trigger = {
+#		ai = yes
+#		ai = JAP
+#		event = 22004
+#		atwar = yes
+#	}
+#
+#
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	name = "AI_EVENT"
+#	style = 0
+#
+#	action_a = {
+#		command = { type = ai which = "switch/CHI_Indo_China.ai" }
+#	}
+#}
+################
+# Shanxi changes to defensive AI vs Japan
+#############################################
+# 27015 deleted by Lothos
+
+################
+# China loads new front garrison parms from CGX war
+########################################
+event = {
+	id = 27016
+	random = no
+	country = CHI
+
+	trigger = {
+		ai = yes
+		war = { country = CHI country = CGX }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = june year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = august year = 1936 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_After_CGX.ai" }
+	}
+}
+################
+# China loads initial Backoff AI
+########################################
+event = {
+	id = 27017
+	random = no
+	country = CHI
+
+	trigger = {
+		ai = yes
+		ai = JAP
+		war = { country = CHI country = JAP }
+		NOT = {war = { country = CHI country = CHC } }
+		NOT = {war = { country = CHI country = CGX } }
+		NOT = {war = { country = CHI country = CYN } }
+		NOT = {war = { country = CHI country = CSX } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ChinaBackoff }
+		command = { type = ai which = "switch/CHI_Backoff.ai" }
+	}
+}
+################
+# China lost to much to JAP go back on the attack
+#############################################
+event = {
+	id = 27018
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		ai = JAP
+		NOT = { local_flag = ChinaBackoff }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				year = 1937
+				NOT = { year = 1939 }
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 35 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 40 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+			AND = {
+				year = 1939
+				NOT = { year = 1941 }
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 38 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 43 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+			AND = {
+				year = 1941
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 40 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 45 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_setflag which = ChinaBackoff }
+		command = { type = ai which = "switch/CHI_Backoff_Remove.ai" }
+	}
+}
+################
+# China regained its areas go back on the defense
+#############################################
+event = {
+	id = 27019
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		ai = JAP
+		local_flag = ChinaBackoff
+		war = { country = CHI country = JAP }
+		NOT = {
+			AND = {
+				year = 1937
+				NOT = { year = 1939 }
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 35 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 40 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+			AND = {
+				year = 1939
+				NOT = { year = 1941 }
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 38 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 43 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+			AND = {
+				year = 1941
+				OR = {
+					AND = {
+						lost_national = { country = CHI value = 40 }
+						NOT = { control = { province = 1367 data = JAP } }
+						NOT = { control = { province = 1365 data = JAP } }
+					}
+					AND = {
+						lost_national = { country = CHI value = 45 }
+						OR = {
+							control = { province = 1367 data = JAP }
+							control = { province = 1365 data = JAP }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = local_clrflag which = ChinaBackoff }
+		command = { type = ai which = "switch/CHI_Backoff.ai" }
+	}
+}
+################
+# China receives EXP forces from warlords (Feeder AI)
+#############################################
+event = {
+	id = 27020
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		OR = {
+			NOT = { flag = ChinaFeeder2 }
+			AND = {
+				flag = ChinaFeeder2
+				lost_national = { value = 5 }
+				NOT = { lost_national = { value = 10 } }
+			}
+			AND = {
+				flag = ChinaFeeder2
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 0
+				NOT = { day = 2 }
+			}
+			AND = {
+				day = 15
+				NOT = { day = 16 }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = setflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27021
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		flag = ChinaFeeder1
+		NOT = { flag = ChinaFeeder2 }
+		OR = {
+			NOT = { flag = ChinaFeeder3 }
+			AND = {
+				flag = ChinaFeeder3
+				lost_national = { value = 10 }
+				NOT = { lost_national = { value = 15 } }
+			}
+			AND = {
+				flag = ChinaFeeder3
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 3
+				NOT = { day = 4 }
+			}
+			AND = {
+				day = 17
+				NOT = { day = 18 }
+			}
+		}
+		OR = {
+			AND = {
+				lost_national = { value = 10 }
+				NOT = { lost_national = { value = 15 } }
+			}
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = setflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27022
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		flag = ChinaFeeder2
+		NOT = { flag = ChinaFeeder3 }
+		OR = {
+			NOT = { flag = ChinaFeeder4 }
+			AND = {
+				flag = ChinaFeeder4
+				lost_national = { value = 15 }
+				NOT = { lost_national = { value = 20 } }
+			}
+			AND = {
+				flag = ChinaFeeder4
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		NOT = { flag = ChinaFeeder5 }
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 5
+				NOT = { day = 6 }
+			}
+			AND = {
+				day = 19
+				NOT = { day = 20 }
+			}
+		}
+		OR = {
+			AND = {
+				lost_national = { value = 15 }
+				NOT = { lost_national = { value = 20 } }
+			}
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = setflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27023
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		flag = ChinaFeeder3
+		NOT = { flag = ChinaFeeder4 }
+		OR = {
+			NOT = { flag = ChinaFeeder5 }
+			AND = {
+				flag = ChinaFeeder5
+				lost_national = { value = 20 }
+				NOT = { lost_national = { value = 25 } }
+			}
+			AND = {
+				flag = ChinaFeeder5
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		NOT = { flag = ChinaFeeder6 }
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 7
+				NOT = { day = 8 }
+			}
+			AND = {
+				day = 21
+				NOT = { day = 22 }
+			}
+		}
+		OR = {
+			AND = {
+				lost_national = { value = 20 }
+				NOT = { lost_national = { value = 25 } }
+			}
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = setflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27024
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		flag = ChinaFeeder4
+		NOT = { flag = ChinaFeeder5 }
+		OR = {
+			NOT = { flag = ChinaFeeder6 }
+			AND = {
+				flag = ChinaFeeder6
+				lost_national = { value = 25 }
+				NOT = { lost_national = { value = 30 } }
+			}
+			AND = {
+				flag = ChinaFeeder6
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 9
+				NOT = { day = 10 }
+			}
+			AND = {
+				day = 23
+				NOT = { day = 24 }
+			}
+		}
+		OR = {
+			AND = {
+				lost_national = { value = 25 }
+				NOT = { lost_national = { value = 30 } }
+			}
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = setflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27025
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		flag = ChinaFeeder5
+		NOT = { flag = ChinaFeeder6 }
+		OR = {
+			NOT = { flag = ChinaFeeder7 }
+			AND = {
+				flag = ChinaFeeder7
+				lost_national = { value = 30 }
+				NOT = { lost_national = { value = 35 } }
+			}
+			AND = {
+				flag = ChinaFeeder7
+				OR = {
+					AND = {
+						ai = JAP
+						land_percentage = { country = JAP value = 0.8 }
+					}
+					AND = {
+						NOT = { ai = JAP }
+						land_percentage = { country = JAP value = 1.3 }
+					}
+					AND = {
+						ai = U00
+						land_percentage = { country = JAP value = 1.0 }
+					}
+					AND = {
+						NOT = { ai = U00 }
+						land_percentage = { country = JAP value = 1.1 }
+					}
+				}
+			}
+		}
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 11
+				NOT = { day = 12 }
+			}
+			AND = {
+				day = 25
+				NOT = { day = 26 }
+			}
+		}
+		OR = {
+			AND = {
+				lost_national = { value = 30 }
+				NOT = { lost_national = { value = 35 } }
+			}
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = setflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27026
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		NOT = { flag = ChinaFeeder1 }
+		NOT = { flag = ChinaFeeder2 }
+		NOT = { flag = ChinaFeeder3 }
+		NOT = { flag = ChinaFeeder4 }
+		NOT = { flag = ChinaFeeder5 }
+		flag = ChinaFeeder6
+		NOT = { flag = ChinaFeeder7 }
+		war = { country = CHI country = JAP }
+		OR = {
+			AND = {
+				day = 13
+				NOT = { day = 14 }
+			}
+			AND = {
+				day = 27
+				NOT = { day = 28 }
+			}
+		}
+		OR = {
+			lost_national = { value = 35 }
+			AND = {
+				ai = JAP
+				NOT = { land_percentage = { country = JAP value = 0.7 } }
+			}
+			AND = {
+				NOT = { ai = JAP }
+				NOT = { land_percentage = { country = JAP value = 1.2 } }
+			}
+			AND = {
+				ai = U00
+				NOT = { land_percentage = { country = JAP value = 0.9 } }
+			}
+			AND = {
+				NOT = { ai = U00 }
+				NOT = { land_percentage = { country = JAP value = 1.0 } }
+			}
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = setflag which = ChinaFeeder7 }
+	}
+}
+event = {
+	id = 27027
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		atwar = no
+		OR = {
+			flag = ChinaFeeder1
+			flag = ChinaFeeder2
+			flag = ChinaFeeder3
+			flag = ChinaFeeder4
+			flag = ChinaFeeder5
+			flag = ChinaFeeder6
+			flag = ChinaFeeder7
+		}
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = clrflag which = ChinaFeeder1 }
+		command = { type = clrflag which = ChinaFeeder2 }
+		command = { type = clrflag which = ChinaFeeder3 }
+		command = { type = clrflag which = ChinaFeeder4 }
+		command = { type = clrflag which = ChinaFeeder5 }
+		command = { type = clrflag which = ChinaFeeder6 }
+		command = { type = clrflag which = ChinaFeeder7 }
+	}
+}
+################
+# Concetrate on upgrading while at peace
+#############################################
+event = {
+	id = 27028
+	random = no
+	country = CHI
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = no
+		NOT = { local_flag = UPGPeace }
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_Peace.ai" }
+		command = { type = local_setflag which = UPGPeace }
+	}
+}
+event = {
+	id = 27029
+	random = no
+	country = CHI
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		atwar = yes
+		local_flag = UPGPeace
+	}
+
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	name = "AI_EVENT"
+	style = 0
+
+	action_a = {
+		command = { type = ai which = "switch/Minor_Upg_War.ai" }
+		command = { type = local_clrflag which = UPGPeace }
+	}
+}
+
+
+
+################
+# CHina AI Slider manipulation
+#
+#	Interventionism
+#############################################
+event = { # Interventionism
+	id = 27030
+	random = no
+	country = CHI
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = interventionism value = 1}
+		NOT = { domestic = { type = interventionism value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = interventionism value = 1 }
+	}
+}
+################
+#	Hawk Lobby
+#############################################
+event = { # Hawk Lobby
+	id = 27031
+	random = no
+	country = CHI
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = defense_lobby value = 1}
+		NOT = { domestic = { type = defense_lobby value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = defense_lobby value = 1 }
+	}
+}
+################
+#	Standing Army
+#############################################
+event = { # Standing Army
+	id = 27032
+	random = no
+	country = CHI
+	persistent = yes
+
+	trigger = {
+		ai = yes
+		can_change_policy = {type = professional_army value = 1}
+		NOT = { domestic = { type = professional_army value = 9 } }
+	}
+
+	name = "AI_EVENT"
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = change_policy which = professional_army value = 1 }
+	}
+}
+
+
+
+####################################
+# China 27500 - 27599 = Minister Change Events
+####################################
+################
+# Minister of Security Section 22500 - 22509
+#############################################
+event = { # Dai Li takes power
+	id = 27500
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		NOT = { event = 27553 }
+		ai = yes
+		minister = 52063 # Dai Li
+		NOT = { InCabinet = 52063 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofsecurity which = 52063 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Staff Section 27510 - 27519
+#############################################
+event = { # Bai Chongxi takes power
+	id = 27510
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 52088 # Bai Chongxi
+		NOT = { InCabinet = 52088 }
+		OR = {
+			atwar = yes
+			NOT = { minister = 52093 } # Xu Zuyi
+			}
+		}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofstaff which = 52088 }
+		command = { type = dissent value = -1 }
+	}
+}
+#event = { # Xu Zuyi takes power
+#	id = 27511
+#	random = no 
+#	country = CHI
+#	persistent = yes
+#	
+#	trigger = {
+#		ai = yes
+#		atwar = yes
+#		minister = 52093 # Xu Zuyi
+#		NOT = { InCabinet = 52093 }
+#		NOT = { minister = 52088 } # Bai Chongxi
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 7
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#		command = { type = chiefofstaff which = 52093 }
+#		command = { type = dissent value = -1 }
+#	}
+#}
+################
+# Head of Intelligence Section 27520 - 27529
+#############################################
+event = { # He Yaozu takes power
+	id = 27520
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		NOT = { event = 27553 }
+		ai = yes
+		minister = 52079 # He Yaozu
+		NOT = { InCabinet = 52079 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ministerofintelligence which = 52079 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of the Army Section 27530 - 27539
+#############################################
+event = { # Li Zongren takes power
+	id = 27530
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 52095 # Li Zongren
+		NOT = { InCabinet = 52095 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 52095 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Zhang Xueliang takes power
+	id = 27531
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 52008 # Zhang Xueliang
+		NOT = { InCabinet = 52008 }
+		NOT = { minister = 52095 } # Li Zongren
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofarmy which = 52008 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Armament Minister Section 27540 - 27549
+#############################################
+event = { # Huang Chenzuo takes power
+	id = 27540
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		NOT = { event = 27553 }
+		ai = yes
+		minister = 52047 # Huang Chenzuo
+		NOT = { InCabinet = 52047 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 52047 }
+		command = { type = dissent value = -1 }
+	}
+}
+event = { # Bai Chongxi takes power
+	id = 27541
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		NOT = { event = 27553 }
+		ai = yes
+		minister = 52045 # Bai Chongxi Chenzuo
+		NOT = { InCabinet = 52045 }
+		NOT = { minister = 52047 } # Huang Chenzuo
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = armamentminister which = 52045 }
+		command = { type = dissent value = -1 }
+	}
+}
+################
+# Chief of Air Minister Section 27550 - 27559
+#############################################
+event = { # Huang Chenzuo takes power
+	id = 27550
+	random = no 
+	country = CHI
+	persistent = yes
+	
+	trigger = {
+		ai = yes
+		minister = 52108 # Huang Chenzuo
+		NOT = { InCabinet = 52108 }
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = chiefofair which = 52108 }
+		command = { type = dissent value = -1 }
+	}
+}
+
+################
+# Switch to low manpower building scheme
+#############################################
+event = {
+	id = 27551
+	random = no 
+	country = CHI
+	
+	persistent = yes
+	
+	trigger = {
+		NOT = { local_flag = CHI_low_mp }
+		not = { manpower = 25 }
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_low_mp.ai" }
+		command = { type = local_setflag which = CHI_low_mp }
+	}
+}
+################
+# Switch to normal manpower building scheme
+#############################################
+event = {
+	id = 27552
+	random = no 
+	country = CHI
+	
+	persistent = yes
+	
+	trigger = {
+		local_flag = CHI_low_mp
+		manpower = 40
+		ai = yes
+	}
+
+	name = "AI_EVENT"
+	style = 0	
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1963 }
+
+	action_a = {
+		command = { type = ai which = "switch/CHI_normal_mp.ai" }
+		command = { type = local_clrflag which = CHI_low_mp }
+	}
+}
+
+################
+# CHI AI gets better ministers against human JAP
+#############################################
+#event = {
+#	id = 27553
+#	random = no 
+#	country = CHI
+#	
+#	trigger = {
+#		ai = yes
+#		OR = {
+#				NOT = { AI = JAP }
+#				NOT = { AI = U00 }
+#				}
+#		NOT = { InCabinet = 52116 }
+#		NOT = { InCabinet = 52117 }
+#		NOT = { InCabinet = 52118 }
+#	}
+#
+#	name = "AI_EVENT"
+#	style = 0	
+#	
+#	date = { day = 0 month = january year = 1936 }
+#	offset = 1
+#	deathdate = { day = 29 month = december year = 1963 }
+#
+#	action_a = {
+#			command = { type = wakeminister which = 52116 }
+#			command = { type = wakeminister which = 52117 }
+#			command = { type = wakeminister which = 52118 }
+#			command = { type = armamentminister which = 52116 }
+#			command = { type = ministerofsecurity which = 52117 }
+#			command = { type = ministerofintelligence which = 52118 }
+#			command = { type = dissent value = -15 }
+#	}
+#}

@@ -1,0 +1,329 @@
+# checked for DH
+#######################################################################
+# Chinese Civil War
+#######################################################################
+event = {
+	id = 99
+	random = no
+	country = CHC
+
+	name = EVT_99_NAME
+	desc = EVT_99_DESC
+	style = 0
+	picture = "China_CW"
+
+	trigger = {
+# 		event = 45
+		OR = {
+			NOT = { exists = JAP }
+			ispuppet = JAP
+		}
+		NOT = { ispuppet = CHC }
+		exists = CHI
+		random = 50
+		NOT = {
+			war = { country = CHI country = CHC }
+			war = { country = SOV country = CHC }
+			war = { country = USA country = CHC }
+		}
+	}
+
+        date = { day = 0 month = january year = 1941 }
+        offset = 5
+	deathdate = { day = 29 month = december year = 1947 }
+
+	action_a = {
+		ai_chance = 90
+		name = EVT_99_ACTA
+		command = { type = money value = 10 }
+		command = { type = domestic which = defense_lobby value = 1 }
+		command = { type = war which = CHI }
+		command = { type = dissent value = -5 } # the time is ripe for the Revolution
+		command = { type = trigger which = 100 }
+	}
+
+	action_b = {
+		ai_chance = 10
+		name = EVT_99_ACTB
+		command = { type = money value = -10 }
+		command = { type = dissent value = 2 }
+	}
+}
+#######################################################################
+# Unified Front
+#######################################################################
+event = {
+	id = 6300001
+	random = no 
+	country = CHC
+	
+	
+	
+	name = EVT_6300001_NAME # Communist China expands west
+	desc = EVT_6300001_DESC 
+	style = 0	
+	
+	action_a = {
+		name = ACTIONNAME6300001A # Ok
+		command = { type = access which = CHI }
+	}
+}
+#######################################################################
+# Communist China expands west
+#######################################################################
+event = {
+	id = 6300002
+	random = no 
+	country = CHC
+	
+	name = EVT_6300002_NAME # Communist China expands west
+	desc = EVT_6300002_DESC
+	style = 0	
+	
+	trigger = {
+		event = 99
+		exists = CHC
+		atwar = no
+		NOT = { war = { country = CHC country = CHI } }
+	}
+
+	date = { day = 0 month = january year = 1936 }
+        offset = 3
+	deathdate = { day = 0 month = january year = 1948 }
+
+	action_a = {
+		name = ACTIONNAME6300002A # Claim Territories!
+		command = { type = leave_alliance }
+	}
+}
+#######################################################################
+# Was 952094 Unity in the face of external enemies (CHC)
+#######################################################################
+event = { 
+	id = 6300003
+	random = no
+	country = CHC
+	
+	name = EVT_6300003_NAME # Unity in the face of external enemies (CHC)
+	desc = EVT_6300003_DESC
+	style = 0
+
+	# triggered by 5000000
+
+	action_a = {
+		name = ACTIONNAME6300003A # Sign a truce until the Japanese devils are defeated
+		command = { type = dissent value = 1 }	 			# an unpopular move with some warlords
+		command = { type = peace which = SIK value = 0 }		# peace with Sinkiang
+		command = { type = peace which = CHI value = 0 }
+		command = { type = peace which = CGX value = 0 }
+		command = { type = peace which = CSX value = 0 }
+		command = { type = peace which = CYN value = 0 }
+		command = { type = peace which = CXB value = 0 }
+ 		command = { type = peace which = TIB value = 0 }
+		#reinforce CHC army against JAP
+		command = { type = manpowerpool value = 50 } #was 100
+	}
+	action_b = {
+		name = ACTIONNAME6300003B # We will not compromise in our ideological struggle
+		command = { type = dissent value = -1 } 			# confidence in own strength
+	}
+}
+
+#######################################################################
+# AI gets combat bonus against human Japan
+#######################################################################
+event = { 
+	id = 6300004
+	random = no
+	country = CHC
+	
+	name = "AI_EVENT"
+	# desc = "AI_EVENT"
+	style = 0
+
+	# triggered by 522023
+
+	action_a = {
+		name = "ACTION_NAME_OK"
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = infantry value = 17 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = infantry value = 17 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = infantry value = 17 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = infantry value = 37 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = infantry value = 30 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = infantry value = 0 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = infantry value = 10 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = infantry value = 10 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = infantry value = 40 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = infantry value = 25 }	
+
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = cavalry value = 17 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = cavalry value = 17 }		
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = cavalry value = 13 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = cavalry value = 41 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = cavalry value = 31 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = cavalry value = 0 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = cavalry value = 10 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = cavalry value = 5 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = cavalry value = 45 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = cavalry value = 25 }	
+
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = bergsjaeger value = 3 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = bergsjaeger value = 0 }		
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = bergsjaeger value = 13 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = bergsjaeger value = 14 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = bergsjaeger value = 21 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = bergsjaeger value = 0 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = bergsjaeger value = 0 }		
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = bergsjaeger value = 5 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = bergsjaeger value = 5 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = bergsjaeger value = 15 }	
+
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = militia value = 17 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = militia value = 13 }		
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = militia value = 13 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = militia value = 37 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = militia value = 31 }	
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = militia value = 0 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = militia value = 5 }		
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = militia value = 5 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = militia value = 35 }	
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = militia value = 20 }	
+
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_attack which = d_02 value = 17 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_attack which = d_02 value = 17 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_attack which = d_02 value = 17 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_attack which = d_02 value = 37 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_attack which = d_02 value = 30 }
+#		command = { trigger = { ai = yes NOT = { ai = JAP } } type = mountain_defense which = d_02 value = 0 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = hill_defense which = d_02 value = 10 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = forest_defense which = d_02 value = 10 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = jungle_defense which = d_02 value = 40 }
+		command = { trigger = { ai = yes NOT = { ai = JAP } } type = swamp_defense which = d_02 value = 25 }
+	}
+}
+
+#########################################################################
+#  NatChi is denounced by ComChi as Japanese puppets
+#########################################################################
+# event = { 
+# 	id = 952000
+# 	random = no
+# 	country = CHC
+# 	
+# 	# Triggered by CHI 522002
+# 	
+# 	name = "EVT_952000_NAME" # Mao denounces the Nationalist government
+# 	desc = "EVT_952000_DESC"
+# 	style = 0
+# 	
+# 	action_a = {
+# 		name = "ACTIONNAME952000A" # The Chinese people will overthrow every enemy!
+#                 command = { type = manpowerpool value = 500 }
+# 		command = { type = add_division value = infantry }
+# 		command = { type = add_division value = infantry }
+# 		command = { type = add_division value = infantry }
+# 	}
+# }
+
+
+##################################################################################
+# 952063 CHC - The Zheng-Feng (Rectification of Style) (by nachinus)
+##################################################################################
+event = {
+	id = 952063 
+	random = no
+	country = CHC
+
+	trigger = {
+		headofgovernment = 51002 #Mao
+		random = 20
+		government = communist
+		exists = SOV
+		exists = CHI
+		war = { country = CHC country = JAP }
+		NOT = {
+			OR = {
+				alliance = { country = CHC country = JAP }
+				alliance = { country = CHC country = GER }
+				alliance = { country = CHC country = ITA }
+			}
+		}
+	}
+
+	name = EVT_952063_NAME # The Zheng-Feng: Mao's rectification of style
+ 	desc = EVT_952063_DESC
+	style = 0
+
+	date = { day = 0 month = december year = 1939 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME952063A # Adopt the new policy; accept the Zheng-Feng
+		command = { type = dissent value = -5 }
+		command = { type = domestic which = political_left value = -1 }
+		command = { type = domestic which = democratic value = 1 }
+		command = { type = construct which = ic where = -1 value = 1 }
+		command = { type = construct which = ic where = -1 value = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME952063B # We had better follow the Soviet model of Communism
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+		command = { type = money value = 6 }
+	}
+}
+
+##################################################################################
+# 952064 CHC - Army reenforcment event against JAP
+##################################################################################
+
+event = {
+	id = 952064 
+	random = no
+	country = CHC
+
+	trigger = {
+		headofgovernment = 51002 #Mao
+		government = communist
+		exists = CHI
+		war = { country = CHC country = JAP }
+	}	
+	
+	name = EVT_952064_NAME 
+ 	desc = EVT_952064_DESC
+	style = 2
+	picture = "chc_event_war_with_jap"
+
+	date = { day = 0 month = december year = 1936 }
+	offset = 30
+	deathdate = { day = 0 month = december year = 1945 }
+
+	action_a = {
+	    name = ACTIONNAME952064A
+		command = { type = damage_division which = 24000 value = 10 where = -100 }
+		command = { type = damage_division which = 24000 value = 11 where = -100 }
+		command = { type = damage_division which = 24000 value = 12 where = -100 }
+		command = { type = damage_division which = 24000 value = 13 where = -100 }
+		command = { type = damage_division which = 24000 value = 14 where = -100 }
+		command = { type = damage_division which = 24000 value = 15 where = -100 }
+		command = { type = damage_division which = 24000 value = 16 where = -100 }
+		command = { type = damage_division which = 24000 value = 17 where = -100 }
+		command = { type = damage_division which = 24000 value = 18 where = -100 }
+		command = { type = damage_division which = 24000 value = 19 where = -100 }
+		command = { type = damage_division which = 24000 value = 20 where = -100 }
+		command = { type = damage_division which = 24000 value = 21 where = -100 }
+		command = { type = damage_division which = 24000 value = 22 where = -100 }
+		command = { type = damage_division which = 24000 value = 23 where = -100 }
+		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+ 		command = { type = add_division value = garrison }
+	}
+}		
+
+##################################################################################

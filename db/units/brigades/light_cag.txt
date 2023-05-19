@@ -1,0 +1,240 @@
+#shore bombardment = (rounded)
+#sea attack*2/3 for BB, BC, CA, CL, DD
+#sea attack*1/3 for carriers/CAG
+#
+#convoy attack = (rounded)
+#sea attack*(2+x) for submarines
+#sea attack for BB, BC, CA, CL, DD
+#sea attack/2 for carriers/CAG
+
+detachable = yes
+
+# 0 - light CAG 1930
+model = {
+	cost 				= 4
+	buildtime			= 190
+	defaultorganisation 		= 20
+	morale				= 20
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 2
+	subdetectioncapability		= 1
+	airdefence			= 1
+	seaattack			= 5
+	subattack			= 0
+	airattack			= 3
+	shorebombardment		= 2
+	convoyattack			= 3
+	distance			= 1.0
+	supplyconsumption 		= 0.2
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	#upgrade_time_factor = 0.6
+	#upgrade_cost_factor = 0.5
+	equipment = { fighter = 15 bomber = 15 manpower = 70 }
+}
+# 1 - light CAG 1937
+model = {
+	cost 				= 4
+	buildtime			= 190
+	defaultorganisation 		= 22
+	morale				= 22
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 2
+	subdetectioncapability		= 3
+	airdefence			= 2
+	seaattack			= 5
+	subattack			= 0
+	airattack			= 6
+	shorebombardment		= 2
+	convoyattack			= 3
+	distance			= 1.2
+	supplyconsumption 		= 0.2
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 15 bomber = 15 manpower = 70 }
+}
+# 2 - light CAG 1940
+model = {
+	cost 				= 5
+	buildtime			= 190
+	defaultorganisation 		= 24
+	morale				= 24
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 3
+	subdetectioncapability		= 4
+	airdefence			= 3
+	seaattack			= 6
+	subattack			= 1
+	airattack			= 8
+	shorebombardment		= 2
+	convoyattack			= 3
+	distance			= 1.4
+	supplyconsumption 		= 0.3
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 17 bomber = 17 manpower = 70 }
+}
+# 3 - light CAG 1942
+model = {
+	cost 				= 6
+	buildtime			= 190
+	defaultorganisation 		= 26
+	morale				= 26
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 3
+	subdetectioncapability		= 5
+	airdefence			= 4
+	seaattack			= 7
+	subattack			= 1
+	airattack			= 10
+	shorebombardment		= 2
+	convoyattack			= 3
+	distance			= 1.6
+	supplyconsumption 		= 0.3
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 22 bomber = 22 manpower = 70 }
+}
+# 4 - light CAG 1944
+model = {
+	cost 				= 7
+	buildtime			= 190
+	defaultorganisation 		= 28
+	morale				= 28
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 5
+	airdefence			= 6
+	seaattack			= 8
+	subattack			= 2
+	airattack			= 12
+	shorebombardment		= 3
+	convoyattack			= 4
+	distance			= 1.8
+	supplyconsumption 		= 0.3
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.5
+	equipment = { fighter = 25 bomber = 25 manpower = 70 }
+}
+# 5 - light Turbojet CAG 1947
+model = {
+	cost 				= 9
+	buildtime			= 190
+	defaultorganisation 		= 30
+	morale				= 30
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 6
+	airdefence			= 8
+	seaattack			= 9
+	subattack			= 3
+	airattack			= 16
+	shorebombardment		= 3
+	convoyattack			= 5
+	distance			= 2.0
+	supplyconsumption 		= 0.3
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 25 bomber = 25 manpower = 70 }
+}
+# 6 - light Turbojet CAG 1950
+model = {
+	cost 				= 12
+	buildtime			= 190
+	defaultorganisation 		= 32
+	morale				= 32
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 7
+	airdefence			= 10
+	seaattack			= 11
+	subattack			= 4
+	airattack			= 18
+	shorebombardment		= 4
+	convoyattack			= 6
+	distance			= 2.2
+	supplyconsumption 		= 0.4
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 0.75
+	equipment = { fighter = 25 bomber = 25 manpower = 70 }
+}
+# 7 - light Turbojet CAG 1954
+model = {
+	cost 				= 13
+	buildtime			= 190
+	defaultorganisation 		= 34
+	morale				= 34
+	manpower 			= 0.07
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 4
+	subdetectioncapability		= 7
+	airdefence			= 12
+	seaattack			= 12
+	subattack			= 6
+	airattack			= 20
+	shorebombardment		= 4
+	convoyattack			= 6
+	distance			= 2.4
+	supplyconsumption 		= 0.4
+	fuelconsumption			= 0.5
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor	= 1.0
+	equipment = { fighter = 25 bomber = 25 manpower = 70 }
+}
+# 8 - light Turbojet CAG 1959
+model = {
+	cost 				= 13
+	buildtime			= 190
+	manpower 			= 0.07
+	defaultorganisation 		= 36
+	morale				= 36
+	surfacedetectioncapability	= 2
+	airdetectioncapability		= 5
+	subdetectioncapability		= 8
+	airdefence			= 14
+	seaattack			= 14
+	subattack			= 6
+	airattack			= 20
+	shorebombardment		= 5
+	convoyattack			= 7
+	distance			= 2.6
+	supplyconsumption 		= 0.5
+	fuelconsumption			= 0.8
+	reinforce_time = 0.5
+	reinforce_cost = 1.4
+	upgrade_time_factor = 0.6
+	upgrade_cost_factor = 1.0
+	equipment = { fighter = 25 bomber = 25 manpower = 70 }
+}
+
+########################################
+
+

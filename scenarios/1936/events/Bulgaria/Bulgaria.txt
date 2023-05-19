@@ -1,0 +1,988 @@
+# converted to DH, Kane, July 12 2011
+# Last Update 01-May-2007
+#########################################################################
+# 3119000 - 3119999	Bulgaria political events
+#########################################################################
+
+##############################################################
+# Bulgaria claims Dobrich (by Luxor)
+##############################################################
+event = {
+	id = 3119000
+	random = no
+	country = BUL
+	
+	trigger = { 
+		OR = {
+			event = 3141005 #The Vienna diktat accepted
+			event = 2700 #USSR Claims Bessarabia
+		}
+		control = { province = 307 data = ROM } #Dobrich
+		NOT = { alliance = { country = ROM country = SOV } }
+	}
+	
+	name = EVT_3119000_NAME # Bulgaria claims Dobrich
+	desc = EVT_3119000_DESC
+	style = 0
+
+	date = { day = 6 month = september year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1999 }
+		
+	action_a = {
+		name = ACTIONNAME3119000A # Claim Dobrich
+		command = { type = addcore which = 307 } #Dobrich
+		command = { type = trigger which = 3167008 } #ROM
+	}
+	action_b = {
+		name = ACTIONNAME3119000B # Don't press the issue
+		command = { type = dissent value = 2 }
+	}
+}
+event = {
+	id = 3119001
+	random = no
+	country = BUL
+	
+	# Triggered by ROM 3167008
+	
+	name = EVT_3119001_NAME # Bulgaria annexes Dobrich
+	desc = EVT_3119001_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3119001A # Great
+		command = { type = dissent value = -2 }
+	}
+}
+event = {
+	id = 3119002
+	random = no
+	country = BUL
+	
+	# Triggered by ROM 3167008
+	
+	name = EVT_3119002_NAME # Romania refuses Dobrich claim
+	desc = EVT_3119002_DESC
+	style = 0
+	
+	action_a = {
+		name = ACTIONNAME3119002A # Not good
+		command = { type = dissent value = 2 }
+	}
+}
+#########################################################################
+# Was 702006 - Bulgaria rearmament (by Generalisimo)
+#########################################################################
+event = {
+	id = 3119003 # 7200000 
+	random = no
+	country = BUL
+
+	trigger = {
+		exists = VIC
+		government = fascist
+		NOT = {
+			OR = {
+				alliance = { country = BUL country = SOV }
+				alliance = { country = BUL country = ENG }
+			}
+		}
+	}
+
+	name = EVT_3119003_NAME # The rearmament of Bulgaria
+	desc = EVT_3119003_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1936 }
+	offset = 3 
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3119003A # We will make good use of the French equipment
+		command = { type = domestic which = professional_army value = 1 }
+		command = { type = supplies value = 1500 }		
+
+		command = { type = add_brigade value = light_armor_brigade when = 4 }
+		command = { type = add_brigade value = artillery           when = 4 }
+	}
+	action_b = {
+		name = ACTIONNAME3119003B # We have no need of that French garbage
+		command = { type = domestic which = political_left value = 1 }
+		command = { type = domestic which = democratic value = -1 }
+	}
+}
+#########################################################################
+# Was 702007 - Bulgaria rearmament (by Generalisimo)
+#########################################################################
+event = {
+	id = 3119004 # 7200001
+	random = no
+	country = BUL
+
+	trigger = {
+		alliance = { country = BUL country = GER }
+		war      = { country = BUL country = SOV }
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		random   = 25
+	}
+
+	name = EVT_3119004_NAME # Germany sends military equipment to Bulgaria
+	desc = EVT_3119004_DESC
+	style = 2
+	picture = "bul_event_german_armor"
+
+	date = { day = 29 month = september year = 1943 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3119004A # Accept the equipment; it is still useful
+		#command = { type = remove_division   which = 19000             value = 3021 }
+		command = { type = activate_division which = 19000             value = 3020 where = 321 when = 0 } 
+		command = { type = domestic          which = professional_army value = 1  }
+		command = { type = domestic          which = freedom           value = -1 }
+		command = { type = waketeam          which = 818 }
+	}
+}
+########################################################################
+#  Was 702040 - (BUL) The Death of Boris III, Conspirancy (by Burris)
+########################################################################
+event = {
+        id = 3119005 # 7200002
+        random = no
+        country = BUL
+        
+        trigger = { 
+		alliance = { country = GER country = BUL }
+		random = 50
+		headofstate = 19001 # Boris III
+        }
+
+	name = EVT_3119005_NAME # The death of Tsar Boris III: a conspiracy
+	desc = EVT_3119005_DESC
+	style = 0
+	
+        date = { day = 25 month = august year = 1943 }
+        offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+		name = ACTIONNAME3119005A # The nation grieves its loss
+		command = { type = dissent value = 15 }
+		command = { type = headofstate which = 19042 } # Simeon II
+        command = { type = domestic which = political_left value = 1 }
+		command = { type = sleepevent which = 3119006 } 
+        }
+}
+
+########################################################################
+#  Was 702041 - (BUL) The Death of Boris III (bu Burris)
+########################################################################
+event = {
+        id = 3119006 # 7200003
+        random = no
+        country = BUL
+
+        trigger = { 
+		atwar = no
+		random = 30
+		headofstate = 19001 # Boris III
+       	}
+
+	name = EVT_3119006_NAME # The death of Tsar Boris III
+	desc = EVT_3119006_DESC
+	style = 0
+	
+        date = { day = 25 month = august year = 1943 }
+        offset = 3
+	deathdate = { day = 29 month = december year = 1999 }
+
+        action_a = {
+		name = ACTIONNAME3119006A # The nation grieves its loss
+		command = { type = dissent value = 5 }
+		command = { type = headofstate which = 19042 } # Simeon II
+		command = { type = sleepevent which = 3119005 }
+       	}
+}
+#########################################################################
+# Partition of Greece events
+#########################################################################
+event = { 
+	id = 3119009
+	random = no 
+	country = BUL
+	
+	trigger = { 
+		OR = {
+			control = { province = 367 data = BUL }
+			control = { province = 369 data = BUL }
+			control = { province = 363 data = BUL }
+			control = { province = 364 data = BUL }
+			control = { province = 370 data = BUL }
+			control = { province = 365 data = BUL }
+			control = { province = 366 data = BUL }
+			control = { province = 376 data = BUL }
+			control = { province = 368 data = BUL }
+			control = { province = 371 data = BUL }
+			control = { province = 375 data = BUL }
+			control = { province = 377 data = BUL }
+			control = { province = 372 data = BUL }
+			control = { province = 373 data = BUL }
+			control = { province = 374 data = BUL }
+			control = { province = 384 data = BUL }
+			control = { province = 385 data = BUL }
+			control = { province = 409 data = BUL }
+			control = { province = 378 data = BUL }
+			control = { province = 381 data = BUL }
+			control = { province = 379 data = BUL }
+			control = { province = 380 data = BUL }
+			control = { province = 382 data = BUL }
+			control = { province = 387 data = BUL }
+			control = { province = 388 data = BUL }
+		}
+		NOT = { exists = GRE }
+	}
+
+	name = EVT_3119009_NAME # The Partitioning of Greece: Bulgaria
+	desc = EVT_3119009_DESC 
+	style = 0
+	
+	date = { day = 0 month = january year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME3119009A # Partition Greece according to plan
+		command = { type = secedeprovince which = GER value = 365 when = 1 }
+		command = { type = secedeprovince which = GER value = 367 when = 1 }
+		command = { type = secedeprovince which = GER value = 369 when = 1 }
+		command = { type = secedeprovince which = GER value = 366 when = 1 }
+		command = { type = secedeprovince which = GER value = 376 when = 1 }
+		command = { type = secedeprovince which = GER value = 368 when = 1 }
+		command = { type = secedeprovince which = GER value = 371 when = 1 }
+		command = { type = secedeprovince which = GER value = 375 when = 1 }
+		command = { type = secedeprovince which = GER value = 377 when = 1 }
+		command = { type = secedeprovince which = GER value = 372 when = 1 }
+		command = { type = secedeprovince which = GER value = 373 when = 1 }
+		command = { type = secedeprovince which = GER value = 374 when = 1 }
+		command = { type = secedeprovince which = GER value = 384 when = 1 }
+		command = { type = secedeprovince which = GER value = 385 when = 1 }
+		command = { type = secedeprovince which = GER value = 409 when = 1 }
+		command = { type = secedeprovince which = GER value = 378 when = 1 }
+		command = { type = secedeprovince which = GER value = 381 when = 1 }
+		command = { type = secedeprovince which = GER value = 379 when = 1 }
+		command = { type = secedeprovince which = ITA value = 380 when = 1 } # Crete
+		command = { type = secedeprovince which = ITA value = 382 when = 1 } # Crete
+		command = { type = secedeprovince which = GER value = 387 when = 1 }
+		command = { type = secedeprovince which = GER value = 388 when = 1 }
+	}
+	action_b = {
+		name = ACTIONNAME3119009B # No, they shall remain part of our Nation
+		command = { }
+	}
+}
+
+
+
+###################################
+# Big Three conference partition of Europe
+###################################
+event = { 
+	id = 7200004
+	random = no
+	country = BUL
+
+	# triggered by 3182091
+
+	name = EVT_7200004_NAME # Free Europe
+	desc = EVT_7200004_DESC 
+	style = 0
+
+	action_a = { 
+		name = ACTIONNAME7200004A # Ok
+		command = { type = leave_alliance }
+		command = { type = end_puppet }
+		command = { type = peace which = ENG value = 1 }
+		command = { type = peace which = SOV value = 1 }
+		command = { type = secedeprovince which = GRE value = 363 }
+		command = { type = secedeprovince which = GRE value = 364 }
+		command = { type = secedeprovince which = GRE value = 370 }
+		command = { type = secedeprovince which = GRE value = 365 }
+		command = { type = secedeprovince which = GRE value = 366 }
+		command = { type = secedeprovince which = YUG value = 333 }
+		command = { type = secedeprovince which = YUG value = 328 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Bulgarian War
+#########################################################################
+event = {
+	id = 23126538
+	random = no
+	country = SOV
+
+        trigger = {
+		control = { province = 321 data = SOV } # Sofia
+		war = { country = GER country = SOV }
+		war = { country = BUL country = SOV }
+        alliance = { country = BUL country = GER }
+		lost_national = { country = BUL value = 20 }
+		NOT = { alliance = { country = BUL country = SOV } }
+        NOT = { alliance = { country = BUL country = ENG } } 
+        }
+
+	name = EVT_23126538_NAME
+	desc = EVT_23126538_DESC
+	style = 0
+
+	date = { day = 0 month = january year = 1941 }
+	offset = 1 # Check for trigger conditions every 1 days
+	deathdate = { day = 29 month = december year = 1999 }
+
+	action_a = {
+		name = ACTIONNAME23126538A # We'll settle for what we asked for
+		ai_chance = 100
+		command = { type = trigger which = 23126539 } # BUL
+	}
+	action_b = {
+		name = ACTIONNAME23126538B # Let's bring them Socialism!
+		ai_chance = 0
+        command = { type = dissent   value = 5 }
+		command = { type = relation  which = ROM value = -5 }
+		command = { type = relation  which = HUN value = -5 }
+		command = { type = relation  which = BUL value = -25 }
+		command = { type = relation  which = GER value = -20 }
+		command = { type = relation  which = FRA value = -10 }
+		command = { type = relation  which = USA value = -5 }
+		command = { type = domestic  which = interventionism value = 1 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Bulgarian War
+#########################################################################
+event = {
+	id = 23126539
+	random = no
+	country = BUL
+
+	# Triggered by SOV 23126538
+
+	name = EVT_23126539_NAME
+	desc = EVT_23126539_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME23126539A # Fold to Russian Demands
+		ai_chance = 100
+		command = { type = peace which = SOV value = 1 }
+                command = { type = peace which = ENG value = 1 }
+                command = { type = peace which = IRQ value = 1 }
+                command = { type = peace which = HOL value = 1 }
+                command = { type = peace which = NIC value = 1 }
+                command = { type = peace which = COL value = 1 }
+                command = { type = peace which = FIN value = 1 }
+				command = { type = leave_alliance }
+				command = { type = removecore which = 328 }
+				command = { type = removecore which = 333 }
+				command = { type = removecore which = 331 }
+				command = { type = removecore which = 365 }
+				command = { type = removecore which = 364 }
+				command = { type = removecore which = 363 }
+				command = { type = removecore which = 370 }
+				command = { type = secedeprovince which = SOV value = 328 }
+				command = { type = secedeprovince which = SOV value = 333 }
+				command = { type = secedeprovince which = SOV value = 331 }
+				command = { type = secedeprovince which = SOV value = 365 }
+				command = { type = secedeprovince which = SOV value = 364 }
+				command = { type = secedeprovince which = SOV value = 363 }
+				command = { type = secedeprovince which = SOV value = 370 }
+                command = { type = non_aggression which = BUL where = SOV }
+				command = { type = relation which = SOV value = 100 }
+				command = { type = relation which = GER value = -200 }
+				command = { type = dissent value = 20 }
+                command = { type = trigger which = 23126540 } #SOV
+				command = { type = sleepteam which = 818 }
+	}
+	action_b = {
+		name = ACTIONNAME23126539B # We will never surrender!
+		ai_chance = 0
+		command = { type = trigger which = 23126544 } #SOV
+		command = { type = domestic which = political_left value = -2 }
+		command = { type = domestic which = democratic value = 2 }
+		command = { type = domestic which = freedom value = 2 }
+		command = { type = relation which = SOV value = -50 }
+		command = { type = relation which = GER value = 50 }
+	}
+}
+#########################################################################
+#  End of the Soviet-Bulgarian War - Bulgaria accepts
+#########################################################################
+event = {
+	id = 23126540
+	random = no
+	country = SOV
+
+	name = EVT_23126540_NAME
+	desc = EVT_23126540_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME23126540A # Good!
+		command = { type = dissent value = -1 }
+        command = { type = make_puppet which = BUL }
+	}
+}
+#########################################################################
+#  End of the Soviet-Bulgarian War - Bulgaria refuses
+#########################################################################
+event = {
+	id = 23126544
+	random = no
+	country = SOV
+
+	name = EVT_23126544_NAME
+	desc = EVT_23126544_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME23126544A # They will have to pay!
+		command = { type = dissent value = 1 }
+		command = { type = domestic which = interventionism value = 1 }
+	}
+}
+
+########################################################## 
+# End of Balkan Entente
+########################################################## 
+event = { 
+	id = 3119010
+	random = no
+	country = BUL
+	
+	trigger = { 
+		NOT = { alliance = { country = BUL country = ENG } }
+		NOT = { alliance = { country = BUL country = GER } }
+		NOT = { alliance = { country = BUL country = ITA } }
+		NOT = { alliance = { country = BUL country = SOV } }
+		OR = {
+			alliance = { country = BUL country = YUG }
+			alliance = { country = BUL country = ROM }
+			alliance = { country = BUL country = TUR }
+			}
+		atwar = GER
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3137001A
+		command = { type = leave_alliance }
+		command = { type = embargo which = BUL where = CZE value = 0 }
+		command = { type = embargo which = BUL where = HUN value = 0 }
+		command = { type = embargo which = BUL where = YUG value = 0 }
+		command = { type = embargo which = BUL where = GRE value = 0 }
+		command = { type = embargo which = BUL where = ROM value = 0 }
+		command = { type = embargo which = BUL where = TUR value = 0 }
+	}
+}
+
+########################################################## 
+# End of Balkan Entente 2
+########################################################## 
+event = { 
+	id = 3119011
+	random = no
+	country = BUL
+	
+	trigger = { 
+			NOT = { event = 3119010 }
+			alliance = { country = BUL country = GER }
+	}
+       
+	name = EVT_3137001_NAME
+	desc = EVT_3186003_DESC
+	style = 0
+	
+	date = { day = 29 month = september year = 1936 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1963 }
+	
+	action_a = {
+		name = ACTIONNAME3137001A
+		command = { type = embargo which = BUL where = CZE value = 0 }
+		command = { type = embargo which = BUL where = HUN value = 0 }
+		command = { type = embargo which = BUL where = YUG value = 0 }
+		command = { type = embargo which = BUL where = GRE value = 0 }
+		command = { type = embargo which = BUL where = ROM value = 0 }
+		command = { type = embargo which = BUL where = TUR value = 0 }
+	}
+}
+
+########################################################## 
+# Bulgaria reorganise the arms industry by Gerrit
+########################################################## 
+event = { 
+	id = 3119012
+	random = no
+	country = BUL
+
+	name = EVT_3119012_NAME
+	desc = EVT_3119012_DESC
+	style = 2
+	picture = "bul_event_arms_factory"
+
+	date = { day = 8 month = June year = 1936 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME3119012A
+		command = { type = money    value = -50 }
+		command = { type = waketeam which = 816 }
+	}
+		
+	action_b = {
+		name = ACTIONNAME3119012B		
+        command = { type = sleepevent which = 3119013 } 
+	}
+}
+
+########################################################## 
+# Bulgaria reorganise the arms industry 2 by Gerrit
+# Bulgarias biggest factory for ammunition in ww2
+########################################################## 
+event = { 
+	id = 3119013
+	random = no
+	country = BUL
+
+	trigger = { 
+		event = 3119012
+	}	
+	
+	name = EVT_3119013_NAME
+	desc = EVT_3119013_DESC
+	style = 2
+	picture = "bul_event_arms_factory"
+
+	date = { day = 11 month = July year = 1940 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1940 }
+
+	action_a = {
+		name = ACTIONNAME3119013A
+		command = { type = construct     which = ic where = 324 value = 1 }
+		command = { type = industrial_modifier which = supplies value = 5 }
+	}
+}
+########################################################## 
+# Bulgaria reorganise the arms industry 3 by Gerrit
+# the State Aircraft Factory
+########################################################## 
+event = { 
+	id = 3119014
+	random = no
+	country = BUL
+
+	trigger = { 
+		random = 10
+	}	
+	
+	name = EVT_3119014_NAME
+	desc = EVT_3119014_DESC
+	style = 2
+	picture = "bul_event_aircraft_factory"
+
+	date = { day = 1 month = January year = 1938 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1938 }
+    # no historical data known. Random factor to compensate
+	
+	action_a = {
+		name = ACTIONNAME3119014A
+		command = { type = money    value = -50 }
+	}
+		
+	action_b = {
+		name = ACTIONNAME3119014B		
+        command = { type = sleepevent which = 3119014 } 
+	}
+}
+
+########################################################## 
+# Bulgaria reorganise the arms industry 4 by Gerrit
+# Created in 1938 to supply the Bulgarian Airforce with spareparts
+########################################################## 
+event = { 
+	id = 3119015
+	random = no
+	country = BUL
+
+	trigger = { 
+		event = 3119014
+		random = 15
+	}	
+	
+	name = EVT_3119015_NAME
+	desc = EVT_3119015_DESC
+	style = 2
+	picture = "bul_event_aircraft_factory"
+
+	date = { day = 1 month = January year = 1941 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME3119015A
+		command = { type = construct which = ic where = 322 value = 1   }
+		command = { type = repair_mod                       value = 2.5 }
+	}
+}
+
+#########################################################################
+# Bulgarian armored regiment
+#########################################################################
+event = {
+	id = 3119016
+	random = no
+	country = BUL
+
+	trigger = {
+		alliance = { country = BUL country = GER }
+		event    = 3135001 #Vichy france
+		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+	}
+
+	name = EVT_3119016_NAME
+	desc = EVT_3119016_DESC
+	style = 2
+	picture = "bul_event_armor_regiment"
+
+	date = { day = 24 month = june year = 1941 }
+	offset = 7
+	deathdate = { day = 29 month = december year = 1941 }
+
+	action_a = {
+		name = ACTIONNAME3119016A # 
+		#command = { type = activate_division which = 19000 value = 3021 where = 321 when = 0 } 
+		command = { type = add_brigade value = light_armor_brigade when = 6 }
+		command = { type = money             value = -50  }
+		command = { type = supplies          value = -500 }
+	}
+}
+
+#########################################################################
+# Bulgarian partisan movement
+#########################################################################
+event = {
+	id = 3119017
+	random = no
+	country = BUL
+
+	trigger = {
+		alliance = { country = BUL country = GER }
+		war      = { country = GER country = SOV }
+		war      = { country = BUL country = SOV }
+	}
+
+	name = EVT_3119017_NAME 
+	desc = EVT_3119017_DESC
+	style = 2
+	picture = "bul_event_partisan_movement"
+
+	date = { day = 1 month = August year = 1942 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME3119017A # 
+		command = {                       type = revolt   which = 319 when = -1 } 
+		command = { trigger = { ai = no } type = supplies value = -500 }	
+        command = { trigger = { ai = no } type = dissent  value = 1 }    
+	}
+}
+
+event = {
+	id = 3119018
+	random = no
+	country = BUL
+
+	trigger = {
+		alliance = { country = BUL country = GER }
+		war      = { country = GER country = SOV }
+		war      = { country = BUL country = SOV }
+		event    = 3119017
+		random   = 10
+	}
+
+	name = EVT_3119017_NAME 
+	desc = EVT_3119017_DESC
+	style = 2
+	picture = "bul_event_partisan_movement"
+
+	date = { day = 4 month = june year = 1943 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1943 }
+
+	action_a = {
+		name = ACTIONNAME3119017A # 
+		command = {                                 type = revolt   which = 319 when = -1 } 
+		command = { trigger = { NOT = { ai = GER }} type = revolt   which = 320 when = -1 } 
+		command = { trigger = { ai = no }           type = supplies value = -100 }	
+        command = { trigger = { ai = no }           type = dissent  value = 2 }    		
+	}
+}
+
+event = {
+	id = 3119019
+	random = no
+	country = BUL
+
+	trigger = {
+		random   = 5
+		event    = 3167014 #ROM capitulation
+		NOT = { event = 23126540 }
+	}
+
+	name = EVT_3119017_NAME 
+	desc = EVT_3119017_DESC
+	style = 2
+	picture = "bul_event_partisan_movement"
+
+	date = { day = 1 month = january year = 1943 }
+	offset = 14
+	deathdate = { day = 29 month = december year = 1945 }
+
+	action_a = {
+		name = ACTIONNAME3119017A # 
+		command = {                                 type = revolt   which = 319 when = -1 } 
+		command = { trigger = { NOT = { ai = GER }} type = revolt   which = 319 when = -1 } 
+		command = {                                 type = revolt   which = 320 when = -1 } 
+		command = { trigger = { NOT = { ai = GER }} type = revolt   which = 320 when = -1 } 
+		command = { trigger = { ai = no }           type = supplies value = -1500 }	
+        command = { trigger = { ai = no }           type = dissent  value = 4 }    		
+	}
+}
+
+#########################################################################
+# Bulgarian-Yugoslav Treaty of Friendship
+#########################################################################
+
+event = {
+	id = 3119020
+	random = no
+	country = BUL
+
+	trigger = {
+		NOT = { atwar = yes }
+	}
+
+	name = EVT_3119020_NAME 
+	desc = EVT_3119020_DESC
+	style = 2
+	picture = "bul_event_bul_yug_friendship"
+
+	date = { day = 23 month = january year = 1937 }
+	offset = 1
+	deathdate = { day = 29 month = december year = 1937 }
+
+	action_a = {
+		name = ACTION_NAME_OK # 
+        command = { type = dissent  value = -1 }  
+ 		command = { type = money    value = 50 } 	
+        command = { type = trigger  which = 3119021 }		
+	}
+}
+
+event = {
+	id = 3119021
+	random = no
+	country = YUG
+
+	name = EVT_3119020_NAME 
+	desc = EVT_3119020_DESC
+	style = 2
+	picture = "bul_event_bul_yug_friendship"
+
+	action_a = {
+		name = ACTION_NAME_OK # 
+        command = { type = dissent  value = -1 }  
+ 		command = { type = money    value = 50 } 		
+	}
+}
+
+#########################################################################
+# Greco-Bulgarian Agreement
+#########################################################################
+
+event = {
+	id = 3119022
+	random = no
+	country = BUL
+
+	trigger = {
+		NOT = { atwar = yes }
+	}
+
+	name = EVT_3119022_NAME 
+	desc = EVT_3119022_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	date = { day = 29 month = july year = 1938 }
+	offset = 3
+	deathdate = { day = 29 month = december year = 1938 }
+
+	action_a = {
+		name = ACTIONNAME3119022A # 
+        command = { type = relation which = GRE value = 25 }
+        command = { type = trigger  which = 3119023 }	
+	}
+}
+
+event = {
+	id = 3119023
+	random = no
+	country = GRE
+
+	name = EVT_3119022_NAME 
+	desc = EVT_3119022_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		ai_chance = 100
+		name = ACTIONNAME3119023A # 
+        command = { type = relation which = BUL value = 25 }	
+        command = { type = trigger  which = 3119024 }	
+		command = { type = trigger  which = 3119025 }
+		command = { type = trigger  which = 3119027 }		
+	}
+	action_b = {
+		ai_chance = 0
+		name = ACTIONNAME3119023B # 
+        command = { type = relation   which = BUL value = -25 }	
+        command = { type = sleepevent which = 3119024 }		
+	}	
+}
+
+event = {
+	id = 3119024
+	random = no
+	country = BUL
+
+	name = EVT_3119022_NAME 
+	desc = EVT_3119024_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		name = ACTIONNAME3119024A # 
+        command = { type = relation     which = GRE value = 5 }	
+        command = { type = dissent      value = -1  }  
+		command = { type = manpowerpool value = -20 }
+		command = { type = supplies     value = 1500 }
+		#command = { type = relation     which = ROM value = -20 }
+        command = { type = add_division which = "" value = d_02 when = 1 where = artillery }	
+		command = { type = add_division which = "" value = d_02 when = 1 where = artillery }	
+	}
+}
+
+event = {
+	id = 3119025
+	random = no
+	country = ENG
+
+	name = EVT_3119025_NAME 
+	desc = EVT_3119025_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		ai_chance = 98
+		name = ACTIONNAME3119025A # 
+        command = { type = relation which = BUL value = 25 }	
+        command = { type = trigger  which = 3119026 }		
+		command = { trigger = { ai = no } type = money    value = -100 }
+	}
+	action_b = {
+		ai_chance = 2
+		name = ACTIONNAME3119025B # 
+        command = { type = relation   which = BUL value = -25 }	
+        command = { type = sleepevent which = 3119026 }		
+	}	
+}
+
+event = {
+	id = 3119026
+	random = no
+	country = BUL
+
+	name = EVT_3119025_NAME 
+	desc = EVT_3119025_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		name = ACTIONNAME3119024A # 
+        command = { type = relation     which = ENG value = 25 }	
+        command = { type = dissent      value = -1  }  
+		command = { type = manpowerpool value = -10 }
+		command = { type = money        value = 100 }	
+		command = { type = relation     which = ROM value = -25 }
+        command = { type = add_division which = "" value = d_02 when = 1 where = artillery }		
+	}
+}
+
+event = {
+	id = 3119027
+	random = no
+	country = FRA
+
+	name = EVT_3119025_NAME 
+	desc = EVT_3119025_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		ai_chance = 98
+		name = ACTIONNAME3119025A # 
+        command = { type = relation which = BUL value = 25 }	
+        command = { type = trigger  which = 3119028 }		
+		command = { trigger = { ai = no } type = money    value = -100 }
+	}
+	action_b = {
+		ai_chance = 2
+		name = ACTIONNAME3119025B # 
+        command = { type = relation   which = BUL value = -25 }	
+        command = { type = sleepevent which = 3119028 }		
+	}	
+}
+
+event = {
+	id = 3119028
+	random = no
+	country = BUL
+
+	name = EVT_3119025_NAME 
+	desc = EVT_3119025_DESC
+	style = 2
+	picture = "bul_event_bul_gre_agreement"
+
+	action_a = {
+		name = ACTIONNAME3119024A # 
+        command = { type = relation     which = FRA value = 25 }	
+        command = { type = dissent      value = -1  }  
+		command = { type = manpowerpool value = -10 }
+		command = { type = money        value = 100 }
+		command = { type = relation     which = ROM value = -25 }		
+        command = { type = add_division which = "" value = d_02 when = 1 where = artillery }		
+	}
+}
