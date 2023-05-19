@@ -44,18 +44,18 @@
 # New (optional) parameters for Darkest Hour #
 ##############################################
 #
-# country = { TAG1 TAG2 … TAGx }	# Only countries in that list can release the country
-# no = { TAG1 TAG2 … TAGx }			# Countries in that list cannot release the country
-# not = { TAG1 TAG2 … TAGx }		# The country cannot be released if any of those countries exist at the moment
-# claims = { PROV_ID …} 			# List of provinces (by IDs) that are claimed by this country. These are not required for release and are considered as Claimed provinces.
+# country = { TAG1 TAG2 ï¿½ TAGx }	# Only countries in that list can release the country
+# no = { TAG1 TAG2 ï¿½ TAGx }			# Countries in that list cannot release the country
+# not = { TAG1 TAG2 ï¿½ TAGx }		# The country cannot be released if any of those countries exist at the moment
+# claims = { PROV_ID ï¿½} 			# List of provinces (by IDs) that are claimed by this country. These are not required for release and are considered as Claimed provinces.
 # min = X  							# Allows release if at least X provinces of minimum list are controlled by releaser country. By default (no min entry or min = -1) it is equal to provinces in minimum list. 
 # min_extra = X 					# Allows release if at least X provinces of extra list are controlled by releaser country. By default (no min_ extra entry) it is 0. 
 #
-# coup = { TAG1 TAG2 … TAGx }		# Used only when "Used change TAG on coup logic." modifier in misc.txt is set to 1! 
+# coup = { TAG1 TAG2 ï¿½ TAGx }		# Used only when "Used change TAG on coup logic." modifier in misc.txt is set to 1! 
 #	On coup country that have such list defined can change its TAG to countries from that list only 
 #	 (the TAG of country that can be created AND has the closest intrinsic_gov_type to the country that initiated the coup will be used for the switch).
 #
-# value = X.X (0.0 – 1.25) 			# Used by the old release model only (when no min or min_extra are defined). 
+# value = X.X (0.0 ï¿½ 1.25) 			# Used by the old release model only (when no min or min_extra are defined). 
 #	When 'score' is above that value the country will be available for release (see below for details). By default (no value) it is 0.51.
 #	A country will be available for liberation if it has at least 0.51 final score (can be changed - see above). 
 #	Capital province gives 0.25 and (available minimum provinces / total minimum) provinces gives the rest. 
@@ -129,7 +129,7 @@ ARA = {
 		1038
 		}
 		revolt = no
-		liberate = no
+		liberate = yes
 		capital = 787
 	}
 ARG = {
@@ -516,7 +516,7 @@ ENG = {
 						1588 1589 1590 1591 1592 1593 1678 1679 1680 1682 1687 1728 1729 1746 1749 1750 #Pacific Ocean Islands
                         } 
 	capital = 29
-	no = { GER ITA JAP }
+	no = { GER ITA JAP USA ENG FRA SOV }
 }
 EQA = {
    date = { day = 0 month = january year = 1936 }
@@ -524,6 +524,7 @@ EQA = {
    minimum = { 915 917 918 907 914 908 }
    extra = { 912 913 893 922 920 921 927 919 926 923 924 }
    capital = 907
+   	no = { GER ITA JAP USA ENG FRA SOV }
 }
 EST = {
 	date = { day = 0 month = january year = 1936 }
@@ -740,6 +741,7 @@ IRQ = {
 	minimum = { 1027 1034 1035 1033 1028 1037 1032 1031 1030 }
 	extra = { 1029 1036 1089 1041 }
 	capital =  1034
+	 liberate = no
 }
 ISR = {
 	date = { day = 0 month = january year = 1936 }
@@ -747,7 +749,7 @@ ISR = {
 	minimum = { 1008 }
 	extra = { 1011 1013 1010 1172 }
 	capital = 1008
-	no = { GER ITA JAP }
+	 liberate = no
 }
 ITA = {
 	date = { day = 0 month = january year = 1936 }
@@ -793,6 +795,7 @@ JOR = {
 	minimum = { 1022 1023 1026 1025 1024 }
 	extra = { 1172 }
 	capital = 1022
+	 liberate = no
 }
 KAZ = {
 	date = { day = 0 month = january year = 1936 }
@@ -846,6 +849,7 @@ LBY = {
 	minimum = { 771 772 769 765 767 768 766 760 764 761 763 759 762 770 775 754 773 751 755 758 756 757 753 750 752 }
 	extra = { 776 777 774 }
 	capital =  750
+	 liberate = no
 }
 LEB = {
 	date = { day = 0 month = january year = 1936 }
@@ -1885,7 +1889,7 @@ U62 = { # Kosakien
 	intrinsic_gov_type = nazi
 }
 
-U63 = { # Republik Kalmückien
+U63 = { # Republik Kalmï¿½ckien
 	date = { day = 0 month = january year = 1914 }
 	expirydate = { day = 29 month = december year = 1966 }
 	minimum = { 699 1113 706 }
