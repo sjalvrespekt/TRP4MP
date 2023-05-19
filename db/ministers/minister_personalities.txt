@@ -325,7 +325,7 @@
 		desc		= DPERSONALITY_BATTLE_FLEET_PROPONENT
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = research which = naval value = -0.1000 }
+		command		= { type = research which = naval value = -0.2000 }
 	}
 
 	minister =  { 
@@ -335,9 +335,9 @@
 		desc		= DPERSONALITY_SUBMARINE_PROPONENT
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = unit which = submarine value = -0.1000 }
-		command		= { type = unit which = nuclear_submarine value = -0.1000 }
-		command		= { type = unit which = d_08 value = -0.1000 }
+		command		= { type = unit which = submarine value = -0.200 }
+		command		= { type = unit which = nuclear_submarine value = -0.2000 }
+		command		= { type = unit which = d_08 value = -0.2000 }
 	}
 
 	minister =  { 
@@ -347,7 +347,7 @@
 		desc		= DPERSONALITY_TANK_PROPONENT
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = research which = armor value = -0.1000 }
+		command		= { type = research which = armor value = -0.2000 }
 	}
 
 	minister =  { 
@@ -357,7 +357,7 @@
 		desc		= DPERSONALITY_INFANTRY_PROPONENT
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = research which = infantry value = -0.1000 }
+		command		= { type = research which = infantry value = -0.2000 }
 	}
 
 	minister =  { 
@@ -390,7 +390,7 @@
 		desc		= DPERSONALITY_STRATEGIC_AIR_PROPONENT
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = unit which = strategic_bomber value = -0.1000 }
+		command		= { type = unit which = strategic_bomber value = -0.2000 }
 	}
 
 ### Minister of security Section ###
@@ -463,7 +463,7 @@
 		desc		= DPERSONALITY_EFFICIENT_SOCIOPATH
 		position	= MinisterOfSecurity
 		value		= 0
-		command		= { type = production which = production when = non_national value = 0.1000 }
+		command		= { type = production which = production when = non_national value = 0.2000 }
 		command		= { type = populationgrowth value = -0.1000 }
 	}
 
@@ -476,9 +476,9 @@
 		position	= MinisterOfIntelligence
 		value		= 0
 		command		= { type = research value = -0.0500 }
-		command		= { type = intelligence_chances which = steal_blueprint value = 2 }
-		command		= { type = intelligence_chances which = disrupt_techteam value = 2 }
-		command		= { type = intelligence_chances which = nuclear_sabotage value = 2 }
+		command		= { type = intelligence_chances which = steal_blueprint value = 3 }
+		command		= { type = intelligence_chances which = disrupt_techteam value = 3 }
+		command		= { type = intelligence_chances which = nuclear_sabotage value = 3 }
 	}
 
 	minister =  { 
@@ -489,7 +489,7 @@
 		position	= MinisterOfIntelligence
 		value		= 0
 		command		= { type = detection which = land value = 30 }
-		command		= { type = intelligence_report which = land value = 2 }
+		command		= { type = intelligence_report which = land value = 3 }
 	}
 
 	minister =  { 
@@ -500,11 +500,10 @@
 		position	= MinisterOfIntelligence
 		value		= 0
 		command		= { type = diplomacy_chances which = influence_nation value = 20 } 
-		command		= { type = intelligence_chances which = coup value = 2 }
-		command		= { type = intelligence_chances which = minister_assassination value = 2 }
-		command		= { type = intelligence_chances which = smear_campaign value = 2 }
-		command		= { type = intelligence_chances which = found_partisans value = 2 }
-		command		= { type = intelligence_chances which = massmedia value = 2 }
+		command		= { type = intelligence_chances which = minister_assassination value = 3 }
+		command		= { type = intelligence_chances which = smear_campaign value = 3 }
+		command		= { type = intelligence_chances which = found_partisans value = 3 }
+		command		= { type = intelligence_chances which = massmedia value = 3 }
 	}
 
 	minister =  { 
@@ -526,8 +525,8 @@
 		position	= MinisterOfIntelligence
 		value		= 0
 		command		= { type = production which = production value = 0.0500 }
-		command		= { type = intelligence_chances which = steal_blueprint value = 2 }
-		command		= { type = intelligence_chances which = sabotage_industry value = 2 }
+		command		= { type = intelligence_chances which = steal_blueprint value = 3 }
+		command		= { type = intelligence_chances which = sabotage_industry value = 3 }
 	}
 
 	minister =  { 
@@ -539,8 +538,8 @@
 		value		= 0
 		command		= { type = detection which = navy value = 0.2000 }
 		command		= { type = detection which = convoy value = 2 }
-		command		= { type = intelligence_chances which = steal_blueprint value = 2 }
-		command		= { type = intelligence_chances which = disrupt_techteam value = 2 }
+		command		= { type = intelligence_chances which = steal_blueprint value = 3 }
+		command		= { type = intelligence_chances which = disrupt_techteam value = 3 }
 		command		= { type = intelligence_report which = navy value = 2 }
 	}
 
@@ -1251,10 +1250,10 @@
 		desc		= DPERSONALITY_ADMINISTRATIVE_GENIUS
 		position	= ArmamentMinister
 		value		= 0
-		command		= { type = production which = production value = 0.0500 }
-		command		= { type = resource which = energy value = 0.0500 }
-		command		= { type = resource which = metal value = 0.0500 }
-		command		= { type = resource which = rare_materials value = 0.0500 }
+		command		= { type = production which = production value = 0.0400 }
+		command		= { type = resource which = energy value = 0.0400 }
+		command		= { type = resource which = metal value = 0.0400 }
+		command		= { type = resource which = rare_materials value = 0.0400 }
 	}
 
 	minister =  { 
