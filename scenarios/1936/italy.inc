@@ -70,9 +70,7 @@ country = {
           defense_lobby     = 7
           interventionism   = 6
         }
-		
-    peacetime_ic_mod     = 2.0
-    wartime_ic_mod       = 2.0
+
 		
   headofstate            = { type = 9 id = 3001 }
   headofgovernment       = { type = 9 id = 3002 }
