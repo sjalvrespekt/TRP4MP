@@ -48,8 +48,8 @@ country = {
 	supplies =	5000
 	money = 150
 	
-	transports = 10
-	escorts = 24
+	transports = 100
+	escorts = 240
 
 	capital = 338
 
@@ -75,8 +75,8 @@ country = {
 
 	manpower = 400
 
-	 peacetime_ic_mod     = 2.0
-    wartime_ic_mod       = 2.0
+	 peacetime_ic_mod     = 3.0
+    wartime_ic_mod       = 3.0
 
 	
     ownedprovinces =      {
