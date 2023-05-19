@@ -38,13 +38,13 @@ event = {
 		command = { type = trigger which = 3136038 }
 	}
 	action_b = {
-		ai_chance = 1
+		ai_chance = 0
 		name = ACTIONNAME3158000B
 		command = { type = alliance which = ENG }
 		command = { type = domestic which = democratic value = 1 }
 	}
 	action_c = {
-		ai_chance = 1
+		ai_chance = 0
 		name = ACTIONNAME3158000C
 		command = { type = alliance which = GER }
 		command = { type = domestic which = political_left value = -1 }
@@ -60,7 +60,7 @@ event = {
 	random = no
 	country = NOR
 	
-	trigger = {	war = { country = GER  country = DEN } }
+	trigger = {	war = { country = GER  country = NOR } }
 	# Will also be triggered by Germany 29
 	
 	name = EVT_3158001_NAME
@@ -132,29 +132,29 @@ event = {
 ###########################################################
 # Norwegian army suffers severe morale blow with most part of country occupied
 ###########################################################
-#event = { 
-#	id = 3158004
-#	random = no
-#	country = NOR
-#	
-#	trigger = {
-#                AI = yes
-#                AI = GER
-#		war = { country = GER country = NOR }
-#                lost_national = { country = NOR value = 65 }
-#	}
-#	
-#	name = EVT_3158004_NAME
-#	desc = EVT_3158004_DESC
-#	style = 0
-#
-#	action_a = {
-#		name = ACTIONNAME3158004A # All is lost
-#		command = { type = ground_def_eff value = 0.2 }
-#	}
-#}
-#
-#
+event = { 
+	id = 3158004
+	random = no
+	country = NOR
+	
+	trigger = {
+                AI = yes
+                AI = GER
+		war = { country = GER country = NOR }
+                 lost_national = { country = NOR value = 65 }
+	}
+	
+	name = EVT_3158004_NAME
+	desc = EVT_3158004_DESC
+	style = 0
+
+	action_a = {
+		name = ACTIONNAME3158004A # All is lost
+		command = { type = ground_def_eff value = 0.2 }
+	}
+}
+
+
 ###########################################################################
 #  	8200000 - 8299999
 ###########################################################################
@@ -286,9 +286,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME8200005B
-		command = { type = access which = ENG }
-		command = { type = trigger which = 3131094 }
-		command = { type = domestic which = democratic value = 1 }
+		command = { type = trigger which = 3131095 }
 	}
 }
 ###################################

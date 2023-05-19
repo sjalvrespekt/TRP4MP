@@ -165,11 +165,11 @@ event = {
 		command = { type = trigger which = 3136016 } # GER
 		command = { type = trigger which = 3127004 }
 	}
-	action_b = {
-		name = ACTIONNAME3127003B # Fight!
-		command = { type = dissent value = 30 }
-		command = { type = trigger which = 3136014 } # GER
-	}
+#	action_b = {
+#		name = ACTIONNAME3127003B # Fight!
+#		command = { type = dissent value = 30 }
+#		command = { type = trigger which = 3136014 } # GER
+#	}
 }
 event = { 
 	id = 3127004
@@ -318,7 +318,7 @@ event = {
 	
 	action_a = {
 		name = "ACTION_NAME_OK"
-		command = { type = headofstate which = 24031 } # Emil Hácha
+		command = { type = headofstate which = 24031 } # Emil Hï¿½cha
 		command = { type = headofgovernment which = 24046 } # Rudolf Beran
 	}
 }

@@ -245,14 +245,14 @@ event = {
 
 	action_a = {
 		name = ACTIONNAME3141004A
-		ai_chance = 99
+		ai_chance = 100
 		command = { type = dissent value = 5 }
 		command = { type = domestic which = political_left value = 1 }
 		command = { type = domestic which = democratic value = -1 }
 	}
 	action_b = {
 		name = ACTIONNAME3141004B
-		ai_chance = 1
+		ai_chance = 0
 		command = { type = war which = ROM }
 		command = { type = trigger which = 3136083 } # GER
 	}
@@ -551,7 +551,7 @@ event = {
 		command = { type = peacetime_ic_mod value = 10 }
 		#command = { type = add_division value = interceptor when = 0 }
 		#command = { type = add_division value = tactical_bomber }
-		command = { type = waketeam which = 1618 } #MÁVAG Repülogép
+		command = { type = waketeam which = 1618 } #Mï¿½VAG Repï¿½logï¿½p
                 command = { type = waketeam which = 1609 } #F. Littay
 		command = { type = non_aggression which = HUN where = CZE }
 		command = { type = non_aggression which = HUN where = ROM }
@@ -897,7 +897,7 @@ event = {
 	country = HUN
 	
 	trigger = {
-		event    = 3136505 #GER Decision Kriegsgeräte GmbH
+		event    = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 	}
 	  
 	name = EVT_3136455_NAME
@@ -988,15 +988,15 @@ event = {
 #########################################################################
 # Political development in Hungary
 #########################################################################
-#  Gyula Gömbös died
+#  Gyula Gï¿½mbï¿½s died
 #########################################################################
-# 1936 - 14.5.38      --- Kálmán Darányi
-# 14.5.38 - 16.2.1939 --- Béla Imrédy
-# 16.2.39 - 3.4.41    --- Pál Teleki
-# 3.4.41 - 7.3.42     --- László Bárdossy
-# 7.3.42 - 22.3.44    --- Miklós Kállay
-# 22.3.44 - 29.8.44   --- Döme Sztójay
-# 29.8.44 - putsch    --- Géza Lakatos
+# 1936 - 14.5.38      --- Kï¿½lmï¿½n Darï¿½nyi
+# 14.5.38 - 16.2.1939 --- Bï¿½la Imrï¿½dy
+# 16.2.39 - 3.4.41    --- Pï¿½l Teleki
+# 3.4.41 - 7.3.42     --- Lï¿½szlï¿½ Bï¿½rdossy
+# 7.3.42 - 22.3.44    --- Miklï¿½s Kï¿½llay
+# 22.3.44 - 29.8.44   --- Dï¿½me Sztï¿½jay
+# 29.8.44 - putsch    --- Gï¿½za Lakatos
 #########################################################################
 
 event = {
@@ -1005,7 +1005,7 @@ event = {
 	country = HUN
 	
 	trigger = { 
-		minister = 21002 #Gyula Gömbös
+		minister = 21002 #Gyula Gï¿½mbï¿½s
 		InCabinet = 21002
 	}	
 	
@@ -1024,9 +1024,9 @@ event = {
 		command = { trigger = { ai = no } type = money value = -10 }	
 		command = { type = sleepminister      which = 21002 }
 		command = { type = sleepminister      which = 21006 }
-		command = { type = headofgovernment   which = 21053 } #Darányi
-		command = { type = foreignminister    which = 21185 } #Darányi
-		command = { type = ministerofsecurity which = 21098 } #Darányi
+		command = { type = headofgovernment   which = 21053 } #Darï¿½nyi
+		command = { type = foreignminister    which = 21185 } #Darï¿½nyi
+		command = { type = ministerofsecurity which = 21098 } #Darï¿½nyi
 		command = { type = chiefofstaff       which = 21135 } #Roder
 		command = { type = chiefofarmy        which = 21139 } #Ratz
 	}
@@ -1055,7 +1055,7 @@ event = {
 	
 	action_a = {
 		name = "ACTION_NAME_OK"
-		command = { type = headofgovernment which = 21054 } #Béla Imrédy
+		command = { type = headofgovernment which = 21054 } #Bï¿½la Imrï¿½dy
 		command = { type = sleepminister    which = 21053 } #
 	}
 }
@@ -1215,7 +1215,7 @@ event = {
 #########################################################################
 # arrow cross party takes the power
 #########################################################################
-#Prime minister: Ferenc Szálasi
+#Prime minister: Ferenc Szï¿½lasi
 
 event = {
 	id = 3141039
@@ -1251,11 +1251,11 @@ event = {
 		command = { trigger = { ai = no } type = money        value = -150  }
 		command = {                       type = manpowerpool value = 50    }
 		####
-		command = { type = headofstate        which = 21041 } #Ferenc Szálasi
-		command = { type = headofgovernment   which = 21186 } #Ferenc Szálasi
-		command = { type = foreignminister    which = 21067 } #Gábor Vajna
-		command = { type = armamentminister   which = 21084 } #Lajos Reményi-Schneller
-		command = { type = ministerofsecurity which = 21096 } #Gábor Vajna
+		command = { type = headofstate        which = 21041 } #Ferenc Szï¿½lasi
+		command = { type = headofgovernment   which = 21186 } #Ferenc Szï¿½lasi
+		command = { type = foreignminister    which = 21067 } #Gï¿½bor Vajna
+		command = { type = armamentminister   which = 21084 } #Lajos Remï¿½nyi-Schneller
+		command = { type = ministerofsecurity which = 21096 } #Gï¿½bor Vajna
 		command = { type = chiefofstaff       which = 21138 } #Beregfy
 		command = { type = chiefofarmy        which = 21140 } #Beregfy
 	}

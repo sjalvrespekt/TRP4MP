@@ -12,9 +12,8 @@ event = {
 	country = TUR
 
 	trigger = {
-		random = 50
 		war = { country = GER country = SOV }
-		headofstate = 12031 # Inönü
+		headofstate = 12031
 		NOT = {
 			OR = {
 				alliance = { country = TUR country = SOV }
@@ -32,13 +31,13 @@ event = {
 	desc = EVT_3180000_DESC 
 	style = 0 
 
-	date = { day = 7 month = february year = 1941 } 
+	date = { day = 7 month = february year = 1940 } 
 	offset = 15 
 	deathdate = { day = 29 month = december year = 1947 } 
 
 	action_a = { 
 		name = ACTIONNAME3180000A
-		command = { type = dissent value = 10 }	
+		command = { type = dissent value = 1 }	
 		command = { type = money value = 5 }
 		command = { type = domestic which = political_left value = 1 }
 		command = { type = domestic which = democratic value = 1 }
@@ -63,7 +62,7 @@ event = {
 		
 		command = { type = money value = -10 }
 		command = { type = domestic which = political_left value = -1 }
-		command = { type = domestic which = democratic value = -1 }
+		command = { type = domestic which = democratic value = -3 }
 		command = { type = sleepevent which = 3180002 }
 	} 
 }
@@ -100,7 +99,7 @@ event = {
 		command = { type = dissent value = -1 } #-15
 		command = { type = construct which = ic where = 1075 value = 1 }
 #		command = { type = construct which = ic where = 409 value = 1 }
-#		command = { type = construct which = ic where = 1078 value = 1 }
+		command = { type = construct which = ic where = 1078 value = 1 }
 #		command = { type = construct which = ic where = 1077 value = 1 }
 #		command = { type = construct which = ic where = 1057 value = 1 }
 	}
@@ -118,29 +117,18 @@ event = {
 	country = TUR
 
 	trigger = {
-		headofstate = 12031 # Inönü
+		headofstate = 12031
 		atwar = no
 		war = { country = ENG country = GER }
-		war = { country = GER country = SOV }
-		control = { province = 617 data = SOV } # Kiev
-		control = { province = 613 data = SOV } # Kirovograd
-		control = { province = 750 data = ENG } # Tripoli
-		control = { province = 388 data = ENG } # Nicosia
+		war = { country = ENG country = ITA }
 		control = { province = 900 data = ENG } # Suez
-		OR = {
-			control = { province = 421 data = ENG } 
-			control = { province = 421 data = NZL } 
-			control = { province = 421 data = SAF } 
-			control = { province = 421 data = AST } 
-			control = { province = 421 data = USA } # Napoli under Allied Control
-		}
 	}
 
 	name = EVT_3180002_NAME
 	desc = EVT_3180002_DESC
 	style = 0
 
-	date = { day = 0 month = may year = 1944 }
+	date = { day = 0 month = may year = 1940 }
 	offset = 10
 	deathdate = { day = 29 month = december year = 1947 }
 
@@ -154,7 +142,8 @@ event = {
 		name = ACTIONNAME3180002B
 		command = { type = domestic which = political_left value = -1 }
 		command = { type = domestic which = democratic value = -1 }
-		command = { type = dissent value = 15 }
+		command = { type = dissent value = 5 }
+		command = { type = alliance which = ITA }
 	}
 } 
 ###############################################
@@ -416,7 +405,7 @@ event = {
 }
 
 #################################################################
-# German–Turkish Non-Aggression Pact			
+# Germanï¿½Turkish Non-Aggression Pact			
 #################################################################
 event = {	
 	id = 3180015
@@ -494,7 +483,7 @@ event = {
 		NOT = { war      = { country = ITA country = TUR } }
 		event  = 3180015
 		event  = 3180016
-		event  = 3136505 #GER Decision Kriegsgeräte GmbH
+		event  = 3136505 #GER Decision Kriegsgerï¿½te GmbH
 	}		
 	
 	name = EVT_3180017_NAME
