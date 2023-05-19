@@ -1,4 +1,4 @@
-# geändert Zergel, 20.10.2010, Anpassung Province ID an DH
+# geï¿½ndert Zergel, 20.10.2010, Anpassung Province ID an DH
 
 province = { id = 232 anti_air = 2 air_base = {	size = 6 current_size = 6 }}
 
@@ -29,10 +29,11 @@ country = {
         freedom = 4
         free_market = 5
         professional_army = 3
-        defense_lobby = 8
+        defense_lobby = 6
         interventionism = 6
     }
     allowed_divisions = { 
+		militia = yes
         infantry = yes 
         cavalry = yes 
         bergsjaeger = yes
@@ -40,14 +41,17 @@ country = {
 	
 	#inventions = { 2700061 2700063 2700065 }
 	
-	manpower = 20
+	manpower = 550
+
+	 peacetime_ic_mod     = 2.0
+    wartime_ic_mod       = 2.0
 
 	# Resource Reserves
 	energy	=	1000   
 	metal	= 1000		
 	rare_materials =	500	
 	oil =	500	
-	supplies =	500
+	supplies =	5000
 	money = 20
 	
 	transports = 25
@@ -268,7 +272,7 @@ landunit = {
 	id = { type = 18600 id = 103 }
 	location = 258 #Wilno
 	name = "Garnizon Wilno"
-		division = { id = { type = 18600 id = 104 } name = "1 DP Legionów im. Pilsudskiego"  type = infantry model = 0 strength = 45 }
+		division = { id = { type = 18600 id = 104 } name = "1 DP Legionï¿½w im. Pilsudskiego"  type = infantry model = 0 strength = 45 }
 		division = { id = { type = 18600 id = 105 } name = "19 Dywizja Piechoty"	          type = infantry model = 0 strength = 45 }
 		division = { id = { type = 18600 id = 106 } name = "3 Samodzielna Brygada Kawalerii" type = cavalry  model = 0 strength = 25 }
 		division = { id = { type = 18600 id = 107 } name = "Brygada KOP 'Wilno'"             type = garrison model = 0 strength = 35 }
@@ -278,14 +282,14 @@ landunit = {
 	id = { type = 18600 id = 108 }
 	location = 234 #Radom
 	name = "Garnizon Kielce"
-		division = { id = { type = 18600 id = 109 } name = "2 Dywizja Piechoty Legionów"  type = infantry model = 0 strength = 45 }
+		division = { id = { type = 18600 id = 109 } name = "2 Dywizja Piechoty Legionï¿½w"  type = infantry model = 0 strength = 45 }
 	}	
 
 landunit = {
 	id = { type = 18600 id = 110 }
 	location = 243 #Lublin
 	name = "3 Dywizja"
-		division = { id = { type = 18600 id = 111 } name = "3 Dywizja Piechoty Legionów"  type = infantry model = 0 strength = 45 }
+		division = { id = { type = 18600 id = 111 } name = "3 Dywizja Piechoty Legionï¿½w"  type = infantry model = 0 strength = 45 }
 	}
 
 landunit = {
@@ -298,18 +302,18 @@ landunit = {
 
 landunit = {
 	id = { type = 18600 id = 115 }
-	location = 242 #Lwów
+	location = 242 #Lwï¿½w
 	name = "Garnizon Lwow"
 		division = { id = { type = 18600 id = 116 } name = "5 Dywizja Piechoty"  type = infantry model = 0 strength = 45 }
 	}
 
 landunit = {
 	id = { type = 18600 id = 117 }
-	location = 235 #Kraków
+	location = 235 #Krakï¿½w
 	name = "Garnizon Krakow"
 		division = { id = { type = 18600 id = 118 } name = "6 Dywizja Piechoty"                     type = infantry    model = 0 strength = 45 }
-		division = { id = { type = 18600 id = 119 } name = "Samodzielna Brygada Kawalerii 'Kraków'" type = cavalry     model = 0 strength = 25 }
-		division = { id = { type = 18600 id = 120 } name = "21 Dywizja Piechoty Górskiej"           type = bergsjaeger model = 0 strength = 50 }
+		division = { id = { type = 18600 id = 119 } name = "Samodzielna Brygada Kawalerii 'Krakï¿½w'" type = cavalry     model = 0 strength = 25 }
+		division = { id = { type = 18600 id = 120 } name = "21 Dywizja Piechoty Gï¿½rskiej"           type = bergsjaeger model = 0 strength = 50 }
 	}
 
 landunit = {
@@ -346,7 +350,7 @@ landunit = {
 
 landunit = {
 	id = { type = 18600 id = 133 }
-	location = 238 #Stanislawów
+	location = 238 #Stanislawï¿½w
 	name = "Garnizon Stanislawow"
 		division = { id = { type = 18600 id = 134 } name = "11 Karpacka Dywizja Piechoty"    type = infantry model = 0 strength = 45 }
 		division = { id = { type = 18600 id = 135 } name = "6 Samodzielna Brygada Kawalerii" type = cavalry  model = 0 strength = 25 }
@@ -365,7 +369,7 @@ landunit = {
 	location = 244 #Rowne
 	name = "Garnizon Rowne"
 		division = { id = { type = 18600 id = 140 } name = "13 Kresowa Dywizja Piechoty" type = infantry model = 0 strength = 45 }
-		division = { id = { type = 18600 id = 141 } name = "Brygada Kawalerii 'Równe'"   type = cavalry  model = 0 strength = 25 }
+		division = { id = { type = 18600 id = 141 } name = "Brygada Kawalerii 'Rï¿½wne'"   type = cavalry  model = 0 strength = 25 }
 	}
 
 landunit = {
@@ -396,7 +400,7 @@ landunit = {
 	id = { type = 18600 id = 151 }
 	location = 239 #Przemysl
 	name = "Garnizon Przemysl"
-		division = { id = { type = 18600 id = 152 } name = "22 Dywizja Piechoty Górskiej"  type = bergsjaeger model = 0 strength = 50 }
+		division = { id = { type = 18600 id = 152 } name = "22 Dywizja Piechoty Gï¿½rskiej"  type = bergsjaeger model = 0 strength = 50 }
 		division = { id = { type = 18600 id = 153 } name = "24 Dywizja Piechoty"             type = infantry model = 0 strength = 45 }
 	}
 
@@ -404,7 +408,7 @@ landunit = {
 	id = { type = 18600 id = 154 }
 	location = 221 #Katowice
 	name = "23 Dywizja"
-		division = { id = { type = 18600 id = 155 } name = "23 Górnoslaska Dywizja Piechoty"  type = infantry model = 0 strength = 45 }
+		division = { id = { type = 18600 id = 155 } name = "23 Gï¿½rnoslaska Dywizja Piechoty"  type = infantry model = 0 strength = 45 }
 	}
 
 landunit = {
@@ -483,8 +487,8 @@ landunit = {
 landunit = {
 	id = { type = 18600 id = 179 }
 	location = 251 #Nowogrodek
-	name = "Garnizon Nowogródek"
-		division = { id = { type = 18600 id = 180 } name = "Brygada KOP 'Nowogródek'" type = garrison model = 0 strength = 35 }
+	name = "Garnizon Nowogrï¿½dek"
+		division = { id = { type = 18600 id = 180 } name = "Brygada KOP 'Nowogrï¿½dek'" type = garrison model = 0 strength = 35 }
 	}
 
 landunit = {

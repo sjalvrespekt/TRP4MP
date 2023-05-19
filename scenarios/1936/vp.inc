@@ -340,8 +340,8 @@ province = {	id = 338	points = 2 }#Belgrade
 province = {	id = 352	points = 2 }#Zagreb
 province = {	id = 349	points = 1 }#Ljubljana
 province = {	id = 355	points = 1 }#Sarajevo
-province = {	id = 333	points = 1 }#Sarajevo
-province = {	id = 334	points = 1 }#Sarajevo
+province = {	id = 333	points = 1 }
+province = {	id = 334	points = 1 }
 
 
 ################################

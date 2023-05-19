@@ -45,8 +45,8 @@ country = {
 	metal	= 1000		
 	rare_materials =	500	
 	oil =	500	
-	supplies =	500
-	money = 15
+	supplies =	5000
+	money = 150
 	
 	transports = 10
 	escorts = 24
@@ -61,10 +61,11 @@ country = {
         freedom = 5
         free_market = 5
         professional_army = 3
-        defense_lobby = 7
+        defense_lobby = 6
         interventionism = 6
     }
     allowed_divisions = { 
+		militia = yes
         infantry = yes 
         cavalry = yes 
         bergsjaeger = yes
@@ -72,7 +73,10 @@ country = {
 
 	#inventions = { 2700061 2700063 2700065 }
 
-	manpower = 200
+	manpower = 400
+
+	 peacetime_ic_mod     = 2.0
+    wartime_ic_mod       = 2.0
 
 	
     ownedprovinces =      {
@@ -250,14 +254,14 @@ landunit = {
 	id = { type = 19800 id = 1 }
 	location = 350 #Split
 	name = "Boka Kotorska Fortress"
-		division = { id = { type = 19800 id = 2 } name = "Boka Kotorska Fortress" strength = 50 type = garrison model = 0 }
+		division = { id = { type = 19800 id = 2 } name = "Boka Kotorska Fortress" strength = 30 type = infantry model = 0 }
 	}	
 
 landunit = {
 	id = { type = 19800 id = 3 }
 	location = 356 #Mostar
 	name = "Sibenik Fortress"
-		division = { id = { type = 19800 id = 4 } name = "Sibenik Fortress" strength = 50 type = garrison model = 0 }
+		division = { id = { type = 19800 id = 4 } name = "Sibenik Fortress" strength = 70 type = infantry model = 0 }
     }
 
 landunit = {
@@ -317,8 +321,8 @@ airunit = {
 	base = 338
  	id = { type = 19800 id = 30 }
  	name = "Operativno Zrakoplovstvo"
-		division = { id = { type = 19800 id = 31 } name = "1. Lovacka Vazduhoplovna" strength = 75 type = interceptor model = 0 }
-	  division = { id = { type = 19800 id = 32 } name = "4. Takticka Bombarderska" strength = 75 type = tactical_bomber model = 0 }
+		division = { id = { type = 19800 id = 31 } name = "1. Lovacka Vazduhoplovna" strength = 95 type = interceptor model = 0 }
+	  division = { id = { type = 19800 id = 32 } name = "4. Takticka Bombarderska" strength = 95 type = tactical_bomber model = 0 }
 	}
 
 navalunit = {

@@ -71,8 +71,8 @@ country = {
           interventionism   = 6
         }
 		
-#		peacetime_ic_mod     = 0.7
-#		wartime_ic_mod       = 0.8
+    peacetime_ic_mod     = 2.0
+    wartime_ic_mod       = 2.0
 		
   headofstate            = { type = 9 id = 3001 }
   headofgovernment       = { type = 9 id = 3002 }
@@ -1017,10 +1017,10 @@ landunit =
   }
   navalunit =
   { id       = { type = 23500 id = 1273 }
-    name     = "RN Faà di Bruno"
+    name     = "RN Faï¿½ di Bruno"
     location = 400 #Venice
     base     = 400
-    division = { id = { type = 23500 id = 1274 } name = "RN Faà di Bruno"  type = heavy_cruiser model = 1 experience = 15 }
+    division = { id = { type = 23500 id = 1274 } name = "RN Faï¿½ di Bruno"  type = heavy_cruiser model = 1 experience = 15 }
   }
   
 #############################################  
@@ -1033,46 +1033,46 @@ landunit =
 #############################################
 #Regia Aeronautica
 #############################################
-#Stärke 1. Jan. 1936:
-#Bestätigt:
-#4 Jäger-Stormos, 6 Bomber-Stormos, 2 Mabo-Stormos, 1 StuKa-Stormo
-#Nicht bestätigt:
-#2 Jäger-Stormos, 10 Bomber-Stormos, 1 Mabo-Stormo sowie die Gruppo Autonomo Trasporto des Comando Servizi Aerei Speciali 
-#Bestätigt, aber nach 1.1.1936:
-#2 Jäger-Stormos: 6° am 5.1.1936, 53° am 5.5.1936  
-#1 Bomber-Stormo: 32° am 1.12.1936 
-#1 Stuka-Stormo: 50° am 10.6.1936 
+#Stï¿½rke 1. Jan. 1936:
+#Bestï¿½tigt:
+#4 Jï¿½ger-Stormos, 6 Bomber-Stormos, 2 Mabo-Stormos, 1 StuKa-Stormo
+#Nicht bestï¿½tigt:
+#2 Jï¿½ger-Stormos, 10 Bomber-Stormos, 1 Mabo-Stormo sowie die Gruppo Autonomo Trasporto des Comando Servizi Aerei Speciali 
+#Bestï¿½tigt, aber nach 1.1.1936:
+#2 Jï¿½ger-Stormos: 6ï¿½ am 5.1.1936, 53ï¿½ am 5.5.1936  
+#1 Bomber-Stormo: 32ï¿½ am 1.12.1936 
+#1 Stuka-Stormo: 50ï¿½ am 10.6.1936 
 #############################################
 
 #############################################
 # dormant stormos with max_strength
 ############################################# 
   
-#airdivision = { id = { type = 23500 id = 250 } name = "12° Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 251 } name = "13° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 252 } name = "24° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 213 } name = "16° Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 253 } name = "18° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 254 } name = "25° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 217 } name = "11° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 256 } name = "14° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 257 } name = "15° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 218 } name = "30° Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 255 } name = "31° Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 220 } name = "7° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 259 } name = "8° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 260 } name = "9° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
-#airdivision = { id = { type = 23500 id = 215 } name = "5º Stormo Assalto" strength = 30 max_strength = 33 type = cas model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 250 } name = "12ï¿½ Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 251 } name = "13ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 252 } name = "24ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 213 } name = "16ï¿½ Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 253 } name = "18ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 254 } name = "25ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 217 } name = "11ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 256 } name = "14ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 257 } name = "15ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 218 } name = "30ï¿½ Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 255 } name = "31ï¿½ Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 220 } name = "7ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 259 } name = "8ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 260 } name = "9ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 dormant = yes experience = 10 }
+#airdivision = { id = { type = 23500 id = 215 } name = "5ï¿½ Stormo Assalto" strength = 30 max_strength = 33 type = cas model = 0 dormant = yes experience = 10 }
 
 #airunit =
 #  { location = 407 #Milano
 #    base     = 407
 #    id       = { type = 23500 id = 200 }
 #    name     = "1a Squadra Aerea"
-#    division = { id = { type = 23500 id = 210 } name = "3º Stormo Caccia" strength = 80 type = interceptor model = 0 }
-#	division = { id = { type = 23500 id = 250 } name = "12° Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 251 } name = "13° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 252 } name = "24° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#    division = { id = { type = 23500 id = 210 } name = "3ï¿½ Stormo Caccia" strength = 80 type = interceptor model = 0 }
+#	division = { id = { type = 23500 id = 250 } name = "12ï¿½ Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 251 } name = "13ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 252 } name = "24ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
 #  }    
 #  
 #airunit =
@@ -1080,10 +1080,10 @@ landunit =
 #    base     = 430
 #    id       = { type = 23500 id = 201 }
 #    name     = "2a Squadra Aerea"
-#    division = { id = { type = 23500 id = 212 } name = "1º Stormo Caccia" strength = 80 type = interceptor model = 0 }
-#	division = { id = { type = 23500 id = 213 } name = "16° Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 253 } name = "18° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 254 } name = "25° Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#    division = { id = { type = 23500 id = 212 } name = "1ï¿½ Stormo Caccia" strength = 80 type = interceptor model = 0 }
+#	division = { id = { type = 23500 id = 213 } name = "16ï¿½ Stormo Bombardamento Terrestre" strength = 20 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 253 } name = "18ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 254 } name = "25ï¿½ Stormo Bombardamento Terrestre" strength = 10 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
 #  }  
 #
 #airunit =
@@ -1091,10 +1091,10 @@ landunit =
 #    base     = 750
 #    id       = { type = 23500 id = 203 }
 #    name     = "Aeronautica della Libia"
-#    division = { id = { type = 23500 id = 216 } name = "2º Stormo Caccia" strength = 80 type = interceptor model = 0 }
-#	division = { id = { type = 23500 id = 217 } name = "11° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 256 } name = "14° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 257 } name = "15° Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#    division = { id = { type = 23500 id = 216 } name = "2ï¿½ Stormo Caccia" strength = 80 type = interceptor model = 0 }
+#	division = { id = { type = 23500 id = 217 } name = "11ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 256 } name = "14ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 257 } name = "15ï¿½ Stormo Bombardamento Terrestre" strength = 30 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
 #  }   
 #  
 #airunit =
@@ -1102,8 +1102,8 @@ landunit =
 #    base     = 434
 #    id       = { type = 23500 id = 204 }
 #    name     = "Aeronautica della Sardegna"
-#    division = { id = { type = 23500 id = 218 } name = "30° Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 255 } name = "31° Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 }
+#    division = { id = { type = 23500 id = 218 } name = "30ï¿½ Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 255 } name = "31ï¿½ Stormo Bombardamento Marittimo " strength = 30 max_strength = 33 type = naval_bomber model = 0 extra = escort brigade_model = 0 }
 #    division = { id = { type = 23500 id = 258 } name = "Gruppo Autonomo Trasporto del C.S.A.S." strength = 30 type = transport_plane model = 0 }
 #  }
 #
@@ -1112,9 +1112,9 @@ landunit =
 #    base     = 815
 #    id       = { type = 23500 id = 205 }
 #    name     = "Aeronautica AOI"
-#    division = { id = { type = 23500 id = 220 } name = "7° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 259 } name = "8° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
-#	division = { id = { type = 23500 id = 260 } name = "9° Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#    division = { id = { type = 23500 id = 220 } name = "7ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 259 } name = "8ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
+#	division = { id = { type = 23500 id = 260 } name = "9ï¿½ Stormo Bombardamento Notturno" strength = 33 max_strength = 33 type = tactical_bomber model = 0 extra = escort brigade_model = 0 }
 #  }
 
 ##########################################################################################
