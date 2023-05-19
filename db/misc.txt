@@ -82,7 +82,7 @@ economy = {
 # Reinforce to upgrade modifier. Values from 0.0 (divisions do not get extra upgrade progress on reinforcement) to 1.0 (1:1 ratio, 1% reinforce adds 1% to upgrade progress)
 	0.5 # 0.0
 # Added extra upgrade progress to units in supply. Added daily progress to all units in supply that can upgrade is equal to Cur_STR/(Max_STR * THIS). Added value is not affected by any other upgrade modifiers. Set to 0 to disable this functionality.
-	900  #0
+	900  # 1/4
 # Nationalism starting value
 	15
 # Nationalism per MP (added to stating value)
@@ -94,7 +94,7 @@ economy = {
 # Monthly Nationalism reduction
 	0.0556
 # Time in days to send a division to an ally
-	30	
+	999	
 # TC Load from undeployed brigades (multiplied on top of the division cost)
 	0.3
 # If units can be sold/transferred to non allied countries. 0 = No, 1 = Yes (player could offer units to all countries and ask for units from allied countries), 2 = Yes (player could offer and ask for units from all countries) 
@@ -164,11 +164,11 @@ economy = {
 # Gearing bonus loss per level of brigade/attachment (added for every upgraded br./att.). Values 0.0 (0% or no gearing bonus lost) to 1.0 (100% or all gearing will be lost)
 	0.1 #0 -10% gearing bonus per level of upgrade
 # Modifier on dissent taken from nukes in national provinces. Dissent = (MP + IC*0.5) * Nuke Power * THIS.
-	0.025 #0.5 
+	0.020 #0.5 
 # Max daily dissent that can be added to player controlled countries when not enough supplies are produced (and the same time more then required IC is used on CG or on any other slider then on Supplies). 0.0 - Disabled, 1.0 - No restriction
 	0.0 #1.0
 # Nukes production rate modifier. Higher this is, longer it takes to get a new nuke.
-	80.0 #80.0
+	40.0 #80.0
 # Convoy system options for allied (own country and friendly nations controlled land connected provinces) and own (own country controlled and land connected provinces) areas: 
 #	0 - Ignore allied areas, work on own areas only. Default (old) behavior
 #	1 - Convoys can be to/from own country controlled provinces only, but allied area is used too (so there's only one convoy to allied area per country)
@@ -302,7 +302,7 @@ combat = {
 # Combat Modifier: Envelopment Mod (for each attack direction above one)
 	-0.05
 # Combat Modifier: Encircled Mod (for completely surrounded units)
-	0.3 #-0.1
+	0.3 #was 0.1, note: a buff
 # Combat Modifier: Land Fort Multiplier ( value * fort level)
 	-0.07
 # Combat Modifier: Coastal Fort Multiplier ( value * fort level)
@@ -671,9 +671,9 @@ combat = {
 # Recalculate arrival times for units in "Sync. arrival time" mode after combat/bombardment. NOTE: enabling this could de-synchronize arrival times! 0 - Disabled, 1 - Enabled for players only, 2 - Enabled for players and AI.
 	0 # 0
 # Movement speed modifier to land units in combat
-	0.25 #1.0
+	0.25 #was 0.5
 # Movement speed modifier to land units in bombardment
-	0.50 #1.0 
+	0.50 # was 0.75
 # Land units speed modifier for units out of supply (ignored for retreating units!). speed = speed * THIS.
 	0.5 #0.1
 # Land units speed modifier for units containing at least one division with ORG less then 1% (ignored for retreating units!). speed = speed / THIS.
@@ -1194,11 +1194,11 @@ mod = {
 # AI spy (LogSpyAI.csv) and diplomatic (LogDiploAI.csv) mission loggers: 0 - Disabled, 1 - Enabled.
 	0 #0
 # Country logger (LogCountry.csv): 0 = Disabled, >0 = Enabled, days between logs, -1 = log only player's country.
-	0 #0
+	90 #0
 # Switched AI files logger (SwitchAI.txt): 0 - Disabled, 1 - Enabled.
 	1 #0
 # Use new auto-save file format: AutoSave_Country_Year_Month_Day.eug. 1 - Enabled, 0 � Disabled.
-	0 #0 
+	1 #0 
 # Load new AI settings on AI file switching to all clients in MP games. 1 - Enabled, 0 - Disabled.
 	1 #0
 # Trade Efficiency calculation system and re-calculation interval selection. Any negative integer is number of days between trade efficiency calculations using default Armageddon system (-3 = 3 days). Any positive integer is the number of days between trade efficiency calculations using the new more intelligent but CPU demanding system. 0 is default Armageddon system, set to 1 day.
