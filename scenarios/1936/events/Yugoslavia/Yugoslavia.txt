@@ -40,13 +40,14 @@ event = {
 	trigger = {
 		NOT = { ispuppet = YUG }
 		atwar = GER
+		atwar = ITA
 	}
 	
 	name = EVT_3186001_NAME
 	desc = EVT_3186001_DESC 
 	style = 0
 	
-	date = { day = 0 month = january year = 1940 }
+	date = { day = 0 month = january year = 1938 }
 	offset = 7
 	deathdate = { day = 0 month = december year = 1940 }
 	
@@ -55,6 +56,7 @@ event = {
 		name = ACTIONNAME3186001A
 		command = { type = manpowerpool value = 120 }
 #		command = { type = dissent value = 3 }
+		command = { trigger = { ai = no } type = military_control which = ENG where = YUG value = 1 }
 	}
 	action_b = {
 		ai_chance = 5
