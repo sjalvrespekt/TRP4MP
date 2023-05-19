@@ -20,7 +20,7 @@ event = {
 	
 	action_a = {
 		name = ACTIONNAME3600A # Accept
-		ai_chance = 98
+		ai_chance = 100
 		command = { type = relation which = ENG value = 10 }
 		command = { type = relation which = FRA value = 10 }
 		command = { type = relation which = GER value = -15 }
@@ -30,7 +30,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3600B # Decline
-		ai_chance = 2
+		ai_chance = 0
 		command = { type = relation which = ENG value = -5 }
 		command = { type = relation which = FRA value = -5 }
 		command = { type = relation which = GER value = 5 }
@@ -55,7 +55,7 @@ event = {
 	
 	action_a = {
 		name = ACTIONNAME3165000A
-		ai_chance = 99
+		ai_chance = 100
 		command = { type = relation which = SOV value = 5 }
 		command = { type = relation which = ENG value = 10 }
 		command = { type = relation which = FRA value = 10 }
@@ -67,7 +67,7 @@ event = {
 	}
 	action_b = {
 		name = ACTIONNAME3165000B
-		ai_chance = 1
+		ai_chance = 0
 		command = { type = relation which = GER value = 10 }
 		command = { type = relation which = SOV value = -5 }
 		command = { type = relation which = ENG value = -5 }
@@ -684,7 +684,7 @@ event = {
 		name = ACTIONNAME7400016A
 		command = { type = construct which = ic where = 234 value = 1 } #Radom
 		command = { type = construct which = ic where = 239 value = 1 } #Przemysl
-		command = { type = construct which = ic where = 235 value = 1 } #Kraków
+		command = { type = construct which = ic where = 235 value = 1 } #Krakï¿½w
 		command = { type = construct which = ic where = 243 value = 2 } #Sandomierz
 		command = { type = construct which = infrastructure where = -1 value = 10 }
 		command = { type = dissent value = -1 }
@@ -721,7 +721,7 @@ event = {
 		command = { type = dissent value = -2 }
 	}
 	action_c = {
-		name = ACTIONNAME7400020C # We do not need more problems in Lwów
+		name = ACTIONNAME7400020C # We do not need more problems in Lwï¿½w
 		command = { type = dissent value = -1 }
 	}
 }
@@ -757,8 +757,8 @@ event = {
 	}
 	action_c = {
 		name = ACTIONNAME7400021C # Ok
-		command = { type = construct which = ic where = 242 value = -2 } # Lwów
-		command = { type = construct which = ic where = 244 value = -1 } # Równe
+		command = { type = construct which = ic where = 242 value = -2 } # Lwï¿½w
+		command = { type = construct which = ic where = 244 value = -1 } # Rï¿½wne
 		command = { type = dissent value = -5 }
 	}
 }
@@ -1060,7 +1060,7 @@ event = {
 
 
 ###################################
-# Polish reaction on the 'Anschluss of Österreich' to the german Reich by Kane
+# Polish reaction on the 'Anschluss of ï¿½sterreich' to the german Reich by Kane
 ###################################
 event = { 
 	id = 7400901
