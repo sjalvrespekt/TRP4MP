@@ -53,13 +53,13 @@ province = { id = 108 ic = 6 }#Liege
 province = { id = 109 ic = 5 }#Luxemburg
 province = { id = 96 ic = 4 }#Longwy
 province = { id = 107 ic = 3 }#Strassburg
-province = { id = 127 ic = 8 }#Saarbrücken
+province = { id = 127 ic = 8 }#Saarbrï¿½cken
 province = { id = 131 ic = 8 }#Cologne
 province = { id = 144 ic = 10 }#Ruhrgebiet
 province = { id = 119 ic = 3 }#Arnhem
 province = { id = 124 ic = 2 }#Groningen
 province = { id = 147 ic = 3 }#Wilhelmshafen
-province = { id = 141 ic = 10 }#Münster
+province = { id = 141 ic = 10 }#Mï¿½nster
 province = { id = 137 ic = 4 }#Kassel
 province = { id = 140 ic = 7 }#Fulda
 province = { id = 146 ic = 8 }#Hannover
@@ -250,7 +250,7 @@ province = { id = 1057 ic = 1 }#Antalya
 province = { id = 388 ic = 1 }#Nicosia
 province = { id = 1059 ic = 1 }#Sivas
 province = { id = 1075 ic = 1 }#Ankara
-province = { id = 338 ic = 2 }#Belgrade
+province = { id = 338 ic = 3 }#Belgrade
 province = { id = 277 ic = 1 }#Pecs
 province = { id = 284 ic = 4 }#Budapest
 province = { id = 279 ic = 1 }#Gyor

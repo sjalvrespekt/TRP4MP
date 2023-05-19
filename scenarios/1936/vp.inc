@@ -14,13 +14,13 @@ province = { id = 154 points = 5 	} #Hamburg
 province = { id = 152 points = 5 	} #Kiel
 province = { id = 171 points = 5 	} #Erfurt
 province = { id = 145 points = 25	} #Essen
-province = { id = 177 points = 5 	} #Nürnberg
+province = { id = 177 points = 5 	} #Nï¿½rnberg
 province = { id = 146 points = 5 	} #Hannover
 province = { id = 173 points = 5 	} #Dresden
-province = { id = 131 points = 10	} #Köln
+province = { id = 131 points = 10	} #Kï¿½ln
 province = { id = 170 points = 5 	} #Leipzig
 province = { id = 134 points = 5 	} #Stuttgart
-province = { id = 179 points = 10	} #München
+province = { id = 179 points = 10	} #Mï¿½nchen
 
 ###############################################
 # UK
@@ -338,9 +338,10 @@ province = {	id = 359	points = 2 }#Tirane
 #Yugoslavia
 province = {	id = 338	points = 2 }#Belgrade
 province = {	id = 352	points = 2 }#Zagreb
-#province = {	id = 349	points = 1 }#Ljubljana
-#province = {	id = 355	points = 1 }#Sarajevo
-
+province = {	id = 349	points = 1 }#Ljubljana
+province = {	id = 355	points = 1 }#Sarajevo
+province = {	id = 333	points = 1 }#Sarajevo
+province = {	id = 334	points = 1 }#Sarajevo
 
 
 ################################
@@ -349,8 +350,8 @@ province = {	id = 352	points = 2 }#Zagreb
 
 #Sweden
 province = { id = 2159 points = 4 }#Stockholm 
-province = { id = 2153 points = 2 }#Göteborg
-province = { id = 2152 points = 1 }#Malmö 
+province = { id = 2153 points = 2 }#Gï¿½teborg
+province = { id = 2152 points = 1 }#Malmï¿½ 
 province = { id = 2161 points = 1 }#Karlstadt
 province = { id = 2162 points = 1 }#Falun
 
@@ -592,8 +593,8 @@ province = { id = 2047 points = 1 }#Ascunsion
 #Argentine
 province = { id = 2050 points = 6 }#Buenos Aires
 province = { id = 2053 points = 2 }#Mar del Plata
-province = { id = 1906 points = 2 }#Santa Fé
-province = { id = 2054 points = 2 }#Córdoba
+province = { id = 1906 points = 2 }#Santa Fï¿½
+province = { id = 2054 points = 2 }#Cï¿½rdoba
 
 #Chile
 province = { id = 1780 points = 4 }#Ciudad Trujillo
@@ -610,10 +611,10 @@ province = { id = 2075 points = 2 }#Rio de Janeiro
 province = { id = 2076 points = 4 }#Belo Horizonte
 province = { id = 2071 points = 2 }#Recife
 province = { id = 2073 points = 2 }#Salvador
-province = { id = 2068 points = 2 }#Belém
-province = { id = 2074 points = 2 }#Vitória
-province = { id = 2059 points = 2 }#São Paulo
-province = { id = 2067 points = 3 } #Goiánia
+province = { id = 2068 points = 2 }#Belï¿½m
+province = { id = 2074 points = 2 }#Vitï¿½ria
+province = { id = 2059 points = 2 }#Sï¿½o Paulo
+province = { id = 2067 points = 3 } #Goiï¿½nia
 
 #Bolivia
 province = { id = 2020 points = 2 }#Nuesta Senora de La Paz
@@ -636,7 +637,7 @@ province = { id = 2078 points = 1 }#Ciudad de Panama
 province = { id = 889 points = 5 }#Colon (Channel Zone)
 
 #Costa Rica
-province = { id = 2081 points = 1 }#San José
+province = { id = 2081 points = 1 }#San Josï¿½
 
 #Nicaragua
 province = { id = 2080 points = 1 }#Managua

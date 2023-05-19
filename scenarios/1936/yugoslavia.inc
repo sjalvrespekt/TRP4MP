@@ -23,7 +23,7 @@ province = {
 
 province = {
 	id = 338		#Belgrade
-	anti_air = 3
+	anti_air = 8
 	air_base = {
 		size = 6
 		current_size = 6
@@ -34,7 +34,7 @@ province = {
 
 #Anti Aircraft Batteries
 province = { id = 352   anti_air = 2 } #Zagreb
-province = { id = 350   anti_air = 2 } #Split
+province = { id = 350   anti_air = 6 } #Split
 province = { id = 343  anti_air = 2 } #Dubrovnik
 
 country = {
@@ -72,7 +72,7 @@ country = {
 
 	#inventions = { 2700061 2700063 2700065 }
 
-	manpower = 100
+	manpower = 200
 
 	
     ownedprovinces =      {
