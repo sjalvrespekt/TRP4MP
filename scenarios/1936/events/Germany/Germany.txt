@@ -9469,34 +9469,76 @@ event = {
 ########################################################
 
 event = {
-	id = 3136250
-	random = no
-	country = GER
-	
-	name = EVT_3136250_NAME
-	desc = EVT_3136250_DESC
-	style = 2	
-	picture = "ger_event_ot"
-	
-	date = { day = 27 month = may year = 1938 } 
-	offset = 1
-	deathdate = { day = 0 month = january year = 1939 }	
+    id = 3136250
+    random = no
+    country = GER
+    name = EVT_3136250_NAME
+    desc = EVT_3136250_DESC
+    style = 2	
+    picture = "ger_event_ot"
+    date = { day = 27 month = may year = 1938 } 
+    offset = 1
+    deathdate = { day = 0 month = january year = 1939 }	
 
-	action_a = {
-	    name = ACTIONNAME3136250A # 
-		ai_chance = 100
-		command = { type = construct which = land_fort where = 128 value = 1 } 	
-		command = { type = construct which = land_fort where = 129 value = 1 }
-		command = { type = construct which = land_fort where = 130 value = 1 }
-		command = { type = construct which = land_fort where = 132 value = 1 }
-		command = { type = construct which = land_fort where = 127 value = 1 }	
-        command = { trigger = { ai = no } type = metalpool value = -1500 }		
-        command = { trigger = { ai = no } type = supplies  value = -1500 }			
+    action_a = {
+        name = ACTIONNAME3136250A	
+        ai_chance = 100
+        command = {
+            type = construct
+            which = land_fort
+            where = 128
+            value = 1 
+        }
+        command = {
+            type = construct
+            which = land_fort
+            where = 129
+            value = 1 
+        }
+        command = {
+            type = construct
+            which = land_fort
+            where = 130
+            value = 1 
+        }
+        command = {
+            type = construct
+            which = land_fort
+            where = 132
+            value = 1
+        }
+        command = {
+            type = construct
+            which = land_fort
+            where = 127
+            value = 1
+        }	
+        command = {
+            type = metalpool
+            value = -1500 
+            trigger = {
+                ai = no
+            }
+        }		
+        command = {
+            type = supplies
+            value = -1500
+            trigger = {
+                ai = no
+            }
+        }			
     }
-	action_b = {
-	    name = ACTIONNAME3136250B # 
-		ai_chance = 0		
-        command = { trigger = { ai = no } type = dissent  value = 4  }		
+    
+    action_b = {
+        name = ACTIONNAME3136250B	
+        ai_chance = 0	
+        command = {
+            type = dissent 
+            value = 4
+            trigger = {
+                ai = no
+            }
+        }		
     }
 }
 
