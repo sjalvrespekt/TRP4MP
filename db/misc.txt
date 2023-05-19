@@ -288,21 +288,21 @@ combat = {
 # Combat Modifier: Multiple Combat Mod
 	-0.5
 # Combat Modifier: Offensive Combined Arms Bonus
-	0.15
+	0
 # Combat Modifier: Defensive Combined Arms Bonus
-	0.10
+	0
 # Combat Modifier: Surprise Mod
-	-0.2
+	-0.3
 # Combat Modifier: Land Exceeding Max Command Limit Mod
 	-0.75
 # Combat Modifier: Air Exceeding Max Command Limit Mod
 	-0.95 #-0.75
 # Combat Modifier: Naval Exceeding Max Command Limit Mod
-	-0.75
+	-0.95
 # Combat Modifier: Envelopment Mod (for each attack direction above one)
 	-0.05
 # Combat Modifier: Encircled Mod (for completely surrounded units)
-	0.1 #-0.1
+	0.3 #-0.1
 # Combat Modifier: Land Fort Multiplier ( value * fort level)
 	-0.07
 # Combat Modifier: Coastal Fort Multiplier ( value * fort level)
@@ -340,13 +340,13 @@ combat = {
 # Land Leader Command Limit (nr of divisions), Rank 1
 	9
 # Land Leader Command Limit (nr of divisions), Rank 2
-	3
+	6
 # Land Leader Command Limit (nr of divisions), Rank 3 (lowest)
-	1
+	3
 # Air Leader Command Limit (nr of divisions), Rank 0 (highest)
 	8 # 5
 # Air Leader Command Limit (nr of divisions), Rank 1
-	5 # 3
+	4 # 3
 # Air Leader Command Limit (nr of divisions), Rank 2
 	3 # 2
 # Air Leader Command Limit (nr of divisions), Rank 3 (lowest)
@@ -356,9 +356,9 @@ combat = {
 # Naval Leader Command Limit (nr of ships), Rank 1
 	12
 # Naval Leader Command Limit (nr of ships), Rank 2
-	6
+	9
 # Naval Leader Command Limit (nr of ships), Rank 3 (lowest)
-	3
+	6
 # HQ Command Limit Factor (value * HQ Leader Command Limit)
 	2
 # Convoy protection factor  (higher, the more fearful convoy escorts are for raiders.)
@@ -374,7 +374,7 @@ combat = {
 # Delay in hours after a combat ends before new orders can be given.	
 	48
 # Maximum sizes of air-stacks
-	5
+	8
 # Duration in hours of Air-to-Air battles
 	4 #4
 # Duration in hours of Naval and Port bombing
@@ -671,15 +671,15 @@ combat = {
 # Recalculate arrival times for units in "Sync. arrival time" mode after combat/bombardment. NOTE: enabling this could de-synchronize arrival times! 0 - Disabled, 1 - Enabled for players only, 2 - Enabled for players and AI.
 	0 # 0
 # Movement speed modifier to land units in combat
-	0.5 #1.0
+	0.25 #1.0
 # Movement speed modifier to land units in bombardment
-	0.75 #1.0 
+	0.50 #1.0 
 # Land units speed modifier for units out of supply (ignored for retreating units!). speed = speed * THIS.
-	0.9 #0.1
+	0.5 #0.1
 # Land units speed modifier for units containing at least one division with ORG less then 1% (ignored for retreating units!). speed = speed / THIS.
 	1.0 #2.0
 # Movement time modifier for fuel consuming land and air units when out of fuel (ignored for retreating and AI controlled units!). Higher THIS value is, longer the arrival time will be. Use 1.0 to disable this.
-	2.0 #3.0
+	3.0 #3.0
 # Default speed for fuel consuming land units when out of fuel. This value can be overridden for each unit type and model by setting out_of_fuel_speed modifier in unit files. -1 - Disable this functionality, else Default out of fuel speed = THIS
 	-1 #-1
 # Fleet size range penalty - Percentage loss for every ship above the max threshold (see below). 0.0 (0%) to 1.0 (100%)
@@ -1031,17 +1031,17 @@ research = {
 # Money cost for each skill-level
 	0.25 #0.2
 # Mean number of "invention" events occuring per year
-	4
+	8
 # Use new Technology page layout - allow for more techs and better view. 0 - use vanilla; 1 - use new
 	1 #0
 # Tech overview panel style: 0 - use old style; 1 - Use new style (unit and brigade models moved to new panels: "Units" and "Brigades")
 	1 #0
 # Max active tech teams at a time (cannot be more then 50). Note: New Technology page layout will be auto-set for values above 5!
-	5 #5
+	8 #5
 # Min active tech teams at a time (available teams regardless of current IC)
 	1 #1
 # Required IC for each tech team above the min
-	20 #20
+	25 #20
 # On new country release - allow known techs with rocketry component to be given to the new country: 0 - No, 1 - Yes
 	0 #0
 # On new country release - allow known techs with nuclear_physics component to be given to the new country: 0 - No, 1 - Yes
@@ -1056,7 +1056,7 @@ research = {
 
 trade = {
 # Days between trade offers to a country. Do not use fractions!
-	8 #8
+	3 #8
 # Delay in days on each game start/reload before allowing any new trades (AI, auto-trade and Diplomacy). Should be at least 2 days!
 	2 #0
 # Limit new trade deals to allies, preferred countries (AI), current trade partners or neighbors for X days on every game start or reload.	
@@ -1165,7 +1165,7 @@ ai = {
 # Force strategic redeployment if movement time is longer then X hours. Overrides default AI settings! -1 � Disable, Else time in hours
 	2160 #-1
 # Max. redeployment days for AI controlled units cheat. 0 or less - disable cheat, else - max. days that AI units will redeploy to any valid redeployment location
-	14 # 0
+	0 # 0
 # Use quick area check (Garrison AI) - could be inaccurate in some rare cases. 1 - Enabled, 0 - Disabled
 	0 # 0
 # AI masters get all provinces conquered by AI puppets. 1 � Yes, 0 � No (old rules)
@@ -1256,7 +1256,7 @@ mod = {
 # Extra rebel bonus for provinces with Air or Naval bases
 	0 #0
 # Return rebellious province to the original owner after X months if there are no rebel armies into the province anymore.
-	6 #1000000 (never)
+	2 #1000000 (never)
 # Use new minister files format and End years for ministers; All minister files should have End Year column (after "Pool"); Pool should use absolute year (1936 instead of 36): 0 - Disabled, 1 - Enabled
 	0 #0
 # Enable Retirement Year for ministers (auto-retire ministers once the year is reached in-game); All minister files should have Retirement Year column (before "Ideology"); All years should be absolute (1936 instead of 36):  0 - Disabled, 1 - Enabled
