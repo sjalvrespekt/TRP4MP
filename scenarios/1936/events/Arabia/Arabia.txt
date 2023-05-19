@@ -1,0 +1,29 @@
+###########################################################################
+#  	7800003 - 7899999
+###########################################################################
+#####################################################
+# Arabia event file
+##################################################
+
+command = { type = inherit which = AUS value = 1 }
+
+#########################################################################
+#  Arabian Federation sucks up arab countries
+#########################################################################
+event = {
+	id = 7800003
+	random = no
+	country = GER
+	
+	# Triggered by CZE 2200
+	
+	name = Arabia Expands
+	desc = Arabia Expands
+	style = 2
+	picture = "Munich"
+
+	action_a = {
+		name = ACTIONNAME2004A # ok
+		command = { type = set_relation which = CZE value = 100 }
+	}
+}

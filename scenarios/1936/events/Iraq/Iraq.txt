@@ -240,7 +240,7 @@ event = {
 	}
 	
 	###########################################################################################################
-	### Axis only occupy Greece and Libya, 35 per cent chance for Iraq joining the Axis########################
+	### Axis only occupy Greece and Libya, 50 per cent chance for Iraq joining the Axis########################
 	###########################################################################################################
 	action = { 
 		trigger = {
@@ -282,7 +282,7 @@ event = {
 							}
 					}
 		name = ACTIONNAME3800001A #Accept pro-british government
-		ai_chance = 65
+		ai_chance = 50
 		command = { type = alliance which = ENG } 		
 		command = { type = headofstate which = 91041 }
 # 		command = { type = headofgovernment which = 91042 }
@@ -335,7 +335,7 @@ event = {
 							}
 					}
 		name = ACTIONNAME3800001B
-		ai_chance = 35
+		ai_chance = 50
 		command = { type = end_access which = ENG }
 		command = { type = war which = ENG }
 		command = { type = alliance which = GER } 
@@ -345,7 +345,7 @@ event = {
 	}
 	
 	###########################################################################################################
-	### Axis occupy Greece and Libya AND push into Middle East, 65 per cent chance for Iraq joining the Axis###
+	### Axis occupy Greece and Libya AND push into Middle East, 100 per cent chance for Iraq joining the Axis###
 	###########################################################################################################
 	action = { 
 		trigger = {
@@ -400,7 +400,7 @@ event = {
 							}
 					}
 		name = ACTIONNAME3800001A #Accept pro-british government
-		ai_chance = 35
+		ai_chance = 0
 		command = { type = alliance which = ENG } 		
 		command = { type = headofstate which = 91041 }
 # 		command = { type = headofgovernment which = 91042 }
@@ -466,7 +466,7 @@ event = {
 							}
 					}
 		name = ACTIONNAME3800001B
-		ai_chance = 65
+		ai_chance = 100
 		command = { type = end_access which = ENG }
 		command = { type = war which = ENG }
 		command = { type = alliance which = GER } 

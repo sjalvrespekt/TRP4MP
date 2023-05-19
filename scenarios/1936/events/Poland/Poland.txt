@@ -27,6 +27,7 @@ event = {
 		command = { type = relation which = SOV value = -10 }
 		command = { type = trigger which = 3131032 }
 		command = { type = domestic which = democratic value = 1 }
+		command = { trigger = { ai = no } type = military_control which = ENG where = POL value = 1 }
 	}
 	action_b = {
 		name = ACTIONNAME3600B # Decline
