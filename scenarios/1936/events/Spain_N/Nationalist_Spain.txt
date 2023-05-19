@@ -32,8 +32,8 @@ event = {
 		command = { type = set_domestic which = democratic value = 3 }
 		command = { type = set_domestic which = political_left value = 3 }
 		command = { type = set_domestic which = interventionism value = 2 }
-		command = { type = headofstate which = 810279 } # José Sanjurjo Sacanell
-		command = { type = headofgovernment which = 810281 } # José Sanjurjo Sacanell
+		command = { type = headofstate which = 810279 } # Josï¿½ Sanjurjo Sacanell
+		command = { type = headofgovernment which = 810281 } # Josï¿½ Sanjurjo Sacanell
 		command = { type = foreignminister which = 810003 }
 		command = { type = armamentminister which = 810004 }
 		command = { type = ministerofsecurity which = 810005 }
@@ -50,7 +50,7 @@ event = {
 		command = { type = dissent value = 5 }
 		command = { type = manpowerpool value = 200 }
 		
-		command = { type = task_efficiency which = attack value = -0.5 }
+		command = { type = task_efficiency which = attack value = 0.5 }
 		
 		command = { type = trigger which = 3174004 } # SPR
 #		command = { type = trigger which = 3173001 } # U01
@@ -195,7 +195,7 @@ event = {
 	action_a = { 
 	name = ACTIONNAME3173002A 
 		
-		command = { type = task_efficiency which = attack value = 0.5 }
+		command = { type = task_efficiency which = attack value = -0.5 }
 		
 		command = { type = capital which = 460 } # Madrid
 		# Remove all the 1
@@ -281,7 +281,7 @@ event = {
 		command = { type = oilpool value = 500 }
 		command = { type = supplies value = 1500 }
 #		command = { type = metalpool value = 500 }
-		command = { type = add_division which = "I./KG 'Legión Cóndor'" value = tactical_bomber when = 1 }
+		command = { type = add_division which = "I./KG 'Legiï¿½n Cï¿½ndor'" value = tactical_bomber when = 1 }
 		command = { trigger = { control = { province = 474 data = -1 } } type = add_corps which = "" value = land where = 474 }
 		command = { type = add_division which = "" value = militia }
 #		command = { trigger = { AI = U01 } type = add_division which = "" value = militia }
@@ -315,9 +315,9 @@ event = {
       command = { type = oilpool value = 500 }
       command = { type = supplies value = 1500 }
       command = { type = metalpool value = 500 }
-      command = { type = add_division which = "II./KG 'Legión Cóndor'" value = tactical_bomber when = 1 }
-      command = { type = add_division which = "I./JG 'Legión Cóndor'" value = multi_role when = 1 }
-      command = { type = add_division which = "II./JG 'Legión Cóndor'" value = multi_role when = 1 }
+      command = { type = add_division which = "II./KG 'Legiï¿½n Cï¿½ndor'" value = tactical_bomber when = 1 }
+      command = { type = add_division which = "I./JG 'Legiï¿½n Cï¿½ndor'" value = multi_role when = 1 }
+      command = { type = add_division which = "II./JG 'Legiï¿½n Cï¿½ndor'" value = multi_role when = 1 }
 	  command = { trigger = { AI = U01 NOT = { AI = SPR } control = { province = 474 data = -1 } } type = add_corps which = "Gruppe Imker" value = land when = 3495 where = 474 }
 	  command = { type = add_division which = "Bandera Acorazada de la Legion"    value = armor when = 0 where = -80 } #PzGruppe Drohne
 	  command = { trigger = { AI = U01 NOT = { AI = SPR } } type = add_division which = "" value = militia }	
@@ -386,10 +386,10 @@ event = {
 
    action_a = {
       name = ACTIONNAME3173010A
-      command = { type = remove_division which = "I./KG 'Legión Cóndor'" value = U01 }
-      command = { type = remove_division which = "II./KG 'Legión Cóndor'" value = U01 }
-      command = { type = remove_division which = "I./JG 'Legión Cóndor'" value = U01 }
-      command = { type = remove_division which = "II./JG 'Legión Cóndor'" value = U01 }
+      command = { type = remove_division which = "I./KG 'Legiï¿½n Cï¿½ndor'" value = U01 }
+      command = { type = remove_division which = "II./KG 'Legiï¿½n Cï¿½ndor'" value = U01 }
+      command = { type = remove_division which = "I./JG 'Legiï¿½n Cï¿½ndor'" value = U01 }
+      command = { type = remove_division which = "II./JG 'Legiï¿½n Cï¿½ndor'" value = U01 }
 	  command = { type = remove_division which = "Bandera Acorazada de la Legion" value = U01 }
       command = { type = trigger which = 3136163 } # GER
       command = { type = sleepleader which = 3492 }
@@ -472,7 +472,7 @@ event = {
 		name = ACTIONNAME3173005A 
 		command = { type = dissent value = 1 }
 		command = { type = headofstate which = 810001 }      # Cabanellas
-		command = { type = headofgovernment which = 810031 } # Miguel Ponte (HoG of the military administration) vs. 810002 Fidel Dávila Arrondo (HoG of the civil administration)
+		command = { type = headofgovernment which = 810031 } # Miguel Ponte (HoG of the military administration) vs. 810002 Fidel Dï¿½vila Arrondo (HoG of the civil administration)
 		command = { type = sleepminister which = 810279 }    # Sanjurjo (headofstate)
 		command = { type = sleepminister which = 810281 }    # Sanjurjo (headofgov)
 		command = { type = sleepminister which = 810188 }    # Sanjurjo (chief of staff)
@@ -615,7 +615,7 @@ event = {
 #
 #	action_a = {
 #		name = ACTIONNAME3173010A
-#		command = { type = remove_division which = "Legión Cóndor" value = U01 }
+#		command = { type = remove_division which = "Legiï¿½n Cï¿½ndor" value = U01 }
 #		command = { type = trigger which = 3136163 } # GER
 #		command = { type = sleepleader which = 3492 }
 #		command = { type = sleepleader which = 3493 }
@@ -746,11 +746,11 @@ event = {
 
 	action_a = {
 		name = ACTIONNAME3174001A
-	  	command = { type = remove_division which = 27600 value = 11910 } #		command = { type = remove_division which = "Soviética Brigada acorazado" value = U01 } 
-		command = { type = remove_division which = 27600 value = 11911 } #	  	command = { type = remove_division which = "Soviética Grupo n.1 de Caza FARE 'Lenin'" value = U01 }
-		command = { type = remove_division which = 27600 value = 11912 } #	  	command = { type = remove_division which = "Soviética Grupo n.2 de Caza FARE 'Revolución octubre'" value = U01 }
-		command = { type = remove_division which = 27600 value = 11913 } #	  	command = { type = remove_division which = "Soviética Grupo n.3 de Caza FARE 'Comuna Paris'" value = U01 }
-		command = { type = remove_division which = 27600 value = 11914 } #	  	command = { type = remove_division which = "Soviética Grupo n.12 de Bombardeo FARE" value = U01 }
+	  	command = { type = remove_division which = 27600 value = 11910 } #		command = { type = remove_division which = "Soviï¿½tica Brigada acorazado" value = U01 } 
+		command = { type = remove_division which = 27600 value = 11911 } #	  	command = { type = remove_division which = "Soviï¿½tica Grupo n.1 de Caza FARE 'Lenin'" value = U01 }
+		command = { type = remove_division which = 27600 value = 11912 } #	  	command = { type = remove_division which = "Soviï¿½tica Grupo n.2 de Caza FARE 'Revoluciï¿½n octubre'" value = U01 }
+		command = { type = remove_division which = 27600 value = 11913 } #	  	command = { type = remove_division which = "Soviï¿½tica Grupo n.3 de Caza FARE 'Comuna Paris'" value = U01 }
+		command = { type = remove_division which = 27600 value = 11914 } #	  	command = { type = remove_division which = "Soviï¿½tica Grupo n.12 de Bombardeo FARE" value = U01 }
 		command = { type = trigger which = 31830781 } #SOV
 	}
 }
@@ -778,7 +778,7 @@ event = {
 
 	action_a = {
 		name = ACTIONNAME3174001A
-      	command = { type = remove_division which = 27600 value = 11900 } #		command = { type = remove_division which = "XI. Brigada 'Thälmann'" value = U01 }
+      	command = { type = remove_division which = 27600 value = 11900 } #		command = { type = remove_division which = "XI. Brigada 'Thï¿½lmann'" value = U01 }
 	 	command = { type = remove_division which = 27600 value = 11901 } #		command = { type = remove_division which = "XII. Brigada 'Garibaldi'" value = U01 }
 	 	command = { type = remove_division which = 27600 value = 11902 } #		command = { type = remove_division which = "XIII. Brigada 'Dombrowski'" value = U01 }
 	 	command = { type = remove_division which = 27600 value = 11903 } #		command = { type = remove_division which = "XIV. Brigada 'Marseillaise'" value = U01 }
@@ -832,8 +832,8 @@ event = {
 		name = ACTION_NAME_OK
 		command = { trigger = { control = { province = 474 data = -1 } } type = add_corps which = "" value = land where = 474 }
 		command = { trigger = { control = { province = 474 data = -1 } AI = U01 } type = supplies value = 500 where = 474 }
-#      	command = { type = add_division which = "Circunscripción Oriental" value = d_02 when = 0 }
-      	command = { type = add_division which = "Circunscripción Occidental & Oriental" value = d_02 when = 0 where = artillery }
+#      	command = { type = add_division which = "Circunscripciï¿½n Oriental" value = d_02 when = 0 }
+      	command = { type = add_division which = "Circunscripciï¿½n Occidental & Oriental" value = d_02 when = 0 where = artillery }
 
 	}
 }
@@ -857,8 +857,8 @@ event = {
 		name = ACTION_NAME_OK
 		command = { trigger = { control = { province = 474 data = -1 } } type = add_corps which = "" value = land where = 474 }
 		command = { trigger = { control = { province = 474 data = -1 } AI = U01 } type = supplies value = 500 where = 474 }
-#      	command = { type = add_division which = "Circunscripción Occidental" value = d_02 when = 0 where = artillery }
-      	command = { type = add_division which = "Legión Española" value = d_03 when = 0 where = -67 }
+#      	command = { type = add_division which = "Circunscripciï¿½n Occidental" value = d_02 when = 0 where = artillery }
+      	command = { type = add_division which = "Legiï¿½n Espaï¿½ola" value = d_03 when = 0 where = -67 }
 	}
 }
 
@@ -947,9 +947,9 @@ event = {
 	action_a = {
 		name = ACTION_NAME_OK
 		command = { type = dissent value = -1 }
-		command = { type = foreignminister which = 810003 } #Francisco de Asís Serrat y Bonastre
-		command = { type = armamentminister which = 810004 } #Gérman Gil y Yuste
-		#command = { type = ministerofsecurity which = 810284 } #José Cortés López #created, but no picture found...
+		command = { type = foreignminister which = 810003 } #Francisco de Asï¿½s Serrat y Bonastre
+		command = { type = armamentminister which = 810004 } #Gï¿½rman Gil y Yuste
+		#command = { type = ministerofsecurity which = 810284 } #Josï¿½ Cortï¿½s Lï¿½pez #created, but no picture found...
 		command = { type = domestic which = democratic value = 1 }
 		command = { type = domestic which = freedom value = 1 }
 		#command = { type = domestic which = defense_lobby value = -1 }
@@ -978,10 +978,10 @@ event = {
 	action_a = {
 		name = ACTION_NAME_OK
 		command = { type = dissent value = -1 }
-		command = { type = foreignminister which = 810057 } #Francisco Gómez-Jordana y Souza
-		command = { type = armamentminister which = 810090 } #Fidel Dávila Arrondo
-		command = { type = ministerofsecurity which = 810137 } #Tomás Domínguez Arévalo
-		command = { type = ministerofintelligence which = 810285 } #Severiano Martínez Anido
+		command = { type = foreignminister which = 810057 } #Francisco Gï¿½mez-Jordana y Souza
+		command = { type = armamentminister which = 810090 } #Fidel Dï¿½vila Arrondo
+		command = { type = ministerofsecurity which = 810137 } #Tomï¿½s Domï¿½nguez Arï¿½valo
+		command = { type = ministerofintelligence which = 810285 } #Severiano Martï¿½nez Anido
 		command = { type = domestic which = freedom value = 1 }
 	}
 }
@@ -1104,7 +1104,7 @@ event = {
 	action_a = {
 		name = ACTIONNAME3174039A # Sure
 		ai_chance = 100
-		command = { type = add_division which = "División Acorazada Brunete" value = armor when = 1 }
+		command = { type = add_division which = "Divisiï¿½n Acorazada Brunete" value = armor when = 1 }
 	}
 	action_b = {
 		name = ACTIONNAME3174039B # Nope
